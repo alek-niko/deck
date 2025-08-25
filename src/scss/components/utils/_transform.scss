@@ -1,0 +1,42 @@
+// =============================================================================
+// TRANSFORM UTILITIES
+// components/utils/_transform.scss
+// -----------------------------------------------------------------------------
+// Helper classes for common CSS transform operations
+// - Includes centering transforms and transform-origin helpers
+// - Useful for modals, tooltips, dropdowns, and animations
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Center Transform Utility
+// -----------------------------------------------------------------------------
+/// Centers an absolutely positioned element using translate(-50%, -50%)
+/// Common use: modals, tooltips, dropdowns
+/// Usage:
+///   position: absolute;
+///   top: 50%;
+///   left: 50%;
+///   @extend .transform-center;
+
+.transform-center { transform: translate(-50%, -50%); }
+
+// -----------------------------------------------------------------------------
+// Transform Origin Utilities
+// -----------------------------------------------------------------------------
+/// Sets the CSS transform-origin for precise rotation, scaling, or animations
+/// Naming convention: .transform-origin-[vertical]-[horizontal]
+/// Values:
+///   vertical: top | center | bottom
+///   horizontal: left | center | right
+
+.transform-origin-top-left		{ transform-origin: 0 0; }
+.transform-origin-top-center	{ transform-origin: 50% 0; }
+.transform-origin-top-right		{ transform-origin: 100% 0; }
+
+.transform-origin-center		{ transform-origin: 50% 50%; }
+.transform-origin-center-left	{ transform-origin: 0 50%; }
+.transform-origin-center-right	{ transform-origin: 100% 50%; }
+
+.transform-origin-bottom-left	{ transform-origin: 0 100%; }
+.transform-origin-bottom-center	{ transform-origin: 50% 100%; }
+.transform-origin-bottom-right	{ transform-origin: 100% 100%; }

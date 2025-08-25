@@ -1,0 +1,255 @@
+// ============================================
+// TIMELINE COMPONENT
+// components/content/_timeline.scss
+// --------------------------------------------
+// Fully token-based timeline system.
+// Handles vertical timeline with optional center/right variants.
+// Supports responsive layouts, icons, dates, and body content.
+// ============================================
+
+@use '../../abstracts/mixins/responsive' as *;
+@use '../../abstracts/mixins/typography' as *;
+
+
+//--------------------------------------------
+// Base Timeline Container
+//--------------------------------------------
+
+.timeline {
+    /* [1] */
+    position: relative;
+    max-width: var(--timeline-max-width, 600px);
+    padding-block: var(--spacing-md);
+
+    //----------------------------------------
+    // Vertical Timeline Line
+    //----------------------------------------
+    &::after {
+        content: '';
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline-start: var(--spacing-md);
+        width: var(--spacing-xs, 2px); // 4px
+        height: 100%;
+        background: var(--color-border-muted, #e0e0e0);
+        border-radius: var(--radius-default);
+        z-index: 10;
+
+        @include respond-below('md') {
+            inset-inline-start: var(--spacing-md);
+            margin-inline-start: 0;
+        }
+    }
+
+    //----------------------------------------
+    // Shared Styles for Horizontal Rules
+    //----------------------------------------
+    hr {
+        margin-block: var(--spacing-sm) var(--spacing-md);
+    }
+}
+
+//--------------------------------------------
+// Timeline Items
+//--------------------------------------------
+
+.timeline-item {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    align-items: flex-start;
+
+    + .timeline-item {
+        margin-block-start: var(--spacing-md);
+    }
+
+    @include respond-below('md') {
+        display: block;
+        padding-inline-start: var(--spacing-xl); // 52px
+    }
+}
+
+//--------------------------------------------
+// Timeline Icon
+//--------------------------------------------
+
+.timeline-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: var(--spacing-xl, 36px); // 36px
+    height: var(--spacing-xl, 36px);
+    margin-inline-end: var(--spacing-sm);
+    margin-block-start: var(--spacing-xs);
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+
+    @include respond-below('md') {
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        margin: 0;
+    }
+}
+
+//--------------------------------------------
+// Timeline Date
+//--------------------------------------------
+
+.timeline-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: var(--spacing-xl, 48px); // 48px
+    height: var(--spacing-xl, 53px); // 53px
+    margin-inline-end: var(--spacing-md);
+    color: var(--color-text-muted);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+
+    @include respond-below('md') {
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: var(--spacing-xl);
+        margin: 0 0 var(--spacing-md);
+        padding-block-start: var(--spacing-md);
+        padding-inline-start: var(--spacing-md);
+        text-align: left;
+    }
+}
+
+//--------------------------------------------
+// Timeline Body Content
+//--------------------------------------------
+
+.timeline-body {
+    flex: 1;
+    max-width: 100%;
+    overflow: hidden;
+    padding: var(--spacing-md);
+    background: var(--color-surface);
+    border-radius: var(--radius-default);
+
+    &.has-border {
+        border: 1px solid var(--color-border);
+    }
+
+    &.is-transparent {
+        background-color: transparent;
+
+        &:not(.has-border) {
+            padding-block-start: 0;
+        }
+    }
+}
+
+//--------------------------------------------
+// Timeline Text Elements
+//--------------------------------------------
+
+.timeline-header {
+    margin: 0;
+    font-size: 16px;
+}
+
+.timeline-content {
+    font-size: 14px;
+}
+
+.timeline-meta {
+    color: var(--color-text-muted);
+    font-size: 14px //var(--font-size-sm); // The mixin was redundant if only setting font-size
+}
+
+
+//--------------------------------------------
+// Modifiers
+//--------------------------------------------
+
+// Centered variant: line in middle, items alternate
+.timeline.is-center {
+    &::after {
+        inset-inline-start: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        // Adjust item position to align with the centered line
+        margin-inline-start: calc(50% - var(--spacing-xl) - var(--spacing-md));
+
+        &:nth-child(odd) {
+            flex-direction: row-reverse;
+            margin-inline-start: 0;
+            margin-inline-end: calc(50% - var(--spacing-xl) - var(--spacing-md));
+
+            .timeline-date,
+            .timeline-icon {
+                margin-inline-end: 0;
+                margin-inline-start: var(--spacing-md);
+            }
+        }
+    }
+
+    // On mobile, all centered items behave like default left-aligned items
+    @include respond-below('md') {
+        .timeline-item,
+        .timeline-item:nth-child(odd) {
+            flex-direction: row; // Revert direction
+            margin-inline: 0;    // Revert margins
+        }
+
+        .timeline-item:nth-child(odd) {
+            .timeline-date,
+            .timeline-icon {
+                margin-inline: 0;
+            }
+        }
+    }
+}
+
+// Right-aligned variant: line and content on right
+.timeline.is-right {
+    &::after {
+        inset-inline-start: auto;
+        inset-inline-end: calc(var(--spacing-xl) + var(--spacing-lg)); // 84px
+
+        @include respond-below('md') {
+            inset-inline-end: var(--spacing-md);
+        }
+    }
+
+    .timeline-item {
+        flex-direction: row-reverse;
+
+        @include respond-below('md') {
+            padding-inline-start: 0;
+            padding-inline-end: var(--spacing-xxxl);
+        }
+    }
+
+    .timeline-icon {
+        margin-inline-end: 0;
+        margin-inline-start: var(--spacing-sm);
+
+        @include respond-below('md') {
+            inset-inline-start: auto;
+            inset-inline-end: 0;
+        }
+    }
+
+    .timeline-date {
+        margin-inline-end: 0;
+        margin-inline-start: var(--spacing-md);
+
+        @include respond-below('md') {
+            padding-inline-start: 0;
+            padding-inline-end: var(--spacing-md);
+            text-align: right;
+        }
+    }
+}

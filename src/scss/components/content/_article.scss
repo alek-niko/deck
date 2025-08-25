@@ -1,0 +1,208 @@
+// ============================================
+// COMPONENT: Article
+// components/content/_article.scss
+// --------------------------------------------
+// Base styles for <article> content
+// - Defines typography, spacing, and content formatting
+// - Supports headings, text, lists, blockquotes, code, tables, images
+// - Includes modifiers for full-width and floated images
+// ============================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+// --------------------------------------------
+// SCSS Variables (with defaults)
+// Exposed as CSS custom properties for runtime flexibility
+// --------------------------------------------
+
+$article-title-size:		clamp(1.8rem, 2vw + 1rem, 2.625rem) !default;
+$article-title-line-height: 1.2 								!default;
+$article-meta-size:			0.875rem							!default;
+$article-meta-line-height:	1.4									!default;
+$article-meta-color:		var(--color-text-muted)				!default;
+$article-text-size:			1rem								!default;
+$article-text-line-height:	1.6									!default;
+$article-spacing:			0.75rem								!default;
+
+article {
+	display: flow-root;
+	padding-bottom: 1.5rem;
+	margin-inline: auto;
+	max-width: 70ch;
+
+	// Expose SCSS → CSS custom properties
+	--article-title-size: #{$article-title-size};
+	--article-title-line-height: #{$article-title-line-height};
+	--article-meta-size: #{$article-meta-size};
+	--article-meta-line-height: #{$article-meta-line-height};
+	--article-meta-color: #{$article-meta-color};
+	--article-text-size: #{$article-text-size};
+	--article-text-line-height: #{$article-text-line-height};
+	--article-spacing: #{$article-spacing};
+
+	// ----------------------------------------
+	// Headings
+	// ----------------------------------------
+	
+	> h1, > h2, &-title {
+		font-size: var(--article-title-size);
+		line-height: var(--article-title-line-height);
+		margin-bottom: var(--article-spacing);
+	}
+
+	> h3, > h4, > h5, > h6 {
+		margin-top: var(--article-spacing);
+		margin-bottom: calc(var(--article-spacing) / 1.5);
+	}
+
+	// ----------------------------------------
+	// Paragraphs
+	// ----------------------------------------
+
+	> p {
+		font-size: var(--article-text-size);
+		line-height: var(--article-text-line-height);
+		margin-bottom: var(--article-spacing);
+	}
+
+	// ----------------------------------------
+	// Lists
+	// ----------------------------------------
+
+	> ul, > ol {
+		padding-left: 1.5rem;
+		margin-bottom: var(--article-spacing);
+	}
+
+	// ----------------------------------------
+	// Blockquotes
+	// ----------------------------------------
+
+	> blockquote {
+		margin: var(--article-spacing) 0;
+		padding: 0.5rem 1rem;
+		border-left: 4px solid var(--article-meta-color);
+		font-style: italic;
+		color: var(--color-text-muted);
+		background-color: var(--color-surface);
+	}
+
+	// ----------------------------------------
+	// Code Blocks
+	// ----------------------------------------
+
+	> pre {
+		overflow-x: auto;
+		padding: 1rem;
+		margin-bottom: var(--article-spacing);
+		background-color: var(--color-surface);
+		border-radius: var(--radius-default);
+		font-family: monospace;
+		font-size: 0.875rem;
+		line-height: 1.5;
+
+		code {
+			color: var(--color-text);
+		}
+	}
+
+	// Inline code
+	code {
+		background-color: var(--color-surface);
+		padding: 0.2em 0.4em;
+		border-radius: var(--radius-small);
+		font-size: 0.875em;
+	}
+
+	// ----------------------------------------
+	// Tables
+	// ----------------------------------------
+
+	> table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-bottom: var(--article-spacing);
+
+		th, td {
+			border: 1px solid var(--color-border-muted);
+			padding: 0.5rem;
+			text-align: left;
+		}
+
+		th {
+			background-color: var(--color-surface);
+			font-weight: bold;
+		}
+	}
+
+	// ----------------------------------------
+	// Figures
+	// ----------------------------------------
+
+	> figure {
+		margin: var(--article-spacing) 0;
+		text-align: center;
+
+		img {
+			max-width: 100%;
+			height: auto;
+			border-radius: var(--radius-default);
+		}
+
+		figcaption {
+			font-size: 0.875rem;
+			color: var(--color-text-muted);
+			margin-top: 0.25rem;
+		}
+	}
+
+	// Default images
+	> img {
+		max-width: 100%;
+		height: auto;
+		margin: var(--article-spacing) 0;
+	}
+
+	// Modifier: full-width image
+	&-img-full {
+		width: 100%;
+		display: block;
+		border-radius: var(--radius-default);
+		margin: var(--article-spacing) 0;
+	}
+
+	// Modifier: floated image
+	&-img-float {
+		float: right;
+		width: 50%;
+		margin: 0 0 var(--article-spacing) var(--article-spacing);
+		border-radius: var(--radius-default);
+
+		@media (max-width: $breakpoint-sm) {
+			float: none;
+			width: 100%;
+			margin-left: 0;
+		}
+	}
+
+	// ----------------------------------------
+	// Meta (author, date, etc.)
+	// ----------------------------------------
+
+	> .article-meta {
+		font-size: var(--article-meta-size);
+		line-height: var(--article-meta-line-height);
+		color: var(--article-meta-color);
+		margin-bottom: calc(var(--article-spacing) / 2);
+	}
+
+	// Remove trailing spacing
+	> :last-child {
+		margin-bottom: 0;
+	}
+
+	// Separate articles stacked
+	+ article {
+		margin-top: 70px;
+	}
+}

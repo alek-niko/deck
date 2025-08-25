@@ -1,0 +1,48 @@
+// ============================================
+// TYPOGRAPHY MIXINS
+// abstracts/mixins/_typography.scss
+// --------------------------------------------
+// Typography Utilities
+// - Primary font family shortcut
+// - Font size mixin with optional !important
+// - Uses calculateRem() function for accessibility
+// ============================================
+
+/// ----------------------------------------------
+/// FONT PRIMARY
+/// ----------------------------------------------
+/// Applies the primary font family as defined by the theme.
+///
+/// Requires: $primaryFont variable.
+/// ----------------------------------------------
+
+@mixin font-primary() {
+	font-family: $primaryFont;
+}
+
+/// ----------------------------------------------
+/// FONT SIZE
+/// ----------------------------------------------
+/// Sets font size in both raw units and rem for accessibility.
+/// Optionally adds !important to the declarations.
+///
+/// @param {Number|String} $size       - Font size (e.g., 16px or 1rem).
+/// @param {Boolean}       $important  - Append !important if true (default: false).
+///
+/// @requires calculateRem() function
+///
+/// @example scss
+///   .title {
+///     @include font-size(18px, true);
+///   }
+/// ----------------------------------------------
+
+@mixin font-size($size, $important: false) {
+	@if $important == true {
+		font-size: $size !important;
+		font-size: calculateRem($size) !important;
+	} @else {
+		font-size: $size;
+		font-size: calculateRem($size);
+	}
+}

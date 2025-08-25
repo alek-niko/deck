@@ -1,0 +1,36 @@
+/*------------------------------------*\
+	DROPBAR SCSS
+\*------------------------------------*/
+
+.dropbar {
+	--dropbar-width: 100%;
+	--dropbar-padding: 24px;
+	--dropbar-color: #666;
+	--dropbar-background: #f8f8f8;
+	--position-shift-offset: 0;
+	--position-viewport-offset: 0;
+
+	display: inline-block;
+	position: relative;
+	//width: auto;
+	width: var(--dropbar-width);
+	//padding: 15px;
+
+	
+	.dropbar-content {
+		display: none;
+		position: absolute;
+		//width: 100%;
+		padding: var(--dropbar-padding);
+		z-index: 1;
+		color: var(--dropbar-color);
+		background: var(--dropbar-background);
+		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	}
+
+	&:hover {
+		.dropbar-content {
+			display: block;
+		}
+	}
+}

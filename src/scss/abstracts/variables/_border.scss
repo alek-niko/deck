@@ -1,0 +1,60 @@
+// ============================================
+// BORDERS
+// abstracts/variables/_border.scss
+// --------------------------------------------
+// Border-related tokens:
+// - Border widths & styles
+// - Radius scale (XS → XL, pill, circle)
+// - Tokens align with modern UI conventions
+// ============================================
+
+
+/// --------------------------------------------
+/// BORDER WIDTH
+/// --------------------------------------------
+/// Base border widths used throughout the UI.
+///
+
+$border-width:				1px		!default;
+$border-width-md:			2px		!default;
+$border-width-thick:		3px		!default;
+
+
+/// --------------------------------------------
+/// BORDER STYLES
+/// --------------------------------------------
+/// Standard border styles for components.
+/// 
+
+$border-style:				solid	!default;
+$border-style-dashed:		dashed	!default;
+$border-style-dotted:		dotted	!default;
+
+/// --------------------------------------------
+/// BORDER RADIUS SCALE
+/// --------------------------------------------
+/// Predefined radii for consistent UI rounding.
+/// XS → XL: progressively larger corners
+/// Pill: fully rounded tags/buttons
+/// Circle: perfect circles (e.g., avatars)
+/// Square: fixed square rounding
+/// 
+
+$border-radius-xs:			2px !default;		// Tight: small cards, chips
+$border-radius-sm:			4px !default;		// Buttons, small inputs
+$border-radius:				6px !default;		// Default/base radius
+$border-radius-md:			8px !default;		// Modals, larger cards
+$border-radius-lg:			12px !default;		// Overlays, panels
+$border-radius-xl:			16px !default;		// Bold, heavy UIs
+
+$border-radius-pill:		9999px !default;	// Full pill (e.g., tag backgrounds)
+$border-radius-circle:		50% !default;   	// True circle (e.g., avatars)
+$border-radius-square:  	8px !default;
+
+
+/// --------------------------------------------
+/// BORDER COLORS
+/// --------------------------------------------
+/// Defined in: abstracts/variables/_colors.scss
+/// Tip: For semantic usage, define tokens like
+/// $border-color-default, $border-color-muted, etc.

@@ -1,0 +1,24 @@
+//-----------------------------------------------------------------------------
+// ICON TOKENS
+// variables/_icons.scss
+//-----------------------------------------------------------------------------
+
+/// Base size for all icons
+/// @type {Length}
+/// @default 24px
+$icon-size: 24px !default;
+
+/// Icon stroke width
+/// @type {Number}
+/// @default 1.5
+$icon-stroke-width: 1.5 !default;
+
+/// Hover scale effect applied to icons
+/// @type {Number}
+/// @default 1.2
+$icon-hover-scale: 1.2 !default;
+
+/// Base transition duration for icon animations
+/// @type {Time}
+/// @default 0.3s
+$transition-duration: 0.3s !default;

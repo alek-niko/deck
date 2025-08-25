@@ -1,0 +1,77 @@
+// =============================================================================
+// INLINE UTILITY
+// components/utils/_inline.scss
+// -----------------------------------------------------------------------------
+// Provides inline container helpers for media elements and inline content.
+// - Makes block elements behave like inline media wrappers
+// - Variants: .inline, .inline-media, .has-overlay, .inline-flex, .inline-grid
+// - Ensures responsive images, videos, and pictures inside inline containers
+// - Supports overlay positioning (requires position: relative)
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Base Inline Containers
+// -----------------------------------------------------------------------------
+
+.inline,
+.inline-media,
+.has-overlay {
+	display: inline-block;
+	position: relative;			// Contain overlays
+	max-width: 100%;			// Responsive sizing
+	vertical-align: middle;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+
+	// Media children
+	> img,
+	> video,
+	> picture {
+		display: block;
+		max-width: 100%;
+		height: auto;
+		vertical-align: middle;
+		object-fit: contain;
+		font-family: 'object-fit: contain'; // Fallback hint for older browsers
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Inline Flex Variant
+// -----------------------------------------------------------------------------
+
+.inline-flex {
+	@extend .inline;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--inline-gap, 0.5rem);
+
+	> img,
+	> video,
+	> picture {
+		max-width: 100%;
+		height: auto;
+		object-fit: contain;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Inline Grid Variant
+// -----------------------------------------------------------------------------
+
+.inline-grid {
+	@extend .inline;
+	display: inline-grid;
+	place-items: center;
+	gap: var(--inline-gap, 0.5rem);
+
+	> img,
+	> video,
+	> picture {
+		grid-area: 1 / 1;
+		max-width: 100%;
+		height: auto;
+		object-fit: contain;
+	}
+}

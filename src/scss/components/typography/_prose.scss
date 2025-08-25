@@ -1,0 +1,136 @@
+// =============================================================================
+// PROSE TYPOGRAPHY
+// components/typography/_prose.scss
+// -----------------------------------------------------------------------------
+// Scoped typography and spacing overrides for `.prose` blocks.
+// - Maintains clear vertical rhythm within content areas
+// - Prevents style leakage into nested components
+// - Supports headings, paragraphs, lists, blockquotes, images, figures, tables, forms
+//
+// Notes:
+// - All spacing uses `$spacing-*` variables from `abstracts/variables/spacing`
+// - Colors and borders use theme tokens where applicable
+// =============================================================================
+
+@use '../../abstracts/variables/spacing' as *;
+
+.prose {
+	// Headings: clear visual breaks with moderate margins
+	> h1,
+	> h2,
+	> h3,
+	> h4,
+	> h5,
+	> h6 {
+		margin-top: $spacing-lg;
+		margin-bottom: $spacing-sm;
+		font-weight: 600;
+		line-height: 1.2;
+	}
+
+	// Remove top margin on first-child headings
+	> h1:first-child,
+	> h2:first-child,
+	> h3:first-child,
+	> h4:first-child,
+	> h5:first-child,
+	> h6:first-child {
+		margin-top: 0;
+		//margin-bottom: 1.5rem;
+	}
+
+	// Paragraphs: comfortable spacing before and after
+	> p {
+		margin-top: 0;
+		margin-bottom: $spacing-md;
+		line-height: 1.5;
+	}
+
+	// Lists: spacing before and after, with indentation
+	> ul,
+	> ol {
+		margin-top: $spacing-md;
+		margin-bottom: $spacing-md;
+		padding-left: 1.5rem; /* was 1.5rem */
+		line-height: 1.5;
+
+		& > li {
+			padding: 3px 0;
+		}
+	}
+
+	// List items: spacing between list elements
+	> ul li + li,
+	> ol li + li {
+		margin-top: $spacing-xs;
+	}
+
+	// Blockquotes: spacing and styling
+	> blockquote {
+		margin: $spacing-default 0;
+		padding-left: 1rem;
+		border-left: 4px solid var(--color-border-muted, #ccc);
+		font-style: italic;
+		color: var(--color-text-muted, #666);
+	}
+
+	// Images and figures
+	> img,
+	> figure {
+		margin-top: $spacing-md;
+		margin-bottom: $spacing-md;
+		max-width: 100%;
+		height: auto;
+	}
+
+	// Figure captions
+	> figcaption {
+		font-size: 0.875rem;
+		color: var(--color-text-muted, #666);
+		margin-top: $spacing-xs;
+		text-align: center;
+	}
+
+	// Horizontal rules
+	> hr {
+		border: none;
+		border-top: 1px solid var(--color-border-muted, #ddd);
+		margin: $spacing-lg 0;
+	}
+
+	// Tables
+	> table {
+		margin-top: $spacing-default;
+		margin-bottom: $spacing-default;
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	// Table cells
+	// > table th,
+	// > table td {
+	// 	padding: 0.5rem 1rem;
+	// 	border: 1px solid var(--color-border-muted, #ddd);
+	// }
+
+	// Form elements
+	> input,
+	> select,
+	> textarea,
+	> button {
+		margin-top: 0;
+		margin-bottom: $spacing-md;
+		font: inherit;
+	}
+
+	// Inline formatting elements
+	// a,
+	// strong,
+	// em,
+	// b,
+	// i,
+	// u {
+	// 	line-height: inherit;
+	// 	font-weight: inherit;
+	// }
+}

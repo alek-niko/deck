@@ -1,0 +1,74 @@
+/*------------------------------------*\
+	DROP SCSS
+\*------------------------------------*/
+
+.drop {
+	
+	--drop-width: 300px;
+	--drop-height: inherit;
+
+	display: none;
+	position: absolute;
+	z-index: 1020;
+	// --position-offset: 20px;
+	// --position-viewport-offset: 15px;
+	box-sizing: border-box;
+	width: var(--drop-width);
+	height: var(--drop-height);
+
+	&.open {
+		display: block;
+	}
+
+	&-stack {
+		.drop-grid {
+			>* {
+				width: 100% !important;
+			}
+		}
+	}
+
+	&-parent-icon {
+		margin-left: 0.25em;
+		transition: transform 0.3s ease-out;
+	}
+
+
+	&[aria-expanded="true"] {
+		>.drop-parent-icon {
+			transform: rotateX(180deg);
+		}
+	}
+
+	&.open-top {
+		top: -100%;
+		/* Position dropdown above trigger element with some offset */
+	}
+
+	&.open-bottom {
+		bottom: 100%;
+		/* Position dropdown below trigger element with some offset */
+	}
+
+	// Test
+
+	&[class*='drop-bottom'],
+	&[class*='dropdown-bottom'] {
+		margin-top: 8px;
+	}
+
+	&[class*='drop-top'],
+	&[class*='dropdown-top'] {
+		margin-top: - 8px;
+	}
+
+	&[class*='drop-left'],
+	&[class*='dropdown-left'] {
+		margin-left: -8px;
+	}
+
+	&[class*='drop-right'],
+	&[class*='dropdown-right'] {
+		margin-left: 8px;
+	}
+}

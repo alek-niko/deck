@@ -1,0 +1,70 @@
+// ============================================
+// PADDING MIXIN
+// mixins/_padding.scss
+// ============================================
+
+@use '../variables/spacing' as *;
+
+
+/// ---------------------------------------------
+/// MAP: PADDING SIZES
+/// ---------------------------------------------
+/// Defines semantic padding scale using spacing tokens.
+/// Keys: default, xs, sm, md, lg, xl, remove
+/// ---------------------------------------------
+
+$padding-sizes: (
+	default: $spacing-default,
+	xs: $spacing-xs,
+	sm: $spacing-sm,
+	md: $spacing-md,
+	lg: $spacing-lg,
+	xl: $spacing-xl,
+	remove: 0
+);
+
+/// ---------------------------------------------
+/// MIXIN: padding()
+/// ---------------------------------------------
+/// Applies padding dynamically based on size + direction.
+///
+/// @param {String} $size      - Padding size key (default, xs, sm, md, lg, xl, remove).
+/// @param {String} $direction - Direction (all, top, bottom, left, right, horizontal, vertical, ends).
+///
+/// @throws Error if `$size` or `$direction` is invalid.
+///
+/// @example scss
+///   .card {
+///     @include padding(md, horizontal);
+///   }
+/// ---------------------------------------------
+
+@mixin padding($size: default, $direction: all) {
+	$value: map-get($padding-sizes, $size);
+
+	@if $value ==null {
+		@error "Invalid padding size `#{$size}`. Allowed: #{map-keys($padding-sizes)}";
+	}
+
+	@if $direction ==all {
+		padding: $value;
+	}
+
+	@else if $direction ==vertical or $direction ==ends {
+		padding-top: $value;
+		padding-bottom: $value;
+	}
+
+	@else if $direction ==horizontal {
+		padding-left: $value;
+		padding-right: $value;
+	}
+
+	@else if index(top bottom left right, $direction) {
+		padding-#{$direction}: $value;
+	}
+
+	@else {
+		@error "Invalid padding direction `#{$direction}`. Allowed: top, bottom, left, right, horizontal, vertical, ends, all.";
+	}
+}

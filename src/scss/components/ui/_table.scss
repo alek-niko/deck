@@ -1,0 +1,320 @@
+// =============================================================================
+// TABLE COMPONENT
+// components/ui/_tables.scss
+// -----------------------------------------------------------------------------
+// Responsive and versatile table system with support for:
+// - Default, bordered, striped, hoverable, small, large, justify, shrink, expand, and link tables
+// - Responsive layouts for phone landscape and smaller
+// - Semantic CSS variables for spacing, font sizes, and colors
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+// ---------------------------------------------------------------------
+// Table Defaults
+// ---------------------------------------------------------------------
+// Default table variables for margins, paddings, font sizes, and colors.
+
+$table-margin-vertical: 20px !default;
+$table-cell-padding-vertical: 16px !default;
+$table-cell-padding-horizontal: 12px !default;
+$table-header-cell-font-size: 16px !default;
+$table-header-cell-font-weight: bold !default;
+$table-header-cell-color: #666 !default;
+$table-footer-font-size: 0.875rem !default;
+$table-caption-font-size: 0.875rem !default;
+$table-caption-color: #999 !default;
+$table-striped-row-background: #f8f8f8 !default;
+$table-hover-row-background: #ffd !default;
+$table-row-active-background: #ffd !default;
+$table-small-cell-padding-vertical: 10px !default;
+$table-small-cell-padding-horizontal: 12px !default;
+$table-large-cell-padding-vertical: 22px !default;
+$table-large-cell-padding-horizontal: 12px !default;
+$table-expand-min-width: 150px !default;
+
+// ---------------------------------------------------------------------
+// Base Table
+// ---------------------------------------------------------------------
+// Core table styling and semantic CSS variables.
+
+.table {
+
+	--table-margin-vertical:				#{$table-margin-vertical};
+	--table-cell-padding-vertical:			#{$table-cell-padding-vertical};
+	--table-cell-padding-horizontal:		#{$table-cell-padding-horizontal};
+	--table-header-cell-font-size:			#{$table-header-cell-font-size};
+	--table-header-cell-font-weight:		#{$table-header-cell-font-weight};
+	--table-header-cell-color:				#{$table-header-cell-color};
+	--table-footer-font-size:				#{$table-footer-font-size};
+	--table-caption-font-size:				#{$table-caption-font-size};
+	--table-caption-color:					#{$table-caption-color};
+	--table-striped-row-background:			#{$table-striped-row-background};
+	--table-hover-row-background:			#{$table-hover-row-background};
+	--table-row-active-background:			#{$table-row-active-background};
+	--table-small-cell-padding-vertical:	#{$table-small-cell-padding-vertical};
+	--table-small-cell-padding-horizontal:	#{$table-small-cell-padding-horizontal};
+	--table-large-cell-padding-vertical:	#{$table-large-cell-padding-vertical};
+	--table-large-cell-padding-horizontal:	#{$table-large-cell-padding-horizontal};
+	--table-expand-min-width:				#{$table-expand-min-width};
+
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	margin-bottom: var(--table-margin-vertical);
+	font-size: 14px;
+
+	// -----------------------------------------------------------------
+	// Table Head
+	// -----------------------------------------------------------------
+		
+	th {
+		text-align: left;
+		vertical-align: bottom;	
+		font-size: 14px;
+		text-transform: none;
+		font-weight: 500;
+		color: rgba(0,0,0,.54);
+		padding: 12px;
+	}
+
+	// -----------------------------------------------------------------
+	// Table Cells
+	// -----------------------------------------------------------------
+
+	td {
+		vertical-align: top;	
+		padding: 12px;
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// Table Footer
+	// -----------------------------------------------------------------
+
+	tfoot {
+		font-size: var(--table-footer-font-size);
+	}
+
+	// -----------------------------------------------------------------
+	// Table Caption
+	// -----------------------------------------------------------------
+
+	caption {
+		font-size: var(--table-caption-font-size);
+		text-align: left;
+		color: $table-caption-color;
+	}
+
+	// -----------------------------------------------------------------
+	// Active Rows
+	// -----------------------------------------------------------------	
+
+	> tr.active,
+	tbody tr.active {
+		background: var(--table-row-active-background);
+	}
+
+	// -----------------------------------------------------------------
+	// Bordered Tables
+	// -----------------------------------------------------------------
+
+	&.table-border {
+		border: 1px solid #e1e1e1;
+		th,
+		td {
+			border: 1px solid #e1e1e1;
+		}
+		&-inside {
+			th,
+			td {
+				&:not(.table-border-remove) {
+					border: 1px solid #e1e1e1;
+				}
+			}
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// Hoverable Rows
+	// -----------------------------------------------------------------
+
+	&.table-hover {
+		> tr:hover,
+		tbody tr:hover {
+			background: rgba(0,0,0,.08) !important;
+		}
+		.table-hover-disable {
+			&:hover {
+				background-color: initial !important;
+			}
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// Table Top Alignment
+	// -----------------------------------------------------------------
+
+	.table-top,
+	.table-top td {
+		vertical-align: top;
+	}
+
+	* + .table { margin-top: var(--table-margin-vertical); }
+
+	// -----------------------------------------------------------------
+	// Middle Alignment
+	// -----------------------------------------------------------------
+
+	&-middle {
+		vertical-align: middle !important;
+
+		td {
+			vertical-align: middle !important;
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// Divider Rows
+	// -----------------------------------------------------------------
+
+	&-divider {
+		> tr:not(:first-child),
+		> :not(:first-child) > tr,
+		> :first-child > tr:not(:first-child) {
+			border-top: 1px solid #e5e5e5;
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// Striped Rows
+	// -----------------------------------------------------------------
+
+	&-striped {
+		> tr:nth-of-type(odd),
+		tbody tr:nth-of-type(odd) {
+			//background: $table-striped-row-background;
+			border-top: none;
+			border-bottom: none;
+			background: rgba(0,0,0,.04);
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// Hover Variant
+	// -----------------------------------------------------------------
+
+	&-hover {
+		> tr:hover,
+		tbody tr:hover {
+			//background: $table-hover-row-background;
+			background: rgba(0,0,0,.08) !important;
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// Small Tables
+	// -----------------------------------------------------------------
+
+	&-small {
+		th, td {
+			padding: 8px;
+		}
+		.table-link > a {
+			padding: var(--table-small-cell-padding-vertical) var(--table-small-cell-padding-horizontal);
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// Large Tables
+	// -----------------------------------------------------------------
+
+	&-large {
+		th, td {
+			padding: 16px;
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// Justify Tables
+	// -----------------------------------------------------------------
+
+	&-justify {
+		th:first-child,
+		td:first-child { padding-left: 0; }
+
+		th:last-child,
+		td:last-child { padding-right: 0; }
+	}
+
+	// -----------------------------------------------------------------
+	// Shrink Tables
+	// -----------------------------------------------------------------
+
+	&-shrink { width: 1px; }
+
+	// -----------------------------------------------------------------
+	// Expand Tables
+	// -----------------------------------------------------------------
+		
+	&-expand { min-width: $table-expand-min-width; }
+
+	// -----------------------------------------------------------------
+	// Link Tables
+	// -----------------------------------------------------------------
+
+	&-link {
+		padding: 0 !important;
+
+		> a {
+			display: block;
+			padding: var(--table-cell-padding-vertical) var(--table-cell-padding-horizontal);
+		}
+	}
+}
+
+// ---------------------------------------------------------------------
+// Responsive Tables
+// ---------------------------------------------------------------------
+// Phone landscape and smaller: table transforms to block layout.
+
+@media (max-width: $breakpoint-sm-max) {
+
+	.table-responsive,
+	.table-responsive tbody,
+	.table-responsive th,
+	.table-responsive td,
+	.table-responsive tr { display: block; }
+
+	.table-responsive thead { display: none; }
+
+	.table-responsive th,
+	.table-responsive td {
+		width: auto !important;
+		max-width: none !important;
+		min-width: 0 !important;
+		overflow: visible !important;
+		white-space: normal !important;
+	}
+
+	.table-responsive th:not(:first-child):not(.table-link),
+	.table-responsive td:not(:first-child):not(.table-link),
+	.table-responsive .table-link:not(:first-child) > a {
+		padding-top: round((16px * 0.33333)) !important;
+	}
+
+	.table-responsive th:not(:last-child):not(.table-link),
+	.table-responsive td:not(:last-child):not(.table-link),
+	.table-responsive .table-link:not(:last-child) > a {
+		padding-bottom: round((16px * 0.33333)) !important;
+	}
+
+	.table-justify.table-responsive th,
+	.table-justify.table-responsive td {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}

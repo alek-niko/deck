@@ -1,0 +1,87 @@
+// =============================================================================
+// LAYOUT: HEADER + MAIN GRID
+// components/_grid.scss
+// -----------------------------------------------------------------------------
+// Simple responsive CSS Grid layout with full viewport height.
+//
+// Features:
+// - Header spanning full width at the top
+// - Main content fills remaining space below header
+// - Vertical scrolling for main content
+// - Responsive header height for small screens
+//
+// Dependencies:
+// - CSS custom properties:
+//   --header-height (--hh)
+//   --header-height-mobile (--hhm)
+//   --layout-row-gap (--lrg)
+//   --layout-column-gap (--lcg)
+//
+// Usage example:
+// <body class="hm">
+//   <header>Header content</header>
+//   <main>Main content</main>
+// </body>
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+.l-hm {
+
+	display: grid;
+
+	// -----------------------------------------------------------------
+	// Grid Template Areas & Rows/Columns
+	// -----------------------------------------------------------------
+	grid-template-areas:
+		"header"
+		"main";
+
+	// Rows: fixed header height + flexible main content	
+	grid-template-rows:
+		var(--hh, var(--header-height))
+		1fr;
+
+	// Single column layout
+	grid-template-columns: 1fr;
+
+	// Row and column gaps with CSS variable fallbacks
+	row-gap: var(--lrg, var(--layout-row-gap));
+	column-gap: var(--lcg, var(--layout-column-gap));
+
+	// Full viewport height
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+
+	// -----------------------------------------------------------------
+	// Header Block
+	// -----------------------------------------------------------------
+	header {
+		grid-area: header;
+		background-color: var(--color-background);
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Main Content Block
+	// -----------------------------------------------------------------
+	main {
+		grid-area: main;
+		background-color: var(--color-background);
+		overflow-y: auto;
+		min-height: 0;
+		position: relative;
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Responsive: Small Screens
+	// -----------------------------------------------------------------
+	// Adjust header height on small devices
+	@media (max-width: $breakpoint-sm-max) {
+		grid-template-rows:
+			var(--hhm, var(--header-height-mobile))
+			1fr;
+	}
+}

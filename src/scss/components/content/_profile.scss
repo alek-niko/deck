@@ -1,0 +1,259 @@
+// ============================================
+// PROFILE COMPONENT
+// components/content/_profile.scss
+// --------------------------------------------
+// Reusable profile component for user pages.
+// Handles cover image, avatar, user info, stats, and action buttons.
+// Fully responsive and theme-aware using CSS tokens.
+// Supports editable state and hover interactions.
+// ============================================
+
+@use '../../abstracts/mixins/breakpoints' as *;
+
+.profile {
+	
+    //--------------------------------------------
+    // Theme & Layout Tokens
+    //--------------------------------------------
+
+	--blue: var(--color-primary, #1DA1F2);
+	--dark: var(--color-surface-contrast, #15202B);
+	--gray: var(--color-muted, #657786);
+	--border-color: var(--color-border, #E6ECF0);
+	--hover-blue: rgba(29, 161, 242, 0.1);
+
+	// Dynamic layout variables
+	--cover-height: 200px;
+	--avatar-size: 134px;
+
+	position: relative;
+	background-color: var(--color-surface);
+
+   	//--------------------------------------------
+    // Hover Shadow Modifier
+    //--------------------------------------------
+
+	&.hover {
+		&:hover {
+			box-shadow: var(--shadow-lg);
+		}
+	}
+
+    //--------------------------------------------
+    // Rounded Card Variant
+    //--------------------------------------------
+
+	&.rounded-lg {
+		// Apply the radius to the container itself
+		.profile-cover {
+			border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+		}
+	}
+
+    //--------------------------------------------
+    // Profile Cover
+    //--------------------------------------------
+
+	.profile-cover {
+		height: var(--cover-height);
+		background-color: var(--color-surface-muted);
+		transition: height 0.3s ease;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+	}
+
+    //--------------------------------------------
+    // Profile Avatar
+    //--------------------------------------------
+
+	.profile-avatar {
+		width: var(--avatar-size);
+		height: var(--avatar-size);
+		border-radius: 50%;
+		background-color: var(--color-surface-muted);
+		position: absolute;
+		left: 15px;
+		// CORRECTED: This perfectly centers the avatar on the cover's edge.
+		top: calc(var(--cover-height) - (var(--avatar-size) / 2));
+		border: 4px solid var(--color-surface);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+		overflow: hidden;
+		z-index: 10;
+		//opacity: 0;
+		transform: scale(0.95) translateY(10px);
+		transition: all 0.3s ease;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 50%;
+			display: block;
+		}
+
+		&.animate-in {
+			opacity: 1;
+			transform: scale(1) translateY(0);
+		}
+	}
+
+    //--------------------------------------------
+    // Editable State
+    //--------------------------------------------
+
+	&.is-editable {
+		.profile-actions {
+			.follow-btn { display: none; }
+			.edit-btn { display: inline-flex; }
+		}
+	}
+
+    //--------------------------------------------
+    // Profile Info Block
+    //--------------------------------------------
+	
+	.profile-info {
+		padding: 15px;
+		margin-top: calc(var(--avatar-size) / 2 + 15px);
+		position: relative;
+		transition: margin-top 0.3s ease;
+
+		.profile-name {
+			font-size: 20px;
+			font-weight: 800;
+			color: var(--color-text);
+		}
+
+		.profile-username {
+			color: var(--gray);
+			font-size: 15px;
+			margin: 2px 0;
+		}
+
+		.profile-about {
+			margin: 10px 0;
+			font-size: 15px;
+			color: var(--color-text);
+		}
+
+		//--------------------------------------------
+        // Profile Stats
+        //--------------------------------------------
+
+		.profile-stats {
+			display: flex;
+			gap: 20px;
+			color: var(--gray);
+			font-size: 15px;
+			margin: 10px 0;
+
+			strong { color: var(--dark); }
+		}
+
+        //--------------------------------------------
+        // Action Buttons
+        //--------------------------------------------
+
+		.profile-actions {
+			position: absolute;
+			top: calc(var(--avatar-size) / -2);
+			right: 15px;
+			display: flex;
+			gap: 10px;
+			align-items: center;
+			flex-wrap: wrap;
+
+			button {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 15px;
+				font-weight: bold;
+				border-radius: 9999px;
+				cursor: pointer;
+				padding: 6px 16px;
+				transition: background-color 0.2s ease, border-color 0.2s ease;
+				border: 1px solid transparent;
+				background-color: transparent;
+
+				svg {
+					margin-left: 6px;
+					width: 16px;
+					height: 16px;
+				}
+			}
+			
+			// RESTORED: Your complete, original button styles are back.
+			.follow-btn {
+				color: var(--blue);
+				border-color: var(--blue);
+
+				&:hover { background-color: var(--hover-blue); }
+			}
+
+			.edit-btn,
+			.message-btn {
+				color: var(--color-text);
+				border: 1px solid var(--color-border);
+
+				&:hover { background-color: var(--color-surface-muted); }
+			}
+
+			.more-btn {
+				padding: 6px;
+				border-radius: 50%;
+				color: var(--gray);
+				border: none;
+
+				&:hover { background-color: var(--color-surface-muted); }
+			}
+		}
+	}
+
+    //--------------------------------------------
+    // Responsive Tweaks
+    //--------------------------------------------
+
+	@include max-md {
+		--cover-height: 150px;
+		--avatar-size: 120px;
+	}
+
+	@include max-sm {
+		--cover-height: 120px;
+		--avatar-size: 96px;
+
+		.profile-info {
+			margin-top: calc(var(--avatar-size) / 2 + 10px);
+			padding: 10px;
+
+			.profile-name { font-size: 18px; }
+
+			.profile-username,
+			.profile-about,
+			.profile-stats { font-size: 14px; }
+
+			.profile-actions {
+				right: 10px;
+				gap: 8px;
+
+				.follow-btn {
+					padding: 4px 12px;
+					font-size: 14px;
+				}
+
+				.settings-icon {
+					font-size: 18px;
+					padding: 6px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,38 @@
+// =============================================================================
+// DESCRIPTION LIST COMPONENT
+// components/ui/_description.list.scss
+// -----------------------------------------------------------------------------
+// Provides accessible, theme-aware styling for semantic <dl> lists.
+// Supports:
+// - Default description lists with spacing between terms
+// - Divider variant with borders and padding for visual separation
+// - Tokenized colors and spacing
+// =============================================================================
+
+@use '../../abstracts/variables/colors' as *;
+@use '../../abstracts/variables/spacing' as *;
+
+.description-list {
+	dt {
+		color: var(--color-text-strong, #333);
+
+		// ----------------------------------------
+		// Spacing after the first term
+		// ----------------------------------------
+		&:nth-child(n + 2) {
+			margin-top: var(--spacing-md, 1.25rem);
+		}
+	}
+
+	// ----------------------------------------
+	// Variant: Divider
+	// Adds spacing + border between items
+	// ----------------------------------------
+	&-divider {
+		dt:nth-child(n + 2) {
+			margin-top: var(--spacing-md, 1.25rem);
+			padding-top: var(--spacing-md, 1.25rem);
+			border-top: 1px solid var(--color-border-muted, #e5e5e5);
+		}
+	}
+}

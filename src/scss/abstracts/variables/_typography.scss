@@ -1,0 +1,77 @@
+// ===================================================================
+// TYPOGRAPHY
+// abstracts/variables/_typography.scss
+// -------------------------------------------------------------------
+// Typography tokens used across the design system:
+// Font stack, body defaults, type scale, sizes, weights, line heights
+// ===================================================================
+
+/// --------------------------------------------
+/// Primary font stack
+/// --------------------------------------------
+/// System font stack with emoji support.
+/// @type Font Family
+
+$primaryFont: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+			  Helvetica, Arial, sans-serif, "Apple Color Emoji",
+			  "Segoe UI Emoji", "Segoe UI Symbol" !default;
+
+
+/// --------------------------------------------
+/// Body text defaults
+/// --------------------------------------------
+/// Font size, weight, and line height for body copy.
+/// @type Length
+
+$body-font-size:			16px	!default;	// Root size (1rem base)
+$body-font-weight:			400		!default;	// Normal weight
+$body-font-line-height: 	1.5		!default;	// Default leading
+
+
+/// --------------------------------------------
+/// Type scale ratio
+/// --------------------------------------------
+/// Modular scale for headings (h1–h6)
+
+$scale-ratio:				1.333	!default;	// "Perfect Fourth"
+
+
+/// --------------------------------------------
+/// Font sizes
+/// --------------------------------------------
+/// Core size tokens (SCSS fallback)
+
+$font-size-xs:				0.75rem		!default;	// 12px
+$font-size-sm:				0.875rem	!default;	// 14px
+$font-size-md:				1rem		!default;	// 16px (base)
+$font-size-lg:				1.125rem	!default;	// 18px
+$font-size-xl:				1.25rem		!default;	// 20px
+$font-size-2xl:				1.5rem		!default;	// 24px
+$font-size-3xl:				1.875rem	!default;	// 30px
+$font-size-4xl:				2.25rem		!default;	// 36px
+$font-size-5xl:				3rem		!default;	// 48px
+
+
+/// --------------------------------------------
+/// Font weights
+/// --------------------------------------------
+/// Standard numeric weights
+
+$font-weight-thin:			100		!default;
+$font-weight-extra-light:	200		!default;
+$font-weight-light:			300		!default;
+$font-weight-regular:		400		!default;
+$font-weight-medium:		500		!default;
+$font-weight-semi-bold:		600		!default;
+$font-weight-bold:			700		!default;
+$font-weight-extra-bold:	800		!default;
+$font-weight-black:			900		!default;
+
+/// --------------------------------------------
+/// Line heights
+/// --------------------------------------------
+/// Predefined line height tokens
+
+$line-height-sm:			1.25	!default;	// tight
+$line-height-md:			1.5		!default;	// default (body copy)
+$line-height-lg:			1.75	!default;	// relaxed

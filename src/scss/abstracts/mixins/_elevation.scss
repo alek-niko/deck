@@ -1,0 +1,95 @@
+// ============================================
+// ELEVATION MIXINS
+// abstracts/mixins/_elevation.scss
+// --------------------------------------------
+// Elevation (Shadow Depth) Utilities
+// - Uses $elevation-shadows-string and $elevation-shadows-list maps
+// ============================================
+
+
+@use '../variables/elevation' as *;
+
+/// --------------------------------------------
+/// ELEVATION (STRING MAP)
+/// --------------------------------------------
+/// Apply elevation shadows from `$elevation-shadows-string` or
+/// `$elevation-shadows-string-dark`. Falls back to a calculated shadow
+/// if the level is not defined.
+/// 
+/// @param {Number} $level - Elevation level (0–24)
+/// @param {String} $theme - Either `light` or `dark` (default: `light`)
+///
+/// @example scss
+///   .card {
+///     @include elevation(8); // light theme shadow
+///   }
+///   .card-dark {
+///     @include elevation(8, 'dark'); // dark theme shadow
+///   }
+
+@mixin elevation($level, $theme: 'light') {
+
+	@if $theme =='dark' {
+
+			@if map-has-key($elevation-shadows-string-dark, $level) {
+				box-shadow: unquote(map-get($elevation-shadows-string-dark, $level));
+			}
+
+			@else {
+				// Fallback dynamic shadow for dark
+				$opacity: 0.10 + ($level * 0.006);
+				$blur: 1px + ($level * 1.5px);
+				$offset: (
+					$level * 0.4px
+				);
+				box-shadow: 0 $offset $blur rgba(255, 255, 255, $opacity);
+		}
+	}
+
+	@else {
+
+		@if map-has-key($elevation-shadows-string, $level) {
+			box-shadow: unquote(map-get($elevation-shadows-string, $level));
+		}
+
+		@else {
+			// Fallback dynamic shadow for light
+			$opacity: 0.12 + ($level * 0.005);
+			$blur: 1px + ($level * 1.25px);
+			$offset: ( $level * 0.5px );
+
+			box-shadow: 0 $offset $blur rgba(0, 0, 0, $opacity);
+		}
+	}
+}
+
+/// --------------------------------------------
+/// ELEVATION (LIST MAP, LEGACY)
+/// --------------------------------------------
+/// Legacy version using `$elevation-shadows-list`. Joins a list of shadows
+/// into a comma-separated string. Retained for backward compatibility.
+/// 
+/// @param {Number} $level - Elevation level (0–24)
+///
+/// @example scss
+///   .toolbar {
+///     @include elevation-list(4);
+///   }
+
+@mixin elevation-list($level) {
+
+	@if map-has-key($elevation-shadows-list, $level) {
+		// Join the list of shadows into a comma-separated string
+		$shadows: map-get($elevation-shadows-list, $level);
+		box-shadow: join($shadows, ", ");
+	}
+
+	@else {
+		// Fallback dynamic shadow (optional)
+		$opacity: 0.15 + ($level * 0.005);
+		$blur: $level * 1.25px;
+		$offset: $level * 0.5px;
+
+		box-shadow: 0 $offset $blur rgba(0, 0, 0, $opacity);
+	}
+}

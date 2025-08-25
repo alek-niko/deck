@@ -1,0 +1,188 @@
+// =============================================================================
+// TEXT UTILITIES
+// components/typography/utilities.scss
+// -----------------------------------------------------------------------------
+// Optimized text utility classes
+// - Fully tokenized with theme variables
+// - Covers typography scale, weights, styles, transforms, colors, alignment,
+//   wrapping, truncation, and vertical alignment
+// - Includes special demo/test utilities for showcasing text styling
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Typography Scale Utilities
+// -----------------------------------------------------------------------------
+
+.text-lead {
+	font-size: calc(var(--font-size-base) * 1.3);
+	font-weight: 300;
+	line-height: 1.5;
+	color: var(--color-text);
+	font-family: var(--font-primary);
+}
+
+.text-meta {
+	font-size: 0.875rem;
+	line-height: 1.4;
+	color: var(--color-text-muted);
+	font-family: var(--font-primary);
+}
+
+.text-default {
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-base);
+}
+
+.text-small  { font-size: 0.875rem; line-height: 1.5; }
+.text-large  { font-size: 1.5rem; line-height: 1.5; }
+
+
+// -----------------------------------------------------------------------------
+// Font Weight / Style Utilities
+// -----------------------------------------------------------------------------
+
+.text-light    { font-weight: 300; }
+.text-normal   { font-weight: 400; }
+.text-bold     { font-weight: 700; }
+
+.text-lighter  { font-weight: lighter; }
+.text-bolder   { font-weight: bolder; }
+
+.text-italic   { font-style: italic; }
+
+
+// -----------------------------------------------------------------------------
+// Text Transform Utilities
+// -----------------------------------------------------------------------------
+
+.text-uppercase  { text-transform: uppercase !important; }
+.text-lowercase  { text-transform: lowercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+
+// -----------------------------------------------------------------------------
+// Text Decoration Utilities
+// -----------------------------------------------------------------------------
+
+.text-decoration-none { text-decoration: none !important; }
+
+
+// -----------------------------------------------------------------------------
+// Color Utilities (Tokenized)
+// -----------------------------------------------------------------------------
+
+.text-emphasis   { color: var(--color-text) !important; }
+.text-muted      { color: var(--color-text-muted) !important; }
+.text-secondary  { color: var(--color-text-secondary) !important; }
+
+.text-primary    { color: var(--color-primary) !important; }
+.text-success    { color: var(--color-success) !important; }
+.text-warning    { color: var(--color-warning) !important; }
+.text-danger     { color: var(--color-danger) !important; }
+
+
+// -----------------------------------------------------------------------------
+// Background-Clipped Text
+// -----------------------------------------------------------------------------
+
+.text-background {
+	display: inline-block;
+	color: transparent !important;
+	background-color: var(--color-primary);
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+
+
+// -----------------------------------------------------------------------------
+// Text Alignment Utilities
+// -----------------------------------------------------------------------------
+
+.text-left     { text-align: left !important; }
+.text-center   { text-align: center !important; }
+.text-right    { text-align: right !important; }
+.text-justify  { text-align: justify !important; }
+
+
+// -----------------------------------------------------------------------------
+// Vertical Alignment Utilities
+// -----------------------------------------------------------------------------
+
+.text-top       { vertical-align: top !important; }
+.text-middle    { vertical-align: middle !important; }
+.text-bottom    { vertical-align: bottom !important; }
+.text-baseline  { vertical-align: baseline !important; }
+
+
+// -----------------------------------------------------------------------------
+// Wrapping, Truncation, Breaking
+// -----------------------------------------------------------------------------
+
+.text-nowrap   { white-space: nowrap; }
+
+.text-truncate {
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+th.text-truncate,
+td.text-truncate {
+	max-width: 0;
+}
+
+.text-break {
+	overflow-wrap: break-word;
+}
+
+th.text-break,
+td.text-break {
+	word-break: break-word;
+}
+
+
+// -----------------------------------------------------------------------------
+// Text Testing / Demos [Dev/Test Only]
+// -----------------------------------------------------------------------------
+
+.text-test {
+	font-size: 60px;
+	font-weight: 900;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+	text-align: center;
+	background-color: var(--color-primary);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	text-shadow: 0 3px 3px rgba(255, 255, 255, 0.5);
+}
+
+
+// -----------------------------------------------------------------------------
+// Page Content Typography Block [Dev/Test Only]
+// -----------------------------------------------------------------------------
+
+.text-content {
+	line-height: 1.6;
+	color: var(--color-text);
+
+	h1, h2, h3, h4, h5, h6 {
+		margin-top: 1.5em;
+		margin-bottom: 0.5em;
+	}
+
+	p {
+		margin: 1rem 0 2rem;
+	}
+
+	ul, ol {
+		padding-left: 1.5em;
+		margin-bottom: 1em;
+
+		li {
+			margin-bottom: 0.5em;
+		}
+	}
+}

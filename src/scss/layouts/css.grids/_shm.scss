@@ -1,0 +1,131 @@
+// =============================================================================
+// LAYOUT: FULL LEFT SIDEBAR + HEADER + MAIN
+// components/_grid-shm.scss
+// -----------------------------------------------------------------------------
+// Responsive CSS Grid layout with fixed-width left sidebar and flexible main
+// content. Suitable for dashboards, admin panels, or content-heavy pages.
+//
+// Features:
+// - Sidebar can be hidden via `.sidebar-hidden` modifier
+// - Responsive stacking on mobile: sidebar moves below header
+// - Smooth transitions for sidebar toggle
+//
+// Dependencies:
+// - CSS custom properties:
+//   --sidebar-width
+//   --header-height
+//   --margin (--m)
+//   --spacing, colors, breakpoints
+//
+// Usage example:
+// <div class="l-shm sidebar-hidden">
+//   <aside>Sidebar content</aside>
+//   <header>Header content</header>
+//   <main>Main content</main>
+// </div>
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+.l-shm {
+	
+	display: grid;
+
+	// -----------------------------------------------------------------
+	// Grid Template: Columns, Rows & Areas
+	// -----------------------------------------------------------------
+	grid-template-columns: var(--sidebar-width) 1fr;
+
+	// Define rows: header height + flexible content area
+	grid-template-rows: var(--header-height) 1fr;
+
+	// Define grid areas - sidebar left, header top-right, main content below header
+	grid-template-areas:
+		"sidebar header"
+		"sidebar main";
+
+	height: 100vh;
+	min-height: 100vh;
+	margin: var(--m, 0);
+	padding: 0;
+	position: relative;
+	transition: all 250ms ease-in-out;
+
+	// Overflow is managed by children
+	overflow: hidden;
+
+	// -----------------------------------------------------------------
+	// Sidebar Block
+	// -----------------------------------------------------------------
+	>aside {
+		grid-area: sidebar;
+		height: 100%;
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		background-color: var(--color-background);
+		//padding: var(--spacing-default);
+		//border-right: 1px solid var(--color-border-muted);
+		transition: width 250ms ease, transform 250ms ease;
+	}
+
+	// -----------------------------------------------------------------
+	// Header Block
+	// -----------------------------------------------------------------
+	>header {
+		grid-area: header;
+		background-color: var(--color-background);
+		//padding: var(--spacing-default);
+		//border-bottom: 1px solid var(--color-border-muted);
+		z-index: 2;
+	}
+
+	// -----------------------------------------------------------------
+	// Main Content Block
+	// -----------------------------------------------------------------
+	>main {
+		grid-area: main;
+		height: 100%;
+		min-height: 0; // Enables proper overflow
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		background-color: var(--color-background);
+		position: relative;
+		//padding: var(--spacing-default);
+		z-index: 1;
+	}
+
+	&.sidebar-hidden {
+		grid-template-columns: 1fr;  // Only one column, full width for main
+		grid-template-areas:
+			"header"
+			"main";
+
+		> aside {
+			width: 0;
+			overflow: hidden;
+			transform: translateX(-100%);
+			display: none;  /* optionally hide completely */
+		}
+	}
+
+}
+
+// -----------------------------------------------------------------------------
+// Responsive: Stack Sidebar Below Header (max-width: 768px)
+// -----------------------------------------------------------------------------
+
+@media (max-width: $breakpoint-md-max) {
+	.l-shm {
+		grid-template-columns: 1fr;
+		grid-template-rows: var(--header-height) auto 1fr;
+		grid-template-areas:
+			"header"
+			"sidebar"
+			"main";
+
+		>aside {
+			border-right: none;
+			border-bottom: 1px solid var(--color-border-muted);
+		}
+	}
+}

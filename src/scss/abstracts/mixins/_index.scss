@@ -1,0 +1,54 @@
+// ============================================
+// MIXINS ENTRY POINT
+// abstracts/mixins/_index.scss
+// --------------------------------------------
+// Centralized access to all mixins and functions:
+// - Breakpoints & responsive utilities
+// - Layout & grid helpers
+// - Visual effects & elevation
+// - Typography utilities
+// - Utility functions (helpers)
+// ============================================
+// 
+
+// --------------------------------------------
+// RESPONSIVE DESIGN
+// --------------------------------------------
+// Media query and token-based utilities
+
+@forward 'breakpoints';		// Min/max width media queries
+@forward 'responsive';		// Token-based queries (e.g., respond-above, respond-below, respond-between)
+
+
+// --------------------------------------------
+// LAYOUT & GRID
+// --------------------------------------------
+// Grid and layout utilities
+
+@forward 'layout';			// Grid/flex helpers (e.g., create-grid-columns)
+
+
+// --------------------------------------------
+// VISUAL EFFECTS
+// --------------------------------------------
+// Animations, transitions, shadows, and SVG helpers
+
+@forward 'effects';			// Fade, slide, scale, pulse, shake, collapse, etc.
+@forward 'elevation';		// Elevation/shadow depth mixins
+@forward 'svg';				// Inline SVG fill/color manipulation
+
+
+// --------------------------------------------
+// TYPOGRAPHY
+// --------------------------------------------
+// Font stacks, sizes, weights, and line-heights
+
+@forward 'typography';		// font-primary, font-size
+
+
+// --------------------------------------------
+// UTILITY FUNCTIONS
+// --------------------------------------------
+// Helpers for string replacement, rem conversion, etc.
+
+@forward 'functions';		// calculateRem(), str-replace()

@@ -1,0 +1,378 @@
+// =============================================================================
+// LIST COMPONENT
+// components/ui/_list.scss
+// -----------------------------------------------------------------------------
+// A versatile list component using native ::marker bullets
+// Supports structured content, nested groups, and modifier classes
+// Fully responsive, hoverable, divider, striped, and utility-ready
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as bp;
+@use '../../abstracts/variables/effects' as fx;
+
+// -------------------------------------------------------------------------
+// Base Styles & Mixins
+// -------------------------------------------------------------------------
+// Core mixins providing foundational styling for list items, inner wrappers,
+// and grouped list structures.
+// -------------------------------------------------------------------------
+
+/// ---------------------------------------------
+/// MIXIN: list-item-base-styles ()
+/// ---------------------------------------------
+/// Base styles for a single list item, ensuring native ::marker bullets are
+/// rendered correctly and providing default typography and spacing. Includes
+/// anchor tag styling for links inside list items.
+/// @mixin list-item-base-styles
+/// @example scss
+///   li { @include list-item-base-styles; }
+///
+
+@mixin list-item-base-styles {
+	display: list-item; // Ensures native bullets are rendered.
+	box-sizing: border-box;
+	padding: var(--spacing-sm) 0;
+	font-size: 14px;
+	border-radius: 0;
+
+	a {
+		text-decoration: none;
+		color: var(--color-text);
+	}
+}
+
+/// ---------------------------------------------
+/// MIXIN: list-inner-base-styles ()
+/// ---------------------------------------------
+/// Base styles for inner list container (.list-inner). Ensures proper
+/// horizontal alignment and full-width behavior.
+/// @mixin list-inner-base-styles
+/// @example scss
+///   .list-inner { @include list-inner-base-styles; }
+///
+
+@mixin list-inner-base-styles {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+/// ---------------------------------------------
+/// MIXIN: list-group-base-styles ()
+/// ---------------------------------------------
+/// Styles for grouped list items (.list-group) with .list-addon and .list-body.
+/// Handles spacing, alignment, and text wrapping for structured content.
+/// @mixin list-group-base-styles
+/// @example scss
+///   .list-group { @include list-group-base-styles; }
+///
+
+@mixin list-group-base-styles {
+	display: flex;
+	align-items: center;
+	padding: var(--spacing-sm) 0;
+	font-size: 14px;
+
+	.list-addon,
+	.list-body {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: 32px;
+	}
+
+	.list-addon {
+		padding-right: var(--spacing-md);
+	}
+
+	.list-body {
+		flex: 1;
+		line-height: 1.4;
+		min-width: 0; // Prevents flex item from overflowing its container.
+
+		> * {
+			max-width: 100%;
+			white-space: normal;
+
+			&.no-wrap {
+				white-space: nowrap;
+			}
+		}
+	}
+}
+
+// -------------------------------------------------------------------------
+// Main List Component
+// -------------------------------------------------------------------------
+// Core .list container, supporting nested items, spacing, and all appearance,
+// behavior, size, bullet, and color modifiers.
+// -------------------------------------------------------------------------
+
+.list {
+	//padding: 0;
+	margin: 0;
+	list-style-position: outside; // Keeps bullets out of the text flow.
+
+	// ---------------------------------------------------------------------
+	// Target direct children (list items or groups) for consistent styling.
+	// ---------------------------------------------------------------------
+	>li,
+	>.list-group {
+		break-inside: avoid-column; // Prevents items from breaking across columns in split-lists.
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+
+		>ul {
+			margin-top: var(--spacing-sm);
+		}
+	}
+
+	// Apply vertical spacing between items using the "lobotomized owl" technique.
+	>li+li,
+	>.list-group+.list-group {
+		margin-top: var(--spacing-sm);
+	}
+
+	// ---------------------------------------------------------------------
+	// Base Item Styles
+	// ---------------------------------------------------------------------
+
+	>li {
+
+		@include list-item-base-styles;
+		padding-left: .5em; // Reserve space for native bullets.
+
+		.list-inner {
+			@include list-inner-base-styles;
+		}
+
+		&::marker {
+			color: var(--color-text);
+			font-size: 1em;
+		}
+	}
+
+	// ---------------------------------------------------------------------
+	// List Groups
+	// ---------------------------------------------------------------------
+
+	>.list-group {
+		@include list-group-base-styles;
+	}
+
+	// ---------------------------------------------------------------------
+	// Behavior Modifiers
+	// ---------------------------------------------------------------------
+
+	// Compensates for parent padding to align the list with other content.
+	// !important is used here to ensure it overrides other spacing utilities.
+	&.list-align {
+		margin-left: calc(var(--spacing-sm) * -1) !important;
+	}
+
+	&.list-inline>li {
+		display: inline-block;
+		width: auto;
+		vertical-align: middle;
+	}
+
+	&.list-clickable>li,
+	&.list-clickable>.list-group {
+		cursor: pointer;
+	}
+
+	&.split-list {
+		column-count: 2;
+		column-gap: var(--spacing-lg);
+
+		@media screen and (max-width: 600px) {
+			column-count: 1;
+		}
+	}
+
+	// ---------------------------------------------------------------------
+	// Appearance Modifiers
+	// ---------------------------------------------------------------------
+
+	&.list-divider {
+		> li + li {
+			border-top: 1px solid var(--color-border);
+			padding-top: var(--spacing-sm);
+		}
+
+		> .list-group + .list-group {
+			margin-top: 0;
+			padding-top: var(--spacing-sm);
+
+			// The border is applied via a pseudo-element on the body to ensure
+			// it spans the full width, excluding any addons.
+			.list-body {
+				position: relative;
+
+				&::before {
+					content: '';
+					position: absolute;
+					top: calc(var(--spacing-sm) * -1);
+					left: 0;
+					width: 100%;
+					border-top: 1px solid var(--color-border);
+				}
+			}
+		}
+	}
+
+	&.list-striped {
+		> li,
+		> .list-group {
+			padding-left: var(--spacing-sm);
+			padding-right: var(--spacing-sm);
+		}
+
+		> :nth-of-type(odd) {
+			background-color: var(--color-surface);
+		}
+
+		// Override the default margin when using stripes for a seamless look.
+		> li + li,
+		> .list-group + .list-group {
+			margin-top: 0;
+		}
+	}
+
+	&.list-hoverable {
+		> li,
+		> .list-group {
+			transition: background-color 140ms fx.$ease-snappy;
+			border-radius: var(--border-radius-sm);
+		}
+
+		> li:hover,
+		> .list-group:hover {
+			background-color: var(--color-hover-surface);
+		}
+
+		// When a divider list is hoverable, hide the adjacent borders for a clean effect.
+		&.list-divider {
+			> li:hover + li {
+				border-top-color: transparent;
+			}
+			
+			> .list-group:hover + .list-group .list-body::before {
+				border-top-color: transparent;
+			}
+		}
+	}
+
+	&.list-no-bullets {
+		// Target the list items within the modified list
+		> li {
+			// 1. Hide the native browser bullet
+			list-style-type: none;
+
+			// 2. Remove the padding that created space for the bullet
+			padding-left: 0;
+		}
+
+		// 3. Explicitly hide the custom bullet if you are using the ::before method
+		> li::before {
+			display: none;
+		}
+	}
+
+	// ---------------------------------------------------------------------
+	// Size Modifiers
+	// ---------------------------------------------------------------------
+
+	&.list-large {
+		> li + li,
+		> .list-group + .list-group,
+		> * > ul {
+			margin-top: var(--spacing-lg);
+		}
+
+		> li,
+		> .list-group,
+		&.list-striped > li,
+		&.list-striped > .list-group {
+			padding-top: var(--spacing-lg);
+			padding-bottom: var(--spacing-lg);
+		}
+
+		&.list-divider {
+			> li + li,
+			> .list-group + .list-group {
+				padding-top: var(--spacing-lg);
+			}
+		}
+	}
+
+	&.list-condensed > li,
+	&.list-condensed > .list-group {
+		padding-top: var(--spacing-xs) !important;
+		padding-bottom: var(--spacing-xs) !important;
+	}
+
+	&.list-collapse {
+		> li,
+		> .list-group {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+
+		> li + li,
+		> .list-group + .list-group,
+		> * > ul {
+			margin-top: 0;
+		}
+
+		&.list-divider > li + li,
+		&.list-divider > .list-group + .list-group {
+			padding-top: 0;
+		}
+	}
+
+	// ---------------------------------------------------------------------
+	// Bullet & Marker Modifiers
+	// ---------------------------------------------------------------------
+
+	&.list-disc    { list-style-type: disc; }
+	&.list-circle  { list-style-type: circle; }
+	&.list-square  { list-style-type: square; }
+	&.list-decimal { list-style-type: decimal; }
+	&.list-hyphen  {
+		list-style-type: none;
+		> li::marker { content: '– '; }
+	}
+
+	// ---------------------------------------------------------------------
+	// Color Modifiers
+	// ---------------------------------------------------------------------
+
+	// !important is acceptable here for utility classes to ensure they override base styles.
+	&.list-muted     > li::marker { color: var(--color-text-muted) !important; }
+	&.list-emphasis  > li::marker { color: var(--color-text) !important; }
+	&.list-primary   > li::marker { color: var(--color-primary) !important; }
+	&.list-secondary > li::marker { color: var(--color-text-secondary) !important; }
+
+	// ---------------------------------------------------------------------
+	// Utility Classes
+	// ---------------------------------------------------------------------
+
+	.list-secondary-text {
+		font-size: 14px;
+		color: var(--color-text-secondary);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		//white-space: nowrap;
+		white-space: normal;
+
+		// A modifier to prevent wrapping if needed.
+		////&.wrap-text {
+		&.no-wrap {	
+			//white-space: normal;
+			white-space: nowrap;
+		}
+	}
+}

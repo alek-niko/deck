@@ -1,0 +1,52 @@
+// =============================================================================
+// THUMBNAV COMPONENT
+// components/navigation/_thumbnav.scss
+// -----------------------------------------------------------------------------
+// Provides tokenized, responsive thumbnail navigation (thumbnav).
+// - Horizontal and vertical layouts
+// - Fully theme-integrated and flexible spacing
+// - Supports multi-directional alignment
+//
+// Dependencies:
+// - tokens.scss (for spacing and color tokens)
+// =============================================================================
+
+ .thumbnav {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	margin-left: -15px; // gutter compensation for horizontal layout
+
+	//--------------------------------------
+	// Default Thumbnav Items
+	//--------------------------------------
+
+	> * {
+		padding-left: 15px; // horizontal spacing between items
+	}
+
+	//--------------------------------------
+	// Inner elements
+	//--------------------------------------
+
+	> * > * {
+		display: inline-block; // ensures contained elements behave inline
+	}
+
+	//--------------------------------------
+	// Vertical Thumbnav Modifier
+	//--------------------------------------
+
+	&-vertical {
+		flex-direction: column;		// stack items vertically
+		margin-left: 0;				// remove horizontal gutter
+		margin-top: -15px;			// gutter compensation for vertical layout
+
+		> * {
+			padding-left: 0;		// reset horizontal spacing
+			padding-top: 15px;		// vertical spacing between items
+		}
+	}
+}

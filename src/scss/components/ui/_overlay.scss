@@ -1,0 +1,136 @@
+// =============================================================================
+// OVERLAY COMPONENT
+// components/ui/_overlay.scss
+// -----------------------------------------------------------------------------
+// Semi-transparent overlays for use over hero blocks, images, modals, etc.
+// Uses locally scoped CSS custom properties to avoid :root pollution.
+//
+// Features:
+// - Variants: default, primary, muted, inverted
+// - Optional hover interactivity with smooth transition
+// - Fade-in and fade-out animations
+// - Semantic text color support via --overlay-color and --color-text-inverse
+// =============================================================================
+
+@use '../../abstracts/variables/colors' as *;
+@use '../../abstracts/variables/spacing' as *;
+@use '../../abstracts/variables/effects' as *;
+
+// -------------------------------------------------------------------------
+// Base Overlay
+// -------------------------------------------------------------------------
+// Core overlay wrapper. Centers content using flex, applies padding and
+// background color, and sets default animation for entrance.
+
+.overlay {
+	--overlay-padding: var(--spacing-default);
+
+	//--overlay-bg: var(--color-surface-contrast, rgba(255, 255, 255, 0.85));
+    //--overlay-bg: rgba(255, 255, 255, 0.6);
+    --overlay-bg:  rgba(34,34,34,.8);   
+	
+    //--overlay-color: var(--color-text);
+    //--overlay-color: var(--color-text-inverse);
+    --overlay-color: white;
+
+	//display: block;
+	padding: var(--overlay-padding);
+	background: var(--overlay-bg);
+	color: var(--overlay-color);
+
+
+    display: flex;
+	// align-items: flex-end;
+    align-items: center;
+	justify-content: center;
+    
+	
+    animation: overlay-fade-in 0.4s ease both;
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+}
+
+// -------------------------------------------------------------------------
+// Overlay Variants (Scoped Tokens)
+// -------------------------------------------------------------------------
+// Customizable background and text color variants.
+
+.overlay-default {
+	--overlay-bg: var(--color-surface-contrast, rgba(255, 255, 255, 0.85));
+	--overlay-color: var(--color-text);
+}
+
+.overlay-primary {
+	--overlay-bg: rgba(0, 0, 0, 0.7);
+	//--overlay-color: var(--color-text-inverse, #fff); 
+    --overlay-color: white; 
+}
+
+.overlay-muted {
+	--overlay-bg: rgba(0, 0, 0, 0.45);
+	--overlay-color: var(--color-text-muted, #ccc);
+}
+
+.overlay-inverted {
+	--overlay-bg: var(--color-surface-contrast, rgba(255, 255, 255, 0.9));
+	--overlay-color: var(--color-text-inverse);
+}
+
+// -------------------------------------------------------------------------
+// Hover Modifier
+// -------------------------------------------------------------------------
+// Applies alternative background and text colors on hover with smooth transition.
+
+.overlay-hover {
+	--overlay-hover-bg: rgba(0, 0, 0, 0.65);
+	//--overlay-hover-color: var(--color-text-inverse, #fff);
+    --overlay-hover-color: white;
+	transition: background 0.25s ease;
+
+	&:hover {
+		--overlay-bg: var(--overlay-hover-bg);
+		--overlay-color: var(--overlay-hover-color);
+	}
+}
+
+// -------------------------------------------------------------------------
+// Fade Animations
+// -------------------------------------------------------------------------
+// Utility classes to trigger fade-in or fade-out animations.
+
+.overlay-fade-in {
+	animation: overlay-fade-in 0.4s ease both;
+}
+
+.overlay-fade-out {
+	animation: overlay-fade-out 0.3s ease forwards;
+}
+
+// -------------------------------------------------------------------------
+// Keyframes
+// -------------------------------------------------------------------------
+// Defines the actual keyframe animations for overlay appearance and exit.
+
+@keyframes overlay-fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(0.5rem);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes overlay-fade-out {
+	from {
+		opacity: 1;
+		transform: none;
+	}
+	to {
+		opacity: 0;
+		transform: translateY(0.5rem);
+	}
+}

@@ -1,0 +1,126 @@
+// ============================================
+// YOUTUBE EMBED COMPONENT
+// components/content/_youtube.scss
+// --------------------------------------------
+// Responsive, accessible YouTube embed component.
+// - Lazy loads iframe only on interaction
+// - Maintains 16:9 aspect ratio via padding hack
+// - Self-contained styles with CSS variables
+// - Play button is a semantic <button>
+// ============================================
+
+
+.youtube-embed {
+
+    //--------------------------------------------
+	// Container
+	//--------------------------------------------
+
+    --aspect-ratio: 56.25%; // 16:9 aspect ratio (9 / 16 * 100)
+    --transition-speed: 0.3s;
+    --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+    position: relative;
+    padding-bottom: var(--aspect-ratio);
+    height: 0;
+    background-color: #000; // Fallback background color
+    overflow: hidden; // Prevents shadows from breaking layout
+}
+
+//--------------------------------------------
+// Thumbnail Image
+//--------------------------------------------
+.youtube-embed-thumbnail {
+    position: absolute;
+    inset: 0; // Modern shorthand for top, right, bottom, left: 0
+    width: 100%;
+    height: 100%;
+
+    // Ensures the image covers the area without distortion
+    object-fit: cover;
+    border: none;
+    cursor: pointer;
+
+    // Transition only the properties that change for better performance
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+
+    &:hover {
+        transform: scale(1.02); // Adds a subtle zoom effect on hover
+        box-shadow: var(--shadow-hover);
+    }
+}
+
+//--------------------------------------------
+// Play Button
+//--------------------------------------------
+
+.youtube-embed-play-button {
+    // Reset button styles
+    background: none;
+    border: none;
+    padding: 0;
+    
+    // Centering using transform is more robust than negative margins
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    // Sizing
+    width: 50px;
+    height: 50px;
+    
+    z-index: 10;
+    cursor: pointer;
+    transition: transform var(--transition-speed) ease;
+
+    // Use an inline SVG for the icon for scalability and performance
+    svg {
+        width: 100%;
+        height: 100%;
+        // A subtle drop-shadow makes the icon pop
+        filter: drop-shadow(0 1px 5px rgba(0, 0, 0, 0.4));
+    }
+    
+    // Make the button slightly larger on hover for better feedback
+    .youtube-embed:hover & {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+//--------------------------------------------
+// Iframe
+//--------------------------------------------
+.youtube-embed-iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    z-index: 20; // Must be higher than the play button and thumbnail
+}
+
+
+// ====================================================================
+// Recommended HTML Structure
+// ====================================================================
+/*
+<div class="youtube-embed">
+
+    <img 
+        src="https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/maxresdefault.jpg" 
+        alt="" 
+        class="youtube-embed-thumbnail"
+        loading="lazy"
+    >
+
+    <button class="youtube-embed-play-button" aria-label="Play Video">
+        <svg viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d_3_30)">
+            <path d="M37 0C16.56 0 0 16.56 0 37C0 57.44 16.56 74 37 74C57.44 74 74 57.44 74 37C74 16.56 57.44 0 37 0ZM29.6 53.28V20.72L51.8 37L29.6 53.28Z" fill="white"/>
+            </g>
+        </svg>
+    </button>
+  
+  </div>
+  */

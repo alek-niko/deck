@@ -1,0 +1,44 @@
+// =============================================================================
+// EMBED COMPONENT
+// components/ui/_embed.scss
+// -----------------------------------------------------------------------------
+// Provides responsive containers for iframes, videos, and other embedded media.
+// Uses padding-bottom ratio technique for maintaining aspect ratios.
+//
+// Supports:
+// - Default 16:9 ratio (.embed)
+// - Square ratio (.embed-square)
+// - 4:3 ratio (.embed-4x3)
+// - 21:9 ratio (.embed-21x9)
+// =============================================================================
+
+.embed {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	padding-bottom: 56.25%; // 16:9 aspect ratio
+	height: 0;
+
+	/// Nested elements (iframe, video, object, embed) are scaled to fit container
+	iframe,
+	video,
+	object,
+	embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Aspect Ratio Modifiers
+// -----------------------------------------------------------------------------
+// Apply these classes directly to `.embed` to change the aspect ratio.
+// -----------------------------------------------------------------------------
+
+.embed-square   { padding-bottom: 100%; }
+.embed-4x3      { padding-bottom: 75%; }
+.embed-21x9     { padding-bottom: 42.85%; }

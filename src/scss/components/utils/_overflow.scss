@@ -1,0 +1,53 @@
+// =============================================================================
+// OVERFLOW UTILITIES
+// components/utilities/_overflow.scss
+// -----------------------------------------------------------------------------
+// Provides utility classes to control element overflow behavior.
+// - Supports x-axis, y-axis, and both axes
+// - Includes smooth scrolling and touch scrolling helpers
+// - Useful for scroll containers, clipping content, and layout fixes
+// - Ready for responsive overrides via media mixins
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Overflow Utilities
+// -----------------------------------------------------------------------------
+
+.overflow-visible	{ overflow: visible !important; }
+.overflow-hidden	{ overflow: hidden !important; }
+.overflow-scroll	{ overflow: scroll !important; }
+.overflow-auto		{ overflow: auto !important; }
+
+// X-axis specific overflow
+.overflow-x-hidden	{ overflow-x: hidden !important; }
+.overflow-x-scroll	{ overflow-x: scroll !important; }
+.overflow-x-auto	{ overflow-x: auto !important; }
+
+// Y-axis specific overflow
+.overflow-y-hidden	{ overflow-y: hidden !important; }
+.overflow-y-scroll	{ overflow-y: scroll !important; }
+.overflow-y-auto	{ overflow-y: auto !important; }
+
+// -----------------------------------------------------------------------------
+// Scroll Behavior Utilities
+// -----------------------------------------------------------------------------
+
+/// Smooth scrolling
+.scroll-smooth		{ scroll-behavior: smooth !important; }
+
+/// Enable momentum scrolling for touch devices (iOS)
+.scroll-touch		{ -webkit-overflow-scrolling: touch; }
+
+// Quick horizontal or vertical scroll containers
+.scroll-x			{ overflow-x: auto; overflow-y: hidden; white-space: nowrap; }
+.scroll-y			{ overflow-y: auto; overflow-x: hidden; }
+
+
+// -----------------------------------------------------------------------------
+// Responsive Overflow Examples
+// -----------------------------------------------------------------------------
+/// Example: apply overflow utilities only below medium breakpoint
+/// @include respond-below('md') {
+///   .overflow-hidden\@medium { overflow: hidden !important; }
+///   .overflow-auto\@medium   { overflow: auto !important; }
+/// }

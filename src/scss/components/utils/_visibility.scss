@@ -1,0 +1,140 @@
+// =============================================================================
+// VISIBILITY UTILITIES
+// components/utils/_visibility.scss
+// -----------------------------------------------------------------------------
+// Provides helpers for controlling element visibility, display, and accessibility
+// Supports:
+// - Global hiding/showing
+// - Breakpoint-specific responsive visibility
+// - Non-layout-breaking hidden elements
+// - A11Y-friendly visually hidden elements
+// - Device-specific (touch vs pointer) visibility
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+// -----------------------------------------------------------------------------
+// Global Display Hiding
+// -----------------------------------------------------------------------------
+/// Hides elements entirely (display: none)
+
+[hidden],
+.hidden {
+	display: none !important;
+}
+
+// -----------------------------------------------------------------------------
+// Responsive Hiding by Breakpoint
+// -----------------------------------------------------------------------------
+/// Hides the element from the given breakpoint and up
+/// Class format: `.hidden-sm`, `.hidden-md`, etc.
+
+@each $name, $value in $breakpoints {
+	@media (min-width: $value) {
+		.hidden-#{$name} {
+			display: none !important;
+		}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Responsive Showing by Breakpoint
+// -----------------------------------------------------------------------------
+/// Shows element only above the specified breakpoint
+/// Hides it below the breakpoint
+/// Class format: `.visible-sm`, `.visible-md`, etc.
+
+@each $name, $min in $breakpoints {
+	.visible-#{$name} {
+		display: none !important;
+	}
+
+	@media (min-width: $min) {
+		.visible-#{$name} {
+			display: block !important;
+		}
+	}
+}
+
+// --------------------------------------------
+// Show only within breakpoint range (e.g. only sm screens)
+// --------------------------------------------
+
+// @each $name, $min in $breakpoints {
+// 	$max: map-get($breakpoint-max-values, $name);
+
+// 	.visible-#{$name} {
+// 		display: none !important;
+// 	}
+
+// 	@if $max {
+// 		@media (min-width: $min) and (max-width: $max) {
+// 			.visible-#{$name} {
+// 				display: block !important;
+// 			}
+// 		}
+// 	}
+
+// 	@else {
+
+// 		// For largest breakpoint with no max
+// 		@media (min-width: $min) {
+// 			.visible-#{$name} {
+// 				display: block !important;
+// 			}
+// 		}
+// 	}
+// }
+
+// -----------------------------------------------------------------------------
+// Visibility (non-layout-breaking)
+// -----------------------------------------------------------------------------
+/// Makes elements invisible without removing them from layout
+.invisible {
+	visibility: hidden !important;
+}
+
+// -----------------------------------------------------------------------------
+// Visually Hidden (A11Y assistive only)
+// -----------------------------------------------------------------------------
+/// Hides elements visually but keeps them accessible to screen readers
+/// Useful for assistive text, skip links, or content toggled with focus-
+
+.hidden-visually:not(:focus):not(:active):not(:focus-within),
+.visible-toggle:not(:hover):not(:focus) .hidden-hover:not(:focus-within) {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	border: 0 !important;
+	margin: 0 !important;
+	overflow: hidden !important;
+	clip-path: inset(50%) !important;
+	white-space: nowrap !important;
+}
+
+// -----------------------------------------------------------------------------
+// Opacity-based Hover/Focus Reveal
+// -----------------------------------------------------------------------------
+/// For elements that become visible on hover/focus
+
+.visible-toggle:not(:hover):not(:focus) .invisible-hover:not(:focus-within) {
+	opacity: 0 !important;
+}
+
+// -----------------------------------------------------------------------------
+// Device-specific Visibility
+// -----------------------------------------------------------------------------
+/// Hide elements based on input capability (touch vs pointer)
+
+@media (hover: none) {
+	.hidden-touch {
+		display: none !important;
+	}
+}
+
+@media (hover) {
+	.hidden-notouch {
+		display: none !important;
+	}
+}

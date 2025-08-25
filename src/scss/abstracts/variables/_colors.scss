@@ -1,0 +1,165 @@
+// ============================================
+// COLORS
+// abstracts/variables/_colors.scss
+// --------------------------------------------
+// Central color definitions for light mode.
+// - Base palette (raw colors)
+// - Semantic UI tokens (primary, success, etc.)
+// - Context-specific colors (text, border, hover, etc.)
+// - Custom properties are mapped in `_theme.scss`
+// ============================================
+
+@use './elevation' as *;
+
+/// --------------------------------------------
+/// BASE PALETTE
+/// --------------------------------------------
+/// Raw color definitions for use throughout UI.
+
+$white:						#ffffff !default;
+$black:						#000000 !default;
+
+$gray-100:					#f8f9fa !default;	// Light background
+$gray-800:					#333333 !default;	// Near-black
+$gray-900:					#1a1a1a !default;	// Background dark
+
+//$blue:					#0277bd !default;	// Accent blue
+$blue:						#1DA1F2 !default;	// Accent blue
+$dark:						#15202B !default;	// Dark color
+
+
+/// --------------------------------------------
+/// BODY & TEXT
+/// --------------------------------------------
+
+$body-color:				rgba(0,0,0,.87) !default;			// Main body text
+$body-bg:					#f5f5f5 !default;					// Default page background
+
+$text-color-primary:		rgba(0,0,0,.87) !default;			// Headings, important text
+$text-color-secondary:		rgba(0,0,0,.54) !default;			// Less prominent text
+$text-color-on-inverted:    rgba(255, 255, 255, 0.95) !default; // on dark surfaces in light theme
+
+$muted-color:				rgba(0,0,0,.40) !default;			// Muted text (labels, timestamps)
+$muted-color-hex:			#999 !default;						// Legacy fallback
+
+
+/// --------------------------------------------
+/// SURFACE COLORS
+/// --------------------------------------------
+
+$surface:					#ffffff !default;	// primary surface color (cards, widgets)
+$surface-muted:				#f7f9fa !default;	// lighter surface (soft backgrounds)
+$surface-contrast:			#15202b !default;	// for dark-on-light components
+$surface-disabled: 			#f1f4f5 !default;  // Very soft background, slightly darker than $surface-muted
+
+
+/// --------------------------------------------
+/// SEMANTIC & UI COLORS
+/// --------------------------------------------
+
+$primary-color:				#0d8ddb !default;	// Accessible Twitter-like blue
+$secondary-color:			#e2e8f0 !default;  // 
+$success-color:				#2e7d32 !default;	// Google green[700]
+$warning-color:				#ef6c00 !default;	// Orange[800]
+$danger-color:				#c62828 !default;	// Red[800]
+
+// Old more vibrant colors
+// $primary-color:				#4f46e5 !default;
+// $secondary-color:			#e2e8f0 !default;
+// $success-color:				#16a34a !default;
+// $warning-color:				#f97316 !default;
+// $danger-color:				#dc2626 !default;
+
+// Semantic Backgrounds (e.g. toast, badge, bg-hover for states)
+$success-bg-color:			rgba(102, 187, 106, 0.1) !default;
+$warning-bg-color:			rgba(255, 167, 38, 0.12) !default;
+$danger-bg-color:			rgba(239, 83, 80, 0.12) !default;
+
+$link-color:				#1a73e8 !default;	// Modern web-safe blue
+$link-color-hover:			#185abc !default;	// Deeper for hover/focus states
+
+$deck-color:				#1DA1F2 !default;
+$deck-dark-color:			#15202B !default;
+
+$disabled-color:			#a8b0b8;			// Medium gray with enough contrast for text, often ~#aaa
+
+
+/// --------------------------------------------
+/// BORDERS
+/// --------------------------------------------
+
+// Base border colors
+$border-color:				rgba(0,0,0,.12) !default;		// Default border
+$border-color-hover:		rgba(0,0,0,.24) !default;		// On hover
+$border-color-focus:		rgba(0, 0, 0, 0.36) !default;  // For focus rings / active
+
+// Thematic use cases
+$border-color-dark:			rgba(0, 0, 0, 0.36) !default;   // For dark background
+$border-color-light:		rgba(0, 0, 0, 0.08) !default;   // Light separators
+$border-color-muted:		rgba(0, 0, 0, 0.06) !default;   // Softer than light
+$border-color-subtle:		rgba(0, 0, 0, 0.04) !default;   // Very soft dividers (e.g., tables, cards)
+
+// // Aliases (optional) - backward compatiblity
+$border-color-soft:			rgba(0, 0, 0, 0.06) !default;
+$border-color-strong:		rgba(0, 0, 0, 0.24) !default;        
+
+
+/// --------------------------------------------
+/// HOVER COLORS
+/// --------------------------------------------
+
+$hover-color:				rgba(0,0,0,.08) !default;			// Default hover bg
+$hover-color-dark:			rgba(0,0,0,.16) !default;			// For dark UIs
+$hover-color-light:			rgba(255,255,255,.36) !default;	// Light theme hover (dark bg context)
+$hover-color-surface:		rgba(0, 0, 0, 0.04);				// Default surface hover
+$hover-color-surface-strong:rgba(0, 0, 0, 0.08);				// Stronger hover for emphasis
+
+
+/// --------------------------------------------
+/// EFFECTS & UI STATES
+/// --------------------------------------------
+
+$overlay-background:		rgba(0, 0, 0, 0.3) !default;	// Light overlay for modals
+$backdrop-blur:				blur(8px) !default;				// Optional: use with backdrop-filter
+$shadow-elevation:			0 1px 4px rgba(0, 0, 0, 0.1) !default; // Base card/modal shadow
+
+// Legacy shadow example (commented)
+//$shadow-elevation: 			0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+
+/// --------------------------------------------
+/// ICONS
+/// --------------------------------------------
+
+$icon-color:				rgba(0, 0, 0, 0.54) !default;		// Default icon color
+$icon-color-inactive:		rgba(0,0,0,.38) !default;			// Disabled/inactive icons
+$icon-color-hover:			$text-color-primary !default;		// Same as primary text color
+$icon-shadow-color:			rgba(0, 0, 0, 0.4) !default;		// Icon ring shadow
+$icon-action-bg:			rgba(0, 0, 0, 0.08) !default;		// Icon hover background
+$icon-circle-bg:			transparent !default;				// Icon circle background
+
+
+/// --------------------------------------------
+/// PLACEHOLDER
+/// --------------------------------------------
+
+$placeholder-color:			#999;
+
+/// --------------------------------------------
+/// SHADOWS
+/// --------------------------------------------
+
+// Using $elevation
+$shadow-xs:					elevation-shadow(1) !default;
+$shadow-sm:					elevation-shadow(2) !default;
+$shadow-md:					elevation-shadow(4) !default;
+$shadow-lg:					elevation-shadow(8) !default;
+$shadow-xl:					elevation-shadow(12) !default;
+$shadow-2xl:				elevation-shadow(24) !default;
+
+// Simple shadows:
+// $shadow-xs:					0 1px 2px rgba(0, 0, 0, 0.05) !default;  // xs  shadow
+// $shadow-sm:					0 2px 4px rgba(0, 0, 0, 0.07) !default;  // sm  shadow
+// $shadow-md:					0 4px 6px rgba(0, 0, 0, 0.10) !default;  // md  shadow
+// $shadow-lg:					0 6px 12px rgba(0, 0, 0, 0.15) !default; // lg  shadow
+// $shadow-xl:					0 12px 24px rgba(0, 0, 0, 0.18) !default; // xl  shadow

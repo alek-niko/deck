@@ -1,0 +1,191 @@
+// =============================================================================
+// DRILLDOWN MENU COMPONENT
+// components/navigation/_drilldown.scss
+// -----------------------------------------------------------------------------
+// A fully tokenized, theme-ready vertical drilldown menu component.
+//
+// Features:
+// - Scoped CSS variables for safe reuse
+// - Dark mode ready (via theme variables)
+// - Maintains hierarchy and nested submenu transitions
+//
+// Dependencies:
+// - tokens.scss (for colors, spacing, and typography tokens)
+// =============================================================================
+
+.drill {
+
+	//---------------------------------------------
+	// Scoped Tokens
+	//---------------------------------------------
+	/// Component-level variables
+
+	--drill-header-height: 64px;
+	--drill-max-width: 600px;
+	--drill-width: 100%;
+	--drill-bg: var(--color-surface);
+	--drill-text: var(--color-text);
+	--drill-text-muted: var(--color-text-muted);
+	--drill-hover-bg: rgba(0, 0, 0, 0.04);
+
+	position: relative;
+	width: var(--drill-width);
+	max-width: var(--drill-max-width);
+	min-height: 100%;
+	overflow: hidden;
+	-webkit-overflow-scrolling: touch;
+	transition: 0.45s;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--drill-bg);
+
+	//---------------------------------------------
+	// Header
+	//---------------------------------------------
+	/// Drill menu header with back button and title/description
+
+	.header {
+		display: flex;
+		align-items: center;
+		justify-content: start;
+		padding: 10px 15px;
+		height: var(--drill-header-height);
+
+		// Back button
+		.back-btn {
+			font-size: 24px;
+			line-height: 1.5;
+			font-weight: 300;
+			cursor: pointer;
+			color: var(--drill-text-muted);
+			display: none;
+			margin-right: 16px;
+		}
+
+		// Header info section (title + description)
+		.header-info {
+			display: flex;
+			flex-direction: column;
+			flex: 1 0 auto;
+			min-width: 0;
+
+			.title {
+				font-size: 19px;
+				font-weight: 800;
+				color: var(--drill-text);
+				overflow-wrap: break-word;
+			}
+
+			.description {
+				font-size: 13px;
+				color: var(--drill-text-muted);
+			}
+		}
+	}
+
+	//---------------------------------------------
+	// Main Menu
+	//---------------------------------------------
+	/// Core menu container and nested items
+
+	> .menu {
+		flex: 0 0 100%;
+		position: relative;
+		width: 100%;
+		height: 100%;
+
+		//-------------------------------------------
+		// Menu Items
+		//-------------------------------------------
+
+		.menu-item {
+
+			// Active submenu revealed
+			&.active > div.submenu {
+				transform: translateX(0);
+				visibility: visible;
+				z-index: 1;
+			}
+
+			// Anchor link for menu item
+			>a {
+				padding: 12px 16px;
+				min-height: 48px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				font-size: 1rem;
+				font-weight: 300;
+				color: var(--drill-text);
+				text-decoration: none;
+				cursor: pointer;
+				outline: none;
+				transition: background-color 0.2s;
+
+				&:hover {
+					background-color: var(--drill-hover-bg);
+				}
+
+				//-------------------------------------
+				// Menu Item Body (icon + info)
+				//-------------------------------------	
+
+				.menu-item-body {
+					display: flex;
+					align-items: center;
+					flex-grow: 1;
+					min-width: 0;
+
+					.icon {
+						width: 28px;
+						height: 28px;
+						margin-right: 16px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						fill: currentColor;
+					}
+
+					.info-section {
+						display: flex;
+						flex-direction: column;
+						flex-grow: 1;
+						min-width: 0;
+
+						.title {
+							font-size: 15px;
+							line-height: 20px;
+							color: var(--drill-text);
+						}
+
+						.description {
+							font-size: 13px;
+							line-height: 16px;
+							color: var(--drill-text-muted);
+						}
+					}
+
+					> svg {
+						width: 16px;
+						height: 16px;
+					}
+				}
+			}
+		}
+
+		//-------------------------------------------
+		// Submenu (hidden by default)
+		//-------------------------------------------
+
+		.submenu {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			transform: translateX(100%);
+			transition: 0.3s;
+			visibility: hidden;
+			background-color: var(--drill-bg);
+		}
+	}
+}

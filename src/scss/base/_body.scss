@@ -1,0 +1,76 @@
+// ===================================================================
+// BASE: Body Element Styles
+// base/_base.scss
+// -------------------------------------------------------------------
+// Applies base styling to <body>
+// Integrates design tokens from theme.scss
+// Supports light/dark themes via semantic tokens
+// ===================================================================
+
+@use '../abstracts/variables' as *;
+
+body {
+
+	// --------------------------------------------------------------------------
+	// Design Tokens (Theme Integration)
+	// --------------------------------------------------------------------------
+	// These tokens reference semantic variables defined in theme.scss
+	// Dark theme values are automatically applied when `.dark` class is on <body>
+
+	--body-font-size:           #{$body-font-size};          // Default font size
+	--body-font-weight:         #{$body-font-weight};        // Default font weight
+	--body-font-line-height:    #{$body-font-line-height};   // Base line height
+	--link-color:               #{$link-color};              // Used by links
+	--content-padding:          #{$content-padding};         // Global page padding
+
+	// --------------------------------------------------------------------------
+	// Base Layout and Typography
+	// --------------------------------------------------------------------------
+
+	min-height: 100vh;
+	font-family: $primaryFont;
+	font-size: var(--body-font-size);
+	font-weight: var(--body-font-weight);
+	line-height: var(--body-font-line-height);
+	color: var(--color-text);				// Text color (theme-based)
+	background: var(--color-background);	// Background color (theme-based)
+	transition: background-color 0.3s ease, color 0.3s ease;
+	overflow-x: hidden;
+	padding: 0 24px;
+	height: 100%;
+	margin: 0;
+
+	// -------------------------------------------------------------------
+	// Modifiers
+	// -------------------------------------------------------------------
+
+	// Extra Horizontal Padding
+	&.add-padding {
+		padding: 0 24px !important;
+
+		@media (max-width: $breakpoint-md-max) {
+			padding: 0 15px !important;
+		}
+
+		@media (max-width: $breakpoint-sm-max) {
+			padding: 0 15px !important; // Optional redundancy
+		}
+	}
+
+	// Disable Scrolling
+	&.no-scroll {
+		overflow: hidden !important;
+	}
+
+	// --------------------------------------------------------------------------
+	// Responsive Padding
+	// --------------------------------------------------------------------------
+
+	@media (max-width: $breakpoint-md-max) {
+		padding: 0 12px;
+	}
+
+	@media (max-width: $breakpoint-sm-max) {
+		padding: 0 8px;
+	}
+}

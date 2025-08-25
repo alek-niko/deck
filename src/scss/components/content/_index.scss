@@ -1,0 +1,30 @@
+// ============================================
+// CONTENT COMPONENTS ENTRY POINT
+// components/content/_index.scss
+// --------------------------------------------
+// Entry point for all content-related UI components.
+// - Forwards modular partials for maintainable content features
+// - Provides a single import for content components
+// ============================================
+
+@forward 'actions';          // Inline action group (icon + label)
+@forward 'article';          // Article content blocks
+@forward 'avatar';           // User avatars
+@forward 'brand';            // Branding elements
+@forward 'code';             // Code blocks
+@forward 'code.tab';         // Tabbed code blocks
+@forward 'comment';          // Comment UI elements
+@forward 'cover';            // Cover images/banners
+@forward 'feed';             // Feed/List UI
+@forward 'hr';               // Horizontal rules
+@forward 'icons';            // Icon components and SVGs
+@forward 'link.preview';     // Content preview cards
+@forward 'link';             // Standard link components
+@forward 'popover';          // Popover elements
+@forward 'post';             // Post UI components
+@forward 'preserve.format';  // Preserve formatting utility
+@forward 'profile';          // Profile component
+@forward 'profile.b';        // Profile variant B
+@forward 'timeline';         // Timeline components
+@forward 'wires';            // News wire / activity feed
+@forward 'youtube';          // Embedded YouTube player component

@@ -1,0 +1,122 @@
+// =============================================================================
+// BORDER UTILITIES
+// components/utils/_borders.scss
+// -----------------------------------------------------------------------------
+// Theme-token-based border utilities for widths, sides, styles, colors, and 
+// radius. Supports both SCSS variables and CSS custom properties for runtime
+// theming.
+// =============================================================================
+
+@use '../../abstracts/variables' as *;
+
+//-----------------------------------------------------------------------------
+// Border Widths
+//-----------------------------------------------------------------------------
+// Default `.border` pulls from tokens with CSS var fallbacks.
+//-----------------------------------------------------------------------------
+
+.border {
+	border: var(--border-width, #{$border-width})
+			var(--border-style, #{$border-style})
+			var(--color-border, #{$border-color}) !important;
+}
+
+//.border			{ border: $border-width $border-style var(--color-border) !important; }
+.border-0		{ border: none !important; }
+.border-thin	{ border-width: 1px !important; }
+.border-thick	{ border-width: 2px !important; }
+
+.border-x {
+	border-left: $border-width $border-style var(--color-border) !important;
+	border-right: $border-width $border-style var(--color-border) !important;
+}
+.border-y {
+	border-top: $border-width $border-style var(--color-border) !important;
+	border-bottom: $border-width $border-style var(--color-border) !important;
+}
+
+//-----------------------------------------------------------------------------
+// Border Sides
+//-----------------------------------------------------------------------------
+
+.border-top		{ border-top: $border-width $border-style var(--color-border) !important; }
+.border-right	{ border-right: $border-width $border-style var(--color-border) !important; }
+.border-bottom	{ border-bottom: $border-width $border-style var(--color-border) !important; }
+.border-left	{ border-left: $border-width $border-style var(--color-border) !important; }
+
+//-----------------------------------------------------------------------------
+// Border Styles
+//-----------------------------------------------------------------------------
+
+.border-dashed { border-style: dashed !important; }
+.border-dotted { border-style: dotted !important; }
+.border-double { border-style: double !important; }
+
+//-----------------------------------------------------------------------------
+// Border Colors
+//-----------------------------------------------------------------------------
+// All colors resolve to design tokens with sensible fallbacks.
+//-----------------------------------------------------------------------------
+
+.border-primary		{ border-color: var(--color-primary, #1e87f0) !important; }
+.border-success		{ border-color: var(--color-success, #32d296) !important; }
+.border-warning		{ border-color: var(--color-warning, #faa05a) !important; }
+.border-danger		{ border-color: var(--color-danger, #f0506e) !important; }
+.border-muted		{ border-color: var(--color-border-muted, #ccc) !important; }
+.border-strong		{ border-color: var(--color-border-strong, #999) !important; }
+.border-white		{ border-color: #fff !important; }
+.border-transparent { border-color: transparent !important; }
+
+//-----------------------------------------------------------------------------
+// Border Radius
+//-----------------------------------------------------------------------------
+// SCSS token-based radius utilities (preferred). 
+// Equivalent CSS variable-based implementations are provided below (commented).
+//-----------------------------------------------------------------------------
+
+// .rounded			{ border-radius: var(--radius-default) !important; }
+// .rounded-sm		{ border-radius: var(--radius-small) !important; }
+// .rounded-md		{ border-radius: $border-radius-md !important; }
+// .rounded-lg		{ border-radius: $border-radius-lg !important; }
+// .rounded-pill	{ border-radius: $border-radius-pill !important; }
+// .rounded-circle	{ border-radius: 50% !important; }
+
+.rounded-xs		{ border-radius: $border-radius-xs !important; }
+.rounded-sm		{ border-radius: $border-radius-sm !important; }
+.rounded		{ border-radius: $border-radius !important; }
+.rounded-md		{ border-radius: $border-radius-md !important; }
+.rounded-lg		{ border-radius: $border-radius-lg !important; }
+.rounded-xl		{ border-radius: $border-radius-xl !important; }
+
+.rounded-pill	{ border-radius: $border-radius-pill !important; }
+.rounded-circle	{ border-radius: $border-radius-circle !important; }
+.rounded-square	{ border-radius: $border-radius-square !important; }
+//.round { border-radius: 1vmin; }
+
+
+.rounded-top	{ border-top-left-radius: $border-radius !important; border-top-right-radius: $border-radius !important; }
+.rounded-bottom	{ border-bottom-left-radius: $border-radius !important; border-bottom-right-radius: $border-radius !important; }
+.rounded-left	{ border-top-left-radius: $border-radius !important; border-bottom-left-radius: $border-radius !important; }
+.rounded-right	{ border-top-right-radius: $border-radius !important; border-bottom-right-radius: $border-radius !important; }
+
+
+//-----------------------------------------------------------------------------
+// Alternative: CSS Variable-based Border Radius
+//-----------------------------------------------------------------------------
+// Uncomment if runtime theming with CSS custom properties is required.
+//-----------------------------------------------------------------------------
+
+// .rounded-xs      { border-radius: var(--radius-xs) !important; }
+// .rounded-sm      { border-radius: var(--radius-sm) !important; }
+// .rounded         { border-radius: var(--radius-default) !important; }
+// .rounded-md      { border-radius: var(--radius-md) !important; }
+// .rounded-lg      { border-radius: var(--radius-lg) !important; }
+// .rounded-xl      { border-radius: var(--radius-xl) !important; }
+
+// .rounded-pill    { border-radius: var(--radius-pill) !important; }
+// .rounded-circle  { border-radius: var(--radius-circle) !important; }
+
+// .rounded-top     { border-top-left-radius: var(--radius-default) !important; border-top-right-radius: var(--radius-default) !important; }
+// .rounded-bottom  { border-bottom-left-radius: var(--radius-default) !important; border-bottom-right-radius: var(--radius-default) !important; }
+// .rounded-left    { border-top-left-radius: var(--radius-default) !important; border-bottom-left-radius: var(--radius-default) !important; }
+// .rounded-right   { border-top-right-radius: var(--radius-default) !important; border-bottom-right-radius: var(--radius-default) !important; }

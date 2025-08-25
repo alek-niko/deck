@@ -1,0 +1,159 @@
+// =============================================================================
+// LAYOUT: FULL HEADER + SIDEBAR + MAIN + FOOTER
+// components/_grid-hsmf.scss
+// -----------------------------------------------------------------------------
+// Responsive CSS Grid layout with full-width header, left sidebar, main content,
+// and footer at bottom-right.
+//
+// Features:
+// - Full-page layout: header, sidebar, main content, footer
+// - Sidebar can be hidden using `.sidebar-hidden` modifier
+// - Responsive stacking on small viewports (mobile)
+//
+// Dependencies:
+// - CSS custom properties:
+//   --sidebar-width (--sw)
+//   --header-height (--hh)
+//   --header-height-mobile (--hhm)
+//   --footer-height (--fh)
+//   --footer-height-mobile (--fhm)
+//   --layout-row-gap (--lrg)
+//   --layout-column-gap (--lcg)
+//   --margin (--m)
+//
+// Usage example:
+// <body class="full-hsmf sidebar-hidden">
+//   <header>Header content</header>
+//   <aside>Sidebar content</aside>
+//   <main>Main content</main>
+//   <footer>Footer content</footer>
+// </body>
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+.l-hsmf {
+	
+	display: grid;
+
+	// -----------------------------------------------------------------
+	// Grid Areas: header, sidebar, main, footer
+	// -----------------------------------------------------------------
+	grid-template-areas:
+		"header header"
+		"sidebar main"
+		"sidebar footer";
+
+	// Rows: header height, flexible main content, footer height
+	grid-template-rows: 
+		var(--hh, var(--header-height))
+		1fr
+		var(--fh, var(--footer-height));
+
+	// Columns: fixed sidebar width + flexible main content
+	grid-template-columns:
+		var(--sw, var(--sidebar-width))
+		1fr;
+
+	// Consistent gaps with fallback variables
+	row-gap: var(--lrg, var(--layout-row-gap));
+	column-gap: var(--lcg, var(--layout-column-gap));
+
+	height: 100vh; // Full viewport height
+	margin: var(--m, 0); // Margin controlled by CSS variable
+	padding: 0; // No padding on container
+
+	transition:
+		grid-template-columns 250ms ease-in-out,
+		column-gap 250ms ease-in-out;
+
+	// -----------------------------------------------------------------
+	// Header
+	// -----------------------------------------------------------------
+	>header {
+		grid-area: header;
+		background-color: var(--color-background);
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Sidebar
+	// -----------------------------------------------------------------
+	>aside {
+		grid-area: sidebar;
+		background-color: var(--color-background);
+		overflow-y: auto;
+		min-height: 0;
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Main
+	// -----------------------------------------------------------------
+	>main {
+		grid-area: main;
+		background-color: var(--color-background);
+		overflow-y: auto;
+		min-height: 0;
+		position: relative;
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Footer
+	// -----------------------------------------------------------------
+	>footer {
+		grid-area: footer;
+		background-color: var(--color-background);
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Sidebar Hidden Modifier
+	// -----------------------------------------------------------------
+	&.sidebar-hidden {
+		grid-template-columns: 0 1fr;
+		column-gap: 0;
+
+		aside {
+			width: 0;
+			visibility: hidden; // Hide visually but keep in accessibility tree
+			pointer-events: none; // Disable interaction
+			overflow: hidden; // Prevent scrollbars
+			user-select: none; // Prevent selection
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// Responsive: Small Screens
+	// -----------------------------------------------------------------
+
+	@media (max-width: $breakpoint-sm-max) {
+		
+		grid-template-areas:
+			"header"
+			"main"
+			"sidebar"
+			"footer";
+
+		grid-template-rows:
+			var(--hhm, var(--header-height-mobile))
+			1fr
+			70px
+			var(--fhm, var(--footer-height-mobile));
+
+		grid-template-columns: 1fr;
+
+		row-gap: var(--lrg, var(--layout-row-gap));
+		column-gap: 0;
+
+		aside {
+			border-top: 1px solid var(--color-border-muted);
+			overflow-y: visible;
+			min-height: auto;
+			visibility: visible !important;
+			pointer-events: auto !important;
+			width: auto !important;
+		}
+	}
+}

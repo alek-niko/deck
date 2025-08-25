@@ -1,0 +1,49 @@
+// =============================================================================
+// MAIN CONTENT LAYOUT
+// components/layout/_main.content.scss
+// -----------------------------------------------------------------------------
+// Styles for the <main> and #content layout areas.
+// Features:
+// - Responsive padding controlled via breakpoints and spacing tokens
+// - Flex growth support for content area
+// - Uses CSS variables with fallback to design tokens
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+@use '../../abstracts/variables/spacing' as *;
+
+// -----------------------------------------------------------------------------
+// Main layout container
+// -----------------------------------------------------------------------------
+
+main {
+
+	// Default inner padding with fallback to spacing token
+	padding: var(--spacing-default, #{$spacing-default});
+
+	// Responsive padding for medium screens
+	@media (max-width: $breakpoint-md) {
+		padding: var(--spacing-sm, #{$spacing-sm});
+	}
+
+	// Responsive padding for small screens
+	@media (max-width: $breakpoint-sm) {
+		padding: var(--spacing-xs, #{$spacing-xs});
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Content wrapper
+// -----------------------------------------------------------------------------
+
+#content {
+
+	// Default padding and flexible growth
+	padding: var(--content-padding, #{$spacing-default});
+	flex: 1;
+
+	// Remove padding on medium screens
+	@media (max-width: $breakpoint-md) {
+		padding: 0;
+	}
+}

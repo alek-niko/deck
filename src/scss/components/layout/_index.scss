@@ -1,0 +1,21 @@
+// ============================================
+// components/layout/_index.scss
+// --------------------------------------------
+// Layout Components Entry Point
+// - Forwards layout-specific UI partials
+// - Includes grid, flex, containers, and structural elements
+// ============================================
+
+//@forward 'align';				// Alignment helpers - Legacy
+@forward 'column';				// Column layouts
+@forward 'container.flex';		// Flexible container layouts
+@forward 'container.flow';
+@forward 'flex';				// Flexbox utilities
+@forward 'grid';				// CSS Grid utilities
+@forward 'grid.vertical';
+@forward 'header';				// Header layout components
+@forward 'main.content';		// Main content area styles
+@forward 'position';			// Positioning utilities
+@forward 'section';				// Section containers and spacing
+@forward 'width.children';      // child-width classes. Must forward before width
+@forward 'width';               // Combined width utilities

@@ -1,0 +1,27 @@
+// -----------------------------------------------------------------------------
+// TYPOGRAPHY INDEX
+// components/ui/typography/_index.scss
+// -----------------------------------------------------------------------------
+// Provides a single import point for all typography styles.
+// - Keeps concerns separated between utilities and content rules
+// - Maintains small, modular, and easily overridable files
+//
+// Structure:
+// 1. Utilities → Atomic, reusable text utility classes
+// 2. Prose     → Scoped, rich text content styles
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// Typography Utilities
+// - Global, atomic classes for font size, weight, color, alignment, etc.
+// - Can be applied to any element without side effects
+// -----------------------------------------------------------------------------
+@forward 'utilities'; // formerly text.scss
+
+// -----------------------------------------------------------------------------
+// Content Typography
+// - Scoped rules for rich text blocks (.prose)
+// - Handles headings, paragraphs, lists, blockquotes, tables, images, etc.
+// - Prevents typography style leakage outside the container
+// -----------------------------------------------------------------------------
+@forward 'prose'; // formerly content/text.scss or content.scss

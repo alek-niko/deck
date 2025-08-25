@@ -1,0 +1,47 @@
+/*------------------------------------*\
+	LEGACY UTILITIES
+\*------------------------------------*/
+
+// --------------------------------------------
+// Clearfix (modern clearfix utility)
+// --------------------------------------------
+.clearfix::before,
+.clearfix::after {
+	content: "";
+	display: table;
+}
+
+.clearfix::after {
+	clear: both;
+}
+
+// --------------------------------------------
+// Float Utilities
+// --------------------------------------------
+.float-left  { float: left !important; }
+.float-right { float: right !important; }
+
+// Optional max-width to prevent layout breaks
+[class*='float-'] {
+	max-width: 100%;
+}
+
+
+// --------------------------------------------
+// Inline Utility Block Elements
+// --------------------------------------------
+// Overbroad ( can match a lot), Non-performant, Poorly scoped
+
+// [class^='inline'],
+// [class*=' inline'] {
+// 	display: inline-block;
+// 	position: relative;
+// 	max-width: 100%;
+// 	vertical-align: middle;
+// 	backface-visibility: hidden;
+// 	-webkit-backface-visibility: hidden; // Safari
+// }
+
+// .inline-clip {
+// 	overflow: hidden;
+// }

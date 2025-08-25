@@ -1,0 +1,106 @@
+// =============================================================================
+// BACKGROUND UTILITIES
+// components/utils/_background.scss
+// -----------------------------------------------------------------------------
+// Utility classes for background styling, including colors, sizing, positioning,
+// repeat modes, and responsive image handling.
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+//-----------------------------------------------------------------------------
+// Background Colors
+//-----------------------------------------------------------------------------
+// Uses design tokens defined in `tokens.scss`. Each utility maps to a CSS var.
+//-----------------------------------------------------------------------------
+
+.background				{ background-color: var(--color-bg, transparent); }
+.background-default		{ background-color: var(--color-surface); }
+.background-muted		{ background-color: var(--color-surface-muted); }
+.background-primary		{ background-color: var(--color-primary); }
+
+//-----------------------------------------------------------------------------
+// Background Sizing
+//-----------------------------------------------------------------------------
+
+.background-size		{ background-size: var(--bg-size, 100%); }
+.background-cover		{ background-size: cover; }
+.background-contain		{ background-size: contain; }
+.background-width-1-1	{ background-size: 100%; }
+.background-height-1-1	{ background-size: auto 100%; }
+
+//-----------------------------------------------------------------------------
+// Shared Defaults (position + repeat)
+//-----------------------------------------------------------------------------
+// Applied to all background-size utilities to ensure consistent rendering.
+//-----------------------------------------------------------------------------
+
+.background-size,
+.background-cover,
+.background-contain,
+.background-width-1-1,
+.background-height-1-1 {
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+//-----------------------------------------------------------------------------
+// Positioning
+//-----------------------------------------------------------------------------
+
+.background-top-left		{ background-position: 0 0; }
+.background-top-center		{ background-position: 50% 0; }
+.background-top-right		{ background-position: 100% 0; }
+
+.background-center-left		{ background-position: 0 50%; }
+.background-center-center	{ background-position: 50% 50%; }
+.background-center-right	{ background-position: 100% 50%; }
+
+.background-bottom-left		{ background-position: 0 100%; }
+.background-bottom-center	{ background-position: 50% 100%; }
+.background-bottom-right	{ background-position: 100% 100%; }
+
+//-----------------------------------------------------------------------------
+// Repeat
+//-----------------------------------------------------------------------------
+
+.background-norepeat { background-repeat: no-repeat; }
+
+//-----------------------------------------------------------------------------
+// Attachment
+//-----------------------------------------------------------------------------
+// `background-attachment: fixed` is disabled on coarse (touch) devices
+// due to poor performance and inconsistent support.
+//-----------------------------------------------------------------------------
+
+.background-fixed {
+	background-attachment: fixed;
+	backface-visibility: hidden;
+
+	@media (pointer: coarse) {
+		background-attachment: scroll;
+	}
+}
+
+//-----------------------------------------------------------------------------
+// Responsive Background Disabling
+//-----------------------------------------------------------------------------
+// Allows disabling background images at/below specific breakpoints.
+// Example: `.background-image@s` hides the image on small screens.
+//-----------------------------------------------------------------------------
+
+@media (max-width: $breakpoint-xs-max) {
+	.background-image-sm { background-image: none !important; }
+}
+
+@media (max-width: $breakpoint-sm-max) {
+	.background-image-md { background-image: none !important; }
+}
+
+@media (max-width: $breakpoint-md-max) {
+	.background-image-lg { background-image: none !important; }
+}
+
+@media (max-width: $breakpoint-lg-max) {
+	.background-image-xl { background-image: none !important; }
+}

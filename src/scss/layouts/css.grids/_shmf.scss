@@ -1,0 +1,157 @@
+// =============================================================================
+// LAYOUT: FULL LEFT SIDEBAR + HEADER + MAIN + FOOTER
+// components/_grid-shmf.scss
+// -----------------------------------------------------------------------------
+// Responsive CSS Grid layout with fixed-width sidebar on the left, header at
+// top-right, main content middle-right, and footer at bottom-right.
+//
+// Features:
+// - Full-page layout: sidebar, header, main, footer
+// - Sidebar can be hidden via `.sidebar-hidden` modifier
+// - Responsive stacking on small viewports (mobile)
+// - Supports dark mode via `.dark` class on <body>
+//
+// Dependencies:
+// - CSS custom properties:
+//   --sidebar-width (--sw)
+//   --header-height (--hh)
+//   --footer-height (--fh)
+//   --layout-row-gap (--lrg)
+//   --layout-column-gap (--lcg)
+//   --margin (--m)
+//
+// Usage example:
+// <div class="l-shmf sidebar-hidden" aria-expanded="false">
+//   <aside>Sidebar content</aside>
+//   <header>Header content</header>
+//   <main>Main content</main>
+//   <footer>Footer content</footer>
+// </div>
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+.l-shmf {
+
+	display: grid;
+
+	// -----------------------------------------------------------------
+	// Grid Template Areas & Rows/Columns
+	// -----------------------------------------------------------------
+	grid-template-areas:
+		"sidebar header"
+		"sidebar main"
+		"sidebar footer";
+
+	// Define rows: header, flexible main, footer — use CSS variables with fallback
+	grid-template-rows:
+		var(--hh, var(--header-height))
+		1fr
+		var(--fh, var(--footer-height));
+
+	// Columns: fixed sidebar width + flexible main content
+	grid-template-columns:
+		var(--sw, var(--sidebar-width))
+		1fr;
+
+	// Consistent gap handling with fallback
+	row-gap: var(--lrg, var(--layout-row-gap));
+	column-gap: var(--lcg, var(--layout-column-gap));
+
+	height: 100vh;			// Full viewport height for full-page layout
+	margin: var(--m, 0);	// Margin controlled by variable, default 0
+	padding: 0;				// No padding on container
+
+	transition:
+		grid-template-columns 250ms ease-in-out,
+		column-gap 250ms ease-in-out;
+
+	// -----------------------------------------------------------------
+	// Sidebar Block
+	// -----------------------------------------------------------------
+	>aside {
+		grid-area: sidebar;
+		background-color: var(--color-background);
+		overflow-y: auto;
+		min-height: 0;
+		transition: width 250ms ease-in-out;
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Header Block
+	// -----------------------------------------------------------------
+	>header {
+		grid-area: header;
+		background-color: var(--color-background);
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Main Block
+	// -----------------------------------------------------------------
+	>main {
+		grid-area: main;
+		background-color: var(--color-background);
+		overflow-y: auto;
+		min-height: 0;
+		position: relative;
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Footer Block
+	// -----------------------------------------------------------------
+	>footer {
+		grid-area: footer;
+		background-color: var(--color-background);
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Modifier: Hide Sidebar
+	// -----------------------------------------------------------------
+	&.sidebar-hidden {
+
+		grid-template-columns: 0 1fr;
+		column-gap: 0;
+
+		>aside {
+			width: 0;
+			overflow: hidden;
+			clip: rect(0 0 0 0);
+			position: relative;
+			white-space: nowrap;
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// Responsive: Small Screens
+	// -----------------------------------------------------------------
+	@media (max-width: $breakpoint-sm-max) {
+
+		grid-template-areas:
+			"header"
+			"main"
+			"sidebar"
+			"footer";
+
+		grid-template-rows:
+			var(--hhm, var(--header-height-mobile))
+			1fr
+			70px
+			var(--fhm, var(--footer-height-mobile));
+
+		grid-template-columns: 1fr;
+		column-gap: 0;
+
+		>aside {
+			border-top: 1px solid var(--color-border-muted);
+			width: 100% !important;
+			overflow-y: visible;
+			clip: auto;
+			position: static;
+			white-space: normal;
+		}
+	}
+}

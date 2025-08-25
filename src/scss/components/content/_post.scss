@@ -1,0 +1,335 @@
+// ============================================
+// POST COMPONENT
+// components/content/_post.scss
+// --------------------------------------------
+// Handles both post composer and post display.
+// - Composer box for writing new posts (.post-box)
+// - Post card display with author info, body text, and interactions (.post)
+// - Fully responsive and theme-aware
+// - Avatar sizes tokenized
+// - Mobile optimized via breakpoints
+// ============================================
+
+@use '../../abstracts/mixins/breakpoints' as *;
+
+//--------------------------------------------
+// Avatar Sizes (tokens recommended if available)
+//--------------------------------------------
+
+$post-avatar-size: 40px;
+$post-avatar-size-sm: 32px;
+
+
+// ============================================
+// POST COMPOSER
+// .post-box: Input area for creating new posts
+// ============================================
+
+.post-box {
+	padding: var(--spacing-sm) var(--spacing-md);
+	border-bottom: 1px solid var(--color-border);
+	display: flex;
+	align-items: flex-start;
+	gap: var(--spacing-sm);
+
+	//----------------------------------------
+	// Avatar
+	//----------------------------------------
+
+	.avatar {
+		width: $post-avatar-size;
+		height: $post-avatar-size;
+		border-radius: var(--radius-circle);
+		background-color: var(--color-surface-muted);
+		flex-shrink: 0;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	//----------------------------------------
+	// Content Wrapper
+	//----------------------------------------
+
+	.content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-sm);
+
+		//----------------------------------------
+		// Textarea Input
+		//----------------------------------------
+
+		textarea {
+			width: 100%;
+			min-height: 2.5rem;
+			padding: var(--spacing-sm) 0;
+			font-size: 1.25rem;
+			color: var(--color-text, #111827);
+			background: transparent;
+			border: none;
+			resize: none;
+			outline: none;
+
+			&::placeholder {
+				color: var(--color-text-muted, #6b7280);
+			}
+		}
+
+		//----------------------------------------
+		// Action Bar (icons, char count, etc.)
+		//----------------------------------------
+
+		.actions {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			pointer-events: none;
+			transition: opacity 0.2s ease-in-out;
+
+			.action-icons {
+				display: flex;
+				flex-wrap: wrap;
+				gap: var(--spacing-xs);
+			}
+
+			.action-right {
+				display: flex;
+				align-items: center;
+				gap: var(--spacing-xs);
+
+				.char-count {
+					font-size: 0.875rem;
+					color: var(--color-text-muted, #6b7280);
+					transition: color 0.2s ease-in-out;
+
+					&.warning {
+						color: var(--color-warning, #f59e0b);
+					}
+
+					&.error {
+						color: var(--color-error, #dc2626);
+					}
+				}
+			}
+		}
+
+		//----------------------------------------
+		// Mobile Adjustments
+		//----------------------------------------
+
+		@include max-sm {
+			padding: var(--spacing-xs);
+
+			.avatar {
+				width: $post-avatar-size-sm;
+				height: $post-avatar-size-sm;
+			}
+
+			textarea {
+				font-size: 1.125rem;
+			}
+		}
+	}
+}
+
+// ============================================
+// POST DISPLAY CARD
+// .post: Displays authored post with content, author info, and interactions
+// ============================================
+
+.post {
+	display: flex;
+	gap: var(--spacing-sm);
+	padding: var(--spacing-md);
+	border-bottom: 1px solid var(--color-border);
+	transition: background-color var(--transition-duration) ease;
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
+
+	&:hover {
+		background-color: var(--color-hover-surface);
+	}
+
+	//----------------------------------------
+	// Avatar
+	//----------------------------------------	
+
+	.avatar {
+		flex-shrink: 0;
+		width: $post-avatar-size;
+		height: $post-avatar-size;
+		border-radius: var(--radius-circle);
+		background-color: var(--color-surface-muted);
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	//----------------------------------------
+	// Post Content
+	//----------------------------------------
+
+	.post-content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-xs);
+		min-width: 0; // Prevents flexbox overflow issues
+
+		//-------------------------------------
+		// Header (author, handle, timestamp)
+		//-------------------------------------
+		.header {
+			display: flex;
+			align-items: center;
+			gap: var(--spacing-xs);
+			flex-wrap: wrap;
+			font-size: var(--font-size-sm);
+
+			.author {
+				display: flex;
+				align-items: center;
+				gap: var(--spacing-sm);
+				flex-wrap: wrap;
+				line-height: 1.3;
+
+				.name {
+					font-weight: 600;
+					color: var(--color-text);
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+
+				.handle {
+					color: var(--color-text-muted);
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+
+			.timestamp {
+				color: var(--color-text-muted);
+				margin-left: auto;
+				font-size: var(--font-size-xs);
+			}
+		}
+
+		//----------------------------------------
+		// Body Text
+		//----------------------------------------
+
+		.body {
+			margin-top: var(--spacing-xxs);
+			line-height: 1.4;
+			color: var(--color-text);
+
+			// Text truncation
+			&.truncate {
+				display: -webkit-box;
+				-webkit-line-clamp: 4;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+
+			&.expanded {
+				-webkit-line-clamp: unset;
+				overflow: visible;
+			}
+
+			//----------------------------------------
+			// Inline Links
+			//----------------------------------------
+
+			a {
+				color: var(--color-link);
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			//----------------------------------------
+			// Mentions and Hashtags
+			//----------------------------------------			
+
+			.mention {
+				color: var(--color-accent);
+				font-weight: 500;
+				cursor: pointer;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			.hashtag {
+				color: var(--color-primary);
+				font-weight: 500;
+				cursor: pointer;
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			//----------------------------------------
+			// Show More Button
+			//----------------------------------------
+
+			.show-more {
+				display: inline-block;
+				margin-top: var(--spacing-xs);
+				color: var(--color-link);
+				font-weight: 500;
+				cursor: pointer;
+				font-size: var(--font-size-sm);
+				background: none;
+				border: none;
+				padding: 0;
+				text-decoration: underline;
+
+				&:hover {
+					color: var(--color-link-hover);
+				}
+			}
+		}
+
+		//----------------------------------------
+		// Actions: moved to _actions.scss
+		//----------------------------------------
+
+	}
+
+	//----------------------------------------
+	// Mobile Adjustments
+	//----------------------------------------
+
+	@include max-sm {
+		padding: var(--spacing-sm);
+
+		.avatar {
+			width: $post-avatar-size-sm;
+			height: $post-avatar-size-sm;
+		}
+	}
+}

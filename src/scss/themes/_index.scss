@@ -1,0 +1,15 @@
+// =============================================================================
+// THEME ENTRY POINT
+// themes/_index.scss
+// -----------------------------------------------------------------------------
+// Central entry point for all theme partials.
+// - Forwards theme overrides for both manual and system-wide schemes
+// - Enables centralized theme management across the application
+// - Keeps theme handling modular and maintainable
+// =============================================================================
+
+// Contains the dark theme mixin and the manual override class (:root.dark)
+@forward 'dark';
+
+// Contains the system-level override @media (prefers-color-scheme: dark)
+@forward 'scheme';

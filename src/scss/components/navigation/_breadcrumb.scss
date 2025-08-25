@@ -1,0 +1,114 @@
+// =============================================================================
+// BREADCRUMB COMPONENT
+// components/navigation/_breadcrumb.scss
+// -----------------------------------------------------------------------------
+// A responsive horizontal breadcrumb trail component.
+//
+// Features:
+// - Horizontal layout with flexbox
+// - Configurable spacing, colors, and separators via CSS variables
+// - Theme-ready (light/dark via `.dark`)
+// - Handles overflow on small screens
+//
+// Dependencies:
+// - ../../abstracts/variables/breakpoints
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+// -----------------------------------------------------------------------------
+// Breadcrumb Container
+// -----------------------------------------------------------------------------
+/// Wrapper for the breadcrumb trail
+/// Provides padding, background, and horizontal overflow support
+
+.breadcrumb-container {
+	padding: var(--spacing-md, 1rem);
+	background-color: var(--color-background, #f9f9f9);
+	overflow-x: auto;
+	white-space: nowrap;
+
+	@media (max-width: 480px) {
+		padding: var(--spacing-sm, 0.75rem);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Breadcrumb List
+// -----------------------------------------------------------------------------
+/// Core breadcrumb list styling
+/// Uses flexbox for horizontal layout and CSS variables for customization
+
+.breadcrumb {
+	--breadcrumb-separator: '/';
+	--breadcrumb-separator-size: 1rem;
+	--breadcrumb-margin: var(--spacing-xs, 0.5rem);
+	--breadcrumb-color: var(--color-text, #000000de);
+	--breadcrumb-color-current: var(--color-text-muted, #666);
+	--breadcrumb-font-size: 1rem;
+
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	overflow-x: auto;
+
+	//---------------------------------------------
+	// Breadcrumb Items
+	//---------------------------------------------
+
+	>li {
+		display: flex;
+		align-items: center;
+		font-size: var(--breadcrumb-font-size);
+		color: var(--breadcrumb-color);
+		margin-right: var(--breadcrumb-margin);
+
+		// Separator between items
+		&::after {
+			content: var(--breadcrumb-separator);
+			margin-left: var(--breadcrumb-margin);
+			font-size: var(--breadcrumb-separator-size);
+			color: var(--breadcrumb-color);
+		}
+
+		// Last breadcrumb item (current page)
+		&:last-child {
+			color: var(--breadcrumb-color-current);
+
+			&::after {
+				content: "";
+				margin: 0;
+			}
+
+			span,
+			a:not([href]) {
+				color: var(--breadcrumb-color-current);
+				pointer-events: none;
+				cursor: default;
+			}
+		}
+
+		//-----------------------------------------
+		// Links inside breadcrumbs
+		//-----------------------------------------
+		a {
+			text-decoration: none;
+			color: inherit;
+
+			&:hover,
+			&:focus {
+				color: var(--color-primary, #0056b3);
+				text-decoration: underline;
+			}
+
+			&.disabled {
+				color: var(--breadcrumb-color-current);
+				pointer-events: none;
+				text-decoration: none;
+			}
+		}
+	}
+}

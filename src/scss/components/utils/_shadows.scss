@@ -1,0 +1,129 @@
+// =============================================================================
+// SHADOW UTILITIES
+// components/utils/_shadow.scss
+// -----------------------------------------------------------------------------
+// Modular shadow helpers for elevation, depth, and visual effects.
+// - Includes theme-based elevation shadows, hover effects, inset and raised styles
+// - Supports `.dark` theme via elevation maps
+// - Avoids wildcard selectors for performance
+// =============================================================================
+
+@use '../../abstracts/mixins/elevation' as *;
+
+
+// -----------------------------------------------------------------------------
+// Elevation Shadow Utilities
+// -----------------------------------------------------------------------------
+/// Applies elevation levels via `@include elevation()`
+/// Classes: .box-shadow-sm, .box-shadow-md, .box-shadow-lg, .box-shadow-xl
+
+.box-shadow-sm		{ @include elevation(1); }
+.box-shadow-md		{ @include elevation(4); }
+.box-shadow-lg		{ @include elevation(8); }
+.box-shadow-xl		{ @include elevation(16); }
+
+
+// -----------------------------------------------------------------------------
+// Hover Shadow Utilities
+// -----------------------------------------------------------------------------
+/// @type Map
+/// Adds hover-specific elevation shadows
+
+$hover-elevation: (
+	sm: 1,
+	md: 4,
+	lg: 8,
+	xl: 16
+);
+
+@each $name, $level in $hover-elevation {
+	.box-shadow-hover-#{$name} {
+		transition: box-shadow 0.1s ease-in-out;
+
+		&:hover {
+			@include elevation($level);
+		}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Bottom Shadow Effect
+// -----------------------------------------------------------------------------
+/// Creates a subtle blurred shadow beneath the element
+/// Useful for floating elements and media
+
+@supports (filter: blur(0)) {
+	.box-shadow-bottom {
+		display: inline-block;
+		position: relative;
+		z-index: 0;
+		max-width: 100%;
+		vertical-align: middle;
+
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: -30px;
+			left: 0;
+			right: 0;
+			z-index: -1;
+			height: 30px;
+			border-radius: 100%;
+			background: var(--shadow-bottom-color, #444);
+			filter: blur(20px);
+			will-change: filter;
+		}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// General Purpose Complex Shadows
+// -----------------------------------------------------------------------------
+
+.shadow {
+	box-shadow:
+		0 8px 9px -5px rgba(0, 0, 0, 0.2),
+		0 15px 22px 2px rgba(0, 0, 0, 0.14),
+		0 6px 28px 5px rgba(0, 0, 0, 0.12);
+}
+
+// -----------------------------------------------------------------------------
+// Inset Shadows (Sunken Effect)
+// -----------------------------------------------------------------------------
+
+.sunken {
+	box-shadow:
+		inset -6px -6px 8px white,
+		inset -6px -6px 12px rgba(255, 255, 255, 0.5),
+		inset 6px 6px 4px rgba(255, 255, 255, 0.1),
+		inset 6px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+// -----------------------------------------------------------------------------
+// Legacy Raised Shadows
+// -----------------------------------------------------------------------------
+
+.hover-shadow {
+	&:hover {
+		box-shadow: var(--shadow-lg);
+	}
+}
+
+.raised {
+	box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2), -6px -6px 6px white;
+}
+
+.raised2 {
+	box-shadow:
+		0 5px 5px -3px rgba(0, 0, 0, 0.2),
+		0 8px 10px 1px rgba(0, 0, 0, 0.14),
+		0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+
+// -----------------------------------------------------------------------------
+// Notes:
+// - Uses `@include elevation()` for theme-based shadows
+// - Supports `.dark` mode via elevation maps
+// - Easily scalable shadow levels in one place
+// -----------------------------------------------------------------------------

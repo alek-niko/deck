@@ -1,0 +1,15 @@
+// =============================================================================
+// LAYOUT AREAS ENTRY POINT
+// layouts/areas/_index.scss
+// -----------------------------------------------------------------------------
+// Central entry point for all layout area partials.
+// - Forwards modular layout regions (header, footer, sidebars, options)
+// =============================================================================
+
+@forward 'header';				// Header area styles
+@forward 'footer';				// Footer area styles
+@forward 'options';				// Options panel or utility area
+
+@forward 'sidebar.main';		// Primary sidebar styles
+@forward 'sidebar.secondary';	// Secondary sidebar styles
+@forward 'sidebar.right';		// Right sidebar styles

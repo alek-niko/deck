@@ -1,0 +1,108 @@
+//------------------------------------------------------------------------------
+//  DARK THEME
+//  Defines and applies the dark theme design tokens.
+//  themes/_dark.scss
+//------------------------------------------------------------------------------
+// Design Token Overrides for Dark Mode
+//  - Uses SCSS variables from `colors.dark.scss`
+//	- Encapsulated in a reusable mixin for flexibility.
+//  - Enables `.dark` class to override light theme tokens
+//  - Provides a `.dark` class for manual theme toggling.
+//	- Replaces semantic design tokens from :root.
+//	- Follows accessible contrast guidelines.
+//  - Includes elevation, overlay, feedback background helpers
+//  - Industry-standard contrast, hover states, surface elevation
+//  - Accessible, layered, production-grade
+//------------------------------------------------------------------------------
+
+@use '../abstracts/variables/colors.dark' as *;
+
+// -----------------------------------------------------------------------------
+// Mixin: dark-theme-variables
+// - Contains all CSS variables for the dark theme. It's used here for the
+//   .dark class and in _scheme.scss for the media query.
+// -----------------------------------------------------------------------------
+@mixin dark-theme-variables {
+
+	// --------------------------------------------
+	// Body & Typography
+	// --------------------------------------------
+	--color-background:				#{$body-bg};
+	--color-text:					#{$text-color-primary};
+	--color-text-muted:				#{$muted-color};
+	--color-text-secondary:			#{$text-color-secondary};
+	--color-text-inverse:			#{$text-color-on-inverted};
+
+
+	// --------------------------------------------
+	// Surfaces
+	// --------------------------------------------
+	--color-surface:				#{$surface};
+	--color-surface-muted:			#{$surface-muted};
+	--color-surface-contrast:		#{$surface-contrast};
+	--color-surface-disabled:		#{$surface-disabled};
+
+	// --------------------------------------------
+	// Hover States
+	// --------------------------------------------
+	--color-hover-surface:			#{$hover-color-surface};
+	--color-hover-surface-strong:	#{$hover-color-surface-strong};
+
+	// --------------------------------------------
+	// Borders
+	// --------------------------------------------
+	--color-border:					#{$border-color};
+	--color-border-muted:			#{$border-color-light};
+	--color-border-strong:			#{$border-color-strong};
+
+	// --------------------------------------------
+	// UI Semantic States
+	// --------------------------------------------
+    --color-primary:				#{$primary-color};
+	--color-secondary:				#{$secondary-color};
+	--color-success:				#{$success-color};
+	--color-warning:				#{$warning-color};
+	--color-danger:					#{$danger-color};
+	--color-link:					#{$link-color};
+	--color-disabled:				#{$disabled-color};
+
+	// --------------------------------------------
+	// Semantic Backgrounds
+	// --------------------------------------------
+	--color-success-bg:				#{$success-bg-color};
+	--color-warning-bg:				#{$warning-bg-color};
+	--color-danger-bg:				#{$danger-bg-color};
+
+	// --------------------------------------------
+	// Effects
+	// --------------------------------------------
+	--overlay-background:			#{$overlay-background};
+	--backdrop-blur:				#{$backdrop-blur};
+	--shadow-elevation:				#{$shadow-elevation};
+	--border-color-soft:			#{$border-color-soft};
+
+	// --------------------------------------------
+	// Shadows
+	// --------------------------------------------
+	--shadow-xs:					#{$shadow-xs};
+	--shadow-sm:					#{$shadow-sm};
+	--shadow-md:					#{$shadow-md};
+	--shadow-lg:					#{$shadow-lg};
+	--shadow-xl:					#{$shadow-xl};
+
+	// --------------------------------------------
+	// Icon Tokens
+	// --------------------------------------------
+
+	--icon-color:				#{$icon-color};               // Primary icon color
+	--icon-color-hover:			#{$icon-color-hover};         // Hover color
+	--icon-shadow-color:		#{$icon-shadow-color};        // Shadow ring
+	--icon-action-bg:			#{$icon-action-bg};           // Hover bg
+	--icon-circle-bg:			#{$icon-circle-bg};           // Circle fill
+
+}
+
+// Manual `.dark` mode override
+:root.dark {
+	@include dark-theme-variables;
+}

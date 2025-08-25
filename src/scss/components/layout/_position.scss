@@ -1,0 +1,106 @@
+// =============================================================================
+// POSITION UTILITIES
+// components/layout/_position.scss
+// -----------------------------------------------------------------------------
+// Utilities for absolute positioning, edge alignment, z-index, and margin offsets.
+// Features:
+// - Absolute and relative positioning helpers
+// - Edge alignment (top, bottom, left, right, corners, center)
+// - Margin offsets using spacing tokens
+// - Full coverage and center transform helpers
+//
+// Example:
+//   <div class="position-top-right position-large">Button</div>
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+// -----------------------------------------------------------------------------
+// Fallback value for margin offsets (non-CSS variable support)
+// -----------------------------------------------------------------------------
+$position-margin-offset: 0px !default;
+
+
+// -----------------------------------------------------------------------------
+// Absolute Position Base
+// -----------------------------------------------------------------------------
+// Generate utility classes for various positions: edges, corners, centers, cover
+// -----------------------------------------------------------------------------
+
+$positions: (
+	top: (top: 0, left: 0, right: 0),
+	bottom: (bottom: 0, left: 0, right: 0),
+	left: (top: 0, bottom: 0, left: 0),
+	right: (top: 0, bottom: 0, right: 0),
+	top-left: (top: 0, left: 0),
+	top-right: (top: 0, right: 0),
+	bottom-left: (bottom: 0, left: 0),
+	bottom-right: (bottom: 0, right: 0),
+	top-center: (top: 0, left: 50%, transform: 'translateX(-50%)'),
+	bottom-center: (bottom: 0, left: 50%, transform: 'translateX(-50%)'),
+	center: (top: 50%, left: 50%, transform: 'translate(-50%, -50%)'),
+	center-left: (top: 50%, left: 0, transform: 'translateY(-50%)'),
+	center-right: (top: 50%, right: 0, transform: 'translateY(-50%)'),
+	center-left-out: (top: 50%, right: 100%, transform: 'translateY(-50%)'),
+	center-right-out: (top: 50%, left: 100%, transform: 'translateY(-50%)'),
+	cover: (top: 0, right: 0, bottom: 0, left: 0)
+);
+
+@each $name, $rules in $positions {
+	.position-#{$name} {
+		position: absolute;
+		box-sizing: border-box;
+
+		// Exclude max-width on center-aligned positions
+		@if str-index($name, 'center') == null {
+			max-width: calc(100% - (var(--position-margin-offset, #{$position-margin-offset}) * 2));
+		}
+
+		// Apply properties from $rules map
+		@each $prop, $val in $rules {
+			// Remove quotes for transform values
+			@if $prop == transform {
+				transform: unquote($val);
+			} @else {
+				#{$prop}: $val;
+			}
+		}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Margin offsets (using spacing tokens)
+// -----------------------------------------------------------------------------
+
+$offsets: (
+	small: var(--spacing-sm),
+	medium: var(--spacing-md),
+	large: var(--spacing-lg),
+	xlarge: var(--spacing-xl)
+);
+
+@each $size, $value in $offsets {
+	.position-#{$size} {
+		margin: #{$value};
+		--position-margin-offset: #{$value};
+	}
+}
+
+// Override for large screens
+@media (min-width: $breakpoint-lg) {
+	.position-large {
+		margin: var(--spacing-xl);
+		--position-margin-offset: var(--spacing-xl);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Position Scheme Overrides
+// -----------------------------------------------------------------------------
+// Utility classes for standard CSS positioning modes
+// -----------------------------------------------------------------------------
+
+.position-relative { position: relative; }
+.position-absolute { position: absolute; }
+.position-fixed    { position: fixed; }
+.position-sticky   { position: sticky; }

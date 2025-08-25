@@ -1,0 +1,287 @@
+// =============================================================================
+// BUTTON COMPONENT
+// components/ui/_button.scss
+// -----------------------------------------------------------------------------
+// Provides token-driven, theme-aware button styles.
+//
+// Features:
+// - Variants (primary, secondary, success, warning, danger)
+// - Styles (solid, outline, flat, link)
+// - Size modifiers (mini, sm, lg)
+// - Shape modifiers (round, pill, block, icon-only)
+// - All hover/active states generated at runtime with `color-mix()`
+// =============================================================================
+
+
+// =============================================================================
+// Variants Map
+// -----------------------------------------------------------------------------
+/// Defines semantic button variants with background and text colors.
+/// Supports runtime hover/active state computation.
+/// 
+/// @type Map
+// =============================================================================
+
+$variants: (
+	"primary":		("bg": var(--color-primary),	"text": #ffffff),
+	"secondary":	("bg": var(--color-secondary),	"text": #1e293b),
+	"success":		("bg": var(--color-success),	"text": #ffffff),
+	"warning":		("bg": var(--color-warning),	"text": #ffffff),
+	"danger":		("bg": var(--color-danger),		"text": #ffffff)
+);
+
+// =============================================================================
+// Base Button Styles
+// -----------------------------------------------------------------------------
+// - Defines core button layout, typography, and behavior
+// - Uses CSS custom properties for tokenized styling
+// - Handles disabled state accessibility
+// =============================================================================
+
+.button {
+	//   --button-bg: initial;
+	//   --button-text: initial;
+
+	--button-bg: var(--color-surface);
+	--button-text: var(--color-text);
+
+	--button-border-color: transparent;
+	--button-hover-bg: initial;
+	--button-active-bg: initial;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	vertical-align: middle;
+	font-family: inherit;
+	font-weight: 600;
+	text-decoration: none;
+	white-space: nowrap;
+	user-select: none;
+	cursor: pointer;
+
+	height: 40px;
+	font-size: 1rem;
+	padding-inline: 1.5rem;
+	border: 1px solid var(--button-border-color);
+	border-radius: 0.5rem;
+
+	color: var(--button-text);
+	background-color: var(--button-bg);
+
+	transition: background-color 0.2s ease, color 0.2s ease,
+		transform 0.1s ease, box-shadow 0.2s ease, outline-color 0.2s ease;
+
+	&:hover {
+		background-color: var(--button-hover-bg);
+	}
+
+	&:focus-visible {
+		outline-offset: 2px;
+		outline: 3px solid color-mix(in srgb, var(--button-bg) 40%, transparent);
+	}
+
+	&:active {
+		transform: scale(0.98);
+		background-color: var(--button-active-bg);
+	}
+
+	&[disabled],
+	.disabled {
+		background-color: var(--color-surface-disabled);
+		color: var(--color-disabled);
+		border-color: transparent;
+		//border-color: var(--color-border);
+		cursor: not-allowed;
+		transform: none;
+		outline: none;
+	}
+}
+
+// =============================================================================
+// Variants
+// -----------------------------------------------------------------------------
+// Applies semantic background/text/border colors per variant
+// Hover and active states are generated dynamically with `color-mix()`
+// =============================================================================
+
+@each $name, $colors in $variants {
+	.button[data-variant="#{$name}"] {
+		--button-bg: #{map-get($colors, "bg")};
+		--button-text: #{map-get($colors, "text")};
+		--button-border-color: #{map-get($colors, "bg")};
+
+		/* Hover/active generated at runtime — no Sass color math */
+		--button-hover-bg: color-mix(in srgb, var(--button-bg) 90%, black);
+		--button-active-bg: color-mix(in srgb, var(--button-bg) 80%, black);
+	}
+}
+
+// =============================================================================
+// Outline Style
+// -----------------------------------------------------------------------------
+// Transparent background, colored border & text
+// Fills background on hover/active
+// =============================================================================
+
+.button[data-style="outline"] {
+	background-color: transparent;
+	color: var(--button-bg);
+
+	&:hover {
+		background-color: var(--button-bg);
+		color: var(--button-text);
+	}
+
+	&:active {
+		background-color: var(--button-active-bg);
+		color: var(--button-text);
+	}
+
+	&:not([data-variant]) {
+		color: var(--color-text);
+	}
+}
+
+.button:not([data-variant]) {
+	--button-bg: var(--color-surface); // your theme’s main surface color
+	--button-text: var(--color-text); // contrasting text color
+	--button-border-color: var(--color-border); // subtle border
+
+	--button-hover-bg: color-mix(in srgb, var(--button-bg) 90%, black);
+	--button-active-bg: color-mix(in srgb, var(--button-bg) 80%, black);
+}
+
+// =============================================================================
+// Flat Style
+// -----------------------------------------------------------------------------
+// Minimal style with transparent background & subtle hover feedback
+// =============================================================================
+
+.button[data-style="flat"] {
+	background-color: transparent;
+	border-color: transparent;
+	color: var(--button-bg);
+	height: auto;
+	padding: 0.5rem;
+
+	&:not([data-variant]) {
+		--button-bg: var(--color-text);
+	}
+
+	&:hover {
+		background-color: color-mix(in srgb, var(--button-bg) 15%, transparent);
+	}
+
+	&:active {
+		background-color: color-mix(in srgb, var(--button-bg) 25%, transparent);
+	}
+}
+
+
+// =============================================================================
+// Icon & Shape Utilities
+// -----------------------------------------------------------------------------
+// - .button-icon handles inline icons (SVG or <i>)
+// - .button-icon-only centers a single icon
+// =============================================================================
+
+.button-icon {
+	display: inline-flex;
+
+	&:where(svg, i) {
+		width: 1.125em;
+		height: 1.125em;
+	}
+
+	&:first-child:not(:last-child) {
+		margin-right: 0.5rem;
+	}
+
+	&:last-child:not(:first-child) {
+		margin-left: 0.5rem;
+	}
+}
+
+.button-icon-only {
+	width: var(--button-height, 40px);
+	padding-inline: 0;
+
+	.button-icon {
+		margin: 0;
+	}
+}
+
+// =============================================================================
+// Size Modifiers
+// -----------------------------------------------------------------------------
+// Mini, small, and large sizing utilities
+// =============================================================================
+
+.button[data-size="mini"] {
+	height: 1.5rem;
+	font-size: 0.75rem;
+	padding-inline: 0.75rem;
+	border-radius: 0.25rem;
+}
+
+.button[data-size="sm"] {
+	height: 2rem; //32px;
+	font-size: 0.875rem;
+	padding-inline: 1rem;
+	border-radius: 0.375rem;
+}
+
+.button[data-size="lg"] {
+	height: 3rem; //48px;
+	font-size: 1.125rem;
+	padding-inline: 2rem;
+	border-radius: 0.5rem;
+}
+
+// =============================================================================
+// Shape & Layout Utilities
+// -----------------------------------------------------------------------------
+// Additional modifiers for rounding and block layout
+// =============================================================================
+
+.button-round {
+	border-radius: 50px;
+}
+
+.button-pill {
+	border-radius: 9999px;
+}
+
+.button-block {
+	display: flex;
+	width: 100%;
+}
+
+// =============================================================================
+// Link Style
+// -----------------------------------------------------------------------------
+// Minimalist button variant styled like a text link
+// =============================================================================
+
+.button-link {
+	background: none;
+	border: none;
+	box-shadow: none;
+	padding: 0;
+	//color: var(--color-link);
+	font-weight: inherit;
+	box-shadow: none !important;
+	color: var(--color-text);
+
+	&:hover,
+	&:focus {
+		//text-decoration: underline;
+		text-decoration: none;
+	}
+
+	&:disabled {
+		color: var(--button-disabled-color);
+		text-decoration: none;
+	}
+}

@@ -1,0 +1,69 @@
+// ============================================
+// HR COMPONENT
+// components/content/_hr.scss
+// --------------------------------------------
+// Accessible horizontal rule component.
+// Token-based design for color, spacing, and border.
+// Includes size, thickness, style, and alignment variants.
+// Fully theme-aware and supports dark mode.
+// ============================================
+
+hr {
+
+	//--------------------------------------------
+	// Base Reset & Appearance
+	//--------------------------------------------
+
+	//all: unset;		// Remove all default styles
+	appearance: none;
+	display: block;
+	width: 100%;
+	height: 0;			// Avoid height artifacts
+	border: 0;
+	//border-top: 1px solid var(--color-border-muted);  // Token for muted divider
+    border-top: 1px solid var(--color-border);
+	overflow: visible;
+	text-align: inherit;
+
+	//--------------------------------------------
+	// Base Spacing
+	//--------------------------------------------
+
+	margin-block: var(--spacing-md);
+
+	//--------------------------------------------
+	// Accessibility & Theme
+	//--------------------------------------------
+
+	color: inherit;
+	background-color: transparent;
+
+	//----------------------------------
+	// Dark mode support via token (automatic)
+	// border-top uses token, so .dark works out of the box
+	//----------------------------------
+}
+
+/*--------------------------------------------*\
+    VARIANTS
+    Margin, thickness, border style, alignment
+\*--------------------------------------------*/
+
+// Margin Size Variants
+.hr-sm      { margin-block: var(--spacing-sm); }
+.hr-lg      { margin-block: var(--spacing-lg); }
+.hr-xl      { margin-block: var(--spacing-xl); }
+
+// Border Style Variants
+.hr-dashed  { border-top-style: dashed; }
+.hr-dotted  { border-top-style: dotted; }
+
+// Thickness Variants (uses inline variable)
+.hr-thin    { border-top-width: 1px; }
+.hr-medium  { border-top-width: 2px; }
+.hr-thick   { border-top-width: 3px; }
+
+// Alignment Variants (optional, visual only)
+.hr-left    { margin-inline-start: 0; margin-inline-end: auto; width: 25%; }
+.hr-center  { margin-inline: auto; width: 50%; }
+.hr-right   { margin-inline-start: auto; margin-inline-end: 0; width: 25%; }

@@ -1,0 +1,313 @@
+/*------------------------------------------------------------------------------
+  Layout Template: Feed Timeline View
+  --------------------------
+
+  A responsive, flex-based layout for feed/timeline-style stack with:
+	- Fixed mobile top bar
+	- Centered scrollable content section with optional border
+	- Sticky header inside content
+	- Optional floating action button (FAB)
+	- Mobile bottom navigation support
+
+  Features:
+	- Supports max-width layout with padding
+	- Independent scrolling areas (main and sidebar)
+	- Sticky elements using `position: sticky`
+	- Responsive adjustments for lg, md, and sm breakpoints
+	- Mobile-first layout with bottom FAB and nav revealed under 600px
+
+  Dependencies:
+	- Design tokens from `theme.scss`:
+		--color-text, --color-border, --header-height, --sidebar-width, etc.
+	- SCSS media mixins:
+		@include max-lg, @include max-md, @include max-sm
+
+  Usage example:
+	<body class="l-feed">
+		<div class="mobile-topbar">...</div>
+		<div class="page-layout">
+			<aside>Sidebar</aside>
+			<section class="content-section">Main Content</section>
+		</div>
+		<nav class="mobile-bottom-nav">...</nav>
+		<button class="fab">+</button>
+	</body>
+
+------------------------------------------------------------------------------*/
+
+@use '../../abstracts/mixins/breakpoints' as * ;
+
+
+.l-feed {
+	
+	// Base layout styles
+	color: var(--color-text);
+	line-height: var(--line-height-base);
+	min-height: 100vh;
+	overflow-x: hidden;
+	padding: 0;
+
+	/*----------------------------------*\
+	  Loading Bar Animation
+	\*----------------------------------*/
+
+	.loading {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: linear-gradient(to right, var(--color-primary), #9b59b6);
+		animation: loading 2s infinite;
+		display: none;
+		z-index: 9999;
+	}
+
+	@keyframes loading {
+		0%   { transform: translateX(-100%); }
+		50%  { transform: translateX(0%); }
+		100% { transform: translateX(100%); }
+	}
+
+	/*----------------------------------*\
+	  Mobile Topbar
+	\*----------------------------------*/
+
+	.mobile-topbar {
+		display: none;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		backdrop-filter: blur(12px);
+		border-bottom: 1px solid var(--color-border);
+		padding: 8px 15px;
+		z-index: 1000;
+		align-items: center;
+		justify-content: space-between;
+
+		.logo svg {
+			width: 70px;
+			color: var(--color-primary);
+		}
+
+		.profile-avatar-small {
+			width: 32px;
+			height: 32px;
+			border-radius: 50%;
+			background-color: #999;
+		}
+	}
+
+	/*----------------------------------*\
+	  Page Layout Container
+	\*----------------------------------*/
+
+	.page-layout {
+		display: flex;
+		max-width: 1280px;
+		margin: 0 auto;
+		padding: 0 10px;
+		transition: all 0.3s ease;
+
+		// Scrollable main content section
+		.content-section {
+			--content-max-width: 600px;
+			flex: 1;
+			margin-left: 30px;
+			max-width: var(--content-max-width);
+			transition: all 0.3s ease;
+
+			&.content-border {
+				border-left: 1px solid var(--color-border);
+				border-right: 1px solid var(--color-border);
+			}
+
+			// Sticky section header
+			.content-section-header {
+				min-height: 60px;
+				padding: 10px 15px;
+				border-bottom: 1px solid var(--color-border);
+				backdrop-filter: blur(12px);
+				display: flex;
+				align-items: center;
+				gap: 20px;
+				top: 0;
+				z-index: 900;
+
+				&.sticky {
+					position: sticky;
+				}
+
+				.back-arrow {
+					font-size: 20px;
+					cursor: pointer;
+				}
+
+				&-info {
+					flex: 1;
+				}
+
+				.profile-name,
+				h2 {
+					font-size: 19px;
+					font-weight: 800;
+				}
+
+				.post-count {
+					color: var(--color-text-muted);
+					font-size: 13px;
+				}
+
+				.sparkle {
+					font-size: 20px;
+					color: var(--color-text-muted);
+					cursor: pointer;
+					transition: color 0.2s ease;
+
+					&:hover {
+						color: var(--color-primary);
+					}
+				}
+
+				&-actions {
+					margin-left: auto;
+					display: flex;
+					align-items: center;
+					gap: 12px;
+				}
+			}
+		}
+	}
+
+	/*----------------------------------*\
+	  Mobile Bottom Nav
+	\*----------------------------------*/
+
+	.mobile-bottom-nav {
+		display: none;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background-color: var(--color-surface);
+		border-top: 1px solid var(--color-border);
+		justify-content: space-around;
+		align-items: center;
+		z-index: 1000;
+		padding: 5px 0;
+		transition: transform 0.3s ease;
+
+		&-item {
+			flex: 1;
+			text-align: center;
+			padding: 10px;
+			cursor: pointer;
+			color: var(--color-border-muted);
+			transition: color 0.2s ease;
+
+			&:hover,
+			&.active {
+				color: var(--color-primary);
+			}
+
+			i,
+			svg {
+				font-size: 24px;
+			}
+		}
+	}
+
+	/*----------------------------------*\
+	  Floating Action Button (FAB)
+	\*----------------------------------*/
+
+	.fab {
+		display: none;
+		position: fixed;
+		bottom: 80px;
+		right: 15px;
+		width: 56px;
+		height: 56px;
+		background-color: var(--color-primary);
+		color: #fff;
+		border-radius: 50%;
+		border: none;
+		font-size: 24px;
+		cursor: pointer;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+		transition: transform 0.2s ease, background-color 0.2s ease;
+		z-index: 1000;
+
+		&:hover {
+			background-color: #1a91da; // hardcoded fallback or override with token
+			transform: scale(1.1);
+		}
+	}
+
+	/*----------------------------------*\
+	  Responsive Layout Adjustments
+	\*----------------------------------*/
+
+	// Large breakpoint
+	@include max-lg {
+		.content-section {
+			margin-left: 295px;
+		}
+	}
+
+	// Medium breakpoint
+	@include max-md {
+		.content-section {
+			margin-left: 108px;
+			max-width: calc(100% - 108px);
+		}
+	}
+
+	// Small (mobile) breakpoint
+	@include max-sm {
+		padding-bottom: 70px; // Space for bottom nav
+
+		.mobile-topbar {
+			display: flex;
+		}
+
+		.page-layout {
+			padding: 0;
+
+			.content-section {
+				margin-left: 0;
+				max-width: 100%;
+				border-left: none;
+				border-right: none;
+
+				.content-section-header {
+					top: 48px; // below fixed mobile topbar
+					padding: 8px 10px;
+					background-color: var(--color-surface);
+
+					.back-arrow {
+						font-size: 18px;
+					}
+
+					.profile-name,
+					h2 {
+						font-size: 17px;
+					}
+
+					.post-count {
+						font-size: 12px;
+					}
+
+					.sparkle {
+						font-size: 18px;
+					}
+				}
+			}
+		}
+
+		.mobile-bottom-nav,
+		.fab {
+			display: flex !important;
+		}
+	}
+}

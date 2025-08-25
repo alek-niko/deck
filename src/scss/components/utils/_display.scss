@@ -1,0 +1,70 @@
+// =============================================================================
+// DISPLAY UTILITIES
+// components/utils/_display.scss
+// -----------------------------------------------------------------------------
+// Atomic display helpers for layout control.
+// - Basic display types: block, inline, inline-block, table, none
+// - Modern layout displays: flex, inline-flex, grid, inline-grid
+// - Responsive variants via breakpoint mixins
+// - Designed for easy integration with flex/grid utilities
+// =============================================================================
+
+@use '../../abstracts/mixins/responsive' as *;
+
+// --------------------------------------------
+// Basic Display Utilities
+// --------------------------------------------
+// Provides common display values for elements.
+
+/// Forces element to display as block
+.display-block			{ display: block !important; }
+
+/// Forces element to display as inline
+.display-inline			{ display: inline !important; }
+
+/// Forces element to display as inline-block
+.display-inline-block	{ display: inline-block !important; }
+
+/// Forces element to display as table
+.display-table			{ display: table !important; }
+
+/// Hides element
+.display-none			{ display: none !important; }
+
+// --------------------------------------------
+// Modern Layout Display Utilities
+// --------------------------------------------
+// Enables modern layout systems.
+// Use with flex/grid helpers for full control.
+// --------------------------------------------
+
+// .display-flex			{ display: flex !important; }			// Flexbox container
+// .display-inline-flex	{ display: inline-flex !important; }	// Inline-level flex container
+// .display-grid			{ display: grid !important; }			// Grid container
+// .display-inline-grid	{ display: inline-grid !important; }	// Inline-level grid container
+
+// --------------------------------------------
+// Responsive Display Utilities
+// --------------------------------------------
+// Generates breakpoint-specific overrides.
+// Format: `.display-{value}\@breakpoint`
+// --------------------------------------------
+
+// @include respond-below('md') {
+// 	.display-block-md			{ display: block !important; }
+// 	.display-inline-md			{ display: inline !important; }
+// 	.display-inline-block-md	{ display: inline-block !important; }
+// 	.display-none-md			{ display: none !important; }
+
+// 	.display-flex-md			{ display: flex !important; }
+// 	.display-grid-md			{ display: grid !important; }
+// }
+
+// --------------------------------------------
+// Usage Example
+// Responsive grid container hidden on medium screens
+//
+// <div class="display-grid display-none@medium">
+//   ...
+// </div>
+// --------------------------------------------

@@ -1,0 +1,80 @@
+// =============================================================================
+// PADDING UTILITIES
+// components/utilities/_padding.scss
+// -----------------------------------------------------------------------------
+// Generates semantic padding utility classes for consistent spacing.
+// - Supports all sides, individual sides, and axes (vertical/horizontal)
+// - Preset sizes: xs → xl, remove
+// - Fully customizable via CSS variables with fallback
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Padding Size Tokens
+// -----------------------------------------------------------------------------
+/// @type Map
+/// @description Preset padding values with CSS variable fallbacks
+
+$padding-sizes: (
+	default:	var(--spacing-default, 24px),
+	xs:			var(--spacing-xs, 4px),
+	sm:			var(--spacing-sm, 8px),
+	md:			var(--spacing-md, 16px),
+	lg:			var(--spacing-lg, 40px),
+	xl:			var(--spacing-xl, 48px),
+	remove:		0
+);
+
+// -----------------------------------------------------------------------------
+// Padding Directions
+// -----------------------------------------------------------------------------
+/// @type Map
+/// @description Defines sides and axes for padding utilities
+
+$padding-directions: (
+	'':				'',            // All sides
+	top:			-top,
+	bottom:			-bottom,
+	left:			-left,
+	right:			-right,
+	vertical:		(-top, -bottom),
+	horizontal:		(-left, -right),
+	ends:			(-top, -bottom)
+);
+
+
+// -----------------------------------------------------------------------------
+// Generate Padding Utilities
+// -----------------------------------------------------------------------------
+/// Loops through all sizes and directions to generate utility classes
+/// Classes generated: .padding-md, .padding-lg-vertical, etc.
+
+.padding {
+
+	@each $size, $value in $padding-sizes {
+
+		// Generate the first part of the class, e.g., '.padding-lg'
+		&#{if($size != 'default', '-' + $size, '')} {
+
+			// Loop through all possible directions
+			@each $dir, $suffix in $padding-directions {
+
+				// Generate the final selector for this specific direction
+				// e.g., for 'vertical', this creates '&-vertical'
+				// which combines with the parent to make '.padding-lg-vertical'
+				&#{if($dir != '', '-' + $dir, '')} {
+					
+					@if type-of($suffix) == 'list' {
+						// If the suffix is a list (like for 'vertical'),
+						// loop through it and print the padding PROPERTIES
+						@each $part in $suffix {
+							padding#{$part}: #{$value} !important;
+						}
+					} @else {
+						// Otherwise, print the single padding PROPERTY
+						padding#{$suffix}: #{$value} !important;
+					}
+				}
+			}
+		}
+	}
+}

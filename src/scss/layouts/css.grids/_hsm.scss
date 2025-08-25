@@ -1,0 +1,139 @@
+// =============================================================================
+// LAYOUT: FULL HEADER + SIDEBAR + MAIN
+// components/_grid-hsm.scss
+// -----------------------------------------------------------------------------
+// Responsive CSS Grid layout with full-width header, left sidebar, and flexible main.
+//
+// Features:
+// - Header spans full width at top
+// - Sidebar on left (fixed width), main content flexible on right
+// - Sidebar can be hidden with `.sidebar-hidden` modifier
+// - Vertical scroll support on sidebar and main content
+// - Responsive stacking on small viewports
+//
+// Dependencies:
+// - CSS custom properties:
+//   --sidebar-width (--sw)
+//   --header-height (--hh)
+//   --header-height-mobile (--hhm)
+//   --layout-row-gap (--lrg)
+//   --layout-column-gap (--lcg)
+//   --margin (--m)
+//
+// Usage example:
+// <body class="hsm sidebar-hidden">
+//   <header>Header content</header>
+//   <aside>Sidebar content</aside>
+//   <main>Main content</main>
+// </body>
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+.l-hsm {
+	
+	display: grid;
+
+	// Grid areas for header spanning full width, sidebar left, and main right
+	grid-template-areas:
+		"header header"
+		"sidebar main";
+
+	// Rows: fixed header + flexible main
+	grid-template-rows: var(--hh, var(--header-height)) 1fr;
+
+	// Columns: fixed sidebar width + flexible main
+	grid-template-columns: var(--sw, var(--sidebar-width)) 1fr;
+
+	// Gaps with CSS variable fallbacks
+	row-gap: var(--lrg, var(--layout-row-gap));
+	column-gap: var(--lcg, var(--layout-column-gap));
+
+	height: 100vh; 			// Full viewport height for full-page layout
+	margin: var(--m, 0);	// Margin controlled by variable, default 0
+	padding: 0;				// No padding on container
+
+	transition:
+		grid-template-columns 250ms ease-in-out,
+		column-gap 250ms ease-in-out;
+
+	// -----------------------------------------------------------------
+	// Header Block
+	// -----------------------------------------------------------------
+	>header {
+		grid-area: header;
+		background-color: var(--color-background);
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Header Block
+	// -----------------------------------------------------------------
+	>aside {
+		grid-area: sidebar;
+		background-color: var(--color-background);
+		overflow-y: auto;
+		min-height: 0;
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Main Content Block
+	// -----------------------------------------------------------------
+	>main {
+		grid-area: main;
+		background-color: var(--color-background);
+		overflow-y: auto;
+		min-height: 0;
+		position: relative;
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Sidebar Hidden Modifier
+	// -----------------------------------------------------------------
+	&.sidebar-hidden {
+
+		grid-template-columns: 0 1fr;
+		column-gap: 0;
+
+		>aside {
+			width: 0;
+			visibility: hidden; 	// Keeps element in layout for accessibility but invisible
+			pointer-events: none;	// Prevent interaction
+			overflow: hidden;		// Avoid scrollbars if any content overflows
+			user-select: none;		// Prevent text selection on hidden sidebar
+		}
+
+	}
+
+	// -----------------------------------------------------------------
+	// Responsive: Small Screens
+	// -----------------------------------------------------------------
+
+	@media (max-width: $breakpoint-sm-max) {
+
+		grid-template-areas:
+			"header"
+			"main"
+			"sidebar";
+
+		grid-template-rows:
+			var(--hhm, var(--header-height-mobile))
+			1fr
+			70px;
+
+		grid-template-columns: 1fr;
+
+		row-gap: var(--lrg, var(--layout-row-gap));
+		column-gap: 0;
+
+		>aside {
+			border-top: 1px solid var(--color-border-muted);
+			overflow-y: visible;
+			min-height: auto;
+			width: 100% !important;
+		}
+
+	}
+}

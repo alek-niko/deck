@@ -1,0 +1,52 @@
+// =============================================================================
+// MEDIA COMPONENT
+// components/ui/_media.scss
+// -----------------------------------------------------------------------------
+// A responsive media component for displaying images alongside content.
+// Supports flexible layouts with image and body sections, fully responsive 
+// for small screens. Ideal for cards, articles, profiles, and other media-rich
+// blocks.
+// =============================================================================
+
+.media {
+	display: flex;
+	gap: var(--spacing-default);
+	align-items: flex-start;
+
+	// -------------------------------------------------------------------------
+	// Responsive Layout
+	// -------------------------------------------------------------------------
+	// On smaller screens, stack the image above the content.
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+	}
+
+	// -------------------------------------------------------------------------
+	// Media Image
+	// -------------------------------------------------------------------------
+	// Image container with fixed aspect, rounded corners, and object-fit for
+	// proper scaling and positioning. Prevents shrinking when the body content
+	// expands.
+
+	.media-image {
+		flex-shrink: 0;
+		width: 40%;
+		max-width: 320px;
+		border-radius: var(--radius-default);
+		object-fit: cover;
+		object-position: center;
+		background-color: var(--color-surface, #fff);
+	}
+
+	// -------------------------------------------------------------------------
+	// Media Body
+	// -------------------------------------------------------------------------
+	// Flexible content area that takes the remaining horizontal space.
+	// Text color uses theme token with fallback.
+		
+	.media-body {
+		flex: 1;
+		color: var(--color-text, #111);
+	}
+}

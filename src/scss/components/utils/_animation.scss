@@ -1,0 +1,134 @@
+// =============================================================================
+// ANIMATION UTILITIES
+// components/utils/_animation.scss
+// -----------------------------------------------------------------------------
+// Global animation classes, keyframes, and helper utilities.
+// - Tokenized via mixins from abstracts/mixins/animation
+// - Provides fade, scale, slide, and special effects
+// - Includes speed variants, reverse modifiers, and toggles
+// =============================================================================
+
+@use '../../abstracts/mixins/animation' as *;
+
+
+// -----------------------------------------------------------------------------
+// Fade Animations
+// -----------------------------------------------------------------------------
+
+.animation-fade { @include animation(fade, 0.8s, linear); }
+
+// -----------------------------------------------------------------------------
+// Scale Animations
+// -----------------------------------------------------------------------------
+
+.animation-scale-up 	{ @include animation-multiple((fade, scale-up)); }
+.animation-scale-down	{ @include animation-multiple((fade, scale-down)); }
+
+// -----------------------------------------------------------------------------
+// Slide Animations — Full
+// -----------------------------------------------------------------------------
+
+.animation-slide-top		{ @include animation-multiple((fade, slide-top)); }
+.animation-slide-bottom		{ @include animation-multiple((fade, slide-bottom)); }
+.animation-slide-left		{ @include animation-multiple((fade, slide-left)); }
+.animation-slide-right		{ @include animation-multiple((fade, slide-right)); }
+
+// -----------------------------------------------------------------------------
+// Slide Animations — Small
+// -----------------------------------------------------------------------------
+
+.animation-slide-top-small		{ @include animation-multiple((fade, slide-top-small)); }
+.animation-slide-bottom-small	{ @include animation-multiple((fade, slide-bottom-small)); }
+.animation-slide-left-small		{ @include animation-multiple((fade, slide-left-small)); }
+.animation-slide-right-small	{ @include animation-multiple((fade, slide-right-small)); }
+
+// -----------------------------------------------------------------------------
+// Slide Animations — Medium
+// -----------------------------------------------------------------------------
+
+.animation-slide-top-medium		{ @include animation-multiple((fade, slide-top-medium)); }
+.animation-slide-bottom-medium	{ @include animation-multiple((fade, slide-bottom-medium)); }
+.animation-slide-left-medium	{ @include animation-multiple((fade, slide-left-medium)); }
+.animation-slide-right-medium	{ @include animation-multiple((fade, slide-right-medium)); }
+
+// -----------------------------------------------------------------------------
+// Special Effects
+// -----------------------------------------------------------------------------
+
+.animation-kenburns { @include animation(kenburns, 15s, ease-in-out); }
+
+.animation-stroke {
+	@include animation(stroke, 2s, ease-out);
+	stroke-dasharray: var(--animation-stroke);
+}
+
+.animation-shake { @include animation(shake, 0.6s); }
+
+// -----------------------------------------------------------------------------
+// Direction Modifier
+// -----------------------------------------------------------------------------
+
+.animation-reverse {
+	animation-direction: reverse;
+	animation-timing-function: ease-in;
+}
+
+// -----------------------------------------------------------------------------
+// Speed Variants (Duration Overrides)
+// -----------------------------------------------------------------------------
+
+.animation-fast		{ animation-duration: 0.2s !important; }
+.animation-medium	{ animation-duration: 0.5s !important; }
+.animation-slow		{ animation-duration: 1s !important; }
+
+// -----------------------------------------------------------------------------
+// State Toggle
+// -----------------------------------------------------------------------------
+
+.animation-toggle:not(:hover):not(:focus) [class*='animation-'] {
+	animation-name: none !important;
+}
+
+// -----------------------------------------------------------------------------
+// Keyframes
+// -----------------------------------------------------------------------------
+
+@keyframes fade					{ from { opacity: 0; } to { opacity: 1; } }
+
+@keyframes scale-up				{ from { transform: scale(0.9); } to { transform: scale(1); } }
+@keyframes scale-down			{ from { transform: scale(1.1); } to { transform: scale(1); } }
+
+@keyframes slide-top			{ from { transform: translateY(-100%); } to { transform: translateY(0); } }
+@keyframes slide-bottom			{ from { transform: translateY(100%); }  to { transform: translateY(0); } }
+@keyframes slide-left			{ from { transform: translateX(-100%); } to { transform: translateX(0); } }
+@keyframes slide-right			{ from { transform: translateX(100%); }  to { transform: translateX(0); } }
+
+@keyframes slide-top-small		{ from { transform: translateY(-10px); } to { transform: translateY(0); } }
+@keyframes slide-bottom-small	{ from { transform: translateY(10px); }  to { transform: translateY(0); } }
+@keyframes slide-left-small		{ from { transform: translateX(-10px); } to { transform: translateX(0); } }
+@keyframes slide-right-small	{ from { transform: translateX(10px); }  to { transform: translateX(0); } }
+
+@keyframes slide-top-medium		{ from { transform: translateY(-50px); } to { transform: translateY(0); } }
+@keyframes slide-bottom-medium	{ from { transform: translateY(50px); }  to { transform: translateY(0); } }
+@keyframes slide-left-medium	{ from { transform: translateX(-50px); } to { transform: translateX(0); } }
+@keyframes slide-right-medium	{ from { transform: translateX(50px); }  to { transform: translateX(0); } }
+
+@keyframes kenburns				{ from { transform: scale(1); } to { transform: scale(1.2); } }
+
+@keyframes stroke {
+	from { stroke-dashoffset: var(--animation-stroke); }
+	to   { stroke-dashoffset: 0; }
+}
+
+@keyframes shake {
+	0%, 100% { transform: translateX(0); }
+	10% { transform: translateX(-9px); }
+	20% { transform: translateX(8px); }
+	30% { transform: translateX(-7px); }
+	40% { transform: translateX(6px); }
+	50% { transform: translateX(-5px); }
+	60% { transform: translateX(4px); }
+	70% { transform: translateX(-3px); }
+	80% { transform: translateX(2px); }
+	90% { transform: translateX(-1px); }
+}

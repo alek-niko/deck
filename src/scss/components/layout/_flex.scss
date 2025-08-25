@@ -1,0 +1,151 @@
+// =============================================================================
+// FLEX UTILITIES
+// components/layout/_flex.scss
+// -----------------------------------------------------------------------------
+// Clean, modular utility classes for flexbox layouts.
+// Provides:
+// - Core flex and inline-flex containers
+// - Grid-like flex wrapper (.flex-grid)
+// - Direction, wrapping, justification, alignment helpers
+// - Gap, grow/shrink, and order utilities
+//
+// Example:
+//   <div class="flex justify-between items-center gap-md">
+//     <div>Left</div>
+//     <div>Right</div>
+//   </div>
+// =============================================================================
+
+@use '../../abstracts/variables/spacing' as *;
+
+
+// -----------------------------------------------------------------------------
+// Core flex containers
+// -----------------------------------------------------------------------------
+
+.flex {
+	display: flex;
+
+	// Future enhancement: Tokenize core flex props with CSS vars
+	// Example:
+	// flex-direction: var(--flex-direction, row);
+	// flex-wrap: var(--flex-wrap, nowrap);
+	// justify-content: var(--justify-content, flex-start);
+	// align-items: var(--align-items, stretch);
+	// gap: var(--gap, 0);
+	// align-self:: var(--align-self:, auto);
+	// flex-grow: var(--flex-grow, 0);
+	// flex-shrink: var(--flex-shrink, 1);
+	// flex-basis: var(--flex-basis, auto);
+	// order: var(--order, 0);
+}
+
+.flex-inline {
+	display: inline-flex;
+}
+
+// Flex-grid wrapper for equal-width children
+.flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+	flex-direction: row; /* Default: row layout */
+    gap: var(--gap, 0px);
+
+	// Child widths auto-calc based on --columns
+	> * {
+		flex: 1 1 calc((100% / var(--columns, 1)) - (var(--gap, 0px) * (var(--columns, 1) - 1) / var(--columns, 1)));
+		max-width: calc((100% / var(--columns, 1)) - (var(--gap, 0px) * (var(--columns, 1) - 1) / var(--columns, 1)));
+	}
+
+	// Optional responsive override
+ 	// @media (max-width: $breakpoint-md) { flex-direction: column; }
+
+}
+
+// -----------------------------------------------------------------------------
+// Flex direction
+// -----------------------------------------------------------------------------
+
+.flex-row    { flex-direction: row; }
+.flex-col    { flex-direction: column; }
+.flex-row-reverse { flex-direction: row-reverse; }
+.flex-col-reverse { flex-direction: column-reverse; }
+
+// -----------------------------------------------------------------------------
+// Flex wrapping
+// -----------------------------------------------------------------------------
+
+.flex-wrap         { flex-wrap: wrap; }
+.flex-nowrap       { flex-wrap: nowrap; }
+.flex-wrap-reverse { flex-wrap: wrap-reverse; }
+
+// -----------------------------------------------------------------------------
+// Justify content
+// -----------------------------------------------------------------------------
+
+.justify-start    { justify-content: flex-start; }
+.justify-end      { justify-content: flex-end; }
+.justify-center   { justify-content: center; }
+.justify-between  { justify-content: space-between; }
+.justify-around   { justify-content: space-around; }
+.justify-evenly   { justify-content: space-evenly; }
+
+// -----------------------------------------------------------------------------
+// Align items
+// -----------------------------------------------------------------------------
+
+.items-start    { align-items: flex-start; }
+.items-end      { align-items: flex-end; }
+.items-center   { align-items: center; }
+.items-baseline { align-items: baseline; }
+.items-stretch  { align-items: stretch; }
+
+// -----------------------------------------------------------------------------
+// Align self (child-level)
+// -----------------------------------------------------------------------------
+
+.self-start    { align-self: flex-start; }
+.self-end      { align-self: flex-end; }
+.self-center   { align-self: center; }
+.self-baseline { align-self: baseline; }
+.self-stretch  { align-self: stretch; }
+
+// -----------------------------------------------------------------------------
+// Gap utilities
+// -----------------------------------------------------------------------------
+
+.gap         { gap: var(--gap, $spacing-default); }
+.gap-none    { gap: 0; }
+.gap-xs      { gap: $spacing-xs; }
+.gap-sm      { gap: $spacing-sm; }
+.gap-md      { gap: $spacing-md; }
+.gap-lg      { gap: $spacing-lg; }
+.gap-xl      { gap: $spacing-xl; }
+
+// -----------------------------------------------------------------------------
+// Flex grow / shrink / basis
+// -----------------------------------------------------------------------------
+
+.flex-1       { flex: 1; }
+.flex-auto    { flex: auto; }
+.flex-none    { flex: none; }
+.flex-grow    { flex-grow: 1; }
+.flex-no-grow { flex-grow: 0; }
+.flex-shrink  { flex-shrink: 1; }
+.flex-no-shrink { flex-shrink: 0; }
+
+// -----------------------------------------------------------------------------
+// Order utilities
+// -----------------------------------------------------------------------------
+
+.order-first  { order: -1; }
+.order-last   { order: 99; }
+.order-0      { order: 0; }
+.order-1      { order: 1; }
+.order-2      { order: 2; }
+
+// -----------------------------------------------------------------------------
+// Responsive layout support (optional)
+// -----------------------------------------------------------------------------
+// Reserved for responsive variants (e.g., .md:flex, .lg:gap-md, etc.)
+// -----------------------------------------------------------------------------

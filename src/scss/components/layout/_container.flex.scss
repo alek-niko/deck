@@ -1,0 +1,113 @@
+// =============================================================================
+// FLEX CONTAINER
+// components/layout/_container.flex.scss
+// -----------------------------------------------------------------------------
+// Provides a flex-based container layout:
+// - Dynamically generates container max-widths from `$container-sizes` map
+// - Uses CSS custom properties for padding and gap (responsive by breakpoint)
+// - Does not include flex utility helpers (handled separately)
+//
+// Features:
+// • Configurable padding and gap via Sass defaults
+// • Nested containers automatically remove extra padding
+// • Responsive padding adjustments at `$breakpoint-sm` and `$breakpoint-md`
+//
+// Example:
+//   <div class="container-flex container-flex-large">
+//     <p>Content here</p>
+//   </div>
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+@use '../../abstracts/variables/spacing' as *;
+@use '../../abstracts/variables/container' as *;
+@use 'sass:map';
+
+// $container-sizes: (
+// 	xsmall: 600px,
+// 	small: 750px,
+// 	medium: 960px,
+// 	large: 1140px,
+// 	xlarge: 1320px,
+// 	expand: none
+// );
+
+// -----------------------------------------------------------------------------
+// Defaults
+// -----------------------------------------------------------------------------
+
+/// Default inline padding for containers
+/// @type Number
+$container-padding-default: 15px !default;
+
+/// Default gap between flex children
+/// @type Number
+$container-gap-default: 0px !default;
+
+
+// -----------------------------------------------------------------------------
+// Base container
+// -----------------------------------------------------------------------------
+
+.container-flex {
+
+	// Define container sizes as CSS custom properties
+	@each $label, $size in $container-sizes {
+		--container-#{$label}: #{$size};
+	}
+
+	// Custom properties with fallbacks
+	--container-padding: #{$container-padding-default};
+	--gap: #{$container-gap-default};
+
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	box-sizing: content-box;
+
+	max-width: var(--container-medium, map.get($container-sizes, medium));
+	margin-inline: auto;
+	padding-inline: var(--container-padding);
+	gap: var(--gap);
+
+	align-items: stretch;
+	justify-content: flex-start;
+
+	// Remove padding from nested containers
+	.container-flex {
+		padding-inline: 0;
+	}
+
+	// Remove margin from last child
+	> :last-child {
+		margin-bottom: 0;
+	}
+
+	  // Generate size modifiers dynamically
+  // Example: .container-flex-lg { max-width: 1140px; }
+	@each $label, $size in $container-sizes {
+		&-#{$label} {
+			max-width: var(--container-#{$label}, #{$size});
+		}
+	}
+
+	// Edge expand variants
+	&-expand-left { margin-left: 0; }
+	&-expand-right { margin-right: 0; }
+}
+
+// -----------------------------------------------------------------------------
+// Responsive padding
+// -----------------------------------------------------------------------------
+
+@media (min-width: $breakpoint-sm) {
+	.container-flex {
+		--container-padding: 30px;
+	}
+}
+
+@media (min-width: $breakpoint-md) {
+	.container-flex {
+		--container-padding: 40px;
+	}
+}

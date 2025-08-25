@@ -1,0 +1,267 @@
+// ============================================================================
+// EFFECTS MIXINS
+// abstracts/mixins/_effects.scss
+// ----------------------------------------------------------------------------
+// Visual animation and transition utilities.
+// Centralized motion effects for interactive UI behaviors.
+// Depends on SCSS variables from `abstracts/variables/_effects.scss`.
+// ============================================================================
+
+@use '../variables/effects' as *;
+
+/// --------------------------------------------
+/// TRANSITION (SHORTHAND)
+/// --------------------------------------------
+/// Applies a CSS transition to a given property.
+///
+/// @param {String} $property - CSS property to animate (default: all)
+/// @param {Time}   $duration - Duration of transition (default: $duration-medium)
+/// @param {Curve}  $easing   - Timing function (default: $ease-standard)
+///
+/// @example
+///   .example {
+///     @include transition(opacity, 0.4s, ease-in-out);
+///   }
+///
+
+@mixin transition(
+	$property: all,
+	$duration: $duration-medium,
+	$easing: $ease-standard
+) {
+	transition: $property $duration $easing;
+}
+
+/// --------------------------------------------
+/// FADE IN
+/// --------------------------------------------
+/// Fades an element in by animating opacity from 0 to 1.
+///
+/// @param {Time}  $duration - Duration of animation (default: $duration-medium)
+/// @param {Curve} $easing   - Timing function (default: $ease-standard)
+///
+/// @example
+///   .example {
+///     @include fade-in(0.5s, ease-in);
+///   }
+///
+
+@mixin fade-in(
+	$duration: $duration-medium,
+	$easing: $ease-standard
+) {
+	opacity: 0;
+	animation: fade-in $duration $easing forwards;
+}
+
+@keyframes fade-in {
+	to {
+		opacity: 1;
+	}
+}
+
+/// --------------------------------------------
+/// SLIDE IN UP
+/// --------------------------------------------
+/// Fades and translates an element upward into view.
+///
+/// @param {Length} $distance - Y-axis offset (default: $motion-distance-medium)
+/// @param {Time}   $duration - Duration of animation (default: $duration-medium)
+/// @param {Curve}  $easing   - Timing function (default: $ease-standard)
+///
+/// @example
+///   .example {
+///     @include slide-in-up(20px, 0.6s, ease-out);
+///   }
+///
+
+@mixin slide-in-up(
+	$distance: $motion-distance-medium,
+	$duration: $duration-medium,
+	$easing: $ease-standard
+) {
+	opacity: 0;
+	transform: translateY($distance);
+	animation: slide-in-up $duration $easing forwards;
+}
+
+@keyframes slide-in-up {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/// --------------------------------------------
+/// SCALE IN
+/// --------------------------------------------
+/// Scales an element in from a smaller size.
+///
+/// @param {Number} $scale    - Starting scale (default: 0.95)
+/// @param {Time}   $duration - Duration of animation (default: $duration-medium)
+/// @param {Curve}  $easing   - Timing function (default: $ease-standard)
+///
+/// @example
+///   .example {
+///     @include scale-in(0.9, 0.5s, ease-in-out);
+///   }
+///
+
+@mixin scale-in(
+	$scale: 0.95,
+	$duration: $duration-medium,
+	$easing: $ease-standard
+) {
+	opacity: 0;
+	transform: scale($scale);
+	animation: scale-in $duration $easing forwards;
+}
+
+@keyframes scale-in {
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+
+/// --------------------------------------------
+/// FADE OUT
+/// --------------------------------------------
+/// Fades an element out by animating opacity from 1 to 0.
+///
+/// @param {Time}  $duration - Duration of animation (default: $duration-medium)
+/// @param {Curve} $easing   - Timing function (default: $ease-standard)
+///
+/// @example
+///   .example {
+///     @include fade-out(0.4s, ease-in);
+///   }
+///
+
+@mixin fade-out(
+	$duration: $duration-medium,
+	$easing: $ease-standard
+) {
+	opacity: 1;
+	animation: fade-out $duration $easing forwards;
+}
+
+@keyframes fade-out {
+	to {
+		opacity: 0;
+	}
+}
+
+/// --------------------------------------------
+/// PULSE
+/// --------------------------------------------
+/// Subtle zoom in/out animation loop for emphasis.
+///
+/// @param {Time}   $duration - Total loop duration (default: 1s)
+/// @param {Number} $scale    - Max scale at peak (default: 1.05)
+///
+/// @example
+///   .example {
+///     @include pulse(1.2s, 1.1);
+///   }
+///
+
+@mixin pulse(
+	$duration: 1s,
+	$scale: 1.05
+) {
+	animation: pulse $duration ease-in-out infinite;
+	// Set the CSS variable for scale
+	--pulse-scale: #{$scale};
+}
+
+@keyframes pulse {
+	0%, 100% { transform: scale(1); }
+	50% { transform: scale(var(--pulse-scale, 1.05)); }
+}
+
+/// --------------------------------------------
+/// SHAKE
+/// --------------------------------------------
+/// Shakes an element left-right (e.g., form validation error).
+///
+/// @param {Length} $distance - Horizontal offset for shake (default: 6px)
+/// @param {Time}   $duration - Total duration of shake (default: 0.3s)
+///
+/// @example
+///   .error {
+///     @include shake(8px, 0.4s);
+///   }
+///
+
+@mixin shake(
+	$distance: 6px,
+	$duration: 0.3s
+) {
+	animation: shake $duration ease-in-out;
+	--shake-distance: #{$distance};
+}
+
+@keyframes shake {
+	10%, 90% { transform: translateX(calc(var(--shake-distance, 6px) * -1)); }
+	20%, 80% { transform: translateX(var(--shake-distance, 6px)); }
+	30%, 50%, 70% { transform: translateX(calc(var(--shake-distance, 6px) * -1)); }
+	40%, 60% { transform: translateX(var(--shake-distance, 6px)); }
+}
+
+/// --------------------------------------------
+/// COLLAPSE (EXPANDABLE HEIGHT)
+/// --------------------------------------------
+/// Collapses an element's height smoothly.
+///
+/// @param {Time} $duration - Duration of transition (default: 0.3s)
+///
+/// @example
+///   .accordion-content {
+///     @include collapse(0.5s);
+///   }
+///
+
+@mixin collapse($duration: 0.3s) {
+	overflow: hidden;
+	max-height: 0;
+	transition: max-height $duration ease-in-out;
+}
+
+
+/// --------------------------------------------
+/// BACKDROP BLUR
+/// --------------------------------------------
+/// Applies a frosted-glass blur effect behind an element.
+///
+/// @param {Length} $blur - Amount of blur to apply (default: 10px)
+///
+/// @example
+///   .modal-backdrop {
+///     @include backdrop-blur(12px);
+///   }
+///
+
+@mixin backdrop-blur($blur: 10px) {
+	backdrop-filter: blur($blur);
+	-webkit-backdrop-filter: blur($blur);
+}
+
+
+/// --------------------------------------------
+/// FOCUS RING
+/// --------------------------------------------
+/// Applies a custom focus ring for accessibility.
+///
+/// @param {Color} $color - Ring color (default: semi-transparent primary)
+///
+/// @example
+///   input:focus {
+///     @include focus-ring(rgba($primary-color, 0.4));
+///   }
+///
+@mixin focus-ring($color: rgba($primary-color, 0.5)) {
+	outline: none;
+	box-shadow: 0 0 0 3px $color;
+}

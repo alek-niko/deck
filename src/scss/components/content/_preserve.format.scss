@@ -1,0 +1,84 @@
+// ============================================
+// PRESERVE FORMAT COMPONENT
+// components/content/_preserve.format.scss
+// --------------------------------------------
+// Provides base styles for text that preserves whitespace and formatting.
+// - Used for post/comment composition (textarea)
+// - Used for static display (e.g., post previews)
+// - Preserves newlines, tabs, and spacing
+// - Theme-aware via CSS variables
+// - Mixin-based for clean, reusable, production-ready CSS
+// ============================================
+
+//--------------------------------------------
+// MIXIN: Base Styles for Preserving Format
+//--------------------------------------------
+// Encapsulates core behavior for text that preserves whitespace
+// Avoids @extend to prevent selector coupling
+//
+@mixin preserve-format-styles {
+
+	//----------------------------------------
+	// Behavior
+	//----------------------------------------
+	white-space: pre-wrap; 			// Preserve spacing, newlines, and wrap text
+	overflow-wrap: break-word;		// Break long words to prevent overflow
+	tab-size: var(--tab-size, 4);	// Respect tab characters with fallback
+
+	//----------------------------------------
+	// Typography & Theming
+	//----------------------------------------
+	font-family: var(--font-primary);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-base);
+	color: var(--color-text);
+}
+
+//--------------------------------------------
+// DISPLAY CONTAINER
+//--------------------------------------------
+// Static content such as post previews or comments
+//
+
+.preserve-format {
+
+	@include preserve-format-styles; 	// Apply base styles
+
+	//----------------------------------------
+	// Container Styling
+	//----------------------------------------
+	background-color: var(--color-surface);
+	padding: var(--spacing-default);
+	border-radius: var(--radius-default);
+}
+
+
+//--------------------------------------------
+// TEXTAREA COMPOSITION
+//--------------------------------------------
+//
+// User input area for composing posts or comments
+//
+
+textarea.preserve-format {
+
+	@include preserve-format-styles;	// Apply base styles
+
+	//----------------------------------------
+	// Layout & Interaction
+	//----------------------------------------
+	width: 100%; // Textareas should typically span the full width.
+	resize: vertical;
+	background-color: var(--color-surface-muted);
+	box-shadow: inset 0 0 0 1px var(--color-border);
+	transition: box-shadow 0.2s ease-in-out;
+
+	//----------------------------------------
+	// Accessible Focus State
+	//----------------------------------------
+
+	&:focus-visible {
+		outline: none;
+		box-shadow: inset 0 0 0 2px var(--color-primary);
+	}
+}

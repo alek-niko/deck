@@ -1,0 +1,71 @@
+//-----------------------------------------------------------------------------
+//  CHECKBOX COMPONENT
+//	components/form/_checkbox.scss
+//-----------------------------------------------------------------------------
+//  - Theme-driven via CSS variables
+//  - Minimal, accessible, and scalable
+//  - Supports dark mode via token overrides
+//  - Custom states: focus, checked, indeterminate, disabled
+//-----------------------------------------------------------------------------
+
+.checkbox {
+	// Reset appearance
+	-webkit-appearance: none;
+	-moz-appearance: none;
+
+	box-sizing: border-box;
+	display: inline-block;
+	overflow: hidden;
+
+	width: 1rem;
+	height: 1rem;
+
+	margin: -0.25rem 0.3125rem 0 0; // align with label text
+	vertical-align: middle;
+
+	font: inherit;
+	color: inherit;
+
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-small);
+	background-color: var(--color-surface);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: 0.625rem;
+
+	cursor: pointer;
+
+	transition: background-color 140ms cubic-bezier(0.55, 0, 0.1, 1),
+				border-color 140ms cubic-bezier(0.55, 0, 0.1, 1);
+
+	// Focus state
+	&:focus-visible {
+		outline: 2px solid var(--color-border-strong);
+		outline-offset: 2px;
+	}
+
+	// Checked state
+	&:checked {
+		background-color: var(--color-primary);
+		border-color: var(--color-primary);
+		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAQAAAAqJXdxAAAAjElEQVQI122PPQ4BUQCEv7dEsRHRqTUuIBIHUOIEDkAl7kEiSs0eQKFzBY0ziFqjEMUm8j6FsMlmZ7r5yWSCVKBPGiqMHkduWGbXi1cHZbnj2btDQQx/ue3JhyMRnLixJWLTgy+n3xCOzc2siZk6+7Wx4dzo1rW5i2INMXHl07dLk8KoA5EdKbAnFmc+Tw1uTyc150gAAAAASUVORK5CYII=");
+	}
+
+	// Indeterminate state
+	&:indeterminate {
+		background-color: var(--color-primary);
+		border-color: var(--color-primary);
+		background-image: none;
+	}
+
+	// Disabled state
+	&:disabled {
+		cursor: not-allowed;
+		background-color: var(--color-surface);
+		border-color: var(--color-border-muted);
+
+		&:checked {
+			background-color: color-mix(in srgb, var(--color-primary) 44%, transparent) !important;
+		}
+	}
+}

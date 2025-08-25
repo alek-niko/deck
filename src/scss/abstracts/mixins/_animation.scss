@@ -1,0 +1,75 @@
+// --------------------------------------------
+// Animation Mixins
+// --------------------------------------------
+
+/// Apply a single animation with full control over name, duration, easing, delay, and direction.
+///
+/// @param {String} $name        Animation name (required)
+/// @param {Time} $duration      Duration of the animation (default: 0.5s)
+/// @param {Function} $ease      Animation timing function (default: ease-out)
+/// @param {Time} $delay         Delay before animation starts (default: 0s)
+/// @param {String} $direction   Animation direction (normal, reverse, alternate, etc.)
+///
+/// @example
+///   @include animation(fade);
+///   @include animation(slide-left, 0.6s, ease-in-out, 0.2s, alternate);
+///
+
+@mixin animation(
+	$name,
+	$duration: 0.5s,
+	$ease: ease-out,
+	$delay: 0s,
+	$direction: normal
+) {
+	animation-name: $name;
+	animation-duration: $duration;
+	animation-timing-function: $ease;
+	animation-delay: $delay;
+	animation-fill-mode: both;
+	animation-direction: $direction;
+
+	@media (prefers-reduced-motion: reduce) {
+		animation: none !important;
+	}
+}
+
+/// --------------------------------------------
+/// Apply multiple animations with full control
+/// --------------------------------------------
+/// Accepts either a list (fade, slide-left) or a string ("fade, slide-left").
+/// This mixin will internally call `@include animation()` with the combined names.
+///
+/// @param {String|List} $names       Animation name(s) (required)
+/// @param {Time} $duration           Duration of animation (default: 0.5s)
+/// @param {Function} $ease           Timing function (default: ease-out)
+/// @param {Time} $delay              Delay before animation (default: 0s)
+/// @param {String} $direction        Animation direction (default: normal)
+///
+/// @example
+///   @include animation-multiple(fade);
+///   @include animation-multiple((fade, slide-left), 0.4s, ease-in);
+///   @include animation-multiple("fade, slide-right", 0.6s, ease-in-out, 0.2s);
+///
+
+@mixin animation-multiple(
+	$names,
+	$duration: 0.5s,
+	$ease: ease-out,
+	$delay: 0s,
+	$direction: normal
+) {
+	$name-str: null;
+
+	@if type-of($names) == 'list' {
+		$name-str: join($names, comma);
+	} @else if type-of($names) == 'string' {
+		$name-str: unquote($names);
+	} @else {
+		@warn "Animation-multiple expects a string or list, but got #{type-of($names)}.";
+	}
+
+	@if $name-str != null {
+		@include animation($name-str, $duration, $ease, $delay, $direction);
+	}
+}

@@ -1,0 +1,274 @@
+// ============================================
+// PROFILE-B COMPONENT
+// components/content/_profile-b.scss
+// --------------------------------------------
+// Profile card / block component
+// - Supports card, vertical, and editable layouts
+// - Includes avatar, initials fallback, user details, meta, and action buttons
+// - Fully theme-aware via CSS variables
+// - Responsive via breakpoints mixin
+// ============================================
+
+@use '../../abstracts/mixins/breakpoints' as *;
+
+//--------------------------------------------
+// Root Variables / Tokens
+//--------------------------------------------
+
+.profile-b {
+
+	//----------------------------------
+	// Design Tokens (Using CSS tokens from :root)
+	//----------------------------------
+
+	--gap: var(--spacing-sm, 0.75rem);
+	--max-width: 240px;
+	--avatar-aspect-ratio: 1 / 1;
+
+	margin-bottom: var(--spacing-lg, 2rem);
+
+	//----------------------------------------
+	// Card Variant
+	//----------------------------------------
+
+	&.card {
+		background-color: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-default, 10px);
+		//padding: var(--spacing-md, 1rem);
+		box-shadow: var(--shadow-md, 0 2px 6px rgba(0, 0, 0, 0.05));
+	}
+
+	//----------------------------------------
+	// Layout Variants
+	//----------------------------------------
+
+	.profile-grid {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--gap);
+
+		@include min-md {
+			flex-direction: row;
+			align-items: center;
+		}
+	}
+
+	//----------------------------------------
+	// Avatar Image
+	//----------------------------------------
+
+	.profile-image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-shrink: 1;
+	}
+
+	.profile-avatar {
+		width: 100%;
+		max-width: var(--max-width);
+        height: 300px;
+		//aspect-ratio: var(--avatar-aspect-ratio);
+		object-fit: cover;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-sm, 1vmin);
+		background-color: var(--color-surface);
+		transition: var(--transition-base, all 0.25s ease);
+
+		&.avatar-shadow {
+			box-shadow: var(--shadow-md);
+		}
+
+		@include max-sm {
+			max-width: 390px;
+		}
+
+		@include max-xs {
+			max-width: 280px;
+		}
+	}
+
+	//----------------------------------
+	// Initials Fallback
+	//----------------------------------
+
+	.profile-initials {
+		width: 120px;
+		height: 120px;
+		border-radius: var(--radius-circle, 50%);
+		border: 1px solid var(--color-border);
+		background-color: var(--color-surface-muted);
+		color: var(--color-text);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		font-weight: 600;
+	}
+
+	//----------------------------------------
+	// Details: Name, Username, Meta
+	//----------------------------------------
+
+	.profile-details {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: var(--gap);
+		padding: var(--spacing-sm, 0.5rem);
+		flex: 1;
+		color: var(--color-text);
+		text-align: center;
+
+		@include min-md {
+			text-align: start;
+		}
+
+		.profile-name {
+			font-weight: 500;
+			font-size: clamp(1.125rem, 2vw, 1.25rem);
+		}
+
+		.profile-username {
+			color: var(--color-text-muted);
+			font-size: clamp(0.9rem, 1.8vw, 1rem);
+		}
+
+		.profile-meta {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: var(--spacing-default, 1rem);
+			font-size: 0.9rem;
+			color: var(--color-text-muted);
+			margin-top: var(--spacing-sm, 0.5rem);
+			transition: var(--transition-base, all 0.25s ease);
+
+			@include min-md {
+				justify-content: flex-start;
+			}
+		}
+
+		.divider {
+			width: 100%;
+			height: 1px;
+			background-color: var(--color-border);
+			margin: 2px 0;
+		}
+	}
+
+	//----------------------------------------
+	// Action Buttons
+	//----------------------------------------
+
+	.profile-actions {
+		display: flex;
+		gap: var(--spacing-xs, 0.5rem);
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-top: var(--spacing-md, 1rem);
+
+		@include min-md {
+			justify-content: flex-start;
+		}
+
+		button {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			padding: 6px 16px;
+			font-size: 15px;
+			font-weight: 600;
+			border-radius: var(--radius-pill, 9999px);
+			cursor: pointer;
+			border: 1px solid transparent;
+			background-color: transparent;
+			min-width: fit-content;
+			transition: var(--transition-base, all 0.25s ease);
+
+			svg {
+				margin-left: 6px;
+				width: 16px;
+				height: 16px;
+			}
+		}
+
+		.follow-btn {
+			color: var(--color-primary);
+			border: 1px solid var(--color-primary);
+
+			&:hover {
+				background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+			}
+		}
+
+		.message-btn {
+			color: var(--color-text);
+			border: 1px solid var(--color-border);
+
+			&:hover {
+				background-color: var(--color-surface-muted);
+			}
+		}
+
+		.more-btn {
+			padding: 6px;
+			border-radius: var(--radius-circle, 50%);
+			border: none;
+			color: var(--color-text-muted);
+
+			&:hover {
+				background-color: var(--color-surface-muted);
+			}
+		}
+	}
+
+	//----------------------------------------
+	// Editable Variant
+	//----------------------------------------
+
+	&.editable {
+		.profile-actions {
+			.follow-btn {
+				display: none;
+			}
+
+			.edit-btn {
+				display: inline-flex;
+				color: var(--color-text);
+				border: 1px solid var(--color-border);
+
+				&:hover {
+					background-color: var(--color-surface-muted);
+				}
+			}
+		}
+	}
+
+	//----------------------------------------
+	// Vertical Layout Variant
+	//----------------------------------------
+
+	&.vertical {
+		@include min-md {
+			.profile-grid {
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.profile-details {
+				text-align: center;
+			}
+
+			.profile-meta {
+				justify-content: center;
+			}
+
+			.profile-actions {
+				justify-content: center;
+			}
+		}
+	}
+}

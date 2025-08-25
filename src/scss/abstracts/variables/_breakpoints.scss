@@ -1,0 +1,68 @@
+// ============================================
+// BREAKPOINTS
+// abstracts/variables/_breakpoints.scss
+// --------------------------------------------
+// Responsive breakpoints tokens for media queries.
+// Supports Tailwind-style defaults, optional Bootstrap-style, and Twitter-style.
+// Includes both individual variables and a `$breakpoints` map for programmatic use.
+// ============================================
+
+// ----------------------------------------------------
+// Bootstrap-style Breakpoints (optional)
+// ----------------------------------------------------
+
+// $breakpoint-xs:			0px		!default;
+// $breakpoint-sm:			576px	!default;
+// $breakpoint-md:			768px	!default;
+// $breakpoint-lg:			992px	!default;
+// $breakpoint-xl:			1200px	!default;
+// $breakpoint-xxl:			1400px	!default;
+
+// ----------------------------------------------------
+// Tailwind-style Breakpoints (active)
+// ----------------------------------------------------
+
+$breakpoint-xs: 			0px		!default;	// base
+$breakpoint-sm: 			640px	!default;	// small devices
+$breakpoint-md: 			768px	!default;	// tablets
+$breakpoint-lg: 			1024px	!default;	// small laptops
+$breakpoint-xl: 			1280px	!default;	// desktops
+$breakpoint-xxl:			1536px	!default;	// wide screens
+
+// ----------------------------------------------------
+// Twitter-style Breakpoints (optional)
+// ----------------------------------------------------
+
+// $breakpoint-xs: 			0px		!default;	// base
+// $breakpoint-sm: 			500px	!default;	// small devices
+// $breakpoint-md: 			1005px	!default;	// tablets
+// $breakpoint-lg: 			1095px	!default;	// small laptops
+// $breakpoint-xl: 			1282px	!default;	// desktops
+// $breakpoint-xxl:			1920px	!default;	// wide screens
+
+
+// --------------------------------------------
+// Breakpoint Map
+// --------------------------------------------
+/// Map of breakpoints for programmatic use in mixins/functions
+
+$breakpoints: (
+	xs: $breakpoint-xs,
+	sm: $breakpoint-sm,
+	md: $breakpoint-md,
+	lg: $breakpoint-lg,
+	xl: $breakpoint-xl,
+	xxl: $breakpoint-xxl
+) !default;
+
+
+// --------------------------------------------
+// Max-width values
+// --------------------------------------------
+/// Maximum widths for mobile-first queries
+
+$breakpoint-xs-max: 		($breakpoint-sm - 1) !default;
+$breakpoint-sm-max: 		($breakpoint-md - 1) !default;
+$breakpoint-md-max: 		($breakpoint-lg - 1) !default;
+$breakpoint-lg-max: 		($breakpoint-xl - 1) !default;
+$breakpoint-xl-max: 		($breakpoint-xxl - 1) !default;

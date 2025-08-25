@@ -1,0 +1,388 @@
+// =============================================================================
+// FLOATING ACTION BUTTON (FAB)
+// components/ui/_fab.scss
+// -----------------------------------------------------------------------------
+// Theme-aware floating action buttons with support for:
+// - Fixed page-level fabs (bottom-right default)
+// - Card-level fabs (all four corners)
+// - Variants: primary, secondary, success, danger, warning, dark
+// - Sizes: default, small, large
+// - Text fabs with label support
+// - Speed dial menus (vertical & horizontal)
+// - Fab sheets (expandable action menus)
+// - Responsive adjustments for smaller screens
+// -----------------------------------------------------------------------------
+// Implementation:
+// Uses CSS variables for theme colors, spacing tokens, and shadow elevations.
+// Compatible with global design tokens (colors, z-index, layout).
+// =============================================================================
+
+@use '../../abstracts/variables/z-index' as *; 
+@use '../../abstracts/variables/effects' as *; 
+@use '../../abstracts/variables/layout' as *; 
+
+@use '../../abstracts/mixins/responsive' as *; 
+
+// -----------------------------------------------------------------------------
+// Sizing & Config Tokens
+// -----------------------------------------------------------------------------
+
+$fab-size: 48px !default;
+$fab-size-small: 36px !default;
+$fab-size-large: 64px !default;
+$fab-spacing: 12px !default;
+$fab-gap: 8px !default;
+$fab-padding-small: 12px !default;
+$fab-padding-large: 36px !default;
+$fab-transition-duration: 200ms !default;
+$warning-color: #ffb300 !default;
+
+// -----------------------------------------------------------------------------
+// Layout Wrappers
+// -----------------------------------------------------------------------------
+
+// Containers with margin between fabs except if flex-horizontal
+/// Page-level wrapper (fixed to viewport bottom-right by default)
+.fab-page-wrapper:not(.flex-horizontal),
+.fab-card-wrapper:not(.flex-horizontal) {
+	>.fab+.fab {
+		margin-top: $fab-spacing;
+	}
+}
+
+.fab-page-wrapper {
+	position: fixed;
+	bottom: 24px;
+	right: 24px;
+	z-index: $z-index-fab;
+	transition: margin $fab-transition-duration $ease-snappy;
+
+	.footer-active & {
+		bottom: calc(24px + #{$footer-height});
+
+		@include respond-below('md') {
+			bottom: calc(24px + #{$footer-height-mobile});
+		}
+	}
+}
+
+/// Card-level wrapper (absolute positioning in card corners)
+.fab-card-wrapper {
+	position: absolute;
+	bottom: 16px;
+	right: 16px;
+
+	&.fab-bottom-left	{ left: 24px; right: auto; }
+	&.fab-bottom-right	{ right: 24px; left: auto; }
+	&.fab-top-left		{ top: 24px; bottom: auto; left: 24px; right: auto; }
+	&.fab-top-right		{ top: 24px; bottom: auto; right: 24px; left: auto; }
+}
+
+// -----------------------------------------------------------------------------
+// Base FAB
+// -----------------------------------------------------------------------------
+
+.fab {
+	box-sizing: border-box;
+
+	// Default values via CSS variables
+	--fab-size: #{$fab-size};
+	--fab-radius: 50%;
+	
+	width: var(--fab-size);
+	height: var(--fab-size);
+	border-radius: var(--fab-radius);
+
+	// THEME VARIABLES - link to global tokens defined elsewhere (in :root and .dark)
+	--fab-bg: var(--color-surface);
+	--fab-color: var(--color-text);
+	--fab-bg-primary: var(--color-primary);
+	--fab-bg-secondary: var(--color-danger); // example fallback
+	--fab-bg-success: var(--color-success);
+	--fab-bg-danger: var(--color-danger);
+	--fab-bg-warning: #ffb300;
+
+	background: var(--fab-bg);
+	color: var(--fab-color);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: var(--shadow-md);
+	//@include elevation(6);
+	transition: all $fab-transition-duration $ease-snappy;
+	border: none;
+	position: relative;
+	text-align: center;
+	cursor: pointer;
+
+	&:hover {
+		//@include elevation(8);
+		box-shadow: var(--shadow-lg);
+	}
+
+	&:active {
+		//@include elevation(12);
+		box-shadow: var(--shadow-xl);
+	}
+
+	>i,
+	>svg {
+		color: inherit;
+		font-size: 28px;
+	}
+
+	// -------------------------------------------------------------------------
+	// Color Variants
+	// -------------------------------------------------------------------------
+	// Modifiers: text color forced white, background from CSS vars
+
+	&.is-dark		{ background: var(--color-bg-dark, #000); color: var(--color-text-light, #fff); }
+	&.is-primary	{ background: var(--fab-bg-primary); color: #fff; }
+	&.is-secondary	{ background: var(--fab-bg-secondary); color: #fff; }
+	&.is-success	{ background: var(--fab-bg-success); color: #fff; }
+	&.is-danger		{ background: var(--fab-bg-danger); color: #fff; }
+	&.is-warning	{ background: var(--fab-bg-warning); color: #fff; }
+
+	// -------------------------------------------------------------------------
+	// Size Variants
+	// -------------------------------------------------------------------------
+
+	&.fab-small {
+		width: $fab-size-small;
+		height: $fab-size-small;
+
+		>i,
+		>svg {
+			font-size: 20px;
+		}
+	}
+
+	&.fab-large {
+		width: $fab-size-large;
+		height: $fab-size-large;
+
+		>i,
+		>svg {
+			font-size: 36px;
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Text FAB (with label)
+	// -------------------------------------------------------------------------
+
+	&.fab-text {
+		width: auto;
+		padding: 0 24px;
+		border-radius: $fab-size;
+		text-transform: uppercase;
+		font-weight: 500;
+
+		>i,
+		>svg {
+			margin-left: -8px;
+			margin-right: 4px;
+		}
+
+		&.fab-small {
+			padding: 0 $fab-padding-small;
+			//@include font-size(12px);
+			font-size: 12px;
+
+			>i,
+			>svg {
+				margin-left: -4px;
+			}
+		}
+
+		&.fab-large {
+			padding: 0 $fab-padding-large;
+			//@include font-size(20px);
+			font-size: 20px;
+
+			>i,
+			>svg {
+				margin-left: -12px;
+				margin-right: 8px;
+			}
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Speed Dial
+	// -------------------------------------------------------------------------
+
+	&-speed-dial {
+		>.fab {
+			position: relative;
+			z-index: 10;
+
+			>i,
+			>svg {
+				&:nth-child(2) {
+					display: none;
+				}
+			}
+		}
+
+		.fab-wrapper-inner {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			display: none;
+			flex-direction: column;
+
+			.fab {
+				flex-shrink: 0;
+				animation-duration: $fab-transition-duration;
+				animation-fill-mode: both;
+				animation-timing-function: $ease-snappy;
+
+				+.fab {
+					margin-bottom: $fab-gap;
+				}
+			}
+		}
+
+		&:not(.fab-speed-dial-horizontal) {
+			.fab-wrapper-inner {
+				flex-direction: column-reverse;
+				padding-bottom: calc(#{$fab-size} + #{$fab-gap});
+			}
+		}
+
+		&.fab-speed-dial-horizontal {
+			.fab-wrapper-inner {
+				padding-right: calc(#{$fab-size} + #{$fab-gap});
+				flex-direction: row-reverse;
+
+				.fab+.fab {
+					margin-right: $fab-gap;
+				}
+			}
+		}
+
+		// Toggle icons on active state
+		&.fab-speed-dial-active:not(.fab-speed-dial-hover) {
+
+			>.fab>i:nth-child(1),
+			>.fab>svg:nth-child(1) { display: none; }
+
+			>.fab>i:nth-child(2),
+			>.fab>svg:nth-child(2) { display: block; }
+		}
+
+		&.fab-speed-dial-active {
+			.fab-wrapper-inner { display: flex; }
+
+			&.animIn	.fab-wrapper-inner .fab { animation-name: fabSpeedDialIn; }
+			&.animOut	.fab-wrapper-inner .fab { animation-name: fabSpeedDialOut; }
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// FAB Sheet (expandable action menu)
+	// -------------------------------------------------------------------------
+
+	&-sheet {
+		transition: all $fab-transition-duration $ease-snappy;
+		box-sizing: border-box;
+		width: $fab-size;
+		height: $fab-size;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: var(--shadow-md);
+		//@include elevation(6);
+		cursor: pointer;
+
+		&:not(.is-primary):not(.is-secondary):not(.is-dark):not(.is-danger):not(.is-success):not(.is-warning) {
+			color: var(--fab-color);
+			background: var(--fab-bg);
+		}
+
+		&.fab-animated {
+			//@include elevation(1);
+			box-shadow: var(--shadow-xs);
+			border-radius: 4px;
+
+			>i,
+			>svg {
+				display: none;
+			}
+		}
+
+		&.fab-active .fab-sheet-actions {
+			display: block;
+
+			>a {
+				opacity: 1;
+			}
+		}
+
+		&-actions {
+			display: none;
+			white-space: nowrap;
+			overflow: hidden;
+			box-sizing: border-box;
+			padding: 4px 0;
+
+			>a {
+				opacity: 0;
+				padding: 4px 16px;
+				display: flex;
+				align-items: center;
+				font-size: 1rem;
+				line-height: 1.2;
+				color: var(--color-text-primary);
+
+				&:hover {
+					color: var(--color-text-primary);
+				}
+			}
+
+			.icon,
+			svg {
+				font-size: 24px;
+				margin-right: 8px;
+				vertical-align: -6px;
+			}
+		}
+	}
+
+	// Responsive downscaling
+	@include respond-below('sm') {
+		width: $fab-size-small;
+		height: $fab-size-small;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Keyframe Animations (Speed Dial)
+// -----------------------------------------------------------------------------
+
+@keyframes fabSpeedDialIn {
+	from {
+		opacity: 0;
+		transform: scale3d(0.1, 0.1, 0.1);
+	}
+
+	to {
+		opacity: 1;
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes fabSpeedDialOut {
+	from {
+		opacity: 1;
+		transform: scale3d(1, 1, 1);
+	}
+
+	to {
+		opacity: 0;
+		transform: scale3d(0.1, 0.1, 0.1);
+	}
+}

@@ -1,0 +1,104 @@
+// ============================================
+// SWITCH COMPONENT
+// components/form/switch.scss
+// --------------------------------------------
+// Custom toggle switch input
+// - Fully tokenized via CSS variables
+// - Supports checked/unchecked states
+// - Accessible and scalable
+// - Smooth transitions for track and thumb
+// ============================================
+
+.switch {
+	
+    // -----------------------------
+    // CSS tokens (theme-based)
+    // -----------------------------
+
+	--switch-track-bg: var(--color-border-muted);
+	--switch-thumb-bg: var(--color-surface);
+	--switch-track-checked-bg: var(--color-primary);
+	--switch-thumb-checked-bg: var(--color-primary);
+	--switch-thumb-border-color: var(--color-surface);
+	--switch-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2),
+					0 2px 2px 0 rgba(0, 0, 0, .14),
+					0 1px 5px 0 rgba(0, 0, 0, .12);
+
+    // ----------------------------------------
+    // Label wrapper
+    // ----------------------------------------
+
+	&-label {
+		position: relative;
+		display: inline-block;
+		cursor: pointer;
+		text-align: left;
+		padding: 4px 0 4px 44px;
+		user-select: none;
+
+		// Track and Thumb pseudo-elements
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			margin: 0;
+			outline: 0;
+			top: 50%;
+			transform: translate(0, -50%);
+			transition: all 140ms cubic-bezier(.55, 0, .1, 1);
+		}
+
+		// Track
+		&:before {
+			left: 1px;
+			width: 34px;
+			height: 14px;
+			background-color: var(--switch-track-bg);
+			border-radius: 8px;
+		}
+
+		// Thumb
+		&:after {
+			left: 0;
+			width: 20px;
+			height: 20px;
+			background-color: var(--switch-thumb-bg);
+			border-radius: 50%;
+			border: 10px solid var(--switch-thumb-border-color);
+			box-shadow: var(--switch-shadow);
+			box-sizing: border-box;
+		}
+	}
+
+	// ----------------------------------------
+    // Toggle indicators
+    // ----------------------------------------
+
+	&-toggle-on { display: none; }
+	&-toggle-off { display: inline-block; }
+
+    // ----------------------------------------
+    // Hidden checkbox input
+    // ----------------------------------------
+
+	&-input {
+		display: none;
+
+		// Checked state
+		&:checked+.switch-label {
+			&:before {
+				background-color: var(--switch-track-checked-bg);
+			}
+
+			&:after {
+				background-color: var(--switch-thumb-checked-bg);
+				border-color: var(--switch-thumb-checked-bg);
+				transform: translate(80%, -50%);
+			}
+
+			// Toggle indicators visibility
+			.switch-toggle-on { display: inline-block; }
+			.switch-toggle-off { display: none; }
+		}
+	}
+}

@@ -1,0 +1,16 @@
+// =============================================================================
+// COMPONENTS ENTRY POINT
+// components/_index.scss
+// -----------------------------------------------------------------------------
+// Central entry point for all UI components in the project.
+// Forwards component partials by functional group for modular imports.
+// Enables maintainable, scalable architecture and tree-shakable builds.
+// =============================================================================
+
+@forward 'content';       // Content-related components (e.g., articles, cards)
+@forward 'form';          // Form elements and controls (inputs, buttons)
+@forward 'layout';        // Component-specific layout helpers
+@forward 'navigation';    // Navigation components (menus, tabs)
+@forward 'typography';    // Typography utilities & content styling
+@forward 'ui';            // General UI components (modals, tooltips)
+@forward 'utils';         // Utility components/helpers (e.g., badges, loaders)

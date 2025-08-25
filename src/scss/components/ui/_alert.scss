@@ -1,0 +1,199 @@
+// =============================================================================
+// ALERT COMPONENT
+// components/ui/_alert.scss
+// -----------------------------------------------------------------------------
+// Provides theme-aware alert/notification UI elements
+// Supports:
+// - Multiple alert types (success, warning, error, info)
+// - Dismissible alerts with close button
+// - Optional icons per alert type
+// - Fully tokenized colors and spacing for light/dark themes
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *; // If you're using token breakpoints
+
+// =============================================================================
+// BASE ALERT
+// =============================================================================
+
+.alert {
+
+	// -------------------------------------------------------------------------
+	// Scoped Token Defaults
+	// -------------------------------------------------------------------------
+	--alert-background: var(--color-surface);
+	--alert-color: var(--color-text);
+	--alert-border: 1px solid var(--color-border);
+	--alert-border-radius: var(--radius-default);
+	--alert-padding: 12px 16px; //   with icon: 14px 20px 14px 16px;
+	--alert-font-size: 14px;
+	--alert-link-color: var(--color-link);
+
+	// -------------------------------------------------------------------------
+	// Intent Tokens
+	// -------------------------------------------------------------------------
+	--alert-bg-primary: var(--color-primary);
+	--alert-bg-success: var(--color-success);
+	--alert-bg-warning: var(--color-warning);
+	--alert-bg-danger: var(--color-danger);
+	--alert-on-bg: var(--color-text-on-primary, #fff); // Fallback white if not defined
+
+	// -------------------------------------------------------------------------
+	// Layout & Defaults
+	// -------------------------------------------------------------------------
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem; // Optional: spacing between content and close icon
+	margin-bottom: 1.25rem;
+	padding: var(--alert-padding);
+	background: var(--alert-background);
+	color: var(--alert-color);
+	border: var(--alert-border);
+	border-radius: var(--alert-border-radius);
+	font-size: var(--alert-font-size);
+
+	* + .alert { margin-top: 1.25rem; }
+	> :last-child { margin-bottom: 0; }
+
+	a:not([class]) {
+		color: var(--alert-link-color);
+	}
+
+	.list:not(.list-bullet) > li {
+		padding: 0.25rem 0;
+	}
+
+	// -------------------------------------------------------------------------
+	// Fade-out & Hidden States
+	// -------------------------------------------------------------------------
+
+	&.fade-out {
+		opacity: 0;
+		transform: translateY(-4px);
+		transition: opacity 300ms ease, transform 300ms ease;
+		pointer-events: none;
+	}
+
+	&.hidden {
+		display: none !important;
+	}
+
+	// -------------------------------------------------------------------------
+	// Attached Alerts (top/bottom, no double radius)
+	// -------------------------------------------------------------------------
+	&-attached {
+		&-top, &-bottom { margin: 0; }
+
+		&-top {
+			border-radius: var(--radius-default) var(--radius-default) 0 0;
+			border-width: 0 0 1px;
+		}
+		&-bottom {
+			border-radius: 0 0 var(--radius-default) var(--radius-default);
+			border-width: 1px 0 0;
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Alert Body
+	// -------------------------------------------------------------------------
+	&-body {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+
+	// -------------------------------------------------------------------------
+	// Close Icon
+	// -------------------------------------------------------------------------
+	&-close {
+		font-size: 1.5rem;
+		cursor: pointer;
+		opacity: 0.4;
+		color: inherit;
+		line-height: 1;
+		background: none;
+		border: none;
+		padding: 0;
+		align-self: flex-start; // Optional: aligns to top if alert-body is tall
+	}
+
+	// -------------------------------------------------------------------------
+	// Intent Variants
+	// -------------------------------------------------------------------------
+	&-primary {
+		background: var(--alert-bg-primary);
+		color: var(--alert-on-bg);
+	}
+	&-success {
+		background: var(--alert-bg-success);
+		color: var(--alert-on-bg);
+	}
+	&-warning {
+		background: var(--alert-bg-warning);
+		color: var(--alert-on-bg);
+	}
+	&-danger {
+		background: var(--alert-bg-danger);
+		color: var(--alert-on-bg);
+	}
+
+	// -------------------------------------------------------------------------
+	// Border Intent Variants
+	// -------------------------------------------------------------------------
+	&-border {
+		border-left: 4px solid transparent;
+
+		&-primary { border-left-color: var(--color-primary); }
+		&-success { border-left-color: var(--color-success); }
+		&-warning { border-left-color: var(--color-warning); }
+		&-danger { border-left-color: var(--color-danger); }
+	}
+
+
+	// -------------------------------------------------------------------------
+	// Text Color Variants
+	// -------------------------------------------------------------------------
+	&-text-primary { color: var(--color-primary); }
+	&-text-success { color: var(--color-success); }
+	&-text-warning { color: var(--color-warning); }
+	&-text-danger { color: var(--color-danger); }
+}
+
+// =============================================================================
+// RESPONSIVE ALERT
+// =============================================================================
+
+@media (max-width: $breakpoint-sm-max) {
+	.alert {
+		flex-direction: column;
+		align-items: stretch;
+
+		.alert-close {
+			position: static;
+			margin-top: 0.75rem;
+			align-self: flex-end;
+		}
+	}
+}
+
+
+// =============================================================================
+// OPTIONAL JS HANDLER (Dismissible Alerts)
+// =============================================================================
+/*
+document.addEventListener('click', event => {
+  if (event.target.matches('.alert-close')) {
+    const alert = event.target.closest('.alert');
+    if (alert) {
+      alert.classList.add('fade-out');
+
+      // Remove from DOM after animation
+      setTimeout(() => {
+        alert.classList.add('hidden');
+      }, 300); // match SCSS transition time
+    }
+  }
+});
+*/

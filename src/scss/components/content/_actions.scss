@@ -1,0 +1,104 @@
+// ============================================
+// COMPONENT: Actions
+// components/content/_actions.scss
+// --------------------------------------------
+// Inline action group for icon + label use cases
+// - Base: Neutral with per-action hover + active states
+// - Variants: `.post-actions` or `.post .actions`
+//   for post-specific layout and spacing
+// ============================================
+
+.actions {
+	display: flex;
+	gap: var(--spacing-lg);
+
+	// Local fallback color vars (scoped to .actions)
+	--reply-active-fallback:   #005bb5;
+	--retweet-active-fallback: #178f17;
+	--like-active-fallback:    #b21b2a;
+	--share-active-fallback:   #005bb5;
+
+	// --------------------------------------------
+	// Action Item
+	// Inline-flex container for icon + label
+	// --------------------------------------------
+	.action {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		color: var(--action-color, var(--color-text-muted));
+		font-size: 0.875rem;
+		cursor: pointer;
+		background: none;
+		border: none;
+		padding: 0;
+		transition: color var(--transition-duration) ease;
+
+         a {
+            color: inherit;
+        }
+
+		svg {
+			width: 1.50rem;
+			height: 1.50rem;
+			flex-shrink: 0;
+            color: inherit;
+		}
+
+		// Reply
+		&.reply:hover { color: var(--color-primary); }
+		&.reply.active {
+			color: var(--reply-active-fallback); /* Fallback */
+			color: color-mix(in srgb, var(--color-primary) 80%, black 20%);
+		}
+
+		// Retweet
+		&.retweet:hover { color: var(--color-success); }
+		&.retweet.active {
+			color: var(--retweet-active-fallback); /* Fallback */
+			color: color-mix(in srgb, var(--color-success) 80%, black 20%);
+		}
+
+		// Like
+		&.like:hover { color: var(--color-danger); }
+		&.like.active {
+			color: var(--like-active-fallback); /* Fallback */
+			color: color-mix(in srgb, var(--color-danger) 80%, black 20%);
+		}
+
+		// Share
+		&.share:hover { color: var(--color-primary); }
+		&.share.active {
+			color: var(--share-active-fallback); /* Fallback */
+			color: color-mix(in srgb, var(--color-primary) 80%, black 20%);
+		}
+	}
+
+	// Optional .action-text / .text for counts or labels
+	.action-text,
+	.text {
+		display: inline-block;
+		font-size: 0.75rem;
+		line-height: 1;
+		user-select: none;
+	}
+}
+
+// ============================================
+// VARIANT: Post Actions
+// --------------------------------------------
+// Auto-applied via `.post .actions`
+// or explicit `.post-actions` class
+// - Adds spacing & alignment for timeline contexts
+// ============================================
+
+.post .actions,
+.actions.post-actions {
+	justify-content: space-between;
+	margin-top: var(--spacing-sm);
+	max-width: 425px;
+
+	.action {
+		font-weight: 500;
+	}
+}

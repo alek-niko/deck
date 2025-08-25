@@ -1,0 +1,167 @@
+// ============================================
+// COMMENT COMPONENT
+// components/content/_comment.scss
+// --------------------------------------------
+// Styles for threaded comment components.
+// Uses Flexbox layout, responsive spacing, scoped tokens,
+// theme-aware variables, and supports variants (compact, highlighted).
+// ============================================
+
+
+@use '../../abstracts/variables' as *;
+@use '../../abstracts/mixins/breakpoints' as *;
+
+// --------------------------------------------
+// Component-Specific Tokens (Scoped Locally)
+// --------------------------------------------
+
+$comment-title-font-size:    1.25rem !default;
+$comment-title-line-height:  1.4 !default;
+$comment-meta-font-size:     0.875rem !default;
+$comment-meta-line-height:   1.4 !default;
+$comment-meta-color:         var(--color-text-muted, rgba(153, 153, 153, 1)) !default;
+
+.comment {
+
+	// ----------------------------------------
+	// Scoped CSS Custom Properties
+	// ----------------------------------------
+	--comment-title-font-size:    #{$comment-title-font-size};
+	--comment-title-line-height:  #{$comment-title-line-height};
+	--comment-meta-font-size:     #{$comment-meta-font-size};
+	--comment-meta-line-height:   #{$comment-meta-line-height};
+	--comment-meta-color:         #{$comment-meta-color};
+
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-md, 16px);
+	padding: var(--spacing-default, 24px) 0;
+	border-bottom: 1px solid var(--color-border, rgba(0, 0, 0, 0.1));
+
+	// ----------------------------------------
+	// Header & Avatar
+	// ----------------------------------------
+
+	&-header {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-sm, 8px);
+	}
+
+	&-avatar {
+		width: 48px;
+		height: 48px;
+		flex-shrink: 0;
+		border-radius: 50%;
+		overflow: hidden;
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	// ----------------------------------------
+	// Content & Text
+	// ----------------------------------------
+
+	&-content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	&-title {
+		font-size: var(--comment-title-font-size);
+		line-height: var(--comment-title-line-height);
+		font-weight: 600;
+		color: var(--color-text, rgba(0, 0, 0, 0.87));
+		margin: 0;
+	}
+
+	&-meta {
+		font-size: var(--comment-meta-font-size);
+		line-height: var(--comment-meta-line-height);
+		color: var(--comment-meta-color);
+		margin: 0;
+	}
+
+	&-body {
+		color: var(--color-text, rgba(0, 0, 0, 0.87));
+		line-height: 1.6;
+		animation: fade-in 0.3s ease-in-out;
+	}
+
+	// ----------------------------------------
+	// Threaded / Nested Comments
+	// ----------------------------------------
+
+	&-list {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-default, 24px);
+		padding: 0;
+		list-style: none;
+
+		.comment ~ ul {
+			display: flex;
+			flex-direction: column;
+			gap: var(--spacing-default, 24px);
+			margin-top: var(--spacing-default, 24px);
+			padding-left: 30px;
+			list-style: none;
+		}
+	}
+
+	// ----------------------------------------
+	// Variants
+	// ----------------------------------------
+
+	&.compact {
+		.comment-title {
+			font-size: 1rem;
+		}
+		.comment-meta {
+			font-size: 0.75rem;
+		}
+		.comment-avatar {
+			width: 36px;
+			height: 36px;
+		}
+	}
+
+	&.highlighted {
+		background-color: var(--color-surface-muted, #f7f9fa);
+		border-left: 3px solid var(--color-primary, #0d8ddb);
+		padding: 0.75rem;
+		border-radius: var(--radius-default, 6px);
+		animation: slide-in 0.4s ease-out;
+	}
+}
+
+// --------------------------------------------
+// Responsive Nesting Adjustments
+// --------------------------------------------
+
+@include min-md {
+	.comment-list .comment ~ ul {
+		padding-left: 40px;
+	}
+}
+
+// --------------------------------------------
+// Animations
+// --------------------------------------------
+
+@keyframes fade-in {
+	from { opacity: 0; transform: translateY(4px); }
+	to   { opacity: 1; transform: none; }
+}
+
+@keyframes slide-in {
+	from { opacity: 0; transform: translateX(-10px); }
+	to   { opacity: 1; transform: none; }
+}

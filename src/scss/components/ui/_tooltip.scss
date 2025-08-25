@@ -1,0 +1,28 @@
+// [data-tooltip]:before {
+//     /* required code */
+//     content: attr(data-tooltip);
+//     position: absolute;
+//     opacity: 0;
+
+//     /* customizable */
+//     top: 50%; /* Start at the center of the element */
+//     left: 50%;
+//     transform: translate(-50%, -50%); /* Center vertically and horizontally */
+//     transition: 256ms all ease; /* Smooth transition */
+//     padding: 10px 20px;
+//     color: #333;
+//     border-radius: 5px;
+//     box-shadow: 0px 6px 21px rgb(0 0 0 / 10%);
+// }
+
+// [data-tooltip]:hover:before {
+//     /* required code */
+//     opacity: 1;
+
+//     /* customizable */
+//     background: #fff;
+//     border-radius: 5px;
+//     border: 1px solid #ccc;
+//     top: 100%; /* Final position below the element */
+//     transform: translateX(-50%) translateY(0); /* Align horizontally and move below */
+// }

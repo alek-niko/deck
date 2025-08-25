@@ -1,0 +1,61 @@
+// ============================================================================
+// GRID
+// abstracts/variables/_grid.scss
+// ----------------------------------------------------------------------------
+// Grid configuration tokens for layout components
+// - Column counts, gaps, breakpoints, and masonry sizes
+// - Used by layout mixins and grid utilities
+// ============================================================================
+
+
+// ---------------------------------------------------------------------------
+// 1. Grid Column Settings
+// ---------------------------------------------------------------------------
+
+/// Default number of columns in the grid layout
+/// @type {Number}
+$grid-columns: 6 !default;
+
+/// Horizontal gap between columns
+/// @type {Length}
+$grid-column-gap: 15px !default;
+
+/// Vertical gap between rows
+/// @type {Length}
+$grid-row-gap: 15px !default;
+
+/// Default grid gap (applied to both row and column)
+/// @type {Length}
+$grid-gap: 15px	!default;
+
+
+// ---------------------------------------------------------------------------
+// 2. Responsive Grid Breakpoints
+// ---------------------------------------------------------------------------
+
+
+/// Supported grid breakpoints
+/// Must sync with `$breakpoints` map
+/// @type {List<String>}
+$grid-sizes: (
+	"sm",
+	"md",
+	"lg",
+	"xl"
+) !default;
+
+
+// ---------------------------------------------------------------------------
+// 3. Masonry Grid Sizes
+// ---------------------------------------------------------------------------
+
+/// Ideal item widths per breakpoint for masonry layouts
+/// @type {Map<String, Length>}
+$grid-masonry: (
+	xs: 120px,
+	sm: 160px,
+	md: 240px,
+	lg: 320px,
+	xl: 400px,
+	xxl: 480px
+) !default;

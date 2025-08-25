@@ -1,0 +1,30 @@
+// =============================================================================
+// UTILITY ENTRY POINT
+// components/util/_index.scss
+// -----------------------------------------------------------------------------
+// Central entry point for all utility partials.
+// - Forwards atomic helper modules for animations, layout, spacing, effects, and responsiveness
+// - Enables consistent imports across the application
+// - Keeps utility namespace modular and maintainable
+// =============================================================================
+
+@forward 'animation';       // Animation helpers and keyframes
+@forward 'background';      // Background utilities
+@forward 'borders';         // Border helpers
+@forward 'display';         // Display utilities (block, flex, grid, responsive)
+@forward 'height';          // Height utilities (absolute, token-based, viewport)
+@forward 'inline';          // Inline helpers
+@forward 'interactions';    // Interaction state helpers (hover, focus, active)
+@forward 'layout';          // Layout utilities (flexbox, grid helpers)
+@forward 'margin';          // Margin utilities
+@forward 'object';          // Object-fit / object-position helpers
+@forward 'overflow';        // Overflow utilities
+@forward 'padding';         // Padding utilities
+@forward 'preserve';        // Preserve formatting helpers
+@forward 'resize';          // Resize utilities
+@forward 'responsive';      // Responsive design helpers
+@forward 'shadows';         // Shadow utilities
+@forward 'theme';           // Theme-related utilities and variables
+@forward 'transform';       // Transform helpers (translate, scale, rotate)
+@forward 'transition';      // Transition helpers and presets
+@forward 'visibility';      // Visibility utilities (show/hide)

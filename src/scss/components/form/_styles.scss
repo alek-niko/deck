@@ -1,0 +1,351 @@
+//=============================================================================
+// FORM STYLES
+// components/form/_styles.scss
+//=============================================================================
+//  Provides base styles and utilities for form layouts, inputs, and states.
+//  Includes:
+//   - Fieldset & legend defaults
+//   - Horizontal and stacked form layouts
+//   - Labels, helper text, and error messaging
+//   - Custom input wrappers (file, select)
+//   - Input sizing and width utilities
+//   - Icon placement utilities
+//   - Success, error, and blank state variations
+//=============================================================================
+
+//-----------------------------------------------------------------------------
+//  Fieldset & Legend Defaults
+//-----------------------------------------------------------------------------
+//  Minimal reset for consistent styling across browsers.
+//  Optional `.fieldset-border` modifier provides a visible outline.
+//-----------------------------------------------------------------------------
+
+// .fieldset {
+//     border: none;
+//     margin: 0;
+//     padding: 0;
+//     min-width: 0;
+// }
+
+// legend {
+//     font-weight: var(--font-weight-base);
+//     font-size: var(--font-size-base);
+//     color: var(--color-text-secondary);
+//     margin-bottom: var(--spacing-sm);
+//     display: block;
+// }
+
+.fieldset-border fieldset {
+	border: var(--fieldset-border, 1px solid var(--color-border));
+}
+
+//-----------------------------------------------------------------------------
+//  Base Form Layouts (Horizontal + Stacked)
+//-----------------------------------------------------------------------------
+//  Flexbox-based layouts with consistent spacing.
+//  - `.form-horizontal` → horizontal label/control alignment
+//  - `.form-stacked`   → vertical alignment
+//-----------------------------------------------------------------------------
+
+.form-horizontal,
+.form-stacked {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-md);
+
+	fieldset {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-md);
+		border: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	legend {
+		font-weight: var(--font-weight-base);
+		font-size: var(--font-size-base);
+		color: var(--color-text-secondary);
+		margin-bottom: var(--spacing-md);
+		display: block;
+	}
+}
+
+.form-group {
+	display: flex;				// Default to a horizontal layout.
+	flex-wrap: wrap;			// Allow wrapping on smaller screens.
+	align-items: flex-start;
+	gap: var(--spacing-sm);
+
+	.form-label {
+		flex: 0 0 200px;		// Fixed-width label column        
+		padding-top: 0.5em;		// Align with input text
+	}
+
+	.form-controls {
+		flex: 1;				// Fill remaining space
+		min-width: 0;			// Prevent overflow
+		display: flex;			// Stack input + helper/error text
+		flex-direction: column;
+		gap: var(--spacing-xs);
+	}
+}
+
+
+//-----------------------------------------------------------------------------
+//  Stacked Form Modifier
+//-----------------------------------------------------------------------------
+//  Forces `.form-group` children into a vertical flow.
+//  Labels stretch full width; gaps reduced for tighter look.
+//-----------------------------------------------------------------------------
+
+.form-stacked {
+
+	.form-group {
+		flex-direction: column;	// Override the default horizontal layout to a vertical one.
+		align-items: stretch;	// Ensure children take up the full width.
+		gap: var(--spacing-xs); // Reduce gap for a tighter stacked look.
+	}
+
+	.form-label {
+		flex: 1 1 auto;			// Reset the flex property to allow the label to be full-width.
+		padding-top: 0;			// Remove padding needed for horizontal alignment.
+		//margin-bottom: var(--spacing-xs);
+	}
+}
+
+
+//-----------------------------------------------------------------------------
+//  Labels & Helper Text
+//-----------------------------------------------------------------------------
+//  Labels are styled for clarity and accessibility.
+//  Superscript markers (e.g., required *) are supported.
+//  Helper text and counters provide inline guidance.
+//-----------------------------------------------------------------------------
+
+.form-label {
+	font-weight: var(--font-weight-base);
+	font-size: var(--font-size-base);
+	color: var(--color-text-secondary);
+	display: inline-block; // Use inline-block for proper spacing and alignment.
+	margin-bottom: 3px;
+
+	> sup {
+		color: var(--color-error-light, #ef9a9a);
+		font-size: var(--font-size-small, 15px);
+		vertical-align: -4px;
+		padding-left: 2px;
+	}
+}
+
+// Helper text for inputs. Place inside .form-controls for best results.
+.form-help-inline {
+	display: block;
+	font-size: var(--font-size-small, 12px);
+	color: var(--color-text-muted);
+}
+
+// Character counter utility. Place inside .form-controls.
+.char-counter {
+	display: block;
+	text-align: right;
+	font-size: 0.75rem;
+	color: var(--color-text-muted);
+}
+
+
+//-----------------------------------------------------------------------------
+//  Error Messaging
+//-----------------------------------------------------------------------------
+//  Provides inline error states and block-level error lists.
+//-----------------------------------------------------------------------------
+
+.form-error-block {
+	//padding-left: var(--spacing-sm, 8px);
+	color: var(--color-error);
+	font-size: var(--font-size-small, 12px);
+	display: block;
+}
+
+.form-errors-list {
+	color: var(--color-error);
+	font-size: var(--font-size-default, 14px);
+	padding: 0;
+	margin: 0;
+	list-style-position: inside;
+	display: none;
+
+	&.filled {
+		display: block;
+	}
+}
+
+
+//-----------------------------------------------------------------------------
+//  Custom Inputs (File & Select)
+//-----------------------------------------------------------------------------
+//  Wraps file inputs and selects for styling without losing native behavior.
+//  Inputs are visually hidden but remain accessible and interactive.
+//-----------------------------------------------------------------------------
+
+.form-custom {
+	display: inline-block;
+	position: relative;
+	max-width: 100%;
+	vertical-align: middle;
+
+	select,
+	input[type="file"] {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		opacity: 0;
+		cursor: pointer;
+		-webkit-appearance: none;
+	}
+
+	input[type="file"] {
+		font-size: 500px;
+		overflow: hidden;
+	}
+}
+
+
+//-----------------------------------------------------------------------------
+//  Input Sizing Utilities
+//-----------------------------------------------------------------------------
+//  Size variants for compact (`.form-small`) and spacious (`.form-large`) forms.
+//-----------------------------------------------------------------------------
+
+.form-small {
+	&:not(textarea):not([multiple]):not([size]) {
+		height: 30px;
+		padding-left: var(--spacing-small, 8px);
+		padding-right: var(--spacing-small, 8px);
+	}
+
+	&:not(select):not(input):not(textarea) {
+		line-height: 30px;
+	}
+}
+
+.form-large {
+	font-size: var(--font-size-large, 1.25rem);
+
+	&:not(textarea):not([multiple]):not([size]) {
+		height: 55px;
+		padding-left: var(--spacing-medium, 12px);
+		padding-right: var(--spacing-medium, 12px);
+	}
+
+	&:not(select):not(input):not(textarea) {
+		line-height: 55px;
+	}
+}
+
+
+//-----------------------------------------------------------------------------
+//  Width Utilities
+//-----------------------------------------------------------------------------
+//  Fixed-width helpers for inputs and paired `.input-bar` elements.
+//-----------------------------------------------------------------------------
+
+.form-width-xsmall {
+	width: 50px !important;
+	+ .input-bar { width: 50px; }
+}
+
+.form-width-small {
+	width: 130px !important;
+	+ .input-bar { width: 130px; }
+}
+
+.form-width-medium {
+	width: 200px !important;
+	+ .input-bar { width: 200px; }
+}
+
+.form-width-large {
+	width: 500px !important;
+	+ .input-bar { width: 500px; }
+}
+
+
+select.form-width-xsmall {
+	// Add padding to select width to account for dropdown arrow.
+	width: calc(50px + 25px);
+}
+
+
+//-----------------------------------------------------------------------------
+//  Icon Utilities
+//-----------------------------------------------------------------------------
+//  Positions icons inside input fields, with optional flipped variant.
+//-----------------------------------------------------------------------------
+
+.form-icon {
+	position: absolute;
+	top: 50%;
+	left: -4px;
+	width: 40px;
+	height: 40px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--color-text-muted);
+	transform: translate3d(0, -50%, 0);
+
+	.icon { font-size: 20px; }
+
+	&.form-icon-flip {
+		left: auto;
+		right: 0;
+
+		+ .input { padding-right: 40px; }
+
+		+ .form-icon {
+			right: 34px;
+			+ .input { padding-right: 70px; }
+		}
+	}
+
+	&:not(.form-icon-flip) + .input { padding-left: 36px; }
+	&:not(.form-icon-flip) + label { left: 40px !important; }
+
+	&:hover { color: var(--color-text-secondary, #666); }
+}
+
+
+//-----------------------------------------------------------------------------
+//  Input States
+//-----------------------------------------------------------------------------
+//  Semantic states for form inputs: success, error, and blank.
+//-----------------------------------------------------------------------------
+
+.form-success {
+	color: var(--color-success);
+	border-color: var(--color-success);
+
+	&:focus {
+		color: var(--color-success) !important;
+		border-color: var(--color-success) !important;
+	}
+}
+
+.form-danger {
+	color: var(--color-danger);
+	border-color: var(--color-danger);
+
+	&:focus {
+		color: var(--color-danger) !important;
+		border-color: var(--color-danger) !important;
+	}
+}
+
+.form-blank {
+	background: none !important;
+}

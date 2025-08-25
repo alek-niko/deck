@@ -1,0 +1,57 @@
+// ============================================
+// CODE BLOCK STYLING
+// components/content/_code.scss
+// --------------------------------------------
+// Scoped styling for <pre> and <code> blocks.
+// Uses semantic theme tokens and supports dark mode.
+// Applies both block-level and inline code styles.
+// ============================================
+
+pre {
+
+	//----------------------------------
+	// Typography & Layout
+	//----------------------------------
+    
+	font: 0.875rem/1.5 Consolas, Monaco, monospace;
+	color: var(--color-text);
+	background-color: var(--color-surface-muted);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-default);
+    padding: 1em;
+	overflow-x: auto;
+	tab-size: 4;
+	-moz-tab-size: 4;
+	word-wrap: break-word;
+
+	// Font smoothing for better readability
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+
+	code {
+		font-family: inherit;
+		color: inherit;
+		word-wrap: break-word;
+	}
+}
+
+:not(pre) > code {
+
+	//----------------------------------
+	// Inline Code Snippets
+	//----------------------------------
+
+    color: var(--color-text);
+	background-color: var(--color-surface-muted); /* var(--color-surface) */
+	font: 0.875rem/1.5 "Source Code Pro", Consolas, monospace;
+	padding: 0.2em 0.4em;
+	border-radius: var(--radius-small);
+	white-space: pre-wrap;
+	word-wrap: break-word;
+
+	// Font smoothing
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+}

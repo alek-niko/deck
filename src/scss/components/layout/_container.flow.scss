@@ -1,0 +1,141 @@
+// =============================================================================
+// CONTAINER-FLOW (Flow-based Layout)
+// components/layout/_container.flow.scss
+// -----------------------------------------------------------------------------
+// Optimized for document-style content
+// - Uses `flow-root` to contain margins (avoids collapsing)
+// - Responsive inline padding using spacing tokens
+// - Size and bleed modifiers for layout flexibility
+// - Flow stack helpers for vertical rhythm
+//
+// Example:
+//   <div class="container-flow container-flow-large">
+//     <p>Article content here</p>
+//   </div>
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+@use '../../abstracts/variables/spacing' as *;
+@use '../../abstracts/variables/container' as *;
+
+@use 'sass:map';
+
+// -----------------------------------------------------------------------------
+// Container sizes (industry standard map reference)
+// -----------------------------------------------------------------------------
+// $container-sizes: (
+//   xsmall: 600px,
+//   small:  750px,
+//   medium: 960px,
+//   large:  1140px,
+//   xlarge: 1320px,
+//   expand: none
+// );
+
+// -----------------------------------------------------------------------------
+// Base container
+// -----------------------------------------------------------------------------
+
+.container-flow {
+	display: flow-root;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: map.get($container-sizes, large);
+	margin-inline: auto;
+	padding-inline: $spacing-default;
+
+	// Remove margin from last child
+	> :last-child {
+		margin-block-end: 0;
+	}
+
+	// Generate size modifiers from map
+ 	// Example: .container-flow-lg { max-width: 1140px; }
+	@each $key, $value in $container-sizes {
+		&-#{$key} {
+			max-width: var(--container-#{$key}, #{$value});
+		}
+	}
+
+	// Optional bleed modifiers
+	&-expand-left  { margin-left: 0; }
+	&-expand-right { margin-right: 0; }
+}
+
+// -----------------------------------------------------------------------------
+// Responsive padding
+// -----------------------------------------------------------------------------
+
+@media (min-width: $breakpoint-sm) {
+	.container-flow {
+		padding-inline: $spacing-lg;
+	}
+}
+
+@media (min-width: $breakpoint-md) {
+	.container-flow {
+		padding-inline: $spacing-xl;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Full-width flow wrapper
+// -----------------------------------------------------------------------------
+// Provides a wrapper for full-bleed backgrounds with an inner constrained flow
+// -----------------------------------------------------------------------------
+
+.container-flow-full {
+	width: 100%;
+	margin-inline: auto;
+	display: block;
+
+	> .container-flow {
+		max-width: map.get($container-sizes, large);
+		padding-inline: $spacing-default;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Nested container (no padding)
+// -----------------------------------------------------------------------------
+// Removes inline padding but keeps width + centering
+// -----------------------------------------------------------------------------
+
+.container-flow-nested {
+	width: 100%;
+	max-width: map.get($container-sizes, large);
+	margin-inline: auto;
+	padding-inline: 0;
+}
+
+// -----------------------------------------------------------------------------
+// Alignment helpers
+// -----------------------------------------------------------------------------
+// Utility classes for container alignment
+// -----------------------------------------------------------------------------
+
+.container-flow-left   { margin-inline-start: 0; margin-inline-end: auto; }
+.container-flow-center { margin-inline: auto; text-align: center; }
+.container-flow-right  { margin-inline-start: auto; margin-inline-end: 0; }
+
+// -----------------------------------------------------------------------------
+// Flow stack helpers
+// -----------------------------------------------------------------------------
+// Apply vertical spacing to direct children to enforce vertical rhythm
+// -----------------------------------------------------------------------------
+
+.container-flow-stack > * + * {
+	margin-block-start: $spacing-default;
+}
+
+.container-flow-stack-sm > * + * {
+	margin-block-start: $spacing-sm;
+}
+
+.container-flow-stack-md > * + * {
+	margin-block-start: $spacing-md;
+}
+
+.container-flow-stack-lg > * + * {
+	margin-block-start: $spacing-lg;
+}

@@ -1,0 +1,26 @@
+// =============================================================================
+// PRESERVE WIDTH UTILITY
+// components/utils/_preserve.scss
+// -----------------------------------------------------------------------------
+// Prevents elements from being constrained by container max-width.
+// - Useful for media elements (canvas, img, svg, video) that need full width
+// - Allows full-bleed layouts inside constrained containers
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Preserve Width
+// -----------------------------------------------------------------------------
+/// Removes max-width restrictions applied by container styles
+/// Targets the base element and common media types inside
+/// Usage:
+///   <div class="preserve-width">
+///     <canvas>...</canvas>
+///   </div>
+
+.preserve-width,
+.preserve-width canvas,
+.preserve-width img,
+.preserve-width svg,
+.preserve-width video {
+	max-width: none;
+}

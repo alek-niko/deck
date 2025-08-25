@@ -1,0 +1,43 @@
+/*------------------------------------*\
+	FOOTER SCSS
+\*------------------------------------*/
+
+// ============================================
+// COMPONENT: Footer
+// components/_footer.scss
+// --------------------------------------------
+// Sticky footer bar
+// - Flexible layout for links, copyright, etc.
+// - Integrates with theme tokens (spacing, colors)
+// ============================================
+
+// @note: Better to define footer in grids, use .footer class for default here ?
+
+// footer {
+// 	height: 48px;
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: space-between;
+
+// 	padding: 0 var(--spacing-default);
+// 	border-top: 1px solid var(--color-border);
+// 	background-color: var(--color-surface);
+// 	color: var(--color-text-secondary);
+
+// 	font-size: 0.875rem; // Optional: slightly smaller text
+// 	line-height: 1;
+
+// 	// Optional: Sticky footer
+// 	position: relative;
+// 	bottom: 0;
+// 	width: 100%;
+// 	z-index: 100;
+
+// 	// Responsive tweaks if needed
+// 	@media (max-width: 600px) {
+// 		flex-direction: column;
+// 		justify-content: center;
+// 		text-align: center;
+// 		gap: 4px;
+// 	}
+// }

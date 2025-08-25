@@ -1,0 +1,382 @@
+// =============================================================================
+// NAVBAR COMPONENT
+// components/navigation/_navbar.scss
+// -----------------------------------------------------------------------------
+// Provides tokenized, responsive navbar layout with dropdowns and dropbars.
+// - Supports flex-aligned left, center, right sections
+// - Dropdowns, dropbars, and nested nav support
+// - Fully theme-ready: uses CSS variables and supports dark mode
+// - Responsive adjustments for small screens and stacked layouts
+//
+// Dependencies:
+// - tokens.scss (for color, spacing, border-radius, shadows)
+// - abstracts/variables/_breakpoints.scss (for responsive media queries)
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+//--------------------------------------
+// Core Navbar
+//--------------------------------------
+
+.navbar {
+	position: relative;
+	height: 100%;
+	max-width: 100%;
+	max-height: 100%;
+	min-height: var(--navbar-height, 50px);
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+	flex-shrink: 0;
+
+    display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--navbar-gap, 1rem);
+	padding: 0 var(--navbar-padding, 0.5rem); 
+
+
+	--navbar-dropbar-behind-color: dark;
+
+	//--------------------------------------
+	// Container
+	//--------------------------------------
+
+	&-container {
+		transition: .1s ease-in-out;
+		transition-property: all;
+		transition-property:  var(--color-surface);
+	}
+
+	&-container:not(.navbar-transparent) {
+		background-color: var(--color-surface);
+	}
+
+	//--------------------------------------
+	// Logo
+	//--------------------------------------
+
+	.logo {
+		font-size: 24px;
+		color: var(--color-text);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--color-text);
+			text-decoration: none;
+		}
+	}
+
+	//--------------------------------------
+	// Navbar Navigation
+	//--------------------------------------
+
+	&-nav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--navbar-nav-gap, 0);
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		>li {
+			position: relative;
+
+			&.active>a {
+				color: var(--color-text);
+			}
+
+			>a {
+				display: inline-block;
+				margin: 0 12px;
+				text-align: center;
+				color: var(--color-text-muted);
+				text-decoration: none;
+				cursor: pointer;
+				font-size: 16px;
+				transition: color 0.2s ease;
+
+				&:hover,
+				&[aria-expanded='true'] {
+					color: var(--color-text);
+
+					.navbar-parent-icon {
+						transform: rotateX(180deg);
+					}
+				}
+
+				&:active {
+					color: var(--color-text);
+				}
+			}
+		}
+	}
+
+	//--------------------------------------
+	// Navbar Item & Toggle
+	//--------------------------------------
+
+	&-item,
+	&-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		column-gap: 0.25em;
+		box-sizing: border-box;
+		padding: 0 12px;
+		min-height: 48px;
+		font-size: 14px;
+		color: var(--color-text);
+		text-decoration: none;
+	}
+
+	//--------------------------------------
+	// Alignment Sections
+	//--------------------------------------
+
+	&-left,
+	&-right {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: var(--navbar-gap, 0);
+	}
+
+	&-right {
+		margin-left: auto;
+	}
+
+	&-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex: 1 1 auto;
+    }
+
+	//--------------------------------------
+	// Subtitle & Parent Icon
+	//--------------------------------------
+
+	&-subtitle {
+		font-size: 0.875rem;
+	}
+
+	&-parent-icon {
+		margin-left: 4px;
+		transition: transform 0.3s ease;
+	}
+
+	//--------------------------------------
+	// Dropdowns
+	//--------------------------------------
+
+	&-dropdown {
+		width: 280px;
+		padding: 15px;
+		background-color: var(--color-surface);
+		color: var(--color-text);
+		border-radius: 0 0 var(--radius-default) var(--radius-default);
+		border: 1px solid var(--color-border);
+		border-top: none;
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+
+		&-large {
+			padding: 40px;
+		}
+
+		&.heading-active {
+			padding-top: 0;
+		}
+
+		&.navbar-dropdown-bottom-left {
+			transform-origin: 0 0 !important;
+		}
+
+		&.navbar-dropdown-bottom-right {
+			transform-origin: 100% 0 !important;
+		}
+
+		//--------------------------------------
+		// Dropdown Utilities
+		//--------------------------------------
+
+		.button-link {
+			margin-bottom: -8px;
+			font-size: 24px;
+			padding: 4px 0;
+			color: var(--color-text);
+		}
+
+		.panel-scrollable {
+			padding: 8px 0;
+			border: none;
+			resize: vertical;
+		}
+
+		.list {
+			margin: 8px !important;
+
+			li {
+				font-size: 13px;
+
+				[data-icon] {
+					font-size: inherit;
+				}
+			}
+		}
+
+		//--------------------------------------
+		// Dropdown Nav Links
+		//--------------------------------------
+		
+		&-nav>li>a {
+			color: var(--color-text-muted);
+
+			&:hover {
+				color: var(--color-text);
+			}
+		}
+
+		&-nav>li.active>a {
+			color: var(--color-text);
+		}
+
+		//--------------------------------------
+		// Nested Navbar inside Dropdown
+		//--------------------------------------
+
+		.nav {
+			&-subtitle {
+				font-size: 0.875rem;
+			}
+
+			&-header {
+				color: var(--color-text);
+			}
+
+			&-divider {
+				border-top: 1px solid var(--color-border);
+			}
+
+			&-sub a {
+				color: var(--color-text-muted);
+
+				&:hover {
+					color: var(--color-text);
+				}
+
+				li.active>a {
+					color: var(--color-text);
+				}
+			}
+
+			>li {
+				list-style-type: none;
+
+				>a {
+					display: block;
+					padding: 4px 16px;
+					font-size: 14px;
+					color: var(--color-text);
+
+					&:hover {
+						background: var(--color-background-hover);
+					}
+				}
+			}
+		}
+
+		//--------------------------------------
+		// Dropbar
+		//--------------------------------------
+		
+		&-dropbar {
+			width: auto;
+			min-width: 180px;
+			background: transparent;
+			padding: 15px 0;
+			box-shadow: var(--shadow-elevation);
+			border: none;
+
+			&-large {
+				padding-top: 40px;
+				padding-bottom: 40px;
+			}
+		}
+	}
+}
+
+//--------------------------------------
+// Responsive Flex Stack for Navbar Items
+//--------------------------------------
+
+.navbar-justify .navbar-left,
+.navbar-justify .navbar-right,
+.navbar-justify .navbar-nav,
+.navbar-justify .navbar-nav>li,
+.navbar-justify .navbar-item,
+.navbar-justify .navbar-toggle {
+	flex-grow: 1;
+}
+
+//--------------------------------------
+// Dropdown Width Modifiers
+//--------------------------------------
+
+.navbar-dropdown-width-2:not(.drop-stack) {
+	width: 400px;
+}
+
+.navbar-dropdown-width-3:not(.drop-stack) {
+	width: 600px;
+}
+
+.navbar-dropdown-width-4:not(.drop-stack) {
+	width: 800px;
+}
+
+.navbar-dropdown-width-5:not(.drop-stack) {
+	width: 1000px;
+}
+
+//--------------------------------------
+// Mobile / Small Screen Adjustments
+//--------------------------------------
+
+@media (max-width: $breakpoint-sm) {
+
+	.navbar-nav,
+	.navbar-left,
+	.navbar-right,
+	.navbar-center {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 8px;
+	}
+
+	.navbar-dropdown {
+		width: 100%;
+		border-radius: var(--radius-small);
+	}
+}
+
+//--------------------------------------
+// Dropbar Spacing for Larger Screens
+//--------------------------------------
+
+@media (min-width: $breakpoint-sm) {
+	.navbar-dropdown-dropbar {
+		--position-viewport-offset: 30px;
+	}
+}
+
+@media (min-width: $breakpoint-md) {
+	.navbar-dropdown-dropbar {
+		--position-viewport-offset: 40px;
+	}
+}

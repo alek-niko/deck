@@ -1,0 +1,185 @@
+// =============================================================================
+// SECTION LAYOUT UTILITIES
+// components/layout/_section.scss
+// -----------------------------------------------------------------------------
+// Utilities for <section> elements, including:
+// - Scoped spacing tokens for responsive padding
+// - Size variants (xsmall, small, large, xlarge)
+// - Color variants (default, muted, primary, secondary)
+// - Container and inset helpers
+// - Animation utilities (fade-in, slide-in-left/right)
+//
+// Example:
+//   <section class="section section-primary section-large">
+//     <div class="section-container">Content here</div>
+//   </section>
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+// -----------------------------------------------------------------------------
+// Base .section
+// -----------------------------------------------------------------------------
+
+.section {
+	// Scoped spacing tokens
+	--section-padding-xs: var(--spacing-xs);
+	--section-padding-sm: var(--spacing-sm);
+	--section-padding-md: var(--spacing-default);
+	--section-padding-lg: var(--spacing-lg);
+	--section-padding-xl: var(--spacing-xl);
+	--section-padding-2xl: calc(var(--spacing-xl) * 2);
+	--section-padding-3xl: calc(var(--spacing-xl) * 3);
+
+	display: flow-root;
+	box-sizing: border-box;
+	padding-top: var(--section-padding-md);
+	padding-bottom: var(--section-padding-md);
+	background-color: var(--color-background, #fff);
+	color: var(--color-text, #111);
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+
+	// ---------------------------------------------------------------------------
+	// Size variants
+	// ---------------------------------------------------------------------------
+
+	&-xsmall {
+		padding-top: var(--section-padding-xs);
+		padding-bottom: var(--section-padding-xs);
+	}
+
+	&-small {
+		padding-top: var(--section-padding-sm);
+		padding-bottom: var(--section-padding-sm);
+	}
+
+	&-large {
+		padding-top: var(--section-padding-lg);
+		padding-bottom: var(--section-padding-lg);
+	}
+
+	&-xlarge {
+		padding-top: var(--section-padding-xl);
+		padding-bottom: var(--section-padding-xl);
+	}
+
+	// ---------------------------------------------------------------------------
+	// Color variants
+	// ---------------------------------------------------------------------------
+
+	&-default {
+		background-color: var(--color-surface, #fff);
+		--navbar-color: dark;
+	}
+
+	&-muted {
+		background-color: var(--color-surface-muted, #f8f8f8);
+		--navbar-color: dark;
+	}
+
+	&-primary {
+		background-color: var(--color-primary, #1e87f0);
+		color: var(--color-text-inverse, #fff);
+		--navbar-color: dark;
+	}
+
+	&-secondary {
+		background-color: var(--color-surface-contrast, #222);
+		color: var(--color-text-inverse, #eee);
+		--navbar-color: light;
+	}
+
+
+	// ---------------------------------------------------------------------------
+	// Responsive size adjustments
+	// ---------------------------------------------------------------------------
+
+	@media (min-width: $breakpoint-md) {
+		padding-top: var(--section-padding-md);
+		padding-bottom: var(--section-padding-md);
+
+		&-large {
+			padding-top: var(--section-padding-2xl);
+			padding-bottom: var(--section-padding-2xl);
+		}
+
+		&-xlarge {
+			padding-top: var(--section-padding-3xl);
+			padding-bottom: var(--section-padding-3xl);
+		}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Section container helper
+// -----------------------------------------------------------------------------
+
+.section-container {
+	margin-inline: auto;
+	max-width: 1200px;
+	padding-inline: var(--spacing-default);
+
+	@media (max-width: $breakpoint-sm-max) {
+		padding-inline: var(--spacing-sm);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Section inset helper
+// -----------------------------------------------------------------------------
+
+.section-inset {
+	padding-inline: var(--spacing-default);
+
+	@media (max-width: $breakpoint-sm-max) {
+		padding-inline: var(--spacing-sm);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Animation utilities
+// -----------------------------------------------------------------------------
+
+.fade-in {
+	opacity: 0;
+	animation: fadeIn var(--transition-duration, 0.5s) ease-in-out forwards;
+}
+
+.slide-in-left {
+	opacity: 0;
+	transform: translateX(-20px);
+	animation: slideInLeft var(--transition-duration, 0.5s) ease-in-out forwards;
+}
+
+.slide-in-right {
+	opacity: 0;
+	transform: translateX(20px);
+	animation: slideInRight var(--transition-duration, 0.5s) ease-in-out forwards;
+}
+
+// -----------------------------------------------------------------------------
+// Keyframes
+// -----------------------------------------------------------------------------
+
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes slideInLeft {
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInRight {
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}

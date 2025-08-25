@@ -1,0 +1,273 @@
+// =============================================================================
+// SIDEBAR COMPONENT (Main Navigation)
+// components/layout/_sidebar.main.scss
+// -----------------------------------------------------------------------------
+// A responsive, vertical navigation sidebar with branding, navigation links,
+// new-post action button, and profile footer section.
+//
+// Features:
+// - Configurable CSS variables for colors, accents, and states
+// - Base sidebar with sticky positioning (.sidebar-main)
+// - Collapsed state for compact desktop view (.is-collapsed)
+// - Mobile drawer behavior with hidden/visible states (.is-hidden, .is-visible)
+// - Navigation items with active + hover states (.nav-item, .active)
+// - Primary action button (.new-post-btn)
+// - User profile footer with avatar, name, and settings (.sidebar-profile)
+// - Responsive adjustments via breakpoint mixins
+// =============================================================================
+
+@use '../../abstracts/mixins/breakpoints' as * ;
+@use '../../abstracts/variables/colors' as * ;
+
+// -----------------------------------------------------------------------------
+// Component: .sidebar-main
+// -----------------------------------------------------------------------------
+
+.sidebar-main {
+
+	--sidebar-accent: var(--color-accent);  //var(--color-primary); 
+	--sidebar-bg: var(--color-background); //var(--color-surface);
+	--sidebar-text: var(--color-text);
+	--sidebar-muted: var(--color-text-muted);
+	//--sidebar-hover: var(--color-hover-bg, rgba(0, 0, 0, 0.06));
+	--sidebar-hover: var(--color-accent, rgba(0, 0, 0, 0.06));
+
+	width: 275px;
+	position: sticky;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	z-index: 1200;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--sidebar-bg);
+	color: var(--sidebar-text);
+	transition: width 0.3s ease, transform 0.3s ease;
+
+	// -------------------------------------------------------------------------
+	// Variants
+	// -------------------------------------------------------------------------
+
+	// Collapsed state (desktop)
+	&.is-collapsed {
+		width: 88px;
+
+		.sidebar-content {
+			.nav-item {
+				justify-content: center;
+
+				span {
+					display: none;
+				}
+			}
+
+			.new-post-btn {
+				display: none;
+			}
+		}
+
+		.sidebar-profile {
+			padding: 6px;
+			margin: 0 4px 12px;
+			justify-content: center;
+
+			.profile-info {
+				gap: 0;
+			}
+
+			.profile-details,
+			.profile-settings {
+				display: none;
+			}
+		}
+	}
+
+	// Hidden drawer (mobile)
+	&.is-hidden {
+		transform: translateX(-100%);
+		position: fixed;
+		box-shadow: none;
+	}
+
+	&.is-visible {
+		transform: translateX(0);
+		box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.4);
+	}
+
+	// -------------------------------------------------------------------------
+	// Sidebar Content
+	// -------------------------------------------------------------------------
+
+	.sidebar-content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+
+		.logo {
+			padding: 10px 20px;
+			font-size: 30px;
+			//color: var(--sidebar-accent);
+			color: var(--sidebar-text);
+
+			svg {
+				width: 70px;
+				height: 40px;
+				fill: currentColor;
+			}
+		}
+
+		.nav-item,
+		a.nav-item {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			padding: 10px 20px;
+			margin: 4px 0;
+			border-radius: 9999px;
+			font-size: 19px;
+			color: var(--sidebar-text);
+			cursor: pointer;
+			transition: background-color 0.2s ease;
+			text-decoration: none;
+
+			svg,
+			i {
+				width: 28px;
+				height: 28px;
+				font-size: 24px;
+			}
+
+			span {
+				margin-left: 20px;
+				color: inherit !important;
+			}
+
+			&:hover {
+				background-color: rgba(29, 161, 242, 0.1);
+				color: var(--sidebar-accent);
+
+				svg {
+					color: var(--sidebar-accent);
+				}
+			}
+
+			&.active {
+				color: var(--sidebar-accent);
+				font-weight: bold;
+
+				svg {
+					color: var(--sidebar-accent);
+				}
+			}
+		}
+
+		.new-post-btn {
+			width: calc(100% - 40px);
+			margin: 15px 20px;
+			padding: 12px 24px;
+			font-size: 16px;
+			font-weight: bold;
+			border: none;
+			border-radius: 9999px;
+			background-color: var(--sidebar-accent);
+			color: #fff;
+			cursor: pointer;
+			transition: background-color 0.2s ease;
+
+			&:hover {
+				background-color: color-mix(in srgb, var(--sidebar-accent) 85%, black);
+			}
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Sidebar Profile (Footer)
+	// -------------------------------------------------------------------------
+
+	.sidebar-profile {
+		padding: 6px 12px;
+		margin: 0 8px 12px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-radius: 9999px;
+		cursor: pointer;
+		transition: background-color 0.2s ease;
+
+		&:hover {
+			background-color: var(--sidebar-hover);
+		}
+
+		.profile-info {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			flex: 1;
+
+			.profile-avatar,
+			.avatar {
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				overflow: hidden;
+
+				img,
+				.avatar-initials {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+
+			.profile-details {
+				display: flex;
+				flex-direction: column;
+				line-height: 1.15;
+
+				.profile-name {
+					font-size: 15px;
+					font-weight: 700;
+					color: var(--sidebar-text);
+				}
+
+				.profile-handle {
+					font-size: 13px;
+					font-weight: 400;
+					color: var(--sidebar-muted);
+				}
+			}
+		}
+
+		.profile-settings {
+			color: var(--sidebar-text);
+			border-radius: 50%;
+			transition: all 0.2s ease;
+
+			&:hover {
+				background-color: var(--sidebar-hover);
+				color: var(--sidebar-accent);
+			}
+		}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Responsive Sidebar
+// -----------------------------------------------------------------------------
+// Mobile: drawer behavior controlled by .is-visible
+
+@include max-sm {
+	.sidebar-main {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100%;
+		transform: translateX(-100%);
+		transition: transform 0.3s ease;
+		z-index: 1500;
+
+		&.is-visible {
+			transform: translateX(0);
+		}
+	}
+}

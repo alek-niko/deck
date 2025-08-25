@@ -1,0 +1,163 @@
+// =============================================================================
+// TRANSITION UTILITIES
+// components/utils/_transition.scss
+// -----------------------------------------------------------------------------
+// Provides composable transition and transform helper classes
+// - Supports fade, scale, and slide animations
+// - Works with hover, focus, or state-based triggers
+// - Uses CSS custom properties for fine-grained control
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Base Transition Class
+// -----------------------------------------------------------------------------
+/// Applies a transform + opacity transition with scale and translate control
+/// Custom properties:
+///   --translate-x, --translate-y: control translation
+///   --scale-x, --scale-y: control scaling
+/// Default: hidden (opacity: 0) and pointer-events disabled
+
+.transition {
+	--translate-x: 0;
+	--translate-y: 0;
+	--scale-x: 1;
+	--scale-y: 1;
+
+	transform:
+		translate(var(--translate-x), var(--translate-y))
+		scale(var(--scale-x), var(--scale-y));
+
+	transition-property: opacity, transform, filter;
+	transition-duration: 0.3s;
+	transition-timing-function: ease-out;
+
+	opacity: 0;
+	pointer-events: none; // Prevent interaction when hidden
+}
+
+// -----------------------------------------------------------------------------
+// Fade Transition
+// -----------------------------------------------------------------------------
+/// Fades element in/out while maintaining transform defaults
+
+.transition-fade {
+	@extend .transition;
+}
+
+/// Activate fade on hover, focus, or active state
+.transition-toggle:hover .transition-fade,
+.transition-toggle:focus .transition-fade,
+.transition-toggle .transition-fade:focus-within,
+.transition-active.active .transition-fade {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+// -----------------------------------------------------------------------------
+// Scale Transitions
+// -----------------------------------------------------------------------------
+/// Scale-up: normal → slightly larger
+
+.transition-scale-up,
+.transition-scale-down {
+	@extend .transition;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+// Scale-up: normal ➜ slightly larger
+.transition-scale-up {
+	--scale-x: 1;
+	--scale-y: 1;
+}
+
+.transition-toggle:hover .transition-scale-up,
+.transition-toggle:focus .transition-scale-up,
+.transition-toggle .transition-scale-up:focus-within,
+.transition-active.active .transition-scale-up {
+	--scale-x: 1.03;
+	--scale-y: 1.03;
+	opacity: 1;
+	pointer-events: auto;
+}
+
+/// Scale-down: larger → normal
+.transition-scale-down {
+	--scale-x: 1.03;
+	--scale-y: 1.03;
+}
+
+.transition-toggle:hover .transition-scale-down,
+.transition-toggle:focus .transition-scale-down,
+.transition-toggle .transition-scale-down:focus-within,
+.transition-active.active .transition-scale-down {
+	--scale-x: 1;
+	--scale-y: 1;
+	opacity: 1;
+	pointer-events: auto;
+}
+
+// -----------------------------------------------------------------------------
+// Slide Transitions
+// -----------------------------------------------------------------------------
+/// Slide variants: top, bottom, left, right (full, small, medium distances)
+
+.transition-slide-top         { @extend .transition; --translate-y: -100%; }
+.transition-slide-bottom      { @extend .transition; --translate-y: 100%; }
+.transition-slide-left        { @extend .transition; --translate-x: -100%; }
+.transition-slide-right       { @extend .transition; --translate-x: 100%; }
+
+.transition-slide-top-small     { @extend .transition; --translate-y: -10px; }
+.transition-slide-bottom-small  { @extend .transition; --translate-y: 10px; }
+.transition-slide-left-small    { @extend .transition; --translate-x: -10px; }
+.transition-slide-right-small   { @extend .transition; --translate-x: 10px; }
+
+.transition-slide-top-medium     { @extend .transition; --translate-y: -50px; }
+.transition-slide-bottom-medium  { @extend .transition; --translate-y: 50px; }
+.transition-slide-left-medium    { @extend .transition; --translate-x: -50px; }
+.transition-slide-right-medium   { @extend .transition; --translate-x: 50px; }
+
+/// Activate slide transitions on hover, focus, or active states
+.transition-toggle:hover,
+.transition-toggle:focus,
+.transition-toggle:focus-within,
+.transition-active.active {
+	.transition-slide-top,
+	.transition-slide-bottom,
+	.transition-slide-left,
+	.transition-slide-right,
+	.transition-slide-top-small,
+	.transition-slide-bottom-small,
+	.transition-slide-left-small,
+	.transition-slide-right-small,
+	.transition-slide-top-medium,
+	.transition-slide-bottom-medium,
+	.transition-slide-left-medium,
+	.transition-slide-right-medium {
+		--translate-x: 0;
+		--translate-y: 0;
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Modifiers
+// -----------------------------------------------------------------------------
+
+/// Force visible state
+.transition-opaque {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+/// Slow down transition speed
+.transition-slow {
+	transition-duration: 0.7s;
+}
+
+/// Disable all transitions for element and children
+.transition-disable,
+.transition-disable * {
+	transition: none !important;
+}

@@ -1,0 +1,93 @@
+// =============================================================================
+// HEIGHT UTILITIES
+// components/utils/_height.scss
+// -----------------------------------------------------------------------------
+// Tokenized height helpers for layout control.
+// - Absolute, semantic, fixed, viewport-based heights
+// - Min-height and max-height utilities
+// - Responsive variants using respond-below mixin
+// - Values are derived from tokens.scss tokens
+// =============================================================================
+
+// --------------------------------------------
+// Tokenized height utility classes
+// Uses values from `theme.scss`
+// --------------------------------------------
+
+@use '../../abstracts/mixins//responsive' as *;
+
+// --------------------------------------------
+// Base Safety
+// --------------------------------------------
+// [class^='height-'],
+// [class*=' height-'] {
+// 	box-sizing: border-box;
+// }
+
+// -----------------------------------------------------------------------------
+// Absolute & Semantic Heights
+// -----------------------------------------------------------------------------
+
+.height-1-1      { height: 100%; }
+.height-auto     { height: auto; }
+.height-inherit  { height: inherit; }
+.height-fit      { height: fit-content; }
+
+// -----------------------------------------------------------------------------
+// Fixed Token-Based Heights
+// -----------------------------------------------------------------------------
+
+.height-small    { height: var(--height-small); }
+.height-medium   { height: var(--height-medium); }
+.height-large    { height: var(--height-large); }
+
+// -----------------------------------------------------------------------------
+// Viewport Heights
+// -----------------------------------------------------------------------------
+
+.height-viewport    { min-height: 100vh; }
+.height-viewport-2  { min-height: 200vh; }
+.height-viewport-3  { min-height: 300vh; }
+.height-viewport-4  { min-height: 400vh; }
+
+// -----------------------------------------------------------------------------
+// Max Heights
+// -----------------------------------------------------------------------------
+
+.height-max-none    { max-height: none; }
+.height-max-small   { max-height: var(--height-small); }
+.height-max-medium  { max-height: var(--height-medium); }
+.height-max-large   { max-height: var(--height-large); }
+
+// -----------------------------------------------------------------------------
+// Min Heights
+// -----------------------------------------------------------------------------
+
+.height-min-0       { min-height: 0; }
+.height-min-small   { min-height: var(--height-small); }
+.height-min-medium  { min-height: var(--height-medium); }
+.height-min-large   { min-height: var(--height-large); }
+
+// -----------------------------------------------------------------------------
+// Responsive Modifiers
+// -----------------------------------------------------------------------------
+// Generates breakpoint-specific height overrides
+// Requires: @mixin respond-below($breakpoint)
+
+@include respond-below('md') {
+
+	.height-small-sm        { height: var(--height-small); }
+	.height-medium-sm       { height: var(--height-medium); }
+	.height-large-sm        { height: var(--height-large); }
+
+	.height-auto-sm         { height: auto; }
+	.height-fit-sm          { height: fit-content; }
+
+	.height-max-small-sm    { max-height: var(--height-small); }
+	.height-max-medium-sm   { max-height: var(--height-medium); }
+	.height-max-large-sm    { max-height: var(--height-large); }
+
+	.height-min-small-sm    { min-height: var(--height-small); }
+	.height-min-medium-sm   { min-height: var(--height-medium); }
+	.height-min-large-sm    { min-height: var(--height-large); }
+}

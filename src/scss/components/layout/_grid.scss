@@ -1,0 +1,103 @@
+// =============================================================================
+// GRID SYSTEM
+// components/layout/_grid.scss
+// -----------------------------------------------------------------------------
+// Responsive CSS Grid layout utilities.
+// Features:
+// - Column span and static grid templates
+// - Masonry layouts with auto-fill minmax
+// - Gap control and alignment utilities
+// - Responsive variants for different breakpoints
+//
+// Example:
+//   <div class="grid col-3">
+//     <div class="column">Item 1</div>
+//     <div class="column">Item 2</div>
+//     <div class="column">Item 3</div>
+//   </div>
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+@use '../../abstracts/variables/layout' as *;
+@use '../../abstracts/variables/grid' as *;
+
+
+// -----------------------------------------------------------------------------
+// Base .grid container
+// -----------------------------------------------------------------------------
+
+.grid {
+
+	display: grid;
+	grid-template-columns: repeat(var(--grid-columns), 1fr);
+	gap: var(--grid-gap);
+	column-gap: var(--column-gap, var(--grid-gap));
+	row-gap: var(--row-gap, var(--grid-gap));
+	justify-content: var(--justify-start, start);
+	justify-items: var(--justify-items, stretch);
+	align-items: var(--align-items, stretch);
+	place-items: var(--place-items, initial);
+
+	// ---------------------------------------------------------------------------
+	// Child column utility
+	// ---------------------------------------------------------------------------
+	.column {
+		grid-column: var(--grid-column, span 1);
+	}
+
+	// ---------------------------------------------------------------------------
+	// Masonry layouts (auto-fill minmax)
+	// Generates classes like .masonry-small, .masonry-medium, etc.
+	// ---------------------------------------------------------------------------
+	@each $name, $size in $grid-masonry {
+		&.masonry-#{$name} {
+			grid-template-columns: repeat(auto-fill, minmax(#{$size}, 1fr));
+		}
+	}
+
+	// ---------------------------------------------------------------------------
+	// Static column count (1 to $grid-columns)
+	// Generates classes like .col-1, .col-2, … .col-12
+	// ---------------------------------------------------------------------------
+	@for $i from 1 through $grid-columns {
+		&.col-#{$i} {
+			grid-template-columns: repeat(#{$i}, 1fr);
+		}
+	}
+
+	// ---------------------------------------------------------------------------
+	// Column span utility (.col-span-x-y)
+	// Example: .col-2-6 => span 2 of 6 total columns
+	// ---------------------------------------------------------------------------
+	@for $i from 1 through $grid-columns {
+		.col-#{$i}-#{$grid-columns} {
+			grid-column: span #{$i};
+		}
+	}
+
+	// ---------------------------------------------------------------------------
+	// Responsive variants using $breakpoints map
+	// Generates classes like .col-3-sm, .col-2-6-md
+	// ---------------------------------------------------------------------------
+	@each $size in $grid-sizes {
+
+		$break: map-get($breakpoints, $size);
+
+		@media (min-width: #{$break}) {
+
+			// .col-1-6-sm
+			@for $j from 1 through $grid-columns {
+				.col-#{$j}-#{$grid-columns}-#{$size} {
+					grid-column: span #{$j};
+				}
+			}
+
+			// .col-2-sm
+			@for $j from 1 through $grid-columns {
+				&.col-#{$j}-#{$size} {
+					grid-template-columns: repeat(#{$j}, 1fr);
+				}
+			}
+		}
+	}
+}

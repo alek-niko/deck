@@ -1,0 +1,167 @@
+// =============================================================================
+// HEADING COMPONENT
+// components/ui/_heading.scss
+// -----------------------------------------------------------------------------
+// Token-aligned, mobile-first, responsive headings
+// Fully compatible with dark mode via CSS variables
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+// -----------------------------------------------------------------------------
+// Element Headings
+// -----------------------------------------------------------------------------
+// Styles for native HTML heading elements (h1-h6)
+// Uses --font-size-base and scales for readability across devices
+// -----------------------------------------------------------------------------
+
+h1 { font-size: calc(2 * var(--font-size-base)); }
+h2 { font-size: calc(1.5 * var(--font-size-base)); }
+h3 { font-size: calc(1.33 * var(--font-size-base)); }
+h4 { font-size: calc(1.15 * var(--font-size-base)); }
+h5 { font-size: var(--font-size-base); }
+h6 { font-size: calc(0.875 * var(--font-size-base)); }
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-primary);
+	font-weight: 300;
+	line-height: 1.1;
+	///color: var(--color-text);
+
+	// Sub-heading span inside a heading
+	span.sub-heading {
+		font-size: 0.8em;
+		display: block;
+		color: var(--color-text-secondary);
+	}
+
+	// Sub-heading span inside a heading
+	.text-small {
+		font-size: 0.8em;
+		vertical-align: 2px;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Utility Headings
+// -----------------------------------------------------------------------------
+// Classes for scalable, responsive heading sizes
+// Uses clamp() to maintain proportion across viewports
+// -----------------------------------------------------------------------------
+
+.heading         { font-size: clamp(1.75rem, 1vw + 1rem, 2rem); line-height: 1.1; }
+.heading-small   { font-size: clamp(2rem, 1.25vw + 1rem, 2.25rem); line-height: 1.2; }
+.heading-medium  { font-size: clamp(2.5rem, 1.5vw + 1rem, 4rem); line-height: 1.1; }
+.heading-large   { font-size: clamp(3rem, 2vw + 1rem, 5.5rem); line-height: 1.1; }
+.heading-xlarge  { font-size: clamp(3.75rem, 3vw + 1rem, 7rem); line-height: 1; }
+.heading-2xlarge { font-size: clamp(5rem, 4vw + 1rem, 10rem); line-height: 1; }
+.heading-3xlarge { font-size: clamp(7rem, 6vw + 1rem, 14rem); line-height: 1; }
+
+// -----------------------------------------------------------------------------
+// Divider Variant
+// -----------------------------------------------------------------------------
+// Adds a simple underline below heading text
+// -----------------------------------------------------------------------------
+
+.heading-divider {
+	padding-bottom: 1.6px;
+	border-bottom: 1px solid var(--color-border);
+}
+
+// -----------------------------------------------------------------------------
+// Bullet Variant
+// -----------------------------------------------------------------------------
+// Adds a vertical line/bullet before heading text
+// -----------------------------------------------------------------------------
+
+.heading-bullet {
+	position: relative;
+
+	&::before {
+		content: "";
+		display: inline-block;
+		position: relative;
+		top: -2px;
+		vertical-align: middle;
+		height: 15px;
+		margin-right: 8px;
+		border-left: 6px solid var(--color-border);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Line Variant
+// -----------------------------------------------------------------------------
+// Decorative lines extending horizontally from heading content
+// -----------------------------------------------------------------------------
+.heading-line {
+	overflow: hidden;
+
+	> * {
+		display: inline-block;
+		position: relative;
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			top: calc(50% - 1px);
+			width: 2000px;
+			border-bottom: 1px solid var(--color-border);
+		}
+
+		&::before {
+			right: 100%;
+			margin-right: 10px;
+		}
+		&::after {
+			left: 100%;
+			margin-left: 10px;
+		}
+	}
+}
+
+// -------------------------------------------------------------------------
+// Heading with Subtext
+// -------------------------------------------------------------------------
+// Flexible heading container with smaller explanatory text underneath
+// -----------------------------------------------------------------------------
+
+.heading-with-subtext {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.3em;
+
+	h1, h2, h3, h4, h5, h6 {
+		margin-block-start: 0;
+		margin-block-end: 0;
+	}
+
+	.subtext {
+		font-size: 1.3rem;
+		color: var(--color-text-muted);
+	}
+}
+
+// Responsive tweak for subtext spacing
+@media (max-width: 768px) {
+	.heading-with-subtext {
+		gap: 0.2em;
+	}
+}
+
+// -------------------------------------------------------------------------
+// Heading with Image (Commented Out)
+// -------------------------------------------------------------------------
+// Example structure for headings paired with an image
+// -----------------------------------------------------------------------------
+// Heading with Image
+// .heading-with-image {
+// 	display: flex;
+// 	align-items: center;
+
+// 	img {
+// 		margin-right: 10px;
+// 	}
+// }

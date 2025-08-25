@@ -1,0 +1,458 @@
+// =============================================================================
+// NAVIGATION COMPONENT
+// components/navigation/_nav.scss
+// -----------------------------------------------------------------------------
+// Provides fully tokenized, responsive navigation menus with multi-level support.
+// - Supports nested navigation (.nav-sub) and collapsible sections (.open)
+// - Variants: .nav-default, .nav-primary, .nav-secondary
+// - Includes icons, headers, dividers, centered nav, pill styling
+// - Theme-ready: uses CSS variables from theme.scss and supports dark mode
+//
+// Dependencies:
+// - tokens.scss (color, spacing, border-radius tokens)
+// - abstracts/mixins/_responsive.scss (for breakpoint helpers)
+// =============================================================================
+
+//--------------------------------------
+// Core Navigation List
+//--------------------------------------
+.nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		&.nav-sub {
+			padding: 5px 0 5px 15px;
+			display: none;
+		}
+	}
+
+	li {
+		&.open {
+			>ul {
+				display: block !important;
+			}
+
+			.nav-parent-icon {
+				transform: rotateX(180deg);
+			}
+		}
+
+		>a {
+			display: flex;
+			align-items: center;
+			column-gap: 0.25em;
+			text-decoration: none;
+			color: var(--color-text-muted);
+
+			&:hover {
+				color: var(--color-text);
+			}
+
+			svg {
+				margin-right: 5px;
+			}
+		}
+	}
+
+	>li>a {
+		padding: 5px 0;
+	}
+
+	//--------------------------------------
+	// Subnav / Nested Navigation
+	//--------------------------------------
+
+	&-sub {
+		a {
+			padding: 5px 0;
+			color: var(--color-text-muted);
+
+			&:hover {
+				color: var(--color-text);
+			}
+		}
+
+		ul {
+			padding-left: 15px;
+		}
+
+		li.active>a {
+			color: var(--color-text);
+		}
+	}
+
+	//--------------------------------------
+	// Parent Icon (arrow indicator)
+	//--------------------------------------
+
+	&-parent-icon {
+		margin-left: auto;
+		transition: transform 0.3s ease-out;
+	}
+
+	//--------------------------------------
+	// Section Headers
+	//--------------------------------------
+
+	&-header {
+		padding: 5px 0;
+		text-transform: uppercase;
+		font-size: 0.875rem;
+		color: var(--color-text);
+
+		&:not(:first-child) {
+			margin-top: 20px;
+		}
+	}
+
+	//--------------------------------------
+	// Dividers
+	//--------------------------------------
+
+	.nav-divider {
+		margin: 5px 0;
+		height: 0;
+		border-top: 1px solid var(--color-border-muted);
+	}
+
+	&.nav-divider> :not(.nav-header, .nav-divider)+ :not(.nav-header, .nav-divider) {
+		margin-top: 5px;
+		padding-top: 5px;
+		border-top: 1px solid var(--color-border-muted);
+	}
+
+	//--------------------------------------
+	// Subnav Block (filters / pills)
+	//--------------------------------------
+
+	.subnav {
+		margin-left: -8px;
+		margin-bottom: 20px;
+
+		>* {
+			padding-left: 8px;
+
+			> :first-child {
+				color: var(--color-text);
+				padding: 4px 12px;
+				border-radius: 15px;
+			}
+
+			a:hover,
+			a:focus {
+				color: var(--color-text);
+				background-color: var(--color-hover-surface);
+			}
+		}
+
+		&.sticky-fixed {
+			margin-left: -8px !important;
+		}
+	}
+
+	.subnav-pill {
+		.active>a {
+			background: var(--color-primary);
+			color: #fff !important;
+
+			.icon:before,
+			>* {
+				color: #fff !important;
+			}
+		}
+	}
+
+	//--------------------------------------
+	// Centered Navigation
+	//--------------------------------------
+
+	&-center {
+		text-align: center;
+
+		li>a {
+			justify-content: center;
+		}
+
+		.nav-sub {
+			padding-left: 0;
+
+			ul {
+				padding-left: 0;
+			}
+		}
+
+		.nav-parent-icon {
+			margin-left: 0.25em;
+		}
+	}
+
+	//--------------------------------------
+	// Variants: default, primary, secondary
+	//--------------------------------------
+
+	&-default,
+	&-primary,
+	&-secondary {
+		font-size: 1rem;
+		line-height: 1.5;
+
+		>li>a {
+			padding: 10px 10px;
+		}
+
+		.nav-subtitle {
+			font-size: 0.875rem;
+			color: var(--color-text-muted);
+		}
+
+		.nav-header {
+			color: var(--color-text);
+		}
+
+		.nav-divider {
+			border-top: 1px solid var(--color-border-muted);
+		}
+
+		.nav-sub {
+			font-size: inherit;
+			line-height: inherit;
+
+			a {
+				color: var(--color-text-muted);
+
+				&:hover {
+					color: var(--color-text);
+				}
+			}
+
+			li.active>a {
+				color: var(--color-text);
+			}
+		}
+	}
+
+	&-primary {
+		font-size: 1.5rem;
+	}
+
+	&-secondary {
+		>li>a {
+			color: var(--color-text);
+
+			&:hover {
+				background-color: var(--color-hover-surface);
+
+				.nav-subtitle {
+					color: var(--color-text);
+				}
+			}
+		}
+
+		>li.active a {
+			color: var(--color-text);
+			background-color: var(--color-hover-surface);
+
+			.nav-subtitle {
+				color: var(--color-text);
+			}
+		}
+	}
+}
+
+//--------------------------------------
+// Responsive Adjustments
+//--------------------------------------
+
+@media (max-width: 768px) {
+	.nav {
+		font-size: 0.95rem;
+
+		li>a {
+			padding: 0.75rem 0.75rem;
+			column-gap: 0.5rem;
+
+			svg {
+				width: 1rem;
+				height: 1rem;
+				margin-right: 4px;
+			}
+		}
+
+		.nav-parent-icon {
+			margin-left: auto;
+		}
+
+		&-default,
+		&-primary,
+		&-secondary {
+			font-size: 1rem;
+
+			.nav-sub {
+				font-size: 0.95rem;
+
+				a {
+					padding: 0.5rem 0.75rem;
+				}
+			}
+
+			.nav-header {
+				font-size: 0.75rem;
+			}
+		}
+
+		.subnav {
+			margin-bottom: 1rem;
+
+			>* {
+				padding-left: 6px;
+
+				> :first-child {
+					padding: 0.35rem 0.75rem;
+					font-size: 0.9rem;
+				}
+			}
+		}
+
+		.subnav-pill .active>a {
+			font-size: 1rem;
+		}
+	}
+}
+
+//--------------------------------------
+// Mobile Navigation Toggle
+//--------------------------------------
+
+.nav-toggle {
+	display: none;
+	background: none;
+	border: none;
+	font-size: 1.75rem;
+	padding: 0.5rem;
+	cursor: pointer;
+	color: var(--color-text);
+
+	@media (max-width: 768px) {
+		display: block;
+	}
+
+	&:focus {
+		outline: 2px solid var(--color-primary);
+	}
+}
+
+//--------------------------------------
+// Collapsible Mobile Nav
+//--------------------------------------
+
+.nav-collapsible {
+	@media (max-width: 768px) {
+		display: none;
+		flex-direction: column;
+		background-color: var(--color-background);
+		padding: 1rem;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+		z-index: 10;
+
+		&.is-open {
+			display: flex;
+		}
+
+		li>a {
+			padding: 0.75rem 1rem;
+			font-size: 1rem;
+		}
+	}
+}
+
+//--------------------------------------
+// Responsive Mobile Navigation
+//--------------------------------------
+
+@media (max-width: 768px) {
+	.nav-mobile {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background-color: var(--color-background);
+		color: var(--color-text);
+		z-index: 999;
+		display: none; // Initially hidden
+		flex-direction: column;
+		padding: 1rem;
+		overflow-y: auto;
+
+		// Animations (optional)
+		transition: transform 0.3s ease, opacity 0.3s ease;
+		transform: translateY(-100%);
+		opacity: 0;
+
+		&.is-open {
+			display: flex;
+			transform: translateY(0);
+			opacity: 1;
+		}
+
+		.nav-header {
+			margin-bottom: 1rem;
+		}
+
+		li {
+			margin: 0.5rem 0;
+
+			>a {
+				display: block;
+				padding: 0.5rem 1rem;
+				color: var(--color-text-muted);
+
+				&:hover {
+					color: var(--color-text);
+					background: var(--color-hover-surface);
+				}
+			}
+
+			&.active>a {
+				color: var(--color-text);
+				background-color: var(--color-hover-surface);
+			}
+
+			&.open>ul {
+				display: block;
+			}
+
+			ul.nav-sub {
+				display: none;
+				padding-left: 1rem;
+
+				a {
+					font-size: 0.95rem;
+				}
+			}
+		}
+
+		.nav-divider {
+			margin: 1rem 0;
+		}
+
+		.nav-close {
+			align-self: flex-end;
+			background: none;
+			border: none;
+			font-size: 1.5rem;
+			cursor: pointer;
+			color: var(--color-text-muted);
+
+			&:hover {
+				color: var(--color-text);
+			}
+		}
+	}
+}

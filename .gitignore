@@ -1,0 +1,48 @@
+# Dependency directories
+node_modules
+package-lock.json
+
+# Build files
+#dist/
+#build/
+demo/
+dist/page
+src/js/test
+
+# Ignore folders
+dist/assets/world
+
+# Ignore pages
+dist/page-*
+
+# Ignore logs
+#logs
+*.log
+npm-debug.log*
+
+# Runtime data
+*.pid
+*.pid.lock
+
+# Environment variables
+.env
+.env.local
+
+# IDE and OS files
+.DS_Store
+.vscode
+*.swp
+*.tmp
+.old
+.vscode/
+Thumbs.db
+
+# Ignore SCSS versioned/old variations
+*.v[0-9]*.scss
+*.old.scss
+*.wip.scss
+
+# Ignore JS versioned/old variations
+*.v[0-9]*.js
+*.old.js
+*.wip.js

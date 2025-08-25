@@ -1,0 +1,79 @@
+// ============================================
+// COVER COMPONENT
+// components/media/_cover.scss
+// --------------------------------------------
+// Supports images, videos, iframes, SVG, and canvas elements.
+// Provides logical centering, object-fit, aspect ratio helpers,
+// and reduced-motion support.
+// ============================================
+
+// --------------------------------------------
+// Media with Cover Behavior
+// Applies to canvas, iframe, svg, img, video
+// --------------------------------------------
+
+[cover]:where(canvas, iframe, svg),
+[data-cover]:where(canvas, iframe, svg) {
+	max-width: none;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+
+	// Logical centering
+	--position-translate-x: -50%;
+	--position-translate-y: -50%;
+	transform: translate(var(--position-translate-x), var(--position-translate-y));
+}
+
+// Prevent interaction with embedded iframes
+iframe[cover],
+iframe[data-cover] {
+	pointer-events: none;
+}
+
+// Cover behavior for images and videos
+[cover]:where(img, video),
+[data-cover]:where(img, video) {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+
+	object-fit: cover;
+	object-position: center;
+
+	background-color: var(--color-surface, #fff); // Fallback if CSS vars not available
+
+	// Smooth load (optional)
+	transition: opacity 0.3s ease-in-out;
+
+	// Respect reduced motion settings
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
+}
+
+// --------------------------------------------
+// Container: Positioning Context
+// --------------------------------------------
+
+.cover-container {
+	position: relative;
+	overflow: hidden;
+	isolation: isolate;
+
+	// Optional: Aspect ratio support
+	&-aspect-16x9::before {
+		content: "";
+		display: block;
+		padding-top: 56.25%; // 16:9 aspect ratio
+	}
+
+	&-aspect-4x3::before {
+		content: "";
+		display: block;
+		padding-top: 75%; // 4:3 aspect ratio
+	}
+}

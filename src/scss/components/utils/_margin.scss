@@ -1,0 +1,134 @@
+// =============================================================================
+// MARGIN UTILITIES
+// components/utils/_margin.scss
+// -----------------------------------------------------------------------------
+// Generates semantic margin utility classes for consistent spacing.
+// - Supports all sides, individual sides, axes (vertical/horizontal)
+// - Preset sizes: xs → xl, remove, auto
+// - Fully customizable via CSS variables with fallback
+// - Includes optional semantic helpers for tight/loose spacing
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Usage Example
+// -----------------------------------------------------------------------------
+/// Responsive image with fixed aspect ratio using object-fit and object-position
+///
+/// <div class="aspect-16-9">
+///   <img src="..." class="object-cover object-bottom" alt="..." />
+/// </div>
+
+@use '../../abstracts/variables' as *;
+
+
+/// -----------------------------------------------------------------------------
+/// Margin Size Tokens
+/// -----------------------------------------------------------------------------
+/// @type Map
+/// @description Preset margin values with CSS variable fallbacks
+
+$margin-sizes: (
+	default:	var(--spacing-default, 24px),
+	xs:			var(--spacing-xs, 4px),
+	sm:			var(--spacing-sm, 8px),
+	md:			var(--spacing-md, 16px),
+	lg:			var(--spacing-lg, 40px),
+	xl:			var(--spacing-xl, 48px),
+	remove:		0
+);
+
+/// -----------------------------------------------------------------------------
+/// Margin Directions
+/// ----------------------------------------------------------------------------
+/// @type Map
+/// @description Defines sides and axes for margin utilities
+
+$margin-directions: (
+	'':			'',			 // All sides
+	top:		-top,
+	bottom:		-bottom,
+	left:		-left,
+	right:		-right,
+	// vertical:	('-top', '-bottom'),
+	// horizontal: ('-left', '-right'),
+	// ends:		('-top', '-bottom')	// alias for vertical
+
+	vertical:		(-top, -bottom),
+	horizontal:		(-left, -right),
+	ends:			(-top, -bottom) // alias for vertical
+);
+
+// -----------------------------------------------------------------------------
+// Generate Margin Utilities
+// -----------------------------------------------------------------------------
+
+.margin {
+
+	@each $size, $value in $margin-sizes {
+
+		// Generate the first part of the class, e.g., '.margin-md'
+		&#{if($size != 'default', '-' + $size, '')} {
+
+			// Loop through all possible directions
+			@each $dir, $suffix in $margin-directions {
+
+				// Generate the final selector for this specific direction,
+				// resulting in a class like '.margin-md-horizontal'
+				&#{if($dir != '', '-' + $dir, '')} {
+
+					@if type-of($suffix) == 'list' {
+						// If the suffix is a list, loop through it
+						// and print the margin PROPERTIES inside the rule
+						@each $part in $suffix {
+							margin#{$part}: #{$value} !important;
+						}
+					} @else {
+						// Otherwise, print the single margin PROPERTY
+						margin#{$suffix}: #{$value} !important;
+					}
+				}
+			}
+		}
+	}
+
+	// Auto margin utility
+	&-auto {
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+
+	// Full removal utility
+	&-remove {
+		margin: 0 !important;
+		&-top { margin-top: 0 !important; }
+		&-bottom { margin-bottom: 0 !important; }
+		&-left { margin-left: 0 !important; }
+		&-right { margin-right: 0 !important; }
+		&-vertical {
+			margin-top: 0 !important;
+			margin-bottom: 0 !important;
+		}
+		&-horizontal {
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Optional Semantic Helpers
+// -----------------------------------------------------------------------------
+
+.no-margin {
+	margin: 0 !important;
+}
+
+.spacing-tight {
+	margin-block-start: 0.25em;
+	margin-block-end: 0.25em;
+}
+
+.spacing-loose {
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+}

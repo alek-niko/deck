@@ -1,0 +1,2594 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0">
+		<meta name="theme-color" content="#f5f5f5;">
+
+		<title>Palette Component | Cyberpunk Deck</title>
+		<meta name="description" content="Palette component provides a predefined set of colors and styles to maintain consistency across your web interface.">
+		<meta name="keywords" content="palette, color palette, theme colors, UI component, design system, front-end, web interface, Cyberpunk Deck">
+		<meta name="author" content="Cyberpunk Deck">
+		
+		<meta property="og:title" content="Palette Component | Cyberpunk Deck">
+		<meta property="og:description" content="Palette component provides a predefined set of colors and styles to maintain consistency across your web interface.">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://cyberpunk.xyz/deck/palette">
+		<meta property="og:image" content="https://cyberpunk.xyz/deck/assets/images/cover.jpg">
+		
+		<meta name="twitter:title" content="Palette Component | Cyberpunk Deck">
+		<meta name="twitter:description" content="Palette component provides a predefined set of colors and styles to maintain consistency across your web interface.">
+		<meta name="twitter:image" content="https://cyberpunk.xyz/deck/assets/images/cover.jpg">
+		<meta name="twitter:card" content="summary_large_image">
+		
+		<link rel="stylesheet" href="/assets/css/deck.min.css">
+		<link rel="stylesheet" href="/assets/css/palette.min.css">
+
+		<!-- Test inlined, embeded base64 gif favicon  -->
+		<link rel="icon" href="data:;base64,R0lGODlhEAAQAPABAP9GKX8jFCH/C05FVFNDQVBFMi4wAwEAAAAh+QQFBQABACwAAAAAEAAQAAACH4RvoauIzNyBSyYaLMDZcv15HAaSIlWiJ5Sya/RWVgEAIfkECQUAAAAsAAAAABAAEAAAAg6Ej6nL7Q+jnLTai7M+BQAh+QQJBQACACwAAAAAEAAQAAACIYxvoqvg7xiDUC76bMNAC95poDd6IkeiJ5ayK9XCbzVHBQAh+QQJBQABACwAAAEAEAAOAAACHIRvoauIzNyBSyYaLMDZcg2GzudhGimho1lSWgEAIfkECQUAAQAsAAABABAADQAAAhqEb6GriMzcgUsmGizAWfsPepw2WqV0OilSAAAh+QQJBQABACwAAAIAEAAMAAACF4RvoauIzNyBSyYarN68e4tlIKaFJWkVACH5BAkFAAEALAAAAgAQAAsAAAIVhG+hq4jM3IFL2ouz3vzRcH2gJV4FACH5BAkFAAEALAAAAwAQAAoAAAIShG+hq4jMnJy02ouzBnDR3kwFACH5BAkFAAEALAAABAAQAAgAAAIKhI+py+0Po5ysAAAh+QQJBQABACwAAAMAEAAJAAACDYxvoMvtD6OctNoLESoAIfkECQUAAQAsAAADABAACgAAAhGMb6CriAyjnLTaizN2Z3JTAAAh+QQJBQABACwAAAIAEAAMAAACF4xvoKuIzNyBSyaKs968+2plViCG2FgAACH5BAkFAAEALAAAAQAQAA0AAAIZjG+gq4jM3IFLJgpswLz7D2IaN4oWeZpSAQAh+QQJBQABACwAAAAAEAAPAAACHYxvoKuIzNyBSyYKbMDZcs2FIgRiJXWSnrmirSoVACH5BAkFAAEALAAAAAAQABAAAAIfjG+gq4jM3IFLJgpswNly/XkcBpIiVaInlLJr9FZWAQAh+QQJBQABACwAAAAADwAQAAACHowfoKt4zJyBSyYKLM5ya/xtVAiRUQeio1qyp+NJBQAh+QQJBQACACwBAAAADgAQAAACH5QNqRmHq9yDQAqaLK5ya/xRF9iRjleKKRSy69LCUgEAIfkECQUAAQAsAgAAAAwAEAAAAhuMA6l5uNoePJLRGvGVuWrjdY+4kBP4Odw2HgUAIfkECQUAAQAsAgAAAAsAEAAAAhqMgYkWquwSjGBG6/A7tGvJXWE2bg31LSlTAAAh+QQJBQABACwDAAAACQAQAAACFAyOZ4nL4FhMsz11M8wV3759HFcAACH5BAkFAAEALAQAAAAIABAAAAIKhI+py+0Po5ysAAAh+QQJBQABACwDAAAACgAQAAACGYRvEYjK5x6IjzLbllQY6vpdYSZNo1d2RgEAIfkECQUAAQAsAgAAAAsAEAAAAhqEb6GIGnwcTGtKW+HVLrP9eY0YkdSDoZzKFAAh+QQJBQABACwCAAAADAAQAAACHIRvoYG43NKKUlHwbqY7vt6AzsSRnhmio1WyUQEAIfkECQUAAQAsAQAAAA0AEAAAAh2Eb6GKuNzSi3JR8MLNe9LMfV4UkmNToqezHilSAAAh+QQJBQABACwAAAAAEAAQAAACH4R/oRvovByCSiZqDW15Z+B1GyZCX2ihkvqQqbvCTgEAIfkEBQUAAQAsAAAAABAAEAAAAiCEb6GriMzcgUsmGizA2XL9eRylbSR4ilCJsanUoqtWAAAh+QQJBQAAACwAAAAACAAQAAACCoSPqcvtD6OcrAAAIfkEBTcAAQAsAAAAAAgACAAAAgaEj6nL7V0AOw==">
+
+	</head>
+	<body class="l-shm">
+		<header id="header">
+			<nav class="navbar">
+				<div class="navbar-left">
+					<a id="sidebar-toggle" class="open icon-action sidebar-toggle-button">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-260v-45.39h488.46V-260H140Zm648-47L613.62-480.62l173.76-172.99L820-621 678.84-480.62l141.77 141L788-307ZM140-458.92v-45.39h371.54v45.39H140Zm0-195.69V-700h488.46v45.39H140Z"/></svg>
+					</a>
+					<p class="title text-truncate">Palette</p>
+				</div>
+				<div class="navbar-right">
+					<ul class="navbar-nav">
+						<li>
+							<a class="icon-action">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M790.61-137.54 531.08-397.08q-29.85 26.42-69.61 40.71t-82.32 14.29q-101.87 0-172.43-70.51-70.56-70.52-70.56-171 0-100.49 70.51-171.06 70.51-70.58 171.22-70.58 100.7 0 171.25 70.53t70.55 171.06q0 42.02-14.38 81.83-14.39 39.81-41.62 72.12l260.15 258.54-33.23 33.61ZM378.54-387.46q81.95 0 138.86-57.12 56.91-57.11 56.91-139.07 0-81.97-56.91-139.08-56.91-57.12-138.86-57.12-82.47 0-139.74 57.12-57.26 57.11-57.26 139.08 0 81.96 57.26 139.07 57.27 57.12 139.74 57.12Z"/></svg>
+							</a>
+						</li>
+						<li>
+							<a class="icon-action">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M232-253.08q59.92-41.3 119.23-64.03 59.31-22.74 128.77-22.74 69.46 0 129.08 22.74 59.61 22.73 119.53 64.03 43.62-50.53 64.81-106.72 21.19-56.19 21.19-120.2 0-141.54-96.53-238.08-96.54-96.53-238.08-96.53-141.54 0-238.08 96.53-96.53 96.54-96.53 238.08 0 64.01 21.5 120.2T232-253.08Zm247.78-204.23q-53.93 0-90.74-37.02-36.81-37.03-36.81-90.96 0-53.94 37.03-90.75 37.02-36.81 90.96-36.81 53.93 0 90.74 37.03 36.81 37.02 36.81 90.96 0 53.94-37.03 90.74-37.02 36.81-90.96 36.81Zm.69 357.31q-79.01 0-148.24-29.77-69.24-29.77-120.96-81.58-51.73-51.8-81.5-120.72-29.77-68.92-29.77-148T129.77-628q29.77-68.85 81.58-120.65 51.8-51.81 120.72-81.58 68.92-29.77 148-29.77T628-830.23q68.85 29.77 120.65 81.58 51.81 51.8 81.58 120.68Q860-559.09 860-480.47q0 79.01-29.77 148.24-29.77 69.24-81.58 120.96-51.8 51.73-120.68 81.5Q559.09-100 480.47-100Zm-.47-45.39q55.77 0 110-17.73t102.15-57.34q-47.92-35.23-101.5-54.62-53.57-19.38-110.65-19.38-57.08 0-110.85 19.19-53.77 19.19-100.92 54.81 47.54 39.61 101.77 57.34 54.23 17.73 110 17.73Zm.05-357.3q35.87 0 59.1-23.29 23.24-23.28 23.24-59.15t-23.29-59.1q-23.28-23.23-59.15-23.23t-59.1 23.28q-23.24 23.29-23.24 59.16t23.29 59.1q23.28 23.23 59.15 23.23Zm-.05-82.39Zm0 365.16Z"/></svg>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<aside id="sidebar" class="sidebar-secondary">
+			<div class="logo">
+				<a href="#!">
+					<svg version="1.0" xmlns="http://www.w3.org/2000/svg"  width="500.000000pt" height="153.000000pt" viewBox="0 0 500.000000 153.000000" preserveAspectRatio="xMidYMid meet"><g transform="translate(0.000000,153.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none"><path d="M3083 1500 c-18 -10 -183 -169 -368 -352 -333 -330 -336 -333 -335 -374 0 -26 8 -52 23 -72 19 -26 597 -564 694 -645 45 -38 98 -45 141 -18 55 35 68 105 30 160 -13 17 -153 151 -313 297 -159 146 -291 269 -293 273 -1 5 125 133 282 286 156 152 290 290 296 306 23 56 -4 115 -67 148 -31 16 -53 14 -90 -9z"/> <path d="M4783 1501 c-17 -11 -182 -170 -367 -353 -332 -329 -337 -334 -336 -373 0 -22 6 -50 13 -62 7 -11 174 -170 372 -352 381 -351 391 -358 456 -331 44 19 69 56 69 105 0 54 0 54 -345 370 -154 141 -281 260 -283 265 -1 4 125 132 282 284 156 153 290 290 296 306 39 95 -71 194 -157 141z"/> <path d="M125 1500 c-11 -4 -31 -20 -45 -35 -29 -31 -35 -100 -10 -130 8 -10 128 -122 265 -248 138 -127 274 -252 303 -279 l52 -50 -295 -291 c-291 -287 -296 -293 -295 -332 1 -86 76 -144 147 -113 43 18 697 658 713 698 30 71 25 77 -360 433 -195 180 -369 334 -387 342 -36 17 -58 18 -88 5z"/> <path d="M1474 1350 c-167 -4 -195 -7 -212 -23 -52 -48 -53 -128 -1 -172 l31 -26 415 3 415 3 29 33 c52 58 33 149 -38 178 -34 15 -232 16 -639 4z"/><path d="M3634 1176 l-34 -34 0 -342 c0 -296 2 -347 16 -376 44 -93 176 -77 204 24 5 21 7 163 3 356 -6 349 -9 363 -63 391 -49 25 -88 19 -126 -19z"/><path d="M1274 856 c-43 -19 -64 -53 -64 -104 0 -37 6 -50 36 -80 l35 -35 410 6 c457 7 458 8 486 75 19 46 5 101 -34 131 -25 20 -37 21 -432 21 -319 -1 -413 -4 -437 -14z"/><path d="M1645 351 c-382 -7 -385 -7 -424 -57 -34 -43 -28 -99 13 -140 l34 -34 229 1 c125 1 322 4 436 8 l209 6 29 33 c46 51 36 132 -19 168 -33 21 -73 23 -507 15z"/></g></svg>
+				</a>
+			</div>
+			<ul class="menu">
+				<li class="menu-heading"><span>Documentation</span></li>
+				<li title="Documentation">
+					<a href="pages-documentation.html">
+						<span class="item-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M287.77-289.39h256.54v-45.38H287.77v45.38Zm0-167.92h384.46v-45.38H287.77v45.38Zm0-167.92h384.46v-45.38H287.77v45.38ZM197.69-140q-23.53 0-40.61-17.08T140-197.69v-564.62q0-23.53 17.08-40.61T197.69-820h564.62q23.53 0 40.61 17.08T820-762.31v564.62q0 23.53-17.08 40.61T762.31-140H197.69Zm0-45.39h564.62q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-564.62q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H197.69q-4.61 0-8.46 3.84-3.84 3.85-3.84 8.46v564.62q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84Zm-12.3-589.22v589.22-589.22Z"/></svg>
+						</span>
+						<span class="item-title">DeckDoc</span>
+					</a>
+				</li>
+				<li class="menu-heading"><span>Components</span></li>
+
+				<li class="parent" title="Content">
+					<a href="#!">
+						<span class="item-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M522.69-578.08V-820H820v241.92H522.69ZM140-467.31V-820h297.31v352.69H140ZM522.69-140v-352.69H820V-140H522.69ZM140-140v-241.92h297.31V-140H140Zm45.39-372.69h206.53v-261.92H185.39v261.92Zm382.69 327.3h206.53v-261.92H568.08v261.92Zm0-438.07h206.53v-151.15H568.08v151.15ZM185.39-185.39h206.53v-151.15H185.39v151.15Zm206.53-327.3Zm176.16-110.77Zm0 176.15ZM391.92-336.54Z"/></svg>
+						</span>
+						<span class="item-title">Content</span>
+						<span class="item-chevron">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+						</span>
+					</a>
+					<ul class="submenu">
+						<li><a href="/content/action.html">Action</a></li>
+						<li><a href="/content/article.html">Article</a></li>
+						<li><a href="/content/avatar.html">Avatar</a></li>
+						<li><a href="/content/brand.html">Brand</a></li>
+						<li><a href="/content/code.html">Code</a></li>
+						<li><a href="/content/code.tab.html">Code Tab</a></li>
+						<li><a href="/content/comment.html">Comment</a></li>
+						<li><a href="/content/cover.html">Cover</a></li>
+						<li><a href="/content/feed.html">Feed</a></li>
+						<li><a href="/content/hr.html">HR</a></li>
+						<li><a href="/content/icons.html">Icons</a></li>
+						<li><a href="/content/link.html">Link</a></li>
+						<li><a href="/content/link.preview.html">Link Preview</a></li>
+						<li><a href="/content/post.html">Post</a></li>
+						<li><a href="/content/preserve.html">Preserve Format</a></li>
+						<li><a href="/content/profile.html">Profile</a></li>
+						<li><a href="/content/profile.b.html">Profile B</a></li>
+						<li><a href="/content/timeline.html">Timeline</a></li>
+						<li><a href="/content/video.html">Video</a></li>
+						<li><a href="/content/wires.html">Wires</a></li>
+					</ul>
+				</li>
+
+				<li class="parent" title="Form">
+					<a href="#!">
+						<span class="item-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M197.69-140q-23.53 0-40.61-17.08T140-197.69v-564.62q0-23.53 17.08-40.61T197.69-820h564.62q23.53 0 40.61 17.08T820-762.31v564.62q0 23.53-17.08 40.61T762.31-140H197.69Zm0-45.39h564.62q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-564.62q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H197.69q-4.61 0-8.46 3.84-3.84 3.85-3.84 8.46v564.62q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84Z"/></svg>
+						</span>
+						<span class="item-title">Form</span>
+						<span class="item-chevron">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+						</span>
+					</a>
+					<ul class="submenu">
+						<li><a href="/form/form.html">Form</a></li>
+						<li><a href="/form/upload.html">Upload</a></li>
+					</ul>
+				</li>
+
+				<li class="parent" title="CSS Grid">
+					<a href="#!">
+						<span class="item-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M241.16-110v-131.16H110v-45.38h131.16v-170.77H110v-45.38h131.16v-171.16H110v-45.38h131.16V-850h45.38v130.77h170.77V-850h45.38v130.77h171.16V-850h45.38v130.77H850v45.38H719.23v171.16H850v45.38H719.23v170.77H850v45.38H719.23V-110h-45.38v-131.16H502.69V-110h-45.38v-131.16H286.54V-110h-45.38Zm45.38-176.54h170.77v-170.77H286.54v170.77Zm216.15 0h171.16v-170.77H502.69v170.77ZM286.54-502.69h170.77v-171.16H286.54v171.16Zm216.15 0h171.16v-171.16H502.69v171.16Z"/></svg>
+						</span>
+						<span class="item-title">CSS Grids</span>
+						<span class="item-chevron">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+						</span>
+					</a>
+					<ul class="submenu">
+						<li><a href="/layout/css.grids/hm.html">Layout HM</a></li>
+						<li><a href="/layout/css.grids/hmf.html">Layout HMF</a></li>
+						<li><a href="/layout/css.grids/hsm.html">Layout HSM</a></li>
+						<li><a href="/layout/css.grids/hsmf.wide.html">Layout HSMF-Wide</a></li>
+						<li><a href="/layout/css.grids/hsmf.html">Layout HSMF</a></li>
+						<li><a href="/layout/css.grids/shm.html">Layout SHM</a></li>
+						<li><a href="/layout/css.grids/shmf.html">Layout SHMF</a></li>
+						<li><a href="/layout/css.grids/shmo.html">Layout SHMO</a></li>
+						<li><a href="/layout/css.grids/sm.html">Layout SM</a></li>
+						<li><a href="/layout/css.grids/smo.html">Layout SMO</a></li>
+					</ul>
+				</li>
+
+				<li class="parent" title="Layout">
+					<a href="#!">
+						<span class="item-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M160-217.31q-9.64 0-16.17-6.58-6.52-6.58-6.52-16.31 0-9.72 6.52-16.11 6.53-6.38 16.17-6.38h400q9.64 0 16.17 6.58 6.52 6.58 6.52 16.31 0 9.72-6.52 16.11-6.53 6.38-16.17 6.38H160Zm560 0q-9.64 0-16.17-6.58-6.52-6.58-6.52-16.31 0-9.72 6.52-16.11 6.53-6.38 16.17-6.38h80q9.64 0 16.17 6.58 6.52 6.58 6.52 16.31 0 9.72-6.52 16.11-6.53 6.38-16.17 6.38h-80Zm-560-160q-9.64 0-16.17-6.58-6.52-6.58-6.52-16.31 0-9.72 6.52-16.11 6.53-6.38 16.17-6.38h80q9.64 0 16.17 6.58 6.52 6.58 6.52 16.31 0 9.72-6.52 16.11-6.53 6.38-16.17 6.38h-80Zm240 0q-9.64 0-16.17-6.58-6.52-6.58-6.52-16.31 0-9.72 6.52-16.11 6.53-6.38 16.17-6.38h400q9.64 0 16.17 6.58 6.52 6.58 6.52 16.31 0 9.72-6.52 16.11-6.53 6.38-16.17 6.38H400Zm-240-160q-9.64 0-16.17-6.58-6.52-6.58-6.52-16.31 0-9.72 6.52-16.11 6.53-6.38 16.17-6.38h440q9.64 0 16.17 6.58 6.52 6.58 6.52 16.31 0 9.72-6.52 16.11-6.53 6.38-16.17 6.38H160Zm600 0q-9.64 0-16.17-6.58-6.52-6.58-6.52-16.31 0-9.72 6.52-16.11 6.53-6.38 16.17-6.38h40q9.64 0 16.17 6.58 6.52 6.58 6.52 16.31 0 9.72-6.52 16.11-6.53 6.38-16.17 6.38h-40Zm-600-160q-9.64 0-16.17-6.58-6.52-6.58-6.52-16.31 0-9.72 6.52-16.11 6.53-6.38 16.17-6.38h200q9.64 0 16.17 6.58 6.52 6.58 6.52 16.31 0 9.72-6.52 16.11-6.53 6.38-16.17 6.38H160Zm360 0q-9.64 0-16.17-6.58-6.52-6.58-6.52-16.31 0-9.72 6.52-16.11 6.53-6.38 16.17-6.38h280q9.64 0 16.17 6.58 6.52 6.58 6.52 16.31 0 9.72-6.52 16.11-6.53 6.38-16.17 6.38H520Z"/></svg>
+						</span>
+						<span class="item-title">Layout</span>
+						<span class="item-chevron">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+						</span>
+					</a>
+					<ul class="submenu">
+						<li><a href="/layout/column.html">Column</a></li>
+						<li><a href="/layout/container.flex.html">Container</a></li>
+						<li><a href="/layout/container.flow.html">Container</a></li>
+						<li><a href="/layout/flex.html">Flex</a></li>
+						<li><a href="/layout/grid.html">Grid</a></li>
+						<li><a href="/layout/position.html">Position</a></li>
+						<li><a href="/layout/section.html">Section</a></li>
+						<li><a href="/layout/width.html">Width</a></li>
+					</ul>
+				</li>
+
+				<li class="parent" title="Navigation">
+					<a href="#!">
+						<span class="item-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M211.92-150 190-171.16l290-659.61 290 659.61L748.08-150 480-270.46 211.92-150Zm53-74.92L480-319.08l215.08 94.16-215.08-494-215.08 494ZM480-319.08Z"/></svg>
+						</span>
+						<span class="item-title">Navigation</span>
+						<span class="item-chevron">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+						</span>
+					</a>
+					<ul class="submenu">
+						<li><a href="/navigation/breadcrumb.html">Breadcrumb</a></li>
+						<li><a href="/navigation/drilldown.html">Drilldown</a></li>
+						<li><a href="/navigation/dropdown.html">Dropdown</a></li>
+						<li><a href="/navigation/dropnav.html">Dropnav</a></li>
+						<li><a href="/navigation/iconnav.html">Iconnav</a></li>
+						<li><a href="/navigation/mega-menu.html">mega-menu</a></li>
+						<li><a href="/navigation/nav.html">Nav</a></li>
+						<li><a href="/navigation/navbar.html">Navbar</a></li>
+						<li><a href="/navigation/pagination.html">Pagination</a></li>
+						<li><a href="/navigation/subnav.html">Subnav</a></li>
+						<li><a href="/navigation/tabs.html">Tabs</a></li>
+						<li><a href="/navigation/thumbnav.html">Thumbnav</a></li>
+						<li><a href="/navigation/toolbar.html">Toolbar</a></li>
+					</ul>
+				</li>
+
+				<li class="parent" title="Typography">
+					<a href="#!">
+						<span class="item-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M458.92-100v-205.39h45.39v80H820V-180H504.31v80h-45.39ZM140-180v-45.39h245.85V-180H140Zm142.46-212.31h50.85l44.23-122.46h205.54l44.23 122.46h50.23L502.38-860H457L282.46-392.31Zm111.46-165.53 84.7-238.08h2.76l84.7 238.08H393.92Z"/></svg>						</span>
+						<span class="item-title">Typography</span>
+						<span class="item-chevron">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+						</span>
+					</a>
+					<ul class="submenu">
+						<li><a href="/typography/text.html">Text</a></li>
+						<li><a href="/typography/prose.html">Prose</a></li>
+					</ul>
+				</li>
+
+				<li class="parent" title="Components">
+					<a href="#!">
+						<span class="item-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M357.92-140H185.39q-18.15 0-31.77-13.62Q140-167.24 140-185.39v-172.53q38.23-8.47 64.35-37 26.11-28.54 26.11-67.31t-26.11-67.12q-26.12-28.34-64.35-37.19v-172.54q0-18.14 13.62-31.76 13.62-13.62 31.77-13.62h172.38q13.31-36.54 41.04-59.88 27.73-23.35 64.84-23.35 37.12 0 64.85 23.35 27.73 23.34 41.04 59.88h169.54q18.14 0 31.76 13.62 13.62 13.62 13.62 31.76v169.54q36.54 13.31 58.77 42.46 22.23 29.16 22.23 66.27 0 37.12-22.23 63.73-22.23 26.62-58.77 39.93v171.76q0 18.15-13.62 31.77Q757.22-140 739.08-140H566.54q-9.23-41.46-38.48-65.96-29.24-24.5-65.92-24.5-36.68 0-66.02 24.5-29.35 24.5-38.2 65.96Zm-172.53-45.39h141.53q21.16-49.07 59.58-69.76 38.41-20.7 75.69-20.7 37.27 0 75.73 20.7 38.46 20.69 59.62 69.76h141.54v-214.22h23.46q27.3-2.31 42.42-19.93 15.12-17.61 15.12-41.08 0-23.46-15.12-41.27-15.12-17.8-42.42-20.11h-23.46v-217.08H524.85v-25.69q-2.31-27.31-19.93-42.42-17.61-15.12-41.27-15.12-23.65 0-41.27 15.12-17.61 15.11-19.92 42.42v25.69H185.39v140.39q41.61 17.05 66.03 54.38 24.43 37.33 24.43 82.3 0 44.44-24.5 81.92-24.5 37.47-65.96 54.32v140.38Zm278.46-275.23Z"/></svg>
+						</span>
+						<span class="item-title">UI</span>
+						<span class="item-chevron">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+						</span>
+					</a>
+					<ul class="submenu">							
+						<li><a href="/ui/accordion.html">Accordion</a></li>
+						<li><a href="/ui/alert.html">Alert</a></li>
+						<li><a href="/ui/badge.html">Badge</a></li>
+						<li><a href="/ui/blockquote.html">Blockquote </a></li>
+						<li><a href="/ui/button.html">Button </a></li>
+						<li><a href="/ui/card.html">Card</a></li>
+						<li><a href="/ui/desctiption.list.html">Description List</a></li>
+						<li><a href="/ui/divider.html">Divider</a></li>
+						<li><a href="/ui/drop.html">Drop</a></li>
+						<li><a href="/ui/dropbar.html">Dropbar</a></li>
+						<li><a href="/ui/embed.html">Embed</a></li>
+						<li><a href="/ui/fab.html">Fab</a></li>
+						<li><a href="/ui/heading.html">Heading</a></li>
+						<li><a href="/ui/hero.html">Hero</a></li>
+						<li><a href="/ui/image.html">Image</a></li>
+						<li><a href="/ui/label.html">Label</a></li>
+						<li><a href="/ui/lightbox.html">Lightbox</a></li>
+						<li><a href="/ui/list.html">List</a></li>
+						<li><a href="/ui/modal.html">Modal</a></li>
+						<li><a href="/ui/offcanvas.html">Offcanvas</a></li>
+						<li><a href="/ui/overlay.html">Overlay</a></li>
+						<li><a href="/ui/palette.html">Palette</a></li>
+						<li><a href="/ui/panel.html">Panel</a></li>
+						<li><a href="/ui/placeholder.html">Placeholder</a></li>
+						<li><a href="/ui/progress.html">Progress</a></li>
+						<li><a href="/ui/slider.html">Slider</a></li>
+						<li><a href="/ui/spinner.html">Spinner</a></li>
+						<li><a href="/ui/table.html">Table</a></li>
+						<li><a href="/ui/tile.html">Tile</a></li>
+						<li><a href="/ui/toast.html">Toast</a></li>
+						<li><a href="/ui/toggle.html">Toggle</a></li>
+						<li><a href="/ui/tooltip.html">Tooltip</a></li>
+					</ul>
+				</li>
+
+				<li class="parent" title="Utils">
+					<a href="#!">
+						<span class="item-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m130-239.31-39.92-20.08 233.38-461.69 39.92 20.47L130-239.31Zm252.46 0-39.92-20.08 233.38-461.69 39.93 20.47-233.39 461.3Zm252.46 0L595-259.39l233.38-461.69 39.93 20.47-233.39 461.3Z"/></svg>
+						</span>
+						<span class="item-title">Utils</span>
+						<span class="item-chevron">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+						</span>
+					</a>
+					<ul class="submenu">
+						<li><a href="/utils/animatio.html">Animation</a></li>
+						<li><a href="/utils/background.html">Background</a></li>
+						<li><a href="/utils/borders.html">Borders</a></li>
+						<li><a href="/utils/display.html">Display</a></li>
+						<li><a href="/utils/height.html">Height</a></li>
+						<li><a href="/utils/inline.html">Inline</a></li>
+						<li><a href="/utils/interactions.html">Interactions</a></li>
+						<li><a href="/utils/margin.html">Margin</a></li>
+						<li><a href="/utils/object.html">Object</a></li>
+						<li><a href="/utils/overflow.html">Overflow</a></li>
+						<li><a href="/utils/padding.html">Padding</a></li>
+						<li><a href="/utils/resize.html">Resize</a></li>
+						<li><a href="/utils/responsive.html">Responsive</a></li>
+						<li><a href="/utils/animshadowatio.html">Shadow</a></li>
+						<li><a href="/utils/transform.html">Transform</a></li>
+						<li><a href="/utils/transition.html">Transition</a></li>
+						<li><a href="/utils/visibility.html">Visibility</a></li>
+					</ul>
+				</li>
+
+				<li class="menu-heading"><span>OTHER</span></li>
+
+				<li class="parent" title="Pages">
+					<a href="#!">
+						<span class="item-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M157.69-180q-23.53 0-40.61-17.08T100-237.69v-484.62q0-23.53 17.08-40.61T157.69-780h644.62q23.53 0 40.61 17.08T860-722.31v484.62q0 23.53-17.08 40.61T802.31-180H157.69Zm0-45.39h644.62q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-414.08H145.39v414.08q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84Z"/></svg>
+						</span>
+						<span class="item-title">Pages</span>
+						<span class="item-chevron">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+						</span>
+					</a>
+					<ul class="submenu">
+					</ul>
+				</li>
+
+				<li class="parent" title="Plugins">
+					<a href="#!">
+						<span class="item-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M130-830h307.31v307.31H130V-830Zm45.38 44.77v200.31-200.31ZM522.69-830H830v307.31H522.69V-830Zm62.23 44.77v200.31-200.31ZM130-437.31h307.31V-130H130v-307.31Zm45.38 60.62v201.31-201.31Zm478.47-60.62h45.38v130.77H830v45.39H699.23V-130h-45.38v-131.15H522.69v-45.39h131.16v-130.77Zm-85.77-347.31v216.54h216.54v-216.54H568.08Zm-392.7 0v216.54h216.54v-216.54H175.38Zm0 392.7v216.54h216.54v-216.54H175.38Z"/></svg>
+						</span>
+						<span class="item-title">Plugins</span>
+						<span class="item-chevron">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+						</span>
+					</a>
+					<ul class="submenu"></ul>
+				</li>
+
+			</ul>
+			<div class="sidebar-info">
+				version: 0.9
+			</div>
+		</aside>
+		<main id="main">
+			<div id="content" class="content">
+
+				<div class="container container-small flex-gap-md">
+					<h1>Color Palette</h1>
+
+					<div class="overflow-auto">
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.color-*-*</code></td>
+									<td>This class applies css color value - <em>color-wewak-500</em></td>
+								</tr>
+								<tr>
+									<td><code>.color-bg-*-*</code></td>
+									<td>This class applies css background-color value - <em>color-bg-wewak-500</em></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+
+					<div class="palette width-5-6 margin-auto">
+				
+						<h5 class="heading-line text-center padding-bottom"><span>Wewak</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-wewak-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#fdf3f4</div>
+								</div>
+							</div>
+							<div class="item color-bg-wewak-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#fbe8eb</div>
+								</div>
+							</div>
+							<div class="item color-bg-wewak-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#f6d5da</div>
+								</div>
+							</div>
+							<div class="item color-bg-wewak-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#ea9daa</div>
+								</div>
+							</div>
+							<div class="item color-bg-wewak-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#e58799</div>
+								</div>
+							</div>
+							<div class="item color-bg-wewak-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#d75c77</div>
+								</div>
+							</div>
+							<div class="item color-bg-wewak-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#c13d60</div>
+								</div>
+							</div>
+							<div class="item color-bg-wewak-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#a22e4f</div>
+								</div>
+							</div>
+							<div class="item color-bg-wewak-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#882947</div>
+								</div>
+							</div>
+							<div class="item color-bg-wewak-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#752642</div>
+								</div>
+							</div>
+							<div class="item color-bg-wewak-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#411020</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Mandy</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-mandy-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#fef2f3</div>
+								</div>
+							</div>
+							<div class="item color-bg-mandy-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#fde6e7</div>
+								</div>
+							</div>
+							<div class="item color-bg-mandy-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#fbd0d5</div>
+								</div>
+							</div>
+							<div class="item color-bg-mandy-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#f7aab2</div>
+								</div>
+							</div>
+							<div class="item color-bg-mandy-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#f27a8a</div>
+								</div>
+							</div>
+							<div class="item color-bg-mandy-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#ea546c</div>
+								</div>
+							</div>
+							<div class="item color-bg-mandy-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#d5294d</div>
+								</div>
+							</div>
+							<div class="item color-bg-mandy-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#b31d3f</div>
+								</div>
+							</div>
+							<div class="item color-bg-mandy-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#961b3c</div>
+								</div>
+							</div>
+							<div class="item color-bg-mandy-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#811a39</div>
+								</div>
+							</div>
+							<div class="item color-bg-mandy-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#48091a</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Red</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-red-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#fef2f2</div>
+								</div>
+							</div>
+							<div class="item color-bg-red-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#fee2e2</div>
+								</div>
+							</div>
+							<div class="item color-bg-red-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#fecaca</div>
+								</div>
+							</div>
+							<div class="item color-bg-red-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#fca5a5</div>
+								</div>
+							</div>
+							<div class="item color-bg-red-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#f87171</div>
+								</div>
+							</div>
+							<div class="item color-bg-red-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#ef4444</div>
+								</div>
+							</div>
+							<div class="item color-bg-red-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#dc2626</div>
+								</div>
+							</div>
+							<div class="item color-bg-red-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#b91c1c</div>
+								</div>
+							</div>
+							<div class="item color-bg-red-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#991b1b</div>
+								</div>
+							</div>
+							<div class="item color-bg-red-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#7f1d1d</div>
+								</div>
+							</div>
+							<div class="item color-bg-red-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#450a0a</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Rose</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-rose-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#fff1f2</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#ffe4e6</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#fecdd3</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#fda4af</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#fb7185</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#f43f5e</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#e11d48</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#be123c</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#9f1239</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#881337</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#4c0519</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Cerise Red</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-cerise-red-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#fef1f7</div>
+								</div>
+							</div>
+							<div class="item color-bg-cerise-red-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#fee5f0</div>
+								</div>
+							</div>
+							<div class="item color-bg-cerise-red-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#fecce3</div>
+								</div>
+							</div>
+							<div class="item color-bg-cerise-red-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#ffa2cb</div>
+								</div>
+							</div>
+							<div class="item color-bg-cerise-red-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#fe68a7</div>
+								</div>
+							</div>
+							<div class="item color-bg-cerise-red-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#f83c86</div>
+								</div>
+							</div>
+							<div class="item color-bg-cerise-red-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#e91f64</div>
+								</div>
+							</div>
+							<div class="item color-bg-cerise-red-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#ca0c47</div>
+								</div>
+							</div>
+							<div class="item color-bg-cerise-red-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#a70d3b</div>
+								</div>
+							</div>
+							<div class="item color-bg-cerise-red-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#8b1034</div>
+								</div>
+							</div>
+							<div class="item color-bg-cerise-red-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#55021a</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Pink</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-pink-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#fdf2f8</div>
+								</div>
+							</div>
+							<div class="item color-bg-pink-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#fce7f3</div>
+								</div>
+							</div>
+							<div class="item color-bg-pink-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#fbcfe8</div>
+								</div>
+							</div>
+							<div class="item color-bg-pink-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#f9a8d4</div>
+								</div>
+							</div>
+							<div class="item color-bg-pink-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#f9a8d4</div>
+								</div>
+							</div>
+							<div class="item color-bg-pink-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#ec4899</div>
+								</div>
+							</div>
+							<div class="item color-bg-pink-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#db2777</div>
+								</div>
+							</div>
+							<div class="item color-bg-pink-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#be185d</div>
+								</div>
+							</div>
+							<div class="item color-bg-pink-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#9d174d</div>
+								</div>
+							</div>
+							<div class="item color-bg-pink-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#831843</div>
+								</div>
+							</div>
+							<div class="item color-bg-pink-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#500724</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Fuchsia</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-fuchsia-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#fdf4ff</div>
+								</div>
+							</div>
+							<div class="item color-bg-fuchsia-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#fae8ff</div>
+								</div>
+							</div>
+							<div class="item color-bg-fuchsia-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#f5d0fe</div>
+								</div>
+							</div>
+							<div class="item color-bg-fuchsia-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#f0abfc</div>
+								</div>
+							</div>
+							<div class="item color-bg-fuchsia-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#e879f9</div>
+								</div>
+							</div>
+							<div class="item color-bg-fuchsia-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#d946ef</div>
+								</div>
+							</div>
+							<div class="item color-bg-fuchsia-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#c026d3</div>
+								</div>
+							</div>
+							<div class="item color-bg-fuchsia-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#a21caf</div>
+								</div>
+							</div>
+							<div class="item color-bg-fuchsia-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#86198f</div>
+								</div>
+							</div>
+							<div class="item color-bg-fuchsia-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#701a75</div>
+								</div>
+							</div>
+							<div class="item color-bg-fuchsia-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#4a044e</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Purple</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-purple-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#faf5ff</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#f3e8ff</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#e9d5ff</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#d8b4fe</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#c084fc</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#a855f7</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#9333ea</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#7e22ce</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#6b21a8</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#581c87</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#3b0764</div>
+								</div>
+							</div>
+						</div>	
+						<h5 class="heading-line text-center padding-bottom"><span>Violet</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-violet-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#f5f3ff</div>
+								</div>
+							</div>
+							<div class="item color-bg-violet-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#ede9fe</div>
+								</div>
+							</div>
+							<div class="item color-bg-violet-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#ddd6fe</div>
+								</div>
+							</div>
+							<div class="item color-bg-violet-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#c4b5fd</div>
+								</div>
+							</div>
+							<div class="item color-bg-violet-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#a78bfa</div>
+								</div>
+							</div>
+							<div class="item color-bg-violet-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#8b5cf6</div>
+								</div>
+							</div>
+							<div class="item color-bg-violet-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#7c3aed</div>
+								</div>
+							</div>
+							<div class="item color-bg-violet-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#6d28d9</div>
+								</div>
+							</div>
+							<div class="item color-bg-violet-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#5b21b6</div>
+								</div>
+							</div>
+							<div class="item color-bg-violet-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#4c1d95</div>
+								</div>
+							</div>
+							<div class="item color-bg-violet-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#2e1065</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Purple Heart</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-purple-heart-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#f3f1ff</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-heart-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#ebe5ff</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-heart-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#d9ceff</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-heart-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#bea6ff</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-heart-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#9f75ff</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-heart-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#843dff</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-heart-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#7916ff</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-heart-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#6b04fd</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-heart-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#5a03d5</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-heart-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#4b05ad</div>
+								</div>
+							</div>
+							<div class="item color-bg-purple-heart-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#2c0076</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Indigo</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-indigo-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#eef2ff</div>
+								</div>
+							</div>
+							<div class="item color-bg-indigo-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#e0e7ff</div>
+								</div>
+							</div>
+							<div class="item color-bg-indigo-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#c7d2fe</div>
+								</div>
+							</div>
+							<div class="item color-bg-indigo-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#a5b4fc</div>
+								</div>
+							</div>
+							<div class="item color-bg-indigo-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#818cf8</div>
+								</div>
+							</div>
+							<div class="item color-bg-indigo-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#6366f1</div>
+								</div>
+							</div>
+							<div class="item color-bg-indigo-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#4f46e5</div>
+								</div>
+							</div>
+							<div class="item color-bg-indigo-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#4338ca</div>
+								</div>
+							</div>
+							<div class="item color-bg-indigo-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#3730a3</div>
+								</div>
+							</div>
+							<div class="item color-bg-indigo-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#312e81</div>
+								</div>
+							</div>
+							<div class="item color-bg-indigo-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#1e1b4b</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Waikawa Gray</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-waikawa-gray-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#f2f7fb</div>
+								</div>
+							</div>
+							<div class="item color-bg-waikawa-gray-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#e7f0f8</div>
+								</div>
+							</div>
+							<div class="item color-bg-waikawa-gray-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#d3e2f2</div>
+								</div>
+							</div>
+							<div class="item color-bg-waikawa-gray-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#b9cfe8</div>
+								</div>
+							</div>
+							<div class="item color-bg-waikawa-gray-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#9cb6dd</div>
+								</div>
+							</div>
+							<div class="item color-bg-waikawa-gray-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#839dd1</div>
+								</div>
+							</div>
+							<div class="item color-bg-waikawa-gray-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#6a7fc1</div>
+								</div>
+							</div>
+							<div class="item color-bg-waikawa-gray-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#6374ae</div>
+								</div>
+							</div>
+							<div class="item color-bg-waikawa-gray-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#4a5989</div>
+								</div>
+							</div>
+							<div class="item color-bg-waikawa-gray-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#414e6e</div>
+								</div>
+							</div>
+							<div class="item color-bg-waikawa-gray-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#262c40</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Blue</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-blue-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#eff6ff</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#dbeafe</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#bfdbfe</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#93c5fd</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#60a5fa</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#3b82f6</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#2563eb</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#1d4ed8</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#1e40af</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#1e3a8a</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#172554</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Sky</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-sky-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#f0f9ff</div>
+								</div>
+							</div>
+							<div class="item color-bg-sky-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#e0f2fe</div>
+								</div>
+							</div>
+							<div class="item color-bg-sky-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#bae6fd</div>
+								</div>
+							</div>
+							<div class="item color-bg-sky-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#7dd3fc</div>
+								</div>
+							</div>
+							<div class="item color-bg-sky-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#38bdf8</div>
+								</div>
+							</div>
+							<div class="item color-bg-sky-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#0ea5e9</div>
+								</div>
+							</div>
+							<div class="item color-bg-sky-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#0284c7</div>
+								</div>
+							</div>
+							<div class="item color-bg-sky-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#0369a1</div>
+								</div>
+							</div>
+							<div class="item color-bg-sky-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#075985</div>
+								</div>
+							</div>
+							<div class="item color-bg-sky-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#0c4a6e</div>
+								</div>
+							</div>
+							<div class="item color-bg-sky-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#082f49</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Blue Chill</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-blue-chill-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#f2f9f9</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-chill-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#ddeff0</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-chill-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#bfe0e2</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-chill-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#92cace</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-chill-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#5faab1</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-chill-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#438e96</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-chill-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#3b757f</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-chill-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#356169</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-chill-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#325158</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-chill-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#2d464c</div>
+								</div>
+							</div>
+							<div class="item color-bg-blue-chill-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#1a2c32</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Cyan</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-cyan-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#ecfeff</div>
+								</div>
+							</div>
+							<div class="item color-bg-cyan-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#cffafe</div>
+								</div>
+							</div>
+							<div class="item color-bg-cyan-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#a5f3fc</div>
+								</div>
+							</div>
+							<div class="item color-bg-cyan-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#67e8f9</div>
+								</div>
+							</div>
+							<div class="item color-bg-cyan-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#22d3ee</div>
+								</div>
+							</div>
+							<div class="item color-bg-cyan-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#06b6d4</div>
+								</div>
+							</div>
+							<div class="item color-bg-cyan-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#0891b2</div>
+								</div>
+							</div>
+							<div class="item color-bg-cyan-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#0e7490</div>
+								</div>
+							</div>
+							<div class="item color-bg-cyan-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#155e75</div>
+								</div>
+							</div>
+							<div class="item color-bg-cyan-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#164e63</div>
+								</div>
+							</div>
+							<div class="item color-bg-cyan-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#083344</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Teal</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-teal-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#f0fdfa</div>
+								</div>
+							</div>
+							<div class="item color-bg-teal-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#ccfbf1</div>
+								</div>
+							</div>
+							<div class="item color-bg-teal-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#99f6e4</div>
+								</div>
+							</div>
+							<div class="item color-bg-teal-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#5eead4</div>
+								</div>
+							</div>
+							<div class="item color-bg-teal-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#2dd4bf</div>
+								</div>
+							</div>
+							<div class="item color-bg-teal-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#14b8a6</div>
+								</div>
+							</div>
+							<div class="item color-bg-teal-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#0d9488</div>
+								</div>
+							</div>
+							<div class="item color-bg-teal-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#0f766e</div>
+								</div>
+							</div>
+							<div class="item color-bg-teal-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#115e59</div>
+								</div>
+							</div>
+							<div class="item color-bg-teal-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#134e4a</div>
+								</div>
+							</div>
+							<div class="item color-bg-teal-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#042f2e</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Emerald</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-emerald-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#ecfdf5</div>
+								</div>
+							</div>
+							<div class="item color-bg-emerald-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#d1fae5</div>
+								</div>
+							</div>
+							<div class="item color-bg-emerald-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#a7f3d0</div>
+								</div>
+							</div>
+							<div class="item color-bg-emerald-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#6ee7b7</div>
+								</div>
+							</div>
+							<div class="item color-bg-emerald-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#34d399</div>
+								</div>
+							</div>
+							<div class="item color-bg-emerald-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#10b981</div>
+								</div>
+							</div>
+							<div class="item color-bg-emerald-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#059669</div>
+								</div>
+							</div>
+							<div class="item color-bg-emerald-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#047857</div>
+								</div>
+							</div>
+							<div class="item color-bg-emerald-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#065f46</div>
+								</div>
+							</div>
+							<div class="item color-bg-emerald-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#064e3b</div>
+								</div>
+							</div>
+							<div class="item color-bg-emerald-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#022c22</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Jade</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-jade-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#effef7</div>
+								</div>
+							</div>
+							<div class="item color-bg-jade-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#dafeef</div>
+								</div>
+							</div>
+							<div class="item color-bg-jade-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#b8fadd</div>
+								</div>
+							</div>
+							<div class="item color-bg-jade-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#81f4c3</div>
+								</div>
+							</div>
+							<div class="item color-bg-jade-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#43e5a0</div>
+								</div>
+							</div>
+							<div class="item color-bg-jade-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#1acd81</div>
+								</div>
+							</div>
+							<div class="item color-bg-jade-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#0fa968</div>
+								</div>
+							</div>
+							<div class="item color-bg-jade-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#108554</div>
+								</div>
+							</div>
+							<div class="item color-bg-jade-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#126945</div>
+								</div>
+							</div>
+							<div class="item color-bg-jade-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#11563a</div>
+								</div>
+							</div>
+							<div class="item color-bg-jade-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#03301f</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Green</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-green-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#f0fdf4</div>
+								</div>
+							</div>
+							<div class="item color-bg-green-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#dcfce7</div>
+								</div>
+							</div>
+							<div class="item color-bg-green-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#bbf7d0</div>
+								</div>
+							</div>
+							<div class="item color-bg-green-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#86efac</div>
+								</div>
+							</div>
+							<div class="item color-bg-green-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#4ade80</div>
+								</div>
+							</div>
+							<div class="item color-bg-green-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#22c55e</div>
+								</div>
+							</div>
+							<div class="item color-bg-green-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#16a34a</div>
+								</div>
+							</div>
+							<div class="item color-bg-green-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#15803d</div>
+								</div>
+							</div>
+							<div class="item color-bg-green-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#166534</div>
+								</div>
+							</div>
+							<div class="item color-bg-green-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#14532d</div>
+								</div>
+							</div>
+							<div class="item color-bg-green-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#052e16</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Mantis</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-mantis-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#f6faf3</div>
+								</div>
+							</div>
+							<div class="item color-bg-mantis-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#e9f5e3</div>
+								</div>
+							</div>
+							<div class="item color-bg-mantis-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#d3eac8</div>
+								</div>
+							</div>
+							<div class="item color-bg-mantis-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#afd89d</div>
+								</div>
+							</div>
+							<div class="item color-bg-mantis-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#82bd69</div>
+								</div>
+							</div>
+							<div class="item color-bg-mantis-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#61a146</div>
+								</div>
+							</div>
+							<div class="item color-bg-mantis-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#4c8435</div>
+								</div>
+							</div>
+							<div class="item color-bg-mantis-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#3d692c</div>
+								</div>
+							</div>
+							<div class="item color-bg-mantis-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#345427</div>
+								</div>
+							</div>
+							<div class="item color-bg-mantis-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#2b4522</div>
+								</div>
+							</div>
+							<div class="item color-bg-mantis-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#13250e</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Lime</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-lime-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#f7fee7</div>
+								</div>
+							</div>
+							<div class="item color-bg-lime-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#ecfccb</div>
+								</div>
+							</div>
+							<div class="item color-bg-lime-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#d9f99d</div>
+								</div>
+							</div>
+							<div class="item color-bg-lime-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#bef264</div>
+								</div>
+							</div>
+							<div class="item color-bg-lime-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#a3e635</div>
+								</div>
+							</div>
+							<div class="item color-bg-lime-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#84cc16</div>
+								</div>
+							</div>
+							<div class="item color-bg-lime-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#65a30d</div>
+								</div>
+							</div>
+							<div class="item color-bg-lime-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#4d7c0f</div>
+								</div>
+							</div>
+							<div class="item color-bg-lime-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#3f6212</div>
+								</div>
+							</div>
+							<div class="item color-bg-lime-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#365314</div>
+								</div>
+							</div>
+							<div class="item color-bg-lime-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#1a2e05</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Yellow</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-yellow-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#fefce8</div>
+								</div>
+							</div>
+							<div class="item color-bg-yellow-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#fef9c3</div>
+								</div>
+							</div>
+							<div class="item color-bg-yellow-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#fef08a</div>
+								</div>
+							</div>
+							<div class="item color-bg-yellow-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#fde047</div>
+								</div>
+							</div>
+							<div class="item color-bg-yellow-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#facc15</div>
+								</div>
+							</div>
+							<div class="item color-bg-yellow-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#eab308</div>
+								</div>
+							</div>
+							<div class="item color-bg-yellow-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#ca8a04</div>
+								</div>
+							</div>
+							<div class="item color-bg-yellow-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#a16207</div>
+								</div>
+							</div>
+							<div class="item color-bg-yellow-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#854d0e</div>
+								</div>
+							</div>
+							<div class="item color-bg-yellow-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#713f12</div>
+								</div>
+							</div>
+							<div class="item color-bg-yellow-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#422006</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Rose of Shanon</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-rose-of-sharon-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#fffbeb</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-of-sharon-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#fef3c7</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-of-sharon-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#fde58a</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-of-sharon-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#fbd24e</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-of-sharon-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#fabe25</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-of-sharon-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#f49d0c</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-of-sharon-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#d87607</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-of-sharon-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#bc560a</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-of-sharon-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#923f0e</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-of-sharon-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#78340f</div>
+								</div>
+							</div>
+							<div class="item color-bg-rose-of-sharon-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#451a03</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Amber</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-amber-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#fffbeb</div>
+								</div>
+							</div>
+							<div class="item color-bg-amber-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#fef3c7</div>
+								</div>
+							</div>
+							<div class="item color-bg-amber-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#fde68a</div>
+								</div>
+							</div>
+							<div class="item color-bg-amber-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#fcd34d</div>
+								</div>
+							</div>
+							<div class="item color-bg-amber-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#fbbf24</div>
+								</div>
+							</div>
+							<div class="item color-bg-amber-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#f59e0b</div>
+								</div>
+							</div>
+							<div class="item color-bg-amber-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#d97706</div>
+								</div>
+							</div>
+							<div class="item color-bg-amber-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#b45309</div>
+								</div>
+							</div>
+							<div class="item color-bg-amber-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#92400e</div>
+								</div>
+							</div>
+							<div class="item color-bg-amber-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#78350f</div>
+								</div>
+							</div>
+							<div class="item color-bg-amber-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#451a03</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Orange</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-orange-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#fff7ed</div>
+								</div>
+							</div>
+							<div class="item color-bg-orange-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#ffedd5</div>
+								</div>
+							</div>
+							<div class="item color-bg-orange-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#fed7aa</div>
+								</div>
+							</div>
+							<div class="item color-bg-orange-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#fdba74</div>
+								</div>
+							</div>
+							<div class="item color-bg-orange-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#fb923c</div>
+								</div>
+							</div>
+							<div class="item color-bg-orange-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#f97316</div>
+								</div>
+							</div>
+							<div class="item color-bg-orange-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#ea580c</div>
+								</div>
+							</div>
+							<div class="item color-bg-orange-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#c2410c</div>
+								</div>
+							</div>
+							<div class="item color-bg-orange-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#9a3412</div>
+								</div>
+							</div>
+							<div class="item color-bg-orange-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#7c2d12</div>
+								</div>
+							</div>
+							<div class="item color-bg-orange-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#431407</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Contessa</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-contessa-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#fbf6f5</div>
+								</div>
+							</div>
+							<div class="item color-bg-contessa-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#f6ecea</div>
+								</div>
+							</div>
+							<div class="item color-bg-contessa-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#f0dcd8</div>
+								</div>
+							</div>
+							<div class="item color-bg-contessa-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#e4c3bd</div>
+								</div>
+							</div>
+							<div class="item color-bg-contessa-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#d3a096</div>
+								</div>
+							</div>
+							<div class="item color-bg-contessa-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#ba7264</div>
+								</div>
+							</div>
+							<div class="item color-bg-contessa-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#aa6558</div>
+								</div>
+							</div>
+							<div class="item color-bg-contessa-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#8e5347</div>
+								</div>
+							</div>
+							<div class="item color-bg-contessa-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#77463d</div>
+								</div>
+							</div>
+							<div class="item color-bg-contessa-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#643f38</div>
+								</div>
+							</div>
+							<div class="item color-bg-contessa-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#351e1a</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Stone</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-stone-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#fafaf9</div>
+								</div>
+							</div>
+							<div class="item color-bg-stone-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#f5f5f4</div>
+								</div>
+							</div>
+							<div class="item color-bg-stone-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#e7e5e4</div>
+								</div>
+							</div>
+							<div class="item color-bg-stone-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#d6d3d1</div>
+								</div>
+							</div>
+							<div class="item color-bg-stone-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#a8a29e</div>
+								</div>
+							</div>
+							<div class="item color-bg-stone-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#78716c</div>
+								</div>
+							</div>
+							<div class="item color-bg-stone-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#57534e</div>
+								</div>
+							</div>
+							<div class="item color-bg-stone-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#44403c</div>
+								</div>
+							</div>
+							<div class="item color-bg-stone-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#292524</div>
+								</div>
+							</div>
+							<div class="item color-bg-stone-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#1c1917</div>
+								</div>
+							</div>
+							<div class="item color-bg-stone-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#0c0a09</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Neutral</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-neutral-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#fafafa</div>
+								</div>
+							</div>
+							<div class="item color-bg-neutral-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#f5f5f5</div>
+								</div>
+							</div>
+							<div class="item color-bg-neutral-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#e5e5e5</div>
+								</div>
+							</div>
+							<div class="item color-bg-neutral-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#d4d4d4</div>
+								</div>
+							</div>
+							<div class="item color-bg-neutral-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#a3a3a3</div>
+								</div>
+							</div>
+							<div class="item color-bg-neutral-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#737373</div>
+								</div>
+							</div>
+							<div class="item color-bg-neutral-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#525252</div>
+								</div>
+							</div>
+							<div class="item color-bg-neutral-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#404040</div>
+								</div>
+							</div>
+							<div class="item color-bg-neutral-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#262626</div>
+								</div>
+							</div>
+							<div class="item color-bg-neutral-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#171717</div>
+								</div>
+							</div>
+							<div class="item color-bg-neutral-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#0a0a0a</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Zinc</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-zinc-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#fafafa</div>
+								</div>
+							</div>
+							<div class="item color-bg-zinc-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#f4f4f5</div>
+								</div>
+							</div>
+							<div class="item color-bg-zinc-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#e4e4e7</div>
+								</div>
+							</div>
+							<div class="item color-bg-zinc-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#d4d4d8</div>
+								</div>
+							</div>
+							<div class="item color-bg-zinc-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#a1a1aa</div>
+								</div>
+							</div>
+							<div class="item color-bg-zinc-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#71717a</div>
+								</div>
+							</div>
+							<div class="item color-bg-zinc-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#52525b</div>
+								</div>
+							</div>
+							<div class="item color-bg-zinc-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#3f3f46</div>
+								</div>
+							</div>
+							<div class="item color-bg-zinc-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#27272a</div>
+								</div>
+							</div>
+							<div class="item color-bg-zinc-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#18181b</div>
+								</div>
+							</div>
+							<div class="item color-bg-zinc-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#09090b</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Gray</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-gray-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#f9fafb</div>
+								</div>
+							</div>
+							<div class="item color-bg-gray-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#f3f4f6</div>
+								</div>
+							</div>
+							<div class="item color-bg-gray-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#e5e7eb</div>
+								</div>
+							</div>
+							<div class="item color-bg-gray-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#d1d5db</div>
+								</div>
+							</div>
+							<div class="item color-bg-gray-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#9ca3af</div>
+								</div>
+							</div>
+							<div class="item color-bg-gray-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#6b7280</div>
+								</div>
+							</div>
+							<div class="item color-bg-gray-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#4b5563</div>
+								</div>
+							</div>
+							<div class="item color-bg-gray-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#374151</div>
+								</div>
+							</div>
+							<div class="item color-bg-gray-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#1f2937</div>
+								</div>
+							</div>
+							<div class="item color-bg-gray-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#111827</div>
+								</div>
+							</div>
+							<div class="item color-bg-gray-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#030712</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="heading-line text-center padding-bottom"><span>Slate</span></h5>
+						<div class="row padding-bottom">
+							<div class="item color-bg-slate-50">
+								<div class="item-text">
+									<div class="item-title color-gray-800">50</div>
+									<div class="item-hex color-gray-800">#f8fafc</div>
+								</div>
+							</div>
+							<div class="item color-bg-slate-100">
+								<div class="item-text">
+									<div class="item-title color-gray-800">100</div>
+									<div class="item-hex color-gray-800">#f1f5f9</div>
+								</div>
+							</div>
+							<div class="item color-bg-slate-200">
+								<div class="item-text">
+									<div class="item-title color-gray-800">200</div>
+									<div class="item-hex color-gray-800">#e2e8f0</div>
+								</div>
+							</div>
+							<div class="item color-bg-slate-300">
+								<div class="item-text">
+									<div class="item-title color-gray-800">300</div>
+									<div class="item-hex color-gray-800">#cbd5e1</div>
+								</div>
+							</div>
+							<div class="item color-bg-slate-400">
+								<div class="item-text">
+									<div class="item-title color-gray-800">400</div>
+									<div class="item-hex color-gray-800">#94a3b8</div>
+								</div>
+							</div>
+							<div class="item color-bg-slate-500">
+								<div class="item-text">
+									<div class="item-title">500</div>
+									<div class="item-hex">#64748b</div>
+								</div>
+							</div>
+							<div class="item color-bg-slate-600">
+								<div class="item-text">
+									<div class="item-title">600</div>
+									<div class="item-hex">#475569</div>
+								</div>
+							</div>
+							<div class="item color-bg-slate-700">
+								<div class="item-text">
+									<div class="item-title">700</div>
+									<div class="item-hex">#334155</div>
+								</div>
+							</div>
+							<div class="item color-bg-slate-800">
+								<div class="item-text">
+									<div class="item-title">800</div>
+									<div class="item-hex">#1e293b</div>
+								</div>
+							</div>
+							<div class="item color-bg-slate-900">
+								<div class="item-text">
+									<div class="item-title">900</div>
+									<div class="item-hex">#0f172a</div>
+								</div>
+							</div>
+							<div class="item color-bg-slate-950">
+								<div class="item-text">
+									<div class="item-title">950</div>
+									<div class="item-hex">#020617</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+
+			</div>
+		</main>
+		<script src='/assets/js/deck.min.js'></script>
+
+		<script> 
+			document
+				.getElementById("main")
+				.addEventListener("click", function (event) {
+
+					let item = event.target.closest(".item")
+					
+					if (!item) return
+
+					let colorBg = item.className.split(' ').filter(name => name.startsWith('color-'))[0];
+					let color = colorBg.replace('bg-', '')
+					let hex = item.querySelector('.item-hex').innerText
+
+					navigator.clipboard.writeText(color);
+
+					alert("Color Code: " + hex + '\n' +
+						  'Color Class: ' + color + '\n' + 
+						  'Color Background Class: ' + colorBg + '\n\n' +
+						  'Copied to clipboard: ' + color);
+
+				}, false);
+
+		</script>
+	</body>
+</html>

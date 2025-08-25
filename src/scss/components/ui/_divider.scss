@@ -1,0 +1,242 @@
+// =============================================================================
+// DIVIDER COMPONENT
+// components/ui/_divider.scss
+// -----------------------------------------------------------------------------
+// Provides tokenized, theme-aware divider styles for visual separation of content.
+// Supports:
+// - Base horizontal dividers (<hr> equivalent)
+// - Icon dividers with inline SVGs/images
+// - Small, vertical, and responsive variants
+// - Color, border style, and thickness modifiers
+// - Utility helpers for alignment and spacing
+// =============================================================================
+
+@use '../../abstracts/mixins/svg' as *;
+@use '../../abstracts/mixins/responsive' as *;
+
+// ----------------------------------------
+// Base Divider
+// ----------------------------------------
+
+.divider {
+    border: none;
+    border-bottom: 1px solid var(--color-border, #e5e5e5);
+    margin-block: var(--spacing-default, 1.25rem);
+    box-sizing: border-box;
+}
+
+// Only apply top margin when not the first element
+.divider:not(:first-child) {
+	margin-top: var(--spacing-default, 1.25rem);
+}
+
+
+// ----------------------------------------
+// Icon Divider
+// ----------------------------------------
+
+.divider-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem; // space between lines and icon
+	margin-block: var(--spacing-default, 1.25rem);
+
+	&::before,
+	&::after {
+		content: '';
+		flex: 1;
+		border-top: 1px solid var(--color-border, #ccc);
+	}
+
+	svg,
+	img {
+		width: 1.25rem;
+		height: 1.25rem;
+		display: block;
+		fill: currentColor;
+	}
+}
+
+// --------------------------------------------
+// Small Divider Variant
+// --------------------------------------------
+
+.divider-small {
+	line-height: 0;
+}
+
+.divider-small::after {
+	content: "";
+	display: inline-block;
+	width: 100px;
+	max-width: 100%;
+	border-top: 1px solid var(--color-border, #e5e5e5);
+	vertical-align: top;
+}
+
+// --------------------------------------------
+// Vertical Divider
+// --------------------------------------------
+
+.divider-vertical {
+	width: max-content;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	border-left: 1px solid var(--color-border, #c7c7c7);
+}
+
+// ----------------------------------------
+// Color Variants
+// ----------------------------------------
+
+.divider-accent {
+	border-color: var(--color-primary);
+
+	.divider-icon::before,
+	.divider-icon::after {
+		border-color: var(--color-primary);
+	}
+
+	.divider-small::after {
+		border-color: var(--color-primary);
+	}
+
+	.divider-vertical {
+		border-left-color: var(--color-primary);
+	}
+}
+
+.divider-muted {
+	border-color: var(--color-border);
+
+	.divider-icon::before,
+	.divider-icon::after {
+		border-color: var(--color-border);
+	}
+
+	.divider-small::after {
+		border-color: var(--color-border);
+	}
+
+	.divider-vertical {
+		border-left-color: var(--color-border);
+	}
+}
+
+// --------------------------------------------
+// Border Style Variations
+// --------------------------------------------
+
+.divider-dotted {
+	border-style: dotted !important;
+
+	.divider-icon::before,
+	.divider-icon::after,
+	.divider-small::after {
+		border-style: dotted !important;
+	}
+
+	.divider-vertical {
+		border-left-style: dotted !important;
+	}
+}
+
+.divider-dashed {
+	border-style: dashed !important;
+
+	.divider-icon::before,
+	.divider-icon::after,
+	.divider-small::after {
+		border-style: dashed !important;
+	}
+
+	.divider-vertical {
+		border-left-style: dashed !important;
+	}
+}
+
+// --------------------------------------------
+// Thickness Variations
+// --------------------------------------------
+
+.divider-thick {
+	border-width: 3px !important;
+
+	.divider-icon::before,
+	.divider-icon::after,
+	.divider-small::after {
+		border-bottom-width: 3px !important;
+	}
+
+	.divider-vertical {
+		border-left-width: 3px !important;
+	}
+}
+
+.divider-thin {
+	border-width: 1px !important;
+
+	.divider-icon::before,
+	.divider-icon::after,
+	.divider-small::after {
+		border-bottom-width: 1px !important;
+	}
+
+	.divider-vertical {
+		border-left-width: 1px !important;
+	}
+}
+
+// --------------------------------------------
+// Responsive Support
+// --------------------------------------------
+
+@include respond-below('md') {
+	[class*='divider-'] {
+		margin-bottom: var(--spacing-small, 0.75rem);
+	}
+
+	* + [class*='divider-'] {
+		margin-top: var(--spacing-small, 0.75rem);
+	}
+
+	.divider-vertical {
+		height: 60px;
+	}
+
+	.divider-small::after {
+		width: 60px;
+	}
+}
+
+// --------------------------------------------
+// Utility Helpers
+// --------------------------------------------
+
+.divider-full {
+	width: 100%;
+	max-width: 100%;
+}
+
+.divider-centered {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 50%;
+}
+
+.divider-no-margin {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+// Added .hr class as a bridge
+// divider.scss now support a .hr class that mimics the <hr> style, 
+// in case we want to use <div class="hr"> instead of <hr>
+.hr {
+	border: none;
+	border-top: 1px solid var(--color-border);
+	margin-block: var(--spacing-lg);
+	width: 100%;
+}

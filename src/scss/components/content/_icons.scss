@@ -1,0 +1,170 @@
+// ============================================
+// ICONS COMPONENT
+// components/content/_icons.scss
+// --------------------------------------------
+// Styles inline SVG icons across the app.
+// Uses CSS variables for size, color, hover, and interaction.
+// Supports icon blocks, circular backgrounds, action states, and utility color classes.
+// Fully theme-aware and supports dark mode.
+// ============================================
+
+//--------------------------------------------
+// BASE SVG ICON STYLE
+//--------------------------------------------
+
+svg {
+	width: var(--icon-size);
+	height: var(--icon-size);
+	fill: currentColor;
+	stroke-width: var(--icon-stroke-width);
+	transition: transform var(--transition-duration) ease, filter var(--transition-duration) ease;
+
+	&:hover {
+		transform: scale(var(--icon-hover-scale));
+	}
+}
+
+//--------------------------------------------
+// SVG INSIDE LINKS
+//--------------------------------------------
+
+a svg {
+	color: var(--color-text);
+	cursor: pointer;
+	transition: color var(--transition-duration);
+
+	&:hover {
+		color: var(--color-text);
+	}
+}
+
+/* Light variant for dark backgrounds */
+a svg.light {
+	color: #fff;
+
+	&:hover {
+		color: #fff;
+		fill: #fff;
+	}
+}
+
+//--------------------------------------------
+// ICON LINK BLOCK (.icon-link)
+//--------------------------------------------
+
+.icon-link {
+	display: inline-block;
+	color: inherit;
+	text-decoration: none;
+
+	svg {
+		width: var(--icon-size);
+		height: var(--icon-size);
+		fill: currentColor;
+		transition: fill var(--transition-duration);
+	}
+
+	&:hover svg {
+		fill: var(--color-link); // Fallback to theme link color
+	}
+
+	&.icon-text {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		color: var(--color-text);
+
+		&:hover {
+			color: var(--color-link);
+		}
+	}
+}
+
+//--------------------------------------------
+// ICON CONTAINER CLASSES (.icon, .icon-circle, .icon-action)
+//--------------------------------------------
+
+.icon {
+	display: inline-flex;
+	width: var(--icon-size);
+	height: var(--icon-size);
+	//color: var(--color-text);
+	color: var(--icon-color);
+	position: relative;
+
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.icon-circle {
+	width: calc(var(--icon-size) * 1.44);
+	height: calc(var(--icon-size) * 1.44);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: calc(var(--icon-size) * 0.125);
+	background: var(--icon-circle-bg);
+	//color: var(--color-text);
+	color: var(--icon-color);
+	box-shadow: 0 0 2px var(--icon-shadow-color);
+	transition:
+		width var(--transition-duration),
+		height var(--transition-duration),
+		background-color var(--transition-duration),
+		box-shadow var(--transition-duration) ease-in-out;
+
+	&:hover {
+		box-shadow: 0 0 4px var(--icon-shadow-color);
+	}
+}
+
+.icon-action {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	svg {
+		width: var(--icon-size, 1.25rem);
+		height: var(--icon-size, 1.25rem);
+		stroke: currentColor;
+		position: relative;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		background-color: transparent;
+		transition:
+			background-color var(--transition-duration, 200ms),
+			width var(--transition-duration, 200ms),
+			height var(--transition-duration, 200ms);
+	}
+
+	&:hover::before {
+		width: 120%; /* Reduced from 150% */
+		height: 120%; /* Reduced from 150% */
+		background-color: var(--icon-action-bg);
+	}
+}
+
+//--------------------------------------------
+// LEGACY / UTILITY ICON COLOR CLASSES
+//--------------------------------------------
+
+.primary-icon {
+	color: var(--color-primary);
+}
+
+.secondary-icon {
+	color: var(--color-success);
+}

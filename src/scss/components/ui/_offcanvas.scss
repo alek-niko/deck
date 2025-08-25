@@ -1,0 +1,201 @@
+// =============================================================================
+// OFFCANVAS COMPONENT
+// components/ui/_offcanvas.scss
+// -----------------------------------------------------------------------------
+// Responsive slide-in drawer panel for navigation or UI tools. Supports
+// left/right placement, reveal, push, and overlay modes. Includes dark mode
+// variant and flexible sizing.
+//
+// Features:
+// - Left and right placement (.offcanvas, .offcanvas-right)
+// - Size variants: small, large (.offcanvas-sm, .offcanvas-lg)
+// - Dark theme support (.offcanvas-dark)
+// - Reveal mode for nested panels (.offcanvas-reveal)
+// - Push mode for shifting page content (.offcanvas-page)
+// - Backdrop blur and overlay support
+// - Close button and inner panel bar structure
+// =============================================================================
+
+@use '../../abstracts/variables/z-index' as *;
+@use '../../abstracts/variables/colors' as *;
+@use '../../abstracts/variables/layout' as *;
+
+$offcanvas-width: 350px !default;
+
+dialog.offcanvas {
+	margin: 0;
+	padding: 0;
+	border: none;
+	height: 100%;
+	max-height: 100vh;
+}
+
+.offcanvas {
+
+	// -------------------------------------------------------------------------
+	// Tokens
+	// -------------------------------------------------------------------------
+	// Core sizing, spacing, color, and shadow tokens for offcanvas panels.	
+
+	--offcanvas-width: #{$offcanvas-width};
+	--offcanvas-bg: var(--color-surface, #fff);
+	--offcanvas-color: var(--color-text, #111);
+	--offcanvas-padding: var(--spacing-default, 1.25rem);
+	--offcanvas-radius: var(--radius-default, 0.5rem);
+	--offcanvas-shadow: 0 2px 24px rgba(0, 0, 0, 0.16);
+
+	// ---------------------------------------------------------------------
+	// Base Offcanvas
+	// ---------------------------------------------------------------------
+	// Core panel positioning, sizing, and visibility states.
+
+	position: fixed;
+	inset: 0 auto 0 0; // Align left
+	margin: 0; // Remove default margin
+	top: 0;
+	left: 0;
+	right: auto;
+	bottom: 0;
+
+	width: var(--offcanvas-width, 350px);
+	max-width: 80%;
+	height: 100%;
+
+	transform: translateX(-100%);
+	//transition: transform 0.3s ease;
+	transition: transform 0.3s ease, opacity 0.3s ease;
+
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+
+	background: var(--offcanvas-bg, #fff);
+	color: var(--offcanvas-color, #111);
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+
+	// ---------------------------------------------------------------------
+	// Right-side Variant
+	// ---------------------------------------------------------------------
+
+	&.offcanvas-right {
+		left: auto;
+		right: 0;
+		transform: translateX(100%);
+
+		&[open] {
+			transform: translateX(0);
+		}
+	}
+
+	// ---------------------------------------------------------------------
+	// Size Variants
+	// ---------------------------------------------------------------------
+
+	&.offcanvas-sm { width: 260px; }
+	&.offcanvas-lg { width: 500px; }
+
+	// ---------------------------------------------------------------------
+	// Dark Variant
+	// ---------------------------------------------------------------------
+
+	&.offcanvas-dark {
+		--offcanvas-bg: var(--color-surface-dark, #121212);
+		--offcanvas-color: var(--color-text-on-dark, #fff);
+	}
+
+	// ---------------------------------------------------------------------
+	// Close Button
+	// ---------------------------------------------------------------------
+
+	&-close {
+		position: absolute;
+		top: 0.5rem;
+		right: 0.5rem;
+		z-index: $z-index-overlay + 10;
+		background: none;
+		border: none;
+		font-size: 1.25rem;
+		cursor: pointer;
+		color: inherit;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	// ---------------------------------------------------------------------
+	// Close Button
+	// ---------------------------------------------------------------------
+
+	&-bar {
+		padding: var(--offcanvas-padding);
+		width: 100%;
+		box-sizing: border-box;
+		flex: 1;
+	}
+
+	// ---------------------------------------------------------------------
+	// Reveal Mode
+	// ---------------------------------------------------------------------
+
+	&-reveal {
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 0;
+		overflow: hidden;
+		transition: width 0.3s ease;
+
+		&[open] {
+			width: var(--offcanvas-width);
+		}
+	}
+
+	// ---------------------------------------------------------------------
+	// Push Page Container
+	// ---------------------------------------------------------------------
+
+	&-page {
+		overflow-x: clip;
+		transition: transform 0.3s ease;
+	}
+
+	&-container-animation {
+		transform: translateX(var(--offcanvas-width));
+	}
+
+	.offcanvas-right + &-container-animation {
+		transform: translateX(calc(var(--offcanvas-width) * -1));
+	}
+
+	// ---------------------------------------------------------------------
+	// Backdrop Blur
+	// ---------------------------------------------------------------------
+
+	&::backdrop {
+		backdrop-filter: blur(3px);
+		background-color: rgba(0, 0, 0, 0.25);
+	}
+
+	// ---------------------------------------------------------------------
+	// Animation Classes
+	// ---------------------------------------------------------------------
+
+	&[open],
+	&.enter,
+	&.visible {
+		transform: translateX(0);
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+	}
+
+	&.leave,
+	&.closing {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+}

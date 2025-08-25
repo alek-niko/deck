@@ -1,0 +1,175 @@
+// =============================================================================
+// DROPDOWN COMPONENT
+// components/navigation/_dropdown.scss
+// -----------------------------------------------------------------------------
+// Provides tokenized, responsive dropdown menus and navigation.
+// - Fully theme-ready and dark-mode compatible
+// - Supports fixed sizes, dropbar variations, and nav lists
+// - Scoped CSS variables for spacing and offsets
+//
+// Dependencies:
+// - tokens.scss (for colors, spacing, border-radius tokens)
+// - abstracts/variables/_breakpoints.scss
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+.dropdown {
+
+	//---------------------------------------------
+	// Scoped Tokens
+	//---------------------------------------------
+	/// Component-level variables for offsets
+	--position-offset: 10px;
+	--position-viewport-offset: 15px;
+
+	//---------------------------------------------
+	// Base Dropdown
+	//---------------------------------------------
+	width: auto;
+	min-width: 200px;
+	padding: var(--spacing-default);
+	border: none !important;
+	border-radius: var(--radius-default);
+	background: var(--color-surface);
+	color: var(--color-text-muted);
+	z-index: 1400;
+
+	box-shadow:
+		0 5px 5px -3px rgba(0, 0, 0, 0.2),
+		0 8px 10px 1px rgba(0, 0, 0, 0.14),
+		0 3px 14px 2px rgba(0, 0, 0, 0.12);
+
+	// Remove padding when it contains a nav
+	&:has(> .dropdown-nav) {
+		padding: 0;
+	}
+
+	//---------------------------------------------
+	// Size Variants
+	//---------------------------------------------	
+
+	&-small {
+		width: 140px !important;
+		min-width: 140px !important;
+	}
+
+	&-medium {
+		width: 240px !important;
+		min-width: 240px !important;
+	}
+
+	&-large {
+		width: 360px !important;
+		min-width: 360px !important;
+		padding: 2.5rem;
+	}
+
+	//---------------------------------------------
+	// Dropbar Variants
+	//---------------------------------------------
+
+	&-dropbar {
+		width: auto;
+		background: transparent;
+		padding: var(--spacing-default) 0;
+		--position-viewport-offset: 15px;
+
+		&-large {
+			padding-top: 2.5rem;
+			padding-bottom: 2.5rem;
+		}
+	}
+
+	//---------------------------------------------
+	// Dropdown Navigation
+	//---------------------------------------------
+
+	&-nav {
+		padding: 8px 0;
+
+		>li {
+			list-style: none;
+
+			&:first-child {
+				padding-top: 4px;
+			}
+
+			&:last-child {
+				padding-bottom: 4px;
+			}
+
+			>a {
+				display: block;
+				padding: 4px 16px !important;
+				font-size: 0.875rem;
+				color: var(--color-text);
+
+				&:hover {
+					background: rgba(0, 0, 0, 0.08);
+					color: var(--color-text);
+				}
+			}
+
+			&.active>a {
+				background: rgba(0, 0, 0, 0.08);
+				color: var(--color-text);
+			}
+		}
+
+		// Header within nav
+		.nav-header {
+			padding: 8px 16px;
+			margin: 0;
+			margin-top: 8px;
+			font-size: 0.875rem;
+			font-weight: 500;
+			text-transform: uppercase;
+			color: var(--color-text-muted);
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+
+		.nav-subtitle {
+			font-size: 0.875rem;
+		}
+
+		.nav-divider {
+			border-top: 1px solid var(--color-border-muted);
+		}
+
+		.nav-sub a {
+			color: var(--color-text-muted);
+
+			&:hover {
+				color: var(--color-text);
+			}
+		}
+
+		.nav-sub li.active>a {
+			color: var(--color-text);
+		}
+
+		.active>a {
+			background: rgba(0, 0, 0, 0.08);
+		}
+	}
+}
+
+//---------------------------------------------
+// Responsive Dropbar Offsets
+//---------------------------------------------
+
+@media (min-width: $breakpoint-sm) {
+	.dropdown-dropbar {
+		--position-viewport-offset: 30px;
+	}
+}
+
+@media (min-width: $breakpoint-md) {
+	.dropdown-dropbar {
+		--position-viewport-offset: 40px;
+	}
+}

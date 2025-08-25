@@ -1,0 +1,165 @@
+// =============================================================================
+// BADGE COMPONENT
+// components/ui/_badge.scss
+// -----------------------------------------------------------------------------
+// Provides theme-aware, tokenized badge/pill UI elements
+//
+// Features:
+// - Color variants: primary, success, warning, danger, info, light, dark
+// - Size variants: sm, md, lg
+// - Shape modifiers: pill, dot, icon-only
+// - Fully tokenized colors, spacing, and typography with CSS variable support
+// =============================================================================
+
+
+// =============================================================================
+// Badge Token Map
+// -----------------------------------------------------------------------------
+/// Default design tokens for badge component.
+/// These values define colors, spacing, and typography.
+/// Supports overrides through CSS variables and theming.
+/// 
+/// @type Map
+// =============================================================================
+
+$badge-vars: (
+	bg-color: #757575,
+	color: #fff,
+	height: 1rem,
+	font-size: 11px,
+	font-weight: 500,
+	line-height: 1,
+	border-radius: 4px,
+	padding-x: 0.6em,
+	padding-y: 0.28em) !default;
+
+
+// =============================================================================
+// badge-var()
+// -----------------------------------------------------------------------------
+/// Retrieves a value from the `$badge-vars` token map.
+/// Automatically supports theme overrides via CSS custom properties.
+/// 
+/// @function badge-var
+/// @param {String} $key - The token key (e.g. `bg-color`, `padding-x`)
+/// @return {Value} The corresponding token value
+/// 
+// =============================================================================
+
+@function badge-var($key) {
+	@return map-get($badge-vars, $key);
+}
+
+
+// =============================================================================
+// Badge Base Styles
+// -----------------------------------------------------------------------------
+// - Injects CSS variables from `$badge-vars`
+// - Defines base alignment, sizing, and typography
+// - Provides hover and accessibility refinements
+// =============================================================================
+
+.badge {
+
+	// -------------------------------------------------------------------------
+	// Token injection: generate CSS custom properties
+	// -------------------------------------------------------------------------
+	@each $key, $val in $badge-vars {
+		--badge-#{$key}: #{$val};
+	}
+
+	// Core layout
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	vertical-align: middle;
+	box-sizing: border-box;
+
+	// Core sizing
+	height: var(--badge-height);
+	min-width: 20px;
+	padding: var(--badge-padding-y, #{badge-var(padding-y)}) var(--badge-padding-x, #{badge-var(padding-x)});
+	border-radius: var(--badge-border-radius);
+	
+	// Visuals
+	background-color: var(--badge-bg-color);
+	color: var(--badge-color) !important;
+
+	// Typography
+	font-size: var(--badge-font-size);
+	font-weight: var(--badge-font-weight);
+	line-height: var(--badge-line-height);
+	text-transform: uppercase;
+
+	// Reset / UX
+	text-shadow: none;
+	border: none;
+	white-space: nowrap;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	// -------------------------------------------------------------------------
+	// Variants: semantic colors
+	// -------------------------------------------------------------------------
+
+	&.primary 	{ --badge-bg-color: var(--theme-primary, #1e87f0); }
+	&.success	{ --badge-bg-color: var(--theme-success, #43a047); }
+	&.warning	{ --badge-bg-color: var(--theme-warning, #fb8c00); }
+	&.danger	{ --badge-bg-color: var(--theme-danger, #e53935); }
+	&.info		{ --badge-bg-color: var(--theme-info, #0288d1); }
+	&.light		{ --badge-bg-color: var(--theme-light, #f5f5f5); --badge-color: #333; }
+ 	&.dark		 { --badge-bg-color: var(--theme-dark, #333); }
+
+
+	// -------------------------------------------------------------------------
+	// Sizes: sm, md, lg
+	// -------------------------------------------------------------------------
+
+	&.sm {
+		--badge-height: 0.75rem;
+		--badge-font-size: 10px;
+		--badge-padding-x: 0.4em;
+	}
+
+	&.md {
+		--badge-height: 1rem;
+		--badge-font-size: 11px;
+		--badge-padding-x: 0.6em;
+	}
+
+	&.lg {
+		--badge-height: 1.25rem;
+		--badge-font-size: 13px;
+		--badge-padding-x: 0.8em;
+	}
+
+	// -------------------------------------------------------------------------
+	// Modifiers: shape & layout
+	// -------------------------------------------------------------------------
+
+	&.pill {
+		--badge-border-radius: 9999px;
+	}
+
+	&.dot {
+		width: 0.5rem;
+		height: 0.5rem;
+		min-width: 0;
+		padding: 0;
+		border-radius: 50%;
+	}
+
+	&.icon-only {
+		padding: 0;
+		min-width: auto;
+		width: var(--badge-height);
+		height: var(--badge-height);
+
+		svg {
+			width: 70%;
+			height: 70%;
+		}
+	}
+}

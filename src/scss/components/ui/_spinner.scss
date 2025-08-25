@@ -1,0 +1,163 @@
+// =============================================================================
+// SPINNER COMPONENT
+// components/ui/_spinner.scss
+// -----------------------------------------------------------------------------
+// Versatile loading spinner system.
+// Supports:
+// - Size variants: .spinner-small, .spinner-medium, .spinner-large
+// - Inline, overlay, centered, and block modes
+// - Accessible with role="status" and visually-hidden fallback text
+// =============================================================================
+
+@use '../../abstracts/variables/z-index' as *;
+@use '../../abstracts/variables/colors' as *;
+@use '../../abstracts/variables/effects' as *;
+@use '../../abstracts/variables/layout' as *;
+@use '../../abstracts/mixins/elevation' as *;
+
+// ---------------------------------------------------------------------
+// Base Spinner
+// ---------------------------------------------------------------------
+// Default spinner block with semantic CSS variables.
+
+.spinner {
+	--spinner-size: 40px;
+	--spinner-color: var(--color-primary, #4285f4);
+
+	width: var(--spinner-size);
+	height: var(--spinner-size);
+	background-color: var(--spinner-color);
+	mask-image: url("data:image/svg+xml,%3csvg viewBox='-5 -5 10 10' xmlns='http://www.w3.org/2000/svg'%3e%3cstyle%3esvg%7banimation:r 1.4s linear infinite%7d%40keyframes r%7bto%7btransform:rotate(270deg)%7d%7dcircle%7banimation:d 1.4s ease-in-out infinite%7d%40keyframes d%7b50%25%7btransform:rotate(135deg)%3bstroke-dashoffset:8%7dto%7btransform:rotate(450deg)%7dfrom%2cto%7bstroke-dashoffset:28%7d%7d%3c/style%3e%3ccircle fill='none' stroke-width='.3px' stroke-dasharray='30' stroke-dashoffset='0' stroke='%234285f4' r='4'/%3e%3c/svg%3e");
+	mask-repeat: no-repeat;
+	mask-position: center;
+	mask-size: contain;
+	display: inline-block;
+}
+
+// ---------------------------------------------------------------------
+// Size Variants
+// ---------------------------------------------------------------------
+// Small, medium, and large spinner size overrides.
+
+.spinner-small { --spinner-size: 30px; }
+.spinner-medium { --spinner-size: 60px; }
+.spinner-large { --spinner-size: 100px; }
+
+
+// ---------------------------------------------------------------------
+// Layout Variants
+// ---------------------------------------------------------------------
+// Controls how the spinner is positioned in the layout.
+
+// ---------------------------------------------------------------------
+// Inline
+// ---------------------------------------------------------------------
+// Inline spinner for embedding in text or inline elements.
+
+.spinner-inline {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+// ---------------------------------------------------------------------
+// Block (centered horizontally)
+// ---------------------------------------------------------------------
+// Centers the spinner block horizontally in its container
+
+.spinner-block {
+	display: block !important;
+	margin: 0 auto;
+	text-align: center;
+}
+
+// ---------------------------------------------------------------------
+// Fullscreen Centered
+// ---------------------------------------------------------------------
+// Spinner centered in viewport with flex layout.
+
+.spinner-center {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: $z-index-overlay;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 1rem;
+	background-color: transparent;
+}
+
+// ---------------------------------------------------------------------
+// Overlay
+// ---------------------------------------------------------------------
+// Spinner overlay for buttons, cards, or specific elements.
+
+.spinner-overlay {
+	position: absolute;
+	top: 24px;
+	left: 50%;
+	margin-left: -21px;
+	width: 42px;
+	height: 42px;
+	padding: 8px;
+	border-radius: 50%;
+	z-index: $z-index-header - 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--color-surface, #fff);
+	transform: translateY(-42px) scale3d(0.25, 0.25, 0.25);
+	opacity: 0;
+	transition: all 300ms $ease-snappy;
+
+	@include elevation(8);
+
+	// ---------------------------------------------------------------------
+	// Overlay
+	// ---------------------------------------------------------------------
+	// Spinner overlay for buttons, cards, or specific elements.
+
+	&.fixed {
+		position: fixed;
+		top: calc(#{$header-height} + 16px);
+		transform: translateY(-64px) scale3d(0.25, 0.25, 0.25);
+	}
+
+	// -----------------------------------------------------------------
+	// Enter State
+	// -----------------------------------------------------------------
+	
+	&.enter {
+		opacity: 1;
+		transform: translateY(0) scale3d(1, 1, 1);
+		transition: opacity 300ms ease, transform 400ms $ease-snappy;
+	}
+}
+
+// ---------------------------------------------------------------------
+// Accessibility
+// ---------------------------------------------------------------------
+// Ensures role="status" and visually hidden text for screen readers.
+
+// Container role="status"
+.spinner[role="status"] {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+// Visually hidden fallback text (screen reader only)
+.spinner-visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}

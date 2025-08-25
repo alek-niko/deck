@@ -1,0 +1,62 @@
+// =============================================================================
+// HERO COMPONENT
+// components/ui/_hero.scss
+// -----------------------------------------------------------------------------
+// Themed full-width banner or section intro
+// Can include optional image backgrounds and overlays
+// Fully token-aligned and mobile-first
+// =============================================================================
+
+.hero {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: var(--spacing-default) calc(var(--spacing-default) * 2);
+	background-color: var(--color-surface-muted, #f7f9fa);
+	color: var(--color-text, #111);
+	min-height: 60vh;
+
+	// -------------------------------------------------------------------------
+	// Image Background Variant
+	// -------------------------------------------------------------------------
+	// Adds a full-cover background image with proper text contrast
+	
+	&-has-image {
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		color: var(--color-surface-contrast, #fff);
+	}
+
+	// -------------------------------------------------------------------------
+	// Dark Overlay
+	// -------------------------------------------------------------------------
+	// Semi-transparent overlay for better readability of text on images
+
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.4);
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+	}
+
+	&-overlay::after {
+		opacity: 1;
+	}
+
+	// -------------------------------------------------------------------------
+	// Content Wrapper
+	// -------------------------------------------------------------------------
+	// Wraps all hero content and ensures it sits above overlay
+	
+	.hero-content {
+		position: relative;
+		z-index: 1;
+		max-width: 60ch;
+	}
+}

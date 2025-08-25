@@ -1,0 +1,171 @@
+// =============================================================================
+// LAYOUT: LEFT SIDEBAR + HEADER + MAIN + OPTIONS PANEL
+// components/_grid-shmo.scss
+// -----------------------------------------------------------------------------
+// Responsive CSS Grid layout with fixed left sidebar, top-center header,
+// central main content, and fixed right options panel.
+//
+// Features:
+// - Full viewport height
+// - Vertical scrolling for sidebar, main, and options panel
+// - Sidebar and options panel can be hidden via modifiers
+// - Responsive stacking for small viewports (mobile)
+//
+// Dependencies:
+// - CSS custom properties:
+//   --header-height (--hh)
+//   --header-height-mobile (--hhm)
+//   --footer-height-mobile (--fhm)
+//   --sidebar-width (--sw)
+//   --layout-row-gap (--lrg)
+//   --layout-column-gap (--lcg)
+//
+// Usage example:
+// <body class="l-shmo sidebar-hidden options-hidden">
+//   <aside>Sidebar content</aside>
+//   <header>Header content</header>
+//   <main>Main content</main>
+//   <div id="options">Options panel</div>
+// </body>
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+
+.l-shmo {
+
+	display: grid;
+
+	// -----------------------------------------------------------------
+	// Grid Template Areas, Rows & Columns
+	// -----------------------------------------------------------------
+	grid-template-areas:
+		"sidebar header options"
+		"sidebar main options"
+		"sidebar main options";
+
+	// Define rows: fixed header height, flexible content
+	grid-template-rows:
+		var(--hh, var(--header-height))
+		1fr;
+
+	// Define columns: fixed sidebar width, flexible main, fixed options panel width (20%)
+	grid-template-columns:
+		var(--sw, var(--sidebar-width))
+		1fr
+		20%;
+
+	// Gaps with fallbacks
+	row-gap: var(--lrg, var(--layout-row-gap));
+	column-gap: var(--lcg, var(--layout-column-gap));
+
+	height: 100vh; // Full viewport height
+	margin: 0;
+	padding: 0;
+
+	// -----------------------------------------------------------------
+	// Sidebar Block
+	// -----------------------------------------------------------------
+	>aside {
+		grid-area: sidebar;
+		overflow-y: auto;
+		min-height: 0;
+		background-color: var(--color-background);
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Header Block
+	// -----------------------------------------------------------------
+	>header {
+		grid-area: header;
+		background-color: var(--color-background);
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Main Content Block
+	// -----------------------------------------------------------------
+	main {
+		grid-area: main;
+		overflow-y: auto;
+		min-height: 0;
+		background-color: var(--color-background);
+		position: relative;
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Options Panel
+	// -----------------------------------------------------------------
+	#options {
+		grid-area: options;
+		background-color: var(--color-background);
+		overflow-y: auto;
+		min-height: 0;
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Modifier: Hide Sidebar (desktop)
+	// -----------------------------------------------------------------
+	&.sidebar-hidden {
+		grid-template-columns: 0 1fr 20%;
+		column-gap: 0;
+
+		aside {
+			width: 0;
+			overflow: hidden;
+			visibility: hidden;
+			pointer-events: none;
+			user-select: none;
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// Modifier: Hide Options Panel (desktop)
+	// -----------------------------------------------------------------
+	&.options-hidden {
+		grid-template-columns: var(--sw, var(--sidebar-width)) 1fr 0;
+		column-gap: 0;
+
+		#options {
+			width: 0;
+			overflow: hidden;
+			visibility: hidden;
+			pointer-events: none;
+			user-select: none;
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// Responsive: Small Screens
+	// -----------------------------------------------------------------
+	
+	@media (max-width: $breakpoint-sm-max) {
+		grid-template-areas:
+			"header"
+			"main"
+			"sidebar";
+
+		grid-template-rows:
+			var(--hhm, var(--header-height-mobile))
+			1fr
+			var(--fhm, var(--footer-height-mobile));
+
+		grid-template-columns: 1fr;
+
+		#options {
+			display: none;
+		}
+
+		aside {
+			border-top: 1px solid var(--color-border-muted);
+			min-height: auto;
+			overflow-y: visible;
+			visibility: visible;
+			pointer-events: auto;
+			width: auto;
+		}
+	}
+}

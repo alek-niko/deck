@@ -1,0 +1,101 @@
+// =============================================================================
+// PAGINATION COMPONENT
+// components/navigation/_pagination.scss
+// -----------------------------------------------------------------------------
+// Provides tokenized, responsive pagination styles for lists of links.
+// - Fully theme-ready: uses CSS variables for colors, spacing, and radius
+// - Supports hover, active, disabled, and navigation button states
+// - Flexible layout using flexbox
+//
+// Dependencies:
+// - toakens.scss (for --color-* variables, --radius-*, --spacing-*, --transition-duration)
+// =============================================================================
+
+//--------------------------------------
+// Core Pagination
+//--------------------------------------
+
+.pagination {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-left: 0;
+	padding: 0;
+	list-style: none;
+
+	//--------------------------------------
+	// Pagination items
+	//--------------------------------------
+	> * {
+		flex: none;
+		padding-left: var(--spacing-xs);
+
+		&:first-child {
+			padding-left: 0;
+		}
+	}
+
+	//--------------------------------------
+	// Links & spans (page numbers, etc.)
+	//--------------------------------------
+	> * > a,
+	> * > span {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		column-gap: 0.25em;
+		padding: 5px 10px;
+		font-size: 14px;
+		color: var(--color-text-muted);
+		min-width: 28px;
+		height: 28px;
+		line-height: 1;
+		text-align: center;
+		border-radius: var(--radius-sm);
+		transition: color var(--transition-duration) ease-in-out,
+					background-color var(--transition-duration) ease-in-out;
+	}
+
+	//--------------------------------------
+	// Hover state for links
+	//--------------------------------------
+
+	> * > a:hover {
+		color: var(--color-text);
+		text-decoration: none;
+		background-color: var(--color-hover-surface);
+	}
+
+	//--------------------------------------
+	// Active pagination item
+	//--------------------------------------
+
+	> .active > span {
+		color: var(--color-text-inverse);
+		background-color: var(--color-primary);
+	}
+
+	//--------------------------------------
+	// Disabled pagination item
+	//--------------------------------------
+
+	> .disabled > span {
+		color: var(--color-disabled);
+		pointer-events: none;
+		opacity: 0.5;
+	}
+
+	//--------------------------------------
+	// Special navigation buttons (first, prev, next, last)
+	//--------------------------------------
+	&-first,
+	&-prev,
+	&-next,
+	&-last {
+		> * {
+			line-height: 28px;
+			font-size: 0;
+			padding: 0;
+		}
+	}
+}

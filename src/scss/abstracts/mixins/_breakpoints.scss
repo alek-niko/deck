@@ -1,0 +1,67 @@
+// ============================================
+// BREAKPOINTS MIXINS
+// abstracts/mixins/_breakpoints.scss
+// --------------------------------------------
+// Responsive breakpoint mixins
+// - Uses breakpoint variables + max-values
+// - Automatically adapts if variables are swapped
+// ============================================
+
+@use "../variables/breakpoints" as *;
+
+// --------------------------------------------
+// Max-Width Media Queries
+// --------------------------------------------
+// Mobile-first: applies styles up to a max width.
+// Example: @include max-sm { ... }
+
+@mixin max-xs { @media (max-width: $breakpoint-xs-max) { @content; } }
+@mixin max-sm { @media (max-width: $breakpoint-sm-max) { @content; } }
+@mixin max-md { @media (max-width: $breakpoint-md-max) { @content; } }
+@mixin max-lg { @media (max-width: $breakpoint-lg-max) { @content; } }
+@mixin max-xl { @media (max-width: $breakpoint-xl-max) { @content; } }
+
+// --------------------------------------------
+// Min-Width Media Queries
+// --------------------------------------------
+// Scaling upwards from each breakpoint.
+
+@mixin min-xs { @media (min-width: $breakpoint-xs) { @content; } }
+@mixin min-sm { @media (min-width: $breakpoint-sm) { @content; } }
+@mixin min-md { @media (min-width: $breakpoint-md) { @content; } }
+@mixin min-lg { @media (min-width: $breakpoint-lg) { @content; } }
+@mixin min-xl { @media (min-width: $breakpoint-xl) { @content; } }
+@mixin min-xxl { @media (min-width: $breakpoint-xxl) { @content; } }
+
+// --------------------------------------------
+// Between Media Queries
+// --------------------------------------------
+// Create ranges between two breakpoints.
+
+@mixin between-xs-sm   { @media (min-width: $breakpoint-xs) and (max-width: $breakpoint-xs-max)  { @content; } }
+@mixin between-sm-md   { @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-sm-max)  { @content; } }
+@mixin between-md-lg   { @media (min-width: $breakpoint-md) and (max-width: $breakpoint-md-max)  { @content; } }
+@mixin between-lg-xl   { @media (min-width: $breakpoint-lg) and (max-width: $breakpoint-lg-max)  { @content; } }
+@mixin between-xl-xxl  { @media (min-width: $breakpoint-xl) and (max-width: $breakpoint-xl-max)  { @content; } }
+
+// --------------------------------------------
+// Programmatic Mixin (Optional)
+// --------------------------------------------
+// Example: @include respond-to(sm, max) { ... }
+
+@mixin respond-to($size, $type: min) {
+	$value: map-get($breakpoints, $size);
+
+	@if $type == min {
+		@media (min-width: $value) { @content; }
+	} @else if $type == max {
+		$max: if($size == xs, $breakpoint-xs-max,
+			if($size == sm, $breakpoint-sm-max,
+			if($size == md, $breakpoint-md-max,
+			if($size == lg, $breakpoint-lg-max,
+			if($size == xl, $breakpoint-xl-max, null)))));
+		@if $max {
+			@media (max-width: $max) { @content; }
+		}
+	}
+}

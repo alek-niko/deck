@@ -1,0 +1,127 @@
+// ============================================
+// COLORS – DARK MODE
+// abstracts/variables/_colors.dark.scss
+// --------------------------------------------
+// Central color definitions for dark mode.
+// - Semantic color variables for dark UI.
+// - Follows accessible contrast ratios.
+// - Matches variable names from `colors.scss`.
+// - Used in `themes/_dark.scss`.
+// ============================================
+
+@use './elevation' as *;
+
+/// --------------------------------------------
+/// BODY & TEXT
+/// --------------------------------------------
+
+$body-color:				rgba(255,255,255,0.87) !default;
+$body-bg:					#121212 !default;
+
+$text-color-primary:		rgba(255,255,255,0.87) !default;
+$text-color-secondary:		rgba(255,255,255,0.54) !default;
+$text-color-on-inverted:    rgba(0, 0, 0, 0.9) !default;
+
+$muted-color:				rgba(255,255,255,0.6) !default;
+$muted-color-hex:			#ccc !default;
+
+
+/// --------------------------------------------
+/// SURFACE COLORS
+/// --------------------------------------------
+
+$surface:					#1c1e21 !default;
+$surface-muted:				#2a2d31 !default;
+$surface-contrast:			#fff !default;
+$surface-disabled:			#2f3236 !default; 
+
+
+/// --------------------------------------------
+/// SEMANTIC & UI COLORS
+/// --------------------------------------------
+
+$primary-color:				#4dabf7 !default;
+$secondary-color:			#e2e8f0 !default;
+$success-color:				#66bb6a !default;
+$warning-color:				#ffa726 !default;
+$danger-color:				#ef5350 !default;
+
+$success-bg-color:			rgba(102, 187, 106, 0.15) !default;
+$warning-bg-color:			rgba(255, 167, 38, 0.15) !default;
+$danger-bg-color:			rgba(239, 83, 80, 0.15) !default;
+
+$link-color:				#4dabf7 !default;
+$link-color-hover:			#90caf9 !default;
+
+$disabled-color:			#6e757d !default;
+
+
+/// --------------------------------------------
+/// BORDERS
+/// --------------------------------------------
+
+// Base border colors for dark UI
+$border-color:				rgba(255, 255, 255, 0.12) !default;	// Default border
+$border-color-hover:		rgba(255, 255, 255, 0.24) !default;	// On hover
+$border-color-focus:		rgba(255, 255, 255, 0.36) !default;	// For focus/keyboard rings
+
+// Thematic use cases
+$border-color-dark:			rgba(255, 255, 255, 0.36) !default;	// Strong for dark backgrounds
+$border-color-light:		rgba(255, 255, 255, 0.08) !default;	// Subtle outlines
+$border-color-muted:		rgba(255, 255, 255, 0.12) !default;	// Softer than light
+$border-color-subtle:		rgba(255, 255, 255, 0.04) !default;	// Barely visible separators
+
+// Aliases (optional)
+$border-color-soft:			rgba(255, 255, 255, 0.06) !default;
+$border-color-strong:		rgba(255, 255, 255, 0.24) !default;
+
+
+/// --------------------------------------------
+/// HOVER COLORS
+/// --------------------------------------------
+
+$hover-color:				rgba(255,255,255,0.08) !default;
+$hover-color-dark:			rgba(255,255,255,0.08) !default;
+$hover-color-light:			rgba(0,0,0,0.36) !default;
+$hover-color-surface:		rgba(255,255,255,0.06) !default;
+$hover-color-surface-strong:rgba(255,255,255,0.1) !default;
+
+
+/// --------------------------------------------
+/// EFFECTS & UI STATES
+/// --------------------------------------------
+
+$overlay-background:		rgba(0, 0, 0, 0.6) !default;
+$backdrop-blur:				blur(8px) !default;
+$shadow-elevation:			0 2px 8px rgba(0, 0, 0, 0.6) !default;
+
+
+/// --------------------------------------------
+/// ICON THEME OVERRIDES
+/// --------------------------------------------
+
+$icon-color:				rgba(255, 255, 255, 0.84) !default;
+$icon-color-inactive:		rgba(255,255,255,0.38) !default;
+$icon-color-hover:			rgba(255, 255, 255, 1) !default;
+$icon-shadow-color:			rgba(255, 255, 255, 0.4) !default;
+$icon-action-bg:			rgba(255, 255, 255, 0.08) !default;
+$icon-circle-bg:			transparent !default;
+
+/// --------------------------------------------
+/// SHADOWS
+/// --------------------------------------------
+/// Predefined elevation shadows using the `elevation-shadow()` mixin.
+
+$shadow-xs:					elevation-shadow(1, 'dark') !default;
+$shadow-sm:					elevation-shadow(2, 'dark') !default;
+$shadow-md:					elevation-shadow(4, 'dark') !default;
+$shadow-lg:					elevation-shadow(8, 'dark') !default;
+$shadow-xl:					elevation-shadow(12, 'dark') !default;
+$shadow-2xl:				elevation-shadow(24, 'dark') !default;
+
+// Legacy examples (commented):
+// $shadow-xs:					0 1px 2px rgba(255, 255, 255, 0.06) !default;  // xs  shadow
+// $shadow-sm:					0 2px 4px rgba(255, 255, 255, 0.08) !default;  // sm  shadow
+// $shadow-md:					0 4px 6px rgba(255, 255, 255, 0.10) !default;  // md  shadow
+// $shadow-lg:					0 6px 12px rgba(255, 255, 255, 0.12) !default; // lg  shadow
+// $shadow-xl:					0 12px 24px rgba(255, 255, 255, 0.15) !default; // xl  shadow

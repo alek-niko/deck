@@ -1,0 +1,95 @@
+// =============================================
+// BASE TYPOGRAPHY OVERRIDES
+// File: base/_typography.scss
+// ---------------------------------------------
+// Provides default link, text, and paragraph
+// overrides on top of normalize/reset.
+// =============================================
+
+// ---------------------------------------------
+// Links
+// ---------------------------------------------
+// Anchor links: remove underline by default and apply color from theme token
+
+a {
+	color: var(--color-link);           // Default link color from theme
+	text-decoration: none;              // No underline
+	cursor: pointer;                    // Pointer cursor on hover
+
+	// Hover state for links
+	&:hover {
+		color: var(--color-link-hover); // Hover link color from theme
+		text-decoration: none;          // Keep no underline
+	}
+}
+
+// ---------------------------------------------
+// Nested Link Toggles
+// ---------------------------------------------
+// Nested link override inside elements with `.link-toggle` on hover
+
+.link-toggle:hover .link {
+	color: var(--color-link-hover);     // Apply hover color when ancestor is hovered
+	text-decoration: none;              // Prevent underline
+}
+
+// ---------------------------------------------
+// Emphasis
+// ---------------------------------------------
+// Emphasized text (bold and strong tags)
+
+b,
+strong {
+	font-weight: bolder;                // Use strongest available font-weight
+}
+
+// Paragraph styling
+// p {
+// 	line-height: var(--line-height-base); // Set line height from theme
+
+// 	+ p {
+// 		//margin-block-start: 0.5rem;        // Add spacing only between consecutive paragraphs
+// 		//margin-block-start: 1rem; 
+// 	}
+// }
+
+
+// ---------------------------------------------
+// Paragraphs
+// ---------------------------------------------
+// 
+
+p {
+	line-height: var(--line-height-base, 1.6);
+
+	// Spacing between paragraphs
+	+ p {
+		//margin-block-start: 1rem;
+	}
+
+	// Spacing from paragraph to following heading
+	+ h1,
+	+ h2,
+	+ h3,
+	+ h4,
+	+ h5,
+	+ h6 {
+		margin-block-start: 1.25rem;
+	}
+
+	// Disable spacing if inside a flex container
+	@container style(display: flex) {
+		margin-block-start: 0;
+
+		+ p,
+		+ h1,
+		+ h2,
+		+ h3,
+		+ h4,
+		+ h5,
+		+ h6 {
+			margin-block-start: 0;
+		}
+	}
+}
+

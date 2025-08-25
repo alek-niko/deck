@@ -1,0 +1,103 @@
+// ============================================
+// RESPONSIVE MIXINS
+// abstracts/mixins/_responsive.scss
+// --------------------------------------------
+// Responsive Media Query Utilities (Token-Based)
+// - Uses $breakpoints map (e.g., sm, md, lg, xl)
+// - Offers semantic and scalable media mixins
+// ============================================
+
+@use '../variables/breakpoints' as *;
+
+
+/// ----------------------------------------------
+/// RESPOND ABOVE
+/// ----------------------------------------------
+/// Media query for screens larger than or equal to a given breakpoint.
+///
+/// @param {String} $breakpoint - The key from the $breakpoints map (e.g., "md").
+///
+/// @example scss
+///   @include respond-above(md) {
+///     .example { font-size: 18px; }
+///   }
+/// ----------------------------------------------
+
+@mixin respond-above($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		$breakpoint-value: map-get($breakpoints, $breakpoint);
+
+		@media (min-width: $breakpoint-value) {
+			@content;
+		}
+	}
+
+	@else {
+		@warn 'Invalid breakpoint: `#{$breakpoint}`.';
+	}
+}
+
+/// ----------------------------------------------
+/// RESPOND BELOW
+/// ----------------------------------------------
+/// Media query for screens smaller than a given breakpoint.
+/// Subtracts 0.02px to prevent overlap with `respond-above()`.
+///
+/// @param {String} $breakpoint - The key from the $breakpoints map (e.g., "md").
+///
+/// @example scss
+///   @include respond-below(md) {
+///     .example { font-size: 14px; }
+///   }
+/// ----------------------------------------------
+
+@mixin respond-below($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		$breakpoint-value: map-get($breakpoints, $breakpoint);
+
+		@media (max-width: ($breakpoint-value - 0.02px)) {
+			// Use a tiny subtraction for accuracy
+			@content;
+		}
+	}
+
+	@else {
+		@warn 'Invalid breakpoint: `#{$breakpoint}`.';
+	}
+}
+
+/// ----------------------------------------------
+/// RESPOND BETWEEN
+/// ----------------------------------------------
+/// Media query for screens between two breakpoints
+/// (inclusive lower, exclusive upper).
+///
+/// @param {String} $lower - Lower breakpoint key (e.g., "sm").
+/// @param {String} $upper - Upper breakpoint key (e.g., "lg").
+///
+/// @example scss
+///   @include respond-between(sm, lg) {
+///     .example { font-size: 16px; }
+///   }
+/// ----------------------------------------------
+
+@mixin respond-between($lower, $upper) {
+	@if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+		$lower-breakpoint: map-get($breakpoints, $lower);
+		$upper-breakpoint: map-get($breakpoints, $upper);
+
+		@media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 0.02px)) {
+			@content;
+		}
+	}
+
+	@else {
+		@if (map-has-key($breakpoints, $lower)==false) {
+			@warn 'Your lower breakpoint was invalid: `#{$lower}`.';
+		}
+
+		@if (map-has-key($breakpoints, $upper)==false) {
+			@warn 'Your upper breakpoint was invalid: `#{$upper}`.';
+		}
+	}
+}

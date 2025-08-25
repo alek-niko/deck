@@ -1,0 +1,121 @@
+// =============================================
+// BASE RESET STYLES
+// base/_resets.scss
+// ---------------------------------------------
+// Provides a consistent baseline across browsers
+// by normalizing margins, box-sizing, lists, media,
+// and form elements.
+// =============================================
+
+
+// ---------------------------------------------
+// Box Sizing Reset
+// ---------------------------------------------
+// Ensures padding + border are included in total
+// width/height calculations (better layout control).
+
+*, 
+*::before, 
+*::after {
+	box-sizing: border-box; // Include padding and border in element's total width/height
+}
+
+// ---------------------------------------------
+// Margin Reset for Common Elements
+// ---------------------------------------------
+// Removes inconsistent browser defaults for body,
+// headings, lists, and structural elements.
+
+body,
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, dl,
+blockquote, hr {
+	margin: 0; // Remove default vertical margins for consistent layout spacing
+}
+
+// ---------------------------------------------
+// List Reset and Indentation
+// ---------------------------------------------
+// Standardizes indentation and nesting behavior.
+
+ul, 
+ol {
+	padding-left: 30px; // Set consistent list indentation
+	margin-bottom: 20px;
+}
+
+ul > li > ul,
+ul > li > ol,
+ol > li > ol,
+ol > li > ul {
+	margin: 0; // Remove default spacing on nested lists
+}
+
+// ---------------------------------------------
+// Media Elements
+// ---------------------------------------------
+// Aligns media inline with text and ensures
+// responsive scaling.
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+	vertical-align: middle;
+}
+
+canvas,
+img,
+svg,
+video {
+	max-width: 100%; // Prevent overflow on responsive layouts
+	height: auto;    // Maintain aspect ratio
+}
+
+// ---------------------------------------------
+// Form Elements Inherit Font
+// ---------------------------------------------
+// Inherit font styles for consistent typography.
+
+input,
+textarea,
+select,
+button {
+	font-family: inherit; // Use the same font as parent element
+}
+
+// ---------------------------------------------
+// Dialog Element Reset
+// ---------------------------------------------
+// Removes browser default styles from <dialog>
+// for full custom styling control.
+
+dialog {
+	border: none;
+	outline: none;
+	padding: 0;
+	box-shadow: none;
+}
+
+// ---------------------------------------------
+// Definition Lists
+// ---------------------------------------------
+// Improves readability of terms/definitions.
+
+dl {
+	margin-block-start: 0;       // Remove top margin
+	margin-block-end: 1em;       // Add bottom spacing
+}
+
+dt {
+	font-weight: bold;           // Emphasize definition term
+	margin-block-end: 0.25em;    // Space below term
+}
+
+dd {
+	margin-left: 0;              // Remove default left margin
+	margin-block-end: 0.5em;     // Space below definition
+	padding-inline-start: 1.5em; // Indent definition content
+}

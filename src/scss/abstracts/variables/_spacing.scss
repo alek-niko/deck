@@ -1,0 +1,40 @@
+// ============================================================================
+// SPACING TOKENS
+// abstracts/variables/_spacing.scss
+// ----------------------------------------------------------------------------
+// Defines the spacing scale (margin, padding, gaps).
+// - Uses `rem` units for scalability
+// - Pixel equivalents are provided in comments for reference
+// - Mapped to CSS custom properties in `themes/_default.scss`
+// ============================================================================
+
+
+/// ---------------------------------------------------------------------------
+/// Core Spacing Tokens
+/// ---------------------------------------------------------------------------
+/// Consistent spacing scale used across the design system.
+/// Provides semantic sizes from extra-small to extra-large.
+/// @group spacing
+// -----------------------------------------------------------------------------
+
+$spacing-xs:			0.25rem !default;  // 4px
+$spacing-sm:			0.5rem  !default;  // 8px
+$spacing-md:			1rem    !default;  // 16px
+$spacing-default:		1.5rem  !default;  // 24px
+$spacing-lg:			2rem    !default;  // 32px
+$spacing-xl:			2.5rem  !default;  // 40px
+
+
+// ---------------------------------------------------------------------------
+// Deprecated / Legacy Tokens
+// ---------------------------------------------------------------------------
+// Retained for backward compatibility only. Prefer using the new scale above.
+// ----------------------------------------------------------------------------
+/*
+$spacing-mini:			5px !default;
+$spacing-small:			10px !default;
+$spacing-medium:		40px !default;
+$spacing-default:		20px !default;
+$spacing-large:			70px !default;
+$spacing-xlarge:		140px !default;
+*/

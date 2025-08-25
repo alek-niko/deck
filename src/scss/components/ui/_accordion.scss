@@ -1,0 +1,247 @@
+// =============================================================================
+// ACCORDION COMPONENT
+// components/ui/_accordion.scss
+// -----------------------------------------------------------------------------
+// Accessible, theme-aware collapsible interface
+// Supports:
+// - Smooth expand/collapse transitions with max-height, opacity, scale
+// - ARIA support for screen readers
+// - Optional icon rotation on toggle
+// - Fully theme-token based (dark mode via :root/.dark token override)
+// - Outline and alternative variants
+// =============================================================================
+
+@use '../../abstracts/variables/effects' as *;
+@use '../../abstracts/variables/colors' as *;
+
+// =============================================================================
+// ACCORDION BASE
+// =============================================================================
+
+.accordion {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+
+	// -------------------------------------------------------------------------
+	// Accordion List Items
+	// -------------------------------------------------------------------------
+
+	li {
+		// Expanded state
+		&[aria-expanded="true"] .accordion-content {
+			//   max-height: 600px;
+			//   padding-top: 0.625rem;
+			//   padding-bottom: 0.625rem;
+			opacity: 1;
+			transform: scaleY(1);
+			transition-delay: 0s;
+			margin-bottom: 15px;
+		}
+
+		// Collapsed state
+		&[aria-expanded="false"] .accordion-content {
+			opacity: 0;
+			transform: scaleY(0.98);
+			transition-delay: 0.1s; // avoid flicker during collapse
+			display: none;
+		}
+
+		&:not(:first-child) {
+			// optional spacing between items
+			// margin-top: var(--spacing-default);
+		}
+
+		> :nth-child(n+2) {
+			// optional spacing for children beyond the first
+			// margin-top: var(--spacing-default);
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Accordion Title / Button
+	// -------------------------------------------------------------------------
+
+	&-title {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.625rem;
+		font-size: 1rem;
+		//font-weight: 400;
+		//line-height: 1.4;
+
+		cursor: pointer;
+		color: var(--color-text);
+		background: transparent;
+		transition: color 280ms $ease-snappy, background 280ms $ease-snappy;
+		width: 100%;
+
+		&:hover,
+		&:focus {
+			color: var(--color-text-hover, #{$text-color-secondary});
+			background: var(--color-hover-surface);
+			//text-decoration: none;
+		}
+
+		svg {
+			flex-shrink: 0;
+			width: 1.25rem;
+			height: 1.25rem;
+			transition: transform 0.3s ease;
+		}
+
+		[aria-expanded="true"] & svg {
+			transform: rotate(180deg);
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Accordion Content
+	// -------------------------------------------------------------------------
+
+	&-content {
+		box-sizing: border-box;
+		overflow: hidden;
+		max-height: 0;
+		opacity: 0;
+		transform: scaleY(0.98);
+		padding: 0 0.625rem;
+		font-size: 0.875rem;
+		//transition: max-height 0.4s ease, padding 0.3s ease;
+		transition:
+			max-height 0.4s ease,
+			opacity 0.3s ease,
+			transform 0.3s ease;
+		will-change: max-height, opacity, transform;
+
+		// Expanded padding helper
+		&-expand {
+			padding: 1rem;
+			margin-left: -1rem;
+			margin-right: -1rem;
+		}
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Outline Variant
+	// -------------------------------------------------------------------------
+
+	&.outline {
+		.accordion-title {
+			border: 1px solid var(--color-border);
+			border-radius: var(--radius-default);
+			padding: 0.875rem 1.5rem;
+
+			&:after {
+				right: 0.5rem;
+			}
+		}
+
+		.accordion-content {
+			//padding: 0 1.25rem;
+			margin: 0;
+			border-width: 0 1px 1px;
+			border-style: solid;
+			border-color: transparent;
+		}
+
+		>li {
+			transition: all 140ms $ease-snappy;
+
+			&:first-child .accordion-title {
+				border-radius: var(--radius-default) var(--radius-default) 0 0;
+			}
+
+			&:nth-child(n+2) {
+				margin-top: -1px;
+
+				.accordion-title {
+					border-radius: 0;
+				}
+			}
+
+			&:last-child .accordion-title {
+				border-radius: 0 0 var(--radius-default) var(--radius-default);
+			}
+
+			&[aria-expanded="true"] {
+				padding-bottom: 0.75rem;
+
+				.accordion-title {
+					border-color: var(--color-border-strong);
+					background: var(--color-surface-muted);
+					color: var(--color-text);
+				}
+
+				.accordion-content {
+					border-color: var(--color-border-strong);
+					border-radius: 0 0 var(--radius-default) var(--radius-default);
+				}
+
+				&:nth-child(n+2) {
+					padding-top: 0.75rem;
+				}
+			}
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Alternative Variant
+	// -------------------------------------------------------------------------
+	&.alt {
+		.accordion-title {
+			border-radius: var(--radius-default);
+			padding: 0.875rem 1.5rem;
+			background: var(--color-surface-muted);
+			transition: background 0.3s ease, color 0.3s ease;
+			position: relative;
+
+			&:after {
+				content: '';
+				position: absolute;
+				right: 0.5rem;
+			}
+		}
+
+		.accordion-content {
+			//padding: 1.25rem;
+			padding: 1rem;
+			margin-bottom: 0;
+		}
+
+		>li {
+			margin-bottom: 0.625rem;
+
+			&[aria-expanded="true"] {
+				.accordion-title {
+					background-color: var(--color-primary);
+					color: var(--color-surface);
+				}
+			}
+		}
+	}
+}
+
+// =============================================================================
+// Accessibility Helper
+// -----------------------------------------------------------------------------
+// Visually hidden elements for screen readers
+// Used for a11y purposes without affecting layout
+// =============================================================================
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	white-space: nowrap;
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}

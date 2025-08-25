@@ -1,0 +1,119 @@
+// =============================================================================
+// SIDEBAR RIGHT COMPONENT
+// components/layout/_sidebar.right.scss
+// -----------------------------------------------------------------------------
+// A secondary sidebar typically used for search, widgets, or supplemental
+// content on the right-hand side of the layout.
+//
+// Features:
+// - Base sidebar structure with fixed/sticky positioning (.sidebar-right)
+// - Smooth transitions for slide/opacity effects
+// - Hidden state for toggling visibility (.sidebar-right-hidden)
+// - Optional transition delay modifier (.delayed)
+// - Responsive behavior: hidden on large breakpoints (max-lg)
+// - Nested elements: search bar (.search-bar) and widgets (.widget)
+// =============================================================================
+
+@use '../../abstracts/mixins/breakpoints' as *;
+
+// -----------------------------------------------------------------------------
+// Component: .sidebar-right
+// -----------------------------------------------------------------------------
+
+.sidebar-right {
+
+	width: 350px;
+	margin-left: 30px;
+	padding-top: 10px;
+	flex-shrink: 0;
+
+	// Positioning (default sticky)
+	position: sticky;
+	top: var(--spacing-default); // adjust as needed
+
+	// Cosider this:
+	// align-self: flex-start;
+
+	// Base animation state
+	transform: translateX(0);
+	opacity: 1;
+
+	// transition:
+	// 	transform 0.3s ease,
+	// 	opacity 0.3s ease,
+	// 	margin-left 0.3s ease,
+	// 	width 0.3s ease;
+
+	// Transitions
+	transition:
+		transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+		opacity 0.25s ease-in-out,
+		margin-left 0.25s ease,
+		width 0.25s ease;
+
+	// -------------------------------------------------------------------------
+	// Variants / States
+	// -------------------------------------------------------------------------
+
+	// Hidden state (collapses and disables interaction)
+	&.sidebar-right-hidden {
+		width: 0;
+		margin-left: 0;
+		overflow: hidden;
+		transform: translateX(20px); // slide right (feel free to invert direction → left: -20px for opposite) 
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	// Optional delayed transition
+	&.delayed {
+		transition-delay: 0.2s;
+	}
+
+	// Responsive: hide sidebar on smaller screens
+	@include max-lg {
+		display: none;
+	}
+
+	// -------------------------------------------------------------------------
+	// Child Elements
+	// -------------------------------------------------------------------------
+	
+	// Search Bar
+	.search-bar {
+		display: flex;
+		align-items: center;
+		padding: 10px;
+		margin-bottom: 15px;
+		border-radius: 9999px;
+		background-color: var(--color-surface-muted);
+
+		&:has(input:focus) {
+			background-color: var(--color-surface);
+		}
+
+		input {
+			width: 100%;
+			padding: 5px;
+			border: none;
+			background: none;
+			outline: none;
+			font-size: 15px;
+			color: var(--color-text);
+		}
+	}
+
+	// Widget Container
+	.widget {
+		padding: 15px;
+		margin-bottom: 15px;
+		border-radius: var(--radius-default);
+		background-color: var(--color-surface-muted);
+
+		h3 {
+			font-size: 18px;
+			margin-bottom: 10px;
+			color: var(--color-text);
+		}
+	}
+}

@@ -1,0 +1,110 @@
+// =============================================================================
+// THEME UTILITIES
+// components/utils/_theme.scss
+// -----------------------------------------------------------------------------
+// Utilities for theme controls and toggles.
+// - Includes theme container, toggle buttons, icons, and slider indicator
+// - Supports active/hover states and accessible sizing
+// - Fully compatible with tokenized colors and dark mode
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Theme Controls Container
+// -----------------------------------------------------------------------------
+/// Container for theme toggle buttons
+/// Display: inline-flex with borders and rounded corners
+.theme-controls {
+
+	display: inline-flex;
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	overflow: hidden; // Clip child elements, useful for rounded corners
+
+	// ---------------------------------------------------------------------------
+	// Buttons inside theme controls
+	// ---------------------------------------------------------------------------
+
+	button {
+		background-color: transparent;
+		border: none;
+		color: var(--color-text-muted);
+		padding: 8px 16px;
+		cursor: pointer;
+		transition: background-color 0.2s ease, color 0.2s ease;
+
+		// Separate buttons visually with border-right except last
+		&:not(:last-child) {
+			border-right: 1px solid var(--color-border);
+		}
+
+		// Hover state for better interactivity feedback
+		&:hover {
+			background-color: var(--color-border-muted);
+		}
+
+		// Active button styling (indicates current selection)
+		&.active {
+			background-color: var(--color-link);
+			color: white; // Alternatively use --color-on-accent for better theming control
+		}
+	}
+}
+
+// --------------------------------------------
+// Theme Toggle Icon
+// --------------------------------------------
+/// Button/icon for toggling themes, with accessible sizing and interaction styles.
+
+.theme-toggle-icon {
+	font-size: 24px;		// Control icon size
+	line-height: 1;			// Tight vertical spacing
+	user-select: none;		// Prevent accidental text selection
+	background: none;		// Clean background (transparent)
+	border: none;			// No border for icon button
+	cursor: pointer;		// Pointer cursor for interactivity
+	margin: 0 8px;			// Horizontal spacing
+}
+
+// --------------------------------------------
+// Theme Slider
+// --------------------------------------------
+/// A flexible slider control with spaced buttons and a sliding indicator.
+
+.theme-slider {
+	position: relative;
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+
+	// Buttons inside slider
+	button {
+		background: none;
+		border: none;
+		cursor: pointer;
+		position: relative;
+		padding: 0.5rem;
+
+		// SVG icon inside buttons: sized and colored according to state
+		svg {
+			width: 24px;
+			height: 24px;
+			fill: var(--color-text-muted);
+		}
+
+		// Active button SVG gets primary fill color
+		&.active svg {
+			fill: var(--color-primary);
+		}
+	}
+
+	// Slider indicator: underline that moves to indicate active selection
+	.theme-slider-indicator {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 24px;
+		height: 2px;
+		background: var(--color-primary);
+		transition: transform 0.3s ease; // Smooth sliding animation
+	}
+}

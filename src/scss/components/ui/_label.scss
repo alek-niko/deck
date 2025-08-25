@@ -1,0 +1,146 @@
+// =============================================================================
+// LABEL COMPONENT
+// components/label/_label.scss
+// -----------------------------------------------------------------------------
+// Semantic and visual labels for tags, status indicators, and badges
+// Supports solid, subtle, and outline variants
+// Optional clickable / removable interactions
+// Optional entry animations
+// =============================================================================
+
+@use '../../abstracts/variables' as *;
+
+// -------------------------------------------------------------------------
+// Component Tokens
+// -------------------------------------------------------------------------
+// Core sizing, spacing, and typography tokens for labels
+
+$label-font-size:       0.875rem !default;
+$label-font-weight:     500 !default;
+$label-line-height:     1.5 !default;
+$label-padding-y:       0.1em !default;
+$label-padding-x:       0.8em !default;
+
+// -------------------------------------------------------------------------
+// Base Label
+// -------------------------------------------------------------------------
+// Core styling for all label variants
+
+.label {
+	display: inline-block;
+	font-size: var(--label-font-size, #{$label-font-size});
+	font-weight: var(--label-font-weight, #{$label-font-weight});
+	line-height: var(--label-line-height, #{$label-line-height});
+	color: var(--color-text);
+	background-color: transparent;
+	padding: $label-padding-y $label-padding-x;
+	border-radius: var(--radius-small);
+	white-space: nowrap;
+	user-select: none;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+// -------------------------------------------------------------------------
+// Solid Variants
+// -------------------------------------------------------------------------
+// Full background labels for strong semantic emphasis
+
+.label-success {
+	color: var(--color-surface);
+	background-color: $success-color;
+}
+
+.label-warning {
+	color: var(--color-surface);
+	background-color: $warning-color;
+}
+
+.label-danger {
+	color: var(--color-surface);
+	background-color: $danger-color;
+}
+
+// -------------------------------------------------------------------------
+// Subtle (Soft) Variants
+// -------------------------------------------------------------------------
+// Light / soft background labels for subtle emphasis
+
+.label-success-subtle {
+	color: $success-color;
+	background-color: rgba($success-color, 0.1);
+}
+
+.label-warning-subtle {
+	color: $warning-color;
+	background-color: rgba($warning-color, 0.1);
+}
+
+.label-danger-subtle {
+	color: $danger-color;
+	background-color: rgba($danger-color, 0.1);
+}
+
+
+// -------------------------------------------------------------------------
+// Outline Variant
+// -------------------------------------------------------------------------
+// Transparent background with visible border
+
+.label-outline {
+	color: var(--color-text);
+	background-color: transparent;
+	box-shadow: inset 0 0 0 1px var(--color-border-strong);
+}
+
+// -------------------------------------------------------------------------
+// Clickable / Removable Tags
+// -------------------------------------------------------------------------
+// Labels with interactive behavior
+
+.label-clickable {
+	cursor: pointer;
+	&:hover {
+		transform: scale(1.03);
+		background-color: var(--color-hover-surface);
+	}
+}
+
+.label-removable {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+
+	.close {
+		cursor: pointer;
+		display: inline-block;
+		font-size: 1rem;
+		line-height: 1;
+		color: inherit;
+		opacity: 0.6;
+		transition: opacity 0.2s ease;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+}
+
+// -------------------------------------------------------------------------
+// Entry Animation (Optional)
+// -------------------------------------------------------------------------
+// Fade-in / scale-in animation for label appearance
+
+.label-animate-in {
+	animation: labelFadeIn 0.3s ease-out both;
+}
+
+@keyframes labelFadeIn {
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}

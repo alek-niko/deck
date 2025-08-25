@@ -1,0 +1,81 @@
+// ============================================
+// RADIO BUTTON COMPONENT
+// components/form/_radio.scss
+// --------------------------------------------
+// Custom radio button styles.
+// - Fully tokenized using CSS variables
+// - Supports focus, disabled, and checked states
+// - Accessible, minimal, and scalable
+// - Circular design with modern transitions
+// ============================================
+
+.radio {
+
+	// Base reset
+	-webkit-appearance: none;
+	-moz-appearance: none;
+
+	box-sizing: border-box;
+	display: inline-block;
+	overflow: hidden;
+	font: inherit;
+
+	// Size and spacing
+	width: 20px;
+	height: 20px;
+	margin: -3px 5px 0 5px;
+
+	// Shape and background
+	border: 1px solid var(--color-border-muted);
+	border-radius: 50%;
+	background-color: color-mix(in srgb, var(--color-surface) 95%, black);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+
+	 // Alignment and interaction
+	vertical-align: middle;
+	cursor: pointer;
+
+	 // Transition effects
+	transition: background-color 140ms cubic-bezier(.55, 0, .1, 1),
+				border-color 140ms cubic-bezier(.55, 0, .1, 1),
+				box-shadow 140ms cubic-bezier(.55, 0, .1, 1);
+
+    // ----------------------------------------
+    // Focus state
+    // ----------------------------------------
+
+	&:focus {
+		outline: none;
+		background-color: color-mix(in srgb, var(--color-surface) 95%, black);
+		border-color: var(--color-border-strong);
+	}
+
+    // ----------------------------------------
+    // Disabled state
+    // ----------------------------------------
+
+	&:disabled {
+		cursor: not-allowed;
+		background-color: var(--color-surface);
+		border-color: rgba(189, 189, 189, 0.26) !important;
+
+		&:checked {
+			background-color: color-mix(in srgb, var(--color-primary) 44%, transparent) !important;
+		}
+	}
+
+    // ----------------------------------------
+    // Checked state
+    // ----------------------------------------
+
+	&:checked {
+		border-color: var(--color-primary);
+		background-color: var(--color-primary);
+		box-shadow: inset 0 0 0 3px var(--color-surface);
+
+		&:focus {
+			background-color: color-mix(in srgb, var(--color-primary) 90%, black);
+		}
+	}
+}

@@ -1,0 +1,223 @@
+// =============================================================================
+// MODAL COMPONENT
+// components/ui/_modal.scss
+// -----------------------------------------------------------------------------
+// A flexible, responsive modal/dialog component for displaying content overlays.
+// Supports headers, bodies, footers, close buttons, and scrollable content.
+//
+// Features:
+// - Multiple sizes: small, large, extra-large (.modal-sm, .modal-lg, .modal-xl)
+// - Fullscreen modal support (.modal-full)
+// - Scrollable content container (.modal-scrollable)
+// - Animated transitions: fade, zoom, slide top/bottom (.modal-fade, .modal-zoom, etc.)
+// - Responsive layout with viewport centering and flexible dialog shell
+// - Tokenized for spacing, colors, radius, and shadows
+// =============================================================================
+
+// -------------------------------------------------------------------------
+// Keyframe Animations
+// -------------------------------------------------------------------------
+// Core entry animations for modals including fade, zoom, and slide directions.
+
+@keyframes fade-in {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+
+@keyframes zoom-in {
+	from { transform: scale(0.92); opacity: 0; }
+	to   { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slide-in-top {
+	from { transform: translateY(-50px); opacity: 0; }
+	to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slide-in-bottom {
+	from { transform: translateY(50px); opacity: 0; }
+	to   { transform: translateY(0); opacity: 1; }
+}
+
+// -------------------------------------------------------------------------
+// Global Behavior When Modal Is Open
+// -------------------------------------------------------------------------
+// Prevent body scrolling when any modal dialog is open.
+
+body:has(dialog[open]) {
+	overflow: hidden;
+}
+
+// -------------------------------------------------------------------------
+// Modal Component Base
+// -------------------------------------------------------------------------
+// Core modal wrapper. Centers dialog in viewport, handles visibility,
+// pointer events, and transitions for open/close states.
+
+.modal {
+	position: fixed;
+	inset: 0;
+	z-index: 1500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--spacing-default);
+	border: none;
+	background: transparent;
+	opacity: 0;
+	transform: scale(0.96);
+	pointer-events: none;
+	visibility: hidden; // Ensures no accidental click-through
+	transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+
+	&::backdrop {
+		background-color: rgba(0, 0, 0, 0.4);
+		backdrop-filter: blur(2px);
+	}
+
+	// Only visible when open
+	&[open] {
+		opacity: 1;
+		transform: scale(1);
+		pointer-events: auto;
+		visibility: visible;
+		transition-delay: 0s;
+	}
+
+	// ---------------------------------------------------------------------
+	// Dialog Shell
+	// ---------------------------------------------------------------------
+	// Main content container inside the modal. Handles sizing, spacing, 
+	// border-radius, shadow, and flex layout.
+
+	&-dialog {
+
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		gap: var(--spacing-md);  // or whatever spacing token you prefer
+
+		width: 100%;
+		max-width: 600px;
+		background-color: var(--color-surface);
+		border-radius: var(--radius-default);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+		transition: transform 0.3s ease;
+
+		position: relative;
+		overflow: visible;
+		//overflow: hidden;
+	}
+
+	// ---------------------------------------------------------------------
+	// Modal Sizes
+	// ---------------------------------------------------------------------
+
+	&-sm .modal-dialog    { max-width: 400px; }
+	&-lg .modal-dialog    { max-width: 800px; }
+	&-xl .modal-dialog    { max-width: 1000px; }
+
+	// ---------------------------------------------------------------------
+	// Fullscreen Modal
+	// ---------------------------------------------------------------------
+	// Makes modal occupy the full viewport with no radius or margin.
+
+	&-full {
+		padding: 0;
+		height: 100vh; // Forces dialog container to fill viewport
+
+		.modal-dialog {
+	   		margin: 0;
+			border-radius: 0;
+			width: 100%;
+			height: 100%;
+			max-width: none;
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
+	// ---------------------------------------------------------------------
+	// Scrollable Content
+	// ---------------------------------------------------------------------
+	// Allows modal-body content to scroll without exceeding viewport.
+
+	&-scrollable .modal-dialog {
+		max-height: 90vh;
+		overflow-y: auto;
+	}
+
+	// ---------------------------------------------------------------------
+	// Transitions & Animations
+	// ---------------------------------------------------------------------
+
+	&.modal-slide-top    &[open] .modal-dialog { animation: slide-in-top 0.3s ease; }
+	&.modal-slide-bottom &[open] .modal-dialog { animation: slide-in-bottom 0.3s ease; }
+	&.modal-slide-center &[open] .modal-dialog { animation: zoom-in 0.3s ease; }
+	&.modal-fade         &[open] .modal-dialog { animation: fade-in 0.3s ease; }
+	&.modal-zoom         &[open] .modal-dialog { animation: zoom-in 0.3s ease; }
+
+	// ---------------------------------------------------------------------
+	// Modal Structure
+	// ---------------------------------------------------------------------
+	&-header,
+	&-footer {
+		padding: 1.2rem 1.5rem;
+		background-color: var(--color-surface);
+	}
+
+	&-header {
+		//padding-bottom: 0.5rem;
+		padding-bottom: 0;
+	}
+
+	&-footer {
+		//padding-top: 0.5rem;
+		padding-top: 0;
+	}
+
+	&-body {
+		padding: 1rem 1.5rem;
+	}
+
+	> &-title {
+		font-size: 1.25rem;
+		font-weight: 600;
+		color: var(--color-text);
+		margin-bottom: 20px;
+	}
+
+	// ---------------------------------------------------------------------
+	// Close Button
+	// ---------------------------------------------------------------------
+		
+	&-close {
+		position: absolute;
+		top: 1rem;
+		right: 1.2rem; //1rem;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		font-size: 1.25rem;
+		color: var(--color-text);
+		z-index: 10;
+
+		&-outside {
+			top: 0;
+			right: -5px;
+			transform: translateX(20px) translateY(-80%);
+			color: var(--color-surface);
+			z-index: 20;
+
+			position: absolute;
+			overflow: visible;
+
+			padding: 0.5rem;
+
+			&:hover {
+				color: var(--color-surface);
+				opacity: 0.85;
+			}
+		}
+	}
+}

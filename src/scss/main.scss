@@ -1,0 +1,44 @@
+// ============================================
+// MAIN ENTRY POINT
+// main.scss
+// --------------------------------------------
+// Global SCSS Entry Point
+// - Loads all layers: tokens, base, components, layout, themes
+// - Follows layered architecture for scalability
+// - All paths are relative to /src/scss/
+// ============================================
+
+// --------------------------------------------
+// 1. Abstracts
+// --------------------------------------------
+// Variables, design tokens, functions, and mixins.
+
+@use 'abstracts';
+
+// --------------------------------------------
+// 2. Base
+// --------------------------------------------
+// Forwards global base styles, resets, and overrides
+
+@use 'base';
+
+// --------------------------------------------
+// 3. Components
+// --------------------------------------------
+// Forwards all UI components in the project. (form, buttons, cards, etc.)
+
+@use 'components';
+
+// --------------------------------------------
+// 4. Layouts
+// --------------------------------------------
+// Grid systems, page layout wrappers, header/footer/sidebar
+
+@use 'layouts';
+
+// --------------------------------------------
+// 5. Themes
+// --------------------------------------------
+// Theme variations that override root tokens (e.g. dark mode)
+
+@use 'themes';

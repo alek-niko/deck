@@ -1,0 +1,161 @@
+// =============================================================================
+// PLACEHOLDER COMPONENT
+// components/ui/_placeholder.scss
+// -----------------------------------------------------------------------------
+// Styled placeholder blocks for skeleton UI, loading states, or empty content.
+// Fully theme-compatible and uses semantic CSS variables for easy customization.
+//
+// Supports:
+// - Default block placeholders (.placeholder)
+// - Visual variants: muted, highlight, inline (.placeholder-muted, .placeholder-highlight, .placeholder-inline)
+// - Loading indicators and skeleton structures (.placeholder-loading, .placeholder-skeleton)
+// - Lightweight fade-in and pulse animations
+// =============================================================================
+
+@use '../../abstracts/variables' as *;
+
+// -------------------------------------------------------------------------
+// Base Placeholder
+// -------------------------------------------------------------------------
+// Core placeholder block for generic content loading. Scoped CSS variables
+// control appearance, padding, and border-radius.
+
+.placeholder {
+	--placeholder-bg: var(--color-surface-muted, #f8f8f8);           // Background color
+	--placeholder-padding: var(--spacing-default, 1.25rem);         // Padding size
+	--placeholder-radius: var(--radius-default, 0.5rem);            // Border radius
+
+	display: block;
+	margin-bottom: var(--spacing-default);
+	padding: calc(var(--placeholder-padding) * 1.5);
+	background-color: var(--placeholder-bg);
+	border-radius: var(--placeholder-radius);
+	color: var(--color-text-muted);
+	animation: fade-in 0.3s ease-in-out;
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+
+	* + .placeholder {
+		margin-top: var(--spacing-default); // Stackable spacing
+	}
+}
+
+//----------------------------------
+// Muted Variant
+//----------------------------------
+// Used for visually de-emphasized content placeholders.
+
+.placeholder-muted {
+	background-color: var(--color-surface-muted);
+	color: var(--color-text-muted);
+}
+
+//----------------------------------
+// Highlight Variant
+//----------------------------------
+// Used for featured placeholders (e.g., pinned, focused items).
+
+.placeholder-highlight {
+	background-color: rgba($primary-color, 0.08);
+	border-left: 3px solid var(--color-primary);
+	color: var(--color-text);
+}
+
+//----------------------------------
+// Inline Variant
+//----------------------------------
+// Inline-style placeholder used in text or form-like flows.
+
+.placeholder-inline {
+	display: inline-block;
+	padding: 0.25em 0.5em;
+	background-color: var(--color-surface);
+	border-radius: var(--radius-small);
+	font-size: 0.875rem;
+	vertical-align: baseline;
+	color: var(--color-text-muted);
+}
+
+//----------------------------------
+// Loading Variant
+//----------------------------------
+// Pulse animation bar used to indicate generic loading.
+
+.placeholder-loading {
+	height: 1em;
+	background-color: var(--color-surface);
+	border-radius: var(--radius-small);
+	animation: pulse 1.2s infinite ease-in-out;
+}
+
+//----------------------------------
+// Skeleton Variant
+//----------------------------------
+// Structured skeleton placeholder with avatar + text rows.
+
+.placeholder-skeleton {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	// Circular avatar placeholder
+	.skeleton-avatar {
+		width: 48px;
+		height: 48px;
+		border-radius: 50%;
+		background-color: var(--color-surface);
+		animation: pulse 1.2s infinite ease-in-out;
+		flex-shrink: 0;
+	}
+
+	// Line placeholders
+	.skeleton-lines {
+		flex-grow: 1;
+		display: grid;
+		gap: 0.5rem;
+
+		span {
+			display: block;
+			height: 0.75rem;
+			background-color: var(--color-surface-muted);
+			border-radius: var(--radius-small);
+			animation: pulse 1.2s infinite ease-in-out;
+
+			&:nth-child(1) {
+				width: 60%;
+			}
+
+			&:nth-child(2) {
+				width: 90%;
+			}
+		}
+	}
+}
+
+//----------------------------------
+// Animations
+//----------------------------------
+
+// Fade-in for entering placeholder blocks
+@keyframes fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(6px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+// Pulse animation for loading/skeleton
+@keyframes pulse {
+	0%, 100% {
+		opacity: 0.4;
+	}
+	50% {
+		opacity: 1;
+	}
+}

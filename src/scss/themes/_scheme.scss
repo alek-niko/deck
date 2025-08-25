@@ -1,0 +1,23 @@
+// =============================================================================
+// THEME SCHEME
+// themes/_scheme.scss
+// -----------------------------------------------------------------------------
+// Handles automatic theme switching based on system preferences.
+// - Applies dark theme styles via @media (prefers-color-scheme: dark)
+// - Respects manual theme toggles using `.dark` and `.light` classes
+// - Keeps system preference as default, but allows explicit overrides
+// =============================================================================
+
+// Use the _dark.scss file to get access to the mixin.
+// The `as theme` part namespaces it to avoid naming conflicts.
+@use 'dark' as theme;
+
+@media (prefers-color-scheme: dark) {
+	// Apply the dark theme variables to the :root element when the user's
+	// system is set to dark mode, BUT ONLY IF a manual theme (.light or .dark)
+	// has NOT been explicitly set. This makes the system preference the
+	// default, but gives the user's choice precedence.
+	:root:not(.light):not(.dark) {
+		@include theme.dark-theme-variables;
+	}
+}

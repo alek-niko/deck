@@ -1,0 +1,19 @@
+// ============================================
+// FORM COMPONENTS ENTRY POINT
+// components/form/_index.scss
+// --------------------------------------------
+// Entry point for all form-related UI components.
+// - Forwards modular partials for inputs, controls, and utilities
+// - Provides a single import for form components
+// ============================================
+
+@forward 'base';			// Base form styles and layouts
+@forward 'input';			// Text and other input fields
+@forward 'textarea';		// Multi-line text inputs
+@forward 'select';			// Dropdown select styles
+@forward 'radio';			// Radio button styles
+@forward 'checkbox';		// Checkbox input styles
+@forward 'range';			// Range sliders
+@forward 'styles';			// Form container and general styles
+@forward 'switch';			// Toggle switch controls
+@forward 'upload.drop';		// File upload dropzone styles

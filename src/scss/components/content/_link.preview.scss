@@ -1,0 +1,160 @@
+// =============================================================================
+// LINK PREVIEW COMPONENT
+// components/content/_link.preview.scss
+// -----------------------------------------------------------------------------
+// Provides a styled preview card for external links.
+// Supports horizontal and vertical layouts, images, descriptions, and modifiers.
+// =============================================================================
+
+.link-preview {
+	
+	display: flex;
+	overflow: hidden; // Ensures content respects the border-radius.
+	max-width: 500px; // Consider tokenizing
+	margin: var(--spacing-default) 0;
+
+	font-family: var(--font-primary);
+	background-color: var(--color-surface);
+	border: 1px solid transparent; // Use transparent border to prevent layout shift
+	border-radius: var(--radius-md);
+	box-shadow: none;
+
+	text-decoration: none;
+	transition: all var(--transition-duration) ease-out;
+
+	&:focus {
+		outline: 2px solid var(--color-link);
+		outline-offset: 2px;
+	}
+
+	// =========================================================================
+	// ELEMENT: IMAGE (.link-preview-image)
+	// =========================================================================
+	
+	&-image {
+		flex-shrink: 0;
+		width: 125px;
+		background-color: var(--color-surface-muted);
+		border-right: 1px solid var(--color-border);
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	// =========================================================================
+	// ELEMENT: CONTENT (.link-preview-content)
+	// =========================================================================
+	
+	&-content {
+		display: flex;
+		flex-direction: column;
+		padding: var(--spacing-md);
+		flex-grow: 1;
+		min-width: 0;
+	}
+
+	// =========================================================================
+	// ELEMENT: TITLE (.link-preview-title)
+	// =========================================================================
+	
+	&-title {
+		margin: 0 0 0.25em;
+		font-size: 1rem; // Could use a token for title text size
+		font-weight: 600;
+		color: var(--color-text);
+		transition: color var(--transition-duration) ease;
+
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		.link-preview:hover & {
+			color: var(--color-link);
+		}
+	}
+
+	// =========================================================================
+	// ELEMENT: DESCRIPTION (.link-preview-description)
+	// =========================================================================
+	
+	&-description {
+		margin: 0;
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+		line-height: 1.4;
+		flex-grow: 1;
+
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+	}
+
+	// =========================================================================
+	// ELEMENT: URL (.link-preview-url)
+	// =========================================================================
+	
+	&-url {
+		margin-top: var(--spacing-sm);
+		font-size: 0.8125rem;
+		font-weight: 400;
+		color: var(--color-text-secondary);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-transform: uppercase;
+	}
+
+	// =========================================================================
+	// MODIFIERS
+	// =========================================================================
+	
+	&-border {
+		border-color: var(--color-border);
+	}
+
+	&-shadow {
+		box-shadow: var(--shadow-sm);
+
+		&:hover,
+		&:focus {
+			box-shadow: var(--shadow-md);
+			transform: translateY(-2px);
+		}
+	}
+
+	&-vertical {
+		flex-direction: column;
+
+		.link-preview-image {
+			width: 100%;
+			height: var(--height-medium);
+			border-right: none;
+			border-bottom: 1px solid var(--color-border);
+		}
+	}
+}
+
+// =============================================================================
+// RESPONSIVE: MOBILE VIEW
+// =============================================================================
+
+@media (max-width: 600px) {
+	.link-preview {
+		flex-direction: column;
+
+		&-image {
+			width: 100%;
+			height: var(--height-medium);
+			border-right: none;
+			border-bottom: 1px solid var(--color-border);
+		}
+
+		&-description {
+			-webkit-line-clamp: 2;
+		}
+	}
+}

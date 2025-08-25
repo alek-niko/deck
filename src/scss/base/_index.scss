@@ -1,0 +1,12 @@
+// ============================================
+// BASE LAYER ENTRY POINT
+// base/_index.scss
+// --------------------------------------------
+// Base Styles Entry Point
+// - Forwards global base styles, resets, and overrides
+// - Provides foundational styling for the entire app
+// ============================================
+
+@forward 'body';		// Base body element styles
+@forward 'overrides';	// Global style overrides and patches
+@forward 'resets';		// CSS resets and normalization

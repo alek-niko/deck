@@ -1,0 +1,27 @@
+// ============================================
+// LAYOUT MIXINS
+// abstracts/mixins/_mixins-layout.scss
+// ============================================
+
+@use '../variables/grid';
+
+/// --------------------------------------------
+/// GRID COLUMNS
+/// --------------------------------------------
+/// Generates utility classes for spanning grid columns.
+///
+/// @requires $grid-columns - Total number of grid columns (e.g., 12).
+/// @output   Utility classes in the format `.col-[n]-[total]`.
+///
+/// @example scss
+///   @include create-grid-columns();
+///   // Output: .col-2-6 { grid-column: span 6; }
+/// ---------------------------------------------
+
+@mixin create-grid-columns() {
+	@for $i from 1 through $grid-columns {
+		.col-#{$i}-#{$grid-columns} {
+			grid-column: span #{$i};
+		}
+	}
+}

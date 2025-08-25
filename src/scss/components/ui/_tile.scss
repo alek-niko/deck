@@ -1,0 +1,165 @@
+// =============================================================================
+// TILE COMPONENT
+// components/ui/_tile.scss
+// -----------------------------------------------------------------------------
+// Flexible section blocks used for layout and content grouping.
+// Supports:
+// - Responsive padding and sizing (.tile-xsmall, .tile-small, .tile-large, .tile-xlarge)
+// - Semantic background variants: default, primary, success, warning, danger, muted
+// - Custom color overrides via --tile-bg and --tile-color
+// - Layout helpers: grid, inset, elevated, border, stack
+// - Hover and responsive behavior, themeable for light/dark modes
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+// ---------------------------------------------------------------------
+// Base Tile
+// ---------------------------------------------------------------------
+// Default tile block with spacing, color, and flow-root layout.
+
+.tile {
+	display: flow-root;
+	position: relative;
+	box-sizing: border-box;
+	padding: var(--spacing-lg) var(--spacing-sm);
+	background-color: var(--tile-bg, var(--color-surface));
+	color: var(--tile-color, var(--color-text));
+	border-radius: 0;
+	transition: background-color var(--transition-duration) ease;
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+
+	// -----------------------------------------------------------------
+	// Size Variants
+	// -----------------------------------------------------------------
+	// Adjust padding for small to extra-large tile sizes.
+
+	&-xsmall {
+		padding-top: var(--spacing-sm);
+		padding-bottom: var(--spacing-sm);
+	}
+
+	&-small {
+		padding-top: var(--spacing-lg);
+		padding-bottom: var(--spacing-lg);
+	}
+
+	&-large {
+		padding-top: var(--spacing-xl);
+		padding-bottom: var(--spacing-xl);
+	}
+
+	&-xlarge {
+		padding-top: calc(var(--spacing-xl) * 2);
+		padding-bottom: calc(var(--spacing-xl) * 2);
+	}
+
+	// -----------------------------------------------------------------
+	// Semantic Color Variants
+	// -----------------------------------------------------------------
+	// Theme-aware background and text color variations.
+
+	&-default {
+		--tile-bg: var(--color-surface);
+		--tile-color: var(--color-text);
+	}
+
+	&-primary {
+		--tile-bg: var(--color-primary);
+		//--tile-color: var(--color-background);
+        --color-text: #fff;
+	}
+
+	&-success {
+		--tile-bg: var(--color-success);
+        --color-text: #fff;
+		//--tile-color: var(--color-background);
+	}
+
+	&-warning {
+		--tile-bg: var(--color-warning);
+        --color-text: #fff;
+		//--tile-color: var(--color-background);
+	}
+
+	&-danger {
+		--tile-bg: var(--color-danger);
+        --color-text: #fff;
+		//--tile-color: var(--color-background);
+	}
+
+	&-muted {
+		--tile-bg: var(--color-surface-muted);
+        //--color-text: #fff;
+		--tile-color: var(--color-text);
+	}
+
+	// -----------------------------------------------------------------
+	// Layout Helpers
+	// -----------------------------------------------------------------
+	// Provides border, elevation, grid layout, and stacking helpers.
+
+	&-inset {
+		border-radius: var(--radius-default);
+	}
+
+	&-border {
+		border: 1px solid var(--color-border-muted);
+	}
+
+	&-elevated {
+		box-shadow: var(--shadow-md);
+	}
+
+	&-grid {
+		display: grid;
+		gap: var(--spacing-default);
+	}
+
+	&-stack > * + * {
+		margin-top: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Hover State
+	// -----------------------------------------------------------------
+	// Background change on hover.
+
+	&-hover:hover {
+		background-color: var(--color-hover-surface);
+	}
+}
+
+// ---------------------------------------------------------------------
+// Responsive Padding
+// ---------------------------------------------------------------------
+// Adjust tile padding for larger screen sizes.
+
+@media (min-width: $breakpoint-sm) {
+	.tile {
+		padding-left: var(--spacing-md);
+		padding-right: var(--spacing-md);
+	}
+}
+
+@media (min-width: $breakpoint-md) {
+	.tile {
+		padding-left: var(--spacing-lg);
+		padding-right: var(--spacing-lg);
+		padding-top: var(--spacing-xl);
+		padding-bottom: var(--spacing-xl);
+
+		&-large {
+			padding-top: calc(var(--spacing-xl) * 2);
+			padding-bottom: calc(var(--spacing-xl) * 2);
+		}
+
+		&-xlarge {
+			padding-top: calc(var(--spacing-xl) * 3);
+			padding-bottom: calc(var(--spacing-xl) * 3);
+		}
+	}
+}

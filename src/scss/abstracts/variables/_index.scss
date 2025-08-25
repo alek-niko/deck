@@ -1,0 +1,42 @@
+// ===================================================================
+// ABSTRACTS VARIABLES INDEX
+// abstracts/variables/_index.scss
+// -------------------------------------------------------------------
+// Central entry point for all SCSS design variables
+// Forwards colors, typography, spacing, layout, effects, and breakpoints
+// ===================================================================
+
+// Color System
+// -------------------------------------------------------------------
+@forward 'colors';          // Raw and semantic color tokens
+
+// Icons
+// -------------------------------------------------------------------
+@forward 'icons';           // Icon tokens
+
+// Layout & Spacing
+// -------------------------------------------------------------------
+@forward 'layout';          // Layout-related variables
+@forward 'spacing';         // Padding, margin, and gap values
+
+// Content Grid
+// -------------------------------------------------------------------
+@forward 'grid';            // Content grid variables
+
+// Typography & Sizing
+// -------------------------------------------------------------------
+@forward 'typography';      // Font sizes, line-heights, weights, families
+
+// Visual Effects & Shadows
+// -------------------------------------------------------------------
+@forward 'effects';         // Easing, duration, distances, motion
+@forward 'elevation';       // Box-shadow maps for elevation levels
+
+// Borders & Layers
+// -------------------------------------------------------------------
+@forward 'border';          // Border radius, width, style tokens
+@forward 'z-index';         // Layering system for UI components
+
+// Responsive
+// -------------------------------------------------------------------
+@forward 'breakpoints';     // Fluid breakpoints (xs–xxl)

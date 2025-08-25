@@ -1,0 +1,27 @@
+// =============================================================================
+// NAVIGATION ENTRY POINT
+// components/navigation/_index.scss
+// -----------------------------------------------------------------------------
+// Central entry point for all navigation-related SCSS partials.
+// - Forwards individual navigation components for modular import
+// - Includes menus, tabs, pagination, and helper navigations
+// - Supports theme tokens, responsive layouts, and dark mode
+//
+// Notes:
+// - Use this file to import all navigation components into your main stylesheet
+// - Each forwarded partial is fully self-contained and production-ready
+// =============================================================================
+
+@forward 'breadcrumb';    // Breadcrumb navigation
+@forward 'drilldown';     // Drilldown menus
+@forward 'dropdown';      // Dropdown menus
+@forward 'dropnav';       // Drop navigation components
+@forward 'iconnav';       // Icon-based navigation
+@forward 'mega.menu';     // Mega menu layouts
+@forward 'nav';           // Base navigation styles
+@forward 'navbar';        // Navbar components
+@forward 'pagination';    // Pagination controls
+@forward 'subnav';        // Sub-navigation menus
+@forward 'switcher';      // Navigation switchers/toggles
+@forward 'tab';           // Tabbed navigation
+@forward 'thumbnav';      // Thumbnail navigation

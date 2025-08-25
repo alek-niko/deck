@@ -1,0 +1,144 @@
+// ============================================
+// WIRE COMPONENT
+// components/content/_wires.scss
+// --------------------------------------------
+// Themed list for brief news/activity items.
+// Supports hover elevation (.wire-hover) and size/compact variants.
+// Responsive tweaks for small screens.
+// Token-based colors, spacing, and radius.
+// ============================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+.wire {
+
+	//--------------------------------------------
+	// Root
+	//--------------------------------------------
+
+	--wire-title-size: 1.125rem; // 18px
+
+	list-style: none;
+	padding: 4px 0;
+	margin: 0;
+	//border-bottom: 1px solid var(--color-border-muted);
+	border-bottom: 1px solid var(--color-border);
+	overflow: hidden;
+
+	//--------------------------------------------
+	// Item
+	//--------------------------------------------
+	.news {
+		min-height: 68px;
+		//border-top: 1px solid var(--color-border-muted);
+		border-top: 1px solid var(--color-border);
+		cursor: pointer;
+		transition: background-color 0.14s ease;
+
+		.content {
+			display: flex;
+			flex-flow: column;
+			padding: 12px 10px;
+			box-sizing: border-box;
+			width: 100%;
+			overflow-x: hidden;
+
+			.title {
+				margin: 0;
+				font-size: var(--wire-title-size);
+				font-weight: 500;
+				line-height: 1.4;
+				color: var(--color-text);
+			}
+
+			span {
+				font-size: 0.75rem;
+				color: var(--color-text-muted);
+			}
+		}
+	}
+
+	//--------------------------------------------
+	// Hover Variant
+	//--------------------------------------------
+
+	&.wire-hover {
+		.news:hover {
+			border-color: transparent;
+
+			.content {
+				position: relative;
+				z-index: 10;
+				box-shadow:
+					0 1px 10px -1px rgba(0, 0, 0, 0.2),
+					0 1px 3px rgba(0, 0, 0, 0.14),
+					0 1px 5px rgba(0, 0, 0, 0.12);
+
+				@media (max-width: $breakpoint-md-max) {
+					box-shadow: none;
+				}
+			}
+		}
+	}
+
+	//--------------------------------------------
+	// Size Variant: .wire-sm
+	//--------------------------------------------
+
+	&.wire-sm {
+		.news {
+			min-height: 56px;
+
+			.content {
+				padding: 8px 8px;
+
+				.title {
+					font-size: 1rem; // 16px
+				}
+
+				span {
+					font-size: 0.6875rem; // ~11px
+				}
+			}
+		}
+	}
+
+	//--------------------------------------------
+	// Density Variant: .wire-compact
+	//--------------------------------------------
+	
+	&.wire-compact {
+		padding: 2px 0;
+
+		.news {
+			min-height: auto;
+
+			.content {
+				padding: 6px 8px;
+
+				.title {
+					font-size: 0.95rem;
+					line-height: 1.3;
+				}
+
+				span {
+					font-size: 0.6875rem;
+				}
+			}
+		}
+	}
+
+	//--------------------------------------------
+	// Responsive (Mobile)
+	//--------------------------------------------
+	
+	@media (max-width: $breakpoint-sm-max) {
+		.news .content {
+			padding: 10px 8px;
+
+			.title {
+				font-size: 1rem;
+			}
+		}
+	}
+}

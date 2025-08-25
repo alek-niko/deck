@@ -1,0 +1,60 @@
+// =============================================================================
+// OBJECT FIT & POSITION UTILITIES
+// components/utils/_object.scss
+// -----------------------------------------------------------------------------
+// Utility classes for controlling media scaling, cropping, and alignment.
+// - Aspect ratio helpers
+// - Object fit utilities (cover, contain, fill, none, scale-down)
+// - Object position utilities (top, bottom, left, right, center, corners)
+// - Designed for images, videos, and other replaced elements
+// =============================================================================
+
+// --------------------------------------------
+// Usage Example
+// Responsive image with fixed aspect ratio,
+// using object-fit and object-position utilities.
+//
+// <div class="aspect-16-9">
+//   <img src="..." class="object-cover object-bottom" alt="..." />
+// </div>
+// --------------------------------------------
+
+
+// -----------------------------------------------------------------------------
+// Aspect Ratio Utilities
+// -----------------------------------------------------------------------------
+/// Enforces fixed width-to-height ratios on block-level elements
+/// Requires width context to function correctly
+
+.aspect-1-1		{ aspect-ratio: 1 / 1; }	// Square (1:1)
+.aspect-16-9	{ aspect-ratio: 16 / 9; }	// Widescreen (16:9)
+.aspect-4-3		{ aspect-ratio: 4 / 3; }	// Traditional (4:3)
+.aspect-auto	{ aspect-ratio: auto; }		// Removes enforced ratio
+
+
+// -----------------------------------------------------------------------------
+// Object Fit Utilities
+// -----------------------------------------------------------------------------
+/// Defines how replaced elements scale to fit within their containers
+
+.object-fill		{ object-fit: fill; }		// Default: fills box, may stretch
+.object-contain		{ object-fit: contain; }	// Preserves aspect ratio, fits box
+.object-cover		{ object-fit: cover; }		// Fills box, crops overflow
+.object-none		{ object-fit: none; }		// No resizing
+.object-scale-down	{ object-fit: scale-down; } // Chooses smaller of none or contain
+
+
+// -----------------------------------------------------------------------------
+// Object Position Utilities
+// -----------------------------------------------------------------------------
+/// Sets alignment of media within container bounds (used with object-fit)
+
+.object-top				{ object-position: top; }
+.object-bottom			{ object-position: bottom; }
+.object-left			{ object-position: left; }
+.object-right			{ object-position: right; }
+.object-center			{ object-position: center; }
+.object-top-left		{ object-position: top left; }
+.object-top-right		{ object-position: top right; }
+.object-bottom-left		{ object-position: bottom left; }
+.object-bottom-right	{ object-position: bottom right; }

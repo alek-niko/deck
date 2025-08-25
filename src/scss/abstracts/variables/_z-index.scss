@@ -1,0 +1,41 @@
+// ===================================================================
+// Z-INDEX
+// abstracts/variables/_z-index.scss
+// -------------------------------------------------------------------
+// Z-Index system for UI layering
+// Establishes a consistent stacking context across components.
+// All layers are relative to `$z-index` as the base (default: 1000)
+// ===================================================================
+
+// Base z-index
+$z-index:				1000 !default;              // Global base layer
+
+/// --------------------------------------------
+/// Lower UI layers
+/// --------------------------------------------
+/// Layers that appear below core components like modals or overlays.
+/// @type Number
+
+$z-index-topbar:		$z-index - 100 !default;   // Notification bar, top loaders
+$z-index-fab:			$z-index + 150 !default;   // Floating action buttons
+
+/// --------------------------------------------
+/// Core UI layers
+/// --------------------------------------------
+/// Standard layering for sticky headers, sidebars, overlays, modals, and tooltips.
+/// @type Number
+
+$z-index-sticky:		$z-index + 100 !default;   // Sticky headers, navbars
+$z-index-overlay:		$z-index + 200 !default;   // Light overlays, backdrops
+$z-index-sidebar:		$z-index + 300 !default;   // Slide-in panels, side menus
+$z-index-header:		$z-index + 400 !default;   // Page headers, floating titles
+$z-index-modal:			$z-index + 500 !default;   // Dialogs, modals
+$z-index-tooltip:		$z-index + 600 !default;   // Tooltips, popovers
+
+/// --------------------------------------------
+/// Absolute top layer
+/// --------------------------------------------
+/// Reserved for highest priority elements (e.g., full-screen overlays)
+/// @type Number
+
+$z-index-app:			$z-index + 10000 !default; // Highest priority (e.g., screen overlays)

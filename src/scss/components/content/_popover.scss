@@ -1,0 +1,157 @@
+// ============================================
+// POPOVER / DIALOG COMPONENT
+// components/content/_popover.scss
+// --------------------------------------------
+// Production-ready, theme-aware popover/dialog.
+// Supports native <dialog> + Popover API.
+// Includes backdrop, interactive elements,
+// accessibility, animations, and positioning.
+// ============================================
+
+//--------------------------------------------
+// Reset Native <dialog>
+//--------------------------------------------
+dialog {
+	border: none;
+	padding: 0;
+	background: transparent;
+}
+
+//----------------------------------
+// Popover Base Styles
+//----------------------------------
+
+/**
+ * 1. Uses a class `.popover` for targeting, making it a reusable component.
+ * 2. The `:where()` pseudo-class keeps specificity at zero, making overrides easy.
+ * 3. Selects both programmatic (:popover-open) and declarative ([popover]) popovers.
+ * 4. All related styles (backdrop, interactive elements, variants) are nested within.
+ */
+:where(.popover:popover-open, .popover[popover]) {
+	// --- Scoped Custom Properties for configuration ---
+	--popover-width: 350px;
+	--popover-max-width: 90vw; // Prevents overflow on small screens
+	--popover-height: auto;
+	--popover-max-height: 80vh; // Allows scrolling for tall content
+	--popover-padding: 1.25rem;
+	--popover-margin: 0.75rem; // Default margin from viewport edge
+	--popover-border-radius: var(--radius-default);
+
+	--popover-bg: var(--color-surface);
+	--popover-shadow: var(--shadow-elevation);
+	--popover-z-index: 1500
+
+	// --- Layout & Presentation ---
+	position: absolute; // Popover API default
+	inset: 0; // Will be overridden by anchor positioning or JS
+	width: min(var(--popover-width), var(--popover-max-width));
+	height: var(--popover-height);
+	max-height: var(--popover-max-height);
+	margin: auto; // Center in viewport by default if not anchored
+	padding: var(--popover-padding);
+	box-sizing: border-box;
+	overflow: auto; // Use 'auto' to allow scrolling, not 'hidden'
+	z-index: var(--popover-z-index);
+
+	background: var(--popover-bg);
+	border: none;
+	border-radius: var(--popover-border-radius);
+	box-shadow: var(--popover-shadow);
+
+	// Backdrop Variant
+	// Apply a blur effect to the backdrop if the popover has this class
+	&.blur-bg::backdrop {
+		background-color: rgba(0, 0, 0, 0.1); // Optional: add a slight tint
+		backdrop-filter: blur(3px);
+	}
+
+	// Interactive Elements
+	button,
+	[role="button"],
+	a,
+	input,
+	select,
+	textarea {
+		transition: background-color 0.2s ease, box-shadow 0.2s ease;
+
+		&:hover,
+		&:focus-visible {
+			background-color: var(--color-hover-surface);
+		}
+
+		&:focus-visible {
+			outline: none;
+			box-shadow: 0 0 0 2px var(--color-accent);
+		}
+
+		&:active {
+			transform: scale(0.98);
+			transition: transform 0.1s ease;
+		}
+	}
+
+	// Accessibility: High Contrast
+	@media (forced-colors: active) {
+		border: 1px solid CanvasText;
+	}
+
+	// Anchor Positioning
+	@supports (top: anchor(top)) {
+		// Reset viewport-centric positioning when anchor is supported
+		margin: 0; 
+		inset: unset;
+
+		// Default anchor position (can be overridden by anchor-name)
+		inset-block-start: anchor(bottom var(--popover-margin));
+		inset-inline-start: anchor(start);
+	}
+}
+
+
+//--------------------------------------------
+// Popover Animation Utilities
+//--------------------------------------------
+
+.popover-fade-in {
+	animation: popoverFadeIn 0.3s ease-out forwards;
+}
+
+.popover-fade-out {
+	animation: popoverFadeOut 0.25s ease-in forwards;
+	pointer-events: none; // Prevent interaction during exit animation
+}
+
+@keyframes popoverFadeIn {
+	from {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes popoverFadeOut {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+}
+
+// ============================================
+// Example HTML
+// ============================================
+/*
+<button popovertarget="my-popover">Open Popover</button>
+
+<div id="my-popover" popover class="popover blur-bg">
+	<h3>Popover Title</h3>
+	<p>This popover has our base styles and a blurred backdrop.</p>
+	<button>A styled button</button>
+</div>
+*/

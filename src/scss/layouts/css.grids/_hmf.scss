@@ -1,0 +1,105 @@
+// =============================================================================
+// LAYOUT: HEADER + MAIN + FOOTER GRID
+// components/_grid-hmf.scss
+// -----------------------------------------------------------------------------
+// Responsive CSS Grid layout with full viewport height.
+//
+// Features:
+// - Header spans full width at top
+// - Main content fills available space in middle
+// - Footer spans full width at bottom
+// - Vertical scrolling for main content
+// - Responsive stacking for small viewports
+//
+// Dependencies:
+// - CSS custom properties:
+//   --header-height (--hh)
+//   --header-height-mobile (--hhm)
+//   --footer-height (--fh)
+//   --footer-height-mobile (--fhm)
+//   --layout-row-gap (--lrg)
+//   --layout-column-gap (--lcg)
+//
+// Usage example:
+// <body class="hmf">
+//   <header>Header content</header>
+//   <main>Main content</main>
+//   <footer>Footer content</footer>
+// </body>
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+.l-hmf {
+	
+	display: grid;
+
+	// -----------------------------------------------------------------
+	// Grid Template Areas & Rows/Columns
+	// -----------------------------------------------------------------
+
+	grid-template-areas:
+		"header"
+		"main"
+		"footer";
+
+	// Rows: fixed header + flexible main + fixed footer
+	grid-template-rows:
+		var(--hh, var(--header-height))
+		1fr
+		var(--fh, var(--footer-height));
+
+	// Single column layout
+	grid-template-columns: 1fr;
+
+	// Consistent gaps with fallbacks
+	row-gap: var(--lrg, var(--layout-row-gap));
+	column-gap: var(--lcg, var(--layout-column-gap));
+
+	// Full viewport height
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+
+	// -----------------------------------------------------------------
+	// Header Block
+	// -----------------------------------------------------------------
+	header {
+		grid-area: header;
+		background-color: var(--color-background);
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Main Content Block
+	// -----------------------------------------------------------------
+	main {
+		grid-area: main;
+		background-color: var(--color-background);
+		overflow-y: auto;
+		min-height: 0;
+		position: relative;
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Footer Block
+	// -----------------------------------------------------------------
+	footer {
+		grid-area: footer;
+		background-color: var(--color-background);
+		//padding: var(--spacing-default);
+	}
+
+	// -----------------------------------------------------------------
+	// Responsive: Small Screens
+	// -----------------------------------------------------------------
+	// Adjust header/footer heights on small devices
+	
+	@media (max-width: $breakpoint-sm-max) {
+		grid-template-rows:
+			var(--hhm, var(--header-height-mobile))
+			1fr
+			var(--fhm, var(--footer-height-mobile));
+	}
+}

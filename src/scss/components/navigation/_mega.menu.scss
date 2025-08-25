@@ -1,0 +1,138 @@
+// =============================================================================
+// MEGA MENU COMPONENT
+// components/navigation/_mega.menu.scss
+// -----------------------------------------------------------------------------
+// Provides a responsive fullscreen dropdown menu for navigation.
+// - Supports multiple menu sections with links
+// - Includes search input with focus styling
+// - Fully theme-ready and dark-mode compatible
+// - Uses tokenized colors, spacing, radius, and shadow variables
+// - Responsive layout with breakpoint-based adjustments
+//
+// Dependencies:
+// - abstracts/mixins/_responsive.scss (for media query helpers)
+// - theme.scss (for color, spacing, and radius tokens)
+// =============================================================================
+
+@use '../../abstracts/mixins/responsive' as *;
+
+//--------------------------------------
+// Core Mega Menu Container
+//--------------------------------------
+
+.mega-menu {
+	background: var(--color-surface);
+	border-bottom: 1px solid var(--color-border);
+	box-shadow: var(--shadow-md, 0 25px 27px -31px rgba(0, 0, 0, 0.25));
+	display: none;
+	position: fixed;
+	top: calc(var(--header-height) + 10px);
+	left: 0;
+	width: var(--deck-menu-width, 100%);
+	height: 100vh;
+	padding: var(--deck-menu-padding, 0);
+	overflow-y: auto;
+	box-sizing: border-box;
+	z-index: 9999;
+	transition: all 0.3s ease-in-out;
+
+	// Open state
+	&.open {
+		display: block;
+	}
+
+	//--------------------------------------
+	// Inner Container
+	//--------------------------------------
+	&-container {
+		padding: var(--spacing-md) var(--spacing-lg);
+
+		// Search input
+		.mega-menu-search {
+			width: 100%;
+			height: 48px;
+			font-size: 1rem;
+			color: var(--color-text);
+			background: var(--color-surface);
+			border: 1px solid var(--color-border);
+			border-radius: var(--radius-default);
+			padding: 0 calc(64px * 2) 0 var(--spacing-sm);
+			box-shadow: none;
+			box-sizing: border-box;
+
+			&:focus {
+				outline: 2px solid var(--color-primary);
+				outline-offset: 1px;
+			}
+		}
+
+		//--------------------------------------
+		// Menu Links & Sections
+		//--------------------------------------
+
+		.mega-menu-links {
+			width: 100%;
+
+			.mega-menu-sections {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				list-style: none;
+				padding-left: 0;
+				gap: var(--spacing-md);
+
+				.mega-menu-section {
+					flex: 1 1 auto;
+					min-width: 200px;
+					text-align: center;
+					margin-bottom: var(--spacing-lg);
+
+					// Responsive adjustments
+					@include respond-below(lg) {
+						flex: 1 1 calc(100% / 3);
+					}
+
+					@include respond-below(sm) {
+						flex: 1 1 100%;
+					}
+
+					// Section heading/link
+					>a {
+						display: block;
+						font-size: 1.125rem;
+						font-weight: 600;
+						color: var(--color-text);
+						text-decoration: none;
+
+						&:hover,
+						&:focus {
+							color: var(--color-primary);
+						}
+					}
+
+					// Sub-links list
+					>ul {
+						padding: 0;
+						margin: 0;
+						list-style: none;
+
+						>li {
+							margin: 12px 0px;
+
+							>a {
+								font-size: 1rem;
+								color: var(--color-text-muted);
+								text-decoration: none;
+
+								&:hover,
+								&:focus {
+									color: var(--color-primary);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

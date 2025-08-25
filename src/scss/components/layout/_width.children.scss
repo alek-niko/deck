@@ -1,0 +1,103 @@
+// =============================================================================
+// CHILD-WIDTH UTILITIES
+// components/layout/_width.children.scss
+// -----------------------------------------------------------------------------
+// Responsive flex children width helpers.
+// Features:
+// - Column-based widths (1 to 6) with gap compensation
+// - Breakpoint-specific responsive widths (sm, md, lg, xl)
+// - Utility variations: none, auto, full, fit, expand
+//
+// Example:
+//   <div class="child-width-1-3-sm">
+//     <div>Child 1</div>
+//     <div>Child 2</div>
+//     <div>Child 3</div>
+//   </div>
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+// -----------------------------------------------------------------------------
+// Configuration
+// -----------------------------------------------------------------------------
+
+/// Number of columns to generate for child-width utilities
+/// @type Number
+/// @default 6
+$child-width-columns: 6;
+
+/// Breakpoint map for responsive child-width utilities
+/// @type Map
+/// @default (sm: $breakpoint-sm, md: $breakpoint-md, lg: $breakpoint-lg, xl: $breakpoint-xl)
+$breakpoint-map: (
+	sm: $breakpoint-sm,
+	md: $breakpoint-md,
+	lg: $breakpoint-lg,
+	xl: $breakpoint-xl
+);
+
+
+// -----------------------------------------------------------------------------
+// Base widths (non-breakpoint)
+// Generates: .child-width-1-1 to .child-width-1-6
+// Applies gap compensation for flex layout
+// -----------------------------------------------------------------------------
+
+@for $i from 1 through $child-width-columns {
+	.child-width-1-#{$i} > * {
+		flex: 0 0 calc(100% / #{$i} - var(--gap, 0px) * (#{$i} - 1) / #{$i});
+		max-width: calc(100% / #{$i} - var(--gap, 0px) * (#{$i} - 1) / #{$i});
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Responsive widths
+// Generates breakpoint-specific variants (e.g., .child-width-1-2-sm)
+// Uses same gap compensation logic as base widths
+// -----------------------------------------------------------------------------
+
+@each $breakpoint, $value in $breakpoint-map {
+	@media (min-width: #{$value}) {
+		@for $i from 1 through $child-width-columns {
+		.child-width-1-#{$i} > * {
+			flex: 0 0 calc(100% / #{$i} - var(--gap, 0px) * (#{$i} - 1) / #{$i});
+			max-width: calc(100% / #{$i} - var(--gap, 0px) * (#{$i} - 1) / #{$i});
+		}
+		}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Width utility variations
+// -----------------------------------------------------------------------------
+
+// Auto width (child grows to fit content)
+.child-width-auto > * {
+	flex: 0 0 auto;
+}
+
+// Expand (fills available space in flex layout)
+.child-width-expand > * {
+	flex: 1 1 0;
+	min-width: 1px;
+}
+
+// None (hides the child completely)
+// Consider !important as it can be overriden if .class has display set
+.child-width-none > * {
+	display: none;
+}
+
+// Full width (takes up 100% of the container)
+.child-width-full > * {
+	flex: 0 0 100%;
+	max-width: 100%;
+}
+
+// Fit-content width (shrinks to content, with max-width constraint)
+.child-width-fit > * {
+	flex: 0 0 auto;
+	width: fit-content;
+	max-width: 100%;
+}

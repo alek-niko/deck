@@ -1,0 +1,79 @@
+// ============================================
+// ALIGN LAYOUT
+// components/layout/_align.scss
+// --------------------------------------------
+// Float & Legacy Alignment Utilities
+// - Supports floated elements in rich-text/markdown
+// - Provides margin spacing tokens for inline media
+// - Includes logical (RTL-safe) float variants
+// - Includes clearfix for float containment
+// ============================================
+
+$align-margin: 30px !default;		// Default margin around floated elements
+$align-margin-lg: 40px !default;	// Larger margin variant
+
+// --------------------------------------------
+// Float Utilities (Legacy)
+// --------------------------------------------
+
+.float-left {
+	float: left;
+	margin-right: var(--align-margin, $align-margin);
+	margin-bottom: var(--align-margin, $align-margin);
+}
+
+.float-right {
+	float: right;
+	margin-left: var(--align-margin, $align-margin);
+	margin-bottom: var(--align-margin, $align-margin);
+}
+
+.float-left-lg {
+	float: left;
+	margin-right: var(--align-margin, $align-margin-lg);
+	margin-bottom: var(--align-margin, $align-margin-lg);
+}
+
+.float-right-lg {
+	float: right;
+	margin-left: var(--align-margin, $align-margin-lg);
+	margin-bottom: var(--align-margin, $align-margin-lg);
+}
+
+// --------------------------------------------
+// Logical Floats (RTL-Safe)
+// --------------------------------------------
+
+.float-start {
+	float: inline-start;
+	margin-inline-end: var(--align-margin, $align-margin);
+	margin-block-end: var(--align-margin, $align-margin);
+}
+
+.float-end {
+	float: inline-end;
+	margin-inline-start: var(--align-margin, $align-margin);
+	margin-block-end: var(--align-margin, $align-margin);
+}
+
+// --------------------------------------------
+// Centering Utility
+// --------------------------------------------
+
+.center-block,
+.align-center {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-bottom: var(--align-margin, $align-margin);
+}
+
+// --------------------------------------------
+// Float Containment
+// --------------------------------------------
+
+.clearfix::after {
+	content: '';
+	display: table;
+	clear: both;
+}

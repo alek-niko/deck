@@ -1,0 +1,117 @@
+// ============================================
+// RANGE INPUT COMPONENT
+// components/form/_range.scss
+// --------------------------------------------
+// Custom range slider styles.
+// - Fully tokenized with CSS variables
+// - Supports WebKit and Firefox browsers
+// - Includes focus, hover, and disabled states
+// - Circular thumb with smooth transitions
+// ============================================
+
+.range {
+	
+	// Base reset
+	-webkit-appearance: none;
+
+	appearance: none;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
+	margin: 0;
+	vertical-align: middle;
+	background: transparent;
+
+	// Remove default focus outline
+	&:focus {
+		outline: none;
+	}
+
+	// Firefox legacy outer focus	
+	&::-moz-focus-outer {
+		border: none;
+	}
+
+    // ----------------------------------------
+    // Track Styles
+    // ----------------------------------------	
+
+	// WebKit track
+	&::-webkit-slider-runnable-track {
+		height: 3px;
+		background-color: color-mix(in srgb, var(--color-surface) 95%, black);
+		transition: background-color 140ms ease-in-out;
+	}
+
+	// Focused/active track (WebKit)
+	&:focus::-webkit-slider-runnable-track,
+	&:active::-webkit-slider-runnable-track {
+		background-color: color-mix(in srgb, var(--color-surface) 90%, black);
+	}
+
+	// Firefox track
+	&::-moz-range-track {
+		height: 3px;
+		background-color: color-mix(in srgb, var(--color-surface) 95%, black);
+		transition: background-color 140ms ease-in-out;
+	}
+
+	// Focused track (Firefox)
+	&:focus::-moz-range-track {
+		background-color: color-mix(in srgb, var(--color-surface) 90%, black);
+	}
+
+    // ----------------------------------------
+    // Thumb Styles
+    // ----------------------------------------
+
+	// WebKit thumb
+	&::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		height: 15px;
+		width: 15px;
+		margin-top: -6px; // aligns with 3px track
+		border-radius: 50%;
+		background-color: var(--color-border-strong);
+		cursor: pointer;
+		transition: background-color 140ms ease-in-out;
+
+		&:hover {
+			background-color: var(--color-primary);
+		}
+	}
+
+	// Firefox thumb
+	&::-moz-range-thumb {
+		border: none;
+		height: 15px;
+		width: 15px;
+		border-radius: 50%;
+		margin-top: -6px;
+		background-color: var(--color-border-strong);
+		cursor: pointer;
+		transition: background-color 140ms ease-in-out;
+
+		&:hover {
+			background-color: var(--color-primary);
+		}
+
+		@if (mixin-exists(hook-form-range-thumb)) {
+			@include hook-form-range-thumb();
+		}
+	}
+
+	// ----------------------------------------
+    // Disabled state
+    // ----------------------------------------
+
+	&:disabled {
+		cursor: not-allowed;
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			background-color: var(--color-border-muted);
+			cursor: not-allowed;
+		}
+	}
+}

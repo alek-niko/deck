@@ -1,0 +1,45 @@
+// =============================================================================
+// UI COMPONENTS ENTRY POINT
+// components/ui/_index.scss
+// -----------------------------------------------------------------------------
+// Central entry point for all UI widget partials.
+// - Forwards all modular UI components for consistent imports
+// - Includes alerts, buttons, modals, overlays, navigation, and more
+// - Keeps component namespace organized and scalable
+// =============================================================================
+
+@forward 'accordion';			// Accordion components
+@forward 'alert';				// Alert messages and banners
+@forward 'badge';				// Badges and labels
+@forward 'blockquote';			// Blockquote styling
+@forward 'button';				// Buttons and controls
+@forward 'card';				// Card containers
+@forward 'description.list';	// Description lists styling
+@forward 'divider';				// Divider/separator components
+//@forward 'drop';				// Dropdown/drop components
+@forward 'drop.v2';
+@forward 'dropbar';				// Dropbar UI elements
+@forward 'embed';	
+@forward 'fab';					// Floating action buttons
+@forward 'heading';				// Headings and title styles
+@forward 'hero';
+@forward 'label';				// Form and UI labels
+//@forward 'lightbox';				// Lightbox components
+@forward 'lightbox.v3';
+@forward 'list';				// List styling
+//@forward 'media';
+@forward 'modal';				// Modal dialogs
+@forward 'offcanvas';			// Off-canvas sidebars
+@forward 'overlay';				// Overlay backgrounds
+@forward 'palette';				// Color palette helpers
+@forward 'panel';				// Panel containers
+@forward 'placeholder';			// Placeholder styles
+@forward 'progress';			// Progress bars
+@forward 'search';				// Search components
+@forward 'spinner';				// Loading spinners
+//@forward 'table';				// Table styling
+@forward 'table.v3';
+//@forward 'ticker';
+@forward 'tile';				// Tile/grid items
+@forward 'toast';               // Notifications and toasts
+@forward 'tooltip';				// Tooltips and popovers

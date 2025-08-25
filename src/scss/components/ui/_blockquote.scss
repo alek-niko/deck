@@ -1,0 +1,74 @@
+// =============================================================================
+// BLOCKQUOTE COMPONENT
+// components/ui/_blockquote.scss
+// -----------------------------------------------------------------------------
+// Provides semantic, theme-aware styles for <blockquote> elements.
+//
+// Features:
+// - Tokenized border + footer colors
+// - Typography adjustments for readability
+// - Optional footer/citation styling
+// - Accessible quote mark styling (opt-in)
+// =============================================================================
+
+blockquote {
+
+	// -------------------------------------------------------------------------
+	// Base Appearance
+	// -------------------------------------------------------------------------
+
+	--blockquote-border-color: var(--color-border-muted);
+	--blockquote-footer-color: var(--color-text-muted);
+
+	padding-inline: 1em;
+	font-size: 1.25rem;
+	line-height: 1.5;
+	font-style: italic;
+	border-left: 4px solid var(--blockquote-border-color);
+
+
+	// -------------------------------------------------------------------------
+	// Layout & Spacing
+	// -------------------------------------------------------------------------
+
+	&:not(:first-child) {
+		margin-top: 1.25rem;
+	}
+
+	p:last-of-type {
+		margin-bottom: 0;
+	}
+
+	// -------------------------------------------------------------------------
+	// Footer (Cite / Attribution)
+	// -------------------------------------------------------------------------
+
+	footer,
+	cite {
+		display: block;
+		margin-top: 0.625rem;
+		font-size: 0.875rem;
+		line-height: 1.5;
+		font-style: normal;
+		color: var(--blockquote-footer-color);
+	}
+}
+
+// =============================================================================
+// Optional: Accessible Quote Mark Styling
+// -----------------------------------------------------------------------------
+// Enable decorative quote marks for visual emphasis.
+// Disabled by default to preserve semantic HTML & accessibility.
+// =============================================================================
+//
+// blockquote::before {
+//   content: open-quote;
+//   font-size: 2rem;
+//   color: var(--color-border);
+//   line-height: 0;
+//   margin-right: 0.25em;
+// }
+//
+// blockquote p {
+//   display: inline;
+// }

@@ -1,0 +1,19 @@
+// ============================================
+// CSS GRID
+// layouts/css.grids/_index.scss
+// --------------------------------------------
+// CSS Grid Layout Partials Entry Point
+// - Forwards various grid layout modules
+// - Modular approach to grid-based layouts
+// ============================================
+
+@forward 'hm';			// Header + Main
+@forward 'hmf';			// Header + Main + Footer
+@forward 'hsm';			// Full Header + Sidebar + Main
+@forward 'hsmf';		// Full Header + Sidebar + Main + Footer
+@forward 'hsmf.wide';	// Full Header + Sidebar + Main + Full Footer
+@forward 'shm';			// Full Sidebar Left + Header + Main
+@forward 'shmf';		// Full Sidebar Left + Header + Main + Footer
+@forward 'shmo';		// Full Sidebar Left + Header + Main + Full Options
+@forward 'sm';			// Sidebar Left and Main (No Header)
+@forward 'smo';			// Sidebar + Main + Options (Single Row)

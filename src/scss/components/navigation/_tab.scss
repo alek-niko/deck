@@ -1,0 +1,255 @@
+// =============================================================================
+// TABS COMPONENT
+// components/navigation/_tab.scss
+// -----------------------------------------------------------------------------
+// Provides tokenized, responsive, and animated tab navigation.
+// - Supports horizontal (top/bottom) and vertical (left/right) tabs
+// - Active, disabled, hover, and focus states
+// - Animated indicators for active tabs
+// - Themed via CSS variables for light/dark mode support
+// - Optional animated tab content: fade, slide, scale
+//
+// Dependencies:
+// - tokens.scss (for --color-*, --radius-*, --spacing-*)
+// - abstracts/mixins/_responsive.scss (if needed)
+// =============================================================================
+
+
+//--------------------------------------
+// Transition & Transform Helpers
+//--------------------------------------
+
+@mixin transition($properties...) {
+	-webkit-transition: $properties;
+	-moz-transition: $properties;
+	transition: $properties;
+}
+
+@mixin transform($value) {
+	-webkit-transform: $value;
+	-moz-transform: $value;
+	-ms-transform: $value;
+	transform: $value;
+}
+
+//--------------------------------------
+// Tabs Container
+//--------------------------------------
+
+.tab {
+
+	--tab-color: var(--color-text-muted);
+	--tab-color-active: var(--color-text);
+	--tab-accent: var(--color-primary);
+	--tab-hover-bg: rgba(0, 0, 0, 0.06);
+	--tab-disabled: rgba(0, 0, 0, 0.4);
+	--tab-indicator-color: var(--color-primary);
+
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+
+	//--------------------------------------
+	// Tab Items
+	//--------------------------------------  
+
+	> li {
+		cursor: pointer;
+		color: var(--tab-color);
+		position: relative;
+		padding: 8px 15px;
+		font-size: 14px;
+		font-weight: 500;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		column-gap: 0.25em;
+		border: none;
+		border-radius: 15px 15px 0 0;
+
+		@include transition(color 150ms ease);
+
+		&:hover {
+			color: var(--tab-color-active);
+		}
+
+		&.active {
+			color: var(--tab-color-active);
+		}
+
+        //--------------------------------------
+        // Animated Indicator
+        //--------------------------------------
+
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: -1px;
+			left: 0;
+			width: 100%;
+			height: 3px;
+			background: var(--tab-indicator-color);
+			border-radius: 0 0 6px 6px;
+
+			@include transform(scaleX(0));
+			@include transition(transform 280ms ease-in-out);
+		}
+
+		&.active::after {
+			@include transform(scaleX(1));
+		}
+	}
+
+    //--------------------------------------
+    // Disabled Tabs
+    //--------------------------------------
+
+	>.disabled {
+		color: rgba(0, 0, 0, 0.4);
+		pointer-events: none;
+	}
+
+    //--------------------------------------
+    // Bottom Tabs
+    //--------------------------------------
+
+	&.tab-bottom > li {
+		border-radius: 0 0 15px 15px;
+
+		&::after {
+			top: -1px;
+			bottom: auto;
+			border-radius: 6px 6px 0px 0px;
+		}
+	}
+
+    //--------------------------------------
+    // Vertical Tabs (Left / Right)
+    //--------------------------------------
+
+	&.tab-left {
+		flex-direction: column;
+
+		> li {
+			border-radius: 15px 0 0 15px;
+			justify-content: flex-start;
+			padding-left: 15px;
+
+			&::after {
+				top: 0;
+				bottom: 0;
+				left: -1px;
+				right: auto;
+				width: 3px;
+				height: 100%;
+				border-radius: 6px 0px 0px 6px;
+				@include transform(scaleY(0));
+				@include transition(transform 280ms ease-in-out);
+			}
+
+			&.active::after {
+				@include transform(scaleY(1));
+			}
+
+			+ li {
+				margin-top: 4px;
+			}
+		}
+	}
+
+	&.tab-right {
+		flex-direction: column;
+
+		> li {
+			border-radius: 0 15px 15px 0;
+			justify-content: flex-start;
+			padding-left: 15px;
+
+			&::after {
+				top: 0;
+				bottom: 0;
+				left: auto;
+				right: -1px;
+				width: 3px;
+				height: 100%;
+				border-radius: 0px 6px 6px 0px;
+				@include transform(scaleY(0));
+				@include transition(transform 280ms ease-in-out);
+			}
+
+			&.active::after {
+				@include transform(scaleY(1));
+			}
+
+			+ li {
+				margin-top: 4px;
+			}
+		}
+	}
+}
+
+//--------------------------------------
+// Tab Content
+//--------------------------------------
+
+.tab-content {
+	// NEW: Needed to contain the absolutely positioned children.
+	position: relative;
+	padding: 15px 0;
+
+	> div {
+		display: none;
+	}
+	> div.active {
+		display: block;
+	}
+}
+
+//--------------------------------------
+// Animated Tab Content Variants
+//--------------------------------------
+
+.tab-content-fade > div,
+.tab-content-slide > div,
+.tab-content-scale > div {
+	display: block; // Override display:none to allow animation.
+	
+	// NEW: Take non-active panels out of document flow.
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+
+	opacity: 0;
+	visibility: hidden;
+	@include transform(translateY(5px)); // A subtle default starting position
+	@include transition(opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s); // Delay hiding
+}
+
+.tab-content-fade > div.active,
+.tab-content-slide > div.active,
+.tab-content-scale > div.active {
+	// NEW: Put active panel back into document flow.
+	position: relative;
+	opacity: 1;
+	visibility: visible;
+	@include transform(none); // Reset transform for a clean final state
+	@include transition(opacity 0.3s ease, transform 0.3s ease);
+}
+
+
+// Specific transforms for each animation type's initial (hidden) state
+.tab-content-slide > div {
+	@include transform(translateY(20px));
+}
+
+.tab-content-scale > div {
+	@include transform(scale(0.95));
+}
+
+// The active state for scale needs to explicitly set scale back to 1
+.tab-content-scale > div.active {
+	@include transform(scale(1));
+}

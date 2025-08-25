@@ -1,0 +1,32 @@
+// ============================================
+// SVG MIXINS
+// abstracts/mixins/_svg.scss
+// --------------------------------------------
+// SVG Utilities
+// - Inline fill color override for background images
+// ============================================
+
+@use './functions' as * ;
+
+
+/// ----------------------------------------------
+/// SVG FILL
+/// ----------------------------------------------
+/// Changes the fill color of an inlined SVG background image.
+///
+/// @param {String} $src          - The raw SVG data string.
+/// @param {String} $color-default - The original color/hex to find (e.g. #000000).
+/// @param {String} $color-new    - The new color/hex to use (e.g. #FF5722).
+///
+/// @example scss
+///   .icon {
+///     @include svg-fill('<svg ...></svg>', '#000000', '#FF5722');
+///   }
+/// ----------------------------------------------
+
+@mixin svg-fill($src, $color-default, $color-new) {
+	$replace-src: str-replace($src, $color-default, $color-new) !default;
+	$replace-src: str-replace($replace-src, '#', '%23');
+	$replace-src: quote($replace-src);
+	background-image: url($replace-src);
+}

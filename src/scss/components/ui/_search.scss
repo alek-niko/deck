@@ -1,0 +1,155 @@
+// =============================================================================
+// SEARCH COMPONENT
+// components/ui/_search.scss
+// -----------------------------------------------------------------------------
+// Input search field with optional icon, toggle, and responsive variants.
+// Supports: default, navbar, large, toggle variants.
+// =============================================================================
+
+// -------------------------------------------------------------------------
+// Base Search
+// -------------------------------------------------------------------------
+// Main search wrapper, relative positioning and display inline-block
+
+.search {
+	display: inline-block;
+	position: relative;
+	max-width: 100%;
+	margin: 0;
+
+    // ---------------------------------------------------------------------
+    // Search Input
+    // ---------------------------------------------------------------------
+    // Base input element with reset styles, placeholder, and cross-browser support
+
+	&-input {
+		box-sizing: border-box;
+		margin: 0;
+		border-radius: 0;
+		font: inherit;
+		overflow: visible;
+		-webkit-appearance: none;
+		vertical-align: middle;
+		width: 100%;
+		border: none;
+		color: #666;
+
+		&:focus { outline: none; }
+
+		&::placeholder { color: #999; }
+
+		&::-webkit-search-cancel-button,
+		&::-webkit-search-decoration {
+			-webkit-appearance: none;
+		}
+
+		&::-moz-placeholder { opacity: 1; }
+	}
+
+    // ---------------------------------------------------------------------
+    // Search Icon
+    // ---------------------------------------------------------------------
+    // Icon container, alignment, hover color, and pointer-events handling
+
+	&-icon {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		color: #999;
+
+		&:hover { color: #999; }
+
+		&:not(a):not(button):not(input) { pointer-events: none; }
+
+		&-flip {
+			right: 0;
+			left: auto;
+		}
+	}
+
+    // ---------------------------------------------------------------------
+    // Default Variant
+    // ---------------------------------------------------------------------
+    // Standard search input with default width and padding adjustments
+
+	&-default {
+		width: 240px;
+
+		.search-input {
+			height: 40px;
+			padding-left: 10px;
+			padding-right: 10px;
+			background: #f8f8f8;
+
+			&:focus {
+				background-color: darken(#f8f8f8, 5%);
+			}
+		}
+
+		.search-icon {
+			 width: 40px;
+		}
+
+		.search-icon:not(.search-icon-flip) ~ .search-input { padding-left: 40px; }
+		.search-icon-flip ~ .search-input { padding-right: 40px; }
+	}
+
+    // ---------------------------------------------------------------------
+    // Navbar Variant
+    // ---------------------------------------------------------------------
+    // Search style for navbars, larger width and transparent background
+
+	&-navbar {
+		width: 400px;
+
+		.search-input {
+			height: 40px;
+			background: transparent;
+			font-size: 1.5rem;
+		}
+
+		.search-icon { width: 40px; }
+
+		.search-icon:not(.search-icon-flip) ~ .search-input { padding-left: 40px; }
+		.search-icon-flip ~ .search-input { padding-right: 40px; }
+
+	}
+
+    // ---------------------------------------------------------------------
+    // Large Variant
+    // ---------------------------------------------------------------------
+    // Extra-large search input for hero sections or landing pages
+
+	&-large {
+		width: 500px;
+
+		.search-input {
+			height: 80px;
+			background: transparent;
+			font-size: 2.625rem;
+		}
+
+		.search-icon { width: 80px; }
+
+		.search-icon:not(.search-icon-flip) ~ .search-input { padding-left: 80px; }
+		.search-icon-flip ~ .search-input { padding-right: 80px; }
+
+	}
+
+    // ---------------------------------------------------------------------
+    // Toggle Icon
+    // ---------------------------------------------------------------------
+    // Small icon-only variant for toggling search visibility
+		
+	&-toggle {
+		color: #999;
+
+		&:hover {
+			color: #666;
+		}
+	}
+}

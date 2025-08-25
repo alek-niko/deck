@@ -1,0 +1,32 @@
+// ============================================================================
+// LAYOUT VARIABLES
+// abstracts/variables/_layout.scss
+// ----------------------------------------------------------------------------
+// Layout-related variables: dimensions and grid system settings.
+// Used throughout layout components for consistent sizing and spacing.
+// ============================================================================
+
+/// --------------------------------------------
+/// HEADER, FOOTER, SIDEBAR, CONTENT DIMENSIONS
+/// --------------------------------------------
+/// Layout dimensions used throughout the UI.
+
+$header-height:					48px !default;	// Standard header height (desktop)
+$header-height-mobile:			48px !default;	// Header height on mobile devices
+
+$footer-height:					48px !default;	// Standard footer height (desktop)
+$footer-height-mobile:			56px !default;	// Footer height on mobile devices (taller for better touch targets)
+
+$sidebar-width:					260px !default;	// Width of the sidebar (expanded)
+$sidebar-mini-width:			72px !default;	// Collapsed sidebar width (mini variant)
+$content-padding:				24px !default;	// Padding inside main content area
+
+
+/// --------------------------------------------
+/// LAYOUT GRID GAPS
+/// --------------------------------------------
+/// Spacing between layout grid areas and columns/rows.
+
+$layout-grid-gap:				0 !default;		// General gap for layout grid areas
+$layout-column-gap:				0 !default;		// Horizontal gap between layout grid columns
+$layout-row-gap:				0 !default;		// Vertical gap between layout grid rows

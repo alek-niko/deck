@@ -1,0 +1,108 @@
+// ============================================
+// COMPONENT: Avatar
+// components/content/_article.scss
+// --------------------------------------------
+// Provides styles for user avatars (images,
+// initials, and variants).
+// - Supports size, background, color, border
+// - Shape modifiers: circle, rounded, square
+// - Variants: border, image, initials
+// ============================================
+
+@use '../../abstracts/variables/colors' as *;
+
+// --------------------------------------------
+// Default SCSS Variables (with !default)
+// --------------------------------------------
+// These provide fallbacks and can be overridden
+// before importing this file.
+// --------------------------------------------
+
+$avatar-size-default:			32px				!default;
+$avatar-bg-default:				transparent			!default;
+$avatar-color-default:			$text-color-primary !default;
+$avatar-border-color-default:	$border-color		!default;
+$avatar-border-width-default:	0					!default;
+$avatar-radius-circle:			50%					!default;
+$avatar-radius-rounded:			50px				!default;
+$avatar-radius-square:			8px					!default;
+
+// --------------------------------------------
+// Base Avatar
+// --------------------------------------------
+// Uses CSS custom properties for runtime theming.
+// --------------------------------------------
+
+.avatar {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+
+	// CSS variable defaults
+	--avatar-size:			#{$avatar-size-default};
+	--avatar-bg:			#f5f5f5;
+	--avatar-color:			var(--color-text, #{$avatar-color-default});
+	--avatar-border-color:	var(--color-border, #{$avatar-border-color-default});
+	--avatar-border-width:	#{$avatar-border-width-default};
+
+	// Layout
+	width: var(--avatar-size);
+	height: var(--avatar-size);
+	
+	// Styles
+	background: var(--avatar-bg);
+	color: var(--avatar-color);
+	border: var(--avatar-border-width) solid var(--avatar-border-color);
+	border-radius: $avatar-radius-circle;
+
+	// Typography
+	font-size: calc(var(--avatar-size) * 0.375);
+	font-weight: 500;
+	text-align: center;
+	line-height: 1;
+
+	// ----------------------------------------
+	// Avatar Image
+	// ----------------------------------------
+
+	&-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	// ----------------------------------------
+	// Avatar Initials
+	// ----------------------------------------
+
+	&-initials {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--avatar-bg);
+		color: var(--avatar-color);
+		font-size: calc(var(--avatar-size) * 0.375);
+		font-weight: 500;
+		text-align: center;
+		line-height: 1;
+	}
+
+	// ----------------------------------------
+	// Variants
+	// ----------------------------------------
+	&-border {
+		--avatar-border-width: 1px;
+	}
+
+	&-rounded {
+		border-radius: $avatar-radius-rounded;
+	}
+
+	&-square {
+		border-radius: $avatar-radius-square;
+	}
+}

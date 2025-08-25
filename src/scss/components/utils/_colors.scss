@@ -1,0 +1,90 @@
+//-----------------------------------------------------------------------------
+//  COLOR UTILITIES
+//  components/utils/_colors.scss
+//-----------------------------------------------------------------------------
+// - Provides dynamically generated color classes and placeholders
+// - Classes are optional, mainly for rapid prototyping or utility-first usage
+// - Placeholders (`%...`) allow semantic extension without CSS bloat
+//
+//  Related Files:
+//  - _color.variables.scss → SCSS variables
+//  - _color.tokens.scss    → CSS custom properties
+//  - _color.palette.scss   → $palette map
+//-----------------------------------------------------------------------------
+
+
+////
+/// PLACEHOLDER SELECTORS
+/// ---------------------------------------------------------------------------
+/// These selectors do not output CSS until extended.
+/// They are useful for semantic class creation or component-level styling.
+///
+/// @example scss - Usage
+///   .btn-primary {
+///     @extend %color-primary-500;
+///     @extend %bg-color-primary-500;
+///   }
+////
+
+@each $color-name, $color-variants in $palette {
+	@each $color-variant, $hex-value in $color-variants {
+		%color-#{$color-name}-#{$color-variant} {
+			color: #{$hex-value}
+		}
+		%bg-color-#{$color-name}-#{$color-variant} {
+			background-color: #{$hex-value}
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------
+// COLOR CLASSES
+//-----------------------------------------------------------------------------
+// - Dynamically generates `.color-*` and `.color-bg-*` classes
+// - Based on the $palette map
+// - Includes semantic fallback classes for white/black/surfaces
+//-----------------------------------------------------------------------------
+
+@each $color-name, $color-variants in $palette {
+	@each $color-variant, $hex-value in $color-variants {
+		.color-#{$color-name}-#{$color-variant} {
+			color: #{$hex-value} !important
+		}
+		.color-bg-#{$color-name}-#{$color-variant} {
+			background-color: #{$hex-value} !important
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------
+// SEMANTIC COLOR UTILITIES
+//-----------------------------------------------------------------------------
+// - Useful defaults beyond palette
+// - White, black, and surface classes
+//-----------------------------------------------------------------------------
+
+.color-white {
+	color: #fff !important;
+}
+.color-bg-white {
+	background: #fff !important;
+}
+.color-black {
+	color: #222 !important;
+}
+.color-bg-black {
+	color: #222 !important;
+}
+
+.surface {
+	background-color: var(--color-surface, #fff);
+}
+
+.surface-muted {
+	background-color: var(--color-surface-muted, #f7f9fa);
+}
+
+.surface-contrast {
+	background-color: var(--color-surface-contrast, #15202b);
+	color: var(--color-surface-contrast-text, #fff); // optional if you define this
+}

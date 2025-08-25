@@ -1,0 +1,20 @@
+//-----------------------------------------------------------------------------
+//  INPUT VARIANTS
+//  components/form/_base.scss
+//-----------------------------------------------------------------------------
+//  Styles for elements with [data-input] attribute.
+//  - Transparent background
+//  - Muted bottom border with stronger focus state
+//  - Subtle rounded top corners
+//-----------------------------------------------------------------------------
+
+[data-input] {
+    background: transparent !important;
+    border-width: 0 0 1px 0 !important;
+    border-color: var(--color-border-muted);
+    border-radius: var(--radius-sm, 4px) var(--radius-sm, 4px) 0 0 !important;
+
+    &:focus {
+        border-color: var(--color-border-strong);
+    }
+}

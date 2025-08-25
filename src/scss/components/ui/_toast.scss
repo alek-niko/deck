@@ -1,0 +1,173 @@
+// =============================================================================
+// TOAST NOTIFICATION
+// components/ui/_toast.scss
+// -----------------------------------------------------------------------------
+// Flexible toast notification component with color variants, positioning,
+// responsive support, and slide-out animations.
+// Supports:
+// - State variants: primary, success, warning, danger
+// - Positioning: top-left, top-center, top-right, bottom-left, bottom-center, bottom-right
+// - Responsive width adjustments for small screens
+// - Left accent bar, icons, close button, and hover interactions
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+@use '../../abstracts/variables/z-index' as *;
+
+// ---------------------------------------------------------------------
+// Base Toast
+// ---------------------------------------------------------------------
+// Default toast block with scoped CSS variables for color, shadow, and radius.
+
+.toast {
+	// Scoped tokens
+	--toast-bg: var(--color-surface);
+	--toast-fg: var(--color-text);
+	--toast-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
+	--toast-radius: 12px;
+
+	position: relative;
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+
+	inset: unset;
+	height: unset;
+
+	width: 350px;
+	padding: 20px;
+	margin: 0;
+	border: none;
+	border-radius: var(--toast-radius);
+	background: var(--toast-bg);
+	color: var(--toast-fg);
+	box-shadow: var(--toast-shadow);
+	transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+	z-index: $z-index + 200;
+	overflow: hidden;
+
+	// -----------------------------------------------------------------
+	// Toast Inner Elements
+	// -----------------------------------------------------------------
+
+	.toast-icon {
+		margin-right: 10px;
+		font-size: 20px;
+	}
+
+	.toast-message {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		cursor: pointer;
+	}
+
+	.toast-close {
+		position: absolute;
+		right: 10px;
+		min-width: 24px;
+		min-height: 24px;
+		cursor: pointer;
+	}
+
+	// -----------------------------------------------------------------
+	// Animations
+	// -----------------------------------------------------------------
+	// Slide-out hide effect
+
+	&.toast-hide {
+		opacity: 0;
+		transform: translateY(-20px);
+		transition: opacity 0.3s ease, transform 0.3s ease;
+	}
+
+	// -----------------------------------------------------------------
+	// Left Accent Bar
+	// -----------------------------------------------------------------
+	// Colored vertical indicator for toast type
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 4px;
+		height: 100%;
+		border-radius: 4px 0 0 4px;
+		background-color: var(--toast-accent, var(--color-primary));
+	}
+
+	// -----------------------------------------------------------------
+	// Positioning
+	// -----------------------------------------------------------------
+	// Adjust toast placement and responsive width.
+
+	@media (max-width: $breakpoint-sm) {
+		width: auto;
+		left: 0;
+		right: 0;
+
+		&.toast-bottom-left,
+		&.toast-bottom-right,
+		&.toast-bottom-center {
+			bottom: 0;
+		}
+	}
+
+	@media (min-width: $breakpoint-sm) {
+		&.toast-top-center,
+		&.toast-bottom-center {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		&.toast-top-left,
+		&.toast-bottom-left {
+			left: 24px;
+		}
+
+		&.toast-top-right,
+		&.toast-bottom-right {
+			right: 24px;
+		}
+
+		&.toast-bottom-left,
+		&.toast-bottom-right,
+		&.toast-bottom-center {
+			bottom: 24px;
+			top: auto;
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// State Variants (Color + Accent)
+	// -----------------------------------------------------------------
+	// Primary, success, warning, danger with accent and optional background.
+
+	$toast-colors: (
+		primary: #1e87f0,
+		success: #32d296,
+		warning: #faa05a,
+		danger:  #f0506e
+	);
+
+	@each $name, $color in $toast-colors {
+		&.toast-#{$name} {
+			--toast-accent: #{$color};
+
+			.toast-icon {
+				background-color: var(--toast-accent);
+			}
+
+			&:before {
+				background-color: var(--toast-accent);
+			}
+		}
+
+		&.toast-#{$name}-bg {
+			background-color: #{$color};
+			color: #FFF;
+		}
+	}
+}

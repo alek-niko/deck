@@ -1,0 +1,156 @@
+// =============================================================================
+// LAYOUT: SIDEBAR + MAIN + OPTIONS (SINGLE ROW)
+// components/_grid-smo.scss
+// -----------------------------------------------------------------------------
+// CSS Grid layout with fixed left sidebar, central scrollable main content,
+// and fixed right options panel.
+//
+// Features:
+// - Full viewport height
+// - Sidebar sticky on scroll with independent vertical scrolling
+// - Main content scrollable vertically
+// - Options panel scrollable
+// - Responsive stacking for small viewports (mobile)
+//
+// Dependencies:
+// - CSS custom properties:
+//   --header-height (--hh)
+//   --header-height-mobile (--hhm)
+//   --footer-height-mobile (--fhm)
+//   --sidebar-width (--sw)
+//   --layout-row-gap (--lrg)
+//   --layout-column-gap (--lcg)
+//
+// Usage example:
+// <body class="l-smo sidebar-hidden options-hidden">
+//   <aside>Sidebar content</aside>
+//   <main>Main content</main>
+//   <div id="options">Options panel</div>
+// </body>
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+.l-smo {
+
+	display: grid;
+
+	// Single row with three columns: sidebar, main, options
+	grid-template-areas: "sidebar main options";
+
+	// Rows: fixed height header fallback, plus flexible height (although only one row in practice)
+	grid-template-rows: var(--hh, var(--header-height)) 1fr;
+
+	// Columns: sidebar fixed width, main flexible, options fixed 20%
+	grid-template-columns:
+		var(--sw, var(--sidebar-width))
+		1fr
+		20%;
+
+	// Gaps for rows and columns, fallback values supported
+	row-gap: var(--lrg, var(--layout-row-gap));
+	column-gap: var(--lcg, var(--layout-column-gap));
+
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	overflow-y: auto;
+
+	// -----------------------------------------------------------------
+	// Sidebar Block
+	// -----------------------------------------------------------------
+	>aside {
+		grid-area: sidebar;
+		position: sticky;
+		top: 0;
+		height: 100vh;
+		overflow-y: auto;
+		min-height: 0;
+		background-color: var(--color-background);
+	}
+
+	// -----------------------------------------------------------------
+	// Main Content Block
+	// -----------------------------------------------------------------
+	>main {
+		grid-area: main;
+		height: 100vh;
+		overflow-y: auto;
+		min-height: 0;
+		background-color: var(--color-background);
+	}
+
+	// -----------------------------------------------------------------
+	// Options Panel
+	// -----------------------------------------------------------------
+	#options {
+		grid-area: options;
+		background-color: var(--color-background);
+		overflow-y: auto;
+		min-height: 0;
+	}
+
+	// -----------------------------------------------------------------
+	// Modifier: Hide Sidebar
+	// -----------------------------------------------------------------
+	&.sidebar-hidden {
+		grid-template-columns: 0 1fr 20%;
+		column-gap: 0;
+
+		aside {
+			width: 0;
+			overflow: hidden;
+			visibility: hidden;
+			pointer-events: none;
+			user-select: none;
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// Modifier: Hide Options Panel
+	// -----------------------------------------------------------------
+	&.options-hidden {
+
+		grid-template-columns: var(--sw, var(--sidebar-width)) 1fr 0;
+		column-gap: 0;
+
+		#options {
+			width: 0;
+			overflow: hidden;
+			visibility: hidden;
+			pointer-events: none;
+			user-select: none;
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// Responsive: Small Screens
+	// -----------------------------------------------------------------
+
+	@media (max-width: $breakpoint-sm-max) {
+		
+		grid-template-areas:
+			"main"
+			"sidebar";
+
+		grid-template-rows:
+			var(--hhm, var(--header-height-mobile))
+			1fr
+			var(--fhm, var(--footer-height-mobile));
+
+		grid-template-columns: 1fr;
+
+		#options {
+			display: none;
+		}
+
+		aside {
+			border-top: 1px solid var(--color-border-muted);
+			overflow-y: visible;
+			min-height: auto;
+			visibility: visible;
+			pointer-events: auto;
+			width: auto;
+		}
+	}
+}

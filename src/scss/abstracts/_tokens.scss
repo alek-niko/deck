@@ -1,0 +1,165 @@
+// ===================================================================
+// DESIGN TOKENS
+// abstracts/_design-tokens.scss
+// -------------------------------------------------------------------
+// Defines the application's core CSS custom properties (:root variables)
+// These represent the default (light) theme and use SCSS variables
+// for maintainability and semantic naming
+// ===================================================================
+
+@use 'variables' as *;
+
+:root {
+
+	// --------------------------------------------
+	// Typography Tokens
+	// --------------------------------------------
+	// Fonts, sizes, weights, and scaling.
+
+	--font-primary:				#{$primaryFont};			// Base font family
+	--font-size-base:			#{$body-font-size};			// Root font size
+	--font-weight-base:			#{$body-font-weight};		// Default font weight
+	--line-height-base:			#{$body-font-line-height};	// Line height for body text
+	--font-scale-ratio:			#{$scale-ratio};			// Modular scale ratio
+
+
+	// --------------------------------------------
+	// Layout & Grid Tokens
+	// --------------------------------------------
+	// Heights, widths, columns, and spacing.
+
+	--header-height:			#{$header-height};			// Desktop header height
+	--header-height-mobile:		#{$header-height-mobile};	// Mobile header height
+	--footer-height:			#{$footer-height};			// Footer height (desktop)
+	--footer-height-mobile:		#{$footer-height-mobile};	// Footer height (mobile)
+	--sidebar-width:			#{$sidebar-width};			// Sidebar width
+
+	--grid-columns:				#{$grid-columns};			// Grid column count
+	--grid-gap:					#{$grid-gap};				// Column gutter spacing
+
+
+	// --------------------------------------------
+	// Spacing & Radius Tokens
+	// --------------------------------------------
+	// Standard spacing unit and corner radius.
+
+	--spacing-xs:				#{$spacing-xs};
+	--spacing-sm:				#{$spacing-sm};
+	--spacing-md:				#{$spacing-md};
+	--spacing-default:			#{$spacing-default};
+	--spacing-lg:				#{$spacing-lg};
+	--spacing-xl:				#{$spacing-xl};
+
+	--radius-xs:				#{$border-radius-xs};
+	--radius-sm:				#{$border-radius-sm};
+	--radius-default:			#{$border-radius};
+	--radius-md:				#{$border-radius-md};
+	--radius-lg:				#{$border-radius-lg};
+	--radius-xl:				#{$border-radius-xl};
+
+	--radius-pill:				#{$border-radius-pill};
+	--radius-circle:			#{$border-radius-circle};
+	--radius-square:			#{$border-radius-square};
+
+	// --------------------------------------------
+	// Height Tokens
+	// --------------------------------------------
+	// Used for utility classes like `.height-*`
+
+	--height-small:				150px;
+	--height-medium:			300px;
+	--height-large:				450px;
+
+	// --------------------------------------------
+	// Body & Typography
+	// --------------------------------------------
+
+	--color-background:			#{$body-bg};				// App/page background
+
+	--color-text:				#{$text-color-primary};		// Primary body text
+	--color-text-muted:			#{$muted-color};			// Less prominent text
+	--color-text-secondary:		#{$text-color-secondary};	// UI captions, secondary labels
+	--color-text-inverse:		#{$text-color-on-inverted}; // Text on contrasting backgrounds (e.g., overlay)
+
+	// --------------------------------------------
+	// Surface Tokens
+	// --------------------------------------------
+
+	--color-surface:			#{$surface};				// Surface elements (e.g., cards). Old value: #{$white};
+	--color-surface-muted:		#{$surface-muted};			// = #f7f9fa
+	--color-surface-contrast:	#{$surface-contrast};		// for strong contrast
+	--color-surface-disabled:	#{$surface-disabled};
+
+	// --------------------------------------------
+	// Hover Surface Tokens
+	// --------------------------------------------
+	// Semantic background colors used for hover states on surfaces such as 
+	// nav items, list groups, dropdowns, and interactive panels.
+
+	--color-hover-surface:			#{$hover-color-surface};			// Default surface hover (light)
+	--color-hover-surface-strong:	#{$hover-color-surface-strong};		// Stronger hover for emphasis
+
+	// --------------------------------------------
+	// Border Colors
+	// --------------------------------------------
+
+	--color-border:				#{$border-color};			// Standard border
+	--color-border-muted:		#{$border-color-muted};		// Subtle separators
+	--color-border-strong:		#{$border-color-strong};	// High contrast dividers
+
+	// --------------------------------------------
+	// UI Semantic States
+	// --------------------------------------------
+	--color-primary:			#{$primary-color};			// Brand / primary actions
+	--color-secondary:			#{$secondary-color};
+	--color-success:			#{$success-color};			// Success messages
+	--color-warning:			#{$warning-color};			// Warning alerts
+	--color-danger:				#{$danger-color};			// Error states
+	--color-link:				#{$link-color};				// Hyperlink color
+	--color-accent:				#{$blue};					// Accent color
+	--color-disabled:			#{$disabled-color};
+
+	// --------------------------------------------
+	// Semantic Backgrounds
+	// --------------------------------------------
+	--color-success-bg:			#{$success-bg-color};
+	--color-warning-bg:			#{$warning-bg-color};
+	--color-danger-bg:			#{$danger-bg-color};
+
+	// --------------------------------------------
+	// Effects
+	// --------------------------------------------
+	--overlay-background:		#{$overlay-background};		// Lighter than dark overlay
+	--backdrop-blur:			#{$backdrop-blur};			// Same in both themes (optional)
+	--shadow-elevation:			#{$shadow-elevation};		// Softer shadow
+	--border-color-soft:		#{$border-color-soft};
+	--border-color-strong:		#{$border-color-strong};
+
+	// --------------------------------------------
+	// Shadows
+	// --------------------------------------------
+	--shadow-xs:				#{$shadow-xs};
+	--shadow-sm:				#{$shadow-sm};
+	--shadow-md:				#{$shadow-md};
+	--shadow-lg:				#{$shadow-lg};
+	--shadow-xl:				#{$shadow-xl};
+
+	// --------------------------------------------
+	// Icon Tokens
+	// --------------------------------------------
+
+	--icon-size:				#{$icon-size};
+	--icon-stroke-width:		#{$icon-stroke-width};
+	--icon-hover-scale:			#{$icon-hover-scale};
+
+	--icon-color:				#{$icon-color};               // Primary icon color
+	--icon-color-hover:			#{$icon-color-hover};         // Hover color
+	--icon-shadow-color:		#{$icon-shadow-color};        // Shadow ring
+	--icon-action-bg:			#{$icon-action-bg};           // Hover bg
+	--icon-circle-bg:			#{$icon-circle-bg};           // Circle fill
+
+	// -------------------------------------------------------------------
+	// Transitions
+	// -------------------------------------------------------------------
+	--transition-duration:		#{$transition-duration};       // Shared transition speed
+}

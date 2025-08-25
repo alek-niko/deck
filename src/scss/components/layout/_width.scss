@@ -1,0 +1,158 @@
+// =============================================================================
+// WIDTH UTILITY CLASSES
+// components/layout/_width.scss
+// -----------------------------------------------------------------------------
+// Flexible width utilities for flex layouts.
+// Supports fractional widths, fixed pixel widths, auto, expand, and responsive variants.
+//
+// Features:
+// - Fractional widths (.width-1-2, .width-3-4, etc.)
+// - Fixed pixel widths (.width-sm, .width-md, etc.)
+// - Special utilities: .width-auto, .width-expand
+// - Responsive variants: .width-1-2-md, .width-expand-lg
+//
+// Dependencies:
+// - ../../abstracts/variables/breakpoints
+// - sass:math
+// =============================================================================
+
+// Import global breakpoints and the math module for division
+@use '../../abstracts/variables/breakpoints' as *;
+@use 'sass:math';
+
+
+// -----------------------------------------------------------------------------
+// BASE WIDTH STYLES
+// -----------------------------------------------------------------------------
+// Apply base box-sizing and flex properties to all .width-* classes,
+// except those explicitly named "width-expand" to avoid conflicts
+
+[class^="width-"]:not(.width-expand):not([class*='-expand-']) {
+	box-sizing: border-box;
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+
+// -----------------------------------------------------------------------------
+// FIXED PIXEL WIDTHS
+// -----------------------------------------------------------------------------
+
+/// Fixed pixel width sizes
+/// @type Map
+/// @default (sm: 160px, md: 320px, lg: 480px, xl: 640px, xxl: 800px)
+$width-fixed-sizes: (
+	sm:	160px,
+	md:	320px,
+	lg:	480px,
+	xl:	640px,
+	xxl: 800px
+);
+
+// -----------------------------------------------------------------------------
+// FRACTIONAL WIDTHS
+// -----------------------------------------------------------------------------
+
+/// Fractional widths as percentages
+/// @type Map
+$width-fractions: (
+	"1-1": 100%,
+	"1-2": 50%,
+	"1-3": 33.3333%,
+	"2-3": 66.6666%,
+	"1-4": 25%,
+	"3-4": 75%,
+	"1-5": 20%,
+	"2-5": 40%,
+	"3-5": 60%,
+	"4-5": 80%,
+	"1-6": 16.6666%,
+	"5-6": 83.3333%
+);
+
+// -----------------------------------------------------------------------------
+// BREAKPOINT MAP
+// -----------------------------------------------------------------------------
+
+/// Map of breakpoints for generating responsive width variants
+/// @type Map
+$breakpoint-media: (
+	sm: $breakpoint-sm,
+	md: $breakpoint-md,
+	lg: $breakpoint-lg,
+	xl: $breakpoint-xl
+);
+
+// -----------------------------------------------------------------------------
+// BASE WIDTH CLASSES (No Media Queries)
+// -----------------------------------------------------------------------------
+
+@each $key, $value in $width-fractions {
+	.width-#{$key} {
+		flex-basis: calc(#{$value} - var(--gap, 0px) * (1 - #{math.div($value, 100%)}));
+		width: calc(#{$value} - var(--gap, 0px) * (1 - #{math.div($value, 100%)}));
+	}
+}
+
+// Generate utility classes for fixed pixel widths
+@each $key, $value in $width-fixed-sizes {
+	.width-#{$key} {
+		flex-basis: calc(#{$value} - var(--gap, 0px));
+		width: calc(#{$value} - var(--gap, 0px));
+	}
+}
+
+// -----------------------------------------------------------------------------
+// SPECIAL WIDTH CLASSES (non-standard behavior)
+// -----------------------------------------------------------------------------
+
+// Auto: let content define the width (no flex growth)
+.width-auto {
+	flex-basis: auto;
+	width: auto;
+}
+
+// Expand: take up remaining space (grow + shrink allowed)
+.width-expand {
+	flex: 1 1 0;
+	min-width: 1px;
+}
+
+// -----------------------------------------------------------------------------
+// RESPONSIVE WIDTH VARIANTS
+// -----------------------------------------------------------------------------
+// Loop through breakpoints to generate responsive variants
+// @each $breakpoint-name, $breakpoint-size in $breakpoints {
+
+@each $breakpoint-name, $breakpoint-size in $breakpoint-media {
+
+
+	@media (min-width: #{$breakpoint-size}) {
+
+		// Fractional width classes (e.g. .width-1-2-md)
+		@each $key, $value in $width-fractions {
+			.width-#{$key}-#{$breakpoint-name} {
+				flex-basis: calc(#{$value} - var(--gap, 0px) * (1 - #{math.div($value, 100%)}));
+				width: calc(#{$value} - var(--gap, 0px) * (1 - #{math.div($value, 100%)}));
+			}
+		}
+
+		// Fixed width classes (e.g. .width-md-lg)
+		@each $key, $value in $width-fixed-sizes {
+			.width-#{$key}-#{$breakpoint-name} {
+				flex-basis: calc(#{$value} - var(--gap, 0px));
+				width: calc(#{$value} - var(--gap, 0px));
+			}
+		}
+
+		// Special cases with responsive variants
+		.width-auto-#{$breakpoint-name} {
+			flex-basis: auto;
+			width: auto;
+		}
+
+		.width-expand-#{$breakpoint-name} {
+			flex: 1 1 0;
+			min-width: 1px;
+		}
+	}
+}

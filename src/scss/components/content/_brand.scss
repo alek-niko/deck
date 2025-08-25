@@ -1,0 +1,124 @@
+// ============================================
+// BRAND COMPONENT
+// components/content/_brand.scss
+// --------------------------------------------
+// Combines logo + site name or tagline.
+// Provides flexible layout (inline or stacked),
+// scoped CSS custom properties, and optional animations.
+// ============================================
+
+.brand {
+	//----------------------------------
+	// Scoped Custom Properties
+	//----------------------------------
+	--brand-gap: var(--spacing-default, 1rem);
+	--brand-color: var(--color-text, #111);
+
+	--brand-name-size: 1.125rem;
+	--brand-name-weight: 600;
+	--brand-name-color: var(--brand-color);
+
+	--brand-tagline-size: 0.875rem;
+	--brand-tagline-color: var(--color-text-muted, rgba(0, 0, 0, 0.6));
+
+	--brand-logo-max-height: 2rem;
+	--brand-logo-max-width: none;
+	--brand-logo-radius: 0; // Optional rounding for logos
+	--brand-logo-filter: none; // e.g., grayscale(100%) for style effects
+
+	display: flex;
+	align-items: center;
+	gap: var(--brand-gap);
+	color: var(--brand-color);
+	text-decoration: none;
+
+	// --------------------------------------------
+	// Layout Variants
+	// --------------------------------------------
+
+	&-stacked {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 5px; // Can be tokenized if needed
+	}
+
+	// --------------------------------------------
+	// Text Elements
+	// --------------------------------------------
+	.brand-name {
+		font-size: var(--brand-name-size);
+		font-weight: var(--brand-name-weight);
+		line-height: 1.2;
+		color: var(--brand-name-color);
+	}
+
+	.brand-tagline {
+		font-size: var(--brand-tagline-size);
+		line-height: 1.2;
+		color: var(--brand-tagline-color);
+	}
+
+	// --------------------------------------------
+	// Logo Block
+	// --------------------------------------------
+
+	.logo {
+		flex-shrink: 0;
+		display: block;
+		color: var(--color-text);
+
+		:where(img, svg) {
+			display: block;
+			height: auto;
+			max-height: var(--brand-logo-max-height);
+			max-width: var(--brand-logo-max-width);
+			border-radius: var(--brand-logo-radius);
+			filter: var(--brand-logo-filter);
+		}
+	}
+}
+
+// --------------------------------------------
+// Responsive Adjustments
+// --------------------------------------------
+
+@media (max-width: 640px) {
+	.brand {
+		gap: calc(var(--brand-gap) / 2);
+
+		.brand-name {
+			font-size: 1rem;
+		}
+	}
+}
+
+
+// --------------------------------------------
+// Animations
+// --------------------------------------------
+
+.brand-fade-in {
+	opacity: 0;
+	transform: translateY(0.5rem);
+	animation: brandFadeIn 0.4s ease-out forwards;
+}
+
+@keyframes brandFadeIn {
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.brand-slide-in-left {
+	opacity: 0;
+	transform: translateX(-1rem);
+	animation: brandSlideInLeft 0.4s ease-out forwards;
+}
+
+@keyframes brandSlideInLeft {
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}

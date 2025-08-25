@@ -1,0 +1,59 @@
+// ============================================
+// EFFECTS
+// abstracts/variables/_effects.scss
+// --------------------------------------------
+// Animation & Transition Tokens
+// - Standard easing functions for transitions and motion
+// - Durations and delays for consistent animation timing
+// - Used in components, utility mixins, and interactions
+// ============================================
+
+/// --------------------------------------------
+/// EASING FUNCTIONS
+/// --------------------------------------------
+/// @type {Cubic Bezier}
+/// Use for motion curves in transitions and animations
+
+$ease-standard:			cubic-bezier(0.4, 0.0, 0.2, 1)		!default; // Default UI easing (Material Design)
+$ease-in:				cubic-bezier(0.4, 0.0, 1, 1)		!default; // Acceleration
+$ease-out:				cubic-bezier(0.0, 0.0, 0.2, 1)		!default; // Deceleration
+$ease-in-out:			cubic-bezier(0.4, 0.0, 0.2, 1)		!default; // Symmetric curve
+$ease-emphasized:		cubic-bezier(0.2, 0.0, 0, 1)		!default; // Emphasis (strong acceleration & deceleration)
+$ease-snappy:			cubic-bezier(0.55, 0, 0.1, 1)		!default; // Snappy (as provided)
+
+
+/// --------------------------------------------
+/// TRANSITION DURATIONS
+/// --------------------------------------------
+/// @type {Time}
+/// Standard durations for UI responsiveness
+
+$duration-fast:			150ms !default;		// Fast UI feedback (e.g., button hover)
+$duration-medium:		250ms !default;		// Most component transitions
+$duration-slow:			400ms !default;		// Emphasized animations
+
+/// --------------------------------------------
+/// TRANSITION DELAYS
+/// --------------------------------------------
+/// @type {Time}
+
+$delay-none:			0ms		!default;
+$delay-short:			75ms	!default;
+$delay-long:			300ms	!default;
+
+/// --------------------------------------------
+/// MOTION DISTANCES (optional)
+/// --------------------------------------------
+/// @type {Length}
+/// Useful for slide/fade/scale animations
+
+$motion-distance-small:		4px  !default;
+$motion-distance-medium:	12px !default;
+$motion-distance-large:		24px !default;
+
+/// --------------------------------------------
+/// Usage Example
+/// --------------------------------------------
+/// transition: all $duration-medium $ease-standard;
+/// animation-delay: $delay-short;
+/// transform: translateY($motion-distance-small);

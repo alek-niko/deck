@@ -1,0 +1,13 @@
+// =============================================================================
+// LAYOUT ENTRY POINT
+// layouts/_index.scss
+// -----------------------------------------------------------------------------
+// Central entry point for all layout partials.
+// - Forwards layout areas, grid systems, and page templates
+// - Enables consistent imports across the application
+// - Keeps layout organization modular and maintainable
+// =============================================================================
+
+@forward 'areas';			// Layout area definitions
+@forward 'css.grids';		// CSS Grid utilities and helpers
+@forward 'pages/feed';		// Page-level layout templates (feed, etc.)

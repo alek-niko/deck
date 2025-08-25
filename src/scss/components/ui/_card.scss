@@ -1,0 +1,817 @@
+// =============================================================================
+// CARD COMPONENT
+// components/ui/_card.scss
+// -----------------------------------------------------------------------------
+// Flexible, token-driven card component with support for:
+// - Design tokens (background, text, border, radius, shadows, spacing)
+// - Elevation levels via data attributes
+// - Variants (post, message, embed, poll, repost, link-preview, etc.)
+// - Layouts (horizontal, vertical, responsive)
+// - Media slots, headers, footers, badges, skeleton states
+// - Density and size modifiers
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+@use '../../abstracts/variables/spacing' as *;
+@use '../../abstracts/variables/colors' as *;
+
+//@use '../../abstracts/variables/shadow' as *;
+
+
+.card {
+
+	// -------------------------------------------------------------------------
+	// Design Tokens (CSS Custom Properties)
+	// Used throughout card styles for colors, spacing, font, etc.
+	// -------------------------------------------------------------------------
+	--card-bg: var(--color-surface);
+	--card-text: var(--color-text);
+	--card-muted-text: var(--color-text-muted);
+	--card-border-radius: var(--radius-xl);
+	--card-border: var(--color-border);
+	--card-padding: var(--spacing-md) var(--spacing-default);
+	--card-header-padding: var(--spacing-md) var(--spacing-md);
+	--card-footer-padding: var(--spacing-md) var(--spacing-md);
+	--card-title-size: 1.125rem;
+	--card-title-weight: 500;
+	--card-title-line: 1.4;
+	--card-subtitle-size: 0.875rem;
+	--card-subtitle-weight: 400;
+	--card-badge-size: 0.875rem;
+	--card-badge-bg: var(--color-primary);
+	--card-badge-color: #fff;
+	--card-elevation: var(--shadow-sm);
+	--card-hover-shadow: var(--shadow-lg);
+
+	// -------------------------------------------------------------------------
+	// Base Layout & Appearance
+	// -------------------------------------------------------------------------
+
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	position: relative;
+	box-sizing: border-box;
+	background: var(--card-bg);
+	color: var(--card-text);
+	//border-radius: var(--card-border-radius);
+	box-shadow: var(--card-elevation);
+	transition: box-shadow var(--transition-duration, 200ms) ease-in-out;
+
+	// -------------------------------------------------------------------------
+	// Hover Effects
+	// Enables hover shadows and lift transform on hover with modifiers
+	// -------------------------------------------------------------------------
+
+	&[data-hover='shadow']:hover {
+		box-shadow: var(--card-hover-shadow);
+	}
+
+	&[data-hover='lift']:hover {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-lg);
+	}
+
+	// [OLD] Hover modifier - backward compatibility.
+	// &-hover {
+	// 	&:hover {
+	// 		//background-color: var(--card-hover-bg-color);
+	// 		transition: box-shadow 200ms cubic-bezier(.55,0,.1,1);
+	// 		//@include elevation(8);
+	// 		box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+	// 	}
+	// }
+
+	// -------------------------------------------------------------------------
+	// Elevation Levels (Shadows)
+	// Override shadow by data-elevation attribute for fine control
+	// -------------------------------------------------------------------------
+
+	&[data-elevation='xs'] { box-shadow: var(--shadow-xs); }
+	&[data-elevation='sm'] { box-shadow: var(--shadow-sm); }
+	&[data-elevation='md'] { box-shadow: var(--shadow-md); }
+	&[data-elevation='lg'] { box-shadow: var(--shadow-lg); }
+	&[data-elevation='xl'] { box-shadow: var(--shadow-xl); }
+
+	// -------------------------------------------------------------------------
+	// Variants (Post, Message, Embed, Poll)
+	// Adjust card elevation via CSS variables per variant
+	// -------------------------------------------------------------------------
+
+	&[data-variant='post']		{ --card-elevation: var(--shadow-sm); }
+	&[data-variant='message']	{ --card-elevation: var(--shadow-xs); }
+	&[data-variant='embed']		{ --card-elevation: var(--shadow-md); }
+	&[data-variant='poll']		{ --card-elevation: var(--shadow-sm); }
+
+	// -------------------------------------------------------------------------
+	// Transparent & Border Modifiers
+	// Remove background and shadow or add border with no shadow
+	// -------------------------------------------------------------------------
+	
+	&.transparent {
+		background: transparent;
+		box-shadow: none;
+	}
+
+	&.border {
+		border: 1px solid var(--card-border);
+		box-shadow: none;
+	}
+
+	// -------------------------------------------------------------------------
+	// Media Slot / Card Media
+	// Styles images or media slots with responsive width & object-fit
+	// -------------------------------------------------------------------------
+
+	[data-slot='media'],
+	.card-media {
+		display: block;
+		width: 100%;
+		object-fit: cover;
+
+		&.card-media-left,
+		&.card-media-right {
+			width: 40%;
+			height: auto;
+		}
+
+		&.card-media-top,
+		&.card-media-bottom {
+			width: 100%;
+			height: auto;
+		}
+
+		&.video {
+			aspect-ratio: 16 / 9;
+			background: black;
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Rounded Media Corners
+	// Applies border-radius on images according to media position
+	// -------------------------------------------------------------------------
+
+	&.round {
+
+		.card-media-top img,
+		.card-header-bg-img {
+			border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
+		}
+
+		.card-media-bottom img {
+			border-radius: 0 0 var(--card-border-radius) var(--card-border-radius);
+		}
+
+		.card-media-left img {
+			border-radius: var(--card-border-radius) 0 0 var(--card-border-radius);
+		}
+
+		.card-media-right img {
+			border-radius: 0 var(--card-border-radius) var(--card-border-radius) 0;
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Card Title Styles
+	// Controls typography, spacing, and adjacent element adjustments
+	// -------------------------------------------------------------------------
+
+	.card-title {
+		font-size: var(--card-title-size);
+		font-weight: var(--card-title-weight);
+		line-height: var(--card-title-line);
+		color: var(--card-text);
+		margin: 0;
+		padding: var(--card-padding);
+
+		// Removes gap above paragraph immediately after title
+		+p {
+			margin-top: 0;
+		}
+
+		// Removes top padding in card body if it follows title
+		+.card-body {
+			padding-top: 0 !important;
+		}
+
+		.card-subtitle {
+			font-size: var(--card-subtitle-size);
+			font-weight: var(--card-subtitle-weight);
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Generic Card Slot Padding
+	// Used for named slots like header, footer, etc.
+	// -------------------------------------------------------------------------
+
+	.card-slot {
+		padding: var(--card-header-padding);
+	}
+
+	// -------------------------------------------------------------------------
+	// Card Header
+	// Flex container with avatar, image, content & actions slots
+	// -------------------------------------------------------------------------
+
+	.card-header {
+		display: flex;
+		align-items: center;
+		padding: var(--card-header-padding);
+
+		>.avatar {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			background: var(--color-surface-muted);
+			border-radius: 50%;
+			width: 40px;
+			height: 40px;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			&.square {
+				border-radius: var(--radius-md);
+			}
+		}
+
+		>img {
+			width: 40px;
+			height: 40px;
+			object-fit: cover;
+			border-radius: 50%;
+		}
+
+		.content {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			padding: 0 var(--spacing-sm);
+		}
+
+		.actions {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+
+			a,
+			svg {
+				margin: 0 5px;
+			}
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Card Body
+	// Main content container with flexible layout and poll support
+	// -------------------------------------------------------------------------
+
+	.card-body {
+		flex: 1 1 auto;
+		padding: var(--card-padding);
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-sm);
+
+		[data-slot='poll'],
+		.card-poll {
+			display: flex;
+			flex-direction: column;
+			gap: var(--spacing-xs);
+
+			.poll-option {
+				display: flex;
+				align-items: center;
+				padding: var(--spacing-xs) var(--spacing-sm);
+				border: 1px solid var(--color-border);
+				border-radius: var(--radius-md);
+				cursor: pointer;
+
+				&:hover {
+					background: var(--color-hover-surface);
+				}
+			}
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Card Footer
+	// Flexible container with alignment and gap utilities
+	// -------------------------------------------------------------------------
+
+	.card-footer {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--card-footer-padding);
+		gap: var(--spacing-md);
+
+		&.left 		{ justify-content: flex-start; }
+		&.center	{ justify-content: center; }
+		&.right		{ justify-content: flex-end; }
+		&.between	{ justify-content: space-between; }
+		&.around	{ justify-content: space-around; }
+
+		.actions {
+			display: flex;
+			gap: var(--spacing-sm);
+
+			// .action {
+			// 	display: inline-flex;
+			// 	align-items: center;
+			// 	gap: 0.4rem;
+			// 	color: var(--color-text-muted);
+			// 	font-size: 0.875rem;
+			// 	cursor: pointer;
+
+			// 	&:hover {
+			// 		color: var(--color-primary);
+			// 	}
+			// }
+
+			// // Optional count or label next to icon
+			// .action-text {
+			// 	display: inline-block;
+			// 	font-size: 0.75rem;
+			// 	line-height: 1;
+			// 	user-select: none;
+			// }
+		}
+
+		.buttons {
+			display: flex;
+			gap: var(--spacing-sm);
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Card Badge
+	// Positioned badge on top-right with background and text color
+	// -------------------------------------------------------------------------
+
+	.card-badge {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 22px;
+		padding: 0 10px;
+		background: var(--card-badge-bg);
+		color: var(--card-badge-color);
+		font-size: var(--card-badge-size);
+		line-height: 0;
+	}
+
+	// -------------------------------------------------------------------------
+	// Card Content Transition
+	// Smooth transition for content changes
+	// -------------------------------------------------------------------------
+
+	.card-content {
+		transition: all 280ms var(--ease-snappy, ease-in-out);
+	}
+
+	// -------------------------------------------------------------------------
+	// Horizontal Card Variant
+	// [ old ]
+	// -------------------------------------------------------------------------
+
+	// base styles
+
+	// &.horizontal {
+	// 	flex-direction: row;
+	// 	flex-wrap: wrap;
+
+	// 	.card-media	 { flex: 0 0 auto; }
+	// 	.card-body	 { flex: 1 1 auto; }
+	// 	.card-footer { flex-wrap: wrap; }
+	// }
+
+	// -------------------------------------------------------------------------
+	// Horizontal Card Variant
+	// Enables side-by-side layout of media and content
+	// -------------------------------------------------------------------------
+
+	&.card-horizontal,
+	&[data-layout='horizontal'] {
+		display: flex;
+		flex-direction: row;
+		align-items: stretch;
+		gap: var(--spacing-default);
+
+		.card-media {
+			width: 33.333%;
+			flex-shrink: 0;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+				border-top-left-radius: inherit;
+				border-bottom-left-radius: inherit;
+			}
+		}
+
+		.card-content {
+			flex: 1;
+			padding: var(--spacing-md);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			overflow: hidden;
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Horizontal Card Variant: Reverse Layout
+	// Media aligned on right side instead of left
+	// -------------------------------------------------------------------------
+
+	&.card-horizontal.reverse,
+	&[data-layout='horizontal'][data-image='right'] {
+		flex-direction: row-reverse;
+
+		.card-media img {
+			border-top-right-radius: inherit;
+			border-bottom-right-radius: inherit;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Size Modifiers
+	// Adjust internal padding for small and large cards
+	// -------------------------------------------------------------------------
+
+	&.card-small {
+		.card-title,
+		.card-header,
+		.card-body,
+		.card-footer {
+			padding: var(--spacing-sm) !important;
+		}
+	}
+
+	&.card-large {
+		.card-title,
+		.card-header,
+		.card-body,
+		.card-footer {
+			padding: var(--spacing-lg) !important;
+		}
+
+		.card-title {
+			//padding-bottom: var(--spacing-sm) !important;
+			padding-bottom: var(--spacing-sm) !important;
+		} 
+	}
+
+	// -------------------------------------------------------------------------
+	// Density Modifiers
+	// Adjust CSS variables for compact or spacious spacing
+	// -------------------------------------------------------------------------
+
+	&.card-dense {
+		--card-padding: var(--spacing-xs);
+		--card-header-padding: var(--spacing-xs) var(--spacing-sm);
+		--card-footer-padding: var(--spacing-xs) var(--spacing-sm);
+	}
+
+	&.card-spacious {
+		--card-padding: var(--spacing-default) var(--spacing-lg);
+		--card-header-padding: var(--spacing-md) var(--spacing-lg);
+		--card-footer-padding: var(--spacing-md) var(--spacing-lg);
+	}
+
+	// -------------------------------------------------------------------------
+	// Utility Adjustment
+	// Fix padding between cover container and card body
+	// -------------------------------------------------------------------------
+
+	.cover-container+.card-body {
+		padding-top: 5px !important;
+	}
+
+	// -------------------------------------------------------------------------
+	// Responsive Styles
+	// Collapse horizontal layout on small screens
+	// -------------------------------------------------------------------------
+
+	@media (max-width: $breakpoint-sm) {
+
+		--card-padding: 8px var(--spacing-sm);
+
+		&.horizontal {
+			flex-direction: column;
+
+			.card-media-left,
+			.card-media-right {
+				width: 100%;
+			}
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Accessibility
+	// Disable animations on prefers-reduced-motion
+	// -------------------------------------------------------------------------
+
+	@media (prefers-reduced-motion: reduce) {
+
+		*,
+		*::before,
+		*::after {
+			transition: none !important;
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Repost / Quote Style Variant
+	// Highlights reposted content with left accent border
+	// -------------------------------------------------------------------------
+
+	&[data-variant='repost'] {
+		background: var(--color-surface-muted);
+		border-left: 4px solid var(--color-primary);
+
+		.card-body {
+			background: var(--color-surface);
+			border-radius: var(--radius-md);
+			padding: var(--spacing-sm);
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Preview Slot / Embedded Content
+	// Bordered container for previews, link embeds, etc.
+	// [ old ]
+	// -------------------------------------------------------------------------
+
+	[data-slot='preview'],
+	.card-preview {
+		display: block;
+		background: var(--color-surface-alt);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-lg);
+		padding: var(--spacing-sm);
+		margin: var(--spacing-sm);
+	}
+
+	// -------------------------------------------------------------------------
+	// Embedded Link Preview
+	// Styled container with favicon and meta info
+	// [ old ]
+	// -------------------------------------------------------------------------
+
+	.card-preview {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		gap: var(--spacing-sm);
+		background: var(--color-surface-alt);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+		padding: var(--spacing-sm);
+
+		.favicon {
+			width: 20px;
+			height: 20px;
+		}
+
+		.meta {
+			flex: 1;
+
+			strong {
+				display: block;
+				font-weight: 600;
+				margin-bottom: 2px;
+			}
+
+			p {
+				margin: 0;
+				font-size: 0.875rem;
+				color: var(--card-muted-text);
+			}
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Enhanced Link Preview
+	// Advanced link card with hover elevation and image styling
+	// -------------------------------------------------------------------------
+
+	.card-link {
+		//padding: var(--spacing-md);
+		padding: 5px var(--spacing-md);
+
+		.content {
+			display: flex;
+			flex-direction: column;
+			background-color: var(--color-surface-alt);
+			border: 1px solid var(--color-border);
+			border-radius: var(--card-border-radius);
+			cursor: pointer;
+			overflow: hidden;
+
+			&.elevated {
+				box-shadow: var(--shadow-md);
+			}
+
+			&.hover:hover {
+				box-shadow: var(--shadow-lg);
+			}
+
+			img {
+				max-width: 100%;
+				object-fit: cover;
+				border-top-left-radius: var(--card-border-radius);
+				border-top-right-radius: var(--card-border-radius);
+			}
+
+			.meta {
+				padding: var(--spacing-md);
+
+				.title {
+					font-size: 1rem;
+					line-height: 1.4;
+					color: var(--color-text);
+					font-weight: 500;
+					margin: 0;
+				}
+
+				p {
+					color: var(--color-text-muted);
+					font-size: 0.875rem;
+					line-height: 1.5;
+					margin: 5px 0;
+				}
+
+				span {
+					font-size: 0.75rem;
+					line-height: 1.5;
+					color: var(--color-text-muted);
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+			}
+
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Skeleton Loader State
+	// Adds shimmer animation placeholders during loading
+	// -------------------------------------------------------------------------
+
+	// &.loading {
+	// 	pointer-events: none;
+	// 	opacity: 0.7;
+
+	// 	.card-header,
+	// 	.card-body,
+	// 	.card-footer {
+	// 		background: var(--color-surface-muted);
+	// 		position: relative;
+	// 		overflow: hidden;
+	// 	}
+
+	// 	.card-header::after,
+	// 	.card-body::after,
+	// 	.card-footer::after {
+	// 		content: '';
+	// 		position: absolute;
+	// 		top: 0;
+	// 		left: -150px;
+	// 		height: 100%;
+	// 		width: 150px;
+	// 		background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+	// 		animation: shimmer 1.2s infinite;
+	// 	}
+	// }
+
+	// // -------------------------------------------------------------------------
+	// // Keyframe Animation for Shimmer Effect
+	// // -------------------------------------------------------------------------
+
+	// @keyframes shimmer {
+	// 	0% {
+	// 		transform: translateX(0);
+	// 	}
+
+	// 	100% {
+	// 		transform: translateX(100%);
+	// 	}
+	// }
+
+	
+	// -------------------------------------------------------------------------
+	// Skeleton Loader
+	// -------------------------------------------------------------------------
+
+	&.skeleton {
+		border-radius: var(--radius-md, 0.5rem);
+		background-color: var(--color-surface, #fff);
+		box-shadow: var(--shadow-sm);
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-sm, 0.75rem);
+		padding: var(--spacing-md, 1rem);
+
+		> .skeleton-block {
+			background-color: var(--color-surface-muted, #eee);
+			border-radius: var(--radius-sm, 4px);
+			position: relative;
+			overflow: hidden;
+
+	// Shimmer overlay
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		transform: translateX(-100%);
+		background: linear-gradient(
+			to right,
+			transparent,
+			rgba(255, 255, 255, 0.4),
+			rgba(255, 255, 255, 0.7),
+			rgba(255, 255, 255, 0.4),
+			transparent
+		);
+		background-size: 200% 100%;
+		animation: shimmer 1.2s infinite linear;
+	}
+		}
+
+		// Simulate parts of a real card
+		.header {
+			height: 2rem;
+			width: 50%;
+		}
+
+		.body {
+			height: 4rem;
+			width: 100%;
+		}
+
+		.footer {
+			height: 2rem;
+			width: 30%;
+		}
+	}
+	
+	@keyframes shimmer {
+		0% {
+			transform: translateX(-100%);
+		}
+		100% {
+			transform: translateX(100%);
+		}
+	}
+
+}
+
+// -------------------------------------------------------------------------
+// Demo Helper
+// -------------------------------------------------------------------------
+
+/*
+document.querySelectorAll('.card-expand-toggle').forEach(button => {
+	button.addEventListener('click', () => {
+		const text = button.previousElementSibling;
+		text.classList.toggle('expanded');
+		button.textContent = text.classList.contains('expanded') ? 'Show less' : 'Show more';
+	});
+});
+
+// Simulated poll % widths (just CSS normally)
+document.querySelectorAll('.poll-option[data-percent]').forEach(opt => {
+	const percent = opt.getAttribute('data-percent');
+	opt.style.setProperty('--percent', `${percent}%`);
+	opt.style.position = 'relative';
+	opt.style.overflow = 'hidden';
+	opt.style.setProperty('--bg', getComputedStyle(opt).backgroundColor);
+	const bar = document.createElement('div');
+	bar.style.position = 'absolute';
+	bar.style.top = 0;
+	bar.style.left = 0;
+	bar.style.bottom = 0;
+	bar.style.width = percent + '%';
+	bar.style.backgroundColor = 'var(--color-primary)';
+	bar.style.opacity = '0.1';
+	opt.prepend(bar);
+});
+*/

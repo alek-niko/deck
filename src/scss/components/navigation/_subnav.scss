@@ -1,0 +1,150 @@
+// =============================================================================
+// SUBNAV COMPONENT
+// components/navigation/_subnav.scss
+// -----------------------------------------------------------------------------
+// Provides a horizontal sub-navigation bar with tokenized styling.
+// - Supports variants: `.subnav-divider` and `.subnav-pill`
+// - Responsive: scrollable on smaller screens
+// - Fully theme-ready, dark-mode compatible via CSS variables
+//
+// Features:
+// - Active and disabled states
+// - Hover/focus styles
+// - Pill-style buttons with rounded corners
+// - Divider support for visual separation
+//
+// Dependencies:
+// - tokens.scss (for --color-*, --radius-*, --spacing-*)
+// - abstracts/variables/_breakpoints.scss
+// - abstracts/mixins/_responsive.scss
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+@use '../../abstracts/mixins//responsive' as *;
+
+
+.subnav {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-left: -20px;
+	padding: 0;
+	list-style: none;
+	overflow-x: auto;
+	white-space: nowrap;
+
+	//--------------------------------------
+	// Subnav items
+	//--------------------------------------
+
+	>* {
+		flex: none;
+		padding-left: 20px;
+		position: relative;
+
+		> :first-child {
+			display: flex;
+			align-items: center;
+			column-gap: 0.25em;
+			color: var(--color-text-muted, #999);
+		}
+
+		>a {
+			text-decoration: none;
+			color: inherit;
+
+			&:hover {
+				color: var(--color-text, #666);
+				text-decoration: none;
+			}
+
+			&:focus {
+				outline: 2px solid var(--color-primary, #2684ff);
+				outline-offset: 2px;
+			}
+		}
+	}
+
+	//--------------------------------------
+	// Active & Disabled States
+	//--------------------------------------
+
+	>.active>a {
+		color: var(--color-text, #333);
+		font-weight: 500;
+	}
+
+	>.disabled>a {
+		color: var(--color-text-disabled, var(--color-text-muted, #999));
+		pointer-events: none;
+		opacity: 0.6;
+	}
+
+	//--------------------------------------
+	// Divider Variant
+	//--------------------------------------
+
+	&-divider {
+		margin-left: -41px;
+
+		>* {
+			display: flex;
+			align-items: center;
+		}
+
+		> ::before {
+			content: "";
+			height: 1.5em;
+			margin-left: 0;
+			margin-right: 20px;
+			border-left: 1px solid transparent;
+		}
+
+		> :nth-child(n+2):not(.first-column)::before {
+			border-left-color: var(--color-border, rgba(0, 0, 0, 0.06));
+		}
+	}
+
+	//--------------------------------------
+	// Pill Variant
+	//--------------------------------------
+
+	&-pill {
+		>*> :first-child {
+			padding: 5px 10px;
+			border-radius: var(--radius-pill, 16px);
+			background-color: transparent;
+			color: var(--color-text-muted, #999);
+			transition: background-color 0.2s ease, color 0.2s ease;
+		}
+
+		>*>a:hover,
+		>*>a:focus,
+		>*>a:active {
+			background-color: var(--color-hover-surface, #f8f8f8);
+			color: var(--color-text, #666);
+		}
+
+		>.active>a {
+			background-color: var(--color-primary, #1e87f0);
+			color: var(--color-text-inverse, #fff);
+		}
+	}
+
+	//--------------------------------------
+	// Responsive Fallback
+	//--------------------------------------
+
+	@include respond-below('md') {
+		& {
+			flex-wrap: nowrap;
+			overflow-x: auto;
+			white-space: nowrap;
+			padding-bottom: 0.5rem;
+
+			>* {
+				flex: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,67 @@
+// ============================================
+// COLUMN LAYOUT UTILITIES
+// components/layout/_column.scss
+// --------------------------------------------
+// Multi-Column Utilities
+// - Provides column-count utilities (mobile-first)
+// - Supports responsive variants via breakpoints
+// - Includes optional dividers and spanning
+// - Optimized for performance and legacy support
+// ============================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+/// Default spacing token
+
+// --------------------------------------------
+// Base Column Utilities
+// --------------------------------------------
+
+.column {
+	column-gap: var(--column-gap, 30px);	// Default gap between columns
+}
+
+.column-divider {
+	column-gap: calc(var(--column-gap, 30px) * 2); // Wider gap with divider
+	column-rule: 1px solid var(--color-border-muted, #e5e5e5); // Adds vertical divider line
+}
+
+.column-span {
+	column-span: all; // Allows content to span across all columns
+}
+
+// --------------------------------------------
+// Column Count Utilities (mobile-first)
+// --------------------------------------------
+
+.column-1-2 { column-count: 2; }
+.column-1-3 { column-count: 3; }
+.column-1-4 { column-count: 4; }
+.column-1-5 { column-count: 5; }
+.column-1-6 { column-count: 6; }
+
+
+// --------------------------------------------
+// Responsive Variants (auto-generated)
+// --------------------------------------------
+// Generates .column-1-{n}-{breakpoint} classes for
+// sm, md, lg, xl breakpoints using column-count.
+
+@each $bp-name, $bp-size in (sm: $breakpoint-sm, md: $breakpoint-md, lg: $breakpoint-lg, xl: $breakpoint-xl) {
+	@media (min-width: #{$bp-size}) {
+		@for $i from 2 through 6 {
+			.column-1-#{$i}-#{$bp-name} {
+				column-count: #{$i};
+			}
+		}
+	}
+}
+
+// --------------------------------------------
+// Fixes & Browser Optimizations
+// --------------------------------------------
+// Fix Safari/Chrome rendering bugs with images in columns
+
+.column img {
+	transform: translate3d(0, 0, 0);
+}

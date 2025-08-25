@@ -1,0 +1,20 @@
+// ============================================
+// CONTAINER SIZES
+// abstracts/variables/_container.scss
+// --------------------------------------------
+// Defines maximum widths for layout containers.
+// - Maps container sizes to semantic tokens (xs → xl)
+// - Can be referenced in CSS custom properties for theming
+// ============================================
+
+/// @type {Map}
+/// Keys: xs, sm, md, lg, xl, expand
+/// Values: max-widths in px or `none` for fluid containers
+$container-sizes: (
+	xs: 600px,
+	sm: 750px,
+	md: 960px,
+	lg: 1140px,
+	xl: 1320px,
+	expand: none
+) !default;

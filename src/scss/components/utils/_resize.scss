@@ -1,0 +1,24 @@
+// =============================================================================
+// RESIZE UTILITIES
+// components/utilities/_resize.scss
+// -----------------------------------------------------------------------------
+// Utility classes to control native browser resize behavior.
+// - Commonly applied to textareas, panels, or resizable containers
+// - Supports disabling resizing or limiting to a single axis
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Resize Classes
+// -----------------------------------------------------------------------------
+
+/// Resizable in both directions with overflow auto
+.resize				{ resize: both; overflow: auto; }
+
+/// Resizable only horizontally
+.resize-horizontal	{ resize: horizontal; }
+
+/// Resizable only vertically
+.resize-vertical	{ resize: vertical; }
+
+/// Disable resizing completely
+.resize-none		{ resize: none !important; }

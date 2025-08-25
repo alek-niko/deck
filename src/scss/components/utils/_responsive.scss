@@ -1,0 +1,71 @@
+// =============================================================================
+// RESPONSIVE DIMENSIONS UTILITIES
+// components/utils/_responsive.scss
+// -----------------------------------------------------------------------------
+// Utility classes and attributes to make media elements scale responsively
+// within their containers without overflow or distortion.
+// - Supports width and height control
+// - Includes breakpoint-specific variants
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+
+// -----------------------------------------------------------------------------
+// Box Sizing Reset for Responsive Elements
+// -----------------------------------------------------------------------------
+/// Ensures padding and borders are included within element size
+/// to avoid unexpected overflow.
+
+.responsive-width,
+.responsive-height {
+	box-sizing: border-box;
+}
+
+// -----------------------------------------------------------------------------
+// Responsive Width Utility
+// -----------------------------------------------------------------------------
+/// Limits element width to container width while maintaining aspect ratio
+/// Usage: Add `.responsive-width` to images, videos, canvases, etc.
+
+.responsive-width {
+	max-width: 100% !important;
+	height: auto;
+}
+
+// -----------------------------------------------------------------------------
+// Responsive Height Utility
+// -----------------------------------------------------------------------------
+/// Limits element height to container height while adapting width automatically
+/// Usage: Add `.responsive-height`
+
+.responsive-height {
+	max-height: 100%;
+	width: auto;
+	max-width: none;
+}
+
+// -----------------------------------------------------------------------------
+// Attribute Selectors for Responsive Media
+// -----------------------------------------------------------------------------
+/// Applies responsive width automatically to elements with these attributes
+
+[responsive],
+[data-responsive] {
+	max-width: 100%;
+}
+
+// -----------------------------------------------------------------------------
+// Responsive Width Variants (Breakpoint-Specific)
+// -----------------------------------------------------------------------------
+/// Provides breakpoint-based responsive width controls
+/// Class format: `.responsive-width-sm`, `.responsive-width-md`, etc.
+
+@each $name, $min in $breakpoints {
+	@media (min-width: $min) {
+		.responsive-width-#{$name} {
+			max-width: 100% !important;
+			height: auto;
+		}
+	}
+}

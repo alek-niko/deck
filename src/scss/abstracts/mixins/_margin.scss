@@ -1,0 +1,83 @@
+// ============================================
+// MARGIN MIXINS
+// mixins/_margin.scss
+// --------------------------------------------
+// Reusable mixins for margin utilities.
+// - Supports all sides or individual sides
+// - Uses spacing tokens (xs → xl)
+// - Includes logical axes (vertical, horizontal, ends)
+// - Special keywords: `auto`, `remove`
+// ============================================
+
+@use '../variables/spacing' as *;
+
+/// Margin size map
+/// @type Map
+/// Keys: xs, sm, md, lg, xl, remove, auto
+/// Values: spacing tokens or keywords
+/// 
+
+$margin-sizes: (
+	xs: $spacing-xs,
+	sm: $spacing-sm,
+	md: $spacing-md,
+	lg: $spacing-lg,
+	xl: $spacing-xl,
+	remove: 0,
+	auto: auto
+);
+
+/// @mixin margin
+/// Apply margin on a specific side or all sides.
+/// 
+/// @param {String} $side - one of: null, top, bottom, left, right, vertical, horizontal, ends
+/// @param {String} $size - one of: xs, sm, md, lg, xl, remove, auto
+/// 
+/// @example scss - Usage
+///   .card {
+///     @include margin(vertical, lg);   // margin-top & margin-bottom: 2rem
+///     @include margin(right, auto);    // margin-right: auto
+///   }
+/// --------------------------------------------
+
+@mixin margin($side: null, $size: md) {
+	$value: map-get($margin-sizes, $size);
+
+	@if $value ==null {
+		@error "Invalid margin size: `#{$size}`. Choose from: #{map-keys($margin-sizes)}.";
+	}
+
+	@if $side ==null {
+		margin: $value !important;
+	}
+
+	@else if $side ==top {
+		margin-top: $value !important;
+	}
+
+	@else if $side ==bottom {
+		margin-bottom: $value !important;
+	}
+
+	@else if $side ==left {
+		margin-left: $value !important;
+	}
+
+	@else if $side ==right {
+		margin-right: $value !important;
+	}
+
+	@else if $side ==vertical or $side ==ends {
+		margin-top: $value !important;
+		margin-bottom: $value !important;
+	}
+
+	@else if $side ==horizontal {
+		margin-left: $value !important;
+		margin-right: $value !important;
+	}
+
+	@else {
+		@error "Invalid margin side: `#{$side}`. Must be one of: top, bottom, left, right, vertical, horizontal, ends.";
+	}
+}

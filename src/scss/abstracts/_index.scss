@@ -1,0 +1,23 @@
+// ===================================================================
+// ABSTRACTS INDEX
+// abstracts/_index.scss
+// -------------------------------------------------------------------
+// Abstract Layer Entry Point
+// Exposes variables, mixins, and CSS custom properties
+// Use this to load all core design primitives in one call
+// ===================================================================
+
+// SCSS Variables
+// -------------------------------------------------------------------
+// All design values: colors, spacing, typography, etc.
+@forward 'variables';
+
+// Mixins & Functions
+// -------------------------------------------------------------------
+// Reusable mixins and utility functions
+@forward 'mixins';
+
+// CSS Design Tokens (:root variables)
+// -------------------------------------------------------------------
+// Custom properties for themeable, semantic design
+@forward 'tokens';
