@@ -52,6 +52,18 @@
     &::placeholder { color: var(--color-text-secondary); opacity: 1; }
     &::-moz-placeholder { opacity: 1; } // Firefox
 
+	// Autofill overrides
+	&:-webkit-autofill {
+		background-color: var(--color-surface, #f5f5f5) !important;
+		-webkit-box-shadow: 0 0 0 1000px var(--color-surface, #f5f5f5) inset !important;
+		-webkit-text-fill-color: var(--color-text, #000) !important;
+	}
+
+	&:-moz-autofill {
+		background-color: var(--color-surface, #f5f5f5) !important;
+		color: var(--color-text, #000) !important;
+	}
+
     // Non-data-input and non-input adjustments
     &:not([data-input]) { border-radius: var(--radius-default); }
     &:not(input) { line-height: 2.5rem; }
