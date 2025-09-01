@@ -9,15 +9,20 @@
 
 .hero {
 	position: relative;
+
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
+	flex-direction: var(--hero-flex-direction, column);
+	align-items: var(--hero-align-items, center);
+  	justify-content: var(--hero-justify, center);
+  	text-align: var(--hero-text-align, center);
+
 	padding: var(--spacing-default) calc(var(--spacing-default) * 2);
 	background-color: var(--hero-bg, var(--color-surface-muted));
-	//background-color: var(--color-surface-muted, #f7f9fa); /* old fallback */
 	color: var(--color-text, #111);
-	min-height: 60vh;
+
+	// height controls
+	min-height: var(--hero-min-height, 60vh);
+	max-height: var(--hero-max-height, 100vh);
 
 	// -------------------------------------------------------------------------
 	// Image Background Variant
@@ -32,7 +37,7 @@
 	}
 
 	// -------------------------------------------------------------------------
-	// Dark Overlay (Pseudo-element)
+	// Overlay (Pseudo-element fallback)
 	// -------------------------------------------------------------------------
 	// Semi-transparent overlay for better readability of text on images
 
@@ -51,19 +56,21 @@
 	}
 
 	// -------------------------------------------------------------------------
-	// Dark Overlay (Element)
+	// Overlay (Dedicated element variant)
 	// -------------------------------------------------------------------------
 	// Explicit overlay element for more control (color, gradients, animations)
+	// Use .overlay-* gradient utilities from overlay.scss
+	// Example: <div class="hero"><div class="hero-overlay overlay-top-bottom"></div></div>
 
-	// .hero-overlay {
-	// 	position: absolute;
-	// 	inset: 0;
-	// 	background: var(--hero-overlay-bg, rgba(0, 0, 0, 0.4));
-	// 	z-index: 0;
-	// 	pointer-events: none;
-	// 	opacity: 1;
-	// 	transition: opacity 0.3s ease-in-out;
-	// }
+	.hero-overlay {
+		position: absolute;
+		inset: 0;
+		background: var(--hero-overlay-bg, rgba(0, 0, 0, 0.4));
+		z-index: 0;
+		pointer-events: none;
+		opacity: 1;
+		transition: opacity 0.3s ease-in-out;
+	}
 
 	// -------------------------------------------------------------------------
 	// Content Wrapper
@@ -73,6 +80,8 @@
 	.hero-content {
 		position: relative;
 		z-index: 1;
-		max-width: 60ch;
+		width: var(--hero-content-width, auto);
+		max-width: var(--hero-content-max-width, 60ch);
+		min-height: var(--hero-content-min-height, auto);
 	}
 }
