@@ -186,3 +186,19 @@ td.text-break {
 		}
 	}
 }
+
+// -----------------------------------------------------------------------------
+// Utility Font Class [Test]
+// -----------------------------------------------------------------------------
+
+.font {
+	font-size: var(--font-size, 16px);
+	font-weight: var(--font-weight, 400);
+	font-style: var(--font-style, normal);
+	line-height: var(--line-height, 1.5);
+	letter-spacing: var(--letter-spacing, normal);
+	text-align: var(--text-align, left);
+	text-transform: var(--text-transform, none);
+	text-decoration: var(--text-decoration, none);
+	color: var(--font-color, inherit);
+}
