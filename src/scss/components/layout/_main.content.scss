@@ -19,16 +19,16 @@
 main {
 
 	// Default inner padding with fallback to spacing token
-	padding: var(--spacing-default, #{$spacing-default});
+	padding: var(--main-padding, #{$spacing-default});
 
 	// Responsive padding for medium screens
 	@media (max-width: $breakpoint-md) {
-		padding: var(--spacing-sm, #{$spacing-sm});
+		padding: var(--main-padding-sm, #{$spacing-sm});
 	}
 
 	// Responsive padding for small screens
 	@media (max-width: $breakpoint-sm) {
-		padding: var(--spacing-xs, #{$spacing-xs});
+		padding: var(--main-padding-xs, #{$spacing-xs});
 	}
 }
 
