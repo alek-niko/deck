@@ -1,0 +1,86 @@
+// =============================================================================
+// MAP-SVG COMPONENT
+// components/map/_map-svg.scss
+// -----------------------------------------------------------------------------
+// Provides a responsive container for embedding SVG or image-based maps
+// Supports flexible centering, scaling, and reset styles
+// Includes interactive state styles (active regions)
+// Includes optional tooltip styling for hover/click interactions
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Base Container
+// -----------------------------------------------------------------------------
+// Flex container that centers the map and ensures responsive sizing
+
+.map-svg {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;					// Full width of parent
+	height: 100%;					// Full height (can be 100vh if needed)
+	background-color: #f0f0f0;		// Optional: light background for visibility
+	overflow: hidden;				// Prevent overflow of oversized maps
+
+	// -------------------------------------------------------------------------
+	// SVG / Image Reset
+	// -------------------------------------------------------------------------
+	// Ensures that embedded SVGs or images scale responsively and reset
+	// any unwanted inherited or default browser styles
+
+	> svg, img {
+		all: unset;					// Reset all inherited styles
+		width: 100%;				// Scale to container width
+		height: 100%;				// Scale to container height
+		max-width: 100%;			// Prevent horizontal overflow
+		max-height: 100%;			// Prevent vertical overflow
+		display: block;				// Remove inline spacing
+		margin: 0;					// Reset margin
+		padding: 0;					// Reset padding
+		box-sizing: border-box;		// Consistent sizing
+
+		// ---------------------------------------------------------------------
+		// Hover State
+		// ---------------------------------------------------------------------
+		// Prevents any scaling or transforms on hover (for stability)
+		
+		&:hover {
+			transform: none;
+		}
+
+		// ---------------------------------------------------------------------
+		// Active Region Styles
+		// ---------------------------------------------------------------------
+		// Applied to active / interactive SVG paths or shapes
+		// Adds highlight colors and transitions for user feedback
+
+		.active {
+			cursor: pointer;
+			stroke: #0098ff;
+			fill: #525252;
+			stroke-dashoffset: 0%;
+			-webkit-transition: .8s ease;
+			-moz-transition: .8s ease;
+			-ms-transition: .8s ease;
+			-o-transition: .8s ease;
+		}
+	}
+
+	// -------------------------------------------------------------------------
+	// Tooltip
+	// -------------------------------------------------------------------------
+	// Optional floating tooltip for showing labels, names, or details
+	// Appears near cursor or active region
+
+	.tooltip {
+		position: absolute;
+		background: rgba(0, 0, 0, 0.8);
+		color: white;
+		padding: 5px 10px;
+		border-radius: 5px;
+		font-size: 12px;
+		pointer-events: none;	// Prevent blocking interactions
+		display: none;			// Hidden by default
+		z-index: 1000;			// Ensure visibility above map
+	}
+}
