@@ -65,11 +65,13 @@
 	.hero-overlay {
 		position: absolute;
 		inset: 0;
-		background: var(--hero-overlay-bg, rgba(0, 0, 0, 0.4));
 		z-index: 0;
 		pointer-events: none;
 		opacity: 1;
 		transition: opacity 0.3s ease-in-out;
+
+		// Neutral fallback (only used if no .overlay-* is applied)
+		//background: var(--hero-overlay-bg, rgba(0, 0, 0, 0.4));
 	}
 
 	// -------------------------------------------------------------------------
