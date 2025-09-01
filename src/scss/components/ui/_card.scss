@@ -220,6 +220,9 @@
 		align-items: center;
 		padding: var(--card-header-padding);
 
+		background: var(--card-header-bg, var(--card-bg));
+		color: var(--card-header-text, var(--card-text));
+
 		>.avatar {
 			display: inline-flex;
 			align-items: center;
@@ -279,6 +282,9 @@
 		flex-direction: column;
 		gap: var(--spacing-sm);
 
+		background: var(--card-body-bg, var(--card-bg));
+		color: var(--card-body-text, var(--card-text));		
+
 		[data-slot='poll'],
 		.card-poll {
 			display: flex;
@@ -312,6 +318,9 @@
 		justify-content: space-between;
 		padding: var(--card-footer-padding);
 		gap: var(--spacing-md);
+
+		background: var(--card-footer-bg, var(--card-bg));
+		color: var(--card-footer-text, var(--card-text));		
 
 		&.left 		{ justify-content: flex-start; }
 		&.center	{ justify-content: center; }
