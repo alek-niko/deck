@@ -1,22 +1,11 @@
 // ============================================
-// COLORS PALETTE
-// abstracts/variables/_colors-palette.scss
+// COLORS PALETTE [ Optional ]
+// abstracts/variables/_colors.palette.scss
 // --------------------------------------------
 // Centralized color definitions for generating
 // utility classes and theme palettes dynamically.
 // Uses the `$palette` map and the `palette-color()` function.
 // ============================================
-
-
-/*------------------------------------*\
-	SCSS COLORS PALETTE
-\*------------------------------------*/
-/*
- * Used to dynamically generate color classes
- * See ./classes.scss
- *
- * Note: @function palette-color() is defined below
- */
 
 $palette: (
 	'rose': (
