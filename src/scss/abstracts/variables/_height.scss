@@ -1,0 +1,24 @@
+// ============================================================================
+// HEIGHT TOKENS
+// abstracts/variables/_height.scss
+// ----------------------------------------------------------------------------
+// Defines a consistent height scale for components and utilities.
+// - Uses `px` units since heights are often fixed
+// - Provides semantic sizes from extra-small to extra-large
+// - Mapped to CSS custom properties in `themes/_default.scss`
+// ============================================================================
+
+
+/// ---------------------------------------------------------------------------
+/// Core Height Tokens
+/// ---------------------------------------------------------------------------
+/// Consistent height scale used across the design system.
+/// Provides semantic sizes from extra-small to extra-large.
+/// @group height
+// -----------------------------------------------------------------------------
+
+$height-xs:			100px !default;		// Extra small height (e.g., small icons, avatars)
+$height-sm:			150px !default;		// Small height (e.g., small cards, compact sections)
+$height-md:			300px !default;		// Medium height (e.g., standard cards, sections)
+$height-lg:			450px !default;		// Large height (e.g., hero blocks, feature sections)
+$height-xl:			600px !default;		// Extra large height (e.g., banners, modals)
