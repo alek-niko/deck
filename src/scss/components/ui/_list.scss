@@ -376,3 +376,101 @@
 		}
 	}
 }
+
+// -----------------------------------------------------------------------------
+// Horizontal List
+// -----------------------------------------------------------------------------
+// Utility for displaying list items in a row (inline).
+// Removes default bullets/numbers by default, but supports optional styles.
+// Use `.list-horizontal` or `.list-row`.
+// -----------------------------------------------------------------------------
+
+.list-horizontal {
+	display: flex;
+	flex-wrap: wrap; // allows wrapping when items overflow
+	gap: var(--list-gap, var(--spacing-md));
+	list-style: none; // default: no markers
+	padding: 0;
+	margin: var(--spacing-md) 0;
+
+	// Optional: enable bullet markers
+	&.with-bullets {
+		list-style: disc;
+		gap: var(--list-gap, var(--spacing-lg));
+		padding-left: var(--spacing-md);
+
+	}
+
+	// Optional: enable numbered markers
+	&.with-numbers {
+		list-style: decimal;
+		gap: var(--list-gap, var(--spacing-lg));
+		padding-left: var(--spacing-md);
+	}
+
+	// Optional: inline pill badges
+	&.pills {
+		gap: var(--list-gap, var(--spacing-sm));
+		>* {
+			padding: var(--spacing-xs) var(--spacing-sm);	// was .4rem .8rem
+			border-radius: var(--radius-pill);				// was 20px
+			border: 1px solid var(--color-border-strong) !important;
+			font-size: calc(var(--font-size-base) * 0.875);	// was .875rem
+			color: var(--color-text);						// ensures good contrast with bg
+			//background: var(--color-surface-muted); 		// was #f5f5f5
+		}
+	}
+
+	// Reset child margins
+	>* {
+		margin: 0;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Numbered List Component
+// -----------------------------------------------------------------------------
+// Displays list items in a horizontal or vertical layout with numbered
+// circular markers using CSS counters. Uses design tokens for spacing,
+// typography, colors, and allows customization via CSS custom properties.
+// -----------------------------------------------------------------------------
+
+.list-numbered {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--list-gap, var(--spacing-md));
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	counter-reset: li-counter;
+
+	>* {
+		counter-increment: li-counter;
+		display: flex;
+		align-items: center;
+		box-sizing: border-box;
+
+		&::before {
+			content: counter(li-counter);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 24px;
+			height: 24px;
+			margin-right: var(--spacing-sm);
+			border-radius: 50%;
+			background: var(--list-marker-bg, #e6c74c);
+			color: var(--list-marker-color, #1b1b1b);
+			font-size: 16px;
+			font-weight: 600;
+			line-height: 1;
+		}
+	}
+
+	// Optional two-column layout
+	&.split {
+		display: grid; // switch from flex to grid
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--list-gap, var(--spacing-md));
+	}
+}
