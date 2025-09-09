@@ -24,17 +24,43 @@
 	min-height: var(--hero-min-height, 60vh);
 	max-height: var(--hero-max-height, 100vh);
 
+	// background settings for all heroes
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
 	// -------------------------------------------------------------------------
-	// Image Background Variant
+	// Contrast Text Variant
 	// -------------------------------------------------------------------------
-	// Adds a full-cover background image with proper text contrast
-	
-	&-has-image {
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
+	// Adjusts hero text color for proper readability on top of images or dark backgrounds
+
+	&-contrast-text {
 		color: var(--color-surface-contrast, #fff);
 	}
+
+	// -------------------------------------------------------------------------
+	// Image Background Variant [ Old ]
+	// -------------------------------------------------------------------------
+	// Adds a full-cover background image with proper text contrast
+
+	// &-has-image {
+	// 	background-size: cover;
+	// 	background-position: center;
+	// 	background-repeat: no-repeat;
+	// 	color: var(--color-surface-contrast, #fff);
+	// }	
+
+	// -------------------------------------------------------------------------
+	// Wide Hero Variant
+	// -------------------------------------------------------------------------
+	// Enforces a 16:9 widescreen aspect ratio
+	// Caps height to 600px for large screens
+	// Ideal for cinematic or wide-format hero banners
+
+	// .wide {
+	// 	max-height: 600px;		// cap height for wide variant
+	// 	@extend .aspect-16-9;	// enforce 16:9 aspect ratio
+	// }
 
 	// -------------------------------------------------------------------------
 	// Overlay (Pseudo-element fallback)
@@ -85,5 +111,6 @@
 		width: var(--hero-content-width, auto);
 		max-width: var(--hero-content-max-width, 60ch);
 		min-height: var(--hero-content-min-height, auto);
+		color: var(--hero-content-color, inherit);
 	}
 }
