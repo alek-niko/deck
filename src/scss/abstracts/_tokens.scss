@@ -35,7 +35,7 @@
 	--sidebar-width:			#{$sidebar-width};			// Sidebar width
 
 	--grid-columns:				#{$grid-columns};			// Grid column count
-	--grid-gap:					#{$grid-gap};				// Column gutter spacing
+	--grid-gap:					#{$grid-gap};				// Column spacing
 
 
 	// --------------------------------------------
@@ -66,9 +66,11 @@
 	// --------------------------------------------
 	// Used for utility classes like `.height-*`
 
-	--height-small:				150px;
-	--height-medium:			300px;
-	--height-large:				450px;
+	--height-xs:				#{$height-xs};
+	--height-sm:				#{$height-sm};
+	--height-md:				#{$height-md};
+	--height-lg:				#{$height-lg};
+	--height-xl:				#{$height-xl};
 
 	// --------------------------------------------
 	// Body & Typography
