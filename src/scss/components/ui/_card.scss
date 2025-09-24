@@ -17,7 +17,6 @@
 
 //@use '../../abstracts/variables/shadow' as *;
 
-
 .card {
 
 	// -------------------------------------------------------------------------
@@ -30,9 +29,6 @@
 	--card-border-radius: var(--radius-xl);
 	--card-border: var(--color-border);
 	--card-padding: var(--spacing-md) var(--spacing-default);
-	--card-header-padding: var(--spacing-md) var(--spacing-md);
-	--card-body-padding: var(--spacing-md) var(--spacing-md);
-	--card-footer-padding: var(--spacing-md) var(--spacing-md);
 	--card-title-size: 1.125rem;
 	--card-title-weight: 500;
 	--card-title-line: 1.4;
@@ -118,7 +114,8 @@
 	// -------------------------------------------------------------------------
 	
 	&.transparent {
-		background: transparent;
+		--card-bg: transparent;
+		//background: transparent;
 		box-shadow: none;
 	}
 
@@ -194,6 +191,11 @@
 		margin: 0;
 		padding: var(--card-padding);
 
+		.card-subtitle {
+			font-size: var(--card-subtitle-size);
+			font-weight: var(--card-subtitle-weight);
+		}	
+		
 		// Removes gap above paragraph immediately after title
 		+p {
 			margin-top: 0;
@@ -202,11 +204,6 @@
 		// Removes top padding in card body if it follows title
 		+.card-body {
 			padding-top: 0 !important;
-		}
-
-		.card-subtitle {
-			font-size: var(--card-subtitle-size);
-			font-weight: var(--card-subtitle-weight);
 		}
 	}
 
@@ -228,7 +225,7 @@
 		display: flex;
 		
 		//align-items: var(--card-header-align, center);
-		padding: var(--card-header-padding);
+		padding: var(--card-header-padding, var(--card-padding));
 
 		background: var(--card-header-bg, var(--card-bg));
 		color: var(--card-header-text, var(--card-text));
@@ -278,6 +275,12 @@
 				margin: 0 5px;
 			}
 		}
+
+		// Removes top padding in card body if it follows header
+		+.card-body {
+			padding-top: 0 !important;
+		}
+
 	}
 
 	// -------------------------------------------------------------------------
@@ -287,7 +290,7 @@
 
 	.card-body {
 		flex: 1 1 auto;
-		padding: var(--card-body-padding, 0);
+		padding: var(--card-body-padding, var(--card-padding));
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-sm);
@@ -314,6 +317,11 @@
 				}
 			}
 		}
+
+		// Removes top padding in card footer if it follows body
+		+.card-footer {
+			padding-top: 0 !important;
+		}
 	}
 
 	// -------------------------------------------------------------------------
@@ -326,7 +334,7 @@
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
-		padding: var(--card-footer-padding);
+		padding: var(--card-footer-padding, var(--card-padding));
 		gap: var(--spacing-md);
 
 		background: var(--card-footer-bg, var(--card-bg));
@@ -489,6 +497,19 @@
 		.card-body,
 		.card-footer {
 			padding: var(--spacing-lg) !important;
+		}
+
+		// Remove top padding if preceded by .card-header or .card-title
+		:has(.card-header + &),
+		:has(.card-title + &),
+		&.no-top-padding {
+			padding-top: 0;
+		}
+
+		// Remove bottom padding if followed by .card-footer
+		&:has(+ .card-footer),
+		&.no-bottom-padding {
+			padding-bottom: 0;
 		}
 
 		.card-title {
@@ -756,23 +777,23 @@
 			position: relative;
 			overflow: hidden;
 
-	// Shimmer overlay
-	&::after {
-		content: '';
-		position: absolute;
-		inset: 0;
-		transform: translateX(-100%);
-		background: linear-gradient(
-			to right,
-			transparent,
-			rgba(255, 255, 255, 0.4),
-			rgba(255, 255, 255, 0.7),
-			rgba(255, 255, 255, 0.4),
-			transparent
-		);
-		background-size: 200% 100%;
-		animation: shimmer 1.2s infinite linear;
-	}
+			// Shimmer overlay
+			&::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				transform: translateX(-100%);
+				background: linear-gradient(
+					to right,
+					transparent,
+					rgba(255, 255, 255, 0.4),
+					rgba(255, 255, 255, 0.7),
+					rgba(255, 255, 255, 0.4),
+					transparent
+				);
+				background-size: 200% 100%;
+				animation: shimmer 1.2s infinite linear;
+			}
 		}
 
 		// Simulate parts of a real card
