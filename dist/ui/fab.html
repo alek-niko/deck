@@ -508,6 +508,112 @@
 						</ul>
 					</div>
 
+					<h2>FAB Card Wrapper Position</h2>
+					<p>Floating Action Buttons (FABs) can be positioned in different corners of their card wrapper. Apply one of the following classes to control placement.</p>
+				
+					<table class="table table-divider">
+						<thead>
+							<tr>
+								<th>Class</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>.fab-bottom-left</code></td>
+								<td>Positions the FAB in the bottom-left corner of the card wrapper.</td>
+							</tr>
+							<tr>
+								<td><code>.fab-bottom-right</code></td>
+								<td>Positions the FAB in the bottom-right corner of the card wrapper.</td>
+							</tr>
+							<tr>
+								<td><code>.fab-top-left</code></td>
+								<td>Positions the FAB in the top-left corner of the card wrapper.</td>
+							</tr>
+							<tr>
+								<td><code>.fab-top-right</code></td>
+								<td>Positions the FAB in the top-right corner of the card wrapper.</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div class="code-tab">
+						<ul class="tab">
+							<li class="active">Preview</li>
+							<li>Markup</li>
+						</ul>
+						<div class="tab-content">
+							<div class="active">
+								<div class="card round">
+									<div class="card-body height-md">
+									
+									<div class="fab-card-wrapper fab-top-left">
+										<a href="#!" class="fab fab-success fab-dark">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
+										</a>
+									</div>
+									<div class="fab-card-wrapper fab-top-right">
+										<a href="#!" class="fab fab-success fab-dark">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
+										</a>
+									</div>
+
+									<div class="fab-card-wrapper fab-bottom-left">
+										<a href="#!" class="fab fab-success fab-dark">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
+										</a>
+									</div>
+
+									<div class="fab-card-wrapper fab-bottom-right">
+										<a href="#!" class="fab fab-success fab-dark">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
+										</a>
+									</div>
+									</div>
+								</div>
+							</div>
+							<div>
+								<pre><code>
+									&lt;div class=&quot;card round&quot;&gt;
+										&lt;div class=&quot;card-body height-md&quot;&gt;
+										
+										&lt;div class=&quot;fab-card-wrapper fab-top-left&quot;&gt;
+											&lt;a href=&quot;#!&quot; class=&quot;fab fab-success fab-dark&quot;&gt;
+												&lt;svg&gt;&lt;/svg&gt;
+											&lt;/a&gt;
+										&lt;/div&gt;
+										&lt;div class=&quot;fab-card-wrapper fab-top-right&quot;&gt;
+											&lt;a href=&quot;#!&quot; class=&quot;fab fab-success fab-dark&quot;&gt;
+												&lt;svg&gt;&lt;/svg&gt;
+											&lt;/a&gt;
+										&lt;/div&gt;
+
+										&lt;div class=&quot;fab-card-wrapper fab-bottom-left&quot;&gt;
+											&lt;a href=&quot;#!&quot; class=&quot;fab fab-success fab-dark&quot;&gt;
+												&lt;svg&gt;&lt;/svg&gt;
+											&lt;/a&gt;
+										&lt;/div&gt;
+
+										&lt;div class=&quot;fab-card-wrapper fab-bottom-right&quot;&gt;
+											&lt;a href=&quot;#!&quot; class=&quot;fab fab-success fab-dark&quot;&gt;
+												&lt;svg&gt;&lt;/svg&gt;
+											&lt;/a&gt;
+										&lt;/div&gt;
+										&lt;/div&gt;
+									&lt;/div&gt;
+								</code></pre>
+							</div>
+						</div>
+						<ul class="iconnav">
+							<li>
+								<a href="#!" class="icon-action">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+								</a>
+							</li>
+						</ul>
+					</div>
+
 					<h2>Size Modifiers</h2>
 					<p>Use <code>.fab-small</code> or <code>.fab-large</code> to change the size of the button according to your layout needs.</p>
 
@@ -521,7 +627,7 @@
 
 								<div class="card round">
 									<div class="card-body height-sm">
-										<h5>Mini</h5>
+										<h5>Small</h5>
 									</div>
 									<div class="fab-card-wrapper position-bottom-right">
 										<a href="#!" class="fab fab-small fab-danger">
@@ -564,6 +670,81 @@
 												&lt;svg&gt;&lt;/svg&gt;
 											&lt;/a&gt;
 										&lt;/div&gt;
+									&lt;/div&gt;
+								</code></pre>
+							</div>
+						</div>
+						<ul class="iconnav">
+							<li>
+								<a href="#!" class="icon-action">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<h2>FAB Color Modifiers</h2>
+					<p>FABs can use different color styles to match your theme or indicate purpose. Apply one of the following modifier classes to change the background and text color.</p>
+
+					<table class="table table-divider">
+						<thead>
+							<tr>
+								<th>Class</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>.is-dark</code></td>
+								<td>Applies a dark background with light text.</td>
+							</tr>
+							<tr>
+								<td><code>.is-primary</code></td>
+								<td>Uses the primary theme color for the background with white text.</td>
+							</tr>
+							<tr>
+								<td><code>.is-secondary</code></td>
+								<td>Uses the secondary theme color for the background with white text.</td>
+							</tr>
+							<tr>
+								<td><code>.is-success</code></td>
+								<td>Indicates success with a green-style background and white text.</td>
+							</tr>
+							<tr>
+								<td><code>.is-danger</code></td>
+								<td>Indicates an error or destructive action with a red-style background and white text.</td>
+							</tr>
+							<tr>
+								<td><code>.is-warning</code></td>
+								<td>Indicates caution with a yellow/orange-style background and white text.</td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<h2>Page FAB</h2>
+					<p>The <code>.fab-page-wrapper</code> is used to position a single FAB button fixed to the bottom-right of the viewport. It ensures proper spacing from other page elements and adjusts automatically if a footer is present.</p>
+
+					<div class="code-tab">
+						<ul class="tab">
+							<li class="active">Preview</li>
+							<li>Markup</li>
+						</ul>
+						<div class="tab-content">
+							<div class="active">
+
+								<div class="fab-page-wrapper">
+									<a href="#!" class="fab" style="--fab-size: 64px; --icon-size: 32px;">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
+									</a>
+								</div>
+
+							</div>
+							<div>
+								<pre><code>
+									&lt;div class=&quot;fab-page-wrapper&quot;&gt;
+										&lt;a href=&quot;#!&quot; class=&quot;fab&quot; style=&quot;--fab-size: 64px; --icon-size: 32px;&quot;&gt;
+											&lt;svg&gt;&lt;/svg&gt;
+										&lt;/a&gt;
 									&lt;/div&gt;
 								</code></pre>
 							</div>
@@ -1011,6 +1192,7 @@
 
 				</div>
 			</div>
+												
 		</main>
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
