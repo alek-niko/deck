@@ -24,8 +24,8 @@ h6 { font-size: calc(0.875 * var(--font-size-base)); }
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: var(--font-primary);
-	font-weight: 300;
-	line-height: 1.1;
+	font-weight: 600; /* was 300; */
+	line-height: 1.2; /* was 1.1; */
 	///color: var(--color-text);
 
 	// Sub-heading span inside a heading
