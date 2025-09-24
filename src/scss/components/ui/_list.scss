@@ -414,10 +414,10 @@
 		>* {
 			padding: var(--spacing-xs) var(--spacing-sm);	// was .4rem .8rem
 			border-radius: var(--radius-pill);				// was 20px
-			border: 1px solid var(--color-border-strong) !important;
+			border: 1px solid var(--pill-border, rgba(0, 0, 0, 0.24));
 			font-size: calc(var(--font-size-base) * 0.875);	// was .875rem
-			color: var(--color-text);						// ensures good contrast with bg
-			//background: var(--color-surface-muted); 		// was #f5f5f5
+			color: var(--pill-color, black);
+			background: var(--pill-bg, transparent);
 		}
 	}
 
