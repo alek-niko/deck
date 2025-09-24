@@ -40,11 +40,11 @@
 /// Uses flexbox for horizontal layout and CSS variables for customization
 
 .breadcrumb {
-	--breadcrumb-separator: '/';
+	--breadcrumb-separator: '›';
 	--breadcrumb-separator-size: 1rem;
 	--breadcrumb-margin: var(--spacing-xs, 0.5rem);
 	--breadcrumb-color: var(--color-text, #000000de);
-	--breadcrumb-color-current: var(--color-text-muted, #666);
+	--breadcrumb-color-current: color-mix(in srgb, var(--breadcrumb-color) 70%, transparent 30%);
 	--breadcrumb-font-size: 1rem;
 
 	display: flex;
@@ -100,7 +100,7 @@
 
 			&:hover,
 			&:focus {
-				color: var(--color-primary, #0056b3);
+				//color: var(--color-primary, #0056b3);
 				text-decoration: underline;
 			}
 
