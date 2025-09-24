@@ -16,17 +16,29 @@
 
 .prose {
 	// Headings: clear visual breaks with moderate margins
-	> h1,
-	> h2,
-	> h3,
-	> h4,
-	> h5,
-	> h6 {
-		margin-top: $spacing-sm;
-		margin-bottom: $spacing-sm;
-		font-weight: 600;
-		line-height: 1.2;
-	}
+    > h1 {
+        margin-block-start: $spacing-xl;
+        margin-block-end: $spacing-md;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    > h2,
+    > h3 {
+        margin-block-start: $spacing-lg;
+        margin-block-end: $spacing-sm;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    > h4,
+    > h5,
+    > h6 {
+        margin-block-start: $spacing-md;
+        margin-block-end: $spacing-xs;
+        font-weight: 600;
+        line-height: 1.4;
+    }
 
 	// Remove top margin on first-child headings
 	> h1:first-child,
@@ -36,7 +48,6 @@
 	> h5:first-child,
 	> h6:first-child {
 		margin-top: 0;
-		//margin-bottom: 1.5rem;
 	}
 
 	// Paragraphs: comfortable spacing before and after
