@@ -45,23 +45,40 @@ class Wire extends Feed {
 	}
 
 	/**
-     * Renders the news items in the feed as HTML.
-     * 
-     * @param {Array} data - The array of news items to render.
-     * @returns {string} - The HTML markup for the news items.
-     */
+	 * Renders the news items in the feed as HTML.
+	 * 
+	 * @param {Array} data - The array of news items to render.
+	 * @returns {string} - The HTML markup for the news items.
+	 */
 	renderItem(data) {
-			return `
-				${data.map((news, i) => `
+		return `
+			${data.map((news) => {
+				// Build metadata parts
+				const parts = [];
+				if (news.points != null) parts.push(`${news.points} points`);
+				if (news.username) parts.push(`by ${news.username}`);
+				if (news.name) parts.push(news.name);
+				if (news.date) parts.push(this.formatDate(news.date));
+				if (news.comments != null) {
+					parts.push(
+						`<a href="/wire/${news.id}" class="comments-link">${news.comments} comments</a>`
+					);
+				}
+
+				// Decide link target (external url or internal wire page)
+				const link = news.url ? news.url : `/wire/${news.id}`;
+
+				return `
 					<div class="news" data-id="${news.id}">
 						<div class="content">
-							<a href="${news.url}" target="_blank" rel="nofollow noreferrer noopener">
+							<a href="${link}" target="_blank" rel="nofollow noreferrer noopener">
 								<h2 class="title">${news.title}</h2>
-								<span class="text-small text-muted">${news.name} - ${this.formatDate(news.date)}</span>
 							</a>
+							<span class="text-small text-muted">${parts.join(' | ')}</span>
 						</div>
-					</div>`).join('')}
-				`
+					</div>`;
+			}).join('')}
+		`;
 	}
 
 }
