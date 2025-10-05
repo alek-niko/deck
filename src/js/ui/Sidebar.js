@@ -8,159 +8,262 @@
  * - Providing placeholder methods (`show`, `hide`, `open`, `close`) for future functionality.
  */
 export default class Sidebar {
-	/**
-     * Initializes the Sidebar component by:
-     * - Retrieving references to key DOM elements (`sidebar`, `menu`, and `toggle`).
-     * - Calling the `#initialize` method to set up functionality.
+
+    /**
+     * @param {string} elementSelector - The CSS selector for the sidebar element.
+     * @param {string} toggleSelector - The CSS selector for the toggle button.
+     * @param {object} [options={}] - Configuration options for the sidebar.
+     * @param {string} [options.storageKey='sidebar.open'] - The key for localStorage.
+     * @param {number|null} [options.responsiveBreakpoint=null] - The window width (in px) below which special visibility logic applies.
+     * @param {string} [options.bodyHiddenClass='sidebar-hidden'] - The class applied to the <body> to hide the sidebar.
+     * @param {string} [options.responsiveVisibleClass='is-visible'] - The class applied to the sidebar element for visibility on smaller screens.
+     * @param {string} [options.toggleOpenClass='open'] - The class applied to the toggle button when the sidebar is open.
      */
-	constructor($sidebar) {
 
- 		// Find the <aside> element
-		// only falls back if $sidebar is null or undefined.
-		// $sidebar = $sidebar ?? document.querySelector('aside');
+	constructor(elementSelector, toggleSelector, options = {}) {
 
-		// fallback if any falsy value 
-		// $sidebar = $sidebar || document.querySelector('aside');
+        this.element = document.querySelector(elementSelector);
+        this.toggle = document.querySelector(toggleSelector);
 
-		if (!$sidebar) {
-			$sidebar = document.querySelector('aside');
-		}
+		// Merge default options with user-provided ones
+        this.options = {
+            storageKey: 'sidebar.open',
+            responsiveBreakpoint: null,
+            bodyHiddenClass: 'sidebar-hidden',
+            responsiveVisibleClass: 'is-visible',
+            toggleOpenClass: 'open',
+            ...options
+        };
 
-		// Exit if no sidebar element is found -  may be partially initialized
-		//if (!sidebar) return;
+		// Prevents initialization if essential elements are missing
+		if (!this.element || !this.toggle) {
+            console.warn(`Sidebar initialization failed for selector "${elementSelector}". Element or toggle not found.`);
+            return;
+        }
 
-		// if (!sidebar || !sidebar.classList.contains("sidebar-secondary")) {
-		// 	throw new Error("Initialization failed: Required sidebar with class 'sidebar-secondary' not found.");
-		// }
-
-		// Set the sidebar element
-		this.element = $sidebar;
-
-		// Reference to the menu within the sidebar
-		this.menu = document.querySelector('.menu');
-		
-		// Sidebar toggle button
-		this.toggle = document.getElementById('sidebar-toggle');
-
-		// Initialize the sidebar functionality
-		this.#initialize();
+        this.init();
 	}
 
-	/**
-     * Initializes the sidebar by setting up:
-     * - The toggle button for opening/closing the sidebar.
-     * - Menu interaction for submenu toggling.
-     * - Highlighting the active item in the menu.
+    /**
+     * Initializes the sidebar by setting its initial state and attaching event listeners.
      */
-	#initialize() {
-		if (this.menu) {
-			this.#setupToggle();			// Set up toggle button functionality
-			this.#setupMenuInteraction();	// Set up menu interaction for submenus
-			this.#highlightActiveItem();	// Highlight the active menu item
-		}
-	}
+    init() {
+        this.#setInitialState();
+        this.#attachEventListeners();
+		this.#highlightActiveItem();
+        this.#setupMenuInteraction();
+    }	
+
+    /**
+     * Reads the state from localStorage and applies the initial classes.
+     */
+    #setInitialState() {
+        // localStorage stores strings, 'true' indicates it was previously open.
+        const isVisible = localStorage.getItem(this.options.storageKey) === 'true';
+        this.#applyState(isVisible);
+    }
+	
+    /**
+     * Attaches the click event listener to the toggle button.
+     */
+    #attachEventListeners() {
+		this.toggle.addEventListener('click', () => this.#handleToggle());
+				
+		// Add listener for clicks outside the sidebar
+        document.addEventListener('click', (event) => this.#handleClickOutside(event));
+    }
+	
+    /**
+     * Handles the logic when the toggle button is clicked.
+     */
+    #handleToggle() {
+        // Check visibility by seeing if the hidden class is NOT on the body
+        const isNowVisible = document.body.classList.toggle(this.options.bodyHiddenClass);
+        this.#applyState(!isNowVisible);
+    }
+
+    /**
+     * Handles clicks on the document to close the sidebar when clicking outside of it.
+     * This functionality is only active on screen sizes below the responsive breakpoint.
+     * @param {MouseEvent} event - The click event object.
+     */
+    #handleClickOutside(event) {
+
+        // Only run this logic on smaller screens
+        if (!this.options.responsiveBreakpoint || window.innerWidth >= this.options.responsiveBreakpoint) {
+            return;
+        }
+        
+        // Check if the sidebar is currently visible/open
+        const isHidden = document.body.classList.contains(this.options.bodyHiddenClass);
+        if (isHidden) {
+            return;
+        }
+
+        // Check if the click was inside the sidebar or on the toggle button itself
+        const clickedInsideSidebar = this.element.contains(event.target);
+        const clickedOnToggle = this.toggle.contains(event.target) ;
+
+        if (clickedInsideSidebar || clickedOnToggle) {
+            return;
+        }
+
+        // If all checks pass, it was a click outside, so hide the sidebar
+        this.hide();
+    }	
+
+    /**
+     * Applies all visual and state changes based on sidebar visibility.
+     * @param {boolean} isVisible - Whether the sidebar should be visible.
+     */
+    #applyState(isVisible) {
+        document.body.classList.toggle(this.options.bodyHiddenClass, !isVisible);
+		this.toggle.classList.toggle(this.options.toggleOpenClass, isVisible);
+
+        this.#updatePersistentState(isVisible);
+        this.#handleResponsiveBehavior(isVisible);
+    }
+
+    /**
+     * Updates the state in localStorage.
+     * @param {boolean} isVisible - The current visibility state.
+     */
+    #updatePersistentState(isVisible) {
+        if (isVisible) {
+            localStorage.setItem(this.options.storageKey, 'true');
+        } else {
+            localStorage.removeItem(this.options.storageKey);
+        }
+    }
+	
+   /**
+     * Toggles a responsive-specific visibility class if the screen
+     * is below the configured breakpoint.
+     * @param {boolean} isVisible - The current visibility state.
+     */
+    #handleResponsiveBehavior(isVisible) {
+        if (this.options.responsiveBreakpoint && window.innerWidth < this.options.responsiveBreakpoint) {
+            this.element.classList.toggle(this.options.responsiveVisibleClass, isVisible);
+        }
+    }	
 
 	/**
-     * Sets up the sidebar toggle functionality, allowing the sidebar to be opened or closed.
-     * Stores the sidebar's open/close state in `localStorage` for persistence.
-     */
-	#setupToggle() {
-
-		// Exit if no toggle button is found
-		if (!this.toggle) return;
-
-		const body = document.body;
-		const isSidebarOpen = localStorage.getItem("deck_sidebar_open") !== null;
-
-		// Initialize the sidebar's open/close state
-		body.classList.toggle('sidebar-hidden', !isSidebarOpen);
-		this.toggle.classList.toggle('open', isSidebarOpen);
-
-		// Add a click event listener to the toggle button
-		this.toggle.addEventListener('click', () => {
-
-			// Toggle sidebar visibility
-			const isOpen = body.classList.toggle('sidebar-hidden');
-
-			// Update toggle button state
-			this.toggle.classList.toggle('open', !isOpen);
-
-			// Save or remove the open state in localStorage
-			if (!isOpen) {
-				localStorage.setItem('deck_sidebar_open', 'true');
-				this.#setToggleIcon('close');
-			} else {
-				localStorage.removeItem('deck_sidebar_open');
-				this.#setToggleIcon('open');
-			}
-		});
-	}
-
-	/**
-     * Updates the toggle button's icon based on the sidebar's state.
-     * @param {string} state - The state of the sidebar ('open' or 'close').
-     */
-	#setToggleIcon(state) {
-		const icons = {
-			open: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z"/></svg>`,
-			close: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-260v-45.39h488.46V-260H140Zm648-47L613.62-480.62l173.76-172.99L820-621 678.84-480.62l141.77 141L788-307ZM140-458.92v-45.39h371.54v45.39H140Zm0-195.69V-700h488.46v45.39H140Z"/></svg>`
-		};
-
-		// Update the toggle button's content with the corresponding icon
-		this.toggle.innerHTML = icons[state];
-	}
-
-	/**
-     * Sets up interaction for the menu, allowing submenus to be toggled.
-     * Ensures only one submenu is open at a time.
-     */
+	 * Sets up interaction for the menu, allowing submenus to be toggled.
+	 * Uses event delegation and ensures only one submenu is open at a time.
+	 */
 	#setupMenuInteraction() {
-		this.menu?.addEventListener('click', (event) => {
-			// Find the closest menu item
-			const item = event.target.closest('li');
+		// Exit if there's no menu element to attach listener to
+		if (!this.element.querySelector('ul')) return;
+		
+		this.element.addEventListener('click', (event) => {
+			const clickedItem = event.target.closest('li');
+			
+			// Ensure we clicked an item and it has a submenu
+			if (!clickedItem || !clickedItem.querySelector('.submenu')) {
+				return;
+			}
 
-			// Exit if no submenu exists in the item
-			if (!item?.querySelector('.submenu')) return;
+			const currentlyOpenItem = this.element.querySelector('li.open');
 
-			// Toggle the open state of the clicked item
-			item.classList.toggle('open');
+			// If another item is open, close it
+			if (currentlyOpenItem && currentlyOpenItem !== clickedItem) {
+				currentlyOpenItem.classList.remove('open');
+			}
 
-			// Close any other open submenus
-			const siblings = Array.from(this.menu.querySelectorAll('li.open')).filter(sibling => sibling !== item);
-			siblings.forEach(sibling => sibling.classList.remove('open'));
+			// Toggle the clicked item's state
+			clickedItem.classList.toggle('open');
 		});
 	}
 
 	/**
-     * Highlights the active menu item based on the current page URL.
-     * Expands the parent submenu (if applicable) and scrolls the active item into view.
-     */
+	 * Highlights the active menu item based on the current URL.
+	 * Expands parent submenus and scrolls the active item into view.
+	 */
 	#highlightActiveItem() {
-
-		// Get the current page path without query strings or fragments
-		const currentPage = window.location.pathname.replace(/(\?.*)?$/, '');
-
-		// Find the menu item for the current page
-		const item = document.querySelector(`a[href='${currentPage}']`)?.parentElement;
+		const currentPath = window.location.pathname;
+		const menuLinks = this.element.querySelectorAll('a[href]');
 		
-		// Exit if no matching menu item is found
-		if (!item) return;
+		let activeItem = null;
 
-		// Highlight the active menu item
-		item.classList.add('active');
-
-		// Open the parent submenu if the item is not part of "Documentation"
-		if (item.getAttribute("title") !== 'Documentation') {
-			item.closest('.submenu')?.parentNode.classList.add('open');
+		// Find the best link match. This is more robust than a direct attribute selector.
+		for (const link of menuLinks) {
+			// A simple check to see if the link's href is part of the current path
+			if (currentPath.endsWith(link.getAttribute('href'))) {
+				activeItem = link.parentElement; // We want the <li>
+				break; // Stop after finding the first match
+			}
 		}
 
-		// Scroll the active item into view
-		document.querySelector('.sidebar .active')?.scrollIntoView({ behavior: 'instant', block: 'center' });
-	}
+		if (!activeItem) return;
 
-	// Placeholder methods for future functionality
-    show() {} // Show the sidebar
-    hide() {} // Hide the sidebar
-    open(index) {} // Open a specific menu item
-    close(index) {} // Close a specific menu item
+		activeItem.classList.add('active');
+
+		// Expand parent submenu if it exists and isn't marked otherwise
+		const parentSubmenu = activeItem.closest('.submenu');
+		if (parentSubmenu) {
+			const parentLi = parentSubmenu.parentElement;
+			// Use a data-attribute for exceptions instead of a hardcoded title
+			if (!parentLi.hasAttribute('data-no-auto-expand')) {
+				parentLi.classList.add('open');
+			}
+		}
+
+		// Scroll the active item into view efficiently
+		activeItem.scrollIntoView({
+			behavior: 'instant',
+			block: 'center'
+		});
+	}	
+
+    /**
+     * Makes the sidebar visible.
+     */
+    show() {
+        this.#applyState(true);
+    }
+
+    /**
+     * Hides the sidebar.
+     */
+    hide() {
+        this.#applyState(false);
+    }
+
+    /**
+     * Opens a specific submenu by its index.
+     * @param {number} index - The zero-based index of the submenu item to open.
+     */
+    open(index) {
+        // Check if the index is valid
+        if (index < 0 || index >= this.submenuItems.length) {
+            console.warn(`Submenu index ${index} is out of bounds.`);
+            return;
+        }
+
+        const itemToOpen = this.submenuItems[index];
+        const currentlyOpenItem = this.element.querySelector('li.open');
+
+        // Close any other open item first
+        if (currentlyOpenItem && currentlyOpenItem !== itemToOpen) {
+            currentlyOpenItem.classList.remove('open');
+        }
+
+        // Open the target item
+        itemToOpen.classList.add('open');
+    }
+
+    /**
+     * Closes a specific submenu by its index.
+     * @param {number} index - The zero-based index of the submenu item to close.
+     */
+    close(index) {
+        // Check if the index is valid
+        if (index < 0 || index >= this.submenuItems.length) {
+            console.warn(`Submenu index ${index} is out of bounds.`);
+            return;
+        }
+        
+        const itemToClose = this.submenuItems[index];
+        itemToClose.classList.remove('open');
+    }
 }
