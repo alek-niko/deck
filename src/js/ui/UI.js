@@ -7,30 +7,21 @@ import Sidebar from './Sidebar.js';
 import Header from './Header.js';
 import ThemeManager from './ThemeManager.js';
 
-//import UserInput from './Input.v2.js';
-
 export default class UI {
-
-	#inputObserver;
-	#initInputCharCounters;
 
 	constructor() {
 		
 		this.html 		= document.documentElement
 		this.body 		= document.body
 		this.window 	= document.window
-		this.$main 		= document.getElementById("main") 
-		this.$sidebar 	= document.getElementById("sidebar") 
-		this.$header 	= document.getElementById("header")
-		this.$footer 	= document.getElementById("footer")
-		this.$options	= document.getElementById('options')
+
+		this.$main    = document.querySelector("main")
+		this.$sidebar = document.querySelector("aside")
+		this.$header  = document.querySelector("header")
+		this.$footer  = document.querySelector("footer")
+		this.$options = document.querySelector("#options") 
 
 		this.$loading	= document.querySelector('.loading');
-
-		//this.userInput = new UserInput()
-
-		// this.sidebar = new Sidebar()
-		// this.header = new Header()
 
 		this.#init()
 	}
@@ -39,6 +30,7 @@ export default class UI {
 
 		this.#initHeader()
 		this.#initSidebar()
+
 		this.#initThemeManager()
 
 		this.#initEvents()
@@ -70,14 +62,28 @@ export default class UI {
 	}
 
 	#initSidebar() {
+
 		const sidebar = document.querySelector("aside");
 		if (!sidebar) return;
 
 		if (sidebar.classList.contains("sidebar-secondary")) {
-			this.sidebar = new Sidebar()
+		    // Initialize the secondary sidebar
+			this.sidebar = new Sidebar('.sidebar-secondary', '#sidebar-toggle', {
+				//storageKey: 'sidebar.open', // Unique key
+				responsiveBreakpoint: 1280
+			});
 		}
 
-		// temp - move to its own class
+		// [ ToDo ] No toggleSelector yet, so this will fail. 
+		// if (sidebar.classList.contains("sidebar-main")) {
+		// 	// Initialize the main sidebar
+		// 	this.sidebar = new Sidebar('.sidebar-main', '#sidebar-toggle', {
+		// 		//storageKey: 'sidebar.open', // Unique key
+		// 		responsiveBreakpoint: 992
+		// 	});
+		// }
+
+		// Main sidebar: Set active item [ temp ] 
 		if (sidebar.classList.contains("sidebar-main")) {
 
 			const navItems = sidebar.querySelectorAll(".nav-item");
@@ -92,11 +98,10 @@ export default class UI {
 					item.classList.remove("active");
 				}
 			});
-		}
+		}		
 	}
 
 	#initThemeManager() {
-		console.log('init theme')
 		this.theme = new ThemeManager();
 	}
 
@@ -135,17 +140,6 @@ export default class UI {
 
 	// Temporaray
 	#fixPreCode() {
-
-		/* OLD
-			document.querySelectorAll('pre > code').forEach(codeEl => {
-				// Get raw text content
-				let text = codeEl.textContent;
-				// Trim leading and trailing whitespace including newlines
-				text = text.replace(/^\s+/, '').replace(/\s+$/, '');
-				// Update the code element's text content
-				codeEl.textContent = text;
-			});
-		*/
 
 		document.querySelectorAll('pre > code').forEach(codeEl => {
 			let lines = codeEl.textContent.split('\n');
@@ -365,57 +359,6 @@ export default class UI {
 			}
 		});
 	}
-
-
-	// #initEvents() {
-	// 	// Touch detect
-	// 	window.addEventListener('touchstart', function onFirstTouch() {
-	// 		document.body.classList.add('touch-device');
-	// 		window.TOUCH_DETECTED = true;
-	// 		window.removeEventListener('touchstart', onFirstTouch, false);
-	// 	}, false);
-	
-	// 	// Close dropdown on click
-	// 	document.body.addEventListener('click', event => {
-	// 		if (event.target.classList.contains('dropdown-close')) {
-	// 			UIkit.dropdown($(event.target).closest('.dropdown')).hide();
-	// 		}
-	// 		if (event.target.matches('a[href="#"]')) {
-	// 			event.preventDefault();
-	// 		}
-	// 	});
-	
-	// 	// Add focus and filled classes on input focus
-	// 	document.body.addEventListener("focus", event => {
-	// 		if (event.target.matches('[data-input]')) {
-	// 			event.target.closest('.input-wrapper').classList.add('input-focus');
-	// 		}
-	// 	}, true);
-	
-	// 	// Remove focus and filled classes on input blur
-	// 	document.body.addEventListener("blur", event => {
-	// 		if (event.target.matches('[data-input]')) {
-	// 			const input = event.target;
-	// 			const wrapper = input.closest('.input-wrapper');
-	// 			wrapper.classList.remove('input-focus');
-	// 			if (!input.classList.contains('label-fixed')) {
-	// 				input.value !== '' ? wrapper.classList.add('input-filled') : wrapper.classList.remove('input-filled');
-	// 			}
-	// 		}
-	// 	}, true);
-	
-	// 	// Add or remove filled class on input change
-	// 	document.body.addEventListener('input', event => {
-	// 		if (event.target.matches('[data-input]')) {
-	// 			const input = event.target;
-	// 			const wrapper = input.closest('.input-wrapper');
-	// 			if (!input.classList.contains('label-fixed')) {
-	// 				input.value !== '' ? wrapper.classList.add('input-filled') : wrapper.classList.remove('input-filled');
-	// 			}
-	// 			this.#inputUpdate(input);
-	// 		}
-	// 	}, true);
-	// }
 	
 	preloader($element, ratio, color) {
 		if (!$element) return
