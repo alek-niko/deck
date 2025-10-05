@@ -1,0 +1,165 @@
+// =============================================================================
+// LAYOUT BOX COMPONENT
+// components/layout/_l-box.scss
+// -----------------------------------------------------------------------------
+// Root layout wrapper for pages with:
+// - Sticky header support (commented out here but easy to enable)
+// - Responsive, centered content area
+// - Fluid scaling with optional full-bleed sections
+// - Max-width scaling from mobile → desktop
+// =============================================================================
+
+@use '../../abstracts/variables/breakpoints' as *;
+
+// =============================================================================
+// LAYOUT BOX COMPONENT (Fluid clamp scaling)
+// =============================================================================
+
+.l-box {
+	// Use CSS Grid to define three rows: header, main content, footer
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+
+	// Full viewport height to ensure footer sticks to bottom if content is short
+	min-height: 100dvh;
+
+	// Base background and text color from theme tokens
+	background: var(--color-background);
+	color: var(--color-text);
+
+	// No extra padding on the root container
+	padding: 0;
+
+	// ---------------------------------------------------------------------------
+	// Constrain inner sections (header, main, footer) by max width
+	// and center them horizontally
+	// ---------------------------------------------------------------------------
+	>header,
+	>main,
+	>footer {
+		width: 100%; // Always fill available space
+		margin: 0 auto; // Center horizontally
+		padding: 0 1rem; // Default horizontal padding
+		box-sizing: border-box; // Ensure padding does not exceed width
+
+		// Fluid scaling between mobile and desktop:
+		// - min 320px (smallest mobile)
+		// - max 1280px (desktop)
+		// - 90vw: use 90% of viewport width in between
+		max-width: clamp(320px, 90vw, 1280px);
+
+		// Remove horizontal padding on small screens to maximize space
+		@media (max-width: $breakpoint-sm) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	// ---------------------------------------------------------------------------
+	// HEADER
+	// ---------------------------------------------------------------------------
+	header {
+		// Sticky positioning commented out; can enable if needed:
+		// position: sticky;
+		// top: 0;
+		// z-index: 1000;
+
+		//background: var(--color-surface);            // Surface color token
+		border-bottom: 1px solid var(--color-border); // Subtle bottom border
+
+		// Flex layout commented out; can enable if needed for horizontal nav
+		// display: flex;
+		// justify-content: space-between;
+		// align-items: center;
+		// padding: 0.75rem 1.5rem;
+
+		// Mobile adjustments
+		@media (max-width: $breakpoint-sm) {
+			padding-left: 0;
+			padding-right: 0; // Optional tiny breathing room can be added
+		}
+	}
+
+	// ---------------------------------------------------------------------------
+	// MAIN CONTENT
+	// ---------------------------------------------------------------------------
+	main {
+		padding: 1rem 1.5rem; // Default padding
+
+		// Remove side padding on small screens
+		@media (max-width: $breakpoint-sm) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	// ---------------------------------------------------------------------------
+	// FOOTER
+	// ---------------------------------------------------------------------------
+	footer {
+		padding: 1rem 1.5rem; // Default padding
+		border-top: 1px solid var(--color-border); // Top border for separation
+		font-size: 0.9rem; // Slightly smaller text
+		text-align: center; // Centered footer text
+
+		// Remove side padding on small screens
+		@media (max-width: $breakpoint-sm) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	// ---------------------------------------------------------------------------
+	// FULL-BLEED MODIFIER
+	// ---------------------------------------------------------------------------
+	// Usage: <section class="full-bleed">...</section>
+	// Allows an element to span the entire viewport width, ignoring max-width
+	.full-bleed {
+		grid-column: 1 / -1; // Span full grid width
+		width: 100%; // Force full width
+		max-width: none; // Remove any max-width constraints
+		padding: 0; // Reset padding if needed
+	}
+}
+
+/* =============================================================================
+EXAMPLE HTML STRUCTURE
+
+<body class="l-box">
+  <header>
+    <div class="logo">Deck</div>
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#">Feed</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Optional full-bleed banner -->
+  <section class="full-bleed hero">
+    <div class="hero-content">
+      <h1>Big Full-Width Banner</h1>
+      <p>This spans the entire viewport width.</p>
+    </div>
+  </section>
+
+  <main>
+    <h1>Welcome</h1>
+    <p>
+      This content area is centered and responsive.
+      At XL screens it’s 1280px, scaling down to smaller widths on tablets and mobile.
+    </p>
+
+    <article class="post">
+      <h2>Post Title</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </article>
+  </main>
+
+  <footer>
+    &copy; 2025 Deck. All rights reserved.
+  </footer>
+</body>
+
+============================================================================= */
