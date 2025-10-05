@@ -47,6 +47,7 @@
 		transition: .1s ease-in-out;
 		transition-property: all;
 		transition-property:  var(--color-surface);
+		width: 100%;
 	}
 
 	&-container:not(.navbar-transparent) {
@@ -350,14 +351,14 @@
 
 @media (max-width: $breakpoint-sm) {
 
-	.navbar-nav,
-	.navbar-left,
-	.navbar-right,
-	.navbar-center {
-		flex-direction: column;
-		align-items: stretch;
-		gap: 8px;
-	}
+	// .navbar-nav,
+	// .navbar-left,
+	// .navbar-right,
+	// .navbar-center {
+	// 	flex-direction: column;
+	// 	align-items: stretch;
+	// 	gap: 8px;
+	// }
 
 	.navbar-dropdown {
 		width: 100%;
