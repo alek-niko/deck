@@ -71,7 +71,7 @@
 	}
 
 	// Responsive: hide sidebar on smaller screens
-	@include max-lg {
+	@include max-md {
 		display: none;
 	}
 
