@@ -30,7 +30,11 @@ class Feed extends Component {
 			contentSelector: '.card',	// Selector for content elements
 			contentLive: true,			// Use websocket for real-time data
 			animated: true,				// Enable animations for appending and prepending items
-			apiQueryParams: ['max_id'],	// Default API parameters
+			apiQueryParams: ['max_id'],	// Default API parameters; todo; add feedSize as limit
+
+			// observer defaults
+			observerRoot: null,
+			observerMargin: '0px 0px 1000px 0px'
 		};
 
 		// Merge user-provided options with the default options
@@ -54,17 +58,24 @@ class Feed extends Component {
 		super(context);
 
 		// Set API endpoint dynamically based on feed name and id
-		//this.apiEndpoint ||= `/${this.name}${this.id ? `/${this.id}` : ''}/${this.content || ''}`;
-
 		this.apiEndpoint ||= `/${this.name}${this.category ? `/${this.category}` : ''}${this.id ? `/${this.id}` : ''}${this.content ? `/${this.content}` : ''}`;
 
 		// Set WebSocket event name dynamically based on feed name and id
 		this.wssEvent ||= `feed:${this.name}${this.id ? `:${this.id}` : ''}`;
 
-		// Use queue for websockeet data. handle FIFO firehose bursts 
-		//this.queue  = new Queue(100, this.prependItem.bind(this))
+		// Save container with safe fallback
+		this.container = options.container || (this.element && this.element.parentNode) || document.body;
 
-		//this.apiQueryParams	= ['max_id'].concat(this.apiQueryParams || [])
+		// Create sentinel inside container
+    	this.sentinel = document.createElement('span');
+    	this.sentinel.className = 'feed-sentinel';
+    	this.sentinel.textContent = 'Loading...';
+    	this.container.appendChild(this.sentinel);
+
+		// IntersectionObserver helpers
+		this.usedSentinel = false;
+		this.lastObserved = null;
+		this.isLoading = false;
 
 		// Initialize various functions with default no-op functions
 		this.prependItem	= this.prependItem	|| function() {};
@@ -74,9 +85,8 @@ class Feed extends Component {
 		this.actionHandler	= this.actionHandler|| function() {};
 
 		// Initialize observers and data fetch
+		//this.getData()					// Fetch feed data
 		this.#initMutationObserver()		// Initialize MutationObserver
-		this.getData()						// Fetch feed data
-
 		this.#initScrollObserver()			// Initialize infinite scroll
 		this.#initOnClickEvent()			// Initialize click event handler
 
@@ -107,60 +117,12 @@ class Feed extends Component {
 	 */
 	get size() { return this.element.children.length }
 
-	/**
-	 * Method that runs when an observed intersection occurs (e.g., scrolling to the end).
-	 * @param {IntersectionObserverEntry[]} entries - The entries passed by the IntersectionObserver.
-	 */
-	async observeIntersection(entries) {
-		if (entries[0].isIntersecting && !this.isLoading) {
-			this.isLoading = true;
-			
-			// Use requestAnimationFrame to run the onScrollToEnd logic at the next render cycle
-			requestAnimationFrame(async () => {
-				await this.onScrollToEnd();
-				this.isLoading = false;
-			});
-		}
-	}
-
-	/**
-	 * Initializes the IntersectionObserver for infinite scroll functionality.
-	 * @note Creates a "feed-end" div if it does not exist for scroll triggering.
-	 */
-	#initScrollObserver() {
-
-		//const wireElement = document.querySelector('.wire');
-		let nextElement = this.element.nextElementSibling;
-
-		// Create "feed-end" div if it doesn't exist
-		if (!nextElement || !nextElement.classList.contains('feed-end')) {
-			// Create the element if it doesn't exist or doesn't have the `feed-end` class
-			nextElement = document.createElement('span');
-			nextElement.classList.add('label', 'feed-end');
-			nextElement.textContent = 'Loading....';
-
-			// Insert the new element after the `.wire` element
-			this.element.parentNode.insertBefore(nextElement, this.element.nextSibling);
-		}
-
-		// Set up IntersectionObserver to monitor scrolling to the end
-		//this.observer = new IntersectionObserver(this.observeIntersection.bind(this), { threshold: 1.0 });
-
-		this.observer = new IntersectionObserver(this.observeIntersection.bind(this), {
-			root: null,
-			rootMargin: `0px 0px ${window.innerHeight * 0.2}px 0px`, // 20% of viewport
-			threshold: 0.0
-		  });
-
-		//this.observer.observe(this.loadingDiv);
-		this.observer.observe(nextElement);
-	}
 
 	/**
 	 * Initializes the MutationObserver to detect changes to the feed element (e.g., adding/removing nodes).
 	 */
 	#initMutationObserver() {
-		this.observer = new MutationObserver(mutations => {
+		this.observeMutation = new MutationObserver(mutations => {
 			mutations.forEach(mutation => {
 				mutation.addedNodes.forEach(node => this.onAddNode(node));
 				mutation.removedNodes.forEach(node => this.onRemoveNode(node));
@@ -168,8 +130,102 @@ class Feed extends Component {
 		})
 
 		// Observe changes to the feed element's children
-		this.observer.observe(this.element, { childList: true });
+		this.observeMutation.observe(this.element, { childList: true });
 	}
+
+	/**
+	 * Initializes the IntersectionObserver for infinite scroll functionality.
+	 */
+	#initScrollObserver() {
+
+		if (this.observer) this.observer.disconnect();
+
+		this.observer = new IntersectionObserver(
+			this.onIntersect.bind(this),
+			{
+				root: this.observerRoot,
+				rootMargin: this.observerMargin,
+				threshold: 0
+			}
+		);
+
+		//this.observer.observe(this.sentinel);
+		this.observeLastItem();
+	}
+
+	/**
+	 * Method that runs when an observed intersection occurs.
+	 * @param {IntersectionObserverEntry[]} entries - The entries passed by the IntersectionObserver.
+	 * Processes only the first valid intersecting entry.
+	 */
+	async onIntersect(entries) {
+
+		if (this.isLoading) return;
+
+		for (const entry of entries) {
+			if (!entry.isIntersecting) continue;
+
+			// Skip stale entries not matching the lastObserved (safety)
+			if (this.lastObserved && entry.target !== this.lastObserved) continue;
+
+			// Lock immediately
+			this.isLoading = true;
+
+			// Prevent further triggers from this element while loading
+			try { this.observer.unobserve(entry.target); } catch (e) { }
+
+			// Fetch / append data and receive whether we still have more
+			const hasMore = await this.onScrollToEnd();
+
+			this.isLoading = false;
+
+			if (hasMore) {
+				// Defer re-observing until after the DOM updates settle
+				requestAnimationFrame(() => this.observeLastItem());
+			} else {
+				// End of feed -> stop observing forever
+				this.observer.disconnect();
+				this.lastObserved = null;
+			}
+
+			break; // handle only one intersecting entry per callback
+		}
+	}
+
+	/**
+	 * Observe the last item (or sentinel once, if empty).
+	 */
+	observeLastItem() {
+
+		const items = this.element.children;
+
+		// If feed ended -> stop observing
+		if (this.contentEnd) {
+			this.observer.disconnect();
+			this.lastObserved = null;
+			return;
+		}
+
+		// If no items yet -> observe sentinel only once
+		if (items.length === 0) {
+			if (!this.usedSentinel && this.sentinel) {
+				this.observer.disconnect();
+				this.observer.observe(this.sentinel);
+				this.lastObserved = this.sentinel;
+				this.usedSentinel = true;
+			}
+			return;
+		}
+
+		const lastItem = items[items.length - 1];
+
+		// Only re-observe if it's a different element
+		if (this.lastObserved === lastItem) return;
+
+		this.observer.disconnect();
+		this.observer.observe(lastItem);
+		this.lastObserved = lastItem;
+	}	
 
 	/**
 	 * Runs when the user scrolls to the top of the feed.
@@ -179,31 +235,25 @@ class Feed extends Component {
 		this.trim()
 		this.contentEnd = this.contentSize < this.feedSize
 	}
- 
-	/**
-	 * Runs when the user scrolls to the bottom of the feed.
-	 * Fetches more data if necessary.
-	 */
+
 	async onScrollToEnd() {
-		if (this.contentSize > 5) await this.getData();
+		//Set a loading UI here, e.g. this.sentinel.classList.add('loading')
+		const hasMore = await this.getData();
+		// remove spinner
+		return hasMore;
 	}
-	
 
 	/**
 	 * Callback when a node is added to the feed.
 	 * @param {Node} node - The node that was added.
 	 */
-	onAddNode(node) {
-		//console.log(node)
-	}
+	onAddNode(node) {}
 
 	/**
 	 * Callback when a node is removed from the feed.
 	 * @param {Node} node - The node that was removed.
 	 */
-	onRemoveNode(node) {
-		//this.deleteItem()
-	}
+	onRemoveNode(node) {}
 
 	/**
 	 * Fetches feed data via AJAX.
@@ -212,31 +262,44 @@ class Feed extends Component {
 
 	async getData() {
 
-		if (this.contentEnd || !this.apiEndpoint || !this.element) return;
-	
-		if (this.length) this.max_id = this.last.dataset.id;
-	
-		// Build query parameters for the API request
+		// Emit 'beforeajax' update event
+		this.dispatchEvent("feed.beforeajax", { feedId: this.id }, true);
+		
+		// Defensive early exits
+		if (this.contentEnd || !this.apiEndpoint || !this.element) return false;
+
+		if (this.length) this.max_id = this.last?.dataset?.id;
+
 		const params = this.apiQueryParams
-			.map(param => this[param] ? `${param}=${this[param]}` : '')
+			.map(param => this[param] ? `${param}=${encodeURIComponent(this[param])}` : '')
 			.filter(Boolean)
 			.join('&');
-	
-		// Build URL
-		const url = `/api${this.apiEndpoint}?${params}`.trim().replace(/\?$/, '');
-	
+
+		const url = `/api${this.apiEndpoint}${params ? '?' + params : ''}`;
+
 		try {
 			const response = await fetch(url);
 			if (!response.ok) {
-				throw new Error(`HTTP error! status: ${response.status}`);
+				console.error('HTTP error', response.status);
+				// Emit 'aftereajax' update event
+				this.dispatchEvent("feed.aftereajax", { feedId: this.id, success: false }, true);
+				return false;
 			}
 			const datum = await response.json();
-			this.appendItems(datum);
-		} catch (e) {
-			console.error(e);
+
+			// Emit 'aftereajax' update event
+			this.dispatchEvent("feed.aftereajax", { feedId: this.id, success: true }, true);
+
+			// IMPORTANT: appendItems returns a Promise<boolean>
+			const stillHasMore = await this.appendItems(datum);
+
+			return stillHasMore;
+
+		} catch (err) {
+			console.error(err);
+			return false;
 		}
 	}
-	
 
 	/**
 	 * Initializes the click event listener for the feed.
@@ -335,8 +398,14 @@ class Feed extends Component {
 	 */
 	prependItem(datum) {
 
+		// Emit 'beforeprepend' update event
+		this.dispatchEvent("feed.beforeprepend", { feedId: this.id, items: datum.data }, true);
+
 		//this.element.insertBefore(this.renderItem([datum.data], true), this.element.firstChild);
 		this.element.insertBefore(this.renderItem([datum]), this.element.firstChild);
+
+		// Emit 'afterprepend' update event
+		this.dispatchEvent("feed.afterappend", { feedId: this.id, count: datum.data.length }, true);
 
 		//item.classList.add('animation-slide-top-medium');
 
@@ -350,9 +419,6 @@ class Feed extends Component {
 		// Set the max_id from the last element's data attribute
 		//this.max_id = this.last.querySelector(this.contentSelector).dataset.id;
 		this.max_id = this.last.dataset.id;
-	
-		// Emit update event
-		this.dispatchEvent(`${this.name}.${this.id}.update`)
 	}
 
 	/**
@@ -363,57 +429,76 @@ class Feed extends Component {
 	 * @param {Object} datum - The data object containing an array of items to append.
 	 * @property {Array} datum.data - The array of items to append.
 	 */
+
 	appendItems(datum) {
 
-		// If no data is provided, mark the end of the feed.
-		if (!datum.data.length) {
+		// Emit 'beforeprepend' update event
+		this.dispatchEvent("feed.beforeappend", { feedId: this.id, items: datum.data }, true);
+
+		// sanity
+		if (!datum || !Array.isArray(datum.data) || datum.data.length === 0) {
 			this.contentEnd = true;
-			return;
+			this.sentinel.textContent = (this.contentSize === 0) ? "No posts yet" : "End of the line";
+			return Promise.resolve(false);
 		}
 
-		// Update the contentEnd flag based on whether the data array is smaller than feedSize.
+		// if returned data size < feedSize, we've reached the end (server-side page count)
 		this.contentEnd = datum.data.length < this.feedSize;
 
-		// If animations are enabled, append items with sliding animation.
 		if (this.animated) {
-			// Map each item to a promise that resolves after adding the item with a delay.
 			const promises = datum.data.map((json, index) => {
 				return new Promise(resolve => {
+					// stagger append for visual effect
 					setTimeout(() => {
-						// Render the item and wrap it in a temporary element.
 						const itemHTML = this.renderItem([json], false);
 						const template = document.createElement('div');
 						template.innerHTML = itemHTML;
 						const item = template.firstElementChild;
 
-						 // Add slide animation to the item.
 						item.classList.add('animation-slide-bottom-medium');
-						
-						// Remove the animation class after the animation ends.
+
+						// remove class at animation end
 						item.addEventListener('animationend', () => {
 							item.classList.remove('animation-slide-bottom-medium');
-						});
-						
-						// Append the item to the feed container.
+						}, { once: true });
+
 						this.element.appendChild(item);
-						resolve(); // Resolve the promise after appending the item.
-					}, 40 * (index + 1));	// Add a delay between appending consecutive items.
+						resolve();
+					}, 40 * (index + 1));
 				});
 			});
-	
-			// Wait for all items to be appended and then update the feed state.
-			Promise
-				.all(promises)
+
+			return Promise.all(promises)
 				.then(() => {
-					this.update(); // Call update after all items are appended
+					this.update(); // update internals after DOM changes
+
+					// Emit 'afterprepend' update event
+					this.dispatchEvent("feed.afterprepend", { feedId: this.id, items: datum.data }, true);
+
+					return !this.contentEnd;
+				})
+				.catch(err => {
+					console.error(err);
+
+					// Emit 'afterprepend' update event
+					this.dispatchEvent("feed.afterprepend", { feedId: this.id, items: datum.data }, true);
+
+					this.update();
+					return !this.contentEnd;
 				});
 
 		} else {
-			// If animations are disabled, append all items directly as HTML.
+			// Non-animated: append synchronously and return a resolved promise
 			this.element.insertAdjacentHTML('beforeend', this.renderItem(datum.data));
+
+			// Emit 'afterprepend' update event
+			this.dispatchEvent("feed.afterprepend", { feedId: this.id, items: datum.data }, true);
+
+			this.update();
+			return Promise.resolve(!this.contentEnd);
 		}
 	}
-	
+
 	/**
 	 * @method update
 	 * @description Updates the feed state after changes to its content.
@@ -423,6 +508,7 @@ class Feed extends Component {
 	 * - Emits an update event.
 	 */
 	update() {
+
 		// Update the feed's current content size.
 		this.contentSize = this.length;
 
@@ -435,6 +521,14 @@ class Feed extends Component {
 	
 		// Emit a custom event to notify listeners about the update.
 		this.dispatchEvent(`${this.name}.${this.id}.update`)
+		
+		// Emit 'update' event
+		this.dispatchEvent("feed.update", {
+			feedId: this.id,
+			contentSize: this.contentSize,
+			contentEnd: this.contentEnd},
+			true
+		);
 	}
 
 	/**
@@ -480,7 +574,6 @@ class Feed extends Component {
 	 * @returns {string} A string of HTML representing the rendered items.
 	 */
 	renderItem() {}
-
 
 	/**
 	 * Fetch feed details from API (instance method).
