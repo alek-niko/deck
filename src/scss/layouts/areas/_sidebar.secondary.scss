@@ -13,6 +13,27 @@
 // - Collapsed variant (.sidebar-secondary-collapsed) with icon-only display
 // =============================================================================
 
+@use '../../abstracts/variables/breakpoints' as * ;
+
+// -----------------------------------------------------------------------------
+// .sidebar-toggle
+// -----------------------------------------------------------------------------
+
+.sidebar-toggle .icon-close {
+    display: none; /* Hide the close icon by default */
+}
+.sidebar-toggle .icon-open {
+    display: block; /* Show the open icon by default */
+}
+
+/* When the button has the 'open' class */
+.sidebar-toggle.open .icon-close {
+    display: block; /* Show the close icon */
+}
+.sidebar-toggle.open .icon-open {
+    display: none; /* Hide the open icon */
+}
+
 // -----------------------------------------------------------------------------
 // Component: .sidebar-secondary
 // -----------------------------------------------------------------------------
@@ -281,4 +302,108 @@
 	.sidebar-info {
 		display: none;
 	}
+}
+
+// =============================================================================
+// Responsive Secondary Sidebar Logic
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Tablet & Small Desktop: Collapse to icon-only
+// On screens smaller than 1200px, the sidebar collapses.
+// -----------------------------------------------------------------------------
+// @media (max-width: 1200px) {
+//     .sidebar-secondary {
+//         width: 72px; // A common width for icon-only sidebars
+
+//         .logo {
+//             img, svg {
+//                 width: 40px;
+//             }
+//         }
+
+//         .sidebar-info,
+//         .user-info,
+//         .avatar-wrapper {
+//             // Hide all profile info gracefully
+//             opacity: 0;
+//             visibility: hidden;
+//             height: 0;
+//             padding: 0;
+//             margin: 0;
+//             overflow: hidden;
+//         }
+
+//         .menu {
+//             li a {
+//                 justify-content: center;
+//                 padding: 12px 8px;
+
+//                 .item-title,
+//                 .item-chevron {
+//                     opacity: 0;
+//                     visibility: hidden;
+//                     width: 0;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// -----------------------------------------------------------------------------
+// Mobile: Hide sidebar and enable drawer behavior
+// On screens smaller than 768px, it becomes an off-canvas drawer.
+// -----------------------------------------------------------------------------
+
+@media (max-width: $breakpoint-lg-max) {	
+    .sidebar-secondary {
+        position: fixed;
+        height: 100%;
+        transform: translateX(-100%);
+        box-shadow: none;
+        z-index: 1400; // Ensure it's below the main sidebar if both are open
+
+        // --- Drawer is Visible State ---
+        &.is-visible {
+            transform: translateX(0);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+
+            // --- Revert to full-width styles when drawer is open on mobile ---
+            width: 280px;
+
+            .logo {
+                img, svg {
+                    width: 70px;
+                }
+            }
+
+            .sidebar-info,
+            .user-info,
+            .avatar-wrapper {
+                opacity: 1;
+                visibility: visible;
+                // It's easiest to just re-declare the original styles
+                height: auto; 
+            }
+            // Re-declare padding & margin that was zeroed out
+            .sidebar-info { padding: 10px; }
+            .user-info { padding: 15px; margin: 0 auto; }
+            .avatar-wrapper { margin: 20px auto 0; padding: 15px; }
+
+
+            // .menu {
+            //     li a {
+            //         justify-content: flex-start;
+            //         padding: 8px 24px;
+
+            //         .item-title,
+            //         .item-chevron {
+            //             opacity: 1;
+            //             visibility: visible;
+            //             width: auto;
+            //         }
+            //     }
+            // }
+        }
+    }
 }
