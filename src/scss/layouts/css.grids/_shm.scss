@@ -114,13 +114,12 @@
 // Responsive: Stack Sidebar Below Header (max-width: 768px)
 // -----------------------------------------------------------------------------
 
-@media (max-width: $breakpoint-md-max) {
+@media (max-width: $breakpoint-lg-max) {
 	.l-shm {
 		grid-template-columns: 1fr;
 		grid-template-rows: var(--header-height) auto 1fr;
 		grid-template-areas:
 			"header"
-			"sidebar"
 			"main";
 
 		>aside {
