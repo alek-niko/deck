@@ -17,6 +17,7 @@
 // =============================================================================
 
 @use '../../abstracts/mixins/breakpoints' as * ;
+@use '../../abstracts/variables/breakpoints' as * ;
 @use '../../abstracts/variables/colors' as * ;
 
 // -----------------------------------------------------------------------------
@@ -257,18 +258,118 @@
 // -----------------------------------------------------------------------------
 // Mobile: drawer behavior controlled by .is-visible
 
-@include max-sm {
-	.sidebar-main {
-		position: fixed;
-		top: 0;
-		left: 0;
-		height: 100%;
-		transform: translateX(-100%);
-		transition: transform 0.3s ease;
-		z-index: 1500;
+// @include max-sm {
+// 	.sidebar-main {
+// 		position: fixed;
+// 		top: 0;
+// 		left: 0;
+// 		height: 100%;
+// 		transform: translateX(-100%);
+// 		transition: transform 0.3s ease;
+// 		z-index: 1500;
 
-		&.is-visible {
-			transform: translateX(0);
+// 		&.is-visible {
+// 			transform: translateX(0);
+// 		}
+// 	}
+// }
+
+// =============================================================================
+// Responsive Sidebar Logic
+// =============================================================================
+// Note: Replace with your project's breakpoint mixins or media queries if needed.
+
+// -----------------------------------------------------------------------------
+// Tablet & Small Desktop: Collapse to icon-only
+// On screens smaller than 1280px, the sidebar collapses.
+// -----------------------------------------------------------------------------
+
+@media (max-width: $breakpoint-lg-max) {	
+    .sidebar-main {
+        width: 72px;
+
+		.sidebar-content {
+			a.nav-item {
+				justify-content: center;
+
+				span {
+					display: none;
+				}
+			}
+
+			.new-post-btn {
+				display: none;
+			}
 		}
-	}
+
+        .sidebar-profile {
+            justify-content: center;
+            margin: 0 4px 12px;
+
+            .profile-details,
+            .profile-settings {
+                // Hide profile details and settings icon
+                display: none;
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Mobile: Hide sidebar and enable drawer behavior
+// On screens smaller than 768px, it becomes an off-canvas drawer.
+// -----------------------------------------------------------------------------
+
+@media (max-width: $breakpoint-sm-max) {
+    .sidebar-main {
+        position: fixed;
+        height: 100%;
+        transform: translateX(-100%);
+        box-shadow: none; // Hide shadow when off-screen
+        z-index: 1500;
+        
+        // --- Drawer is Visible State ---
+        // This class will be toggled with JavaScript to show the sidebar
+        &.is-visible {
+            transform: translateX(0);
+            // Add an overlay to the rest of the page
+            box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.4);
+
+            // --- IMPORTANT: Revert to full-width styles when drawer is open ---
+            // When the drawer is visible on mobile, it should look like the full
+            // desktop sidebar, not the collapsed tablet one.
+            width: 275px;
+
+            .sidebar-content {
+                a.nav-item {
+                    justify-content: flex-start;
+                    span {
+                        opacity: 1;
+                        visibility: visible;
+                        width: auto;
+                        margin-left: 20px;
+						display: inline-block;
+                    }
+                }
+                .new-post-btn {
+                    opacity: 1;
+                    visibility: visible;
+                    width: calc(100% - 40px);
+                    min-height: 52px;
+                    margin: 15px 20px;
+                    padding: 12px 24px;
+                }
+            }
+            
+            .sidebar-profile {
+                justify-content: space-between;
+                margin: 0 8px 12px;
+
+                .profile-details,
+                .profile-settings {
+                    display: flex; // or block, as needed
+                }
+            }
+        }
+    }
 }
