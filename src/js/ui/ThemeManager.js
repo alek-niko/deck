@@ -28,9 +28,6 @@ export default class ThemeManager {
 		// Note: <button class="theme-toggle-icon" type="button" aria-label="Toggle theme"></button>
 		this.iconToggleButton = document.querySelector('.theme-toggle-icon');
 
-		console.log(this.iconToggleButton)
-		console.log('start')
-
 		this.init();
 	}
 
