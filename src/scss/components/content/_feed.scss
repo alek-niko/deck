@@ -129,18 +129,18 @@
 }
 
 // --------------------------------------------
-// Feed End Message
+// Infinite Scroll Trigger Marker
 // --------------------------------------------
 
-.feed-end {
-	display: table;
-	margin: var(--spacing-xxl) auto;
+.feed-sentinel {
+	display: block;
+	margin: var(--spacing-md) auto; /* waa 10px auto; */
 	padding: var(--spacing-xs) var(--spacing-md);
 	text-align: center;
 	color: var(--color-text-muted);
-	background-color: var(--color-surface-muted);
-	border: 1px solid var(--color-border-muted);
-	border-radius: var(--radius-default);
+	//background-color: var(--color-surface-muted);
+	//border: 1px solid var(--color-border-muted);
+	//border-radius: var(--radius-default);
 }
 
 // --------------------------------------------
@@ -165,18 +165,6 @@
 		border-radius: 50%;
 		animation: spin 1s linear infinite;
 	}
-}
-
-// --------------------------------------------
-// Infinite Scroll Trigger Marker
-// --------------------------------------------
-
-.feed-scroll-trigger {
-	width: 100%;
-	height: 1px;
-	position: relative;
-	top: -1px;
-	background: transparent;
 }
 
 // --------------------------------------------
