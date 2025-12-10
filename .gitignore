@@ -12,8 +12,10 @@ demo/
 dist/page/
 dist/page-*
 dist/assets/world/
+dist/assets/js/page
 dist/assets/images/meta
 src/js/test/
+src/js/pages/
 
 # =============================================================================
 # LOGS & RUNTIME DATA
