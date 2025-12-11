@@ -2,7 +2,7 @@
  * @module src.build.js.pages
  * @description This file contains the configuration for building Page Auth JS using ESBuild.
  * 
- * @see /src/js/pages for input.
+ * @see /src/js/page for input.
  * @see /dist/assets/js/page for output.
  * 
  * @example
@@ -15,7 +15,7 @@ import { build } from 'esbuild';
 
 await build({
     // Entry Points: The main file(s) that ESBuild will process
-    entryPoints: ['src/js/pages/**/*.js'],
+    entryPoints: ['src/js/page/**/*.js'],
 
     // Bundle: Combine all dependencies into a single output file
     bundle: true,
