@@ -5,19 +5,29 @@ node_modules/
 package-lock.json
 
 # =============================================================================
-# BUILD ARTIFACTS
+# ARTIFACTS TO EXCLUDE
 # =============================================================================
-#dist/
 demo/
-dist/page/
-dist/page-*
-dist/assets/world/
+
+src/js/page
+src/js/plugin
+src/js/utility
+src/js/wip
+
 dist/assets/js/page
+dist/assets/js/plugin
+dist/assets/js/utility
+
+src/scss/page
+src/scss/plugin
+
 dist/assets/css/page
+dist/assets/css/plugin
+
+dist/assets/world
 dist/assets/images/meta
-src/js/test/
-src/js/pages/
-src/css/pages/
+
+dist/views
 
 # =============================================================================
 # LOGS & RUNTIME DATA
