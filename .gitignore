@@ -13,9 +13,11 @@ dist/page/
 dist/page-*
 dist/assets/world/
 dist/assets/js/page
+dist/assets/css/page
 dist/assets/images/meta
 src/js/test/
 src/js/pages/
+src/css/pages/
 
 # =============================================================================
 # LOGS & RUNTIME DATA
