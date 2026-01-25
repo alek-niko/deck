@@ -211,11 +211,14 @@
 	position: relative;
 	padding: 15px 0;
 
+	height: auto;
+
 	> div {
 		display: none;
 	}
 	> div.active {
 		display: block;
+		position: relative;
 	}
 }
 
@@ -232,15 +235,13 @@
 .tab-content-slide > div,
 .tab-content-scale > div {
 	display: block; // Override display:none to allow animation.
-	
-	// NEW: Take non-active panels out of document flow.
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-
 	opacity: 0;
 	visibility: hidden;
+	pointer-events: none;
 	@include transform(translateY(5px)); // A subtle default starting position
 	@include transition(opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s); // Delay hiding
 }
@@ -252,6 +253,7 @@
 	position: relative;
 	opacity: 1;
 	visibility: visible;
+	pointer-events: auto;
 	@include transform(none); // Reset transform for a clean final state
 	@include transition(opacity 0.3s ease, transform 0.3s ease);
 }
