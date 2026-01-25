@@ -132,3 +132,56 @@
 	80% { transform: translateX(2px); }
 	90% { transform: translateX(-1px); }
 }
+
+
+// -----------------------------------------------------------------------------
+// POPOVER & ANCHOR COMPATIBILITY BRIDGE
+// This upgrades your utility keyframes to work with the Popover API
+// -----------------------------------------------------------------------------
+
+[popover][class*="animation-"] {
+    // 1. Force the browser to transition "discrete" properties (display/overlay)
+    transition-property: opacity, transform, display, overlay;
+    transition-duration: 0.25s; // Default speed
+    transition-behavior: allow-discrete;
+
+    // 2. Global "Closed" state (Standard for almost all your animations)
+    &:not(:popover-open) {
+        opacity: 0;
+    }
+
+    // 3. Mapping your Utilities to @starting-style
+    // This defines the "from" state the moment the popover enters the Top Layer
+    @starting-style {
+        &:popover-open {
+            opacity: 0;
+
+            // Scale
+            &.animation-scale-up     { transform: scale(0.9); }
+            &.animation-scale-down   { transform: scale(1.1); }
+
+            // Slide Small
+            &.animation-slide-top-small    { transform: translateY(-10px); }
+            &.animation-slide-bottom-small { transform: translateY(10px); }
+            &.animation-slide-left-small   { transform: translateX(-10px); }
+            &.animation-slide-right-small  { transform: translateX(10px); }
+
+            // Slide Medium
+            &.animation-slide-top-medium    { transform: translateY(-50px); }
+            &.animation-slide-bottom-medium { transform: translateY(50px); }
+            &.animation-slide-left-medium   { transform: translateX(-50px); }
+            &.animation-slide-right-medium  { transform: translateX(50px); }
+
+            // Slide Full
+            &.animation-slide-top    { transform: translateY(-100%); }
+            &.animation-slide-bottom { transform: translateY(100%); }
+            &.animation-slide-left   { transform: translateX(-100%); }
+            &.animation-slide-right  { transform: translateX(100%); }
+        }
+    }
+}
+
+// 4. Honor your Speed Overrides
+[popover].animation-fast   { transition-duration: 0.2s; }
+[popover].animation-medium { transition-duration: 0.5s; }
+[popover].animation-slow   { transition-duration: 1s; }
