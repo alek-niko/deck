@@ -104,18 +104,18 @@ dialog {
 // ---------------------------------------------
 // Improves readability of terms/definitions.
 
-dl {
-	margin-block-start: 0;       // Remove top margin
-	margin-block-end: 1em;       // Add bottom spacing
-}
+// dl {
+// 	margin-block-start: 0;       // Remove top margin
+// 	margin-block-end: 1em;       // Add bottom spacing
+// }
 
-dt {
-	font-weight: bold;           // Emphasize definition term
-	margin-block-end: 0.25em;    // Space below term
-}
+// dt {
+// 	font-weight: bold;           // Emphasize definition term
+// 	margin-block-end: 0.25em;    // Space below term
+// }
 
-dd {
-	margin-left: 0;              // Remove default left margin
-	margin-block-end: 0.5em;     // Space below definition
-	padding-inline-start: 1.5em; // Indent definition content
-}
+// dd {
+// 	margin-left: 0;              // Remove default left margin
+// 	margin-block-end: 0.5em;     // Space below definition
+// 	padding-inline-start: 1.5em; // Indent definition content
+// }

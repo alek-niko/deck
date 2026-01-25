@@ -1,38 +1,162 @@
 // =============================================================================
-// DESCRIPTION LIST COMPONENT
-// components/ui/_description.list.scss
+// DESCRIPTION LIST COMPONENT (ADVANCED UTILITIES)
+// components/ui/_description-list.scss
 // -----------------------------------------------------------------------------
-// Provides accessible, theme-aware styling for semantic <dl> lists.
-// Supports:
-// - Default description lists with spacing between terms
-// - Divider variant with borders and padding for visual separation
-// - Tokenized colors and spacing
+// Pure semantic <dl> structure with Zebra stripes and alignment utilities.
 // =============================================================================
 
 @use '../../abstracts/variables/colors' as *;
 @use '../../abstracts/variables/spacing' as *;
 
 .description-list {
-	dt {
-		color: var(--color-text-strong, #333);
+    // -------------------------------------------------------------------------
+    // 1. Tokens & Initialization
+    // -------------------------------------------------------------------------
+    --dl-gap: 0.75rem; 
+    --dt-font-size: 1rem;
+    --dd-font-size: 1rem;
+    --dt-weight: 600;
+    --dd-weight: 400;
+    --dt-color: var(--color-text);
+    --dd-color: var(--color-text-muted);
+    --divider-color: var(--color-border-muted);
+    
+    --dl-dt-width: 160px;
+    --dl-align-items: baseline;
 
-		// ----------------------------------------
-		// Spacing after the first term
-		// ----------------------------------------
-		&:nth-child(n + 2) {
-			margin-top: var(--spacing-md, 1.25rem);
-		}
-	}
+    display: block;
+    width: 100%;
+    margin: 0;
 
-	// ----------------------------------------
-	// Variant: Divider
-	// Adds spacing + border between items
-	// ----------------------------------------
-	&-divider {
-		dt:nth-child(n + 2) {
-			margin-top: var(--spacing-md, 1.25rem);
-			padding-top: var(--spacing-md, 1.25rem);
-			border-top: 1px solid var(--color-border-muted, #e5e5e5);
-		}
-	}
+    // -------------------------------------------------------------------------
+    // 2. Base Elements (Vertical/Mobile)
+    // -------------------------------------------------------------------------
+    dt {
+        font-size: var(--dt-font-size);
+        font-weight: var(--dt-weight);
+        color: var(--dt-color);
+        line-height: 1.4;
+        margin: 0;
+        margin-block-start: var(--dl-gap);
+        position: relative; // Anchor for dividers
+        
+        &:first-of-type {
+            margin-block-start: 0;
+        }
+    }
+
+    dd {
+        font-size: var(--dd-font-size);
+        font-weight: var(--dd-weight);
+        color: var(--dd-color);
+        line-height: 1.5;
+        margin-inline-start: 0;
+        margin-block-start: 0.25rem;
+    }
+
+    // -------------------------------------------------------------------------
+    // 3. Horizontal Layout (CSS Grid)
+    // -------------------------------------------------------------------------
+    &.is-horizontal {
+        @media (min-width: 768px) {
+            display: grid;
+            grid-template-columns: var(--dl-dt-width) 1fr;
+            column-gap: var(--spacing-lg, 2rem);
+            row-gap: 0; // Handled by margins to support dividers
+            align-items: var(--dl-align-items);
+
+            dt {
+                grid-column: 1;
+                margin-block-start: var(--dl-gap);
+                &:first-of-type { margin-block-start: 0; }
+            }
+
+            dd {
+                grid-column: 2;
+                margin-block-start: 0.25rem;
+                
+                // Align first DD with its DT
+                dt + & { margin-block-start: var(--dl-gap); }
+                dt:first-of-type + & { margin-block-start: 0; }
+                
+                // Stack multi-line DDs
+                & + dd { margin-block-start: 0.25rem; }
+            }
+        }
+    }
+
+    // -------------------------------------------------------------------------
+    // 4. Emphasis Modifiers
+    // -------------------------------------------------------------------------
+    &.emphasize-dt {
+        dt { --dt-font-size: 1.125rem; --dt-weight: 700; --dt-color: var(--color-text); }
+        dd { --dd-font-size: 0.875rem; --dd-color: var(--color-text-secondary); }
+    }
+
+    &.emphasize-dd {
+        dt { 
+            --dt-font-size: 0.75rem; 
+            --dt-color: var(--color-text-secondary); 
+            text-transform: uppercase; 
+            letter-spacing: 0.05em; 
+        }
+        dd { --dd-font-size: 1.125rem; --dd-weight: 600; --dd-color: var(--color-text); }
+    }
+
+    // -------------------------------------------------------------------------
+    // 5. Divider Logic (No-Div Fix)
+    // -------------------------------------------------------------------------
+    &.has-dividers {
+        dt:not(:first-of-type) {
+            padding-block-start: var(--dl-gap);
+
+            &::before {
+                content: '';
+                position: absolute;
+                inset-inline: 0;
+                inset-block-start: 0;
+                border-block-start: 1px solid var(--divider-color);
+            }
+        }
+
+        &.is-horizontal {
+            @media (min-width: 768px) {
+                dt:not(:first-of-type)::before {
+                    grid-column: 1 / -1; // Span full width of grid
+                    width: calc(100% + var(--spacing-lg, 2rem));
+                }
+                
+                dd {
+                    dt:not(:first-of-type) + & {
+                        padding-block-start: var(--dl-gap);
+                        margin-block-start: var(--dl-gap);
+                    }
+                }
+            }
+        }
+    }
+
+    // -------------------------------------------------------------------------
+    // 6. Utilities
+    // -------------------------------------------------------------------------
+    &.size-sm { --dl-gap: var(--spacing-xs, 0.5rem); --dt-font-size: 0.875rem; }
+	&.size-md { --dl-gap: var(--spacing-sm, 0.75rem); }
+    &.size-lg { --dl-gap: var(--spacing-md, 1.25rem); }
+
+    &.u-align-dt-right.is-horizontal {
+        @media (min-width: 768px) { dt { text-align: right; } }
+    }
+
+    &.u-valign-center { --dl-align-items: center; }
+    &.u-fixed-labels { --dl-dt-width: 200px; }
+    
+    &.u-density-compact {
+        dd { margin-block-start: 0; }
+        dt + dd { margin-block-start: var(--dl-gap); }
+    }
+
+    &.u-text-inverse {
+        --dt-color: var(--color-text-inverse);
+        --dd-color: var(--color-text-inverse);
+    }
 }

@@ -312,10 +312,60 @@
 			<div id="content">
 				<div class="container-flow container-flow-md prose">
 					<h1>Description List</h1>
-					<p class="text-lead">Display key-value pairs with semantic, accessible structure.</p>
+					<p class="text-lead">A semantic, accessible component for displaying key-value pairs. Optimized for dashboards, metadata displays, and technical specifications.</p>
 					<hr>
 					<h2>Usage</h2>
-					<div><pre><code>&lt;span <span><span>class</span></span>=<span>"badge"</span>&gt;<span><span>&lt;/<span>span</span>&gt;</span></span></code></pre></div>
+					<div class="overflow-auto">
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.is-horizontal</code></td>
+									<td>Switches the list to a two-column grid on desktop screens.</td>
+								</tr>
+								<tr>
+									<td><code>.has-dividers</code></td>
+									<td>Adds a subtle border between each description group.</td>
+								</tr>
+								<tr>
+									<td><code>.size-sm | .size-md | .size-lg</code></td>
+									<td>Controls the vertical density and scaling of the list.</td>
+								</tr>
+								<tr>
+									<td><code>.emphasize-dt</code></td>
+									<td>Emphasis on the Label. Useful for FAQs.</td>
+								</tr>
+								<tr>
+									<td><code>.emphasize-dd</code></td>
+									<td>Emphasis on the Value. Useful for KPIs/Stats.</td>
+								</tr>
+								<tr>
+									<td><code>.u-align-dt-right</code></td>
+									<td>Right-aligns the labels in horizontal mode.</td>
+								</tr>
+								<tr>
+									<td><code>.u-valign-center</code></td>
+									<td>Vertically centers label and content within the row.</td>
+								</tr>
+								<tr>
+									<td><code>.u-fixed-labels</code></td>
+									<td>Sets the label column to a fixed width (200px).</td>
+								</tr>
+								<tr>
+									<td><code>.u-density-compact</code></td>
+									<td>Reduces internal vertical spacing for tight data displays.</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<h2>The Standard List</h2>
+					<p></p>
 					<div class="code-tab">
 						<ul class="tab">
 							<li class="active">Preview</li>
@@ -324,27 +374,27 @@
 						<div class="tab-content">
 							<div class="active">
 								<dl class="description-list">
-									<dt>Username</dt>
-									<dd>cyberpunk42</dd>
-
-									<dt>Email</dt>
-									<dd>example@cyberpunk.xyz</dd>
-
-									<dt>Role</dt>
-									<dd>Administrator</dd>
+									<dt>Common Name</dt>
+									<dd>Golden Retriever</dd>
+									
+									<dt>Origin</dt>
+									<dd>Scotland, United Kingdom</dd>
+									
+									<dt>Temperament</dt>
+									<dd>Intelligent, Kind, Friendly, Confident</dd>
 								</dl>
 							</div>
 							<div>
 								<pre><code>
 									&lt;dl class=&quot;description-list&quot;&gt;
-										&lt;dt&gt;Username&lt;/dt&gt;
-										&lt;dd&gt;cyberpunk42&lt;/dd&gt;
-
-										&lt;dt&gt;Email&lt;/dt&gt;
-										&lt;dd&gt;example@cyberpunk.xyz&lt;/dd&gt;
-
-										&lt;dt&gt;Role&lt;/dt&gt;
-										&lt;dd&gt;Administrator&lt;/dd&gt;
+										&lt;dt&gt;Common Name&lt;/dt&gt;
+										&lt;dd&gt;Golden Retriever&lt;/dd&gt;
+										
+										&lt;dt&gt;Origin&lt;/dt&gt;
+										&lt;dd&gt;Scotland, United Kingdom&lt;/dd&gt;
+										
+										&lt;dt&gt;Temperament&lt;/dt&gt;
+										&lt;dd&gt;Intelligent, Kind, Friendly, Confident&lt;/dd&gt;
 									&lt;/dl&gt;
 								</code></pre>
 							</div>
@@ -358,8 +408,8 @@
 						</ul>
 					</div>
 
-					<h2>Divider </h2>
-
+					<h2>Emphasize-dt</h2>
+					<p></p>
 					<div class="code-tab">
 						<ul class="tab">
 							<li class="active">Preview</li>
@@ -367,28 +417,28 @@
 						</ul>
 						<div class="tab-content">
 							<div class="active">
-								<dl class="description-list-divider">
-									<dt>CPU</dt>
-									<dd>Intel Core i9</dd>
-
-									<dt>RAM</dt>
-									<dd>32GB DDR5</dd>
-
-									<dt>Storage</dt>
-									<dd>1TB NVMe SSD</dd>
+								<dl class="description-list emphasize-dt">
+									<dt>Common Name</dt>
+									<dd>Golden Retriever</dd>
+									
+									<dt>Origin</dt>
+									<dd>Scotland, United Kingdom</dd>
+									
+									<dt>Temperament</dt>
+									<dd>Intelligent, Kind, Friendly, Confident</dd>
 								</dl>
 							</div>
 							<div>
 								<pre><code>
-									&lt;dl class=&quot;description-list-divider&quot;&gt;
-										&lt;dt&gt;CPU&lt;/dt&gt;
-										&lt;dd&gt;Intel Core i9&lt;/dd&gt;
-
-										&lt;dt&gt;RAM&lt;/dt&gt;
-										&lt;dd&gt;32GB DDR5&lt;/dd&gt;
-
-										&lt;dt&gt;Storage&lt;/dt&gt;
-										&lt;dd&gt;1TB NVMe SSD&lt;/dd&gt;
+									&lt;dl class=&quot;description-list emphasize-dt&quot;&gt;
+										&lt;dt&gt;Common Name&lt;/dt&gt;
+										&lt;dd&gt;Golden Retriever&lt;/dd&gt;
+										
+										&lt;dt&gt;Origin&lt;/dt&gt;
+										&lt;dd&gt;Scotland, United Kingdom&lt;/dd&gt;
+										
+										&lt;dt&gt;Temperament&lt;/dt&gt;
+										&lt;dd&gt;Intelligent, Kind, Friendly, Confident&lt;/dd&gt;
 									&lt;/dl&gt;
 								</code></pre>
 							</div>
@@ -401,6 +451,393 @@
 							</li>
 						</ul>
 					</div>
+
+					<h2>Emphasize-dd</h2>
+					<p></p>
+					<div class="code-tab">
+						<ul class="tab">
+							<li class="active">Preview</li>
+							<li>Markup</li>
+						</ul>
+						<div class="tab-content">
+							<div class="active">
+								<dl class="description-list emphasize-dd">
+									<dt>Common Name</dt>
+									<dd>Golden Retriever</dd>
+									
+									<dt>Origin</dt>
+									<dd>Scotland, United Kingdom</dd>
+									
+									<dt>Temperament</dt>
+									<dd>Intelligent, Kind, Friendly, Confident</dd>
+								</dl>
+							</div>
+							<div>
+								<pre><code>
+									&lt;dl class=&quot;description-list&quot;&gt;
+										&lt;dt&gt;Common Name&lt;/dt&gt;
+										&lt;dd&gt;Golden Retriever&lt;/dd&gt;
+										
+										&lt;dt&gt;Origin&lt;/dt&gt;
+										&lt;dd&gt;Scotland, United Kingdom&lt;/dd&gt;
+										
+										&lt;dt&gt;Temperament&lt;/dt&gt;
+										&lt;dd&gt;Intelligent, Kind, Friendly, Confident&lt;/dd&gt;
+									&lt;/dl&gt;
+								</code></pre>
+							</div>
+						</div>
+						<ul class="iconnav">
+							<li>
+								<a href="#!" class="icon-action">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<h2>Horizontal Example</h2>
+					<p></p>
+					<div class="code-tab">
+						<ul class="tab">
+							<li class="active">Preview</li>
+							<li>Markup</li>
+						</ul>
+						<div class="tab-content">
+							<div class="active">
+								<dl class="description-list is-horizontal size-lg emphasize-dd has-dividers u-fixed-labels u-align-dt-right">
+									<dt>Account Balance</dt>
+									<dd>$12,450.00 USD</dd>
+									
+									<dt>Growth Rate</dt>
+									<dd>+14.2% (FY2026)</dd>
+									
+									<dt>Primary Currency</dt>
+									<dd>United States Dollar</dd>
+								</dl>
+							</div>
+							<div>
+								<pre><code>
+									&lt;dl class=&quot;description-list is-horizontal size-lg emphasize-dd has-dividers u-fixed-labels u-align-dt-right&quot;&gt;
+										&lt;dt&gt;Account Balance&lt;/dt&gt;
+										&lt;dd&gt;$12,450.00 USD&lt;/dd&gt;
+										
+										&lt;dt&gt;Growth Rate&lt;/dt&gt;
+										&lt;dd&gt;+14.2% (FY2026)&lt;/dd&gt;
+										
+										&lt;dt&gt;Primary Currency&lt;/dt&gt;
+										&lt;dd&gt;United States Dollar&lt;/dd&gt;
+									&lt;/dl&gt;
+								</code></pre>
+							</div>
+						</div>
+						<ul class="iconnav">
+							<li>
+								<a href="#!" class="icon-action">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<h2>The "Dashboard KPI" (Emphasis DD)</h2>
+					<p></p>
+					<div class="code-tab">
+						<ul class="tab">
+							<li class="active">Preview</li>
+							<li>Markup</li>
+						</ul>
+						<div class="tab-content">
+							<div class="active">
+								<dl class="description-list is-horizontal emphasize-dd u-align-dt-right size-lg">
+									<dt>Total Revenue</dt>
+									<dd>$1,240,500.00</dd>
+
+									<dt>Active Subscriptions</dt>
+									<dd>12,402</dd>
+								</dl>
+							</div>
+							<div>
+								<pre><code>
+									&lt;dl class=&quot;description-list is-horizontal emphasize-dd u-align-dt-right size-lg&quot;&gt;
+										&lt;dt&gt;Total Revenue&lt;/dt&gt;
+										&lt;dd&gt;$1,240,500.00&lt;/dd&gt;
+
+										&lt;dt&gt;Active Subscriptions&lt;/dt&gt;
+										&lt;dd&gt;12,402&lt;/dd&gt;
+									&lt;/dl&gt;
+								</code></pre>
+							</div>
+						</div>
+						<ul class="iconnav">
+							<li>
+								<a href="#!" class="icon-action">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<h2>The Details/Specs List</h2>
+					<p></p>
+					<div class="code-tab">
+						<ul class="tab">
+							<li class="active">Preview</li>
+							<li>Markup</li>
+						</ul>
+						<div class="tab-content">
+							<div class="active">
+								<dl class="description-list is-horizontal has-dividers">
+									<dt>CPU</dt>
+									<dd>Apple M3 Pro</dd>
+
+									<dt>Memory</dt>
+									<dd>18 GB</dd>
+									<dd>Unified memory</dd>
+
+									<dt>Storage</dt>
+									<dd>1 TB SSD</dd>
+								</dl>
+							</div>
+							<div>
+								<pre><code>
+									&lt;dl class=&quot;description-list is-horizontal has-dividers&quot;&gt;
+										&lt;dt&gt;CPU&lt;/dt&gt;
+										&lt;dd&gt;Apple M3 Pro&lt;/dd&gt;
+
+										&lt;dt&gt;Memory&lt;/dt&gt;
+										&lt;dd&gt;18 GB&lt;/dd&gt;
+										&lt;dd&gt;Unified memory&lt;/dd&gt;
+
+										&lt;dt&gt;Storage&lt;/dt&gt;
+										&lt;dd&gt;1 TB SSD&lt;/dd&gt;
+									&lt;/dl&gt;
+								</code></pre>
+							</div>
+						</div>
+						<ul class="iconnav">
+							<li>
+								<a href="#!" class="icon-action">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<h2>The Details/Specs List</h2>
+					<p></p>
+					<div class="code-tab">
+						<ul class="tab">
+							<li class="active">Preview</li>
+							<li>Markup</li>
+						</ul>
+						<div class="tab-content">
+							<div class="active">
+								<dl class="description-list is-horizontal size-sm emphasize-dt u-density-compact">
+									<dt>Model Number</dt>
+									<dd>PX-700-ALPHA</dd>
+									
+									<dt>Dimensions</dt>
+									<dd>120mm x 45mm x 12mm</dd>
+									
+									<dt>Weight</dt>
+									<dd>1.2 lbs (0.54 kg)</dd>
+								</dl>
+							</div>
+							<div>
+								<pre><code>
+									&lt;dl class=&quot;description-list is-horizontal size-sm emphasize-dt u-density-compact&quot;&gt;
+										&lt;dt&gt;Model Number&lt;/dt&gt;
+										&lt;dd&gt;PX-700-ALPHA&lt;/dd&gt;
+										
+										&lt;dt&gt;Dimensions&lt;/dt&gt;
+										&lt;dd&gt;120mm x 45mm x 12mm&lt;/dd&gt;
+										
+										&lt;dt&gt;Weight&lt;/dt&gt;
+										&lt;dd&gt;1.2 lbs (0.54 kg)&lt;/dd&gt;
+									&lt;/dl&gt;
+								</code></pre>
+							</div>
+						</div>
+						<ul class="iconnav">
+							<li>
+								<a href="#!" class="icon-action">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<h2>Multi-Value List</h2>
+					<p></p>
+					<div class="code-tab">
+						<ul class="tab">
+							<li class="active">Preview</li>
+							<li>Markup</li>
+						</ul>
+						<div class="tab-content">
+							<div class="active">
+								<dl class="description-list is-horizontal size-md has-dividers">
+									<dt>Project Contributors</dt>
+									<dd>Design Team (Lead)</dd>
+									<dd>Engineering Team</dd>
+									<dd>External Stakeholders</dd>
+									
+									<dt>Launch Platforms</dt>
+									<dd>iOS Native</dd>
+									<dd>Android Native</dd>
+									<dd>Web (Progressive)</dd>
+								</dl>
+							</div>
+							<div>
+								<pre><code>
+									&lt;dl class=&quot;description-list is-horizontal size-md has-dividers&quot;&gt;
+										&lt;dt&gt;Project Contributors&lt;/dt&gt;
+										&lt;dd&gt;Design Team (Lead)&lt;/dd&gt;
+										&lt;dd&gt;Engineering Team&lt;/dd&gt;
+										&lt;dd&gt;External Stakeholders&lt;/dd&gt;
+										
+										&lt;dt&gt;Launch Platforms&lt;/dt&gt;
+										&lt;dd&gt;iOS Native&lt;/dd&gt;
+										&lt;dd&gt;Android Native&lt;/dd&gt;
+										&lt;dd&gt;Web (Progressive)&lt;/dd&gt;
+									&lt;/dl&gt;
+								</code></pre>
+							</div>
+						</div>
+						<ul class="iconnav">
+							<li>
+								<a href="#!" class="icon-action">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<h2>The "Profile Metadata" (Standard Horizontal)</h2>
+					<p></p>
+					<div class="code-tab">
+						<ul class="tab">
+							<li class="active">Preview</li>
+							<li>Markup</li>
+						</ul>
+						<div class="tab-content">
+							<div class="active">
+								<dl class="description-list is-horizontal has-dividers u-fixed-labels">
+									<dt>Full Name</dt>
+									<dd>Alex Montgomery</dd>
+
+									<dt>Email Address</dt>
+									<dd>alex.m@company.com</dd>
+
+									<dt>Role</dt>
+									<dd>Lead System Architect</dd>
+								</dl>
+							</div>
+							<div>
+								<pre><code>
+									&lt;dl class=&quot;description-list is-horizontal has-dividers u-fixed-labels&quot;&gt;
+										&lt;dt&gt;Full Name&lt;/dt&gt;
+										&lt;dd&gt;Alex Montgomery&lt;/dd&gt;
+
+										&lt;dt&gt;Email Address&lt;/dt&gt;
+										&lt;dd&gt;alex.m@company.com&lt;/dd&gt;
+
+										&lt;dt&gt;Role&lt;/dt&gt;
+										&lt;dd&gt;Lead System Architect&lt;/dd&gt;
+									&lt;/dl&gt;
+								</code></pre>
+							</div>
+						</div>
+						<ul class="iconnav">
+							<li>
+								<a href="#!" class="icon-action">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<h2>The "Technical Specs" (Multi-line & Small)</h2>
+					<p></p>
+					<div class="code-tab">
+						<ul class="tab">
+							<li class="active">Preview</li>
+							<li>Markup</li>
+						</ul>
+						<div class="tab-content">
+							<div class="active">
+								<dl class="description-list is-horizontal size-sm u-label-sm">
+									<dt>Connectivity</dt>
+									<dd>Wi-Fi 6E (802.11ax)</dd>
+									<dd>Bluetooth 5.3</dd>
+									<dd>NFC (Reader Mode)</dd>
+
+									<dt>Dimensions</dt>
+									<dd>146.7 x 71.5 x 7.8 mm</dd>
+								</dl>
+							</div>
+							<div>
+								<pre><code>
+									&lt;dl class=&quot;description-list is-horizontal size-sm u-label-sm&quot;&gt;
+										&lt;dt&gt;Connectivity&lt;/dt&gt;
+										&lt;dd&gt;Wi-Fi 6E (802.11ax)&lt;/dd&gt;
+										&lt;dd&gt;Bluetooth 5.3&lt;/dd&gt;
+										&lt;dd&gt;NFC (Reader Mode)&lt;/dd&gt;
+
+										&lt;dt&gt;Dimensions&lt;/dt&gt;
+										&lt;dd&gt;146.7 x 71.5 x 7.8 mm&lt;/dd&gt;
+									&lt;/dl&gt;
+								</code></pre>
+							</div>
+						</div>
+						<ul class="iconnav">
+							<li>
+								<a href="#!" class="icon-action">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<h2>Frequently Asked Questions</h2>
+					<p></p>
+					<div class="code-tab">
+						<ul class="tab">
+							<li class="active">Preview</li>
+							<li>Markup</li>
+						</ul>
+						<div class="tab-content">
+							<div class="active">
+								<dl class="description-list emphasize-dt has-dividers">
+									<dt>What is the current service uptime?</dt>
+									<dd>Our current uptime is 99.98% across all global regions.</dd>
+
+									<dt>How do I reset my API keys?</dt>
+									<dd>You can rotate your keys in the Security tab of your dashboard settings.</dd>
+								</dl>
+							</div>
+							<div>
+								<pre><code>
+									&lt;dl class=&quot;description-list emphasize-dt has-dividers&quot;&gt;
+										&lt;dt&gt;What is the current service uptime?&lt;/dt&gt;
+										&lt;dd&gt;Our current uptime is 99.98% across all global regions.&lt;/dd&gt;
+
+										&lt;dt&gt;How do I reset my API keys?&lt;/dt&gt;
+										&lt;dd&gt;You can rotate your keys in the Security tab of your dashboard settings.&lt;/dd&gt;
+									&lt;/dl&gt;
+								</code></pre>
+							</div>
+						</div>
+						<ul class="iconnav">
+							<li>
+								<a href="#!" class="icon-action">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+								</a>
+							</li>
+						</ul>
+					</div>
+
 				</div>
 			</div>
 		</main>
