@@ -178,6 +178,20 @@
 	}
 }
 
+// =============================================================================
+// CUSTOM ALERT COLOR BACKGROUND
+// =============================================================================
+
+.level-1 { background-color: #2173ba; color: #fff; }
+.level-2 { background-color: #e6c74c; color: #1b1b1b; }
+.level-3 { background-color: #c24400; color: #fff;}
+.level-4 { background-color: #8b0a03; color: #fff; }
+
+.level-1-alt { background-color: #eff6fb; }
+.level-2-alt { background-color: #faf3d1; }
+.level-3-alt { background-color: #fef2e4; }
+.level-4-alt { background-color: #fff3f2; }
+
 
 // =============================================================================
 // OPTIONAL JS HANDLER (Dismissible Alerts)
