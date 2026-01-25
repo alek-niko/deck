@@ -1,13 +1,19 @@
 /**
- * @class Queue
- * @classdesc Implements a queue with optional auto-processing using callbacks or events.
- * 
- * @param {number} [queue_size=100] - The maximum size of the queue. Defaults to 100.
- * @param {Function|null} [callback=null] - A callback function invoked to process items in the queue. Defaults to null.
- * @param {string|null} [event=null] - The name of a custom event dispatched to process queue items. Defaults to null.
- * @param {number} [time=1000] - The interval (in milliseconds) between automatic queue processing attempts. Defaults to 1000 ms.
+ * @module queue
+ * @description Implements a queue with optional auto-processing using callbacks or events.
+ *
+ * Supports setting a maximum queue size, processing items via a callback function
+ * or custom event, and configuring the interval for automatic processing.
  */
 
+/**
+ * @class Queue
+ *
+ * @param {number} [queue_size=100] - Maximum size of the queue. Defaults to 100.
+ * @param {Function|null} [callback=null] - Callback function to process queue items. Defaults to null.
+ * @param {string|null} [event=null] - Name of a custom event dispatched to process items. Defaults to null.
+ * @param {number} [time=1000] - Interval in milliseconds between automatic processing attempts. Defaults to 1000 ms.
+ */
 export default class Queue {
 	constructor(queue_size = 100, callback = null, event = null, time = 1000) {
 

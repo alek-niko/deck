@@ -1,10 +1,16 @@
 /**
- * @class Util
- * @classdesc Includes various helper functions.
- * 
+ * @module util
+ * @description Provides various helper functions for use across the application.
+ *
  * @todo Remove unnecessary functions.
  */
 
+/**
+ * @class Util
+ *
+ * Encapsulates reusable utility functions for general-purpose operations.
+ * Designed to support other components and modules within the application.
+ */
 export default class Util {
 
 	constructor() {	}

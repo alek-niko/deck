@@ -1,16 +1,20 @@
-// Import the base Component class from the Component.js file
-import Component from './Component.js';
+/**
+ * @module modal
+ * @description Provides a full-screen or centered overlay for displaying content such as alerts,
+ * confirmations, or user input forms. Supports customizable content, styling, and animations,
+ * as well as visibility control and user interactions.
+ */
+
+// Import the base Component class
+import Component from './component.js';
 
 /**
- * Modal component for displaying content in a full-screen or centered overlay.
- * 
- * The Modal component is used to display content in a dialog box, typically for alerts, confirmations,
- * or user input forms. It allows for easy control of visibility, as well as customization of the modal content,
- * styling, and animations. The Modal component includes methods for opening, closing, and managing the state
- * of the modal, as well as handling interactions like clicks outside the modal to close it.
- * 
  * @class Modal
  * @extends Component
+ *
+ * Enables display of content in a dialog box or overlay. Supports opening, closing,
+ * and managing modal state, as well as interactions such as clicking outside the modal
+ * to close it. Designed for flexible integration with various UI components and use cases.
  */
 class Modal extends Component {
 	/**
@@ -44,7 +48,7 @@ class Modal extends Component {
 		super(context);
 
 		// Initialize the component
-		this.#init();
+		this.#setup();
 
 		// Attach event listeners to the component
 		this.#initEvents();
@@ -55,7 +59,7 @@ class Modal extends Component {
 	 * @method #init
 	 * @description Sets up the modal's properties and initial state.
 	 */
-	#init() {
+	#setup() {
 
 		const el = this.element;
 

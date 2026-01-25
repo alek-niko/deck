@@ -1,18 +1,24 @@
 /**
- * @class Deck
- * @extends Dispatcher
- * @classdesc Core class that acts as the main application controller. 
- * Manages components, state, and utility instances.
+ * @module deck
+ * @description Core application controller that manages components, state,
+ * utility instances, and orchestrates the main application logic.
  */
 
-import Dispatcher from './Dispatcher.js';
+import Dispatcher from './dispatcher.js';
 //import Queue from '../util/Queue.js';
-import UI from '../ui/UI.js';
-import Util from '../util/Util.js';
-import Toast from '../components/Toast.js';
+import UI from '../ui/ui.js';
+import Util from '../util/util.js';
+import Toast from '../components/toast.js';
 
-
-export default class Deck extends Dispatcher {
+/**
+ * @class Deck
+ * @extends Dispatcher
+ *
+ * Acts as the main application controller, coordinating components, state management,
+ * and utility services. Responsible for initializing the app, handling events,
+ * and managing shared instances such as UI helpers and notifications.
+ */
+class Deck extends Dispatcher {
 
 	constructor(options = {}) {
 
@@ -158,3 +164,5 @@ export default class Deck extends Dispatcher {
 		this.notifier.notification(...message);
 	}
 }
+
+export default Deck

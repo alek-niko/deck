@@ -1,11 +1,21 @@
 /**
- * @class Component
- * @classdesc Base class for creating components with storage, state management, event handling, and transitions.
+ * @module Component
+ * @description Base component infrastructure providing storage, state
+ * 				management, event handling, and transitions.
+ * 
+ * @file src.js.components.component.js
  */
 
-export default class Component {
+
+/**
+ * @class Component
+ * @classdesc Base class for creating components with storage, state management,
+ * 			  event handling, and transitions.
+ */
+class Component {
 
 	constructor(context) {
+
 		// Generate a unique identifier for the instance
 		this.dci 				= Math.random().toString(36).substring(2, 9);
 
@@ -47,7 +57,8 @@ export default class Component {
 	}
 
 	/**
-	 * Retrieves configuration from the element's data attributes and merges it with the instance.
+	 * @method #getConfigAttribute
+	 * @description Retrieves configuration from the element's data attributes and merges it with the instance.
 	 * 
 	 * @returns {Object} The configuration object parsed from the element's data attributes.
 	 * @private
@@ -98,23 +109,24 @@ export default class Component {
 	}
 	
 	/**
-	 * Initializes the component (to be overridden by subclasses).
-	 * e.g., setup default state, render initial UI, etc.
+	 * Initializes the component.
+	 * Intended to be overridden by subclasses to perform setup tasks such as
+	 * initializing state and rendering the initial UI.
 	 */
 	init() {
 		// Initialization logic for the component
 	}
 
 	/**
-	 * Attach event listeners to the component (to be overridden by subclasses).
-	 * e.g., for user interactions like clicks, hover, etc.
+	 * Registers event listeners for the component.
+	 * Intended to be overridden by subclasses to handle user interactions.
 	 */
 	initEvents() {
 		// Event initialization logic for the component
 	}
 
 	/**
-	 * Initializes the component's state using the deck's state system.
+	 * Initializes the component state using the Deck state system.
 	 */
 	initState() {
 
@@ -405,3 +417,5 @@ export default class Component {
 		}
 	}
 }
+
+export default Component;

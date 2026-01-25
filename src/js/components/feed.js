@@ -1,17 +1,22 @@
-// Import the base Component class from the Component.js file
-import Component from './Component.js';
-//import Queue from '../util/Queue.js';
+/**
+ * @module feed
+ * @description Handles the management of dynamic content feeds, including fetching new items,
+ * real-time updates via WebSockets, and infinite scroll for seamless user interaction. Can be
+ * customized to work with different data sources and integrate with other components such as
+ * pagination systems or scrollable UI elements.
+ */
+
+// Import the base Component class
+import Component from './component.js';
+// import Queue from '../util/Queue.js';
 
 /**
- * 
- * The Feed component handles the management of dynamic content, particularly in scenarios where 
- * continuous updates or large volumes of content need to be displayed. This class provides methods 
- * for fetching new feed items, updating the feed in real-time using WebSockets, and implementing 
- * infinite scroll for seamless user interaction. It can be customized to work with different data 
- * sources and integrate with other components such as a pagination system or UI elements for scrolling.
- * 
  * @class Feed
  * @extends Component
+ *
+ * Provides methods to fetch and display feed items dynamically. Supports real-time updates,
+ * infinite scrolling, and integration with other UI components. Designed for managing
+ * large volumes of content efficiently and enhancing user interaction with live feeds.
  */
 class Feed extends Component {
     /**
@@ -577,6 +582,7 @@ class Feed extends Component {
 
 	/**
 	 * Fetch feed details from API (instance method).
+	 * 
 	 * @returns {Promise<Object|null>} - User details in JSON format or null on error.
 	 */
 	async hydrate() {
@@ -596,6 +602,7 @@ class Feed extends Component {
 	/**
 	 * Fetch feed details from API (static method).
 	 * Can be used without creating an instance.
+	 * 
 	 * @param {number} feedId - The feed ID or username.
 	 * @returns {Promise<Object|null>} - User details in JSON format or null on error.
 	 */
@@ -605,6 +612,7 @@ class Feed extends Component {
 
 	/**
 	 * Private method to fetch feed data from API.
+	 * 
 	 * @param {string|number} feedId - The feed ID or username.
 	 * @returns {Promise<Object|null>} - User details or null on error.
 	 */

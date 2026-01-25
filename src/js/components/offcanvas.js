@@ -1,15 +1,21 @@
-// Import the base Component class from the Component.js file
-import Component from './Component.js';
+/**
+ * @module offcanvas
+ * @description Provides an interactive offcanvas element with support for toggling,
+ * overlays, flipping, background closing, and event-driven interactions.
+ */
+
+// Import the base Component class
+import Component from './component.js';
 
 /**
  * @class Offcanvas
- * @classdesc Offcanvas component class that handles the behavior of an offcanvas element.
- * 
- * This class manages the opening and closing of an offcanvas element, 
- * along with various configuration options like overlay, flipping, and background closing.
- * It also binds event listeners to toggle the visibility and manage interaction with the offcanvas component.
+ * @extends Component
+ *
+ * Manages opening and closing of an offcanvas element, along with configuration options
+ * such as overlays, flipping, and closing by clicking the background. Handles event
+ * listeners to toggle visibility and manage user interactions with the component.
  */
-export default class Offcanvas extends Component {
+class Offcanvas extends Component {
 	/**
 	 * Creates an instance of the Offcanvas component.
 	 *
@@ -125,3 +131,5 @@ export default class Offcanvas extends Component {
 		return this.element.open;
 	}
 }
+
+export default Offcanvas;

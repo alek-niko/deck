@@ -1,20 +1,24 @@
-// Import the base Component class from the Component.js file
-import Component from './Component.js';
+/**
+ * @module tab
+ * @description Manages tabbed navigation and content display, including dynamic content
+ * switching, active state management, and support for multiple types of tab navigation
+ * such as horizontal and vertical layouts.
+ */
+
+// Import the base Component class
+import Component from './component.js';
 
 /**
- * Tab component for managing tabbed navigation and content display.
- * 
- * The Tab component allows for the creation of tabbed interfaces, where content is dynamically displayed
- * based on the active tab. It handles the switching of tabs, management of active states, and customization
- * of tab labels and content areas. The component supports multiple types of tab navigation (e.g., horizontal, 
- * vertical) and is designed to be easy to integrate into various UI layouts. It also includes event handling 
- * for activating, deactivating, and switching between tabs.
- * 
  * @class Tab
  * @extends Component
- * 
+ *
+ * Provides functionality for creating tabbed interfaces, handling active states,
+ * switching tabs, customizing labels and content areas, and integrating with
+ * various UI layouts. Includes event handling for activating, deactivating,
+ * and switching between tabs.
+ *
  * @todo Extend functionality to support tabs connecting to multiple content sections.
- * @note Ensure that the `element` parameter is a valid DOM element. The component assumes 
+ * @note Ensure that the `element` parameter is a valid DOM element. The component assumes
  *       the element exists in the DOM when instantiated.
  */
 class Tab extends Component {
@@ -45,7 +49,7 @@ class Tab extends Component {
 		super(context);
 
 		// Initialize the offcanvas state and events
-		this.#init() 
+		this.#setup() 
 		
 		this.element.addEventListener('click', this.onClick);
 	}
@@ -54,7 +58,7 @@ class Tab extends Component {
 	 * @method init
 	 * @description Initializes the tabs and their corresponding content sections.
 	 */
-	#init() {
+	#setup() {
 		// Get the total number of tabs
 		this.length = this.element.querySelectorAll('li').length;
 

@@ -1,13 +1,23 @@
 /**
- * @class UI
- * @classdesc
+ * @module ui
+ * @description Provides a centralized interface for managing UI components such as sidebars,
+ * headers, and theme settings. Facilitates initialization, interaction, and coordination
+ * of UI elements across the application.
  */
 
-import Sidebar from './Sidebar.js';
-import Header from './Header.js';
-import ThemeManager from './ThemeManager.js';
+// Import dependent UI modules
+import Sidebar from './sidebar.js';
+import Header from './header.js';
+import ThemeManager from './theme.manager.js';
 
-export default class UI {
+/**
+ * @class UI
+ *
+ * Acts as a container and manager for core UI elements. Handles initialization
+ * and coordination of components like Sidebar, Header, and ThemeManager,
+ * ensuring consistent behavior and integration within the application.
+ */
+class UI {
 
 	constructor() {
 		
@@ -851,3 +861,5 @@ export default class UI {
 		return { r: (int >> 16) & 255, g: (int >> 8) & 255, b: int & 255 };
 	}
 }
+
+export default UI;

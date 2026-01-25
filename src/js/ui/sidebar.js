@@ -1,13 +1,17 @@
 /**
- * @class Sidebar
- * 
- * Handles sidebar functionality, including:
- * - Toggling the sidebar open/close state.
- * - Interacting with menu items, such as expanding/collapsing submenus.
- * - Highlighting the active menu item based on the current page.
- * - Providing placeholder methods (`show`, `hide`, `open`, `close`) for future functionality.
+ * @module sidebar
+ * @description Manages sidebar functionality, including toggling, menu interactions,
+ * active item highlighting, and placeholder methods for future enhancements.
  */
-export default class Sidebar {
+
+/**
+ * @class Sidebar
+ *
+ * Handles sidebar behavior such as opening/closing, interacting with menu items
+ * (expanding/collapsing submenus), highlighting the active menu item, and providing
+ * placeholder methods like `show`, `hide`, `open`, and `close` for future functionality.
+ */
+class Sidebar {
 
     /**
      * @param {string} elementSelector - The CSS selector for the sidebar element.
@@ -267,3 +271,5 @@ export default class Sidebar {
         itemToClose.classList.remove('open');
     }
 }
+
+export default Sidebar;

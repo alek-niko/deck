@@ -1,17 +1,20 @@
-// Import the base Component class from the Component.js file
-import Component from './Component.js';
+/**
+ * @module nav
+ * @description Provides responsive, interactive navigation menus with support for dropdowns,
+ * mobile responsiveness, dynamic content rendering, and configurable menu types.
+ */
+
+// Import the base Component class
+import Component from './component.js';
 
 /**
- * Navigation component for creating responsive, interactive navigation menus.
- * 
- * The Nav component is designed to handle the structure and functionality of navigation menus, including
- * dropdowns, mobile responsiveness, and dynamic content rendering. It allows for easy management of 
- * navigation links, active states, and event handling such as item selection or toggling. The component 
- * supports different types of navigation menus (e.g., top bar, sidebar) and can be customized through
- * configuration options.
- * 
  * @class Nav
  * @extends Component
+ *
+ * Manages navigation menu structure and functionality, including active states,
+ * event handling (item selection, toggling), and support for different menu types
+ * such as top bars or sidebars. Designed for flexible integration and easy customization
+ * via configuration options.
  */
 class Nav extends Component {
 	/**
@@ -43,7 +46,7 @@ class Nav extends Component {
 		super(context);
 
 		// Initialize the component
-		this.#init()
+		this.#setup()
 
 		this.element.addEventListener('click', this.onClick);
 	}
@@ -52,7 +55,7 @@ class Nav extends Component {
 	 * Initializes the navigation by adding parent classes to list items containing sub-navigation
 	 * and opening parent items if data-open is set.
 	 */
-	#init() {
+	#setup() {
 		const elOpen = this.element.hasAttribute('data-open');
 
 		// Add parent class to <li> elements containing .nav-sub (sub-menus)

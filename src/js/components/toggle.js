@@ -1,17 +1,20 @@
-// Import the base Component class from the Component.js file
-import Component from './Component.js';
+/**
+ * @module toggle
+ * @description Provides interactive toggle switches or checkboxes with customizable labels,
+ * styles, and behaviors. Supports state change events for integration with forms, settings,
+ * and other UI elements.
+ */
+
+// Import the base Component class
+import Component from './component.js';
 
 /**
- * Toggle component for creating interactive toggle switches or checkboxes.
- * 
- * The Toggle component is designed to provide a simple way to implement toggle switches within an interface. 
- * It allows for toggling between two states (e.g., on/off, active/inactive) with customizable labels, styles, 
- * and behaviors. This component supports event handling for state changes, enabling you to perform actions 
- * when the toggle state is modified. It can be used in a variety of use cases such as settings, forms, or 
- * interactive UI elements.
- * 
  * @class Toggle
  * @extends Component
+ *
+ * Enables toggling between two states (e.g., on/off, active/inactive) with event handling
+ * for state changes. Designed for flexible integration into various UI layouts, forms,
+ * settings panels, and interactive elements.
  */
 class Toggle extends Component {
     /**
@@ -47,13 +50,13 @@ class Toggle extends Component {
 		super(context);
 
 		// Initialize the component
-		this.#init()
+		this.#setup()
 
 		// Attach event listeners to the component
 		this.#initEvents()
 	}
 
-	#init() {
+	#setup() {
 
 		if (!this.target && this.element.tagName === 'A') {
 			this.target = this.element.getAttribute('href');

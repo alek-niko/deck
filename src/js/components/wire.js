@@ -1,16 +1,19 @@
-// Import the base Feed class from the Feed.js file
-import Feed from './Feed.js';
+/**
+ * @module wire
+ * @description Extends the Feed component to handle and display a dynamic news feed,
+ * including configuration for feed size, content selectors, and live updates via WebSockets.
+ */
 
-/** 
- * The `Wire` class extends the `Feed` class, providing functionality specific to handling and displaying a news feed. 
- * It manages the configuration for the feed, including setting a default size for the feed items, controlling the 
- * live content updates, and defining the content selector for the news items.
- * 
- * This class includes methods for rendering individual feed items, and it handles WebSocket events for real-time 
- * updates. It can be used to display a dynamic list of news items with support for live updates.
- * 
- * @class Toggle
- * @extends Component
+// Import the base Feed class
+import Feed from './feed.js';
+
+/**
+ * @class Wire
+ * @extends Feed
+ *
+ * Provides functionality for rendering individual feed items and managing
+ * real-time content updates. Supports live feeds, dynamic item rendering,
+ * and integration with WebSocket events for instant updates.
  */
 class Wire extends Feed {
 	/**

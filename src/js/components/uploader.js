@@ -1,5 +1,14 @@
 /**
- * Class to handle file validation logic such as size and type validation.
+ * @module uploader
+ * @description Handles file uploads with support for multiple methods (POST, PUT, STREAM),
+ * progress tracking, validation, error handling, and integration with UI elements or forms.
+ * Supports single or multiple file uploads with customizable file type and size limits.
+ */
+
+/**
+ * @class FileValidator
+ * Handles file validation logic, including size, type, and stream-based checks.
+ *
  * @note v2 includes streams. [ Test ]
  */
 class FileValidator {
@@ -58,10 +67,11 @@ class FileValidator {
 }
 
 // Import the base Component class from the Component.js file
-import Component from './Component.js';
+import Component from './component.js';
 
 /**
- * Uploader component for handling file uploads.
+ * @class Uploader
+ * @extends Component
  * 
  * The Uploader component is designed to simplify the process of uploading files in web applications. 
  * It allows users to select files and handle the upload process, including progress tracking, validation, 
@@ -124,14 +134,14 @@ class Uploader extends Component {
 		this.fileValidator = new FileValidator(this.maxSize, this.acceptedTypes);
 
 		// Initialize the uploader
-		this.#init();
+		this.#setup();
 	}
 
 	/**
 	 * Initializes the uploader, setting up the file input and drag-and-drop support.
 	 * @private
 	 */
-	#init() {
+	#setup() {
 		
 		this.input = this.createInputElement(); // Create the file input element
 

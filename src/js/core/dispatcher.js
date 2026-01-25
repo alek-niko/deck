@@ -1,8 +1,14 @@
 /**
- * @class DispatcherEvent
- * @classdesc Represents a single event with a list of registered callbacks.
+ * @module DispatcherEvent
+ * @description Represents a single event with a list of registered callbacks.
  */
 
+/**
+ * @class DispatcherEvent
+ *
+ * Encapsulates a single event and manages its registered callbacks. Provides
+ * methods to add, remove, and invoke callbacks when the event is triggered.
+ */
 class DispatcherEvent {
 	/**
      * @constructor
@@ -49,9 +55,12 @@ class DispatcherEvent {
 
 /**
  * @class Dispatcher
- * @classdesc Implements PubSub and WebSocket functionality, allowing event-driven communication.
+ *
+ * Provides an event-driven system with support for publishing and subscribing
+ * to events, as well as handling WebSocket-based communication. Designed for
+ * managing application-wide messaging and state changes.
  */
-export default class Dispatcher {
+class Dispatcher {
 
 	constructor() {
 
@@ -230,3 +239,5 @@ export default class Dispatcher {
 		delete this.events[eventName]
 	}
 }
+
+export default Dispatcher

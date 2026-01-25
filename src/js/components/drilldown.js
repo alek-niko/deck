@@ -1,15 +1,18 @@
-// Import the base Component class from the Component.js file
-import Component from './Component.js';
+/**
+ * @module drilldown
+ * @description Drilldown UI component for creating hierarchical menus with toggleable submenus.
+ */
+
+// Import the base Component class
+import Component from './component.js';
 
 /**
- * Drilldown component for creating hierarchical menus with the ability to toggle submenus.
- * 
- * The Drilldown component provides an interactive menu system where users can navigate between menus and submenus. 
- * Each menu can be dynamically replaced with its corresponding submenu when toggled. 
- * A back button allows users to return to the previous menu. mikniv-ruZfeq-cibbo1 nihzib-9Mahqu-jymmep
- * 
  * @class Drilldown
  * @extends Component
+ *
+ * Provides an interactive menu system where users can navigate between menus and submenus.
+ * Each menu can be dynamically replaced with its corresponding submenu when toggled.
+ * A back button allows users to return to the previous menu.
  */
 class Drilldown extends Component {
 	/**
@@ -39,10 +42,10 @@ class Drilldown extends Component {
 		super(context);
 
 		// Initialize the component
-		this.#init()
+		this.#setup()
 	}
 
-	#init() {
+	#setup() {
 		const $header = this.element.querySelector('.header');
 
 		this.$backBtn = $header.querySelector('.back-btn');
@@ -110,6 +113,7 @@ class Drilldown extends Component {
 	/**
 	 * Update the title and/or description.
 	 * Creates the elements if they don't exist. Removes them if value is not provided.
+	 * 
 	 * @param {string} [newTitle]
 	 * @param {string} [newDescription]
 	 */

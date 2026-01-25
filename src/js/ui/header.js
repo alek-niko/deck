@@ -1,16 +1,18 @@
 /**
- * @class Header
- * @classdesc 
- * 
- * The `Header` class manages the header section of the website, including the toggle functionality 
- * for the mobile menu. It handles elements like the header, the mega menu (`mega-menu`), 
- * and the menu toggle button (`mega-menu-toggle`). 
- * 
- * It provides functionality to open and close the mega menu by toggling the appropriate classes
- * and updating the toggle icon. This class is useful for creating a responsive header 
- * that adjusts to mobile views and can be expanded or collapsed via user interaction.
+ * @module header
+ * @description Manages the website header, including mobile menu toggling, mega menu interactions,
+ * and responsive adjustments for different viewports.
  */
-export default class Header {
+
+/**
+ * @class Header
+ *
+ * Handles the header section of the site, including the mega menu (`mega-menu`) and
+ * toggle button (`mega-menu-toggle`). Provides functionality to open and close the
+ * mega menu by toggling classes and updating the toggle icon. Designed for responsive
+ * headers that adapt to mobile views and user interactions.
+ */
+class Header {
     /**
      * Creates an instance of the Header component.
      * 
@@ -195,3 +197,5 @@ export default class Header {
 		}
 	}
 }
+
+export default Header;

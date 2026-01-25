@@ -1,17 +1,21 @@
-// Import the base Component class from the Component.js file
-import Component from './Component.js';
+/**
+ * @module user
+ * @description Manages user-related functionalities, including profile details, authentication
+ * status, and interaction history.
+ */
+
+// Import the base Component class
+import Component from './component.js';
 
 /**
- * User component for managing user-related functionalities and interactions.
- * 
- * The User component handles user-specific data such as profile details,
- * authentication status, and interaction history.
- * 
  * @class User
  * @extends Component
- * 
+ *
+ * Handles user-specific data, interactions, and state management. Designed for
+ * integration with other components and UI elements.
+ *
  * @todo Implement authentication and authorization handling.
- * @note Ensure that the `element` parameter is a valid DOM element. The component assumes 
+ * @note Ensure that the `element` parameter is a valid DOM element. The component assumes
  *       the element exists in the DOM when instantiated.
  */
 class User extends Component {
@@ -47,13 +51,13 @@ class User extends Component {
 		});
 
 		// Initialize the User component
-		//this.#init();
+		//this.#setup();
 	}
 
 	/**
 	 * Private method to initialize the User component.
 	 */
-	#init() {
+	#setup() {
 		console.log('User initialized');
 	}
 

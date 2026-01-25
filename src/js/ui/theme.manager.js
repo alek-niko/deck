@@ -1,6 +1,16 @@
-// js/ThemeManager.js
+/**
+ * @module theme.manager
+ * @description Manages application theme settings, including switching between themes,
+ * persisting user preferences, and applying styles across UI components.
+ */
 
-export default class ThemeManager {
+/**
+ * @class ThemeManager
+ *
+ * Provides methods to initialize, update, and apply theme settings consistently
+ * across the application. Handles user preferences and integrates with the UI.
+ */
+class ThemeManager {
 	/**
 	 * The key used to store the theme preference in localStorage.
 	 */
@@ -250,3 +260,5 @@ export default class ThemeManager {
 		localStorage.setItem(this.storageKey, theme);
 	}
 }
+
+export default ThemeManager;

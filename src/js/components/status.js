@@ -1,17 +1,21 @@
-// Import the base Component class from the Component.js file
-import Component from './Component.js';
+/**
+ * @module status
+ * @description Manages social media statuses and posts, including creation, editing,
+ * and user interactions such as likes, comments, and sharing.
+ */
+
+// Import the base Component class
+import Component from './component.js';
 
 /**
- * Status component for managing social media statuses and posts.
- * 
- * The Status component allows users to create, edit, and interact with social media posts.
- * It supports features like likes, comments, and sharing.
- * 
  * @class Status
  * @extends Component
- * 
+ *
+ * Provides functionality for creating, editing, and interacting with social media posts.
+ * Supports likes, comments, sharing, and other user engagement features.
+ *
  * @todo Add support for media attachments.
- * @note Ensure that the `element` parameter is a valid DOM element. The component assumes 
+ * @note Ensure that the `element` parameter is a valid DOM element. The component assumes
  *       the element exists in the DOM when instantiated.
  */
 class Status extends Component {

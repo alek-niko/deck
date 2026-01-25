@@ -1,18 +1,22 @@
+/**
+ * @module accordion
+ * @description Accordion UI component built on top of the base Component.
+ */
+
 // Import the base Component class from the Component.js file
-import Component from './Component.js';
+import Component from './component.js';
 
 /**
- * Accordion component that extends the base Component class.
- * 
- * The Accordion component creates a collapsible list of items where only one item is expanded at a time.
- * It allows users to toggle between sections, opening one while closing the others. This component can be configured
- * to have custom animations, and each item can contain arbitrary content. The Accordion component is often used for
- * FAQ sections, menus, or any scenario where space efficiency is needed by showing one section at a time.
- * 
  * @class Accordion
  * @extends Component
+ *
+ * A collapsible list component where only one item is expanded at a time.
+ * Opening one section automatically closes the others. Supports custom
+ * animations and arbitrary content. Commonly used for FAQs, menus, and
+ * space-efficient layouts.
  */
-export default class Accordion extends Component {
+
+class Accordion extends Component {
 	/**
 	 * Creates an instance of the Accordion component.
 	 *
@@ -45,13 +49,14 @@ export default class Accordion extends Component {
 		// Add a click event listener to the element, binding it to the onClick handler
 		this.element.addEventListener('click', this.onClick);
 
-		this._init();
+		this.#setup();
 	}
 
 	/**
 	 * Set initial aria state and max-height if needed
 	 */
-	_init() {
+	#setup() {
+
 		this.element.querySelectorAll('li').forEach(li => {
 			const content = li.querySelector('.accordion-content');
 			const isOpen = li.classList.contains('open');
@@ -222,3 +227,5 @@ export default class Accordion extends Component {
 	}
 
 }
+
+export default Accordion;

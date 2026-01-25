@@ -1,18 +1,23 @@
-// Import the base Component class from the Component.js file
-import Component from './Component.js';
+/**
+ * @module profile
+ * @description Manages user profile displays and interactions, including displaying user
+ * information, managing profile settings, and integrating with other UI components. Supports
+ * customizable profile layouts.
+ */
+
+// Import the base Component class
+import Component from './component.js';
 
 /**
- * Profile component for managing user profile displays and interactions..
- * 
- * The Profile component allows for the creation and handling of user profile elements, including
- * displaying user information, managing profile settings, and handling user interactions.
- * It supports customizable profile layouts and integrates with other UI components.
- * 
  * @class Profile
  * @extends Component
- * 
+ *
+ * Provides creation and handling of user profile elements, including display, settings
+ * management, and user interactions. Designed for flexible integration with other UI components
+ * and customizable profile layouts.
+ *
  * @todo Extend functionality to support editable profile fields.
- * @note Ensure that the `element` parameter is a valid DOM element. The component assumes 
+ * @note Ensure that the `element` parameter is a valid DOM element. The component assumes
  *       the element exists in the DOM when instantiated.
  */
 class Profile extends Component {

@@ -1,10 +1,14 @@
 /**
- * Manages toast notifications with customizable messages, types, timeouts, and positions.
- * 
- * This class provides an interface for displaying toast notifications, handling different formats
- * of input, managing their appearance, and ensuring they are properly positioned on the screen.
- * 
+ * @module toast
+ * @description Manages toast notifications with customizable messages, types, timeouts,
+ * and screen positions. Handles display, appearance, and positioning of notifications.
+ */
+
+/**
  * @class ToastManager
+ *
+ * Provides an interface for displaying toast notifications, handling different input
+ * formats, managing appearance, and ensuring proper positioning on the screen.
  */
 class ToastManager {
     /**

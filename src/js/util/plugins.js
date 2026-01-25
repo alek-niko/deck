@@ -1,10 +1,17 @@
 /**
- * @class 
- * @fileoverview A class for dynamically loading JavaScript and CSS bundles using
- *				native JavaScript promises and DOM manipulation.
- *				It manages the loading state of defined plugin bundles to prevent duplicate loading.
- * @todo adapt
- * @note not used
+ * @module plugins
+ * @description Dynamically loads JavaScript and CSS bundles using native Promises and DOM manipulation.
+ *              Manages loading state of defined plugin bundles to prevent duplicate loading.
+ *
+ * @todo Adapt functionality as needed.
+ * @note Currently not used.
+ */
+
+/**
+ * @class Plugins
+ *
+ * Provides methods to load external JS and CSS bundles dynamically, track their loading state,
+ * and prevent multiple loads of the same plugin.
  */
 export default class Plugins {
 	/**

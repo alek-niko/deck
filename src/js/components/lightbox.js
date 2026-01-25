@@ -1,27 +1,31 @@
-// Import the base Component class from the Component.js file
-import Component from './Component.js';
+/**
+ * @module lightbox
+ * @description Provides an interactive gallery experience for displaying images, videos,
+ * or other media in a full-screen overlay. Supports navigation controls, dynamic media
+ * handling, and can be triggered by clicking thumbnails or other UI elements.
+ */
+
+// Import the base Component class
+import Component from './component.js';
 
 /**
- * Lightbox component for displaying images or media in a full-screen overlay.
- * 
- * The Lightbox component provides an interactive gallery experience. It allows users to view images, videos,
- * or other media in a modal-like overlay, with navigation controls for switching between items. It can be triggered 
- * by clicking on thumbnails or other elements, and includes features like closing the lightbox, navigating between 
- * items, and handling media types dynamically.
- * 
  * @class Lightbox
  * @extends Component
+ *
+ * Enables viewing of images, videos, or other media in a modal-like overlay.
+ * Supports navigation between items, closing the overlay, and dynamic handling
+ * of different media types for a seamless user experience.
  */
-export default class Lightbox extends Component {
-    /**
-     * Creates an instance of the Lightbox component.
-     *
-     * @param {HTMLElement} element 	- The DOM element to which the Lightbox component will be applied.
-     * @param {Object} [options={}] 	- Configuration options for the Lightbox component. Defaults to an empty object.
-     * @param {Deck} [deck=null] 		- An instance of the Deck class (optional). Defaults to null.
-     */
+class Lightbox extends Component {
+	/**
+	 * Creates an instance of the Lightbox component.
+	 *
+	 * @param {HTMLElement} element 	- The DOM element to which the Lightbox component will be applied.
+	 * @param {Object} [options={}] 	- Configuration options for the Lightbox component. Defaults to an empty object.
+	 * @param {Deck} [deck=null] 		- An instance of the Deck class (optional). Defaults to null.
+	 */
 	constructor(element, options = {}, deck = null) {
-		
+
 		// Define default options for the component
 		const defaultOptions = {};
 
@@ -58,7 +62,7 @@ export default class Lightbox extends Component {
 		const caption = toggle.getAttribute('data-caption'); 	// Optional caption for the lightbox
 		const image = toggle.getAttribute('href'); 				// URL of the image to display
 
-		this.close() 
+		this.close()
 		this.open(image, caption)
 	}
 
@@ -79,7 +83,7 @@ export default class Lightbox extends Component {
 	 * @param {string} image - The URL of the image to display.
 	 * @param {string|false} [caption=false] - Optional caption text for the lightbox.
 	 */
-	open(image, caption=false) {
+	open(image, caption = false) {
 
 		// Create lightbox container
 		const lightbox = document.createElement('div');
@@ -129,7 +133,7 @@ export default class Lightbox extends Component {
 
 		// Check if there's caption
 		// const caption = toggle.getAttribute('data-caption');
-		
+
 		if (caption) {
 			// Create lightbox caption 
 			const lightboxCaption = document.createElement('div');
@@ -157,7 +161,7 @@ export default class Lightbox extends Component {
 		item.appendChild(img);
 
 		// Add event listener to close lightbox on click
-		lightboxCloseBtn.addEventListener('click', function() {
+		lightboxCloseBtn.addEventListener('click', function () {
 			lightbox.classList.remove('open');
 			document.body.removeChild(lightbox);
 		});
@@ -170,11 +174,13 @@ export default class Lightbox extends Component {
 	 * Moves to the next item in the lightbox.
 	 * Currently unimplemented.
 	 */
-	next() {}
+	next() { }
 
 	/**
 	 * Moves to the previous item in the lightbox.
 	 * Currently unimplemented.
 	 */
-	previous() {}
+	previous() { }
 }
+
+export default Lightbox;
