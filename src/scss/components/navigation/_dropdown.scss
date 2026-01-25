@@ -1,38 +1,166 @@
-// =============================================================================
-// DROPDOWN COMPONENT
-// components/navigation/_dropdown.scss
-// -----------------------------------------------------------------------------
-// Provides tokenized, responsive dropdown menus and navigation.
-// - Fully theme-ready and dark-mode compatible
-// - Supports fixed sizes, dropbar variations, and nav lists
-// - Scoped CSS variables for spacing and offsets
-//
-// Dependencies:
-// - tokens.scss (for colors, spacing, border-radius tokens)
-// - abstracts/variables/_breakpoints.scss
-// =============================================================================
+/**
+ * =============================================================================
+ * DROPDOWN COMPONENT
+ * -----------------------------------------------------------------------------
+ * File: components/navigation/_dropdown.scss
+ *
+ * Description:
+ * Tokenized, responsive dropdown and popover component built on modern
+ * CSS Anchor Positioning and the Popover API.
+ *
+ * Features:
+ * - Fully theme-ready and dark-mode compatible
+ * - Anchor-based positioning with viewport collision handling
+ * - Supports fixed-width dropdowns, stretch-to-anchor, and dropbar layouts
+ * - Navigation list styling included
+ * - Animation-safe open/close lifecycle
+ *
+ * Dependencies:
+ * - abstracts/variables/breakpoints
+ *
+ * Notes:
+ * - Relies on CSS Anchor Positioning (position-anchor / position-area)
+ * - Uses :popover-open as the single source of truth for visibility
+ * =============================================================================
+ */
 
 @use '../../abstracts/variables/breakpoints' as *;
 
 .dropdown {
 
-	//---------------------------------------------
-	// Scoped Tokens
-	//---------------------------------------------
-	/// Component-level variables for offsets
-	--position-offset: 10px;
-	--position-viewport-offset: 15px;
+	// -------------------------------------------------------------------------
+	// Core Popover Reset
+	// -------------------------------------------------------------------------
 
-	//---------------------------------------------
-	// Base Dropdown
-	//---------------------------------------------
+	// Force absolute positioning to avoid layout participation
+	// and ensure full control via anchor positioning.
+	position: absolute !important;
+	position-anchor: var(--anchor-id);
+
+	// Reset browser popover defaults
+	inset: auto !important;
+	margin: 0 !important;
+	border: none;
+
+	// Base visual inheritance
+	background: var(--color-surface);
+	color: inherit;
+
+	// Allow shadows and overflowed elements
+	overflow: visible;
+
+	// -------------------------------------------------------------------------
+	// Anchor Bridge
+	// -------------------------------------------------------------------------
+	// Re-declared intentionally to ensure the anchor binding
+	// survives minification and utility overrides.
+	position-anchor: var(--anchor-id);
+
+	// -------------------------------------------------------------------------
+	// Transitions
+	// -------------------------------------------------------------------------
+	// Discrete transitions are used for display/overlay to avoid
+	// animation glitches when toggling popover state.
+	transition:
+		opacity 0.25s ease,
+		transform 0.25s ease,
+		display 0.25s allow-discrete,
+		overlay 0.25s allow-discrete;
+
+	// Default visible state (popover-open controls actual visibility)
+	opacity: 1;
+	transform: translateY(0) scale(1);
+
+	// -------------------------------------------------------------------------
+	// Open State
+	// -------------------------------------------------------------------------
+	// Single visual source of truth when the popover is active.
+	&:popover-open {
+		display: flex;
+		opacity: 1;
+		transform: translate(0, 0) scale(1);
+
+		// Prevent utility keyframes from looping while open
+		animation-name: none !important;
+	}
+
+	// -------------------------------------------------------------------------
+	// Closed State (Hard Kill)
+	// -------------------------------------------------------------------------
+	// Explicitly force-hide when not open to avoid ghost layout,
+	// animation leftovers, or accessibility edge cases.
+	&:not(:popover-open) {
+		display: none !important;
+		opacity: 0 !important;
+		visibility: hidden !important;
+		animation-name: none !important;
+	}
+
+	// -------------------------------------------------------------------------
+	// Backdrop Neutralization
+	// -------------------------------------------------------------------------
+	// Prevent popover backdrops from affecting layout or visuals.
+	&::backdrop {
+		background: transparent;
+	}
+
+	// -------------------------------------------------------------------------
+	// Viewport Collision Handling
+	// -------------------------------------------------------------------------
+	// Automatically flip dropdown when it would overflow the viewport.
+	position-try-fallbacks: flip-block, flip-inline;
+
+	// -------------------------------------------------------------------------
+	// Position Grid (Anchor Areas)
+	// -------------------------------------------------------------------------
+	// Tokenized placement system driven by data-position attributes.
+	&[data-position="top-left"]      { position-area: top left; margin-bottom: var(--position-offset); }
+	&[data-position="top-center"]    { position-area: top; margin-bottom: var(--position-offset); }
+	&[data-position="top-right"]     { position-area: top right; margin-bottom: var(--position-offset); }
+
+	&[data-position="bottom-left"]   { position-area: bottom left; margin-top: var(--position-offset); }
+	&[data-position="bottom-center"] { position-area: bottom; margin-top: var(--position-offset); }
+	&[data-position="bottom-right"]  { position-area: bottom right; margin-top: var(--position-offset); }
+
+	&[data-position="left-top"]      { position-area: left top; margin-right: var(--position-offset); }
+	&[data-position="left-center"]   { position-area: left; margin-right: var(--position-offset); }
+	&[data-position="left-bottom"]   { position-area: left bottom; margin-right: var(--position-offset); }
+
+	&[data-position="right-top"]     { position-area: right top; margin-left: var(--position-offset); }
+	&[data-position="right-center"]  { position-area: right; margin-left: var(--position-offset); }
+	&[data-position="right-bottom"]  { position-area: right bottom; margin-left: var(--position-offset); }
+
+	// -------------------------------------------------------------------------
+	// Stretch / Dropbar Logic
+	// -------------------------------------------------------------------------
+	// Match dropdown width to its anchor element.
+	&.width-match {
+		width: anchor-size(width);
+		min-width: 0 !important;
+	}
+
+	// Full-width dropbar aligned to a container anchor.
+	&.dropdown-dropbar {
+		position-anchor: var(--container-id); // ✅ FIXED
+		width: anchor-size(width);
+		position-area: bottom span-all;
+		left: 0;
+	}
+
+	// -------------------------------------------------------------------------
+	// Base Cosmetic Styles
+	// -------------------------------------------------------------------------
+	--position-offset: 10px;
+
 	width: auto;
 	min-width: 200px;
 	padding: var(--spacing-default);
-	border: none !important;
 	border-radius: var(--radius-default);
+
 	background: var(--color-surface);
 	color: var(--color-text-muted);
+
+	// Elevated above nav, modals, and overlays
 	z-index: 1400;
 
 	box-shadow:
@@ -40,66 +168,63 @@
 		0 8px 10px 1px rgba(0, 0, 0, 0.14),
 		0 3px 14px 2px rgba(0, 0, 0, 0.12);
 
-	// Remove padding when it contains a nav
+	// Remove padding when dropdown is purely navigational.
 	&:has(> .dropdown-nav) {
 		padding: 0;
 	}
 
-	//---------------------------------------------
+	// -------------------------------------------------------------------------
 	// Size Variants
-	//---------------------------------------------	
+	// -------------------------------------------------------------------------
+	&-small  { width: 140px !important; min-width: 140px !important; }
+	&-medium { width: 240px !important; min-width: 240px !important; }
+	&-large  { width: 360px !important; min-width: 360px !important; padding: 2.5rem; }
 
-	&-small {
-		width: 140px !important;
-		min-width: 140px !important;
-	}
-
-	&-medium {
-		width: 240px !important;
-		min-width: 240px !important;
-	}
-
-	&-large {
-		width: 360px !important;
-		min-width: 360px !important;
-		padding: 2.5rem;
-	}
-
-	//---------------------------------------------
+	// -------------------------------------------------------------------------
 	// Dropbar Variants
-	//---------------------------------------------
-
+	// -------------------------------------------------------------------------
 	&-dropbar {
-		width: auto;
+		position-anchor: var(--container-id);
+		width: anchor-size(width);
+		position-area: bottom span-all;
+
 		background: transparent;
 		padding: var(--spacing-default) 0;
+
+		// Extra viewport breathing room for large bars
 		--position-viewport-offset: 15px;
 
 		&-large {
 			padding-top: 2.5rem;
 			padding-bottom: 2.5rem;
 		}
+
+		// Slide-up behavior when closed
+		&:not(:popover-open) {
+			transform: translateY(-100%);
+		}
+
+		// Starting transform for smooth open animation
+		@starting-style {
+			&:popover-open {
+				transform: translateY(-100%);
+			}
+		}
 	}
 
-	//---------------------------------------------
-	// Dropdown Navigation
-	//---------------------------------------------
-
+	// -------------------------------------------------------------------------
+	// Navigation Styles
+	// -------------------------------------------------------------------------
 	&-nav {
 		padding: 8px 0;
 
-		>li {
+		> li {
 			list-style: none;
 
-			&:first-child {
-				padding-top: 4px;
-			}
+			&:first-child { padding-top: 4px; }
+			&:last-child  { padding-bottom: 4px; }
 
-			&:last-child {
-				padding-bottom: 4px;
-			}
-
-			>a {
+			> a {
 				display: block;
 				padding: 4px 16px !important;
 				font-size: 0.875rem;
@@ -110,18 +235,12 @@
 					color: var(--color-text);
 				}
 			}
-
-			&.active>a {
-				background: rgba(0, 0, 0, 0.08);
-				color: var(--color-text);
-			}
 		}
 
-		// Header within nav
+		// Section header inside dropdown nav
 		.nav-header {
 			padding: 8px 16px;
-			margin: 0;
-			margin-top: 8px;
+			margin: 8px 0 0 0;
 			font-size: 0.875rem;
 			font-weight: 500;
 			text-transform: uppercase;
@@ -132,44 +251,25 @@
 			}
 		}
 
-		.nav-subtitle {
-			font-size: 0.875rem;
-		}
-
+		// Visual separator between nav sections
 		.nav-divider {
 			border-top: 1px solid var(--color-border-muted);
 		}
-
-		.nav-sub a {
-			color: var(--color-text-muted);
-
-			&:hover {
-				color: var(--color-text);
-			}
-		}
-
-		.nav-sub li.active>a {
-			color: var(--color-text);
-		}
-
-		.active>a {
-			background: rgba(0, 0, 0, 0.08);
-		}
 	}
-}
 
-//---------------------------------------------
-// Responsive Dropbar Offsets
-//---------------------------------------------
+	// -------------------------------------------------------------------------
+	// Animation Starting States
+	// -------------------------------------------------------------------------
+	// Maps utility animation classes to their initial transform
+	// so transitions play correctly on open.
 
-@media (min-width: $breakpoint-sm) {
-	.dropdown-dropbar {
-		--position-viewport-offset: 30px;
-	}
-}
-
-@media (min-width: $breakpoint-md) {
-	.dropdown-dropbar {
-		--position-viewport-offset: 40px;
+	@starting-style {
+		&:popover-open {
+			opacity: 0;
+			
+			&.animation-slide-top-small  { transform: translateY(-10px); }
+			&.animation-scale-up         { transform: scale(0.95); }
+			&.animation-slide-left-small { transform: translateX(-10px); }
+		}
 	}
 }
