@@ -1,74 +1,131 @@
-/*------------------------------------*\
-	DROP SCSS
-\*------------------------------------*/
+/* =============================================================================
+   COMPONENT: Drop
+   -----------------------------------------------------------------------------
+   Modernized dropdown / popover using the Popover API & Anchor Position Grid.
+   -----------------------------------------------------------------------------
+   Features:
+   - Fully supports native :popover-open state
+   - Modern anchor positioning with fallback for legacy browsers
+   - Discrete animations for opacity and transform
+   - Optional visual stack/grid helpers
+   ============================================================================= */
 
+/* -----------------------------------------------------------------------------
+   BASE DROP STYLES
+   -----------------------------------------------------------------------------
+   Core dropdown container. Visibility controlled via :popover-open pseudo-class.
+----------------------------------------------------------------------------- */
 .drop {
-	
-	--drop-width: 300px;
-	--drop-height: inherit;
+    /* --- Design Tokens --- */
+    --drop-width: 300px;
+    --drop-height: auto;
+    --drop-spacing: 8px;
 
-	display: none;
-	position: absolute;
-	z-index: 1020;
-	// --position-offset: 20px;
-	// --position-viewport-offset: 15px;
-	box-sizing: border-box;
-	width: var(--drop-width);
-	height: var(--drop-height);
+    /* --- Core Reset (Popover API / Top Layer) --- */
+    // Overrides default browser popover positioning
+    position: absolute !important;
+    inset: auto !important;
+    margin: 0 !important;
+    display: none; // Managed by :popover-open
+    
+    width: var(--drop-width);
+    height: var(--drop-height);
+    z-index: 1020;
+    box-sizing: border-box;
+    overflow: auto;
 
-	&.open {
-		display: block;
-	}
+    /* --- Visuals --- */
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-default);
+    box-shadow:
+        0 5px 5px -3px rgba(0, 0, 0, 0.2),
+        0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12);
 
-	&-stack {
-		.drop-grid {
-			>* {
-				width: 100% !important;
-			}
-		}
-	}
+    /* --- Animation --- */
+    transition: 
+        opacity 0.2s ease, 
+        transform 0.2s ease, 
+        display 0.2s allow-discrete, 
+        overlay 0.2s allow-discrete;
+    
+    opacity: 0;
+    transform: translateY(-4px);
 
-	&-parent-icon {
-		margin-left: 0.25em;
-		transition: transform 0.3s ease-out;
-	}
+    /* --- Native popover state --- */
+    &:popover-open {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
 
+	/* Starting animation style */
+    @starting-style {
+        &:popover-open {
+            opacity: 0;
+            transform: translateY(-4px);
+        }
+    }
 
-	&[aria-expanded="true"] {
-		>.drop-parent-icon {
-			transform: rotateX(180deg);
-		}
-	}
+    /* -----------------------------------------------------------------------------
+       MODERN ANCHOR POSITIONING
+       -----------------------------------------------------------------------------
+       Uses the 3x3 grid system for flexible positioning with automatic flipping.
+    ----------------------------------------------------------------------------- */
 
-	&.open-top {
-		top: -100%;
-		/* Position dropdown above trigger element with some offset */
-	}
+    @supports (position-area: top) {
+        position-anchor: var(--anchor-id); // Linked dynamically via JS
+        position-try-fallbacks: flip-block, flip-inline;
 
-	&.open-bottom {
-		bottom: 100%;
-		/* Position dropdown below trigger element with some offset */
-	}
+        /* Bottom positions */
+        &[data-position='bottom-center'] { position-area: bottom; margin-top: var(--drop-spacing); }
+        &[data-position='bottom-left']   { position-area: bottom left; margin-top: var(--drop-spacing); }
+        &[data-position='bottom-right']  { position-area: bottom right; margin-top: var(--drop-spacing); }
+        
+		/* Top positions */
+        &[data-position='top-center']    { position-area: top; margin-bottom: var(--drop-spacing); }
+        &[data-position='top-left']      { position-area: top left; margin-bottom: var(--drop-spacing); }
+        &[data-position='top-right']     { position-area: top right; margin-bottom: var(--drop-spacing); }
 
-	// Test
+		/* Side positions */
+        &[data-position='left-center']   { position-area: left; margin-right: var(--drop-spacing); }
+        &[data-position='right-center']  { position-area: right; margin-left: var(--drop-spacing); }
+    }
 
-	&[class*='drop-bottom'],
-	&[class*='dropdown-bottom'] {
-		margin-top: 8px;
-	}
+    /* -----------------------------------------------------------------------------
+       LEGACY FALLBACK (Non-anchor supporting browsers)
+       -----------------------------------------------------------------------------
+       Simple open class with display/opacity, JS handles positioning.
+    ----------------------------------------------------------------------------- */
+    @supports not (position-area: top) {
+        &.open {
+            display: block;
+            opacity: 1;
+        }
+        // Legacy positioning would happen here or via JS calc
+    }
 
-	&[class*='drop-top'],
-	&[class*='dropdown-top'] {
-		margin-top: - 8px;
-	}
+    /* -----------------------------------------------------------------------------
+       HELPERS / CHILD ELEMENTS
+       -----------------------------------------------------------------------------
+       Utility helpers for stacked layout and trigger icons.
+    ----------------------------------------------------------------------------- */
+    &-stack .drop-grid > * {
+        width: 100% !important;
+    }
 
-	&[class*='drop-left'],
-	&[class*='dropdown-left'] {
-		margin-left: -8px;
-	}
+    &-parent-icon {
+        display: inline-block;
+        margin-left: 0.25em;
+        transition: transform 0.3s ease-out;
+    }
 
-	&[class*='drop-right'],
-	&[class*='dropdown-right'] {
-		margin-left: 8px;
-	}
+    // Use [aria-expanded] on the TRIGGER, not the drop itself
+}
+
+/* Rotate trigger icon when drop is open */
+[aria-expanded='true'] .drop-parent-icon {
+    transform: rotate(180deg);
 }
