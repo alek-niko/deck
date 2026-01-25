@@ -74,10 +74,26 @@ class Tab extends Component {
 			}
 		}
 
+		// Apply critical flex alignment to the parent if vertical
+        this.#ensureCorrectFlexAlignment();
+
 		 // Determine the active tab index or default to the first tab
 		var index = this.getActiveIndex() !== -1 ? index : 0
 		this.open(index)
 	}
+
+	/**
+     * Ensures the parent flex container doesn't force a 'stretch' height.
+     * This fixes the "huge height" issue when switching from long to short content.
+     */
+    #ensureCorrectFlexAlignment() {
+        const parent = this.element.parentElement;
+        if (parent && parent.classList.contains('flex')) {
+            // Force items-start to allow the container to shrink to content height
+            parent.classList.add('items-start');
+            parent.classList.remove('items-stretch');
+        }
+    }
 
 	/**
 	 * @method onClick
@@ -129,32 +145,75 @@ class Tab extends Component {
 	 * 
 	 * @param {number} [index=0] - The index of the tab to activate.
 	 */
-	open(index = 0) {
-		var tabs = Array.from(this.element.children)
+	// open(index = 0) {
+	// 	var tabs = Array.from(this.element.children)
 	
-		// Remove "active" class from all list items
-		tabs.forEach( li => {
-			li.classList.remove('active');
-		});
+	// 	// Remove "active" class from all list items
+	// 	tabs.forEach( li => {
+	// 		li.classList.remove('active');
+	// 	});
 
-		// Remove the "active" class from all content sections
-		if (this.content) {
-			var content = Array.from(this.content.children)
-			content.forEach( div => {
-				div.classList.remove('active');
-			});
-		}
+	// 	// Remove the "active" class from all content sections
+	// 	if (this.content) {
+	// 		var content = Array.from(this.content.children)
+	// 		content.forEach( div => {
+	// 			div.classList.remove('active');
+	// 		});
+	// 	}
 
-		// Activate the specified tab and its corresponding content
-		if (index >= 0 && index < tabs.length) {
-			tabs[index].classList.add('active');
-			if (this.content) {
-				content[index].classList.add('active');
-			}       
-		} else {
-			console.error('Index out of range');
-		}
-	}
+	// 	// Activate the specified tab and its corresponding content
+	// 	if (index >= 0 && index < tabs.length) {
+	// 		tabs[index].classList.add('active');
+	// 		if (this.content) {
+	// 			content[index].classList.add('active');
+	// 		}       
+	// 	} else {
+	// 		console.error('Index out of range');
+	// 	}
+	// }
+
+	/**
+     * @method open
+     * @description Activates the tab and recalculates container height.
+     */
+    open(index = 0) {
+
+        const tabs = Array.from(this.element.children);
+    
+        // 1. Update Tab Navigation State
+        tabs.forEach(li => li.classList.remove('active'));
+
+        // 2. Update Content Sections State
+        if (this.content) {
+            const panes = Array.from(this.content.children);
+            
+            panes.forEach(div => {
+                div.classList.remove('active');
+                // Ensure inactive panes don't contribute to height
+                div.style.display = 'none'; 
+            });
+
+            // 3. Activate the chosen index
+            if (index >= 0 && index < tabs.length) {
+                tabs[index].classList.add('active');
+                
+                const activePane = panes[index];
+                activePane.classList.add('active');
+                
+                // Set to 'block' so it takes up space and defines the parent height
+                activePane.style.display = 'block';
+
+                // Trigger a tiny delay if using animations to ensure browser 
+                // calculates the new height from 'block' state
+                requestAnimationFrame(() => {
+                    this.content.style.height = 'auto';
+                });
+
+            } else {
+                console.error('Tab index out of range');
+            }
+        }
+    }
 }
 
 export default Tab;
