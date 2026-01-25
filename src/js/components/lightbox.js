@@ -3,6 +3,9 @@
  * @description Provides an interactive gallery experience for displaying images, videos,
  * or other media in a full-screen overlay. Supports navigation controls, dynamic media
  * handling, and can be triggered by clicking thumbnails or other UI elements.
+ * 
+ * Fullscreen lightbox overlay using <dialog>.
+ * Supports single items or galleries via data-gallery.
  */
 
 // Import the base Component class
@@ -17,6 +20,7 @@ import Component from './component.js';
  * of different media types for a seamless user experience.
  */
 class Lightbox extends Component {
+
 	/**
 	 * Creates an instance of the Lightbox component.
 	 *
@@ -24,7 +28,7 @@ class Lightbox extends Component {
 	 * @param {Object} [options={}] 	- Configuration options for the Lightbox component. Defaults to an empty object.
 	 * @param {Deck} [deck=null] 		- An instance of the Deck class (optional). Defaults to null.
 	 */
-	constructor(element, options = {}, deck = null) {
+    constructor(element, options = {}, deck = null) {
 
 		// Define default options for the component
 		const defaultOptions = {};
@@ -43,144 +47,257 @@ class Lightbox extends Component {
 		// Call the parent class's constructor with the context object
 		super(context);
 
-		// Ensure the DOM element is not the lightbox container
-		this.element.classList.remove('lightbox')
+		this.items = [];
+		this.index = 0;
+		this.preloaded = new Set();
 
-		this.element
-			.querySelector('a')
-			.addEventListener('click', this.onClick);
+		this.onClick = this.onClick.bind(this);
+		this.onKeydown = this.onKeydown.bind(this);
+
+		this.#setup();
 	}
 
-	/**
+    /**
+     * Initialize trigger
+     */
+    #setup() {
+        this.trigger =
+            this.element.tagName === 'A'
+                ? this.element
+                : this.element.querySelector('a');
+
+        if (!this.trigger) return;
+
+        this.trigger.addEventListener('click', this.onClick);
+    }
+
+    /**
 	 * Handles click events on the associated element.
 	 * @param {MouseEvent} event - The click event.
 	 */
-	onClick = event => {
-		event.preventDefault();
+    onClick(event) {
+        event.preventDefault();
+        this.prepareItems();
+        this.open();
+    }
 
-		const toggle = event.target
-		const caption = toggle.getAttribute('data-caption'); 	// Optional caption for the lightbox
-		const image = toggle.getAttribute('href'); 				// URL of the image to display
+    /**
+     * Collect gallery items
+     */
+    prepareItems() {
+        const gallery = this.trigger.getAttribute('data-gallery');
 
-		this.close()
-		this.open(image, caption)
-	}
+        if (gallery) {
+            this.items = Array.from(
+                document.querySelectorAll(`[data-gallery="${gallery}"]`)
+            );
+        } else {
+            this.items = [this.trigger];
+        }
+
+        this.index = this.items.indexOf(this.trigger);
+    }
+
+    /**
+     * Open the lightbox
+     */
+    open() {
+        this.close(); // ensure single instance
+
+        this.dialog = document.createElement('dialog');
+        this.dialog.className = 'lightbox-panel';
+
+        this.buildToolbar();
+        this.buildNavigation();
+        this.buildItems();
+        this.buildCaption();
+
+        document.body.appendChild(this.dialog);
+        this.dialog.showModal();
+
+        document.addEventListener('keydown', this.onKeydown);
+
+        this.update();
+    }
+
+    /**
+     * Build top toolbar
+     */
+    // buildToolbar() {
+    //     const bar = document.createElement('div');
+    //     bar.className = 'lightbox-toolbar position-top';
+
+    //     const close = document.createElement('button');
+    //     close.className = 'icon-action';
+    //     close.innerHTML = `
+    //         <svg viewBox="0 -960 960 960" width="32" height="32">
+    //             <path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/>
+    //         </svg>
+    //     `;
+
+    //     close.addEventListener('click', () => this.close());
+
+    //     bar.appendChild(close);
+    //     this.dialog.appendChild(bar);
+    // }
 
 	/**
-	 * Closes any currently open lightbox instance.
+	 * Build top toolbar
 	 */
-	close() {
-		// Close open lightbox
-		const existingLightbox = document.querySelector('.lightbox.open');
-		if (existingLightbox) {
-			existingLightbox.parentElement.removeChild(existingLightbox);
-		}
-	}
+	buildToolbar() {
+		const bar = document.createElement('div');
+		bar.className = 'lightbox-toolbar position-top';
 
-	/**
-	 * Opens a lightbox with the specified image and optional caption.
-	 * 
-	 * @param {string} image - The URL of the image to display.
-	 * @param {string|false} [caption=false] - Optional caption text for the lightbox.
-	 */
-	open(image, caption = false) {
+		const close = document.createElement('i');
+		close.className = 'icon-action';
+		close.setAttribute('role', 'button');
+		close.setAttribute('tabindex', '0');
+		close.setAttribute('aria-label', 'Close lightbox');
 
-		// Create lightbox container
-		const lightbox = document.createElement('div');
-		lightbox.classList.add('lightbox', 'lightbox-panel', 'transition-toggle', 'overflow-hidden', 'open');
+		close.innerHTML = `
+			<svg viewBox="0 -960 960 960" width="32" height="32">
+				<path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/>
+			</svg>
+		`;
 
-		// Create the container for lightbox items
-		const lightboxItems = document.createElement('div');
-		lightboxItems.classList.add('lightbox-items');
+		// Mouse click
+		close.addEventListener('click', () => this.close());
 
-		// Append lightbox-items to lightbox
-		lightbox.appendChild(lightboxItems);
-
-		// Create the lightbox toolbar (top bar)
-		const lightboxToolbar = document.createElement('div');
-		lightboxToolbar.classList.add('lightbox-toolbar', 'position-top', 'text-right', 'transition-slide-top', 'transition-opaque');
-
-		// Create a close button for the lightbox
-		const lightboxCloseBtn = document.createElement('a');
-		lightboxCloseBtn.setAttribute('href', '#!');
-		lightboxCloseBtn.classList.add('icon-action', 'lightbox-toolbar-icon');
-
-		// Create the SVG icon for the close button
-		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-		svg.setAttribute('viewBox', '0 -960 960 960');
-		svg.setAttribute('width', '100'); // Set width as needed
-		svg.setAttribute('height', '100'); // Set height as needed
-		svg.classList.add('icon-32'); // Add class 'icon-32'
-
-		// Add the close icon path to the SVG
-		const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-		path.setAttribute('d', 'm250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z');
-
-		// Append the path to the SVG
-		svg.appendChild(path);
-
-		// Append the SVG to the anchor
-		lightboxCloseBtn.appendChild(svg);
-
-		// Append the <svg> to the <a>, then append the <a> to the DOM
-		lightboxCloseBtn.appendChild(svg);
-
-		// Append close button to lightbox toolbar
-		lightboxToolbar.appendChild(lightboxCloseBtn)
-
-		// Append lightbox toolbar to lightbox
-		lightbox.appendChild(lightboxToolbar);
-
-		// Check if there's caption
-		// const caption = toggle.getAttribute('data-caption');
-
-		if (caption) {
-			// Create lightbox caption 
-			const lightboxCaption = document.createElement('div');
-			lightboxCaption.classList.add('lightbox-toolbar', 'lightbox-caption', 'position-bottom', 'text-center', 'transition-slide-bottom', 'transition-opaque');
-			lightboxCaption.innerHTML = caption;
-
-			// Append lightbox caption to lightbox
-			lightbox.appendChild(lightboxCaption);
-		}
-
-		// Create item container
-		const item = document.createElement('div');
-		item.classList.add('active');
-
-		// Append item to lightbox items
-		//lightbox.appendChild(item)
-		lightboxItems.appendChild(item);
-
-		// Create the image element
-		const img = document.createElement('img');
-		img.src = image;
-		img.alt = 'Lightbox Image';
-
-		// Append image to lightbox
-		item.appendChild(img);
-
-		// Add event listener to close lightbox on click
-		lightboxCloseBtn.addEventListener('click', function () {
-			lightbox.classList.remove('open');
-			document.body.removeChild(lightbox);
+		// Keyboard activation (Enter / Space)
+		close.addEventListener('keydown', (e) => {
+			if (e.key === 'Enter' || e.key === ' ') {
+				e.preventDefault();
+				this.close();
+			}
 		});
 
-		// Append lightbox to body
-		document.body.appendChild(lightbox);
+		bar.appendChild(close);
+		this.dialog.appendChild(bar);
 	}
 
-	/**
-	 * Moves to the next item in the lightbox.
-	 * Currently unimplemented.
-	 */
-	next() { }
 
-	/**
-	 * Moves to the previous item in the lightbox.
-	 * Currently unimplemented.
-	 */
-	previous() { }
+    /**
+     * Build navigation arrows
+     */
+    buildNavigation() {
+        if (this.items.length <= 1) return;
+
+        this.prevBtn = this.createNav('prev', 'M15 18l-6-6 6-6');
+        this.nextBtn = this.createNav('next', 'M9 18l6-6-6-6');
+
+        this.dialog.appendChild(this.prevBtn);
+        this.dialog.appendChild(this.nextBtn);
+    }
+
+    createNav(direction, path) {
+        const btn = document.createElement('button');
+        btn.className = `lightbox-nav lightbox-nav-${direction}`;
+        btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="${path}"/></svg>`;
+
+        btn.addEventListener('click', () => {
+            direction === 'next' ? this.next() : this.previous();
+        });
+
+        return btn;
+    }
+
+    /**
+     * Build content container
+     */
+    buildItems() {
+        this.itemsContainer = document.createElement('div');
+        this.itemsContainer.className = 'lightbox-items';
+        this.dialog.appendChild(this.itemsContainer);
+    }
+
+    /**
+     * Build caption bar
+     */
+    buildCaption() {
+        this.captionBar = document.createElement('div');
+        this.captionBar.className = 'lightbox-toolbar position-bottom';
+
+        this.caption = document.createElement('div');
+        this.caption.className = 'lightbox-caption';
+
+        this.captionBar.appendChild(this.caption);
+        this.dialog.appendChild(this.captionBar);
+    }
+
+    /**
+     * Update active content
+     */
+    update() {
+        const item = this.items[this.index];
+        if (!item) return;
+
+        const src = item.getAttribute('href');
+        const caption = item.getAttribute('data-caption') || '';
+
+        this.itemsContainer.innerHTML = '';
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'active';
+
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = caption || 'Lightbox image';
+
+        wrapper.appendChild(img);
+        this.itemsContainer.appendChild(wrapper);
+
+        this.caption.textContent = caption;
+
+        this.preloadNext();
+    }
+
+    /**
+     * Preload next image
+     */
+    preloadNext() {
+        if (this.items.length < 2) return;
+
+        const next = (this.index + 1) % this.items.length;
+        const url = this.items[next].getAttribute('href');
+
+        if (url && !this.preloaded.has(url)) {
+            const img = new Image();
+            img.src = url;
+            this.preloaded.add(url);
+        }
+    }
+
+    /**
+     * Keyboard navigation
+     */
+    onKeydown(event) {
+        if (event.key === 'ArrowRight') this.next();
+        if (event.key === 'ArrowLeft') this.previous();
+        if (event.key === 'Escape') this.close();
+    }
+
+    next() {
+        this.index = (this.index + 1) % this.items.length;
+        this.update();
+    }
+
+    previous() {
+        this.index =
+            (this.index - 1 + this.items.length) % this.items.length;
+        this.update();
+    }
+
+    /**
+     * Close and destroy
+     */
+    close() {
+        if (!this.dialog) return;
+
+        document.removeEventListener('keydown', this.onKeydown);
+        this.dialog.close();
+        this.dialog.remove();
+        this.dialog = null;
+    }
 }
 
 export default Lightbox;
