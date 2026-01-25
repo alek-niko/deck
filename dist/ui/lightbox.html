@@ -329,21 +329,6 @@
 					</code></pre>
 				</div>
 
-				<div data-component="lightbox">
-					<a class="button margin-right" 
-					href="/assets/images/photos/image1.webp" 
-					data-caption="A beautiful mountain sunrise.">
-					Button Trigger
-					</a>
-				</div>
-
-				<a 
-					href="/assets/images/photos/image1.webp" 
-					data-component="lightbox"
-					data-caption="A beautiful mountain sunrise.">
-					Link Trigger
-				</a>
-
 				<div class="code-tab">
 					<ul class="tab">
 						<li class="active">Preview</li>
@@ -351,15 +336,47 @@
 					</ul>
 					<div class="tab-content">
 						<div class="active">
-							<div lightbox>
+
+							<div class="margin-right" lightbox>
 								<a class="button" href="/assets/images/photos/image1.webp">Open Lightbox</a>
 							</div>
+
+							<div data-component="lightbox">
+								<a class="button margin-right" 
+								href="/assets/images/photos/image1.webp" 
+								data-caption="A beautiful mountain sunrise.">
+								Button Trigger
+								</a>
+							</div>
+
+							<a 
+								href="/assets/images/photos/image1.webp" 
+								data-component="lightbox"
+								data-caption="A beautiful mountain sunrise.">
+								Link Trigger
+							</a>
+
 						</div>
 						<div>
 							<pre><code>
-								&lt;div lightbox&gt;
+								&lt;div class=&quot;margin-right&quot; lightbox&gt;
 									&lt;a class=&quot;button&quot; href=&quot;/assets/images/photos/image1.webp&quot;&gt;Open Lightbox&lt;/a&gt;
 								&lt;/div&gt;
+
+								&lt;div data-component=&quot;lightbox&quot;&gt;
+									&lt;a class=&quot;button margin-right&quot; 
+									href=&quot;/assets/images/photos/image1.webp&quot; 
+									data-caption=&quot;A beautiful mountain sunrise.&quot;&gt;
+									Button Trigger
+									&lt;/a&gt;
+								&lt;/div&gt;
+
+								&lt;a 
+									href=&quot;/assets/images/photos/image1.webp&quot; 
+									data-component=&quot;lightbox&quot;
+									data-caption=&quot;A beautiful mountain sunrise.&quot;&gt;
+									Link Trigger
+								&lt;/a&gt;
 							</code></pre>
 						</div>
 					</div>
