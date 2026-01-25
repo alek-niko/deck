@@ -1,236 +1,196 @@
-// =============================================================================
-// TABLE COMPONENT
-// components/ui/_tables.scss
-// -----------------------------------------------------------------------------
-// Responsive and versatile table system with support for:
-// - Default, bordered, striped, hoverable, small, large, justify, shrink, expand, and link tables
-// - Responsive layouts for phone landscape and smaller
-// - Semantic CSS variables for spacing, font sizes, and colors
-// =============================================================================
+/*------------------------------------*\
+  TABLE COMPONENT
+  components/_table.scss
+
+  Responsive and styled table system with:
+  - Semantic CSS variables and theme tokens
+  - Utility modifiers: .table-hover, .table-bordered, .table-striped, etc.
+  - Size variants: .table-small, .table-large
+  - Responsive stackable version
+  - Optional features: sortable headers, sticky headers, loading skeleton
+\*------------------------------------*/
 
 @use '../../abstracts/variables/breakpoints' as *;
+@use '../../abstracts/variables/colors' as *;
 
-// ---------------------------------------------------------------------
-// Table Defaults
-// ---------------------------------------------------------------------
-// Default table variables for margins, paddings, font sizes, and colors.
+//----------------------------------
+// Table Tokens (Scoped CSS Vars)
+//----------------------------------
 
-$table-margin-vertical: 20px !default;
+$table-margin-vertical: var(--spacing-default, 1.25rem) !default;
 $table-cell-padding-vertical: 16px !default;
 $table-cell-padding-horizontal: 12px !default;
-$table-header-cell-font-size: 16px !default;
-$table-header-cell-font-weight: bold !default;
-$table-header-cell-color: #666 !default;
+$table-header-cell-font-size: 1rem !default;
+$table-header-cell-font-weight: 600 !default;
+$table-header-cell-color: var(--color-text-muted, rgba(0, 0, 0, 0.54)) !default;
 $table-footer-font-size: 0.875rem !default;
 $table-caption-font-size: 0.875rem !default;
-$table-caption-color: #999 !default;
-$table-striped-row-background: #f8f8f8 !default;
-$table-hover-row-background: #ffd !default;
-$table-row-active-background: #ffd !default;
+$table-caption-color: var(--color-text-muted, #999) !default;
+$table-striped-row-background: rgba(0, 0, 0, 0.04) !default;
+$table-hover-row-background: rgba(0, 0, 0, 0.08) !default;
+$table-row-active-background: rgba(0, 0, 0, 0.06) !default;
 $table-small-cell-padding-vertical: 10px !default;
 $table-small-cell-padding-horizontal: 12px !default;
 $table-large-cell-padding-vertical: 22px !default;
 $table-large-cell-padding-horizontal: 12px !default;
 $table-expand-min-width: 150px !default;
 
-// ---------------------------------------------------------------------
-// Base Table
-// ---------------------------------------------------------------------
-// Core table styling and semantic CSS variables.
-
 .table {
-
-	--table-margin-vertical:				#{$table-margin-vertical};
-	--table-cell-padding-vertical:			#{$table-cell-padding-vertical};
-	--table-cell-padding-horizontal:		#{$table-cell-padding-horizontal};
-	--table-header-cell-font-size:			#{$table-header-cell-font-size};
-	--table-header-cell-font-weight:		#{$table-header-cell-font-weight};
-	--table-header-cell-color:				#{$table-header-cell-color};
-	--table-footer-font-size:				#{$table-footer-font-size};
-	--table-caption-font-size:				#{$table-caption-font-size};
-	--table-caption-color:					#{$table-caption-color};
-	--table-striped-row-background:			#{$table-striped-row-background};
-	--table-hover-row-background:			#{$table-hover-row-background};
-	--table-row-active-background:			#{$table-row-active-background};
-	--table-small-cell-padding-vertical:	#{$table-small-cell-padding-vertical};
-	--table-small-cell-padding-horizontal:	#{$table-small-cell-padding-horizontal};
-	--table-large-cell-padding-vertical:	#{$table-large-cell-padding-vertical};
-	--table-large-cell-padding-horizontal:	#{$table-large-cell-padding-horizontal};
-	--table-expand-min-width:				#{$table-expand-min-width};
+	--table-margin-vertical: #{$table-margin-vertical};
+	--table-cell-padding-vertical: #{$table-cell-padding-vertical};
+	--table-cell-padding-horizontal: #{$table-cell-padding-horizontal};
+	--table-header-cell-font-size: #{$table-header-cell-font-size};
+	--table-header-cell-font-weight: #{$table-header-cell-font-weight};
+	--table-header-cell-color: #{$table-header-cell-color};
+	--table-footer-font-size: #{$table-footer-font-size};
+	--table-caption-font-size: #{$table-caption-font-size};
+	--table-caption-color: #{$table-caption-color};
+	--table-striped-row-background: #{$table-striped-row-background};
+	--table-hover-row-background: #{$table-hover-row-background};
+	--table-row-active-background: #{$table-row-active-background};
+	--table-small-cell-padding-vertical: #{$table-small-cell-padding-vertical};
+	--table-small-cell-padding-horizontal: #{$table-small-cell-padding-horizontal};
+	--table-large-cell-padding-vertical: #{$table-large-cell-padding-vertical};
+	--table-large-cell-padding-horizontal: #{$table-large-cell-padding-horizontal};
+	--table-expand-min-width: #{$table-expand-min-width};
 
 	border-collapse: collapse;
 	border-spacing: 0;
 	width: 100%;
 	margin-bottom: var(--table-margin-vertical);
-	font-size: 14px;
+	font-size: 0.875rem;
 
-	// -----------------------------------------------------------------
-	// Table Head
-	// -----------------------------------------------------------------
-		
 	th {
 		text-align: left;
-		vertical-align: bottom;	
-		font-size: 14px;
-		text-transform: none;
-		font-weight: 500;
-		color: rgba(0,0,0,.54);
-		padding: 12px;
-	}
+		vertical-align: bottom;
+		font-size: var(--table-header-cell-font-size);
+		font-weight: var(--table-header-cell-font-weight);
+		color: var(--table-header-cell-color);
+		padding: var(--table-cell-padding-vertical) var(--table-cell-padding-horizontal);
 
-	// -----------------------------------------------------------------
-	// Table Cells
-	// -----------------------------------------------------------------
+		&.sortable {
+			cursor: pointer;
+			user-select: none;
 
-	td {
-		vertical-align: top;	
-		padding: 12px;
+			&::after {
+				content: '\25B4';
+				display: inline-block;
+				margin-left: 0.25em;
+				opacity: 0.3;
+				transform: rotate(180deg);
+			}
 
-		> :last-child {
-			margin-bottom: 0;
+			&.asc::after {
+				transform: rotate(0);
+				opacity: 0.6;
+			}
+
+			&.desc::after {
+				transform: rotate(180deg);
+				opacity: 0.6;
+			}
 		}
 	}
 
-	// -----------------------------------------------------------------
-	// Table Footer
-	// -----------------------------------------------------------------
+	td {
+		vertical-align: top;
+		padding: var(--table-cell-padding-vertical) var(--table-cell-padding-horizontal);
+
+		> :last-child { margin-bottom: 0; }
+	}
+
+	thead.sticky {
+		position: sticky;
+		top: 0;
+		background: var(--color-surface, #fff);
+		z-index: 2;
+		box-shadow: 0 1px 0 var(--color-border, #ddd);
+	}
 
 	tfoot {
 		font-size: var(--table-footer-font-size);
 	}
 
-	// -----------------------------------------------------------------
-	// Table Caption
-	// -----------------------------------------------------------------
-
 	caption {
 		font-size: var(--table-caption-font-size);
 		text-align: left;
-		color: $table-caption-color;
+		color: var(--table-caption-color);
 	}
-
-	// -----------------------------------------------------------------
-	// Active Rows
-	// -----------------------------------------------------------------	
 
 	> tr.active,
 	tbody tr.active {
 		background: var(--table-row-active-background);
 	}
 
-	// -----------------------------------------------------------------
-	// Bordered Tables
-	// -----------------------------------------------------------------
+	//----------------------------------
+	// Modifiers
+	//----------------------------------
 
 	&.table-border {
-		border: 1px solid #e1e1e1;
-		th,
-		td {
-			border: 1px solid #e1e1e1;
+		border: 1px solid var(--color-border, #e1e1e1);
+
+		th, td {
+			border: 1px solid var(--color-border, #e1e1e1);
 		}
-		&-inside {
-			th,
-			td {
-				&:not(.table-border-remove) {
-					border: 1px solid #e1e1e1;
-				}
+
+		&-inside th, &-inside td {
+			&:not(.table-border-remove) {
+				border: 1px solid var(--color-border, #e1e1e1);
 			}
 		}
 	}
 
-	// -----------------------------------------------------------------
-	// Hoverable Rows
-	// -----------------------------------------------------------------
-
-	&.table-hover {
-		> tr:hover,
-		tbody tr:hover {
-			background: rgba(0,0,0,.08) !important;
-		}
-		.table-hover-disable {
-			&:hover {
-				background-color: initial !important;
-			}
-		}
+	&.table-hover > tr:hover,
+	&.table-hover tbody tr:hover {
+		background: var(--table-hover-row-background) !important;
 	}
 
-	// -----------------------------------------------------------------
-	// Table Top Alignment
-	// -----------------------------------------------------------------
+	.table-hover-disable:hover {
+		background-color: initial !important;
+	}
 
 	.table-top,
 	.table-top td {
 		vertical-align: top;
 	}
 
-	* + .table { margin-top: var(--table-margin-vertical); }
-
-	// -----------------------------------------------------------------
-	// Middle Alignment
-	// -----------------------------------------------------------------
-
-	&-middle {
-		vertical-align: middle !important;
-
-		td {
-			vertical-align: middle !important;
-		}
+	* + .table {
+		margin-top: var(--table-margin-vertical);
 	}
 
-	// -----------------------------------------------------------------
-	// Divider Rows
-	// -----------------------------------------------------------------
+	&-middle td {
+		vertical-align: middle !important;
+	}
 
 	&-divider {
 		> tr:not(:first-child),
 		> :not(:first-child) > tr,
 		> :first-child > tr:not(:first-child) {
-			border-top: 1px solid #e5e5e5;
+			border-top: 1px solid var(--color-border-muted, #e5e5e5);
 		}
 	}
 
-	// -----------------------------------------------------------------
-	// Striped Rows
-	// -----------------------------------------------------------------
-
-	&-striped {
-		> tr:nth-of-type(odd),
-		tbody tr:nth-of-type(odd) {
-			//background: $table-striped-row-background;
-			border-top: none;
-			border-bottom: none;
-			background: rgba(0,0,0,.04);
-		}
+	&-striped > tr:nth-of-type(odd),
+	&-striped tbody tr:nth-of-type(odd) {
+		background: var(--table-striped-row-background);
+		border-top: none;
+		border-bottom: none;
 	}
 
-	// -----------------------------------------------------------------
-	// Hover Variant
-	// -----------------------------------------------------------------
-
-	&-hover {
-		> tr:hover,
-		tbody tr:hover {
-			//background: $table-hover-row-background;
-			background: rgba(0,0,0,.08) !important;
-		}
+	&-hover > tr:hover,
+	&-hover tbody tr:hover {
+		background: var(--table-hover-row-background) !important;
 	}
-
-	// -----------------------------------------------------------------
-	// Small Tables
-	// -----------------------------------------------------------------
 
 	&-small {
 		th, td {
 			padding: 8px;
 		}
+
 		.table-link > a {
 			padding: var(--table-small-cell-padding-vertical) var(--table-small-cell-padding-horizontal);
 		}
 	}
-
-	// -----------------------------------------------------------------
-	// Large Tables
-	// -----------------------------------------------------------------
 
 	&-large {
 		th, td {
@@ -238,33 +198,23 @@ $table-expand-min-width: 150px !default;
 		}
 	}
 
-	// -----------------------------------------------------------------
-	// Justify Tables
-	// -----------------------------------------------------------------
-
 	&-justify {
-		th:first-child,
-		td:first-child { padding-left: 0; }
+		th:first-child, td:first-child {
+			padding-left: 0;
+		}
 
-		th:last-child,
-		td:last-child { padding-right: 0; }
+		th:last-child, td:last-child {
+			padding-right: 0;
+		}
 	}
 
-	// -----------------------------------------------------------------
-	// Shrink Tables
-	// -----------------------------------------------------------------
+	&-shrink {
+		width: 1px;
+	}
 
-	&-shrink { width: 1px; }
-
-	// -----------------------------------------------------------------
-	// Expand Tables
-	// -----------------------------------------------------------------
-		
-	&-expand { min-width: $table-expand-min-width; }
-
-	// -----------------------------------------------------------------
-	// Link Tables
-	// -----------------------------------------------------------------
+	&-expand {
+		min-width: var(--table-expand-min-width);
+	}
 
 	&-link {
 		padding: 0 !important;
@@ -274,22 +224,51 @@ $table-expand-min-width: 150px !default;
 			padding: var(--table-cell-padding-vertical) var(--table-cell-padding-horizontal);
 		}
 	}
+
+	//----------------------------------
+	// Loading Skeleton
+	//----------------------------------
+
+	&-skeleton td {
+		position: relative;
+		overflow: hidden;
+		background-color: var(--color-surface-muted, #f8f8f8);
+	}
+
+	&-skeleton td::before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: -100%;
+		height: 100%;
+		width: 100%;
+		background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+		animation: table-loading 1.2s infinite;
+	}
 }
 
-// ---------------------------------------------------------------------
-// Responsive Tables
-// ---------------------------------------------------------------------
-// Phone landscape and smaller: table transforms to block layout.
+@keyframes table-loading {
+	0%   { left: -100%; }
+	100% { left: 100%; }
+}
+
+//----------------------------------
+// Responsive Table
+//----------------------------------
 
 @media (max-width: $breakpoint-sm-max) {
-
 	.table-responsive,
 	.table-responsive tbody,
 	.table-responsive th,
 	.table-responsive td,
-	.table-responsive tr { display: block; }
+	.table-responsive tr {
+		display: block;
+	}
 
-	.table-responsive thead { display: none; }
+	.table-responsive thead {
+		display: none;
+	}
 
 	.table-responsive th,
 	.table-responsive td {
@@ -303,13 +282,13 @@ $table-expand-min-width: 150px !default;
 	.table-responsive th:not(:first-child):not(.table-link),
 	.table-responsive td:not(:first-child):not(.table-link),
 	.table-responsive .table-link:not(:first-child) > a {
-		padding-top: round((16px * 0.33333)) !important;
+		padding-top: 5px !important;
 	}
 
 	.table-responsive th:not(:last-child):not(.table-link),
 	.table-responsive td:not(:last-child):not(.table-link),
 	.table-responsive .table-link:not(:last-child) > a {
-		padding-bottom: round((16px * 0.33333)) !important;
+		padding-bottom: 5px !important;
 	}
 
 	.table-justify.table-responsive th,
