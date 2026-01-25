@@ -46,22 +46,70 @@
 
 	display: flex;
 	flex-direction: column;
-	gap: 0;
 	position: relative;
 	box-sizing: border-box;
+	gap: 0;
 	background: var(--card-bg);
 	color: var(--card-text);
 	//border-radius: var(--card-border-radius);
 	box-shadow: var(--card-elevation);
+
 	transition: box-shadow var(--transition-duration, 200ms) ease-in-out;
-	overflow: var(--card-overflow, visible);
+	
+	// Prevents background color from bleeding past the border radius
+    background-clip: padding-box;
+
+	// Creates a new stacking context so children don't fight with shadows
+    isolation: isolate;
 
 	// -------------------------------------------------------------------------
-	// Overflow Control
-	// Make clipping opt-in/out via a token
+    // Overflow Control
+    // -------------------------------------------------------------------------
+    overflow: var(--card-overflow, visible);
+
 	// -------------------------------------------------------------------------
-	&.clip { --card-overflow: hidden; }
-	&.no-clip { --card-overflow: visible; }
+    // The "Utility Hook" Selector
+    // This triggers whenever your .rounded-xs, .rounded-lg, etc. are used.
+    // -------------------------------------------------------------------------
+    &[class*="rounded"] {
+        // We default to hidden because if a user applies a rounded utility,
+        // they almost always want the content to follow that shape.
+        --card-overflow: hidden;
+
+        // Ensure internal media matches the utility's radius
+        .card-media-top img,
+        .card-img-top,
+        .card-header-bg-img {
+            border-top-left-radius: inherit;
+            border-top-right-radius: inherit;
+        }
+
+        .card-media-bottom img,
+        .card-img-bottom {
+            border-bottom-left-radius: inherit;
+            border-bottom-right-radius: inherit;
+        }
+        
+        // Handle side-media for horizontal cards
+        .card-media-left img {
+            border-top-left-radius: inherit;
+            border-bottom-left-radius: inherit;
+        }
+        
+        .card-media-right img {
+            border-top-right-radius: inherit;
+            border-bottom-right-radius: inherit;
+        }
+    }
+	
+
+	// -------------------------------------------------------------------------
+    // The Escape Hatches
+    // Keep these last to override the automatic logic above.
+    // -------------------------------------------------------------------------
+    &.clip    { --card-overflow: hidden !important; }
+    &.no-clip { --card-overflow: visible !important; }
+
 
 	// -------------------------------------------------------------------------
 	// Hover Effects
@@ -76,16 +124,6 @@
 		transform: translateY(-2px);
 		box-shadow: var(--shadow-lg);
 	}
-
-	// [OLD] Hover modifier - backward compatibility.
-	// &-hover {
-	// 	&:hover {
-	// 		//background-color: var(--card-hover-bg-color);
-	// 		transition: box-shadow 200ms cubic-bezier(.55,0,.1,1);
-	// 		//@include elevation(8);
-	// 		box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
-	// 	}
-	// }
 
 	// -------------------------------------------------------------------------
 	// Elevation Levels (Shadows)
@@ -150,31 +188,6 @@
 		&.video {
 			aspect-ratio: 16 / 9;
 			background: black;
-		}
-	}
-
-	// -------------------------------------------------------------------------
-	// Rounded Media Corners
-	// Applies border-radius on images according to media position
-	// -------------------------------------------------------------------------
-
-	&.round {
-
-		.card-media-top img,
-		.card-header-bg-img {
-			border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
-		}
-
-		.card-media-bottom img {
-			border-radius: 0 0 var(--card-border-radius) var(--card-border-radius);
-		}
-
-		.card-media-left img {
-			border-radius: var(--card-border-radius) 0 0 var(--card-border-radius);
-		}
-
-		.card-media-right img {
-			border-radius: 0 var(--card-border-radius) var(--card-border-radius) 0;
 		}
 	}
 
