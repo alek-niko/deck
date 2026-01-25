@@ -97,7 +97,7 @@ class Deck extends Dispatcher {
 		components.forEach((component) => {
 			
 			// Using HTML 'valid' attribute [update]
-			const elements = context.querySelectorAll(`.${component}, [${component}], [data-${component}]`);
+			const elements = context.querySelectorAll(`.${component}, [${component}], [data-${component}], [data-component="${component}"]`);
 
 			elements.forEach((element) => {
 				try {
