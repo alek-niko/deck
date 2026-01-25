@@ -414,9 +414,9 @@
 		>* {
 			padding: var(--spacing-xs) var(--spacing-sm);	// was .4rem .8rem
 			border-radius: var(--radius-pill);				// was 20px
-			border: 1px solid var(--pill-border, rgba(0, 0, 0, 0.24));
+			border: 1px solid var(--pill-border, var(--color-border));
 			font-size: calc(var(--font-size-base) * 0.875);	// was .875rem
-			color: var(--pill-color, black);
+			color: var(--pill-color, var(--color-text));
 			background: var(--pill-bg, transparent);
 		}
 	}
@@ -472,5 +472,62 @@
 		display: grid; // switch from flex to grid
 		grid-template-columns: repeat(2, 1fr);
 		gap: var(--list-gap, var(--spacing-md));
+	}
+}
+
+// -----------------------------------------------------------------------------
+// ORDERED LIST COMPONENT
+// -----------------------------------------------------------------------------
+// A semantic ordered list component with custom circular number markers
+// implemented using CSS counters. Supports vertical layout with aligned
+// headers and content blocks, theme-aware design tokens, and per-item
+// customization via CSS custom properties (e.g. marker color).
+// ----------------------------------------------------------------------------- 
+
+.list-ordered {
+	list-style: none;
+	counter-reset: item;
+	padding-left: 0;
+	margin-left: 0;
+
+	li {
+		position: relative;
+		display: grid;
+		grid-template-columns: 32px 1fr;
+		column-gap: 16px;
+		counter-increment: item;
+		margin-bottom: 24px;
+
+		&::before {
+			content: counter(item);
+			grid-column: 1;
+			grid-row: 1 / span 2;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: 26px;
+			height: 26px;
+			margin-top: 2px;
+
+			border-radius: 50%;
+			background-color: var(--marker-bg, transparent);
+			color: var(--marker-color, #fff);
+
+			font-size: 16px;
+			font-weight: 700;
+		}
+	}
+
+	.header,
+	.content {
+		grid-column: 2;
+		min-width: 0;
+	}
+
+	.header {
+		font-weight: 700;
+		margin-bottom: 4px;
 	}
 }
