@@ -1,150 +1,180 @@
 /**
  * @module tooltip
- * @description Singleton service for displaying tooltips. Supports multiple targets
- * with a single DOM element, intent detection to prevent flickering, mouse tracking
- * for safe diagonal movement, and integration with the native Popover API.
+ * @description
+ * Industry-standard singleton tooltip service using CSS Anchor & Popover API.
+ * Optimized for performance, plain-text safety, and accessibility.
  *
  * Features:
- * - Singleton Pattern: One DOM element for multiple targets
- * - Intent Detection: 200ms delay to prevent flickering
- * - Safe Bridge: Mouse tracking for diagonal movement
- * - Top Layer: Native Popover API integration
+ * - Singleton pattern: only one tooltip element exists
+ * - Uses native CSS anchor positioning and popover API
+ * - Smart show/hide with hover delay to prevent flicker
+ * - ARIA support for screen readers
+ * - Automatic cleanup and escape key support
  */
-
-// Initialize this once
-// const globalTooltips = new Tooltip();
-
-// Import the base Component class
-import Component from './component.js';
-
-/**
- * @class Tooltip
- * @extends Component
- *
- * Manages tooltip behavior as a singleton service. Handles display, positioning,
- * and interactions for multiple target elements using a single DOM node. Supports
- * intent detection, safe mouse tracking, and seamless integration with native
- * Popover APIs.
- */
-class Tooltip extends Component {
+class Tooltip {
     constructor() {
-        // Initialize as a global service
-        super({ name: 'tooltip' });
+        // Enforce singleton
+        if (Tooltip.instance) return Tooltip.instance;
 
+        /** @type {HTMLElement|null} Currently active tooltip target */
         this.activeTarget = null;
+
+        /** @type {number|null} Timer ID for delayed show */
         this.timer = null;
-        this.delay = 200; // Standard delay for user intent
+
+        /** @type {number} Hover delay in ms to prevent flicker */
+        this.delay = 200;
+
+        /** @type {string} CSS anchor variable name */
         this.anchorName = '--tt-active-anchor';
 
+        /** @type {string} Unique ID for ARIA association */
+        this.id = `tt-node-${Math.random().toString(36).slice(2, 9)}`;
+
+        // Create the tooltip element and initialize events
         this.#setup();
         this.#initEvents();
+        
+        Tooltip.instance = this;
     }
 
     /**
-     * Creates the shared tooltip element in the Top Layer.
+     * Creates the single tooltip element for the app.
+     * @private
      */
     #setup() {
         this.el = document.createElement('div');
         this.el.className = 'tooltip';
+        this.el.id = this.id;
+
+        // Manual popover gives full control over open/close
         this.el.setAttribute('popover', 'manual');
         this.el.setAttribute('role', 'tooltip');
 
-        // Link the singleton to our fixed CSS anchor variable
+        // Link the tooltip to a CSS anchor for positioning
         this.el.style.setProperty('position-anchor', this.anchorName);
-        
+
+        // Append tooltip to document body
         document.body.appendChild(this.el);
     }
 
     /**
-     * Global event delegation for performance.
+     * Sets up event delegation for showing/hiding tooltips efficiently.
+     * @private
      */
     #initEvents() {
-        // 1. Mouse enters a potential target
-        document.addEventListener('mouseover', (e) => {
+        // Show tooltip on pointer hover
+        document.addEventListener('pointerover', (e) => {
             const target = e.target.closest('[data-tooltip]');
-            if (target && target !== this.activeTarget) {
-                this.#prepareShow(target);
-            }
+            if (!target || target === this.activeTarget) return;
+            this.#prepareShow(target);
         });
 
-        // 2. Mouse leaves a target
-        document.addEventListener('mouseout', (e) => {
-            const target = e.target.closest('[data-tooltip]');
-            if (!target) return;
+        // Hide tooltip when pointer leaves target
+        document.addEventListener('pointerout', (e) => {
+            const from = e.target.closest('[data-tooltip]');
+            if (!from || from !== this.activeTarget) return;
 
-            const related = e.relatedTarget;
-            // If the mouse is moving into the tooltip box or bridge, DO NOT hide.
-            if (related && (related === this.el || this.el.contains(related))) {
-                return;
-            }
+            const to = e.relatedTarget;
+            // Prevent hiding if moving into tooltip or bridge
+            if (to && (this.el.contains(to) || from.contains(to))) return;
 
             this.hide();
         });
 
-        // 3. Mouse leaves the tooltip itself
-        this.el.addEventListener('mouseleave', (e) => {
-            const related = e.relatedTarget;
-            // If the mouse is moving back to the original trigger, DO NOT hide.
-            if (related && related === this.activeTarget) {
-                return;
-            }
-            this.hide();
-        });
-
-        // 4. Global dismissals
-        window.addEventListener('scroll', () => this.hide(), { passive: true });
+        // Hide tooltip when window loses focus
         window.addEventListener('blur', () => this.hide());
+
+        // Hide tooltip on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') this.hide();
         });
     }
 
     /**
-     * Debounces the show action to ensure the user actually wants to see it.
+     * Prepares tooltip to show after a short delay.
+     * @private
+     * @param {HTMLElement} target 
      */
     #prepareShow(target) {
         this.#clearTimer();
-        this.activeTarget = target;
         this.timer = setTimeout(() => this.show(target), this.delay);
     }
 
     /**
-     * Mounts the content and displays the tooltip.
+     * Shows tooltip for a given target element.
+     * @param {HTMLElement} target Element with [data-tooltip] attribute
      */
     show(target) {
+        this.#clearTimer();
+
         const content = target.getAttribute('data-tooltip');
         if (!content) return;
 
-        // Inject content (supports plain text or HTML if you prefer .innerHTML)
+        // Remove tooltip from previous target if needed
+        if (this.activeTarget && this.activeTarget !== target) {
+            this.#cleanupTarget(this.activeTarget);
+        }
+
+        this.activeTarget = target;
+
+        // Use plain text for security (no HTML)
         this.el.textContent = content;
 
-        // Link the physical trigger element to the CSS Anchor
-        target.style.anchorName = this.anchorName;
-
-        // Apply position attribute for the SCSS grid logic
+        // Set tooltip direction (top, bottom, left, right)
         const pos = target.getAttribute('data-position') || 'top';
         this.el.setAttribute('data-position', pos);
 
-        try {
+        // Link for screen readers
+        target.setAttribute('aria-describedby', this.id);
+
+        // Anchor tooltip to this element
+        target.style.setProperty('anchor-name', this.anchorName);
+
+        // Open tooltip if not already open
+        if (!this.el.matches(':popover-open')) {
             this.el.showPopover();
-        } catch (err) {
-            // Fallback for extremely old browsers or restricted environments
-            this.el.classList.add('visible');
         }
     }
 
     /**
-     * Hides the tooltip and cleans up the active state.
+     * Hides the tooltip and cleans up ARIA attributes.
      */
     hide() {
         this.#clearTimer();
-        this.activeTarget = null;
-        
+        if (!this.activeTarget) return;
+
         if (this.el.matches(':popover-open')) {
             this.el.hidePopover();
         }
+
+        const target = this.activeTarget;
+        this.activeTarget = null;
+
+        this.#cleanupTarget(target);
     }
 
+    /**
+     * Cleans up attributes for a given target element.
+     * @private
+     * @param {HTMLElement} target 
+     */
+    #cleanupTarget(target) {
+        // Remove ARIA association
+        target.removeAttribute('aria-describedby');
+
+        // Remove anchor after a short delay to allow CSS transition
+        setTimeout(() => {
+            if (target && this.activeTarget !== target) {
+                target.style.removeProperty('anchor-name');
+            }
+        }, 200);
+    }
+
+    /**
+     * Clears any existing show timer.
+     * @private
+     */
     #clearTimer() {
         if (this.timer) {
             clearTimeout(this.timer);
@@ -153,4 +183,5 @@ class Tooltip extends Component {
     }
 }
 
-export default Tooltip;
+// Export singleton instance
+export default new Tooltip();

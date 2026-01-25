@@ -1,33 +1,49 @@
-// =============================================================================
-// TOOLTIP COMPONENT (Industry Standard Singleton)
-// components/overlays/_tooltip.scss
-// -----------------------------------------------------------------------------
-// Features: 
-// - CSS Anchor Positioning (Top Layer)
-// - Smart Flipping (position-try-fallbacks)
-// - Triangular Arrow (Dynamic Orientation)
-// - Safe Triangle Bridge (Diagonal movement protection)
-// =============================================================================
+/**
+ * =============================================================================
+ * TOOLTIP COMPONENT (Singleton)
+ * =============================================================================
+ *
+ * Features:
+ * - Fully anchored tooltip using native CSS anchor positioning
+ * - Smart flipping and fallback positioning
+ * - Dynamic arrow with safe bridge for pointer alignment
+ * - Fully customizable via CSS design tokens
+ *
+ * Design philosophy:
+ * - Tooltip is lightweight and non-interactive (pointer-events: none)
+ * - Supports top, bottom, left, right positions with dynamic arrow
+ * - Transitions smoothly on open/close
+ *
+ * Usage:
+ * <div class="tooltip" data-position="top">Tooltip Text</div>
+ *
+ * Design Tokens:
+ * --tt-bg: Background color
+ * --tt-color: Text color
+ * --tt-font-size: Font size
+ * --tt-padding: Padding inside tooltip
+ * --tt-radius: Border radius
+ * --tt-arrow-size: Arrow size
+ * --tt-offset: Offset from anchor
+ * --tt-z-index: Tooltip stacking order
+ * =============================================================================
+ */
 
 .tooltip {
-	// ---------------------------------------------
-	// 1. Design Tokens
-	// ---------------------------------------------
-	--tt-bg: var(--color-surface-900, #1a1a1a);
-	--tt-color: var(--color-on-surface, #ffffff);
-	--tt-font-size: 0.8125rem;
-	--tt-padding: 6px 12px;
-	--tt-radius: 4px;
-	--tt-arrow-size: 6px;
-	--tt-offset: 12px; // Gap between anchor and tooltip box
-	--tt-z-index: 2147483647;
+	/* --- Design Tokens --- */
+	--tt-bg: var(--color-surface-900, #1a1a1a); 
+	--tt-color: var(--color-on-surface, #fff);		// Text color
+	--tt-font-size: 0.8125rem;						// Font size (13px)
+	--tt-padding: 6px 12px;							// Internal padding
+	--tt-radius: 4px;								// Rounded corners
+	--tt-arrow-size: 6px;							// Arrow triangle size
+	--tt-offset: 12px;								// Distance from anchor
+	--tt-z-index: 2147483647;						// Max stacking order
 
-	// ---------------------------------------------
-	// 2. Core Reset (Top Layer)
-	// ---------------------------------------------
-	position: absolute !important;
-	inset: auto !important;
-	margin: 0 !important;
+	/* --- Core Reset --- */
+	position: absolute !important;					// Anchor positioning
+	inset: auto !important;							// Reset top/right/bottom/left
+	margin: 0 !important;							// Remove default margin
 	border: none;
 	background: var(--tt-bg);
 	color: var(--tt-color);
@@ -35,137 +51,147 @@
 	border-radius: var(--tt-radius);
 	font-size: var(--tt-font-size);
 	white-space: nowrap;
+	width: max-content;
 	z-index: var(--tt-z-index);
-	pointer-events: auto; // Required for the Safe Bridge to work
+	pointer-events: none;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
-	// ---------------------------------------------
-	// 3. Anchor Positioning & Smart Flipping
-	// ---------------------------------------------
-	position-anchor: --tt-active-anchor;
-	
-	// Auto-flips if it hits the viewport edge
-	position-try-fallbacks: flip-block, flip-inline;
+	overflow: visible !important;	// safe bridge can extend outside
+    max-width: 100vw;				// prevent tooltip from exceeding viewport width
+    max-height: 100vh;				// prevent tooltip from exceeding viewport height
+    box-sizing: border-box;			// include padding in size
+	white-space: normal;			// allow wrapping
+	word-break: break-word;			// prevent overflow on long words
 
-	// ---------------------------------------------
-	// 4. Safe Triangle Bridge & Arrow Setup
-	// ---------------------------------------------
-	
-	// Bridge (::before) creates an invisible hit-area between anchor and tooltip
-	// Arrow (::after) creates the triangular visual
-	&::before,
-	&::after {
-		content: "";
-		position: absolute;
-		position-anchor: --tt-active-anchor;
+	/* --- Anchor Setup --- */
+	position-anchor: --tt-active-anchor;				// Anchor reference variable
+	position-try-fallbacks: flip-block, flip-inline;	// Fallback flip strategies
+	position-visibility: anchor-visible;				// Hide if anchor not visible
+
+	/* Pseudo-elements for safe bridge and arrow */
+	&::before, &::after { 
+		position: absolute; 
+		position-anchor: --tt-active-anchor; 
+		content: ""; 
 	}
 
-	&::after {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		justify-self: anchor-center; 
-		align-self: anchor-center;
-	}
+	/* --- Positioning Logic --- */
 
-	// ---------------------------------------------
-	// 5. Position Logic (12-way aware)
-	// ---------------------------------------------
-
-	// Top
+	/* TOP POSITION */
 	&[data-position="top"] {
 		position-area: top;
+		justify-self: anchor-center;
 		margin-bottom: var(--tt-offset);
 
-		&::before { // Bridge
-			width: 100%; height: var(--tt-offset);
-			bottom: calc(var(--tt-offset) * -1); left: 0;
+		&::before { /* Safe Bridge: extends interaction zone */
+			width: 150%; 
+			height: var(--tt-offset); 
+			bottom: calc(var(--tt-offset) * -1); 
+			left: -25%; 
+			pointer-events: auto;
 		}
-		&::after { // Arrow
-			position-area: bottom;
-			margin-bottom: calc(var(--tt-offset) * -1);
-			border-width: var(--tt-arrow-size) var(--tt-arrow-size) 0 var(--tt-arrow-size);
-			border-color: var(--tt-bg) transparent transparent transparent;
+
+		&::after { /* Arrow pointing downwards */
+			position-area: bottom; 
+			margin-bottom: calc(var(--tt-offset) * -1); 
+			justify-self: anchor-center; 
+			border-style: solid;
+			border-width: var(--tt-arrow-size) var(--tt-arrow-size) 0 var(--tt-arrow-size); 
+			border-color: var(--tt-bg) transparent transparent transparent; 
 		}
 	}
 
-	// Bottom
+	/* BOTTOM POSITION */
 	&[data-position="bottom"] {
 		position-area: bottom;
+		justify-self: anchor-center;
 		margin-top: var(--tt-offset);
 
-		&::before { // Bridge
-			width: 100%; height: var(--tt-offset);
-			top: calc(var(--tt-offset) * -1); left: 0;
+		&::before { 
+			width: 150%; 
+			height: var(--tt-offset); 
+			top: calc(var(--tt-offset) * -1); 
+			left: -25%; 
+			pointer-events: auto;
 		}
-		&::after { // Arrow
-			position-area: top;
-			margin-top: calc(var(--tt-offset) * -1);
-			border-width: 0 var(--tt-arrow-size) var(--tt-arrow-size) var(--tt-arrow-size);
-			border-color: transparent transparent var(--tt-bg) transparent;
+
+		&::after { /* Arrow pointing upwards */
+			position-area: top; 
+			margin-top: calc(var(--tt-offset) * -1); 
+			justify-self: anchor-center; 
+			border-style: solid;
+			border-width: 0 var(--tt-arrow-size) var(--tt-arrow-size) var(--tt-arrow-size); 
+			border-color: transparent transparent var(--tt-bg) transparent; 
 		}
 	}
 
-	// Left
+	/* LEFT POSITION */
 	&[data-position="left"] {
 		position-area: left;
+		align-self: anchor-center;
 		margin-right: var(--tt-offset);
 
-		&::before { // Bridge
-			height: 100%; width: var(--tt-offset);
-			right: calc(var(--tt-offset) * -1); top: 0;
+		&::before { 
+			width: var(--tt-offset); 
+			height: 150%; 
+			right: calc(var(--tt-offset) * -1); 
+			top: -25%; 
+			pointer-events: auto;
 		}
-		&::after { // Arrow
-			position-area: right;
-			margin-right: calc(var(--tt-offset) * -1);
-			border-width: var(--tt-arrow-size) 0 var(--tt-arrow-size) var(--tt-arrow-size);
-			border-color: transparent transparent transparent var(--tt-bg);
+
+		&::after { /* Arrow pointing right */
+			position-area: right; 
+			margin-right: calc(var(--tt-offset) * -1); 
+			align-self: anchor-center; 
+			border-style: solid;
+			border-width: var(--tt-arrow-size) 0 var(--tt-arrow-size) var(--tt-arrow-size); 
+			border-color: transparent transparent transparent var(--tt-bg); 
 		}
 	}
 
-	// Right
+	/* RIGHT POSITION */
 	&[data-position="right"] {
 		position-area: right;
+		align-self: anchor-center;
 		margin-left: var(--tt-offset);
 
-		&::before { // Bridge
-			height: 100%; width: var(--tt-offset);
-			left: calc(var(--tt-offset) * -1); top: 0;
+		&::before { 
+			width: var(--tt-offset); 
+			height: 150%; 
+			left: calc(var(--tt-offset) * -1); 
+			top: -25%; 
+			pointer-events: auto;
 		}
-		&::after { // Arrow
-			position-area: left;
-			margin-left: calc(var(--tt-offset) * -1);
-			border-width: var(--tt-arrow-size) var(--tt-arrow-size) var(--tt-arrow-size) 0;
-			border-color: transparent var(--tt-bg) transparent transparent;
+
+		&::after { /* Arrow pointing left */
+			position-area: left; 
+			margin-left: calc(var(--tt-offset) * -1); 
+			align-self: anchor-center; 
+			border-width: var(--tt-arrow-size) var(--tt-arrow-size) var(--tt-arrow-size) 0; 
+			border-color: transparent var(--tt-bg) transparent transparent; 
 		}
 	}
 
-	// ---------------------------------------------
-	// 6. Animation (Discrete Entry/Exit)
-	// ---------------------------------------------
+	/* --- Transitions --- */
 	transition: 
 		opacity 0.15s ease, 
 		transform 0.15s ease, 
 		display 0.15s allow-discrete, 
 		overlay 0.15s allow-discrete;
 
-	opacity: 0;
-	transform: scale(0.95);
+	opacity: 0;                  // Start hidden
+	transform: scale(0.96);      // Slightly smaller
 
+	/* Open state */
 	&:popover-open {
 		opacity: 1;
 		transform: scale(1);
 	}
 
 	@starting-style {
-		&:popover-open {
+		&:popover-open {         // Initial style for smooth transition
 			opacity: 0;
-			transform: scale(0.95);
+			transform: scale(0.96);
 		}
-	}
-
-	// Standard UA Popover backdrop reset
-	&::backdrop {
-		background: transparent;
 	}
 }

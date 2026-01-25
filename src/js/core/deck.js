@@ -10,6 +10,9 @@ import UI from '../ui/ui.js';
 import Util from '../util/util.js';
 import Toast from '../components/toast.js';
 
+
+import tooltip from '../components/tooltip.js'; // This is already the instance
+
 /**
  * @class Deck
  * @extends Dispatcher
@@ -33,6 +36,7 @@ class Deck extends Dispatcher {
 		this.ui = new UI()					// UI utility instance for handling UI-related tasks
 		this.util = new Util()				// General-purpose utility instance
 		this.notifier = new Toast()			// Manages toast notifications
+		this.tooltip = tooltip;
 		//this.queue = new Queue()			// Queue utility instance
 		//this.store = {};
 
