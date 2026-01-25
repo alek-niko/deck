@@ -16,16 +16,14 @@
 @forward 'card';				// Card containers
 @forward 'description.list';	// Description lists styling
 @forward 'divider';				// Divider/separator components
-//@forward 'drop';				// Dropdown/drop components
-@forward 'drop.v2';
+@forward 'drop';				// Dropdown/drop components
 @forward 'dropbar';				// Dropbar UI elements
 @forward 'embed';	
 @forward 'fab';					// Floating action buttons
 @forward 'heading';				// Headings and title styles
 @forward 'hero';
 @forward 'label';				// Form and UI labels
-//@forward 'lightbox';				// Lightbox components
-@forward 'lightbox.v3';
+@forward 'lightbox';			// Lightbox components
 @forward 'list';				// List styling
 //@forward 'media';
 @forward 'modal';				// Modal dialogs
@@ -38,8 +36,7 @@
 @forward 'progress';			// Progress bars
 @forward 'search';				// Search components
 @forward 'spinner';				// Loading spinners
-//@forward 'table';				// Table styling
-@forward 'table.v3';
+@forward 'table';				// Table styling
 //@forward 'ticker';
 @forward 'tile';				// Tile/grid items
 @forward 'toast';               // Notifications and toasts
