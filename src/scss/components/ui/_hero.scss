@@ -16,7 +16,9 @@
   	justify-content: var(--hero-justify, center);
   	text-align: var(--hero-text-align, center);
 
-	padding: var(--spacing-default) calc(var(--spacing-default) * 2);
+	// MOBILE FIRST: Minimal vertical padding, ZERO horizontal padding
+    padding: 2rem 0;
+
 	background-color: var(--hero-bg, var(--color-surface-muted));
 	color: var(--color-text, #111);
 
@@ -29,6 +31,28 @@
 	background-position: center;
 	background-repeat: no-repeat;
 
+    // Optional: Fixed attachment can sometimes cause issues on mobile, 
+    // so ensuring it is set to scroll (default) unless... parallax? 
+    background-attachment: scroll;
+
+	@media (min-width: 768px) {
+        // Restore horizontal padding for larger screens if needed
+        padding: var(--spacing-default) calc(var(--spacing-default) * 2);
+    }
+
+	// -------------------------------------------------------------------------
+    // Overlap Logic (For the div following the hero)
+    // -------------------------------------------------------------------------
+    &-overlap-fix {
+        margin-top: -60px; // Desktop overlap
+        position: relative;
+        z-index: 10;
+
+        @media (max-width: 768px) {
+            margin-top: 20px; // Reset to positive margin on mobile
+        }
+    }
+
 	// -------------------------------------------------------------------------
 	// Contrast Text Variant
 	// -------------------------------------------------------------------------
@@ -39,7 +63,7 @@
 	}
 
 	// -------------------------------------------------------------------------
-	// Image Background Variant [ Old ]
+	// Image Background Variant [ Evaluating off ]
 	// -------------------------------------------------------------------------
 	// Adds a full-cover background image with proper text contrast
 
@@ -47,7 +71,18 @@
 	// 	background-size: cover;
 	// 	background-position: center;
 	// 	background-repeat: no-repeat;
-	// 	color: var(--color-surface-contrast, #fff);
+		
+	// 	// Automatically switch text to white when an image is present
+	// 	color: var(--color-surface-contrast, #fff); 
+		
+	// 	// Ensure breadcrumbs and other sub-elements inherit white
+	// 	--breadcrumb-color: white; 
+	// 	--hero-content-color: white;
+
+	// 	// On mobile, ensure the image doesn't distort
+	// 	@media (max-width: 768px) {
+	// 		background-attachment: scroll;
+	// 	}
 	// }	
 
 	// -------------------------------------------------------------------------
@@ -80,6 +115,43 @@
 	&-overlay::after {
 		opacity: 1;
 	}
+
+	.hero-container {
+        width: 100%;
+        max-width: var(--hero-container-max, 1280px);
+        padding-inline: 1.5rem;
+        
+        // Default: Centered container
+        margin-inline: auto;
+
+        @media (min-width: 768px) {
+            padding-inline: 3rem;
+        }
+
+        @media (min-width: 1200px) {
+            padding-inline: 0;
+			//padding-inline: 6rem;
+        }
+
+        // ---------------------------------------------------------------------
+        // Container Position Modifiers
+        // Controls where the "box" sits on the screen
+        // ---------------------------------------------------------------------
+        
+        &-left   { margin-inline-start: 0; margin-inline-end: auto; }
+        &-center { margin-inline: auto; }
+        &-right  { margin-inline-start: auto; margin-inline-end: 0; }
+
+        // ---------------------------------------------------------------------
+        // Text Alignment Modifiers
+        // Controls alignment of the content inside the container
+        // ---------------------------------------------------------------------
+        
+        &-text-left    { text-align: left; .hero-content { align-items: flex-start; } }
+        &-text-center  { text-align: center; .hero-content { align-items: center; } }
+        &-text-right   { text-align: right; .hero-content { align-items: flex-end; } }
+        &-text-justify { text-align: justify; }
+    }
 
 	// -------------------------------------------------------------------------
 	// Overlay (Dedicated element variant)
