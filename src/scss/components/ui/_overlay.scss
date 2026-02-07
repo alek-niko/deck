@@ -35,7 +35,7 @@
 
 	//display: block;
 	padding: var(--overlay-padding);
-	background: var(--overlay-bg);
+	background-image: var(--overlay-bg);
 	color: var(--overlay-color);
 
 
@@ -85,10 +85,10 @@
 // Commonly used with .hero-overlay or other overlay elements
 // to enhance readability or add visual depth.
 
-.overlay-top-bottom   { background: linear-gradient(to bottom, rgba(0,0,0,.6), transparent); }
-.overlay-bottom-top   { background: linear-gradient(to top, rgba(0,0,0,.6), transparent); }
-.overlay-left-right   { background: linear-gradient(to right, rgba(0,0,0,.6), transparent); }
-.overlay-right-left   { background: linear-gradient(to left, rgba(0,0,0,.6), transparent); }
+.overlay-top-bottom   { background-image: linear-gradient(to bottom, rgba(0,0,0,.6), transparent); }
+.overlay-bottom-top   { background-image: linear-gradient(to top, rgba(0,0,0,.6), transparent); }
+.overlay-left-right   { background-image: linear-gradient(to right, rgba(0,0,0,.6), transparent); }
+.overlay-right-left   { background-image: linear-gradient(to left, rgba(0,0,0,.6), transparent); }
 
 
 // -------------------------------------------------------------------------
