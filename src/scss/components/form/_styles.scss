@@ -78,6 +78,8 @@
 	align-items: flex-start;
 	gap: var(--spacing-sm);
 
+	min-width: 0; // 
+
 	.form-label {
 		flex: 0 0 200px;		// Fixed-width label column        
 		padding-top: 0.5em;		// Align with input text
@@ -144,6 +146,7 @@
 	display: block;
 	font-size: var(--font-size-small, 12px);
 	color: var(--color-text-muted);
+	margin-left: 10px;
 }
 
 // Character counter utility. Place inside .form-controls.
