@@ -33,6 +33,83 @@
 }
 
 //--------------------------------------
+// TAB CONTAINER (Layout Orchestrator)
+//--------------------------------------
+
+.tab-container {
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start;
+    gap: var(--spacing-md, 20px);
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: stretch;
+
+        // Target both left and right variants
+        .tab.tab-left, 
+        .tab.tab-right {
+            flex-direction: row;
+            min-width: 100% !important; 
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            padding: 0;
+            
+            // Reset borders
+            border-inline-end: none !important;
+            border-inline-start: none !important;
+            border-bottom: 1px solid var(--color-border, rgba(0,0,0,.1));
+
+            // Optional: Hide scrollbars
+            &::-webkit-scrollbar { display: none; }
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+
+            // Optional: Visual hint that more tabs exist (Fade effect)
+            mask-image: linear-gradient(to right, black 85%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+
+            > li {
+                border-radius: 8px 8px 0 0 !important; // Normalize corners
+                justify-content: center;
+                white-space: nowrap;
+                flex: 0 0 auto;
+                padding: 12px 18px;
+
+                // Reset vertical spacing/margins
+                + li {
+                    margin-top: 0 !important;
+                    margin-left: 5px;
+                }
+
+                // UNIFIED INDICATOR: Forces left/right indicators to become bottom bars
+                &::after {
+                    top: auto !important;
+                    bottom: 0 !important;
+                    left: 0 !important;
+                    right: auto !important;
+                    width: 100% !important;
+                    height: 3px !important;
+                    border-radius: 6px 6px 0 0 !important;
+                    @include transform(scaleX(0) !important);
+                    @include transition(transform 280ms ease-in-out);
+                }
+
+                &.active::after {
+                    @include transform(scaleX(1) !important);
+                }
+            }
+        }
+
+        // Adjust content spacing since navigation is now on top
+        .tab-content {
+            padding-top: 20px;
+            width: 100%;
+        }
+    }
+}
+
+//--------------------------------------
 // Tabs Container
 //--------------------------------------
 
