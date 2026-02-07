@@ -308,769 +308,773 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Dropnav</h1>
-					<p class="text-lead">Create dropdown menus for any navigation.</p>
-					<p>The Dropnav component initializes all dropdowns in navigation with the same options, so they don't have to be initialized individually. All dropdowns within the dropnav are aim-aware. This means the dropdowns stay open as long as the mouse pointer moves towards the dropdown. An additional delay ensures that dropdowns stay open even if the mouse pointer shortly moves in another direction. In hover mode dropdowns close immediately if another menu item is hovered.</p>
-					<hr class="margin-large">
-					<h2 class="margin-large-top">Usage</h2>
-					<p>The Dropnav component consists of a number of toggles and their related dropdowns. Add the <code>dropnav</code> attribute to a list element that contains the toggles or its parent container element. Use the <a href="component-dropdown.html">Dropdown component</a> by adding the <code>.dropdown</code> class to the dropdowns and the <code>.dropdown-nav</code> class to navs inside the dropdown.</p>
-					<p>The Dropnav toggles are styled through other components, some of which will be shown here.</p>
-					<div class="margin-medium">
-						<pre><code>
-&lt;ul class=&quot;dropnav&quot;&gt;
-	&lt;li&gt;
-		&lt;a href=&quot;&quot;&gt;&lt;/a&gt;
-		&lt;div class=&quot;dropdown&quot;&gt;
-			&lt;ul class=&quot;nav dropdown-nav&quot;&gt;…&lt;/ul&gt;
-		&lt;/div&gt;
-	&lt;/li&gt;
-&lt;/ul&gt;
-						</code></pre>
-					</div>
-					<p>In this example we are using the <a href="component-subnav.html">Subnav component</a>.</p>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Dropnav</h1>
+						<p class="text-lead">Create dropdown menus for any navigation.</p>
+						<p>The Dropnav component initializes all dropdowns in navigation with the same options, so they don't have to be initialized individually. All dropdowns within the dropnav are aim-aware. This means the dropdowns stay open as long as the mouse pointer moves towards the dropdown. An additional delay ensures that dropdowns stay open even if the mouse pointer shortly moves in another direction. In hover mode dropdowns close immediately if another menu item is hovered.</p>
+						<hr class="margin-large">
+						<h2 class="margin-large-top">Usage</h2>
+						<p>The Dropnav component consists of a number of toggles and their related dropdowns. Add the <code>dropnav</code> attribute to a list element that contains the toggles or its parent container element. Use the <a href="component-dropdown.html">Dropdown component</a> by adding the <code>.dropdown</code> class to the dropdowns and the <code>.dropdown-nav</code> class to navs inside the dropdown.</p>
+						<p>The Dropnav toggles are styled through other components, some of which will be shown here.</p>
+						<div class="margin-medium">
+							<pre><code>
+								&lt;ul class=&quot;dropnav&quot;&gt;
+									&lt;li&gt;
+										&lt;a href=&quot;&quot;&gt;&lt;/a&gt;
+										&lt;div class=&quot;dropdown&quot;&gt;
+											&lt;ul class=&quot;nav dropdown-nav&quot;&gt;…&lt;/ul&gt;
+										&lt;/div&gt;
+									&lt;/li&gt;
+								&lt;/ul&gt;
+							</code></pre>
+						</div>
+						<p>In this example we are using the <a href="component-subnav.html">Subnav component</a>.</p>
 
-					<div class="position-relative margin-medium margin-large-top">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="dropnav">
-									<ul class="subnav">
-										<li class="active"><a href="#">Active</a></li>
-										<li>
-											<a href="#!" class="icon-link actions-icon drop-parent-icon">
-												Parent
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-											</a>
+						<div class="position-relative margin-medium margin-large-top">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="dropnav">
+										<ul class="subnav">
+											<li class="active"><a href="#">Active</a></li>
+											<li>
+												<a href="#!" class="icon-link actions-icon drop-parent-icon">
+													Parent
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+												</a>
 
-											<div class="dropdown">
-												<ul class="nav dropdown-nav">
-													<li class="active"><a href="#">Active</a></li>
-													<li><a href="#">Item</a></li>
-													<li><a href="#">Item</a></li>
-												</ul>
-											</div>
-										</li>
-										<li>
-											<a href="#!" class="icon-link actions-icon drop-parent-icon">
-												Parent
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-											</a>
-											<div class="dropdown">
-												<ul class="nav dropdown-nav">
-													<li class="active"><a href="#">Active</a></li>
-													<li><a href="#">Item</a></li>
-													<li><a href="#">Item</a></li>
-												</ul>
-											</div>
-										</li>
-										<li><a href="#">Item</a></li>
-									</ul>
-								</nav>
-							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;dropnav&quot;&gt;
-	&lt;ul class=&quot;subnav&quot;&gt;
-		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#!&quot; class=&quot;icon-link actions-icon drop-parent-icon&quot;&gt;
-				Parent
-				&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
-			&lt;/a&gt;
+												<div class="dropdown">
+													<ul class="nav dropdown-nav">
+														<li class="active"><a href="#">Active</a></li>
+														<li><a href="#">Item</a></li>
+														<li><a href="#">Item</a></li>
+													</ul>
+												</div>
+											</li>
+											<li>
+												<a href="#!" class="icon-link actions-icon drop-parent-icon">
+													Parent
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+												</a>
+												<div class="dropdown">
+													<ul class="nav dropdown-nav">
+														<li class="active"><a href="#">Active</a></li>
+														<li><a href="#">Item</a></li>
+														<li><a href="#">Item</a></li>
+													</ul>
+												</div>
+											</li>
+											<li><a href="#">Item</a></li>
+										</ul>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;dropnav&quot;&gt;
+											&lt;ul class=&quot;subnav&quot;&gt;
+												&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;icon-link actions-icon drop-parent-icon&quot;&gt;
+														Parent
+														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
+													&lt;/a&gt;
 
-			&lt;div class=&quot;dropdown&quot;&gt;
-				&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#!&quot; class=&quot;icon-link actions-icon drop-parent-icon&quot;&gt;
-				Parent
-				&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
-			&lt;/a&gt;
-			&lt;div class=&quot;dropdown&quot;&gt;
-				&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
-					
-					<hr class="margin-large">
-					<h2>Dropbar</h2>
-					<p>A dropbar extends to the full width of the dropnav and displays the dropdown without its default styling. To place dropdowns inside such a dropbar, add the <code>dropbar: true</code> option to the <code>dropnav</code>. Optionally, use <code>dropbar-anchor</code> option to select after which element the dropbar will be injected into the markup.</p>
-					<div class="margin-medium">
-						<pre><code>
-&lt;nav dropnav=&quot;dropbar: true&quot;&gt;…&lt;/nav&gt;
-						</code></pre>
-					</div>
+													&lt;div class=&quot;dropdown&quot;&gt;
+														&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;icon-link actions-icon drop-parent-icon&quot;&gt;
+														Parent
+														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;div class=&quot;dropdown&quot;&gt;
+														&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/nav&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
+						
+						<hr class="margin-large">
+						<h2>Dropbar</h2>
+						<p>A dropbar extends to the full width of the dropnav and displays the dropdown without its default styling. To place dropdowns inside such a dropbar, add the <code>dropbar: true</code> option to the <code>dropnav</code>. Optionally, use <code>dropbar-anchor</code> option to select after which element the dropbar will be injected into the markup.</p>
+						<div class="margin-medium">
+							<pre><code>
+								&lt;nav dropnav=&quot;dropbar: true&quot;&gt;…&lt;/nav&gt;
+							</code></pre>
+						</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="dropnav">
-									<ul class="subnav">
-										<li class="active"><a href="#">Active</a></li>
-										<li>
-											<a href="#!">Item</a>
-											<div class="dropdown dropdown-dropbar" dropdown="dropbar: true">
-												<ul class="nav dropdown-nav">
-													<li class="active"><a href="#">Active</a></li>
-													<li><a href="#">Item</a></li>
-													<li class="nav-header">Header</li>
-													<li><a href="#">Item</a></li>
-													<li><a href="#">Item</a></li>
-													<li class="nav-divider"></li>
-													<li><a href="#">Item</a></li>
-												</ul>
-											</div>
-										</li>
-										<li>
-											<a href="#!">Item</a>
-											<div class="dropdown width-large drop dropdown-dropbar">
-												<div class="child-width-1-2 grid grid-stack">
-													<div class="first-column">
-														<ul class="nav dropdown-nav">
-															<li class="active"><a href="#">Active</a></li>
-															<li><a href="#">Item</a></li>
-															<li class="nav-header">Header</li>
-															<li><a href="#">Item</a></li>
-															<li><a href="#">Item</a></li>
-															<li class="nav-divider"></li>
-															<li><a href="#">Item</a></li>
-														</ul>
-													</div>
-													<div>
-														<ul class="nav dropdown-nav">
-															<li class="active"><a href="#">Active</a></li>
-															<li><a href="#">Item</a></li>
-															<li class="nav-header">Header</li>
-															<li><a href="#">Item</a></li>
-															<li><a href="#">Item</a></li>
-															<li class="nav-divider"></li>
-															<li><a href="#">Item</a></li>
-														</ul>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="dropnav">
+										<ul class="subnav">
+											<li class="active"><a href="#">Active</a></li>
+											<li>
+												<a href="#!">Item</a>
+												<div class="dropdown dropdown-dropbar" dropdown="dropbar: true">
+													<ul class="nav dropdown-nav">
+														<li class="active"><a href="#">Active</a></li>
+														<li><a href="#">Item</a></li>
+														<li class="nav-header">Header</li>
+														<li><a href="#">Item</a></li>
+														<li><a href="#">Item</a></li>
+														<li class="nav-divider"></li>
+														<li><a href="#">Item</a></li>
+													</ul>
+												</div>
+											</li>
+											<li>
+												<a href="#!">Item</a>
+												<div class="dropdown width-large drop dropdown-dropbar">
+													<div class="child-width-1-2 grid grid-stack">
+														<div class="first-column">
+															<ul class="nav dropdown-nav">
+																<li class="active"><a href="#">Active</a></li>
+																<li><a href="#">Item</a></li>
+																<li class="nav-header">Header</li>
+																<li><a href="#">Item</a></li>
+																<li><a href="#">Item</a></li>
+																<li class="nav-divider"></li>
+																<li><a href="#">Item</a></li>
+															</ul>
+														</div>
+														<div>
+															<ul class="nav dropdown-nav">
+																<li class="active"><a href="#">Active</a></li>
+																<li><a href="#">Item</a></li>
+																<li class="nav-header">Header</li>
+																<li><a href="#">Item</a></li>
+																<li><a href="#">Item</a></li>
+																<li class="nav-divider"></li>
+																<li><a href="#">Item</a></li>
+															</ul>
+														</div>
 													</div>
 												</div>
-											</div>
-										</li>
-									</ul>
-								</nav>
+											</li>
+										</ul>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;dropnav&quot;&gt;
+											&lt;ul class=&quot;subnav&quot;&gt;
+												&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;
+													&lt;div class=&quot;dropdown dropdown-dropbar&quot; dropdown=&quot;dropbar: true&quot;&gt;
+														&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;
+													&lt;div class=&quot;dropdown width-large drop dropdown-dropbar&quot;&gt;
+														&lt;div class=&quot;child-width-1-2 grid grid-stack&quot;&gt;
+															&lt;div class=&quot;first-column&quot;&gt;
+																&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+																	&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+																	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+																	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																&lt;/ul&gt;
+															&lt;/div&gt;
+															&lt;div&gt;
+																&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+																	&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+																	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+																	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																&lt;/ul&gt;
+															&lt;/div&gt;
+														&lt;/div&gt;
+													&lt;/div&gt;
+												&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/nav&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;dropnav&quot;&gt;
-	&lt;ul class=&quot;subnav&quot;&gt;
-		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;
-			&lt;div class=&quot;dropdown dropdown-dropbar&quot; dropdown=&quot;dropbar: true&quot;&gt;
-				&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;
-			&lt;div class=&quot;dropdown width-large drop dropdown-dropbar&quot;&gt;
-				&lt;div class=&quot;child-width-1-2 grid grid-stack&quot;&gt;
-					&lt;div class=&quot;first-column&quot;&gt;
-						&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-							&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-							&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-							&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-							&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-						&lt;/ul&gt;
-					&lt;/div&gt;
-					&lt;div&gt;
-						&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-							&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-							&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-							&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-							&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-						&lt;/ul&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<hr class="margin-large">
-					<h2>Click mode</h2>
-					<p>A parent item inside the dropnav can be enabled by either hovering or clicking the toggle. Just add the <code>mode: click</code> option to the <code>dropnav</code> attribute.</p>
-					<div class="margin-medium">
-						<pre><code>
-&lt;div class=&quot;dropdown&quot; dropdown=&quot;mode: click&quot;&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="dropnav">
-									<ul class="subnav">
-										<li class="active"><a href="#">Active</a></li>
-										<li>
-											<a href="#!" class="drop-parent-icon">
-												Click
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-											</a>
-											<div class="dropdown" dropdown="mode: click">
-												<ul class="nav dropdown-nav">
-													<li class="active"><a href="#">Active</a></li>
-													<li><a href="#">Item</a></li>
-													<li><a href="#">Item</a></li>
-												</ul>
-											</div>
-										</li>
-										<li>
-											<a href="#!" class="drop-parent-icon">
-												Hover
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-											</a>
-											<div class="dropdown" dropdown="mode: hover">
-												<ul class="nav dropdown-nav">
-													<li class="active"><a href="#">Active</a></li>
-													<li><a href="#">Item</a></li>
-													<li><a href="#">Item</a></li>
-												</ul>
-											</div>
-										</li>
-										<li><a href="#">Item</a></li>
-									</ul>
-								</nav>
-							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;dropnav&quot;&gt;
-	&lt;ul class=&quot;subnav&quot;&gt;
-		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#!&quot; class=&quot;drop-parent-icon&quot;&gt;
-				Click
-				&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
-			&lt;/a&gt;
-			&lt;div class=&quot;dropdown&quot; dropdown=&quot;mode: click&quot;&gt;
-				&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#!&quot; class=&quot;drop-parent-icon&quot;&gt;
-				Hover
-				&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
-			&lt;/a&gt;
-			&lt;div class=&quot;dropdown&quot; dropdown=&quot;mode: hover&quot;&gt;
-				&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
+						<hr class="margin-large">
+						<h2>Click mode</h2>
+						<p>A parent item inside the dropnav can be enabled by either hovering or clicking the toggle. Just add the <code>mode: click</code> option to the <code>dropnav</code> attribute.</p>
+						<div class="margin-medium">
+							<pre><code>
+								&lt;div class=&quot;dropdown&quot; dropdown=&quot;mode: click&quot;&gt;
+							</code></pre>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<hr class="margin-large">
-					<h2>Alignment</h2>
-					<p>By default, the dropdowns are positioned below the dropbar item and are aligned to the left. To change the alignment, set the <code>align</code> option to the <code>dropbar</code> attribute.</p>
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Position</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>flex-left</code></td>
-									<td>Aligns the dropdowns to the left.</td>
-								</tr>
-								<tr>
-									<td><code>flex-right</code></td>
-									<td>Aligns the dropdowns to the right.</td>
-								</tr>
-								<tr>
-									<td><code>flex-center</code></td>
-									<td>Aligns the dropdowns to the center.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="margin-medium">
-						<pre><code>
-&lt;nav class=&quot;dropnav&quot;&gt;
-	&lt;ul class=&quot;subnav flex-center&quot;&gt;
-		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-		...
-	&lt;/ul&gt;
-&lt;nav&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="dropnav">
-									<ul class="subnav flex-center">
-										<li class="active"><a href="#">Active</a></li>
-										<li>
-											<a href="#!" class="drop-parent-icon">
-												Parent
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-											</a>
-											<div class="dropdown">
-												<ul class="nav dropdown-nav">
-													<li class="active"><a href="#">Active</a></li>
-													<li><a href="#">Item</a></li>
-													<li><a href="#">Item</a></li>
-												</ul>
-											</div>
-										</li>
-										<li>
-											<a href="#!" class="drop-parent-icon">
-												Parent
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-											</a>
-											<div class="dropdown">
-												<ul class="nav dropdown-nav">
-													<li class="active"><a href="#">Active</a></li>
-													<li><a href="#">Item</a></li>
-													<li><a href="#">Item</a></li>
-												</ul>
-											</div>
-										</li>
-										<li><a href="#">Item</a></li>
-									</ul>
-								</nav>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="dropnav">
+										<ul class="subnav">
+											<li class="active"><a href="#">Active</a></li>
+											<li>
+												<a href="#!" class="drop-parent-icon">
+													Click
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+												</a>
+												<div class="dropdown" dropdown="mode: click">
+													<ul class="nav dropdown-nav">
+														<li class="active"><a href="#">Active</a></li>
+														<li><a href="#">Item</a></li>
+														<li><a href="#">Item</a></li>
+													</ul>
+												</div>
+											</li>
+											<li>
+												<a href="#!" class="drop-parent-icon">
+													Hover
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+												</a>
+												<div class="dropdown" dropdown="mode: hover">
+													<ul class="nav dropdown-nav">
+														<li class="active"><a href="#">Active</a></li>
+														<li><a href="#">Item</a></li>
+														<li><a href="#">Item</a></li>
+													</ul>
+												</div>
+											</li>
+											<li><a href="#">Item</a></li>
+										</ul>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;dropnav&quot;&gt;
+											&lt;ul class=&quot;subnav&quot;&gt;
+												&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;drop-parent-icon&quot;&gt;
+														Click
+														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;div class=&quot;dropdown&quot; dropdown=&quot;mode: click&quot;&gt;
+														&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;drop-parent-icon&quot;&gt;
+														Hover
+														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;div class=&quot;dropdown&quot; dropdown=&quot;mode: hover&quot;&gt;
+														&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/nav&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;dropnav&quot;&gt;
-	&lt;ul class=&quot;subnav flex-center&quot;&gt;
-		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#!&quot; class=&quot;drop-parent-icon&quot;&gt;
-				Parent
-				&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
-			&lt;/a&gt;
-			&lt;div class=&quot;dropdown&quot;&gt;
-				&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#!&quot; class=&quot;drop-parent-icon&quot;&gt;
-				Parent
-				&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
-			&lt;/a&gt;
-			&lt;div class=&quot;dropdown&quot;&gt;
-				&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<hr class="margin-large">
-					<h2>Stretch</h2>
-					<p>To stretch a dropdown, use the <a href="component-drop.html">Drop component</a> and its <code>stretch</code> option. In the following example the dropdown is aligned to the boundary of the dropnav.</p>
-					<div class="margin-medium">
-						<pre><code>
-&lt;div class=&quot;dropdown&quot; dropdown=&quot;stretch: .dropnav&quot;&gt;
-						</code></pre>
-					</div>
+						<hr class="margin-large">
+						<h2>Alignment</h2>
+						<p>By default, the dropdowns are positioned below the dropbar item and are aligned to the left. To change the alignment, set the <code>align</code> option to the <code>dropbar</code> attribute.</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Position</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>flex-left</code></td>
+										<td>Aligns the dropdowns to the left.</td>
+									</tr>
+									<tr>
+										<td><code>flex-right</code></td>
+										<td>Aligns the dropdowns to the right.</td>
+									</tr>
+									<tr>
+										<td><code>flex-center</code></td>
+										<td>Aligns the dropdowns to the center.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="margin-medium">
+							<pre><code>
+								&lt;nav class=&quot;dropnav&quot;&gt;
+									&lt;ul class=&quot;subnav flex-center&quot;&gt;
+										&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+										...
+									&lt;/ul&gt;
+								&lt;nav&gt;
+							</code></pre>
+						</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="dropnav">
-									<ul class="subnav">
-										<li class="active"><a href="#">Active</a></li>
-										<li>
-											<a href="#!">Parent</a>
-											<div class="dropdown" dropdown="stretch: .dropnav">
-												<ul class="nav dropdown-nav">
-													<li class="active"><a href="#">Active</a></li>
-													<li><a href="#">Item</a></li>
-													<li class="nav-header">Header</li>
-													<li><a href="#">Item</a></li>
-													<li><a href="#">Item</a></li>
-													<li class="nav-divider"></li>
-													<li><a href="#">Item</a></li>
-												</ul>
-											</div>
-										</li>
-										<li>
-											<a href="#!">Parent</a>
-											<div class="dropdown" dropdown="stretch: .dropnav">
-												<div class="grid col-2">
-													<div>
-														<ul class="nav dropdown-nav">
-															<li class="active"><a href="#">Active</a></li>
-															<li><a href="#">Item</a></li>
-															<li class="nav-header">Header</li>
-															<li><a href="#">Item</a></li>
-															<li><a href="#">Item</a></li>
-															<li class="nav-divider"></li>
-															<li><a href="#">Item</a></li>
-														</ul>
-													</div>
-													<div>
-														<ul class="nav dropdown-nav">
-															<li class="active"><a href="#">Active</a></li>
-															<li><a href="#">Item</a></li>
-															<li class="nav-header">Header</li>
-															<li><a href="#">Item</a></li>
-															<li><a href="#">Item</a></li>
-															<li class="nav-divider"></li>
-															<li><a href="#">Item</a></li>
-														</ul>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="dropnav">
+										<ul class="subnav flex-center">
+											<li class="active"><a href="#">Active</a></li>
+											<li>
+												<a href="#!" class="drop-parent-icon">
+													Parent
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+												</a>
+												<div class="dropdown">
+													<ul class="nav dropdown-nav">
+														<li class="active"><a href="#">Active</a></li>
+														<li><a href="#">Item</a></li>
+														<li><a href="#">Item</a></li>
+													</ul>
+												</div>
+											</li>
+											<li>
+												<a href="#!" class="drop-parent-icon">
+													Parent
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+												</a>
+												<div class="dropdown">
+													<ul class="nav dropdown-nav">
+														<li class="active"><a href="#">Active</a></li>
+														<li><a href="#">Item</a></li>
+														<li><a href="#">Item</a></li>
+													</ul>
+												</div>
+											</li>
+											<li><a href="#">Item</a></li>
+										</ul>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;dropnav&quot;&gt;
+											&lt;ul class=&quot;subnav flex-center&quot;&gt;
+												&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;drop-parent-icon&quot;&gt;
+														Parent
+														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;div class=&quot;dropdown&quot;&gt;
+														&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;drop-parent-icon&quot;&gt;
+														Parent
+														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;div class=&quot;dropdown&quot;&gt;
+														&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/nav&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<hr class="margin-large">
+						<h2>Stretch</h2>
+						<p>To stretch a dropdown, use the <a href="component-drop.html">Drop component</a> and its <code>stretch</code> option. In the following example the dropdown is aligned to the boundary of the dropnav.</p>
+						<div class="margin-medium">
+							<pre><code>
+								&lt;div class=&quot;dropdown&quot; dropdown=&quot;stretch: .dropnav&quot;&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="dropnav">
+										<ul class="subnav">
+											<li class="active"><a href="#">Active</a></li>
+											<li>
+												<a href="#!">Parent</a>
+												<div class="dropdown" dropdown="stretch: .dropnav">
+													<ul class="nav dropdown-nav">
+														<li class="active"><a href="#">Active</a></li>
+														<li><a href="#">Item</a></li>
+														<li class="nav-header">Header</li>
+														<li><a href="#">Item</a></li>
+														<li><a href="#">Item</a></li>
+														<li class="nav-divider"></li>
+														<li><a href="#">Item</a></li>
+													</ul>
+												</div>
+											</li>
+											<li>
+												<a href="#!">Parent</a>
+												<div class="dropdown" dropdown="stretch: .dropnav">
+													<div class="grid col-2">
+														<div>
+															<ul class="nav dropdown-nav">
+																<li class="active"><a href="#">Active</a></li>
+																<li><a href="#">Item</a></li>
+																<li class="nav-header">Header</li>
+																<li><a href="#">Item</a></li>
+																<li><a href="#">Item</a></li>
+																<li class="nav-divider"></li>
+																<li><a href="#">Item</a></li>
+															</ul>
+														</div>
+														<div>
+															<ul class="nav dropdown-nav">
+																<li class="active"><a href="#">Active</a></li>
+																<li><a href="#">Item</a></li>
+																<li class="nav-header">Header</li>
+																<li><a href="#">Item</a></li>
+																<li><a href="#">Item</a></li>
+																<li class="nav-divider"></li>
+																<li><a href="#">Item</a></li>
+															</ul>
+														</div>
 													</div>
 												</div>
-											</div>
-										</li>
-									</ul>
-								</nav>
+											</li>
+										</ul>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;dropnav&quot;&gt;
+											&lt;ul class=&quot;subnav&quot;&gt;
+												&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#!&quot;&gt;Parent&lt;/a&gt;
+													&lt;div class=&quot;dropdown&quot; dropdown=&quot;stretch: .dropnav&quot;&gt;
+														&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#!&quot;&gt;Parent&lt;/a&gt;
+													&lt;div class=&quot;dropdown&quot; dropdown=&quot;stretch: .dropnav&quot;&gt;
+														&lt;div class=&quot;grid col-2&quot;&gt;
+															&lt;div&gt;
+																&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+																	&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+																	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+																	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																&lt;/ul&gt;
+															&lt;/div&gt;
+															&lt;div&gt;
+																&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+																	&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+																	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+																	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																&lt;/ul&gt;
+															&lt;/div&gt;
+														&lt;/div&gt;
+													&lt;/div&gt;
+												&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/nav&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;dropnav&quot;&gt;
-	&lt;ul class=&quot;subnav&quot;&gt;
-		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#!&quot;&gt;Parent&lt;/a&gt;
-			&lt;div class=&quot;dropdown&quot; dropdown=&quot;stretch: .dropnav&quot;&gt;
-				&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#!&quot;&gt;Parent&lt;/a&gt;
-			&lt;div class=&quot;dropdown&quot; dropdown=&quot;stretch: .dropnav&quot;&gt;
-				&lt;div class=&quot;grid col-2&quot;&gt;
-					&lt;div&gt;
-						&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-							&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-							&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-							&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-							&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-						&lt;/ul&gt;
-					&lt;/div&gt;
-					&lt;div&gt;
-						&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-							&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-							&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-							&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-							&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-						&lt;/ul&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<hr class="margin-large">
-					<h2>Parent icon</h2>
-					<p>To create a parent icon, just use the <a href="component-drop.html">Drop component</a> and add the <code>drop-parent-icon</code> attribute to a <code>&lt;span&gt;</code> element.</p>
-					<div class="margin-medium">
-						<pre><code>
-&lt;ul class=&quot;dropnav&quot;&gt;
-	&lt;li&gt;
-		&lt;a href=&quot;#!&quot;&gt;Parent &lt;span class=&quot;icon drop-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
-		&lt;div class=&quot;dropdown&quot;&gt;…&lt;/div&gt;
-	&lt;/li&gt;
-&lt;/ul&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="dropnav">
-									<ul class="subnav">
-										<li class="active"><a href="#">Active</a></li>
-										<li>
-											<a href="#!" class="drop-parent-icon">
-												Parent
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-											</a>
-											<div class="dropdown">
-												<ul class="nav dropdown-nav">
-													<li class="active"><a href="#">Active</a></li>
-													<li><a href="#">Item</a></li>
-													<li><a href="#">Item</a></li>
-												</ul>
-											</div>
-										</li>
-										<li>
-											<a href="#!" class="drop-parent-icon">
-												Parent
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-											</a>
-											<div class="dropdown">
-												<ul class="nav dropdown-nav">
-													<li class="active"><a href="#">Active</a></li>
-													<li><a href="#">Item</a></li>
-													<li><a href="#">Item</a></li>
-												</ul>
-											</div>
-										</li>
-										<li><a href="#">Item</a></li>
-									</ul>
-								</nav>
-							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;dropnav&quot;&gt;
-	&lt;ul class=&quot;subnav&quot;&gt;
-		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#!&quot; class=&quot;drop-parent-icon&quot;&gt;
-				Parent
-				&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
-			&lt;/a&gt;
-			&lt;div class=&quot;dropdown&quot;&gt;
-				&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#!&quot; class=&quot;drop-parent-icon&quot;&gt;
-				Parent
-				&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
-			&lt;/a&gt;
-			&lt;div class=&quot;dropdown&quot;&gt;
-				&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
+						<hr class="margin-large">
+						<h2>Parent icon</h2>
+						<p>To create a parent icon, just use the <a href="component-drop.html">Drop component</a> and add the <code>drop-parent-icon</code> attribute to a <code>&lt;span&gt;</code> element.</p>
+						<div class="margin-medium">
+							<pre><code>
+								&lt;ul class=&quot;dropnav&quot;&gt;
+									&lt;li&gt;
+										&lt;a href=&quot;#!&quot;&gt;Parent &lt;span class=&quot;icon drop-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
+										&lt;div class=&quot;dropdown&quot;&gt;…&lt;/div&gt;
+									&lt;/li&gt;
+								&lt;/ul&gt;
+							</code></pre>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<hr class="margin-large">
-					<h2>Dropnav and tab</h2>
-					<p>The dropnav is easily applied to the <a href="component-tabs.html">Tab component</a>.</p>
-					<div class="margin-medium">
-						<pre><code>
-
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="dropnav">
-									<ul class="tab">
-										<li class="active"><a href="#">Active</a></li>
-										<li>
-											<a href="#!">Parent <span class="icon drop-parent-icon">keyboard_arrow_down</span></a>
-											<div class="dropdown">
-												<ul class="nav dropdown-nav">
-													<li class="active"><a href="#">Active</a></li>
-													<li><a href="#">Item</a></li>
-													<li><a href="#">Item</a></li>
-												</ul>
-											</div>
-										</li>
-										<li>
-											<a href="#!">Parent <span class="icon drop-parent-icon">keyboard_arrow_down</span></a>
-											<div class="dropdown">
-												<ul class="nav dropdown-nav">
-													<li class="active"><a href="#">Active</a></li>
-													<li><a href="#">Item</a></li>
-													<li><a href="#">Item</a></li>
-												</ul>
-											</div>
-										</li>
-										<li><a href="#">Item</a></li>
-									</ul>
-								</nav>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="dropnav">
+										<ul class="subnav">
+											<li class="active"><a href="#">Active</a></li>
+											<li>
+												<a href="#!" class="drop-parent-icon">
+													Parent
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+												</a>
+												<div class="dropdown">
+													<ul class="nav dropdown-nav">
+														<li class="active"><a href="#">Active</a></li>
+														<li><a href="#">Item</a></li>
+														<li><a href="#">Item</a></li>
+													</ul>
+												</div>
+											</li>
+											<li>
+												<a href="#!" class="drop-parent-icon">
+													Parent
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+												</a>
+												<div class="dropdown">
+													<ul class="nav dropdown-nav">
+														<li class="active"><a href="#">Active</a></li>
+														<li><a href="#">Item</a></li>
+														<li><a href="#">Item</a></li>
+													</ul>
+												</div>
+											</li>
+											<li><a href="#">Item</a></li>
+										</ul>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;dropnav&quot;&gt;
+											&lt;ul class=&quot;subnav&quot;&gt;
+												&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;drop-parent-icon&quot;&gt;
+														Parent
+														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;div class=&quot;dropdown&quot;&gt;
+														&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;drop-parent-icon&quot;&gt;
+														Parent
+														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;div class=&quot;dropdown&quot;&gt;
+														&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/nav&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;dropnav&quot;&gt;
-	&lt;ul class=&quot;tab&quot;&gt;
-		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#!&quot;&gt;Parent &lt;span class=&quot;icon drop-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
-			&lt;div class=&quot;dropdown&quot;&gt;
-				&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#!&quot;&gt;Parent &lt;span class=&quot;icon drop-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
-			&lt;div class=&quot;dropdown&quot;&gt;
-				&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
+
+						<hr class="margin-large">
+						<h2>Dropnav and tab</h2>
+						<p>The dropnav is easily applied to the <a href="component-tabs.html">Tab component</a>.</p>
+						<div class="margin-medium">
+							<pre><code>
+
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="dropnav">
+										<ul class="tab">
+											<li class="active"><a href="#">Active</a></li>
+											<li>
+												<a href="#!">Parent <span class="icon drop-parent-icon">keyboard_arrow_down</span></a>
+												<div class="dropdown">
+													<ul class="nav dropdown-nav">
+														<li class="active"><a href="#">Active</a></li>
+														<li><a href="#">Item</a></li>
+														<li><a href="#">Item</a></li>
+													</ul>
+												</div>
+											</li>
+											<li>
+												<a href="#!">Parent <span class="icon drop-parent-icon">keyboard_arrow_down</span></a>
+												<div class="dropdown">
+													<ul class="nav dropdown-nav">
+														<li class="active"><a href="#">Active</a></li>
+														<li><a href="#">Item</a></li>
+														<li><a href="#">Item</a></li>
+													</ul>
+												</div>
+											</li>
+											<li><a href="#">Item</a></li>
+										</ul>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;dropnav&quot;&gt;
+											&lt;ul class=&quot;tab&quot;&gt;
+												&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#!&quot;&gt;Parent &lt;span class=&quot;icon drop-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
+													&lt;div class=&quot;dropdown&quot;&gt;
+														&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#!&quot;&gt;Parent &lt;span class=&quot;icon drop-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
+													&lt;div class=&quot;dropdown&quot;&gt;
+														&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/nav&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

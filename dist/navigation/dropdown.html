@@ -308,575 +308,222 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Dropdown</h1>
-					<p class="text-lead">Defines different styles for a toggleable dropdown.</p>
-					<p>The Dropdown component is aim-aware. This means the dropdown stays open as long as the mouse pointer moves towards the dropdown. An additional delay ensures that the dropdown stays open even if the mouse pointer shortly moves in another direction. A dropdown closes immediately if another menu item is hovered.</p>
-					<hr class="margin-large">
-					<h2 class="margin-large-top">Usage</h2>
-					<p>A dropdown is an example of the <a href="component-drop.html">drop</a> that provides its own styling. Any content, like a button, can toggle a dropdown. Just add the <code>dropdown</code> attribute to a block element following the toggle.</p>
-					<div class="margin-medium">
-						<pre><code>
-&lt;button type=&quot;button&quot;&gt;&lt;/button&gt;
-&lt;div class=&quot;dropdown&quot;&gt;&lt;/div&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline">
-									<button class="button button-round">Click</button>
-									<div class="dropdown">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button button-round&quot;&gt;Click&lt;/button&gt;
-	&lt;div class=&quot;dropdown&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Dropdown</h1>
+						<p class="text-lead">Defines different styles for a toggleable dropdown.</p>
+						<p>The Dropdown component is aim-aware. This means the dropdown stays open as long as the mouse pointer moves towards the dropdown. An additional delay ensures that the dropdown stays open even if the mouse pointer shortly moves in another direction. A dropdown closes immediately if another menu item is hovered.</p>
+						<hr class="margin-large">
+						<h2 class="margin-large-top">Usage</h2>
+						<p>A dropdown is an example of the <a href="component-drop.html">drop</a> that provides its own styling. Any content, like a button, can toggle a dropdown. Just add the <code>dropdown</code> attribute to a block element following the toggle.</p>
+						<div class="margin-medium">
+							<pre><code>
+								&lt;button type=&quot;button&quot;&gt;&lt;/button&gt;
+								&lt;div class=&quot;dropdown&quot;&gt;&lt;/div&gt;
+							</code></pre>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
-					<hr class="margin-large">
-					<h2>Mode</h2>
-					<p>By default, the dropdown is toggled on click. Set the <code>dropdown="mode: hover"</code> attribute to change the toggle behavior.</p>
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Mode</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>click</code></td>
-									<td>Toggle dropdown on click only.</td>
-								</tr>
-								<tr>
-									<td><code>hover</code></td>
-									<td>Toggle dropdown on hover only.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="margin-medium">
-						<pre><code>
-&lt;div data-mode=&quot;hover&quot;&gt;&lt;/div&gt;
-						</code></pre>
-					</div>
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline">
-									<button class="button button-round">Hover</button>
-									<div class="card card-body dropdown" dropdown="mode: hover">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-								</div>
-								<div class="inline">
-									<button class="button button-round">Click</button>
-									<div class="card card-body dropdown">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button button-round&quot;&gt;Hover&lt;/button&gt;
-	&lt;div class=&quot;card card-body dropdown&quot; dropdown=&quot;mode: hover&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button button-round&quot;&gt;Click&lt;/button&gt;
-	&lt;div class=&quot;card card-body dropdown&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
 
-					<hr class="margin-large">
-					<h2>Width</h2>
-					<p>By default dropdown is 200px wide. You can use <code>dropdown="width: 600px"</code> attribute to set custom size in pixels. Additionaly <code>data-mode</code> attribute accepts a <code>match</code> string value to match toggle width.</p>
-					<p>Avilable token: <code>--drop-width</code> </p>
-					<p>You can place a grid from the <a href="component-grid.html">Grid component</a> inside a dropdown. Just wrap the content with a <code>&lt;div&gt;</code> element and add the <code>grid</code> attribute. If the grid should stack automatically whenever the drop no longer fits its container, just add the <code>.drop-grid</code> class.</p>
-					<p>This needs more work</p>
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Mode</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>match</code></td>
-									<td>Drop matches toggle width.</td>
-								</tr>
-								<tr>
-									<td><code>800px</code></td>
-									<td>Pixel width value.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline">
-									<button class="button" type="button">Toggle Width</button>
-									<div class="card card-body dropdown" dropdown="width: match">Toggle Width.</div>
-								</div>
-								<div class="inline">
-									<button class="button" type="button">Custom Width</button>
-									<div class="card card-body dropdown" dropdown="width: 600px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Toggle Width&lt;/button&gt;
-	&lt;div class=&quot;card card-body dropdown&quot; dropdown=&quot;width: match&quot;&gt;Toggle Width.&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Custom Width&lt;/button&gt;
-	&lt;div class=&quot;card card-body dropdown&quot; dropdown=&quot;width: 600px&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
-					<hr class="margin-large">
-					<h3 class="margin-large-top">Size modifier</h3>
-					<p>Dropdown also comes with 3 predefined width classes.</p>
-
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Mode</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.dropdown-small</code></td>
-									<td>140px width</td>
-								</tr>
-								<tr>
-									<td><code>.dropdown-medium</code></td>
-									<td>240px width</td>
-								</tr>
-								<tr>
-									<td><code>.dropdown-large</code></td>
-									<td>360px width</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline">
-									<button class="button button-round">Small</button>
-									<div class="dropdown-small dropdown">
-										<ul class="nav dropdown-nav">
-											<li class="active"><a href="#!">Active</a></li>
-											<li><a href="#!">Item</a></li>
-											<li class="nav-header">Header</li>
-											<li><a href="#!">Item</a></li>
-											<li><a href="#!">Item</a></li>
-											<li class="nav-divider"></li>
-											<li><a href="#!">Item</a></li>
-										</ul>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline">
+										<button class="button button-round" data-position="top-center">Click</button>
+										<div class="dropdown">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
 									</div>
 								</div>
-								<div class="inline">
-									<button class="button button-round">Medium</button>
-									<div class="dropdown-medium dropdown">
-										<ul class="nav dropdown-nav">
-											<li class="active"><a href="#!">Active</a></li>
-											<li><a href="#!">Item</a></li>
-											<li class="nav-header">Header</li>
-											<li><a href="#!">Item</a></li>
-											<li><a href="#!">Item</a></li>
-											<li class="nav-divider"></li>
-											<li><a href="#!">Item</a></li>
-										</ul>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button button-round&quot;&gt;Click&lt;/button&gt;
+											&lt;div class=&quot;dropdown&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
+						</div>
+						<hr class="margin-large">
+						<h2>Mode</h2>
+						<p>By default, the dropdown is toggled on click. Set the <code>dropdown="mode: hover"</code> attribute to change the toggle behavior.</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Mode</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>click</code></td>
+										<td>Toggle dropdown on click only.</td>
+									</tr>
+									<tr>
+										<td><code>hover</code></td>
+										<td>Toggle dropdown on hover only.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="margin-medium">
+							<pre><code>
+								&lt;div data-mode=&quot;hover&quot;&gt;&lt;/div&gt;
+							</code></pre>
+						</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline">
+										<button class="button button-round">Hover</button>
+										<div class="card card-body dropdown" dropdown="mode: hover">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+									</div>
+									<div class="inline">
+										<button class="button button-round">Click</button>
+										<div class="card card-body dropdown">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
 									</div>
 								</div>
-								<div class="inline">
-									<button class="button button-round">Large</button>
-									<div class="dropdown-large dropdown">
-										<ul class="nav dropdown-nav">
-											<li class="active"><a href="#!">Active</a></li>
-											<li><a href="#!">Item</a></li>
-											<li class="nav-header">Header</li>
-											<li><a href="#!">Item</a></li>
-											<li><a href="#!">Item</a></li>
-											<li class="nav-divider"></li>
-											<li><a href="#!">Item</a></li>
-										</ul>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button button-round&quot;&gt;Hover&lt;/button&gt;
+											&lt;div class=&quot;card card-body dropdown&quot; dropdown=&quot;mode: hover&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button button-round&quot;&gt;Click&lt;/button&gt;
+											&lt;div class=&quot;card card-body dropdown&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
+						</div>
+
+						<hr class="margin-large">
+						<h2>Width</h2>
+						<p>By default dropdown is 200px wide. You can use <code>dropdown="width: 600px"</code> attribute to set custom size in pixels. Additionaly <code>data-mode</code> attribute accepts a <code>match</code> string value to match toggle width.</p>
+						<p>Avilable token: <code>--drop-width</code> </p>
+						<p>You can place a grid from the <a href="component-grid.html">Grid component</a> inside a dropdown. Just wrap the content with a <code>&lt;div&gt;</code> element and add the <code>grid</code> attribute. If the grid should stack automatically whenever the drop no longer fits its container, just add the <code>.drop-grid</code> class.</p>
+						<p>This needs more work</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Mode</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>match</code></td>
+										<td>Drop matches toggle width.</td>
+									</tr>
+									<tr>
+										<td><code>800px</code></td>
+										<td>Pixel width value.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline">
+										<button class="button" type="button">Toggle Width</button>
+										<div class="card card-body dropdown" dropdown="width: match">Toggle Width.</div>
+									</div>
+									<div class="inline">
+										<button class="button" type="button">Custom Width</button>
+										<div class="card card-body dropdown" dropdown="width: 600px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button button-round&quot;&gt;Small&lt;/button&gt;
-	&lt;div class=&quot;dropdown-small dropdown&quot;&gt;
-		&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-			&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-			&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-			&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button button-round&quot;&gt;Medium&lt;/button&gt;
-	&lt;div class=&quot;dropdown-medium dropdown&quot;&gt;
-		&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-			&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-			&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-			&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button button-round&quot;&gt;Large&lt;/button&gt;
-	&lt;div class=&quot;dropdown-large dropdown&quot;&gt;
-		&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-			&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-			&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-			&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
-
-					<hr class="margin-large">
-					<h3>Stretch</h3>
-					<p>When data-attribute <code>dropdown="stretch: true"</code> is used dropdown will try to stretch its width to match the width of its closest ancestor</p>
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline">
-									<button class="button" type="button">Stretch</button>
-									<div class="card card-body dropdown" dropdown="stretch: true">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Toggle Width&lt;/button&gt;
+											&lt;div class=&quot;card card-body dropdown&quot; dropdown=&quot;width: match&quot;&gt;Toggle Width.&lt;/div&gt;
+										&lt;/div&gt;
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Custom Width&lt;/button&gt;
+											&lt;div class=&quot;card card-body dropdown&quot; dropdown=&quot;width: 600px&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Stretch&lt;/button&gt;
-	&lt;div class=&quot;card card-body dropdown&quot; dropdown=&quot;stretch: true&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
+						<hr class="margin-large">
+						<h3 class="margin-large-top">Size modifier</h3>
+						<p>Dropdown also comes with 3 predefined width classes.</p>
 
-					<hr class="margin-large">
-					<h2>Height</h2>
-					<p>By default dropdown inherits height. You can use <code>dropdown="height: 200px"</code> attribute to set custom height in pixels.</p>
-					<p>Avilable token: <code>--drop-height</code> </p>
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline">
-									<button class="button" type="button">Custom height</button>
-									<div class="card card-body dropdown" dropdown="height: 200px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Custom height&lt;/button&gt;
-	&lt;div class=&quot;card card-body dropdown&quot; dropdown=&quot;height: 200px&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Mode</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.dropdown-small</code></td>
+										<td>140px width</td>
+									</tr>
+									<tr>
+										<td><code>.dropdown-medium</code></td>
+										<td>240px width</td>
+									</tr>
+									<tr>
+										<td><code>.dropdown-large</code></td>
+										<td>360px width</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<hr class="margin-large">
-					<h2>Nav in dropdown</h2>
-					<p>A dropdown can contain a nav from the <a href="component-nav.html">Nav component</a>. Just add the <code>.nav</code> class and the <code>.dropdown-nav</code> modifier to a <code>&lt;ul&gt;</code> element.</p>
-
-					<div class="margin-medium">
-						<pre><code>
-&lt;button&gt;&lt;/button&gt;
-&lt;div class=&quot;dropdown&quot;&gt;
-	&lt;ul class=&quot;nav dropdown-nav&quot;&gt;…&lt;/ul&gt;
-&lt;/div&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline">
-									<button class="button button-round">Hover</button>
-									<div class="dropdown" dropdown="mode: hover">
-										<ul class="nav dropdown-nav">
-											<li class="active"><a href="#!">Active</a></li>
-											<li><a href="#!">Item</a></li>
-											<li class="nav-header">Header</li>
-											<li><a href="#!">Item</a></li>
-											<li><a href="#!">Item</a></li>
-											<li class="nav-divider"></li>
-											<li><a href="#!">Item</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button button-round&quot;&gt;Hover&lt;/button&gt;
-	&lt;div class=&quot;dropdown&quot; dropdown=&quot;mode: hover&quot;&gt;
-		&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-			&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-			&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-			&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>					
-
-					<hr class="margin-large">
-					<h2>Position</h2>
-					<p>By default, the dropdown is positioned below the toggle. To change its position, set the <code>pos</code> option to the <code>dropdown</code> attribute. The first part of the value refers to the side where the dropdown is positioned, while the second part defines its alignment with the toggle.</p>
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Position</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>top-left</code></td>
-									<td>Positions the dropdown above the toggle and aligns it to the left.</td>
-								</tr>
-								<tr>
-									<td><code>top-center</code></td>
-									<td>Positions the dropdown above the toggle and aligns it to the center.</td>
-								</tr>
-								<tr>
-									<td><code>top-right</code></td>
-									<td>Positions the dropdown above the toggle and aligns it to the right.</td>
-								</tr>
-								<tr>
-									<td><code>bottom-left</code></td>
-									<td>Positions the dropdown below the toggle and aligns it to the left.</td>
-								</tr>
-								<tr>
-									<td><code>bottom-center</code></td>
-									<td>Positions the dropdown below the toggle and aligns it to the center.</td>
-								</tr>
-								<tr>
-									<td><code>bottom-right</code></td>
-									<td>Positions the dropdown below the toggle and aligns it to the right.</td>
-								</tr>
-								<tr>
-									<td><code>left-top</code></td>
-									<td>Positions the dropdown to the left of the toggle and aligns it to the top.</td>
-								</tr>
-								<tr>
-									<td><code>left-center</code></td>
-									<td>Positions the dropdown to the left of the toggle and aligns it to the center.</td>
-								</tr>
-								<tr>
-									<td><code>left-bottom</code></td>
-									<td>Positions the dropdown to the left of the toggle and aligns it to the bottom.</td>
-								</tr>
-								<tr>
-									<td><code>right-top</code></td>
-									<td>Positions the dropdown to the right of the toggle and aligns it to the top.</td>
-								</tr>
-								<tr>
-									<td><code>right-center</code></td>
-									<td>Positions the dropdown to the right of the toggle and aligns it to the center.</td>
-								</tr>
-								<tr>
-									<td><code>right-bottom</code></td>
-									<td>Positions the dropdown to the right of the toggle and aligns it to the bottom.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline">
-									<button class="button button-round">Bottom Right</button>
-									<div class="card card-body dropdown" dropdown="position: bottom-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-								</div>		
-								<div class="inline">
-									<button class="button button-round">Bottom Center</button>
-									<div class="card card-body dropdown" dropdown="position: bottom-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-								</div>
-								<div class="inline">
-									<button class="button button-round">Bottom Left</button>
-									<div class="card card-body dropdown" dropdown="position: bottom-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button button-round&quot;&gt;Bottom Right&lt;/button&gt;
-	&lt;div class=&quot;card card-body dropdown&quot; dropdown=&quot;position: bottom-right&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;		
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button button-round&quot;&gt;Bottom Center&lt;/button&gt;
-	&lt;div class=&quot;card card-body dropdown&quot; dropdown=&quot;position: bottom-center&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button button-round&quot;&gt;Bottom Left&lt;/button&gt;
-	&lt;div class=&quot;card card-body dropdown&quot; dropdown=&quot;position: bottom-left&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<hr class="margin-large">
-					<h2>Offset</h2>
-					<p>To define a custom offset between the dropdown and its toggle, add the <code>dropdown="offset: 80"</code> option with a value in pixels.</p>
-					<div class="margin-medium">
-						<pre><code>
-&lt;div data-offset=&quot;80&quot;&gt;&lt;/div&gt;
-						</code></pre>
-					</div>
-
-					<div class="position-relative margin-medium padding-large-bottom">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline">
-									<button class="button button-round">Click</button>
-									<div class="dropdown" dropdown="offset: 80">
-										<ul class="nav dropdown-nav">
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline">
+										<button class="button button-round">Small</button>
+										<div class="dropdown-small dropdown">
+											<ul class="nav dropdown-nav">
 												<li class="active"><a href="#!">Active</a></li>
 												<li><a href="#!">Item</a></li>
 												<li class="nav-header">Header</li>
@@ -885,205 +532,562 @@
 												<li class="nav-divider"></li>
 												<li><a href="#!">Item</a></li>
 											</ul>
-									</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button button-round&quot;&gt;Click&lt;/button&gt;
-	&lt;div class=&quot;dropdown&quot; dropdown=&quot;offset: 80&quot;&gt;
-		&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-				&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-				&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-			&lt;/ul&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
-
-					<hr class="margin-large">
-					<h2>Animation</h2>
-					<p>Apply any animation to the dropdown from the <a href="component-animation.html">Animation component</a>. Additionally you can use transforms from <a href="component-util.html">Utility component</a>.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="margin">
-									<div class="inline">
-										<button class="button" type="button">Slide Top</button>
-										<div class="card card-body dropdown animation-slide-top-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-									</div>
-								
-									<div class="inline">
-										<button class="button" type="button">Scale & Transform</button>
-										<div class="card card-body dropdown animation-scale-up transform-origin-top-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-									</div>
-								
-									<div class="inline">
-										<button class="button" type="button">Slide Left</button>
-										<div class="card card-body dropdown animation-slide-left-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-									</div>								
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;margin&quot;&gt;
-	&lt;div class=&quot;inline&quot;&gt;
-		&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Slide Top&lt;/button&gt;
-		&lt;div class=&quot;card card-body dropdown animation-slide-top-small&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-	&lt;/div&gt;
-
-	&lt;div class=&quot;inline&quot;&gt;
-		&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Scale &amp; Transform&lt;/button&gt;
-		&lt;div class=&quot;card card-body dropdown animation-scale-up transform-origin-top-center&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-	&lt;/div&gt;
-
-	&lt;div class=&quot;inline&quot;&gt;
-		&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Slide Left&lt;/button&gt;
-		&lt;div class=&quot;card card-body dropdown animation-slide-left-small&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-	&lt;/div&gt;								
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<hr class="margin-large">
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="card card-hover round width-1-2@m">
-									<div class="card-header">
-										<img class="border-circle" width="40" height="40" src="/assets/images/avatars/avatar.png" alt="Avatar">	
-										<div class="content">
-											<h3 class="card-title margin-remove-bottom">User Name</h3>
-											<p class="text-meta margin-remove-top">@username</p>
 										</div>
-										<div class="actions">
-											<a href="#1" class="icon-link actions-icon">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M479.88-189.23q-15.09 0-25.72-10.75-10.62-10.74-10.62-25.83 0-15.09 10.75-25.91 10.74-10.82 25.83-10.82 15.09 0 25.72 10.87 10.62 10.86 10.62 26.12 0 15.1-10.75 25.71-10.74 10.61-25.83 10.61Zm0-254.31q-15.09 0-25.72-10.75-10.62-10.74-10.62-25.83 0-15.09 10.75-25.72 10.74-10.62 25.83-10.62 15.09 0 25.72 10.75 10.62 10.74 10.62 25.83 0 15.09-10.75 25.72-10.74 10.62-25.83 10.62Zm0-253.92q-15.09 0-25.72-10.87-10.62-10.86-10.62-26.12 0-15.1 10.75-25.71 10.74-10.61 25.83-10.61 15.09 0 25.72 10.75 10.62 10.74 10.62 25.83 0 15.09-10.75 25.91-10.74 10.82-25.83 10.82Z"/></svg>
-											</a>
-			
-											<div class="dropdown" dropdown="mode: hover; stretch: true; position: bottom-right">
-												<ul class="nav dropdown-nav">
-													<li><a href="#!">Active</a></li>
+									</div>
+									<div class="inline">
+										<button class="button button-round">Medium</button>
+										<div class="dropdown-medium dropdown">
+											<ul class="nav dropdown-nav">
+												<li class="active"><a href="#!">Active</a></li>
+												<li><a href="#!">Item</a></li>
+												<li class="nav-header">Header</li>
+												<li><a href="#!">Item</a></li>
+												<li><a href="#!">Item</a></li>
+												<li class="nav-divider"></li>
+												<li><a href="#!">Item</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="inline">
+										<button class="button button-round">Large</button>
+										<div class="dropdown-large dropdown">
+											<ul class="nav dropdown-nav">
+												<li class="active"><a href="#!">Active</a></li>
+												<li><a href="#!">Item</a></li>
+												<li class="nav-header">Header</li>
+												<li><a href="#!">Item</a></li>
+												<li><a href="#!">Item</a></li>
+												<li class="nav-divider"></li>
+												<li><a href="#!">Item</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button button-round&quot;&gt;Small&lt;/button&gt;
+											&lt;div class=&quot;dropdown-small dropdown&quot;&gt;
+												&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+													&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+													&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+													&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button button-round&quot;&gt;Medium&lt;/button&gt;
+											&lt;div class=&quot;dropdown-medium dropdown&quot;&gt;
+												&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+													&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+													&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+													&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button button-round&quot;&gt;Large&lt;/button&gt;
+											&lt;div class=&quot;dropdown-large dropdown&quot;&gt;
+												&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+													&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+													&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+													&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
+						</div>
+
+						<hr class="margin-large">
+						<h3>Stretch</h3>
+						<p>When data-attribute <code>dropdown="stretch: true"</code> is used dropdown will try to stretch its width to match the width of its closest ancestor</p>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline">
+										<button class="button" type="button">Stretch</button>
+										<div class="card card-body dropdown" dropdown="stretch: true">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Stretch&lt;/button&gt;
+											&lt;div class=&quot;card card-body dropdown&quot; dropdown=&quot;stretch: true&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
+						</div>
+
+						<hr class="margin-large">
+						<h2>Height</h2>
+						<p>By default dropdown inherits height. You can use <code>dropdown="height: 200px"</code> attribute to set custom height in pixels.</p>
+						<p>Avilable token: <code>--drop-height</code> </p>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline">
+										<button class="button" type="button">Custom height</button>
+										<div class="card card-body dropdown" dropdown="height: 200px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Custom height&lt;/button&gt;
+											&lt;div class=&quot;card card-body dropdown&quot; dropdown=&quot;height: 200px&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<hr class="margin-large">
+						<h2>Nav in dropdown</h2>
+						<p>A dropdown can contain a nav from the <a href="component-nav.html">Nav component</a>. Just add the <code>.nav</code> class and the <code>.dropdown-nav</code> modifier to a <code>&lt;ul&gt;</code> element.</p>
+
+						<div class="margin-medium">
+							<pre><code>
+								&lt;button&gt;&lt;/button&gt;
+								&lt;div class=&quot;dropdown&quot;&gt;
+									&lt;ul class=&quot;nav dropdown-nav&quot;&gt;…&lt;/ul&gt;
+								&lt;/div&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline">
+										<button class="button button-round">Hover</button>
+										<div class="dropdown" dropdown="mode: hover">
+											<ul class="nav dropdown-nav">
+												<li class="active"><a href="#!">Active</a></li>
+												<li><a href="#!">Item</a></li>
+												<li class="nav-header">Header</li>
+												<li><a href="#!">Item</a></li>
+												<li><a href="#!">Item</a></li>
+												<li class="nav-divider"></li>
+												<li><a href="#!">Item</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button button-round&quot;&gt;Hover&lt;/button&gt;
+											&lt;div class=&quot;dropdown&quot; dropdown=&quot;mode: hover&quot;&gt;
+												&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+													&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+													&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+													&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>					
+
+						<hr class="margin-large">
+						<h2>Position</h2>
+						<p>By default, the dropdown is positioned below the toggle. To change its position, set the <code>pos</code> option to the <code>dropdown</code> attribute. The first part of the value refers to the side where the dropdown is positioned, while the second part defines its alignment with the toggle.</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Position</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>top-left</code></td>
+										<td>Positions the dropdown above the toggle and aligns it to the left.</td>
+									</tr>
+									<tr>
+										<td><code>top-center</code></td>
+										<td>Positions the dropdown above the toggle and aligns it to the center.</td>
+									</tr>
+									<tr>
+										<td><code>top-right</code></td>
+										<td>Positions the dropdown above the toggle and aligns it to the right.</td>
+									</tr>
+									<tr>
+										<td><code>bottom-left</code></td>
+										<td>Positions the dropdown below the toggle and aligns it to the left.</td>
+									</tr>
+									<tr>
+										<td><code>bottom-center</code></td>
+										<td>Positions the dropdown below the toggle and aligns it to the center.</td>
+									</tr>
+									<tr>
+										<td><code>bottom-right</code></td>
+										<td>Positions the dropdown below the toggle and aligns it to the right.</td>
+									</tr>
+									<tr>
+										<td><code>left-top</code></td>
+										<td>Positions the dropdown to the left of the toggle and aligns it to the top.</td>
+									</tr>
+									<tr>
+										<td><code>left-center</code></td>
+										<td>Positions the dropdown to the left of the toggle and aligns it to the center.</td>
+									</tr>
+									<tr>
+										<td><code>left-bottom</code></td>
+										<td>Positions the dropdown to the left of the toggle and aligns it to the bottom.</td>
+									</tr>
+									<tr>
+										<td><code>right-top</code></td>
+										<td>Positions the dropdown to the right of the toggle and aligns it to the top.</td>
+									</tr>
+									<tr>
+										<td><code>right-center</code></td>
+										<td>Positions the dropdown to the right of the toggle and aligns it to the center.</td>
+									</tr>
+									<tr>
+										<td><code>right-bottom</code></td>
+										<td>Positions the dropdown to the right of the toggle and aligns it to the bottom.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline">
+										<button class="button button-round">Bottom Right</button>
+										<div class="card card-body dropdown" dropdown="position: bottom-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+									</div>		
+									<div class="inline">
+										<button class="button button-round">Bottom Center</button>
+										<div class="card card-body dropdown" dropdown="position: bottom-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+									</div>
+									<div class="inline">
+										<button class="button button-round">Bottom Left</button>
+										<div class="card card-body dropdown" dropdown="position: bottom-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button button-round&quot;&gt;Bottom Right&lt;/button&gt;
+											&lt;div class=&quot;card card-body dropdown&quot; dropdown=&quot;position: bottom-right&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;		
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button button-round&quot;&gt;Bottom Center&lt;/button&gt;
+											&lt;div class=&quot;card card-body dropdown&quot; dropdown=&quot;position: bottom-center&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button button-round&quot;&gt;Bottom Left&lt;/button&gt;
+											&lt;div class=&quot;card card-body dropdown&quot; dropdown=&quot;position: bottom-left&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<hr class="margin-large">
+						<h2>Offset</h2>
+						<p>To define a custom offset between the dropdown and its toggle, add the <code>dropdown="offset: 80"</code> option with a value in pixels.</p>
+						<div class="margin-medium">
+							<pre><code>
+								&lt;div data-offset=&quot;80&quot;&gt;&lt;/div&gt;
+							</code></pre>
+						</div>
+
+						<div class="position-relative margin-medium padding-large-bottom">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline">
+										<button class="button button-round">Click</button>
+										<div class="dropdown" dropdown="offset: 80">
+											<ul class="nav dropdown-nav">
+													<li class="active"><a href="#!">Active</a></li>
 													<li><a href="#!">Item</a></li>
 													<li class="nav-header">Header</li>
 													<li><a href="#!">Item</a></li>
 													<li><a href="#!">Item</a></li>
-													<li>
-														<a href="#1" class="icon-link actions-icon margin-small-right icon-18">
-															<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m615.54-448 76 69.31v45.38H502.69v220.61L480-90l-22.69-22.7v-220.61H268.46v-45.38L340-448v-326.61h-47.31V-820h370.15v45.39h-47.3V-448Zm-285.69 69.31h295.84l-55.54-52.7v-343.22H385.39v343.22l-55.54 52.7Zm147.92 0Z"/></svg>
-															Pin
-														</a>
-													</li>
 													<li class="nav-divider"></li>
 													<li><a href="#!">Item</a></li>
 												</ul>
-											</div>
 										</div>
 									</div>
-									<div class="cover-container">
-										<img src="/assets/images/photos/image5.webp">
-									</div>
-									<div class="card-body">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-									</div>
-									<div class="card-footer">
-										<a href="#!" class="icon icon-action">favorite</a>
-										<a href="#!" class="icon icon-action">share</a>
-									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button button-round&quot;&gt;Click&lt;/button&gt;
+											&lt;div class=&quot;dropdown&quot; dropdown=&quot;offset: 80&quot;&gt;
+												&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+														&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+														&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+														&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+														&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+													&lt;/ul&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;card card-hover round width-1-2@m&quot;&gt;
-	&lt;div class=&quot;card-header&quot;&gt;
-		&lt;img class=&quot;border-circle&quot; width=&quot;40&quot; height=&quot;40&quot; src=&quot;/assets/images/avatars/avatar.png&quot; alt=&quot;Avatar&quot;&gt;	
-		&lt;div class=&quot;content&quot;&gt;
-			&lt;h3 class=&quot;card-title margin-remove-bottom&quot;&gt;User Name&lt;/h3&gt;
-			&lt;p class=&quot;text-meta margin-remove-top&quot;&gt;@username&lt;/p&gt;
-		&lt;/div&gt;
-		&lt;div class=&quot;actions&quot;&gt;
-			&lt;a href=&quot;#1&quot; class=&quot;icon-link actions-icon&quot;&gt;
-				&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M479.88-189.23q-15.09 0-25.72-10.75-10.62-10.74-10.62-25.83 0-15.09 10.75-25.91 10.74-10.82 25.83-10.82 15.09 0 25.72 10.87 10.62 10.86 10.62 26.12 0 15.1-10.75 25.71-10.74 10.61-25.83 10.61Zm0-254.31q-15.09 0-25.72-10.75-10.62-10.74-10.62-25.83 0-15.09 10.75-25.72 10.74-10.62 25.83-10.62 15.09 0 25.72 10.75 10.62 10.74 10.62 25.83 0 15.09-10.75 25.72-10.74 10.62-25.83 10.62Zm0-253.92q-15.09 0-25.72-10.87-10.62-10.86-10.62-26.12 0-15.1 10.75-25.71 10.74-10.61 25.83-10.61 15.09 0 25.72 10.75 10.62 10.74 10.62 25.83 0 15.09-10.75 25.91-10.74 10.82-25.83 10.82Z&quot;/&gt;&lt;/svg&gt;
-			&lt;/a&gt;
-
-			&lt;div class=&quot;dropdown&quot; dropdown=&quot;mode: hover; stretch: true; position: bottom-right&quot;&gt;
-				&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-					&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;
-						&lt;a href=&quot;#1&quot; class=&quot;icon-link actions-icon margin-small-right icon-18&quot;&gt;
-							&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;m615.54-448 76 69.31v45.38H502.69v220.61L480-90l-22.69-22.7v-220.61H268.46v-45.38L340-448v-326.61h-47.31V-820h370.15v45.39h-47.3V-448Zm-285.69 69.31h295.84l-55.54-52.7v-343.22H385.39v343.22l-55.54 52.7Zm147.92 0Z&quot;/&gt;&lt;/svg&gt;
-							Pin
-						&lt;/a&gt;
-					&lt;/li&gt;
-					&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;cover-container&quot;&gt;
-		&lt;img src=&quot;/assets/images/photos/image5.webp&quot;&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;card-body&quot;&gt;
-		&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/p&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;card-footer&quot;&gt;
-		&lt;a href=&quot;#!&quot; class=&quot;icon icon-action&quot;&gt;favorite&lt;/a&gt;
-		&lt;a href=&quot;#!&quot; class=&quot;icon icon-action&quot;&gt;share&lt;/a&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
+
+						<hr class="margin-large">
+						<h2>Animation</h2>
+						<p>Apply any animation to the dropdown from the <a href="component-animation.html">Animation component</a>. Additionally you can use transforms from <a href="component-util.html">Utility component</a>.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="margin">
+										<div class="inline">
+											<button class="button" type="button">Slide Top</button>
+											<div class="card card-body dropdown animation-slide-top-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+										</div>
+									
+										<div class="inline">
+											<button class="button" type="button">Scale & Transform</button>
+											<div class="card card-body dropdown animation-scale-up transform-origin-top-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+										</div>
+									
+										<div class="inline">
+											<button class="button" type="button">Slide Left</button>
+											<div class="card card-body dropdown animation-slide-left-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+										</div>								
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;margin&quot;&gt;
+											&lt;div class=&quot;inline&quot;&gt;
+												&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Slide Top&lt;/button&gt;
+												&lt;div class=&quot;card card-body dropdown animation-slide-top-small&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+											&lt;/div&gt;
+
+											&lt;div class=&quot;inline&quot;&gt;
+												&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Scale &amp; Transform&lt;/button&gt;
+												&lt;div class=&quot;card card-body dropdown animation-scale-up transform-origin-top-center&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+											&lt;/div&gt;
+
+											&lt;div class=&quot;inline&quot;&gt;
+												&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Slide Left&lt;/button&gt;
+												&lt;div class=&quot;card card-body dropdown animation-slide-left-small&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+											&lt;/div&gt;								
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<hr class="margin-large">
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="card card-hover round width-1-2@m">
+										<div class="card-header">
+											<img class="border-circle" width="40" height="40" src="/assets/images/avatars/avatar.png" alt="Avatar">	
+											<div class="content">
+												<h3 class="card-title margin-remove-bottom">User Name</h3>
+												<p class="text-meta margin-remove-top">@username</p>
+											</div>
+											<div class="actions">
+												<a href="#1" class="icon-link actions-icon">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M479.88-189.23q-15.09 0-25.72-10.75-10.62-10.74-10.62-25.83 0-15.09 10.75-25.91 10.74-10.82 25.83-10.82 15.09 0 25.72 10.87 10.62 10.86 10.62 26.12 0 15.1-10.75 25.71-10.74 10.61-25.83 10.61Zm0-254.31q-15.09 0-25.72-10.75-10.62-10.74-10.62-25.83 0-15.09 10.75-25.72 10.74-10.62 25.83-10.62 15.09 0 25.72 10.75 10.62 10.74 10.62 25.83 0 15.09-10.75 25.72-10.74 10.62-25.83 10.62Zm0-253.92q-15.09 0-25.72-10.87-10.62-10.86-10.62-26.12 0-15.1 10.75-25.71 10.74-10.61 25.83-10.61 15.09 0 25.72 10.75 10.62 10.74 10.62 25.83 0 15.09-10.75 25.91-10.74 10.82-25.83 10.82Z"/></svg>
+												</a>
+				
+												<div class="dropdown" dropdown="mode: hover; stretch: true; position: bottom-right">
+													<ul class="nav dropdown-nav">
+														<li><a href="#!">Active</a></li>
+														<li><a href="#!">Item</a></li>
+														<li class="nav-header">Header</li>
+														<li><a href="#!">Item</a></li>
+														<li><a href="#!">Item</a></li>
+														<li>
+															<a href="#1" class="icon-link actions-icon margin-small-right icon-18">
+																<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m615.54-448 76 69.31v45.38H502.69v220.61L480-90l-22.69-22.7v-220.61H268.46v-45.38L340-448v-326.61h-47.31V-820h370.15v45.39h-47.3V-448Zm-285.69 69.31h295.84l-55.54-52.7v-343.22H385.39v343.22l-55.54 52.7Zm147.92 0Z"/></svg>
+																Pin
+															</a>
+														</li>
+														<li class="nav-divider"></li>
+														<li><a href="#!">Item</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="cover-container">
+											<img src="/assets/images/photos/image5.webp">
+										</div>
+										<div class="card-body">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+										</div>
+										<div class="card-footer">
+											<a href="#!" class="icon icon-action">favorite</a>
+											<a href="#!" class="icon icon-action">share</a>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card card-hover round width-1-2@m&quot;&gt;
+											&lt;div class=&quot;card-header&quot;&gt;
+												&lt;img class=&quot;border-circle&quot; width=&quot;40&quot; height=&quot;40&quot; src=&quot;/assets/images/avatars/avatar.png&quot; alt=&quot;Avatar&quot;&gt;	
+												&lt;div class=&quot;content&quot;&gt;
+													&lt;h3 class=&quot;card-title margin-remove-bottom&quot;&gt;User Name&lt;/h3&gt;
+													&lt;p class=&quot;text-meta margin-remove-top&quot;&gt;@username&lt;/p&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;actions&quot;&gt;
+													&lt;a href=&quot;#1&quot; class=&quot;icon-link actions-icon&quot;&gt;
+														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M479.88-189.23q-15.09 0-25.72-10.75-10.62-10.74-10.62-25.83 0-15.09 10.75-25.91 10.74-10.82 25.83-10.82 15.09 0 25.72 10.87 10.62 10.86 10.62 26.12 0 15.1-10.75 25.71-10.74 10.61-25.83 10.61Zm0-254.31q-15.09 0-25.72-10.75-10.62-10.74-10.62-25.83 0-15.09 10.75-25.72 10.74-10.62 25.83-10.62 15.09 0 25.72 10.75 10.62 10.74 10.62 25.83 0 15.09-10.75 25.72-10.74 10.62-25.83 10.62Zm0-253.92q-15.09 0-25.72-10.87-10.62-10.86-10.62-26.12 0-15.1 10.75-25.71 10.74-10.61 25.83-10.61 15.09 0 25.72 10.75 10.62 10.74 10.62 25.83 0 15.09-10.75 25.91-10.74 10.82-25.83 10.82Z&quot;/&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+
+													&lt;div class=&quot;dropdown&quot; dropdown=&quot;mode: hover; stretch: true; position: bottom-right&quot;&gt;
+														&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+															&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;
+																&lt;a href=&quot;#1&quot; class=&quot;icon-link actions-icon margin-small-right icon-18&quot;&gt;
+																	&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;m615.54-448 76 69.31v45.38H502.69v220.61L480-90l-22.69-22.7v-220.61H268.46v-45.38L340-448v-326.61h-47.31V-820h370.15v45.39h-47.3V-448Zm-285.69 69.31h295.84l-55.54-52.7v-343.22H385.39v343.22l-55.54 52.7Zm147.92 0Z&quot;/&gt;&lt;/svg&gt;
+																	Pin
+																&lt;/a&gt;
+															&lt;/li&gt;
+															&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;cover-container&quot;&gt;
+												&lt;img src=&quot;/assets/images/photos/image5.webp&quot;&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;card-body&quot;&gt;
+												&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/p&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;card-footer&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;icon icon-action&quot;&gt;favorite&lt;/a&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;icon icon-action&quot;&gt;share&lt;/a&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

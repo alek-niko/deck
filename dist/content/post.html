@@ -308,244 +308,248 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-sm text">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
 
-					<h1>Post</h1>
-					<p class="text-lead">Combined post composer and display component featuring avatars, formatted post content, tags, mentions, and action controls.</p>
+						<h1>Post</h1>
+						<p class="text-lead">Combined post composer and display component featuring avatars, formatted post content, tags, mentions, and action controls.</p>
 
-					<hr>
+						<hr>
 
-					<h2>Post Composer (<code>.post-box</code>)</h2>
-					<p>The post composer box allows users to write new posts. It includes a user avatar and a textarea styled for comfortable typing. The avatar size is fixed, and the textarea uses the primary font and color tokens.</p>
+						<h2>Post Composer (<code>.post-box</code>)</h2>
+						<p>The post composer box allows users to write new posts. It includes a user avatar and a textarea styled for comfortable typing. The avatar size is fixed, and the textarea uses the primary font and color tokens.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
 
-								<div class="post-box">
-									<!-- Avatar -->
-									<div class="avatar">
-										<img src="/assets/images/avatars/profile.jpg" alt="User avatar">
-									</div>
-								
-									<!-- Content -->
-									<div class="content">
-										<!-- Textarea -->
-										<textarea placeholder="What's happening?"></textarea>
-								
-										<!-- Actions -->
-										<div class="actions">
-											<!-- Left: Action icons -->
-											<div class="action-icons">
-												<a href="#!" class="icon-action">
-													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-														<path
-															d="M197.69-140q-23.61 0-40.65-17.04T140-197.69v-564.62q0-23.61 17.04-40.65T197.69-820h564.62q23.61 0 40.65 17.04T820-762.31v564.62q0 23.61-17.04 40.65T762.31-140H197.69Zm69.47-147.77h429.76L567.23-460.31 446.38-306.23l-82.23-107.38-96.99 125.84Z" />
-													</svg>
-												</a>
-								
-												<!-- More icons... -->
-											</div>
-								
-											<!-- Right: Character count + Submit -->
-											<div class="action-right">
-												<span class="char-count">0</span>
-												<button class="button" data-variant="primary" data-style="flat">Post</button>
+									<div class="post-box">
+										<!-- Avatar -->
+										<div class="avatar">
+											<img src="/assets/images/avatars/profile.jpg" alt="User avatar">
+										</div>
+									
+										<!-- Content -->
+										<div class="content">
+											<!-- Textarea -->
+											<textarea placeholder="What's happening?"></textarea>
+									
+											<!-- Actions -->
+											<div class="actions">
+												<!-- Left: Action icons -->
+												<div class="action-icons">
+													<a href="#!" class="icon-action">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+															<path
+																d="M197.69-140q-23.61 0-40.65-17.04T140-197.69v-564.62q0-23.61 17.04-40.65T197.69-820h564.62q23.61 0 40.65 17.04T820-762.31v564.62q0 23.61-17.04 40.65T762.31-140H197.69Zm69.47-147.77h429.76L567.23-460.31 446.38-306.23l-82.23-107.38-96.99 125.84Z" />
+														</svg>
+													</a>
+									
+													<!-- More icons... -->
+												</div>
+									
+												<!-- Right: Character count + Submit -->
+												<div class="action-right">
+													<span class="char-count">0</span>
+													<button class="button" data-variant="primary" data-style="flat">Post</button>
+												</div>
 											</div>
 										</div>
 									</div>
+
 								</div>
-
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;post-box&quot;&gt;
-										&lt;!-- Avatar --&gt;
-										&lt;div class=&quot;avatar&quot;&gt;
-											&lt;img src=&quot;/assets/images/avatars/profile.jpg&quot; alt=&quot;User avatar&quot;&gt;
-										&lt;/div&gt;
-									
-										&lt;!-- Content --&gt;
-										&lt;div class=&quot;content&quot;&gt;
-											&lt;!-- Textarea --&gt;
-											&lt;textarea placeholder=&quot;What&apos;s happening?&quot;&gt;&lt;/textarea&gt;
-									
-											&lt;!-- Actions --&gt;
-											&lt;div class=&quot;actions&quot;&gt;
-												&lt;!-- Left: Action icons --&gt;
-												&lt;div class=&quot;action-icons&quot;&gt;
-													&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;
-														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;
-															&lt;path
-																d=&quot;M197.69-140q-23.61 0-40.65-17.04T140-197.69v-564.62q0-23.61 17.04-40.65T197.69-820h564.62q23.61 0 40.65 17.04T820-762.31v564.62q0 23.61-17.04 40.65T762.31-140H197.69Zm69.47-147.77h429.76L567.23-460.31 446.38-306.23l-82.23-107.38-96.99 125.84Z&quot; /&gt;
-														&lt;/svg&gt;
-													&lt;/a&gt;
-									
-													&lt;!-- More icons... --&gt;
-												&lt;/div&gt;
-									
-												&lt;!-- Right: Character count + Submit --&gt;
-												&lt;div class=&quot;action-right&quot;&gt;
-													&lt;span class=&quot;char-count&quot;&gt;0&lt;/span&gt;
-													&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot; data-style=&quot;flat&quot;&gt;Post&lt;/button&gt;
-												&lt;/div&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;post-box&quot;&gt;
+											&lt;!-- Avatar --&gt;
+											&lt;div class=&quot;avatar&quot;&gt;
+												&lt;img src=&quot;/assets/images/avatars/profile.jpg&quot; alt=&quot;User avatar&quot;&gt;
 											&lt;/div&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-					</div>
-
-					<hr>
-
-					<h2>Post Display Card (<code>.post</code>)</h2>
-					<p>The post display card shows the posted content with the user avatar, formatted text including tags, mentions, blockquotes, and post action controls. The card highlights on hover for better user interaction feedback.</p>
-
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-
-								<div class="post">
-									<div class="avatar">
-										<img src="/assets/images/avatars/profile.jpg" alt="Author's avatar">
-									</div>
-
-									<div class="post-content">
-										<div class="header">
-											<div class="author">
-												<a href="#" class="name">Jane Doe</a>
-												<a href="#" class="handle">@janedoe</a>
-											</div>
-											<time class="timestamp" datetime="2025-08-10T20:15">2h ago</time>
-										</div>
-
-										<div class="body truncate">
-											This is an example of a post body. It supports
-											<a href="#">links</a>,
-											<span class="mention">@mentions</span>, and
-											<a href="#" class="hashtag">#hashtags</a>.
-											<button class="show-more">Show more</button>
-										</div>
-
-										<div class="actions post-actions">
-											<div class="action like">
-												<a href="#!" class="icon-action" aria-label="Like">
-													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
-														focusable="false">
-														<path
-															d="m480-147.54-31.77-28.92q-103.07-94.43-170.27-162.56-67.19-68.13-106.84-120.94-39.66-52.81-55.39-95.38Q100-597.9 100-640.69q0-82.3 55.5-137.8Q211-834 292.69-834q55.85 0 103.58 28.16Q444-777.69 480-724q40.46-55.92 86.83-82.96Q613.2-834 667.31-834q81.69 0 137.19 55.51 55.5 55.5 55.5 137.8 0 42.79-15.73 85.35-15.73 42.57-55.34 95.3-39.61 52.72-106.85 120.93-67.24 68.22-170.31 162.65L480-147.54Zm0-60.15q99.72-91.29 164.12-156.48 64.4-65.2 102.33-114.09 37.93-48.89 53.05-86.94 15.11-38.04 15.11-75.35 0-64.22-41.61-106.14-41.62-41.92-105.47-41.92-51.14 0-94.03 30.53-42.88 30.54-74.89 90.23h-37.84q-31.77-59.07-74.65-89.92-42.88-30.84-93.65-30.84-63.47 0-105.28 41.92-41.8 41.92-41.8 106.44 0 37.25 15.17 75.5 15.18 38.24 52.85 87.38 37.67 49.14 102.71 113.98 65.03 64.85 163.88 155.7Zm0-290.46Z" />
-													</svg>
-												</a>
-												<span class="text">12</span>
-											</div>
-
-											<div class="action reply">
-												<a href="#!" class="icon-action" aria-label="Reply">
-													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
-														focusable="false">
-														<path
-															d="M250-410h460v-45.38H250V-410Zm0-127.31h460v-45.38H250v45.38Zm0-127.31h460V-710H250v45.38Zm610 546.16L718.46-260H157.69q-23.53 0-40.61-17.08T100-317.69v-484.62q0-23.53 17.08-40.61T157.69-860h644.62q23.53 0 40.61 17.08T860-802.31v683.85ZM157.69-305.39h580.62l76.3 80.77v-577.69q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H157.69q-4.61 0-8.46 3.84-3.84 3.85-3.84 8.46v484.62q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84Zm-12.3 0v-509.22 509.22Z" />
-													</svg>
-												</a>
-												<span class="text">8</span>
-											</div>
-
-											<div class="action retweet">
-												<a href="#!" class="icon-action" aria-label="Retweet">
-													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
-														focusable="false">
-														<path
-															d="M676.68-100q-42.8 0-72.97-30.24t-30.17-72.99q0-7.62 5.38-33.62L281.46-412.23q-14.74 16.57-34.8 26.02-20.07 9.44-43.81 9.44-42.6 0-72.72-30.17Q100-437.12 100-480t30.13-73.06q30.12-30.17 72.72-30.17 22.74 0 42.64 8.91 19.9 8.91 34.36 25.32l299.07-173.77q-2.38-8-3.88-16.5t-1.5-17.5q0-42.75 30.26-72.99Q634.07-860 676.86-860q42.79 0 72.97 30.26Q780-799.47 780-756.68q0 42.8-30.24 72.97t-72.99 30.17q-22.5 0-41.71-9t-33.68-24L300.46-515.23q3 8 4.5 17.11 1.5 9.12 1.5 17.62 0 8.88-1.19 16.58-1.19 7.69-3.58 15.69l300.69 174.15q14.47-15 33.41-23.69 18.94-8.69 41.13-8.69 43.1 0 73.09 30.26Q780-245.93 780-203.14q0 42.79-30.26 72.97Q719.47-100 676.68-100Z" />
-													</svg>
-												</a>
-												<span class="text">54</span>
-											</div>
-										</div>
 										
-									</div>
+											&lt;!-- Content --&gt;
+											&lt;div class=&quot;content&quot;&gt;
+												&lt;!-- Textarea --&gt;
+												&lt;textarea placeholder=&quot;What&apos;s happening?&quot;&gt;&lt;/textarea&gt;
+										
+												&lt;!-- Actions --&gt;
+												&lt;div class=&quot;actions&quot;&gt;
+													&lt;!-- Left: Action icons --&gt;
+													&lt;div class=&quot;action-icons&quot;&gt;
+														&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;
+															&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;
+																&lt;path
+																	d=&quot;M197.69-140q-23.61 0-40.65-17.04T140-197.69v-564.62q0-23.61 17.04-40.65T197.69-820h564.62q23.61 0 40.65 17.04T820-762.31v564.62q0 23.61-17.04 40.65T762.31-140H197.69Zm69.47-147.77h429.76L567.23-460.31 446.38-306.23l-82.23-107.38-96.99 125.84Z&quot; /&gt;
+															&lt;/svg&gt;
+														&lt;/a&gt;
+										
+														&lt;!-- More icons... --&gt;
+													&lt;/div&gt;
+										
+													&lt;!-- Right: Character count + Submit --&gt;
+													&lt;div class=&quot;action-right&quot;&gt;
+														&lt;span class=&quot;char-count&quot;&gt;0&lt;/span&gt;
+														&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot; data-style=&quot;flat&quot;&gt;Post&lt;/button&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
 								</div>
-
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;post&quot;&gt;
-										&lt;div class=&quot;avatar&quot;&gt;
-											&lt;img src=&quot;/assets/images/avatars/profile.jpg&quot; alt=&quot;Author&apos;s avatar&quot;&gt;
-										&lt;/div&gt;
-
-										&lt;div class=&quot;post-content&quot;&gt;
-											&lt;div class=&quot;header&quot;&gt;
-												&lt;div class=&quot;author&quot;&gt;
-													&lt;a href=&quot;#&quot; class=&quot;name&quot;&gt;Jane Doe&lt;/a&gt;
-													&lt;a href=&quot;#&quot; class=&quot;handle&quot;&gt;@janedoe&lt;/a&gt;
-												&lt;/div&gt;
-												&lt;time class=&quot;timestamp&quot; datetime=&quot;2025-08-10T20:15&quot;&gt;2h ago&lt;/time&gt;
-											&lt;/div&gt;
-
-											&lt;div class=&quot;body truncate&quot;&gt;
-												This is an example of a post body. It supports
-												&lt;a href=&quot;#&quot;&gt;links&lt;/a&gt;,
-												&lt;span class=&quot;mention&quot;&gt;@mentions&lt;/span&gt;, and
-												&lt;a href=&quot;#&quot; class=&quot;hashtag&quot;&gt;#hashtags&lt;/a&gt;.
-												&lt;button class=&quot;show-more&quot;&gt;Show more&lt;/button&gt;
-											&lt;/div&gt;
-
-											&lt;div class=&quot;actions post-actions&quot;&gt;
-												&lt;div class=&quot;action like&quot;&gt;
-													&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot; aria-label=&quot;Like&quot;&gt;
-														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot; role=&quot;img&quot; aria-hidden=&quot;true&quot;
-															focusable=&quot;false&quot;&gt;
-															&lt;path
-																d=&quot;m480-147.54-31.77-28.92q-103.07-94.43-170.27-162.56-67.19-68.13-106.84-120.94-39.66-52.81-55.39-95.38Q100-597.9 100-640.69q0-82.3 55.5-137.8Q211-834 292.69-834q55.85 0 103.58 28.16Q444-777.69 480-724q40.46-55.92 86.83-82.96Q613.2-834 667.31-834q81.69 0 137.19 55.51 55.5 55.5 55.5 137.8 0 42.79-15.73 85.35-15.73 42.57-55.34 95.3-39.61 52.72-106.85 120.93-67.24 68.22-170.31 162.65L480-147.54Zm0-60.15q99.72-91.29 164.12-156.48 64.4-65.2 102.33-114.09 37.93-48.89 53.05-86.94 15.11-38.04 15.11-75.35 0-64.22-41.61-106.14-41.62-41.92-105.47-41.92-51.14 0-94.03 30.53-42.88 30.54-74.89 90.23h-37.84q-31.77-59.07-74.65-89.92-42.88-30.84-93.65-30.84-63.47 0-105.28 41.92-41.8 41.92-41.8 106.44 0 37.25 15.17 75.5 15.18 38.24 52.85 87.38 37.67 49.14 102.71 113.98 65.03 64.85 163.88 155.7Zm0-290.46Z&quot; /&gt;
-														&lt;/svg&gt;
-													&lt;/a&gt;
-													&lt;span class=&quot;text&quot;&gt;12&lt;/span&gt;
-												&lt;/div&gt;
-
-												&lt;div class=&quot;action reply&quot;&gt;
-													&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot; aria-label=&quot;Reply&quot;&gt;
-														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot; role=&quot;img&quot; aria-hidden=&quot;true&quot;
-															focusable=&quot;false&quot;&gt;
-															&lt;path
-																d=&quot;M250-410h460v-45.38H250V-410Zm0-127.31h460v-45.38H250v45.38Zm0-127.31h460V-710H250v45.38Zm610 546.16L718.46-260H157.69q-23.53 0-40.61-17.08T100-317.69v-484.62q0-23.53 17.08-40.61T157.69-860h644.62q23.53 0 40.61 17.08T860-802.31v683.85ZM157.69-305.39h580.62l76.3 80.77v-577.69q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H157.69q-4.61 0-8.46 3.84-3.84 3.85-3.84 8.46v484.62q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84Zm-12.3 0v-509.22 509.22Z&quot; /&gt;
-														&lt;/svg&gt;
-													&lt;/a&gt;
-													&lt;span class=&quot;text&quot;&gt;8&lt;/span&gt;
-												&lt;/div&gt;
-
-												&lt;div class=&quot;action retweet&quot;&gt;
-													&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot; aria-label=&quot;Retweet&quot;&gt;
-														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot; role=&quot;img&quot; aria-hidden=&quot;true&quot;
-															focusable=&quot;false&quot;&gt;
-															&lt;path
-																d=&quot;M676.68-100q-42.8 0-72.97-30.24t-30.17-72.99q0-7.62 5.38-33.62L281.46-412.23q-14.74 16.57-34.8 26.02-20.07 9.44-43.81 9.44-42.6 0-72.72-30.17Q100-437.12 100-480t30.13-73.06q30.12-30.17 72.72-30.17 22.74 0 42.64 8.91 19.9 8.91 34.36 25.32l299.07-173.77q-2.38-8-3.88-16.5t-1.5-17.5q0-42.75 30.26-72.99Q634.07-860 676.86-860q42.79 0 72.97 30.26Q780-799.47 780-756.68q0 42.8-30.24 72.97t-72.99 30.17q-22.5 0-41.71-9t-33.68-24L300.46-515.23q3 8 4.5 17.11 1.5 9.12 1.5 17.62 0 8.88-1.19 16.58-1.19 7.69-3.58 15.69l300.69 174.15q14.47-15 33.41-23.69 18.94-8.69 41.13-8.69 43.1 0 73.09 30.26Q780-245.93 780-203.14q0 42.79-30.26 72.97Q719.47-100 676.68-100Z&quot; /&gt;
-														&lt;/svg&gt;
-													&lt;/a&gt;
-													&lt;span class=&quot;text&quot;&gt;54&lt;/span&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
 							</div>
 						</div>
-					</div>
 
+						<hr>
+
+						<h2>Post Display Card (<code>.post</code>)</h2>
+						<p>The post display card shows the posted content with the user avatar, formatted text including tags, mentions, blockquotes, and post action controls. The card highlights on hover for better user interaction feedback.</p>
+
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+
+									<div class="post">
+										<div class="avatar">
+											<img src="/assets/images/avatars/profile.jpg" alt="Author's avatar">
+										</div>
+
+										<div class="post-content">
+											<div class="header">
+												<div class="author">
+													<a href="#" class="name">Jane Doe</a>
+													<a href="#" class="handle">@janedoe</a>
+												</div>
+												<time class="timestamp" datetime="2025-08-10T20:15">2h ago</time>
+											</div>
+
+											<div class="body truncate">
+												This is an example of a post body. It supports
+												<a href="#">links</a>,
+												<span class="mention">@mentions</span>, and
+												<a href="#" class="hashtag">#hashtags</a>.
+												<button class="show-more">Show more</button>
+											</div>
+
+											<div class="actions post-actions">
+												<div class="action like">
+													<a href="#!" class="icon-action" aria-label="Like">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
+															focusable="false">
+															<path
+																d="m480-147.54-31.77-28.92q-103.07-94.43-170.27-162.56-67.19-68.13-106.84-120.94-39.66-52.81-55.39-95.38Q100-597.9 100-640.69q0-82.3 55.5-137.8Q211-834 292.69-834q55.85 0 103.58 28.16Q444-777.69 480-724q40.46-55.92 86.83-82.96Q613.2-834 667.31-834q81.69 0 137.19 55.51 55.5 55.5 55.5 137.8 0 42.79-15.73 85.35-15.73 42.57-55.34 95.3-39.61 52.72-106.85 120.93-67.24 68.22-170.31 162.65L480-147.54Zm0-60.15q99.72-91.29 164.12-156.48 64.4-65.2 102.33-114.09 37.93-48.89 53.05-86.94 15.11-38.04 15.11-75.35 0-64.22-41.61-106.14-41.62-41.92-105.47-41.92-51.14 0-94.03 30.53-42.88 30.54-74.89 90.23h-37.84q-31.77-59.07-74.65-89.92-42.88-30.84-93.65-30.84-63.47 0-105.28 41.92-41.8 41.92-41.8 106.44 0 37.25 15.17 75.5 15.18 38.24 52.85 87.38 37.67 49.14 102.71 113.98 65.03 64.85 163.88 155.7Zm0-290.46Z" />
+														</svg>
+													</a>
+													<span class="text">12</span>
+												</div>
+
+												<div class="action reply">
+													<a href="#!" class="icon-action" aria-label="Reply">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
+															focusable="false">
+															<path
+																d="M250-410h460v-45.38H250V-410Zm0-127.31h460v-45.38H250v45.38Zm0-127.31h460V-710H250v45.38Zm610 546.16L718.46-260H157.69q-23.53 0-40.61-17.08T100-317.69v-484.62q0-23.53 17.08-40.61T157.69-860h644.62q23.53 0 40.61 17.08T860-802.31v683.85ZM157.69-305.39h580.62l76.3 80.77v-577.69q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H157.69q-4.61 0-8.46 3.84-3.84 3.85-3.84 8.46v484.62q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84Zm-12.3 0v-509.22 509.22Z" />
+														</svg>
+													</a>
+													<span class="text">8</span>
+												</div>
+
+												<div class="action retweet">
+													<a href="#!" class="icon-action" aria-label="Retweet">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
+															focusable="false">
+															<path
+																d="M676.68-100q-42.8 0-72.97-30.24t-30.17-72.99q0-7.62 5.38-33.62L281.46-412.23q-14.74 16.57-34.8 26.02-20.07 9.44-43.81 9.44-42.6 0-72.72-30.17Q100-437.12 100-480t30.13-73.06q30.12-30.17 72.72-30.17 22.74 0 42.64 8.91 19.9 8.91 34.36 25.32l299.07-173.77q-2.38-8-3.88-16.5t-1.5-17.5q0-42.75 30.26-72.99Q634.07-860 676.86-860q42.79 0 72.97 30.26Q780-799.47 780-756.68q0 42.8-30.24 72.97t-72.99 30.17q-22.5 0-41.71-9t-33.68-24L300.46-515.23q3 8 4.5 17.11 1.5 9.12 1.5 17.62 0 8.88-1.19 16.58-1.19 7.69-3.58 15.69l300.69 174.15q14.47-15 33.41-23.69 18.94-8.69 41.13-8.69 43.1 0 73.09 30.26Q780-245.93 780-203.14q0 42.79-30.26 72.97Q719.47-100 676.68-100Z" />
+														</svg>
+													</a>
+													<span class="text">54</span>
+												</div>
+											</div>
+											
+										</div>
+									</div>
+
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;post&quot;&gt;
+											&lt;div class=&quot;avatar&quot;&gt;
+												&lt;img src=&quot;/assets/images/avatars/profile.jpg&quot; alt=&quot;Author&apos;s avatar&quot;&gt;
+											&lt;/div&gt;
+
+											&lt;div class=&quot;post-content&quot;&gt;
+												&lt;div class=&quot;header&quot;&gt;
+													&lt;div class=&quot;author&quot;&gt;
+														&lt;a href=&quot;#&quot; class=&quot;name&quot;&gt;Jane Doe&lt;/a&gt;
+														&lt;a href=&quot;#&quot; class=&quot;handle&quot;&gt;@janedoe&lt;/a&gt;
+													&lt;/div&gt;
+													&lt;time class=&quot;timestamp&quot; datetime=&quot;2025-08-10T20:15&quot;&gt;2h ago&lt;/time&gt;
+												&lt;/div&gt;
+
+												&lt;div class=&quot;body truncate&quot;&gt;
+													This is an example of a post body. It supports
+													&lt;a href=&quot;#&quot;&gt;links&lt;/a&gt;,
+													&lt;span class=&quot;mention&quot;&gt;@mentions&lt;/span&gt;, and
+													&lt;a href=&quot;#&quot; class=&quot;hashtag&quot;&gt;#hashtags&lt;/a&gt;.
+													&lt;button class=&quot;show-more&quot;&gt;Show more&lt;/button&gt;
+												&lt;/div&gt;
+
+												&lt;div class=&quot;actions post-actions&quot;&gt;
+													&lt;div class=&quot;action like&quot;&gt;
+														&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot; aria-label=&quot;Like&quot;&gt;
+															&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot; role=&quot;img&quot; aria-hidden=&quot;true&quot;
+																focusable=&quot;false&quot;&gt;
+																&lt;path
+																	d=&quot;m480-147.54-31.77-28.92q-103.07-94.43-170.27-162.56-67.19-68.13-106.84-120.94-39.66-52.81-55.39-95.38Q100-597.9 100-640.69q0-82.3 55.5-137.8Q211-834 292.69-834q55.85 0 103.58 28.16Q444-777.69 480-724q40.46-55.92 86.83-82.96Q613.2-834 667.31-834q81.69 0 137.19 55.51 55.5 55.5 55.5 137.8 0 42.79-15.73 85.35-15.73 42.57-55.34 95.3-39.61 52.72-106.85 120.93-67.24 68.22-170.31 162.65L480-147.54Zm0-60.15q99.72-91.29 164.12-156.48 64.4-65.2 102.33-114.09 37.93-48.89 53.05-86.94 15.11-38.04 15.11-75.35 0-64.22-41.61-106.14-41.62-41.92-105.47-41.92-51.14 0-94.03 30.53-42.88 30.54-74.89 90.23h-37.84q-31.77-59.07-74.65-89.92-42.88-30.84-93.65-30.84-63.47 0-105.28 41.92-41.8 41.92-41.8 106.44 0 37.25 15.17 75.5 15.18 38.24 52.85 87.38 37.67 49.14 102.71 113.98 65.03 64.85 163.88 155.7Zm0-290.46Z&quot; /&gt;
+															&lt;/svg&gt;
+														&lt;/a&gt;
+														&lt;span class=&quot;text&quot;&gt;12&lt;/span&gt;
+													&lt;/div&gt;
+
+													&lt;div class=&quot;action reply&quot;&gt;
+														&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot; aria-label=&quot;Reply&quot;&gt;
+															&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot; role=&quot;img&quot; aria-hidden=&quot;true&quot;
+																focusable=&quot;false&quot;&gt;
+																&lt;path
+																	d=&quot;M250-410h460v-45.38H250V-410Zm0-127.31h460v-45.38H250v45.38Zm0-127.31h460V-710H250v45.38Zm610 546.16L718.46-260H157.69q-23.53 0-40.61-17.08T100-317.69v-484.62q0-23.53 17.08-40.61T157.69-860h644.62q23.53 0 40.61 17.08T860-802.31v683.85ZM157.69-305.39h580.62l76.3 80.77v-577.69q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H157.69q-4.61 0-8.46 3.84-3.84 3.85-3.84 8.46v484.62q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84Zm-12.3 0v-509.22 509.22Z&quot; /&gt;
+															&lt;/svg&gt;
+														&lt;/a&gt;
+														&lt;span class=&quot;text&quot;&gt;8&lt;/span&gt;
+													&lt;/div&gt;
+
+													&lt;div class=&quot;action retweet&quot;&gt;
+														&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot; aria-label=&quot;Retweet&quot;&gt;
+															&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot; role=&quot;img&quot; aria-hidden=&quot;true&quot;
+																focusable=&quot;false&quot;&gt;
+																&lt;path
+																	d=&quot;M676.68-100q-42.8 0-72.97-30.24t-30.17-72.99q0-7.62 5.38-33.62L281.46-412.23q-14.74 16.57-34.8 26.02-20.07 9.44-43.81 9.44-42.6 0-72.72-30.17Q100-437.12 100-480t30.13-73.06q30.12-30.17 72.72-30.17 22.74 0 42.64 8.91 19.9 8.91 34.36 25.32l299.07-173.77q-2.38-8-3.88-16.5t-1.5-17.5q0-42.75 30.26-72.99Q634.07-860 676.86-860q42.79 0 72.97 30.26Q780-799.47 780-756.68q0 42.8-30.24 72.97t-72.99 30.17q-22.5 0-41.71-9t-33.68-24L300.46-515.23q3 8 4.5 17.11 1.5 9.12 1.5 17.62 0 8.88-1.19 16.58-1.19 7.69-3.58 15.69l300.69 174.15q14.47-15 33.41-23.69 18.94-8.69 41.13-8.69 43.1 0 73.09 30.26Q780-245.93 780-203.14q0 42.79-30.26 72.97Q719.47-100 676.68-100Z&quot; /&gt;
+															&lt;/svg&gt;
+														&lt;/a&gt;
+														&lt;span class=&quot;text&quot;&gt;54&lt;/span&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+						</div>
+
+					</article>	
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

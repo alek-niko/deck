@@ -308,75 +308,79 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Embed</h1>
-					<p class="text-lead">Responsive container for embedding videos, iframes, or any media with fixed aspect ratios.</p>
-					<hr>
-					<h2>Usage</h2>
-					<p>Wrap your <code>&lt;iframe&gt;</code>, <code>&lt;video&gt;</code>, or <code>&lt;object&gt;</code> inside a <code>.embed</code> container to maintain a responsive 16:9 aspect ratio by default.</p>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Embed</h1>
+						<p class="text-lead">Responsive container for embedding videos, iframes, or any media with fixed aspect ratios.</p>
+						<hr>
+						<h2>Usage</h2>
+						<p>Wrap your <code>&lt;iframe&gt;</code>, <code>&lt;video&gt;</code>, or <code>&lt;object&gt;</code> inside a <code>.embed</code> container to maintain a responsive 16:9 aspect ratio by default.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="embed">
-									<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="embed">
+										<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Aspect Ratio Modifiers</h2>
-					<p>To change the aspect ratio, apply one of the modifier classes:</p>
+						<h2>Aspect Ratio Modifiers</h2>
+						<p>To change the aspect ratio, apply one of the modifier classes:</p>
 
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.embed-square</code></td>
-									<td>Give the message a prominent styling.</td>
-								</tr>
-								<tr>
-									<td><code>.embed-4x3</code></td>
-									<td>Indicates success or a positive message.</td>
-								</tr>
-								<tr>
-									<td><code>.embed-21x9</code></td>
-									<td>Indicates a message containing a warning.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.embed-square</code></td>
+										<td>Give the message a prominent styling.</td>
+									</tr>
+									<tr>
+										<td><code>.embed-4x3</code></td>
+										<td>Indicates success or a positive message.</td>
+									</tr>
+									<tr>
+										<td><code>.embed-21x9</code></td>
+										<td>Indicates a message containing a warning.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-					<p>The embedded content will scale fluidly with the width of the container, preserving the desired ratio.</p>
+						<p>The embedded content will scale fluidly with the width of the container, preserving the desired ratio.</p>
 
 
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

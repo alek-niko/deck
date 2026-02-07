@@ -308,172 +308,177 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
 
-					<h1>Flex</h1>
-					<p class="text-lead">Utilize the power of flexbox to create a wide range of layouts.</p>
-					<p>The Flex component has an essential role in building layouts in Deck.</p>
-					
-					<hr>
-					
-					<h2>Usage</h2>
-					<p>To apply the flexbox layout model, use one of the following classes. By default, all flex items are aligned to the left, as wide as their content and matched in height.</p>
-					
-					<div class="overflow-auto">
+						<h1>Flex</h1>
+						<p class="text-lead">Utilize the power of flexbox to create a wide range of layouts.</p>
+						<p>The Flex component has an essential role in building layouts in Deck.</p>
+						
+						<hr>
+						
+						<h2>Usage</h2>
+						<p>To apply the flexbox layout model, use one of the following classes. By default, all flex items are aligned to the left, as wide as their content and matched in height.</p>
+						
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.flex</code></td>
+										<td>Create the flex container and behave like a block element.</td>
+									</tr>
+									<tr>
+										<td><code>.flex-inline</code></td>
+										<td>Create the flex container and behave like an inline element.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<h2>Available Tokens</h2>
+
+						<pre><code>
+
+						</code></pre>
+
+
+						<h2>Flex Direction</h2>
+
 						<table class="table table-divider">
 							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
+								<tr><th>Class</th><th>Description</th></tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td><code>.flex</code></td>
-									<td>Create the flex container and behave like a block element.</td>
-								</tr>
-								<tr>
-									<td><code>.flex-inline</code></td>
-									<td>Create the flex container and behave like an inline element.</td>
-								</tr>
+								<tr><td><code>.flex-row</code></td><td>Sets flex direction to <code>row</code>.</td></tr>
+								<tr><td><code>.flex-col</code></td><td>Sets flex direction to <code>column</code>.</td></tr>
+								<tr><td><code>.flex-row-reverse</code></td><td>Reverses flex direction on row axis.</td></tr>
+								<tr><td><code>.flex-col-reverse</code></td><td>Reverses flex direction on column axis.</td></tr>
 							</tbody>
 						</table>
-					</div>
 
-					<h2>Available Tokens</h2>
+						<h2>Flex Wrapping</h2>
 
-					<pre><code>
+						<table class="table table-divider">
+							<thead>
+								<tr><th>Class</th><th>Description</th></tr>
+							</thead>
+							<tbody>
+								<tr><td><code>.flex-wrap</code></td><td>Allows flex items to wrap.</td></tr>
+								<tr><td><code>.flex-nowrap</code></td><td>Prevents flex items from wrapping.</td></tr>
+								<tr><td><code>.flex-wrap-reverse</code></td><td>Wraps flex items in reverse order.</td></tr>
+							</tbody>
+						</table>
 
-					</code></pre>
+						<h2>Justify Content</h2>
 
+						<table class="table table-divider">
+							<thead>
+								<tr><th>Class</th><th>Description</th></tr>
+							</thead>
+							<tbody>
+								<tr><td><code>.justify-start</code></td><td>Align items to the start of the main axis.</td></tr>
+								<tr><td><code>.justify-end</code></td><td>Align items to the end of the main axis.</td></tr>
+								<tr><td><code>.justify-center</code></td><td>Center items along the main axis.</td></tr>
+								<tr><td><code>.justify-between</code></td><td>Distribute items with space between.</td></tr>
+								<tr><td><code>.justify-around</code></td><td>Distribute items with space around each.</td></tr>
+								<tr><td><code>.justify-evenly</code></td><td>Distribute items with equal space around all items.</td></tr>
+							</tbody>
+						</table>
 
-					<h2>Flex Direction</h2>
+						<h2>Align Items</h2>
 
-					<table class="table table-divider">
-						<thead>
-							<tr><th>Class</th><th>Description</th></tr>
-						</thead>
-						<tbody>
-							<tr><td><code>.flex-row</code></td><td>Sets flex direction to <code>row</code>.</td></tr>
-							<tr><td><code>.flex-col</code></td><td>Sets flex direction to <code>column</code>.</td></tr>
-							<tr><td><code>.flex-row-reverse</code></td><td>Reverses flex direction on row axis.</td></tr>
-							<tr><td><code>.flex-col-reverse</code></td><td>Reverses flex direction on column axis.</td></tr>
-						</tbody>
-					</table>
+						<table class="table table-divider">
+							<thead>
+								<tr><th>Class</th><th>Description</th></tr>
+							</thead>
+							<tbody>
+								<tr><td><code>.items-start</code></td><td>Align items to the start of the cross axis.</td></tr>
+								<tr><td><code>.items-end</code></td><td>Align items to the end of the cross axis.</td></tr>
+								<tr><td><code>.items-center</code></td><td>Align items to the center of the cross axis.</td></tr>
+								<tr><td><code>.items-baseline</code></td><td>Align items along their baselines.</td></tr>
+								<tr><td><code>.items-stretch</code></td><td>Stretch items to fill the container (default).</td></tr>
+							</tbody>
+						</table>
 
-					<h2>Flex Wrapping</h2>
+						<h2>Align Self (on child)</h2>
 
-					<table class="table table-divider">
-						<thead>
-							<tr><th>Class</th><th>Description</th></tr>
-						</thead>
-						<tbody>
-							<tr><td><code>.flex-wrap</code></td><td>Allows flex items to wrap.</td></tr>
-							<tr><td><code>.flex-nowrap</code></td><td>Prevents flex items from wrapping.</td></tr>
-							<tr><td><code>.flex-wrap-reverse</code></td><td>Wraps flex items in reverse order.</td></tr>
-						</tbody>
-					</table>
+						<table class="table table-divider">
+							<thead>
+								<tr><th>Class</th><th>Description</th></tr>
+							</thead>
+							<tbody>
+								<tr><td><code>.self-start</code></td><td>Align a single item to the start of the cross axis.</td></tr>
+								<tr><td><code>.self-end</code></td><td>Align a single item to the end of the cross axis.</td></tr>
+								<tr><td><code>.self-center</code></td><td>Center a single item along the cross axis.</td></tr>
+								<tr><td><code>.self-baseline</code></td><td>Align a single item to its baseline.</td></tr>
+								<tr><td><code>.self-stretch</code></td><td>Stretch a single item to fill the container.</td></tr>
+							</tbody>
+						</table>
 
-					<h2>Justify Content</h2>
+						<h2>Gap Utilities</h2>
 
-					<table class="table table-divider">
-						<thead>
-							<tr><th>Class</th><th>Description</th></tr>
-						</thead>
-						<tbody>
-							<tr><td><code>.justify-start</code></td><td>Align items to the start of the main axis.</td></tr>
-							<tr><td><code>.justify-end</code></td><td>Align items to the end of the main axis.</td></tr>
-							<tr><td><code>.justify-center</code></td><td>Center items along the main axis.</td></tr>
-							<tr><td><code>.justify-between</code></td><td>Distribute items with space between.</td></tr>
-							<tr><td><code>.justify-around</code></td><td>Distribute items with space around each.</td></tr>
-							<tr><td><code>.justify-evenly</code></td><td>Distribute items with equal space around all items.</td></tr>
-						</tbody>
-					</table>
+						<table class="table table-divider">
+							<thead>
+								<tr><th>Class</th><th>Description</th></tr>
+							</thead>
+							<tbody>
+								<tr><td><code>.gap</code></td><td>Sets default gap using <code>--gap</code> or <code>$spacing-md</code>.</td></tr>
+								<tr><td><code>.gap-none</code></td><td>Removes all gaps between items.</td></tr>
+								<tr><td><code>.gap-xs</code></td><td>Extra-small gap.</td></tr>
+								<tr><td><code>.gap-sm</code></td><td>Small gap.</td></tr>
+								<tr><td><code>.gap-md</code></td><td>Medium gap.</td></tr>
+								<tr><td><code>.gap-lg</code></td><td>Large gap.</td></tr>
+								<tr><td><code>.gap-xl</code></td><td>Extra-large gap.</td></tr>
+							</tbody>
+						</table>
 
-					<h2>Align Items</h2>
+						<h2>Grow / Shrink / Basis</h2>
 
-					<table class="table table-divider">
-						<thead>
-							<tr><th>Class</th><th>Description</th></tr>
-						</thead>
-						<tbody>
-							<tr><td><code>.items-start</code></td><td>Align items to the start of the cross axis.</td></tr>
-							<tr><td><code>.items-end</code></td><td>Align items to the end of the cross axis.</td></tr>
-							<tr><td><code>.items-center</code></td><td>Align items to the center of the cross axis.</td></tr>
-							<tr><td><code>.items-baseline</code></td><td>Align items along their baselines.</td></tr>
-							<tr><td><code>.items-stretch</code></td><td>Stretch items to fill the container (default).</td></tr>
-						</tbody>
-					</table>
+						<table class="table table-divider">
+							<thead>
+								<tr><th>Class</th><th>Description</th></tr>
+							</thead>
+							<tbody>
+								<tr><td><code>.flex-1</code></td><td>Flex item grows to fill remaining space.</td></tr>
+								<tr><td><code>.flex-auto</code></td><td>Sets flex to <code>auto</code>: adjusts based on content.</td></tr>
+								<tr><td><code>.flex-none</code></td><td>Prevents item from growing or shrinking.</td></tr>
+								<tr><td><code>.flex-grow</code></td><td>Forces item to grow to fill available space.</td></tr>
+								<tr><td><code>.flex-no-grow</code></td><td>Prevents item from growing.</td></tr>
+								<tr><td><code>.flex-shrink</code></td><td>Allows item to shrink if needed.</td></tr>
+								<tr><td><code>.flex-no-shrink</code></td><td>Prevents item from shrinking.</td></tr>
+							</tbody>
+						</table>
 
-					<h2>Align Self (on child)</h2>
+						<h2>Order Utilities</h2>
 
-					<table class="table table-divider">
-						<thead>
-							<tr><th>Class</th><th>Description</th></tr>
-						</thead>
-						<tbody>
-							<tr><td><code>.self-start</code></td><td>Align a single item to the start of the cross axis.</td></tr>
-							<tr><td><code>.self-end</code></td><td>Align a single item to the end of the cross axis.</td></tr>
-							<tr><td><code>.self-center</code></td><td>Center a single item along the cross axis.</td></tr>
-							<tr><td><code>.self-baseline</code></td><td>Align a single item to its baseline.</td></tr>
-							<tr><td><code>.self-stretch</code></td><td>Stretch a single item to fill the container.</td></tr>
-						</tbody>
-					</table>
-
-					<h2>Gap Utilities</h2>
-
-					<table class="table table-divider">
-						<thead>
-							<tr><th>Class</th><th>Description</th></tr>
-						</thead>
-						<tbody>
-							<tr><td><code>.gap</code></td><td>Sets default gap using <code>--gap</code> or <code>$spacing-md</code>.</td></tr>
-							<tr><td><code>.gap-none</code></td><td>Removes all gaps between items.</td></tr>
-							<tr><td><code>.gap-xs</code></td><td>Extra-small gap.</td></tr>
-							<tr><td><code>.gap-sm</code></td><td>Small gap.</td></tr>
-							<tr><td><code>.gap-md</code></td><td>Medium gap.</td></tr>
-							<tr><td><code>.gap-lg</code></td><td>Large gap.</td></tr>
-							<tr><td><code>.gap-xl</code></td><td>Extra-large gap.</td></tr>
-						</tbody>
-					</table>
-
-					<h2>Grow / Shrink / Basis</h2>
-
-					<table class="table table-divider">
-						<thead>
-							<tr><th>Class</th><th>Description</th></tr>
-						</thead>
-						<tbody>
-							<tr><td><code>.flex-1</code></td><td>Flex item grows to fill remaining space.</td></tr>
-							<tr><td><code>.flex-auto</code></td><td>Sets flex to <code>auto</code>: adjusts based on content.</td></tr>
-							<tr><td><code>.flex-none</code></td><td>Prevents item from growing or shrinking.</td></tr>
-							<tr><td><code>.flex-grow</code></td><td>Forces item to grow to fill available space.</td></tr>
-							<tr><td><code>.flex-no-grow</code></td><td>Prevents item from growing.</td></tr>
-							<tr><td><code>.flex-shrink</code></td><td>Allows item to shrink if needed.</td></tr>
-							<tr><td><code>.flex-no-shrink</code></td><td>Prevents item from shrinking.</td></tr>
-						</tbody>
-					</table>
-
-					<h2>Order Utilities</h2>
-
-					<table class="table table-divider">
-						<thead>
-							<tr><th>Class</th><th>Description</th></tr>
-						</thead>
-						<tbody>
-							<tr><td><code>.order-first</code></td><td>Places the item first in the order.</td></tr>
-							<tr><td><code>.order-last</code></td><td>Places the item last (highest order).</td></tr>
-							<tr><td><code>.order-0</code></td><td>Sets order to <code>0</code>.</td></tr>
-							<tr><td><code>.order-1</code></td><td>Sets order to <code>1</code>.</td></tr>
-							<tr><td><code>.order-2</code></td><td>Sets order to <code>2</code>.</td></tr>
-						</tbody>
-					</table>
-					
+						<table class="table table-divider">
+							<thead>
+								<tr><th>Class</th><th>Description</th></tr>
+							</thead>
+							<tbody>
+								<tr><td><code>.order-first</code></td><td>Places the item first in the order.</td></tr>
+								<tr><td><code>.order-last</code></td><td>Places the item last (highest order).</td></tr>
+								<tr><td><code>.order-0</code></td><td>Sets order to <code>0</code>.</td></tr>
+								<tr><td><code>.order-1</code></td><td>Sets order to <code>1</code>.</td></tr>
+								<tr><td><code>.order-2</code></td><td>Sets order to <code>2</code>.</td></tr>
+							</tbody>
+						</table>
+						
+					</article>
 				</div>
+
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

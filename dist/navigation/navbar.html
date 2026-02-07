@@ -308,648 +308,229 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Navbar</h1>
-					<p class="text-lead">Create a navigation bar with dropdown menus for the main site navigation.</p>
-					<p>The Navbar component initializes all dropdowns with the same options, so they don't have to be initialized individually. All dropdowns within the navbar are aim-aware. This means the dropdowns stay open as long as the mouse pointer moves towards the dropdown. An additional delay ensures that dropdowns stay open even if the mouse pointer shortly moves in another direction. In hover mode dropdowns close immediately if another menu item is hovered.</p>
-					<hr>
-					<h2>Usage</h2>
-					<p>The Navbar component consists of a navbar container, the navbar itself and one or more navigations.</p>
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Element</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>navbar</code></td>
-									<td>Add this attribute to a <code>&lt;nav&gt;</code> element to define the Navbar component.</td>
-								</tr>
-								<tr>
-									<td><code>.navbar-container</code></td>
-									<td>Add this class to the same <code>&lt;nav&gt;</code> element or a parent element to add the navbar
-										background style.</td>
-								</tr>
-								<tr>
-									<td><code>.navbar-left</code><br> <code>.navbar-center</code><br> <code>.navbar-right</code></td>
-									<td>Add one of these classes to a <code>&lt;div&gt;</code> element to align the navigation.</td>
-								</tr>
-								<tr>
-									<td><code>.navbar-nav</code></td>
-									<td>Add this class to a <code>&lt;ul&gt;</code> element to create the navigation. Use
-										<code>&lt;a&gt;</code> elements as menu items within the list.</td>
-								</tr>
-								<tr>
-									<td><code>.parent</code></td>
-									<td>Add this class to indicate a parent menu item.</td>
-								</tr>
-								<tr>
-									<td><code>.active</code></td>
-									<td>Add this class to indicate an active menu item.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Navbar</h1>
+						<p class="text-lead">Create a navigation bar with dropdown menus for the main site navigation.</p>
+						<p>The Navbar component initializes all dropdowns with the same options, so they don't have to be initialized individually. All dropdowns within the navbar are aim-aware. This means the dropdowns stay open as long as the mouse pointer moves towards the dropdown. An additional delay ensures that dropdowns stay open even if the mouse pointer shortly moves in another direction. In hover mode dropdowns close immediately if another menu item is hovered.</p>
+						<hr>
+						<h2>Usage</h2>
+						<p>The Navbar component consists of a navbar container, the navbar itself and one or more navigations.</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Element</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>navbar</code></td>
+										<td>Add this attribute to a <code>&lt;nav&gt;</code> element to define the Navbar component.</td>
+									</tr>
+									<tr>
+										<td><code>.navbar-container</code></td>
+										<td>Add this class to the same <code>&lt;nav&gt;</code> element or a parent element to add the navbar
+											background style.</td>
+									</tr>
+									<tr>
+										<td><code>.navbar-left</code><br> <code>.navbar-center</code><br> <code>.navbar-right</code></td>
+										<td>Add one of these classes to a <code>&lt;div&gt;</code> element to align the navigation.</td>
+									</tr>
+									<tr>
+										<td><code>.navbar-nav</code></td>
+										<td>Add this class to a <code>&lt;ul&gt;</code> element to create the navigation. Use
+											<code>&lt;a&gt;</code> elements as menu items within the list.</td>
+									</tr>
+									<tr>
+										<td><code>.parent</code></td>
+										<td>Add this class to indicate a parent menu item.</td>
+									</tr>
+									<tr>
+										<td><code>.active</code></td>
+										<td>Add this class to indicate an active menu item.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-					<div>
-						<pre><code>
-&lt;nav class=&quot;navbar-container&quot; navbar&gt;
-	&lt;div class=&quot;navbar-left&quot;&gt;
-		&lt;ul class=&quot;navbar-nav&quot;&gt;
-			&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-			&lt;li class=&quot;parent&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/div&gt;
-&lt;/nav&gt;
-						</code></pre>
-					</div>
+						<div>
+							<pre><code>
+								&lt;nav class=&quot;navbar-container&quot; navbar&gt;
+									&lt;div class=&quot;navbar-left&quot;&gt;
+										&lt;ul class=&quot;navbar-nav&quot;&gt;
+											&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+											&lt;li class=&quot;parent&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+										&lt;/ul&gt;
+									&lt;/div&gt;
+								&lt;/nav&gt;
+							</code></pre>
+						</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="navbar navbar-container">
-									<div class="navbar-left">
-										<ul class="navbar-nav">
-											<li class="active"><a href="#!">Active</a></li>
-											<li>
-												<a href="#!">Parent</a>
-												<div class="navbar-dropdown drop">
-													<ul class="nav navbar-dropdown-nav">
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="navbar navbar-container">
+										<div class="navbar-left">
+											<ul class="navbar-nav">
+												<li class="active"><a href="#!">Active</a></li>
+												<li>
+													<a href="#!">Parent</a>
+													<div class="navbar-dropdown drop">
+														<ul class="nav navbar-dropdown-nav">
+															<li class="active"><a href="#!">Active</a></li>
+															<li><a href="#!">Item</a></li>
+															<li><a href="#!">Item</a></li>
+														</ul>
+													</div>
+												</li>
+												<li><a href="#!">Item</a></li>
+											</ul>
+										</div>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;navbar navbar-container&quot;&gt;
+											&lt;div class=&quot;navbar-left&quot;&gt;
+												&lt;ul class=&quot;navbar-nav&quot;&gt;
+													&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+													&lt;li&gt;
+														&lt;a href=&quot;#!&quot;&gt;Parent&lt;/a&gt;
+														&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
+															&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
+																&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;/ul&gt;
+														&lt;/div&gt;
+													&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/div&gt;
+										&lt;/nav&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<p>Neither the navbar, nor the navbar container have horizontal padding. To set the same horizontal padding as the rest of the page use the <a href="component-container.html">Container component</a>.</p>
+						<div>
+							<pre><code>
+								&lt;nav class=&quot;navbar-container&quot;&gt;
+									&lt;div class=&quot;container&quot;&gt;
+										&lt;div class=&quot;navbar&quot;&gt;…&lt;/div&gt;
+									&lt;/div&gt;
+								&lt;/nav&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="navbar-container">
+										<div class="container">
+											<div class="navbar">
+												<div class="navbar-left">
+													<ul class="navbar-nav">
 														<li class="active"><a href="#!">Active</a></li>
-														<li><a href="#!">Item</a></li>
+														<li>
+															<a href="#!">Parent</a>
+															<div class="navbar-dropdown drop">
+																<ul class="nav navbar-dropdown-nav">
+																	<li class="active"><a href="#!">Active</a></li>
+																	<li><a href="#!">Item</a></li>
+																	<li><a href="#!">Item</a></li>
+																</ul>
+															</div>
+														</li>
 														<li><a href="#!">Item</a></li>
 													</ul>
 												</div>
-											</li>
-											<li><a href="#!">Item</a></li>
-										</ul>
-									</div>
-								</nav>
-							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;navbar navbar-container&quot;&gt;
-	&lt;div class=&quot;navbar-left&quot;&gt;
-		&lt;ul class=&quot;navbar-nav&quot;&gt;
-			&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;
-				&lt;a href=&quot;#!&quot;&gt;Parent&lt;/a&gt;
-				&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
-					&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
-						&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-						&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-						&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;/ul&gt;
-				&lt;/div&gt;
-			&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/div&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<p>Neither the navbar, nor the navbar container have horizontal padding. To set the same horizontal padding as the rest of the page use the <a href="component-container.html">Container component</a>.</p>
-					<div>
-						<pre><code>
-&lt;nav class=&quot;navbar-container&quot;&gt;
-	&lt;div class=&quot;container&quot;&gt;
-		&lt;div class=&quot;navbar&quot;&gt;…&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/nav&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="navbar-container">
-									<div class="container">
-										<div class="navbar">
-											<div class="navbar-left">
-												<ul class="navbar-nav">
-													<li class="active"><a href="#!">Active</a></li>
-													<li>
-														<a href="#!">Parent</a>
-														<div class="navbar-dropdown drop">
-															<ul class="nav navbar-dropdown-nav">
-																<li class="active"><a href="#!">Active</a></li>
-																<li><a href="#!">Item</a></li>
-																<li><a href="#!">Item</a></li>
-															</ul>
-														</div>
-													</li>
-													<li><a href="#!">Item</a></li>
-												</ul>
 											</div>
 										</div>
-									</div>
-								</nav>
-							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;navbar-container&quot;&gt;
-	&lt;div class=&quot;container&quot;&gt;
-		&lt;div class=&quot;navbar&quot;&gt;
-			&lt;div class=&quot;navbar-left&quot;&gt;
-				&lt;ul class=&quot;navbar-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;
-						&lt;a href=&quot;#!&quot;&gt;Parent&lt;/a&gt;
-						&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
-							&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
-								&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;/ul&gt;
-						&lt;/div&gt;
-					&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					
-					<h2>Multiple navigations</h2>
-					<p>You can place more than one navigation inside a navbar container. That way you can have a left-aligned, a centered and a right-aligned navigation inside the same navbar.</p>
-					<div>
-						<pre><code>
-&lt;nav class=&quot;navbar navbar-container&quot;&gt;
-	&lt;div class=&quot;navbar-left&quot;&gt;…&lt;/div&gt;
-	&lt;div class=&quot;navbar-center&quot;&gt;…&lt;/div&gt;
-	&lt;div class=&quot;navbar-right&quot;&gt;…&lt;/div&gt;
-&lt;/nav&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="navbar-container">
-									<div class="container">
-										<div class="navbar">
-											<div class="navbar-left">
-												<ul class="navbar-nav">
-													<li class="active"><a href="#!">Active</a></li>
-													<li>
-														<a href="#!" role="button">Parent</a>
-														<div class="navbar-dropdown drop">
-															<ul class="nav navbar-dropdown-nav">
-																<li class="active"><a href="#!">Active</a></li>
-																<li><a href="#!">Item</a></li>
-																<li><a href="#!">Item</a></li>
-															</ul>
-														</div>
-													</li>
-													<li><a href="#!">Item</a></li>
-												</ul>
-											</div>
-								
-											<div class="navbar-right">
-												<ul class="navbar-nav">
-													<li class="active"><a href="#!">Active</a></li>
-													<li>
-														<a href="#!">Parent</a>
-														<div class="navbar-dropdown drop">
-															<ul class="nav navbar-dropdown-nav">
-																<li class="active"><a href="#!">Active</a></li>
-																<li><a href="#!">Item</a></li>
-																<li><a href="#!">Item</a></li>
-															</ul>
-														</div>
-													</li>
-													<li><a href="#!">Item</a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</nav>
-							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;navbar-container&quot;&gt;
-	&lt;div class=&quot;container&quot;&gt;
-		&lt;div class=&quot;navbar&quot;&gt;
-			&lt;div class=&quot;navbar-left&quot;&gt;
-				&lt;ul class=&quot;navbar-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;
-						&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;Parent&lt;/a&gt;
-						&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
-							&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
-								&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;/ul&gt;
-						&lt;/div&gt;
-					&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-
-			&lt;div class=&quot;navbar-right&quot;&gt;
-				&lt;ul class=&quot;navbar-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;
-						&lt;a href=&quot;#!&quot;&gt;Parent&lt;/a&gt;
-						&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
-							&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
-								&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;/ul&gt;
-						&lt;/div&gt;
-					&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					
-					<h2>Transparent modifier</h2>
-					<p>When using an image or a colored background for the hero section of your website, you might want to turn the navbar transparent. Just add the <code>.navbar-transparent</code> class on the same element as the <code>.navbar-container</code> class. If necessary, add the <code>.light</code> or <code>.dark</code> class from the <a href="/docs/inverse">Inverse component</a> to adjust the navbar color.</p>
-					<div>
-						<pre><code>
-&lt;nav class=&quot;navbar navbar-container navbar-transparent&quot;&gt;…&lt;/nav&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="position-relative">
-									<img src="/assets/images/photos/placeholder.webp" class="round" width="1800" height="1200" alt="">
-									<div class="position-top">
-										<nav class="navbar-container navbar-transparent">
-											<div class="container">
-												<div class="navbar">
-													<div class="navbar-left">
-														<ul class="navbar-nav">
-															<li class="active"><a href="#!">Active</a></li>
-															<li><a href="#!">Item</a></li>
-															<li>
-																<a href="#!" role="button">Parent</a>
-																<div class="navbar-dropdown drop">
-																	<ul class="nav navbar-dropdown-nav">
-																		<li class="active"><a href="#!">Active</a></li>
-																		<li><a href="#!">Item</a></li>
-																		<li class="nav-header">Header</li>
-																		<li><a href="#!">Item</a></li>
-																		<li><a href="#!">Item</a></li>
-																		<li class="nav-divider"></li>
-																		<li><a href="#!">Item</a></li>
-																	</ul>
-																</div>
-															</li>
-														</ul>
-													</div>
-								
-												</div>
-											</div>
-										</nav>
-									</div>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;navbar-container&quot;&gt;
+											&lt;div class=&quot;container&quot;&gt;
+												&lt;div class=&quot;navbar&quot;&gt;
+													&lt;div class=&quot;navbar-left&quot;&gt;
+														&lt;ul class=&quot;navbar-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;
+																&lt;a href=&quot;#!&quot;&gt;Parent&lt;/a&gt;
+																&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
+																	&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
+																		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;/ul&gt;
+																&lt;/div&gt;
+															&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/nav&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;position-relative&quot;&gt;
-	&lt;img src=&quot;/assets/images/photos/placeholder.webp&quot; class=&quot;round&quot; width=&quot;1800&quot; height=&quot;1200&quot; alt=&quot;&quot;&gt;
-	&lt;div class=&quot;position-top&quot;&gt;
-		&lt;nav class=&quot;navbar-container navbar-transparent&quot;&gt;
-			&lt;div class=&quot;container&quot;&gt;
-				&lt;div class=&quot;navbar&quot;&gt;
-					&lt;div class=&quot;navbar-left&quot;&gt;
-						&lt;ul class=&quot;navbar-nav&quot;&gt;
-							&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-							&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;li&gt;
-								&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;Parent&lt;/a&gt;
-								&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
-									&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
-										&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-										&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-										&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-										&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-										&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-										&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-										&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-									&lt;/ul&gt;
-								&lt;/div&gt;
-							&lt;/li&gt;
-						&lt;/ul&gt;
-					&lt;/div&gt;
-
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/nav&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					
-					<h2>Subtitle</h2>
-					<p>To define a subtitle, create a <code>&lt;div&gt;</code> element inside an item's <code>&lt;a&gt;</code> element. Add the <code>.navbar-subtitle</code> class to another <code>&lt;div&gt;</code> element.</p>
-					<div>
-						<pre><code>
-&lt;li&gt;
-	&lt;a href=&quot;&quot;&gt;
-		&lt;div&gt;
-			…
-			&lt;div class=&quot;navbar-subtitle&quot;&gt;&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/a&gt;
-&lt;/li&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="navbar-container">
-									<div class="container">
-										<div class="navbar">
-											<div class="navbar-left">
-												<ul class="navbar-nav">
-													<li class="active">
-														<a href="#!">
-															<div>
-																Active
-																<div class="navbar-subtitle">Subtitle</div>
-															</div>
-														</a>
-													</li>
-													<li>
-														<a href="#!" role="button">
-															<div>
-																Parent
-																<div class="navbar-subtitle">Subtitle</div>
-															</div>
-														</a>
-														<div class="navbar-dropdown drop">
-															<ul class="nav navbar-dropdown-nav">
-																<li class="active"><a href="#!">Active</a></li>
-																<li><a href="#!">Item</a></li>
-																<li><a href="#!">Item</a></li>
-															</ul>
-														</div>
-													</li>
-													<li>
-														<a href="#!">
-															<div>
-																Item
-																<div class="navbar-subtitle">Subtitle</div>
-															</div>
-														</a>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</nav>
-							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;navbar-container&quot;&gt;
-	&lt;div class=&quot;container&quot;&gt;
-		&lt;div class=&quot;navbar&quot;&gt;
-			&lt;div class=&quot;navbar-left&quot;&gt;
-				&lt;ul class=&quot;navbar-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;
-						&lt;a href=&quot;#!&quot;&gt;
-							&lt;div&gt;
-								Active
-								&lt;div class=&quot;navbar-subtitle&quot;&gt;Subtitle&lt;/div&gt;
-							&lt;/div&gt;
-						&lt;/a&gt;
-					&lt;/li&gt;
-					&lt;li&gt;
-						&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;
-							&lt;div&gt;
-								Parent
-								&lt;div class=&quot;navbar-subtitle&quot;&gt;Subtitle&lt;/div&gt;
-							&lt;/div&gt;
-						&lt;/a&gt;
-						&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
-							&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
-								&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;/ul&gt;
-						&lt;/div&gt;
-					&lt;/li&gt;
-					&lt;li&gt;
-						&lt;a href=&quot;#!&quot;&gt;
-							&lt;div&gt;
-								Item
-								&lt;div class=&quot;navbar-subtitle&quot;&gt;Subtitle&lt;/div&gt;
-							&lt;/div&gt;
-						&lt;/a&gt;
-					&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
+						
+						<h2>Multiple navigations</h2>
+						<p>You can place more than one navigation inside a navbar container. That way you can have a left-aligned, a centered and a right-aligned navigation inside the same navbar.</p>
+						<div>
+							<pre><code>
+								&lt;nav class=&quot;navbar navbar-container&quot;&gt;
+									&lt;div class=&quot;navbar-left&quot;&gt;…&lt;/div&gt;
+									&lt;div class=&quot;navbar-center&quot;&gt;…&lt;/div&gt;
+									&lt;div class=&quot;navbar-right&quot;&gt;…&lt;/div&gt;
+								&lt;/nav&gt;
+							</code></pre>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					
-					<h2>Content item</h2>
-					<p>You can also add custom content to the navbar, like text, icons, buttons or forms. Add the <code>.navbar-item</code> class to a <code>&lt;div&gt;</code> element that serves as a container for your content.</p>
-					<div>
-						<pre><code>
-&lt;nav class=&quot;navbar navbar-container&quot;&gt;
-	&lt;div class=&quot;navbar-left&quot;&gt;
-		&lt;a href=&quot;&quot; class=&quot;navbar-item logo&quot;&gt;&lt;/a&gt;
-		&lt;ul class=&quot;navbar-nav&quot;&gt;…&lt;/ul&gt;
-		&lt;div class=&quot;navbar-item&quot;&gt;…&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/nav&gt;
-						</code></pre>
-					</div>
-					<p>Add the <code>.logo</code> class from the <a href="component-util.html">Utility component</a> to an <code>&lt;a&gt;</code> or <code>&lt;div&gt;</code> element to indicate your brand.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="navbar-container">
-									<div class="container">
-										<div class="navbar">
-											<div class="navbar-left">
-												<a class="navbar-item logo" href="#" aria-label="Back to Home">Logo</a>
-												<ul class="navbar-nav">
-													<li>
-														<a href="#!">
-															<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M411.15-260v-45.39h137.31V-260H411.15ZM256.16-457.31v-45.38h447.3v45.38h-447.3ZM140-654.61V-700h680v45.39H140Z"/></svg>
-															Features
-														</a>
-													</li>
-												</ul>
-												<div class="navbar-item">
-													<div>Some <a href="#!">Link</a></div>
-												</div>
-												<div class="navbar-item">
-													<form action="javascript:void(0)">
-														<input class="input form-width-small" type="text" placeholder="Input" aria-label="Input">
-														<button class="button button-default">Button</button>
-													</form>
-												</div>
-											</div>
-										</div>
-									</div>
-								</nav>
-							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;navbar-container&quot;&gt;
-	&lt;div class=&quot;container&quot;&gt;
-		&lt;div class=&quot;navbar&quot;&gt;
-			&lt;div class=&quot;navbar-left&quot;&gt;
-				&lt;a class=&quot;navbar-item logo&quot; href=&quot;#&quot; aria-label=&quot;Back to Home&quot;&gt;Logo&lt;/a&gt;
-				&lt;ul class=&quot;navbar-nav&quot;&gt;
-					&lt;li&gt;
-						&lt;a href=&quot;#!&quot;&gt;
-							&lt;span class=&quot;icon margin-small-right&quot;&gt;filter_list&lt;/span&gt;
-							Features
-						&lt;/a&gt;
-					&lt;/li&gt;
-				&lt;/ul&gt;
-				&lt;div class=&quot;navbar-item&quot;&gt;
-					&lt;div&gt;Some &lt;a href=&quot;#!&quot;&gt;Link&lt;/a&gt;&lt;/div&gt;
-				&lt;/div&gt;
-				&lt;div class=&quot;navbar-item&quot;&gt;
-					&lt;form action=&quot;javascript:void(0)&quot;&gt;
-						&lt;input class=&quot;input form-width-small&quot; type=&quot;text&quot; placeholder=&quot;Input&quot; aria-label=&quot;Input&quot;&gt;
-						&lt;button class=&quot;button button-default&quot;&gt;Button&lt;/button&gt;
-					&lt;/form&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					
-					<h2>Centered logo</h2>
-					<p>You can create a split menu with a centered logo. Just add the <code>navbar-center-left</code> class to one navbar and the <code>navbar-center-right</code> class to another within the same navbar container. This will keep your logo centered and align the menus to the left and right.</p>
-					<div>
-						<pre><code>
-&lt;div class=&quot;navbar navbar-container&quot;&gt;
-	&lt;div class=&quot;navbar-center&quot;&gt;
-		&lt;div class=&quot;navbar-center-left&quot;&gt;…&lt;/div&gt;
-		&lt;a href=&quot;&quot; class=&quot;navbar-item logo&quot;&gt;&lt;/a&gt;
-		&lt;div class=&quot;navbar-center-right&quot;&gt;…&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="navbar-container">
-									<div class="container">
-										<div class="navbar">
-											<div class="navbar-center">
-												<div class="navbar-center-left">
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="navbar-container">
+										<div class="container">
+											<div class="navbar">
+												<div class="navbar-left">
 													<ul class="navbar-nav">
 														<li class="active"><a href="#!">Active</a></li>
 														<li>
@@ -962,614 +543,1037 @@
 																</ul>
 															</div>
 														</li>
+														<li><a href="#!">Item</a></li>
 													</ul>
 												</div>
-												<a class="navbar-item logo" href="#">Logo</a>
-												<div class="navbar-center-right">
+									
+												<div class="navbar-right">
 													<ul class="navbar-nav">
-														<li><a href="#!">Item</a></li>
+														<li class="active"><a href="#!">Active</a></li>
+														<li>
+															<a href="#!">Parent</a>
+															<div class="navbar-dropdown drop">
+																<ul class="nav navbar-dropdown-nav">
+																	<li class="active"><a href="#!">Active</a></li>
+																	<li><a href="#!">Item</a></li>
+																	<li><a href="#!">Item</a></li>
+																</ul>
+															</div>
+														</li>
 														<li><a href="#!">Item</a></li>
 													</ul>
 												</div>
 											</div>
 										</div>
-									</div>
-								</nav>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;navbar-container&quot;&gt;
+											&lt;div class=&quot;container&quot;&gt;
+												&lt;div class=&quot;navbar&quot;&gt;
+													&lt;div class=&quot;navbar-left&quot;&gt;
+														&lt;ul class=&quot;navbar-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;
+																&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;Parent&lt;/a&gt;
+																&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
+																	&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
+																		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;/ul&gt;
+																&lt;/div&gt;
+															&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+
+													&lt;div class=&quot;navbar-right&quot;&gt;
+														&lt;ul class=&quot;navbar-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;
+																&lt;a href=&quot;#!&quot;&gt;Parent&lt;/a&gt;
+																&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
+																	&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
+																		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;/ul&gt;
+																&lt;/div&gt;
+															&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/nav&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;navbar-container&quot;&gt;
-	&lt;div class=&quot;container&quot;&gt;
-		&lt;div class=&quot;navbar&quot;&gt;
-			&lt;div class=&quot;navbar-center&quot;&gt;
-				&lt;div class=&quot;navbar-center-left&quot;&gt;
-					&lt;ul class=&quot;navbar-nav&quot;&gt;
-						&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-						&lt;li&gt;
-							&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;Parent&lt;/a&gt;
-							&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
-								&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
-									&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-									&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-									&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;/ul&gt;
-							&lt;/div&gt;
-						&lt;/li&gt;
-					&lt;/ul&gt;
-				&lt;/div&gt;
-				&lt;a class=&quot;navbar-item logo&quot; href=&quot;#&quot;&gt;Logo&lt;/a&gt;
-				&lt;div class=&quot;navbar-center-right&quot;&gt;
-					&lt;ul class=&quot;navbar-nav&quot;&gt;
-						&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-						&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-					&lt;/ul&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					
-					<h2>Toggle item</h2>
-					<p>Add the <code>.navbar-toggle</code> class and the <code>navbar-toggle-icon</code> attribute to an <code>&lt;a&gt;</code> or <code>&lt;div&gt;</code> element to create an icon as a toggle. By default, there is no JavaScript attached to the toggle. As an example, you can add an off-canvas navigation from the <a href="component-offcanvas.html">Offcanvas component</a> or a modal from the <a href="component-modal.html">Modal component</a>.</p>
-					<div>
-						<pre><code>
-&lt;div class=&quot;navbar&quot;&gt;
-	&lt;div class=&quot;navbar-left&quot;&gt;
-		&lt;a class=&quot;navbar-toggle&quot; href=&quot;#&quot;&gt;
-			&lt;span class=&quot;icon navbar-toggle-icon&quot;&gt;menu&lt;/span&gt;
-			&lt;span class=&quot;margin-small-left&quot;&gt;Menu&lt;/span&gt;
-		&lt;/a&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="navbar-container margin">
-									<div class="container">
-										<div class="navbar">
-											<div class="navbar-left">
-												<a class="navbar-toggle" href="#">
-													<svg class="navbar-toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z"/></svg>
-												</a>
-											</div>
-										</div>
-									</div>
-								</nav>
-								<nav class="navbar-container margin">
-									<div class="container">
-										<div class="navbar">
-											<div class="navbar-left">
-												<a class="navbar-toggle" href="#">
-													<svg class="navbar-toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z"/></svg>
-													<span class="margin-small-left">Menu</span>
-												</a>
-											</div>
-										</div>
-									</div>
-								</nav>
-							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;navbar-container margin&quot;&gt;
-	&lt;div class=&quot;container&quot;&gt;
-		&lt;div class=&quot;navbar&quot;&gt;
-			&lt;div class=&quot;navbar-left&quot;&gt;
-				&lt;a class=&quot;navbar-toggle&quot; href=&quot;#&quot;&gt;
-					&lt;span class=&quot;icon navbar-toggle-icon&quot;&gt;menu&lt;/span&gt;
-				&lt;/a&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/nav&gt;
-&lt;nav class=&quot;navbar-container margin&quot;&gt;
-	&lt;div class=&quot;container&quot;&gt;
-		&lt;div class=&quot;navbar&quot;&gt;
-			&lt;div class=&quot;navbar-left&quot;&gt;
-				&lt;a class=&quot;navbar-toggle&quot; href=&quot;#&quot;&gt;
-					&lt;span class=&quot;icon navbar-toggle-icon&quot;&gt;menu&lt;/span&gt;
-					&lt;span class=&quot;margin-small-left&quot;&gt;Menu&lt;/span&gt;
-				&lt;/a&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
+						
+						<h2>Transparent modifier</h2>
+						<p>When using an image or a colored background for the hero section of your website, you might want to turn the navbar transparent. Just add the <code>.navbar-transparent</code> class on the same element as the <code>.navbar-container</code> class. If necessary, add the <code>.light</code> or <code>.dark</code> class from the <a href="/docs/inverse">Inverse component</a> to adjust the navbar color.</p>
+						<div>
+							<pre><code>
+								&lt;nav class=&quot;navbar navbar-container navbar-transparent&quot;&gt;…&lt;/nav&gt;
+							</code></pre>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					
-					<h2>Dropdowns</h2>
-					<p>A navbar can contain a dropdown from the <a href="component-dropdown.html">Dropdown component</a>. Just add the <code>.navbar-dropdown</code> modifier to the dropdown, so it fits perfectly into the navbar styling. Add the <code>.navbar-dropdown-nav</code> class to navs inside the dropdown.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;navbar-nav&quot;&gt;
-	&lt;li&gt;
-		&lt;a href=&quot;&quot;&gt;&lt;/a&gt;
-		&lt;div class=&quot;navbar-dropdown&quot;&gt;
-			&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;…&lt;/ul&gt;
-		&lt;/div&gt;
-	&lt;/li&gt;
-&lt;/ul&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="navbar-container">
-									<div class="container">
-										<div class="navbar">
-											<div class="navbar-left">
-												<ul class="navbar-nav">
-													<li class="active"><a href="#!">Active</a></li>
-													<li>
-														<a href="#!" role="button">Parent</a>
-														<div class="navbar-dropdown drop">
-															<ul class="nav navbar-dropdown-nav">
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="position-relative">
+										<img src="/assets/images/photos/placeholder.webp" class="round" width="1800" height="1200" alt="">
+										<div class="position-top">
+											<nav class="navbar-container navbar-transparent">
+												<div class="container">
+													<div class="navbar">
+														<div class="navbar-left">
+															<ul class="navbar-nav">
 																<li class="active"><a href="#!">Active</a></li>
 																<li><a href="#!">Item</a></li>
-																<li class="nav-header">Header</li>
-																<li><a href="#!">Item</a></li>
-																<li><a href="#!">Item</a></li>
-																<li class="nav-divider"></li>
-																<li><a href="#!">Item</a></li>
+																<li>
+																	<a href="#!" role="button">Parent</a>
+																	<div class="navbar-dropdown drop">
+																		<ul class="nav navbar-dropdown-nav">
+																			<li class="active"><a href="#!">Active</a></li>
+																			<li><a href="#!">Item</a></li>
+																			<li class="nav-header">Header</li>
+																			<li><a href="#!">Item</a></li>
+																			<li><a href="#!">Item</a></li>
+																			<li class="nav-divider"></li>
+																			<li><a href="#!">Item</a></li>
+																		</ul>
+																	</div>
+																</li>
 															</ul>
 														</div>
-													</li>
-													<li><a href="#!">Item</a></li>
-												</ul>
-											</div>
-											<div class="navbar-right">
-												<ul class="navbar-nav">
-													<li>
-														<a href="#!" role="button">Parent</a>
-														<div class="navbar-dropdown drop">
-															<ul class="nav navbar-dropdown-nav">
-																<li class="active"><a href="#!">Active</a></li>
-																<li><a href="#!">Item</a></li>
-																<li class="nav-header">Header</li>
-																<li><a href="#!">Item</a></li>
-																<li><a href="#!">Item</a></li>
-																<li class="nav-divider"></li>
-																<li><a href="#!">Item</a></li>
-															</ul>
-														</div>
-													</li>
-												</ul>
-											</div>
+									
+													</div>
+												</div>
+											</nav>
 										</div>
 									</div>
-								</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;position-relative&quot;&gt;
+											&lt;img src=&quot;/assets/images/photos/placeholder.webp&quot; class=&quot;round&quot; width=&quot;1800&quot; height=&quot;1200&quot; alt=&quot;&quot;&gt;
+											&lt;div class=&quot;position-top&quot;&gt;
+												&lt;nav class=&quot;navbar-container navbar-transparent&quot;&gt;
+													&lt;div class=&quot;container&quot;&gt;
+														&lt;div class=&quot;navbar&quot;&gt;
+															&lt;div class=&quot;navbar-left&quot;&gt;
+																&lt;ul class=&quot;navbar-nav&quot;&gt;
+																	&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;li&gt;
+																		&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;Parent&lt;/a&gt;
+																		&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
+																			&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
+																				&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																				&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																				&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+																				&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																				&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																				&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+																				&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																			&lt;/ul&gt;
+																		&lt;/div&gt;
+																	&lt;/li&gt;
+																&lt;/ul&gt;
+															&lt;/div&gt;
+
+														&lt;/div&gt;
+													&lt;/div&gt;
+												&lt;/nav&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;navbar-container&quot;&gt;
-	&lt;div class=&quot;container&quot;&gt;
-		&lt;div class=&quot;navbar&quot;&gt;
-			&lt;div class=&quot;navbar-left&quot;&gt;
-				&lt;ul class=&quot;navbar-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;
-						&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;Parent&lt;/a&gt;
-						&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
-							&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
-								&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;/ul&gt;
-						&lt;/div&gt;
-					&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-			&lt;div class=&quot;navbar-right&quot;&gt;
-				&lt;ul class=&quot;navbar-nav&quot;&gt;
-					&lt;li&gt;
-						&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;Parent&lt;/a&gt;
-						&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
-							&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
-								&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;/ul&gt;
-						&lt;/div&gt;
-					&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					
-					<h3>Hover mode</h3>
-					<p>Just add the <code>drop="mode: hover"</code> option to the <code>navbar-dropdown</code> element.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="navbar-container">
-									<div class="container">
-										<div class="navbar">
-											<div class="navbar-left">
-												<ul class="navbar-nav">
-													<li class="active"><a href="#!">Active</a></li>
-													<li>
-														<a href="#!" role="button">Parent</a>
-														<div class="navbar-dropdown drop" drop="mode: hover">
-															<ul class="nav navbar-dropdown-nav">
-																<li class="active"><a href="#!">Active</a></li>
-																<li><a href="#!">Item</a></li>
-																<li><a href="#!">Item</a></li>
-															</ul>
-														</div>
-													</li>
-													<li><a href="#!">Item</a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</nav>
-							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;navbar-container&quot;&gt;
-	&lt;div class=&quot;container&quot;&gt;
-		&lt;div class=&quot;navbar&quot;&gt;
-			&lt;div class=&quot;navbar-left&quot;&gt;
-				&lt;ul class=&quot;navbar-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;
-						&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;Parent&lt;/a&gt;
-						&lt;div class=&quot;navbar-dropdown drop&quot; drop=&quot;mode: hover&quot;&gt;
-							&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
-								&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;/ul&gt;
-						&lt;/div&gt;
-					&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
+						
+						<h2>Subtitle</h2>
+						<p>To define a subtitle, create a <code>&lt;div&gt;</code> element inside an item's <code>&lt;a&gt;</code> element. Add the <code>.navbar-subtitle</code> class to another <code>&lt;div&gt;</code> element.</p>
+						<div>
+							<pre><code>
+								&lt;li&gt;
+									&lt;a href=&quot;&quot;&gt;
+										&lt;div&gt;
+											…
+											&lt;div class=&quot;navbar-subtitle&quot;&gt;&lt;/div&gt;
+										&lt;/div&gt;
+									&lt;/a&gt;
+								&lt;/li&gt;
+							</code></pre>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					
-					<h3>Stretch</h3>
-					<p>To stretch a dropdown, use the <a href="component-drop.html">Drop component</a> and its <code>stretch</code> option. In the following example the dropdown is aligned to the boundary of the parent navbar.</p>
-					<div>
-						<pre><code>
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="navbar-container">
-									<div class="container">
-										<div class="navbar">
-											<div class="navbar-left">
-												<ul class="navbar-nav">
-													<li class="active"><a href="#!">Active</a></li>
-													<li>
-														<a href="" role="button">Parent</a>
-														<div class="navbar-dropdown drop" drop="stretch: .navbar">
-															<ul class="nav navbar-dropdown-nav">
-																<li class="active"><a href="#!">Active</a></li>
-																<li><a href="#!">Item</a></li>
-																<li class="nav-header">Header</li>
-																<li><a href="#!">Item</a></li>
-																<li><a href="#!">Item</a></li>
-																<li class="nav-divider"></li>
-																<li><a href="#!">Item</a></li>
-															</ul>
-														</div>
-													</li>
-													<li>
-														<a href="" role="button">Parent</a>
-														<div class="navbar-dropdown drop" drop="stretch:.navbar">
-															<div class="drop-grid child-width-1-2 grid grid-stack">
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="navbar-container">
+										<div class="container">
+											<div class="navbar">
+												<div class="navbar-left">
+													<ul class="navbar-nav">
+														<li class="active">
+															<a href="#!">
 																<div>
+																	Active
+																	<div class="navbar-subtitle">Subtitle</div>
+																</div>
+															</a>
+														</li>
+														<li>
+															<a href="#!" role="button">
+																<div>
+																	Parent
+																	<div class="navbar-subtitle">Subtitle</div>
+																</div>
+															</a>
+															<div class="navbar-dropdown drop">
+																<ul class="nav navbar-dropdown-nav">
+																	<li class="active"><a href="#!">Active</a></li>
+																	<li><a href="#!">Item</a></li>
+																	<li><a href="#!">Item</a></li>
+																</ul>
+															</div>
+														</li>
+														<li>
+															<a href="#!">
+																<div>
+																	Item
+																	<div class="navbar-subtitle">Subtitle</div>
+																</div>
+															</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;navbar-container&quot;&gt;
+											&lt;div class=&quot;container&quot;&gt;
+												&lt;div class=&quot;navbar&quot;&gt;
+													&lt;div class=&quot;navbar-left&quot;&gt;
+														&lt;ul class=&quot;navbar-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;
+																&lt;a href=&quot;#!&quot;&gt;
+																	&lt;div&gt;
+																		Active
+																		&lt;div class=&quot;navbar-subtitle&quot;&gt;Subtitle&lt;/div&gt;
+																	&lt;/div&gt;
+																&lt;/a&gt;
+															&lt;/li&gt;
+															&lt;li&gt;
+																&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;
+																	&lt;div&gt;
+																		Parent
+																		&lt;div class=&quot;navbar-subtitle&quot;&gt;Subtitle&lt;/div&gt;
+																	&lt;/div&gt;
+																&lt;/a&gt;
+																&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
+																	&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
+																		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;/ul&gt;
+																&lt;/div&gt;
+															&lt;/li&gt;
+															&lt;li&gt;
+																&lt;a href=&quot;#!&quot;&gt;
+																	&lt;div&gt;
+																		Item
+																		&lt;div class=&quot;navbar-subtitle&quot;&gt;Subtitle&lt;/div&gt;
+																	&lt;/div&gt;
+																&lt;/a&gt;
+															&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/nav&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h2>Content item</h2>
+						<p>You can also add custom content to the navbar, like text, icons, buttons or forms. Add the <code>.navbar-item</code> class to a <code>&lt;div&gt;</code> element that serves as a container for your content.</p>
+						<div>
+							<pre><code>
+								&lt;nav class=&quot;navbar navbar-container&quot;&gt;
+									&lt;div class=&quot;navbar-left&quot;&gt;
+										&lt;a href=&quot;&quot; class=&quot;navbar-item logo&quot;&gt;&lt;/a&gt;
+										&lt;ul class=&quot;navbar-nav&quot;&gt;…&lt;/ul&gt;
+										&lt;div class=&quot;navbar-item&quot;&gt;…&lt;/div&gt;
+									&lt;/div&gt;
+								&lt;/nav&gt;
+							</code></pre>
+						</div>
+						<p>Add the <code>.logo</code> class from the <a href="component-util.html">Utility component</a> to an <code>&lt;a&gt;</code> or <code>&lt;div&gt;</code> element to indicate your brand.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="navbar-container">
+										<div class="container">
+											<div class="navbar">
+												<div class="navbar-left">
+													<a class="navbar-item logo" href="#" aria-label="Back to Home">Logo</a>
+													<ul class="navbar-nav">
+														<li>
+															<a href="#!">
+																<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M411.15-260v-45.39h137.31V-260H411.15ZM256.16-457.31v-45.38h447.3v45.38h-447.3ZM140-654.61V-700h680v45.39H140Z"/></svg>
+																Features
+															</a>
+														</li>
+													</ul>
+													<div class="navbar-item">
+														<div>Some <a href="#!">Link</a></div>
+													</div>
+													<div class="navbar-item">
+														<form action="javascript:void(0)">
+															<input class="input form-width-small" type="text" placeholder="Input" aria-label="Input">
+															<button class="button button-default">Button</button>
+														</form>
+													</div>
+												</div>
+											</div>
+										</div>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;navbar-container&quot;&gt;
+											&lt;div class=&quot;container&quot;&gt;
+												&lt;div class=&quot;navbar&quot;&gt;
+													&lt;div class=&quot;navbar-left&quot;&gt;
+														&lt;a class=&quot;navbar-item logo&quot; href=&quot;#&quot; aria-label=&quot;Back to Home&quot;&gt;Logo&lt;/a&gt;
+														&lt;ul class=&quot;navbar-nav&quot;&gt;
+															&lt;li&gt;
+																&lt;a href=&quot;#!&quot;&gt;
+																	&lt;span class=&quot;icon margin-small-right&quot;&gt;filter_list&lt;/span&gt;
+																	Features
+																&lt;/a&gt;
+															&lt;/li&gt;
+														&lt;/ul&gt;
+														&lt;div class=&quot;navbar-item&quot;&gt;
+															&lt;div&gt;Some &lt;a href=&quot;#!&quot;&gt;Link&lt;/a&gt;&lt;/div&gt;
+														&lt;/div&gt;
+														&lt;div class=&quot;navbar-item&quot;&gt;
+															&lt;form action=&quot;javascript:void(0)&quot;&gt;
+																&lt;input class=&quot;input form-width-small&quot; type=&quot;text&quot; placeholder=&quot;Input&quot; aria-label=&quot;Input&quot;&gt;
+																&lt;button class=&quot;button button-default&quot;&gt;Button&lt;/button&gt;
+															&lt;/form&gt;
+														&lt;/div&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/nav&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h2>Centered logo</h2>
+						<p>You can create a split menu with a centered logo. Just add the <code>navbar-center-left</code> class to one navbar and the <code>navbar-center-right</code> class to another within the same navbar container. This will keep your logo centered and align the menus to the left and right.</p>
+						<div>
+							<pre><code>
+								&lt;div class=&quot;navbar navbar-container&quot;&gt;
+									&lt;div class=&quot;navbar-center&quot;&gt;
+										&lt;div class=&quot;navbar-center-left&quot;&gt;…&lt;/div&gt;
+										&lt;a href=&quot;&quot; class=&quot;navbar-item logo&quot;&gt;&lt;/a&gt;
+										&lt;div class=&quot;navbar-center-right&quot;&gt;…&lt;/div&gt;
+									&lt;/div&gt;
+								&lt;/div&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="navbar-container">
+										<div class="container">
+											<div class="navbar">
+												<div class="navbar-center">
+													<div class="navbar-center-left">
+														<ul class="navbar-nav">
+															<li class="active"><a href="#!">Active</a></li>
+															<li>
+																<a href="#!" role="button">Parent</a>
+																<div class="navbar-dropdown drop">
 																	<ul class="nav navbar-dropdown-nav">
 																		<li class="active"><a href="#!">Active</a></li>
 																		<li><a href="#!">Item</a></li>
-																		<li class="nav-header">Header</li>
-																		<li><a href="#!">Item</a></li>
-																		<li><a href="#!">Item</a></li>
-																		<li class="nav-divider"></li>
 																		<li><a href="#!">Item</a></li>
 																	</ul>
 																</div>
-																<div>
-																	<ul class="nav navbar-dropdown-nav">
-																		<li class="active"><a href="#!">Active</a></li>
-																		<li><a href="#!">Item</a></li>
-																		<li class="nav-header">Header</li>
-																		<li><a href="#!">Item</a></li>
-																		<li><a href="#!">Item</a></li>
-																		<li class="nav-divider"></li>
-																		<li><a href="#!">Item</a></li>
-																	</ul>
+															</li>
+														</ul>
+													</div>
+													<a class="navbar-item logo" href="#">Logo</a>
+													<div class="navbar-center-right">
+														<ul class="navbar-nav">
+															<li><a href="#!">Item</a></li>
+															<li><a href="#!">Item</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;navbar-container&quot;&gt;
+											&lt;div class=&quot;container&quot;&gt;
+												&lt;div class=&quot;navbar&quot;&gt;
+													&lt;div class=&quot;navbar-center&quot;&gt;
+														&lt;div class=&quot;navbar-center-left&quot;&gt;
+															&lt;ul class=&quot;navbar-nav&quot;&gt;
+																&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																&lt;li&gt;
+																	&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;Parent&lt;/a&gt;
+																	&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
+																		&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
+																			&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																			&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																			&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;/ul&gt;
+																	&lt;/div&gt;
+																&lt;/li&gt;
+															&lt;/ul&gt;
+														&lt;/div&gt;
+														&lt;a class=&quot;navbar-item logo&quot; href=&quot;#&quot;&gt;Logo&lt;/a&gt;
+														&lt;div class=&quot;navbar-center-right&quot;&gt;
+															&lt;ul class=&quot;navbar-nav&quot;&gt;
+																&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+															&lt;/ul&gt;
+														&lt;/div&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/nav&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h2>Toggle item</h2>
+						<p>Add the <code>.navbar-toggle</code> class and the <code>navbar-toggle-icon</code> attribute to an <code>&lt;a&gt;</code> or <code>&lt;div&gt;</code> element to create an icon as a toggle. By default, there is no JavaScript attached to the toggle. As an example, you can add an off-canvas navigation from the <a href="component-offcanvas.html">Offcanvas component</a> or a modal from the <a href="component-modal.html">Modal component</a>.</p>
+						<div>
+							<pre><code>
+								&lt;div class=&quot;navbar&quot;&gt;
+									&lt;div class=&quot;navbar-left&quot;&gt;
+										&lt;a class=&quot;navbar-toggle&quot; href=&quot;#&quot;&gt;
+											&lt;span class=&quot;icon navbar-toggle-icon&quot;&gt;menu&lt;/span&gt;
+											&lt;span class=&quot;margin-small-left&quot;&gt;Menu&lt;/span&gt;
+										&lt;/a&gt;
+									&lt;/div&gt;
+								&lt;/div&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="navbar-container margin">
+										<div class="container">
+											<div class="navbar">
+												<div class="navbar-left">
+													<a class="navbar-toggle" href="#">
+														<svg class="navbar-toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z"/></svg>
+													</a>
+												</div>
+											</div>
+										</div>
+									</nav>
+									<nav class="navbar-container margin">
+										<div class="container">
+											<div class="navbar">
+												<div class="navbar-left">
+													<a class="navbar-toggle" href="#">
+														<svg class="navbar-toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z"/></svg>
+														<span class="margin-small-left">Menu</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;navbar-container margin&quot;&gt;
+											&lt;div class=&quot;container&quot;&gt;
+												&lt;div class=&quot;navbar&quot;&gt;
+													&lt;div class=&quot;navbar-left&quot;&gt;
+														&lt;a class=&quot;navbar-toggle&quot; href=&quot;#&quot;&gt;
+															&lt;span class=&quot;icon navbar-toggle-icon&quot;&gt;menu&lt;/span&gt;
+														&lt;/a&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/nav&gt;
+										&lt;nav class=&quot;navbar-container margin&quot;&gt;
+											&lt;div class=&quot;container&quot;&gt;
+												&lt;div class=&quot;navbar&quot;&gt;
+													&lt;div class=&quot;navbar-left&quot;&gt;
+														&lt;a class=&quot;navbar-toggle&quot; href=&quot;#&quot;&gt;
+															&lt;span class=&quot;icon navbar-toggle-icon&quot;&gt;menu&lt;/span&gt;
+															&lt;span class=&quot;margin-small-left&quot;&gt;Menu&lt;/span&gt;
+														&lt;/a&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/nav&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h2>Dropdowns</h2>
+						<p>A navbar can contain a dropdown from the <a href="component-dropdown.html">Dropdown component</a>. Just add the <code>.navbar-dropdown</code> modifier to the dropdown, so it fits perfectly into the navbar styling. Add the <code>.navbar-dropdown-nav</code> class to navs inside the dropdown.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;navbar-nav&quot;&gt;
+									&lt;li&gt;
+										&lt;a href=&quot;&quot;&gt;&lt;/a&gt;
+										&lt;div class=&quot;navbar-dropdown&quot;&gt;
+											&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;…&lt;/ul&gt;
+										&lt;/div&gt;
+									&lt;/li&gt;
+								&lt;/ul&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="navbar-container">
+										<div class="container">
+											<div class="navbar">
+												<div class="navbar-left">
+													<ul class="navbar-nav">
+														<li class="active"><a href="#!">Active</a></li>
+														<li>
+															<a href="#!" role="button">Parent</a>
+															<div class="navbar-dropdown drop">
+																<ul class="nav navbar-dropdown-nav">
+																	<li class="active"><a href="#!">Active</a></li>
+																	<li><a href="#!">Item</a></li>
+																	<li class="nav-header">Header</li>
+																	<li><a href="#!">Item</a></li>
+																	<li><a href="#!">Item</a></li>
+																	<li class="nav-divider"></li>
+																	<li><a href="#!">Item</a></li>
+																</ul>
+															</div>
+														</li>
+														<li><a href="#!">Item</a></li>
+													</ul>
+												</div>
+												<div class="navbar-right">
+													<ul class="navbar-nav">
+														<li>
+															<a href="#!" role="button">Parent</a>
+															<div class="navbar-dropdown drop">
+																<ul class="nav navbar-dropdown-nav">
+																	<li class="active"><a href="#!">Active</a></li>
+																	<li><a href="#!">Item</a></li>
+																	<li class="nav-header">Header</li>
+																	<li><a href="#!">Item</a></li>
+																	<li><a href="#!">Item</a></li>
+																	<li class="nav-divider"></li>
+																	<li><a href="#!">Item</a></li>
+																</ul>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;navbar-container&quot;&gt;
+											&lt;div class=&quot;container&quot;&gt;
+												&lt;div class=&quot;navbar&quot;&gt;
+													&lt;div class=&quot;navbar-left&quot;&gt;
+														&lt;ul class=&quot;navbar-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;
+																&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;Parent&lt;/a&gt;
+																&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
+																	&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
+																		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;/ul&gt;
+																&lt;/div&gt;
+															&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+													&lt;div class=&quot;navbar-right&quot;&gt;
+														&lt;ul class=&quot;navbar-nav&quot;&gt;
+															&lt;li&gt;
+																&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;Parent&lt;/a&gt;
+																&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
+																	&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
+																		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;/ul&gt;
+																&lt;/div&gt;
+															&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/nav&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h3>Hover mode</h3>
+						<p>Just add the <code>drop="mode: hover"</code> option to the <code>navbar-dropdown</code> element.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="navbar-container">
+										<div class="container">
+											<div class="navbar">
+												<div class="navbar-left">
+													<ul class="navbar-nav">
+														<li class="active"><a href="#!">Active</a></li>
+														<li>
+															<a href="#!" role="button">Parent</a>
+															<div class="navbar-dropdown drop" drop="mode: hover">
+																<ul class="nav navbar-dropdown-nav">
+																	<li class="active"><a href="#!">Active</a></li>
+																	<li><a href="#!">Item</a></li>
+																	<li><a href="#!">Item</a></li>
+																</ul>
+															</div>
+														</li>
+														<li><a href="#!">Item</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;navbar-container&quot;&gt;
+											&lt;div class=&quot;container&quot;&gt;
+												&lt;div class=&quot;navbar&quot;&gt;
+													&lt;div class=&quot;navbar-left&quot;&gt;
+														&lt;ul class=&quot;navbar-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;
+																&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;Parent&lt;/a&gt;
+																&lt;div class=&quot;navbar-dropdown drop&quot; drop=&quot;mode: hover&quot;&gt;
+																	&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
+																		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;/ul&gt;
+																&lt;/div&gt;
+															&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/nav&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h3>Stretch</h3>
+						<p>To stretch a dropdown, use the <a href="component-drop.html">Drop component</a> and its <code>stretch</code> option. In the following example the dropdown is aligned to the boundary of the parent navbar.</p>
+						<div>
+							<pre><code>
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="navbar-container">
+										<div class="container">
+											<div class="navbar">
+												<div class="navbar-left">
+													<ul class="navbar-nav">
+														<li class="active"><a href="#!">Active</a></li>
+														<li>
+															<a href="" role="button">Parent</a>
+															<div class="navbar-dropdown drop" drop="stretch: .navbar">
+																<ul class="nav navbar-dropdown-nav">
+																	<li class="active"><a href="#!">Active</a></li>
+																	<li><a href="#!">Item</a></li>
+																	<li class="nav-header">Header</li>
+																	<li><a href="#!">Item</a></li>
+																	<li><a href="#!">Item</a></li>
+																	<li class="nav-divider"></li>
+																	<li><a href="#!">Item</a></li>
+																</ul>
+															</div>
+														</li>
+														<li>
+															<a href="" role="button">Parent</a>
+															<div class="navbar-dropdown drop" drop="stretch:.navbar">
+																<div class="drop-grid child-width-1-2 grid grid-stack">
+																	<div>
+																		<ul class="nav navbar-dropdown-nav">
+																			<li class="active"><a href="#!">Active</a></li>
+																			<li><a href="#!">Item</a></li>
+																			<li class="nav-header">Header</li>
+																			<li><a href="#!">Item</a></li>
+																			<li><a href="#!">Item</a></li>
+																			<li class="nav-divider"></li>
+																			<li><a href="#!">Item</a></li>
+																		</ul>
+																	</div>
+																	<div>
+																		<ul class="nav navbar-dropdown-nav">
+																			<li class="active"><a href="#!">Active</a></li>
+																			<li><a href="#!">Item</a></li>
+																			<li class="nav-header">Header</li>
+																			<li><a href="#!">Item</a></li>
+																			<li><a href="#!">Item</a></li>
+																			<li class="nav-divider"></li>
+																			<li><a href="#!">Item</a></li>
+																		</ul>
+																	</div>
 																</div>
 															</div>
-														</div>
-													</li>
-												</ul>
+														</li>
+													</ul>
+												</div>
 											</div>
 										</div>
-									</div>
-								</nav>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;navbar-container&quot;&gt;
+											&lt;div class=&quot;container&quot;&gt;
+												&lt;div class=&quot;navbar&quot;&gt;
+													&lt;div class=&quot;navbar-left&quot;&gt;
+														&lt;ul class=&quot;navbar-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;
+																&lt;a href=&quot;&quot; role=&quot;button&quot;&gt;Parent&lt;/a&gt;
+																&lt;div class=&quot;navbar-dropdown drop&quot; drop=&quot;stretch: .navbar&quot;&gt;
+																	&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
+																		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;/ul&gt;
+																&lt;/div&gt;
+															&lt;/li&gt;
+															&lt;li&gt;
+																&lt;a href=&quot;&quot; role=&quot;button&quot;&gt;Parent&lt;/a&gt;
+																&lt;div class=&quot;navbar-dropdown drop&quot; drop=&quot;stretch:.navbar&quot;&gt;
+																	&lt;div class=&quot;drop-grid child-width-1-2 grid grid-stack&quot;&gt;
+																		&lt;div&gt;
+																			&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
+																				&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																				&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																				&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+																				&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																				&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																				&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+																				&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																			&lt;/ul&gt;
+																		&lt;/div&gt;
+																		&lt;div&gt;
+																			&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
+																				&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																				&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																				&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+																				&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																				&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																				&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+																				&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																			&lt;/ul&gt;
+																		&lt;/div&gt;
+																	&lt;/div&gt;
+																&lt;/div&gt;
+															&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/nav&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;navbar-container&quot;&gt;
-	&lt;div class=&quot;container&quot;&gt;
-		&lt;div class=&quot;navbar&quot;&gt;
-			&lt;div class=&quot;navbar-left&quot;&gt;
-				&lt;ul class=&quot;navbar-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;
-						&lt;a href=&quot;&quot; role=&quot;button&quot;&gt;Parent&lt;/a&gt;
-						&lt;div class=&quot;navbar-dropdown drop&quot; drop=&quot;stretch: .navbar&quot;&gt;
-							&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
-								&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;/ul&gt;
-						&lt;/div&gt;
-					&lt;/li&gt;
-					&lt;li&gt;
-						&lt;a href=&quot;&quot; role=&quot;button&quot;&gt;Parent&lt;/a&gt;
-						&lt;div class=&quot;navbar-dropdown drop&quot; drop=&quot;stretch:.navbar&quot;&gt;
-							&lt;div class=&quot;drop-grid child-width-1-2 grid grid-stack&quot;&gt;
-								&lt;div&gt;
-									&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
-										&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-										&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-										&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-										&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-										&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-										&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-										&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-									&lt;/ul&gt;
-								&lt;/div&gt;
-								&lt;div&gt;
-									&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
-										&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-										&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-										&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-										&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-										&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-										&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-										&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-									&lt;/ul&gt;
-								&lt;/div&gt;
-							&lt;/div&gt;
-						&lt;/div&gt;
-					&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					
-					<h2>Parent icon</h2>
-					<p>To create a parent icon, just add the <code>navbar-parent-icon</code> attribute to a <code>&lt;span&gt;</code> element.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;navbar-nav&quot;&gt;
-	&lt;li&gt;
-	&lt;a href=&quot;#!&quot;&gt;Parent &lt;span class=&quot;icon navbar-parent-icon&quot;&gt;chevron&lt;/span&gt;&lt;/a&gt;
-		&lt;div class=&quot;navbar-dropdown&quot;&gt;…&lt;/div&gt;
-	&lt;/li&gt;
-&lt;/ul&gt;
-						</code></pre>
-					</div>
+						
+						<h2>Parent icon</h2>
+						<p>To create a parent icon, just add the <code>navbar-parent-icon</code> attribute to a <code>&lt;span&gt;</code> element.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;navbar-nav&quot;&gt;
+									&lt;li&gt;
+									&lt;a href=&quot;#!&quot;&gt;Parent &lt;span class=&quot;icon navbar-parent-icon&quot;&gt;chevron&lt;/span&gt;&lt;/a&gt;
+										&lt;div class=&quot;navbar-dropdown&quot;&gt;…&lt;/div&gt;
+									&lt;/li&gt;
+								&lt;/ul&gt;
+							</code></pre>
+						</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="navbar-container">
-									<div class="container">
-										<div class="navbar">
-											<div class="navbar-left">
-												<ul class="navbar-nav">
-													<li class="active"><a href="#!">Active</a></li>
-													<li>
-														<a href="#!">
-															Parent
-															<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-														</a>
-														<div class="navbar-dropdown drop">
-															<ul class="nav navbar-dropdown-nav">
-																<li class="active"><a href="#!">Active</a></li>
-																<li><a href="#!">Item</a></li>
-																<li class="nav-header">Header</li>
-																<li><a href="#!">Item</a></li>
-																<li><a href="#!">Item</a></li>
-																<li class="nav-divider"></li>
-																<li><a href="#!">Item</a></li>
-															</ul>
-														</div>
-													</li>
-													<li><a href="#!">Item</a></li>
-												</ul>
-											</div>
-											<div class="navbar-right">
-												<ul class="navbar-nav">
-													<li>
-														<a href="#!">
-															Parent
-															<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-														</a>
-														<div class="navbar-dropdown drop">
-															<ul class="nav navbar-dropdown-nav">
-																<li class="active"><a href="#!">Active</a></li>
-																<li><a href="#!">Item</a></li>
-																<li class="nav-header">Header</li>
-																<li><a href="#!">Item</a></li>
-																<li><a href="#!">Item</a></li>
-																<li class="nav-divider"></li>
-																<li><a href="#!">Item</a></li>
-															</ul>
-														</div>
-													</li>
-												</ul>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="navbar-container">
+										<div class="container">
+											<div class="navbar">
+												<div class="navbar-left">
+													<ul class="navbar-nav">
+														<li class="active"><a href="#!">Active</a></li>
+														<li>
+															<a href="#!">
+																Parent
+																<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+															</a>
+															<div class="navbar-dropdown drop">
+																<ul class="nav navbar-dropdown-nav">
+																	<li class="active"><a href="#!">Active</a></li>
+																	<li><a href="#!">Item</a></li>
+																	<li class="nav-header">Header</li>
+																	<li><a href="#!">Item</a></li>
+																	<li><a href="#!">Item</a></li>
+																	<li class="nav-divider"></li>
+																	<li><a href="#!">Item</a></li>
+																</ul>
+															</div>
+														</li>
+														<li><a href="#!">Item</a></li>
+													</ul>
+												</div>
+												<div class="navbar-right">
+													<ul class="navbar-nav">
+														<li>
+															<a href="#!">
+																Parent
+																<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+															</a>
+															<div class="navbar-dropdown drop">
+																<ul class="nav navbar-dropdown-nav">
+																	<li class="active"><a href="#!">Active</a></li>
+																	<li><a href="#!">Item</a></li>
+																	<li class="nav-header">Header</li>
+																	<li><a href="#!">Item</a></li>
+																	<li><a href="#!">Item</a></li>
+																	<li class="nav-divider"></li>
+																	<li><a href="#!">Item</a></li>
+																</ul>
+															</div>
+														</li>
+													</ul>
+												</div>
 											</div>
 										</div>
-									</div>
-								</nav>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;nav class=&quot;navbar-container&quot;&gt;
+											&lt;div class=&quot;container&quot;&gt;
+												&lt;div class=&quot;navbar&quot;&gt;
+													&lt;div class=&quot;navbar-left&quot;&gt;
+														&lt;ul class=&quot;navbar-nav&quot;&gt;
+															&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;
+																&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;Parent &lt;span class=&quot;icon navbar-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
+																&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
+																	&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
+																		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;/ul&gt;
+																&lt;/div&gt;
+															&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+													&lt;div class=&quot;navbar-right&quot;&gt;
+														&lt;ul class=&quot;navbar-nav&quot;&gt;
+															&lt;li&gt;
+																&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;Parent &lt;span class=&quot;icon navbar-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
+																&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
+																	&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
+																		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																		&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+																		&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+																	&lt;/ul&gt;
+																&lt;/div&gt;
+															&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/nav&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;nav class=&quot;navbar-container&quot;&gt;
-	&lt;div class=&quot;container&quot;&gt;
-		&lt;div class=&quot;navbar&quot;&gt;
-			&lt;div class=&quot;navbar-left&quot;&gt;
-				&lt;ul class=&quot;navbar-nav&quot;&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;
-						&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;Parent &lt;span class=&quot;icon navbar-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
-						&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
-							&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
-								&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;/ul&gt;
-						&lt;/div&gt;
-					&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-			&lt;div class=&quot;navbar-right&quot;&gt;
-				&lt;ul class=&quot;navbar-nav&quot;&gt;
-					&lt;li&gt;
-						&lt;a href=&quot;#!&quot; role=&quot;button&quot;&gt;Parent &lt;span class=&quot;icon navbar-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
-						&lt;div class=&quot;navbar-dropdown drop&quot;&gt;
-							&lt;ul class=&quot;nav navbar-dropdown-nav&quot;&gt;
-								&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-								&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-								&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-							&lt;/ul&gt;
-						&lt;/div&gt;
-					&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/nav&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

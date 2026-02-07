@@ -308,788 +308,792 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Modal</h1>
-					<p class="text-lead">Create modal dialogs with different styles and transitions.</p>
-					
-					<hr>
-					
-					<h2>Usage</h2>
-					<p>The Modal component consists of an overlay, a dialog and an optional close button. You can use &lt;a&gt; or &lt;button&gt; element to toggle a modal dialog. To enable the necessary JavaScript, add the <code>toggle="target: #ID"</code> attribute to button toggle element. An <code>&lt;a&gt;</code> element needs to be linked to the modal's id. If you are using another element.</p>
-					<p>Add the <code>modal</code> attribute to a <code>&lt;div&gt;</code> element to create the modal container and an overlay that blanks out the page. It is important to add an <code>id</code> to indicate the element for toggling. Use the following classes to define the modal's sections.</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.modal-dialog</code></td>
-								<td>Add this class to a child <code>&lt;div&gt;</code> element to create the dialog</td>
-							</tr>
-							<tr>
-								<td><code>.modal-body</code></td>
-								<td>Add this class to create padding between the modal and its content.</td>
-							</tr>
-							<tr>
-								<td><code>.modal-title</code></td>
-								<td>Add this class to a heading element to create the modal title.</td>
-							</tr>
-							<tr>
-								<td><code>.modal-close</code></td>
-								<td>Add this class to an <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> element to create a close
-									button and enable its functionality.</td>
-							</tr>
-							<tr>
-								<td><code>.modal-close-button</code></td>
-								<td>Add this class to a <code>&lt;button&gt;</code> element to create a close
-									button and enable its functionality.</td>
-							</tr>
-						</tbody>
-					</table>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Modal</h1>
+						<p class="text-lead">Create modal dialogs with different styles and transitions.</p>
+						
+						<hr>
+						
+						<h2>Usage</h2>
+						<p>The Modal component consists of an overlay, a dialog and an optional close button. You can use &lt;a&gt; or &lt;button&gt; element to toggle a modal dialog. To enable the necessary JavaScript, add the <code>toggle="target: #ID"</code> attribute to button toggle element. An <code>&lt;a&gt;</code> element needs to be linked to the modal's id. If you are using another element.</p>
+						<p>Add the <code>modal</code> attribute to a <code>&lt;div&gt;</code> element to create the modal container and an overlay that blanks out the page. It is important to add an <code>id</code> to indicate the element for toggling. Use the following classes to define the modal's sections.</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.modal-dialog</code></td>
+									<td>Add this class to a child <code>&lt;div&gt;</code> element to create the dialog</td>
+								</tr>
+								<tr>
+									<td><code>.modal-body</code></td>
+									<td>Add this class to create padding between the modal and its content.</td>
+								</tr>
+								<tr>
+									<td><code>.modal-title</code></td>
+									<td>Add this class to a heading element to create the modal title.</td>
+								</tr>
+								<tr>
+									<td><code>.modal-close</code></td>
+									<td>Add this class to an <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> element to create a close
+										button and enable its functionality.</td>
+								</tr>
+								<tr>
+									<td><code>.modal-close-button</code></td>
+									<td>Add this class to a <code>&lt;button&gt;</code> element to create a close
+										button and enable its functionality.</td>
+								</tr>
+							</tbody>
+						</table>
 
-					<pre><code>
-						&lt;button class=&quot;button round margin-md-right&quot; toggle=&quot;target: #modal1&quot;&gt;Open&lt;/button&gt;
+						<pre><code>
+							&lt;button class=&quot;button round margin-md-right&quot; toggle=&quot;target: #modal1&quot;&gt;Open&lt;/button&gt;
 
-						&lt;!-- This is the modal --&gt;
-						&lt;div id=&quot;modal1&quot; class=&quot;modal&quot;&gt;
-							&lt;div class=&quot;modal-dialog modal-body&quot;&gt;
+							&lt;!-- This is the modal --&gt;
+							&lt;div id=&quot;modal1&quot; class=&quot;modal&quot;&gt;
+								&lt;div class=&quot;modal-dialog modal-body&quot;&gt;
+								&lt;/div&gt;
 							&lt;/div&gt;
-						&lt;/div&gt;
-					</code></pre>
+						</code></pre>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<button class="button round margin-md-right" toggle="target: #modal1">Open</button>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<button class="button round margin-md-right" toggle="target: #modal1">Open</button>
 
-								<!-- This is an anchor toggling the modal -->
-								<a href="#modal1" toggle>Open</a>
-								
-								<!-- This is the modal -->
-								<dialog id="modal1" class="modal">
-									<div class="modal-dialog modal-body animation-scale-up animation-fast">
-										<h2 class="modal-title">Headline</h2>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-										<p class="text-right">
-											<button class="button button-default modal-close-button">Cancel</button>
-											<button class="button button-primary">Save</button>
-										</p>
-									</div>
-								</dialog>
-							</div>
-							<div>
-								<pre><code>
-									&lt;button class=&quot;button round margin-md-right&quot; toggle=&quot;target: #modal1&quot;&gt;Open&lt;/button&gt;
-
-									&lt;!-- This is an anchor toggling the modal --&gt;
-									&lt;a href=&quot;#modal1&quot; toggle&gt;Open&lt;/a&gt;
-
-									&lt;!-- This is the modal --&gt;
-									&lt;div id=&quot;modal1&quot; class=&quot;modal&quot;&gt;
-										&lt;div class=&quot;modal-dialog modal-body animation-scale-up animation-fast&quot;&gt;
-											&lt;h2 class=&quot;modal-title&quot;&gt;Headline&lt;/h2&gt;
-											&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-											&lt;p class=&quot;text-right&quot;&gt;
-												&lt;button class=&quot;button button-default modal-close-button&quot;&gt;Cancel&lt;/button&gt;
-												&lt;button class=&quot;button button-primary&quot;&gt;Save&lt;/button&gt;
-											&lt;/p&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Close button</h2>
-					<p>To create a close button, enable its functionality and add proper styling and positioning, add the <code>.modal-close-default</code> class to an <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> element. To place the close button outside the modal, add the <code>.modal-close-outside</code> class.</p>
-				
-					<pre><code>
-						&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-default&quot;&gt;close&lt;/a&gt;
-
-						&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-outside&quot;&gt;close&lt;/a&gt;
-					</code></pre>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<button class="button round margin-md-right" toggle="target: #modal-close-default">Default</button>
-
-								<!-- This is the modal with the default close button -->
-								<dialog id="modal-close-default" class="modal">
-									<div class="modal-dialog modal-body">
-										<a href="#!" class="modal-close modal-close-default">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-										<h2 class="modal-title">Default</h2>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									</div>
-								</dialog>
-								
-								<!-- This is a button toggling the modal with the outside close button -->
-								<button class="button round margin-md-right" toggle="target: #modal-close-outside">Outside</button>
-								
-								<!-- This is the modal with the outside close button -->
-								<dialog id="modal-close-outside" class="modal">
-									<div class="modal-dialog modal-body">
-										<a href="#!" class="modal-close modal-close-outside">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-										<h2 class="modal-title">Outside</h2>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									</div>
-								</dialog>
-							</div>
-							<div>
-								<pre><code>
-									&lt;button class=&quot;button round margin-small-right&quot; toggle=&quot;target: #modal-close-default&quot;&gt;Default&lt;/button&gt;
-
-									&lt;!-- This is the modal with the default close button --&gt;
-									&lt;div id=&quot;modal-close-default&quot; class=&quot;modal&quot;&gt;
-										&lt;div class=&quot;modal-dialog modal-body&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-default&quot;&gt;close&lt;/a&gt;
-											&lt;h2 class=&quot;modal-title&quot;&gt;Default&lt;/h2&gt;
-											&lt;p&gt;Lorem ipsum dolor sit amet....&lt;/p&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-
-									&lt;!-- This is a button toggling the modal with the outside close button --&gt;
-									&lt;button class=&quot;button round margin-small-right&quot; toggle=&quot;target: #modal-close-outside&quot;&gt;Outside&lt;/button&gt;
-
-									&lt;!-- This is the modal with the outside close button --&gt;
-									&lt;div id=&quot;modal-close-outside&quot; class=&quot;modal&quot;&gt;
-										&lt;div class=&quot;modal-dialog modal-body&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-outside&quot;&gt;close&lt;/a&gt;
-											&lt;h2 class=&quot;modal-title&quot;&gt;Outside&lt;/h2&gt;
-											&lt;p&gt;Lorem ipsum dolor sit amet....&lt;/p&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Prevent close</h2>
-					<p>To prevent modal dialog to close on click use <code>bgClose: false</code> component attribute.</p>
-				
-					<pre><code>
-						&lt;div id=&quot;modal-close-prevent&quot; class=&quot;modal&quot; modal=&quot;bgClose: false&quot;&gt;
-							&lt;div class=&quot;modal-dialog modal-body&quot;&gt;&lt;/div&gt;
-						&lt;/div&gt;
-					</code></pre>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<button class="button round" toggle="target: #modal-close-prevent">Default</button>
-
-								<!-- This is the modal with the default close button -->
-								<dialog id="modal-close-prevent" class="modal" modal="bgClose: false">
-									<div class="modal-dialog modal-body">
-										<a href="#!" class="modal-close modal-close-default">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-										<h2 class="modal-title">Open</h2>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									</div>
-								</dialog>
-							</div>
-							<div>
-								<pre><code>
-									&lt;button class=&quot;button round&quot; toggle=&quot;target: #modal-close-prevent&quot;&gt;Default&lt;/button&gt;
-
-									&lt;!-- This is the modal with the default close button --&gt;
-									&lt;div id=&quot;modal-close-prevent&quot; class=&quot;modal&quot; modal=&quot;bgClose: false&quot;&gt;
-										&lt;div class=&quot;modal-dialog modal-body&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-default&quot;&gt;close&lt;/a&gt;
-											&lt;h2 class=&quot;modal-title&quot;&gt;Open&lt;/h2&gt;
-											&lt;p&gt;Lorem ipsum dolor sit amet.....&lt;/p&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Center modal</h2>
-					<p>To vertically center the modal dialog, you can use the <code>position: center</code> component attribute.</p>
-					
-					<pre><code>
-						&lt;div id=&quot;modal-center&quot; class=&quot;modal&quot; modal=&quot;position: center&quot;&gt;
-					</code></pre>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<a href="#modal-center" toggle>Open</a>
-								<dialog id="modal-center" class="modal" modal="position: center">
-									<div class="modal-dialog modal-body">
-										<a href="#!" class="modal-close modal-close-default">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									</div>
-								</dialog>
-							</div>
-							<div>
-								<pre><code>
-									&lt;a href=&quot;#modal-center&quot; toggle&gt;Open&lt;/a&gt;
-									&lt;div id=&quot;modal-center&quot; class=&quot;modal&quot; modal=&quot;position: center&quot;&gt;
-										&lt;div class=&quot;modal-dialog modal-body&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-default&quot;&gt;close&lt;/a&gt;
-											&lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<p><span class="label label-outline">Note</span> You can also use <code>data-position="bottom"</code> to position modal.</p>
-					
-					<h2>Header and footer</h2>
-					<p>To divide the modal into different content sections, use the following classes.</p>
-
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.modal-header</code></td>
-								<td>Add this class to a <code>&lt;div&gt;</code> element to create the modal header.</td>
-							</tr>
-							<tr>
-								<td><code>.modal-footer</code></td>
-								<td>Add this class to a <code>&lt;div&gt;</code> element to create the modal footer.</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<pre><code>
-						&lt;div id=&quot;modal-sections&quot; class=&quot;modal&quot;&gt;
-							&lt;div class=&quot;modal-dialog&quot;&gt;
-								&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-default&quot;&gt;close&lt;/a&gt;
-								&lt;div class=&quot;modal-header&quot;&gt;&lt;/div&gt;
-								&lt;div class=&quot;modal-body&quot;&gt;&lt;/div&gt;
-								&lt;div class=&quot;modal-footer&quot;&gt;&lt;/div&gt;
-							&lt;/div&gt;
-						&lt;/div&gt;
-					</code></pre>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<a class="button" href="#modal-sections" toggle>Open</a>
-
-								<dialog id="modal-sections" class="modal">
-									<div class="modal-dialog">
-										<a href="#!" class="modal-close modal-close-default">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-										<div class="modal-header">
-											<h2 class="modal-title">Modal Title</h2>
+									<!-- This is an anchor toggling the modal -->
+									<a href="#modal1" toggle>Open</a>
+									
+									<!-- This is the modal -->
+									<dialog id="modal1" class="modal">
+										<div class="modal-dialog modal-body animation-scale-up animation-fast">
+											<h2 class="modal-title">Headline</h2>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+											<p class="text-right">
+												<button class="button button-default modal-close-button">Cancel</button>
+												<button class="button button-primary">Save</button>
+											</p>
 										</div>
-										<div class="modal-body">
+									</dialog>
+								</div>
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button round margin-md-right&quot; toggle=&quot;target: #modal1&quot;&gt;Open&lt;/button&gt;
+
+										&lt;!-- This is an anchor toggling the modal --&gt;
+										&lt;a href=&quot;#modal1&quot; toggle&gt;Open&lt;/a&gt;
+
+										&lt;!-- This is the modal --&gt;
+										&lt;div id=&quot;modal1&quot; class=&quot;modal&quot;&gt;
+											&lt;div class=&quot;modal-dialog modal-body animation-scale-up animation-fast&quot;&gt;
+												&lt;h2 class=&quot;modal-title&quot;&gt;Headline&lt;/h2&gt;
+												&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+												&lt;p class=&quot;text-right&quot;&gt;
+													&lt;button class=&quot;button button-default modal-close-button&quot;&gt;Cancel&lt;/button&gt;
+													&lt;button class=&quot;button button-primary&quot;&gt;Save&lt;/button&gt;
+												&lt;/p&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Close button</h2>
+						<p>To create a close button, enable its functionality and add proper styling and positioning, add the <code>.modal-close-default</code> class to an <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> element. To place the close button outside the modal, add the <code>.modal-close-outside</code> class.</p>
+					
+						<pre><code>
+							&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-default&quot;&gt;close&lt;/a&gt;
+
+							&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-outside&quot;&gt;close&lt;/a&gt;
+						</code></pre>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<button class="button round margin-md-right" toggle="target: #modal-close-default">Default</button>
+
+									<!-- This is the modal with the default close button -->
+									<dialog id="modal-close-default" class="modal">
+										<div class="modal-dialog modal-body">
+											<a href="#!" class="modal-close modal-close-default">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+											</a>
+											<h2 class="modal-title">Default</h2>
 											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 										</div>
-										<div class="modal-footer text-right">
-											<button class="button modal-close-button">Cancel</button>
-											<button class="button button-primary">Save</button>
+									</dialog>
+									
+									<!-- This is a button toggling the modal with the outside close button -->
+									<button class="button round margin-md-right" toggle="target: #modal-close-outside">Outside</button>
+									
+									<!-- This is the modal with the outside close button -->
+									<dialog id="modal-close-outside" class="modal">
+										<div class="modal-dialog modal-body">
+											<a href="#!" class="modal-close modal-close-outside">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+											</a>
+											<h2 class="modal-title">Outside</h2>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 										</div>
-									</div>
-								</dialog>
-							</div>
-							<div>
-								<pre><code>
-									&lt;a class=&quot;button&quot; toggle href=&quot;#modal-sections&quot;&gt;Open&lt;/a&gt;
+									</dialog>
+								</div>
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button round margin-small-right&quot; toggle=&quot;target: #modal-close-default&quot;&gt;Default&lt;/button&gt;
 
-									&lt;div id=&quot;modal-sections&quot; class=&quot;modal&quot;&gt;
-										&lt;div class=&quot;modal-dialog&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-default&quot;&gt;close&lt;/a&gt;
-											&lt;div class=&quot;modal-header&quot;&gt;
-												&lt;h2 class=&quot;modal-title&quot;&gt;Modal Title&lt;/h2&gt;
+										&lt;!-- This is the modal with the default close button --&gt;
+										&lt;div id=&quot;modal-close-default&quot; class=&quot;modal&quot;&gt;
+											&lt;div class=&quot;modal-dialog modal-body&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-default&quot;&gt;close&lt;/a&gt;
+												&lt;h2 class=&quot;modal-title&quot;&gt;Default&lt;/h2&gt;
+												&lt;p&gt;Lorem ipsum dolor sit amet....&lt;/p&gt;
 											&lt;/div&gt;
-											&lt;div class=&quot;modal-body&quot;&gt;
+										&lt;/div&gt;
+
+										&lt;!-- This is a button toggling the modal with the outside close button --&gt;
+										&lt;button class=&quot;button round margin-small-right&quot; toggle=&quot;target: #modal-close-outside&quot;&gt;Outside&lt;/button&gt;
+
+										&lt;!-- This is the modal with the outside close button --&gt;
+										&lt;div id=&quot;modal-close-outside&quot; class=&quot;modal&quot;&gt;
+											&lt;div class=&quot;modal-dialog modal-body&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-outside&quot;&gt;close&lt;/a&gt;
+												&lt;h2 class=&quot;modal-title&quot;&gt;Outside&lt;/h2&gt;
+												&lt;p&gt;Lorem ipsum dolor sit amet....&lt;/p&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h2>Prevent close</h2>
+						<p>To prevent modal dialog to close on click use <code>bgClose: false</code> component attribute.</p>
+					
+						<pre><code>
+							&lt;div id=&quot;modal-close-prevent&quot; class=&quot;modal&quot; modal=&quot;bgClose: false&quot;&gt;
+								&lt;div class=&quot;modal-dialog modal-body&quot;&gt;&lt;/div&gt;
+							&lt;/div&gt;
+						</code></pre>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<button class="button round" toggle="target: #modal-close-prevent">Default</button>
+
+									<!-- This is the modal with the default close button -->
+									<dialog id="modal-close-prevent" class="modal" modal="bgClose: false">
+										<div class="modal-dialog modal-body">
+											<a href="#!" class="modal-close modal-close-default">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+											</a>
+											<h2 class="modal-title">Open</h2>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+										</div>
+									</dialog>
+								</div>
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button round&quot; toggle=&quot;target: #modal-close-prevent&quot;&gt;Default&lt;/button&gt;
+
+										&lt;!-- This is the modal with the default close button --&gt;
+										&lt;div id=&quot;modal-close-prevent&quot; class=&quot;modal&quot; modal=&quot;bgClose: false&quot;&gt;
+											&lt;div class=&quot;modal-dialog modal-body&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-default&quot;&gt;close&lt;/a&gt;
+												&lt;h2 class=&quot;modal-title&quot;&gt;Open&lt;/h2&gt;
+												&lt;p&gt;Lorem ipsum dolor sit amet.....&lt;/p&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h2>Center modal</h2>
+						<p>To vertically center the modal dialog, you can use the <code>position: center</code> component attribute.</p>
+						
+						<pre><code>
+							&lt;div id=&quot;modal-center&quot; class=&quot;modal&quot; modal=&quot;position: center&quot;&gt;
+						</code></pre>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<a href="#modal-center" toggle>Open</a>
+									<dialog id="modal-center" class="modal" modal="position: center">
+										<div class="modal-dialog modal-body">
+											<a href="#!" class="modal-close modal-close-default">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+											</a>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+										</div>
+									</dialog>
+								</div>
+								<div>
+									<pre><code>
+										&lt;a href=&quot;#modal-center&quot; toggle&gt;Open&lt;/a&gt;
+										&lt;div id=&quot;modal-center&quot; class=&quot;modal&quot; modal=&quot;position: center&quot;&gt;
+											&lt;div class=&quot;modal-dialog modal-body&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-default&quot;&gt;close&lt;/a&gt;
 												&lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
 											&lt;/div&gt;
-											&lt;div class=&quot;modal-footer text-right&quot;&gt;
-												&lt;button class=&quot;button button-default modal-close-button&quot;&gt;Cancel&lt;/button&gt;
-												&lt;button class=&quot;button button-primary&quot;&gt;Save&lt;/button&gt;
-											&lt;/div&gt;
 										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Container modifier</h2>
-					<p>Add the <code>.modal-container</code> class to expand the modal dialog to the default <a href="/component.container.html">Container</a> width.</p>
-				
-					<pre><code>
-						&lt;div id=&quot;modal-container&quot; class=&quot;modal-container modal&quot;&gt;
-					</code></pre>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<a class="button" href="#modal-container" toggle>Open</a>
+						<p><span class="label label-outline">Note</span> You can also use <code>data-position="bottom"</code> to position modal.</p>
+						
+						<h2>Header and footer</h2>
+						<p>To divide the modal into different content sections, use the following classes.</p>
 
-								<dialog id="modal-container" class="modal-container modal">
-									<div class="modal-dialog modal-body">
-										<a href="#!" class="modal-close modal-close-default">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-										<h2 class="modal-title">Headline</h2>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									</div>
-								</dialog>
-							</div>
-							<div>
-								<pre><code>
-									&lt;a class=&quot;button&quot; toggle href=&quot;#modal-container&quot;&gt;Open&lt;/a&gt;
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.modal-header</code></td>
+									<td>Add this class to a <code>&lt;div&gt;</code> element to create the modal header.</td>
+								</tr>
+								<tr>
+									<td><code>.modal-footer</code></td>
+									<td>Add this class to a <code>&lt;div&gt;</code> element to create the modal footer.</td>
+								</tr>
+							</tbody>
+						</table>
 
-									&lt;div id=&quot;modal-container&quot; class=&quot;modal-container modal&quot;&gt;
-										&lt;div class=&quot;modal-dialog modal-body&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-default&quot;&gt;close&lt;/a&gt;
-											&lt;h2 class=&quot;modal-title&quot;&gt;Headline&lt;/h2&gt;
-											&lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Full modifier</h2>
-					<p>To create a modal, that fills the entire page, add the <code>data-modal-full</code> attribute. It is also recommended to add the <code>.modal-close-full</code> class to the close button, so that it adapts its styling.</p>
-					
-					<pre><code>
-						&lt;div id=&quot;modal-full&quot; class=&quot;modal-full modal animation-scale-up&quot; data-modal-full&gt;
-					</code></pre>
+						<pre><code>
+							&lt;div id=&quot;modal-sections&quot; class=&quot;modal&quot;&gt;
+								&lt;div class=&quot;modal-dialog&quot;&gt;
+									&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-default&quot;&gt;close&lt;/a&gt;
+									&lt;div class=&quot;modal-header&quot;&gt;&lt;/div&gt;
+									&lt;div class=&quot;modal-body&quot;&gt;&lt;/div&gt;
+									&lt;div class=&quot;modal-footer&quot;&gt;&lt;/div&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+						</code></pre>
 
-						<p>Using the <a href="/component.grid.html">grid</a> and <a href="/component.width.html">width</a> classes, you can create a nice, split fullscreen modal.</p>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<a class="button" href="#modal-sections" toggle>Open</a>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<a class="button" href="#modal-full" toggle>Open</a>
-
-								<dialog id="modal-full" class="modal-full modal animation-scale-up" data-modal-full>
-									<div class="modal-dialog">
-										<a href="#!" class="modal-close modal-close-full">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-										<div class="grid col-2 flex-middle height-1-1">
-											<div class="background-cover height-1-1" style="background-image: url('/assets/images/photos/image1.webp');" height-viewport=""></div>
-											<div class="padding-lg flex flex-col gap-lg">
-												<h1>Headline</h1>
+									<dialog id="modal-sections" class="modal">
+										<div class="modal-dialog">
+											<a href="#!" class="modal-close modal-close-default">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+											</a>
+											<div class="modal-header">
+												<h2 class="modal-title">Modal Title</h2>
+											</div>
+											<div class="modal-body">
 												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 											</div>
+											<div class="modal-footer text-right">
+												<button class="button modal-close-button">Cancel</button>
+												<button class="button button-primary">Save</button>
+											</div>
 										</div>
-									</div>
-								</dialog>
-							</div>
-							<div>
-								<pre><code>
-									&lt;a class=&quot;button&quot; toggle href=&quot;#modal-full&quot;&gt;Open&lt;/a&gt;
+									</dialog>
+								</div>
+								<div>
+									<pre><code>
+										&lt;a class=&quot;button&quot; toggle href=&quot;#modal-sections&quot;&gt;Open&lt;/a&gt;
 
-									&lt;div id=&quot;modal-full&quot; class=&quot;modal-full modal animation-scale-up&quot; data-modal-full&gt;
-										&lt;div class=&quot;modal-dialog&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-full&quot;&gt;close&lt;/a&gt;
-											&lt;div class=&quot;grid col-2 flex-middle height-1-1&quot;&gt;
-												&lt;div class=&quot;background-cover height-1-1&quot; style=&quot;background-image: url(&apos;/assets/images/photos/image1.webp&apos;);&quot; height-viewport=&quot;&quot;&gt;&lt;/div&gt;
-												&lt;div class=&quot;padding-large&quot;&gt;
-													&lt;h1&gt;Headline&lt;/h1&gt;
+										&lt;div id=&quot;modal-sections&quot; class=&quot;modal&quot;&gt;
+											&lt;div class=&quot;modal-dialog&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-default&quot;&gt;close&lt;/a&gt;
+												&lt;div class=&quot;modal-header&quot;&gt;
+													&lt;h2 class=&quot;modal-title&quot;&gt;Modal Title&lt;/h2&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;modal-body&quot;&gt;
 													&lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;modal-footer text-right&quot;&gt;
+													&lt;button class=&quot;button button-default modal-close-button&quot;&gt;Cancel&lt;/button&gt;
+													&lt;button class=&quot;button button-primary&quot;&gt;Save&lt;/button&gt;
 												&lt;/div&gt;
 											&lt;/div&gt;
 										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-				
-					<h2>Overflow</h2>
-					<p>By default, the page will scroll with the modal, if its content exceeds the window height. To apply a scrollbar inside the modal, add the <code>overflow-auto</code> attribute from the <a href="/component.util.html">Utility component</a> to the modal body.</p>
+						
+						<h2>Container modifier</h2>
+						<p>Add the <code>.modal-container</code> class to expand the modal dialog to the default <a href="/component.container.html">Container</a> width.</p>
+					
+						<pre><code>
+							&lt;div id=&quot;modal-container&quot; class=&quot;modal-container modal&quot;&gt;
+						</code></pre>
 
-					<pre><code>
-						&lt;div class=&quot;modal&quot;&gt;
-							&lt;div class=&quot;modal-dialog overflow-auto&quot;&gt;&lt;/div&gt;
-						&lt;/div&gt;
-					</code></pre>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<a class="button" href="#modal-container" toggle>Open</a>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<a class="button" href="#modal-overflow" toggle>Open</a>
-
-								<dialog id="modal-overflow" class="modal">
-									<div class="modal-dialog">
-										<a href="#!" class="modal-close modal-close">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-								
-										<div class="modal-header">
+									<dialog id="modal-container" class="modal-container modal">
+										<div class="modal-dialog modal-body">
+											<a href="#!" class="modal-close modal-close-default">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+											</a>
 											<h2 class="modal-title">Headline</h2>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 										</div>
-								
-										<div class="modal-body height-lg overflow-auto">
-								
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								
-										</div>
-								
-										<div class="modal-footer text-right">
-											<button class="button button-default modal-close-button">Cancel</button>
-											<button class="button button-primary">Save</button>
-										</div>
-								
-									</div>
-								</dialog>
-							</div>
-							<div>
-								<pre><code>
-									&lt;a class=&quot;button&quot; toggle href=&quot;#modal-overflow&quot;&gt;Open&lt;/a&gt;
+									</dialog>
+								</div>
+								<div>
+									<pre><code>
+										&lt;a class=&quot;button&quot; toggle href=&quot;#modal-container&quot;&gt;Open&lt;/a&gt;
 
-									&lt;div id=&quot;modal-overflow&quot; class=&quot;modal&quot;&gt;
-										&lt;div class=&quot;modal-dialog&quot;&gt;
-
-											&lt;div class=&quot;modal-body height-lg overflow-auto&quot;&gt;
-
+										&lt;div id=&quot;modal-container&quot; class=&quot;modal-container modal&quot;&gt;
+											&lt;div class=&quot;modal-dialog modal-body&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-default&quot;&gt;close&lt;/a&gt;
+												&lt;h2 class=&quot;modal-title&quot;&gt;Headline&lt;/h2&gt;
+												&lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
 											&lt;/div&gt;
-
-											&lt;div class=&quot;modal-footer&quot;&gt;
-
-											&lt;/div&gt;
-
 										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-				
-					<h2>Media</h2>
-					<p>If you want to display media, you should first check, if the <a href="/component.lightbox.html">Lightbox component</a> doesn't already offer everything you need. However, you can also use the modal to have more control over the markup to wrap your media in.</p>
-				
-					<p><span class="label">Note</span> Use the <code>video</code> attribute from the <a href="/component.video.html">Video component</a> to make sure videos are stopped when the modal is closed.</p>
+						
+						<h2>Full modifier</h2>
+						<p>To create a modal, that fills the entire page, add the <code>data-modal-full</code> attribute. It is also recommended to add the <code>.modal-close-full</code> class to the close button, so that it adapts its styling.</p>
+						
+						<pre><code>
+							&lt;div id=&quot;modal-full&quot; class=&quot;modal-full modal animation-scale-up&quot; data-modal-full&gt;
+						</code></pre>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<p margin="">
-									<a class="button button-default" href="#modal-media-image" toggle>Image</a>
-									<a class="button button-default" href="#modal-media-video" toggle>Video</a>
-									<a class="button button-default" href="#modal-media-youtube" toggle>YouTube</a>
-									<a class="button button-default" href="#modal-media-vimeo" toggle>Vimeo</a>
-								</p>
-								
-								<dialog id="modal-media-image" class="flex-top modal">
-									<div class="modal-dialog width-auto margin-auto-vertical">
-										<a href="#!" class="modal-close modal-close-outside">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-										<img src="/assets/images/photos/image1.webp" width="1800" height="1200" alt="">
-									</div>
-								</dialog>
-								
-								<dialog id="modal-media-video" class="flex-top modal">
-									<div class="modal-dialog width-auto margin-auto-vertical">
-										<a href="#!" class="modal-close modal-close-outside">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-										<video src="https://yootheme.com/site/images/media/yootheme-pro.mp4" width="1920" height="1080" controls="" playsinline="" video=""></video>
-									</div>
-								</dialog>
-								
-								<dialog id="modal-media-youtube" class="flex-top modal">
-									<div class="modal-dialog width-auto margin-auto-vertical">
-										<a href="#!" class="modal-close modal-close-outside">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-										<iframe src="https://www.youtube-nocookie.com/embed/c2pz2mlSfXA?enablejsapi=1" width="1920" height="1080" loading="lazy" video="" responsive="" allow="autoplay" class="responsive-width" style="aspect-ratio: 1920 / 1080;"></iframe>
-									</div>
-								</dialog>
-								
-								<dialog id="modal-media-vimeo" class="flex-top modal">
-									<div class="modal-dialog width-auto margin-auto-vertical">
-										<a href="#!" class="modal-close modal-close-outside">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-										<iframe src="https://player.vimeo.com/video/1084537?api=1&amp;player_id=2" width="1280" height="720" loading="lazy" video="" responsive="" allow="autoplay" class="responsive-width" style="aspect-ratio: 1280 / 720;"></iframe>
-									</div>
-								</dialog>
+							<p>Using the <a href="/component.grid.html">grid</a> and <a href="/component.width.html">width</a> classes, you can create a nice, split fullscreen modal.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<a class="button" href="#modal-full" toggle>Open</a>
+
+									<dialog id="modal-full" class="modal-full modal animation-scale-up" data-modal-full>
+										<div class="modal-dialog">
+											<a href="#!" class="modal-close modal-close-full">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+											</a>
+											<div class="grid col-2 flex-middle height-1-1">
+												<div class="background-cover height-1-1" style="background-image: url('/assets/images/photos/image1.webp');" height-viewport=""></div>
+												<div class="padding-lg flex flex-col gap-lg">
+													<h1>Headline</h1>
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+												</div>
+											</div>
+										</div>
+									</dialog>
+								</div>
+								<div>
+									<pre><code>
+										&lt;a class=&quot;button&quot; toggle href=&quot;#modal-full&quot;&gt;Open&lt;/a&gt;
+
+										&lt;div id=&quot;modal-full&quot; class=&quot;modal-full modal animation-scale-up&quot; data-modal-full&gt;
+											&lt;div class=&quot;modal-dialog&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-full&quot;&gt;close&lt;/a&gt;
+												&lt;div class=&quot;grid col-2 flex-middle height-1-1&quot;&gt;
+													&lt;div class=&quot;background-cover height-1-1&quot; style=&quot;background-image: url(&apos;/assets/images/photos/image1.webp&apos;);&quot; height-viewport=&quot;&quot;&gt;&lt;/div&gt;
+													&lt;div class=&quot;padding-large&quot;&gt;
+														&lt;h1&gt;Headline&lt;/h1&gt;
+														&lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;p margin=&quot;&quot;&gt;
-										&lt;a class=&quot;button button-default&quot; href=&quot;#modal-media-image&quot; toggle&gt;Image&lt;/a&gt;
-										&lt;a class=&quot;button button-default&quot; href=&quot;#modal-media-video&quot; toggle&gt;Video&lt;/a&gt;
-										&lt;a class=&quot;button button-default&quot; href=&quot;#modal-media-youtube&quot; toggle&gt;YouTube&lt;/a&gt;
-										&lt;a class=&quot;button button-default&quot; href=&quot;#modal-media-vimeo&quot; toggle&gt;Vimeo&lt;/a&gt;
-									&lt;/p&gt;
-
-									&lt;div id=&quot;modal-media-image&quot; class=&quot;flex-top modal&quot;&gt;
-										&lt;div class=&quot;modal-dialog width-auto margin-auto-vertical&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-outside&quot;&gt;close&lt;/a&gt;
-											&lt;img src=&quot;/assets/images/photos/image1.webp&quot; width=&quot;1800&quot; height=&quot;1200&quot; alt=&quot;&quot;&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-
-									&lt;div id=&quot;modal-media-video&quot; class=&quot;flex-top modal&quot;&gt;
-										&lt;div class=&quot;modal-dialog width-auto margin-auto-vertical&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-outside&quot;&gt;close&lt;/a&gt;
-											&lt;video src=&quot;https://yootheme.com/site/images/media/yootheme-pro.mp4&quot; width=&quot;1920&quot; height=&quot;1080&quot; controls=&quot;&quot; playsinline=&quot;&quot; video=&quot;&quot;&gt;&lt;/video&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-
-									&lt;div id=&quot;modal-media-youtube&quot; class=&quot;flex-top modal&quot;&gt;
-										&lt;div class=&quot;modal-dialog width-auto margin-auto-vertical&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-outside&quot;&gt;close&lt;/a&gt;
-											&lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/c2pz2mlSfXA?enablejsapi=1&quot; width=&quot;1920&quot; height=&quot;1080&quot; loading=&quot;lazy&quot; video=&quot;&quot; responsive=&quot;&quot; allow=&quot;autoplay&quot; class=&quot;responsive-width&quot; style=&quot;aspect-ratio: 1920 / 1080;&quot;&gt;&lt;/iframe&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-
-									&lt;div id=&quot;modal-media-vimeo&quot; class=&quot;flex-top modal&quot;&gt;
-										&lt;div class=&quot;modal-dialog width-auto margin-auto-vertical&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-outside&quot;&gt;close&lt;/a&gt;
-											&lt;iframe src=&quot;https://player.vimeo.com/video/1084537?api=1&amp;amp;player_id=2&quot; width=&quot;1280&quot; height=&quot;720&quot; loading=&quot;lazy&quot; video=&quot;&quot; responsive=&quot;&quot; allow=&quot;autoplay&quot; class=&quot;responsive-width&quot; style=&quot;aspect-ratio: 1280 / 720;&quot;&gt;&lt;/iframe&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-				
-					<h2>Groups</h2>
-					<p>You can group multiple modals by linking from one to the other and back. Use this to create multistep wizards inside your modals.</p>
+					
+						<h2>Overflow</h2>
+						<p>By default, the page will scroll with the modal, if its content exceeds the window height. To apply a scrollbar inside the modal, add the <code>overflow-auto</code> attribute from the <a href="/component.util.html">Utility component</a> to the modal body.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<p margin="">
-									<a class="button button-default" href="#modal-group-1">Modal 1</a>
-									<a class="button button-default" href="#modal-group-2">Modal 2</a>
-								</p>
-								
-								<dialog id="modal-group-1" class="modal">
-									<div class="modal-dialog">
-										<a href="#!" class="modal-close">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-										<div class="modal-header">
-											<h2 class="modal-title">Headline 1</h2>
-										</div>
-										<div class="modal-body">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-										</div>
-										<div class="modal-footer text-right">
-											<button class="button button-default modal-close-button">Cancel</button>
-											<a class="button button-primary" href="#modal-group-2">Next</a>
-										</div>
-									</div>
-								</dialog>
-								
-								<dialog id="modal-group-2" class="modal">
-									<div class="modal-dialog">
-										<a href="#!" class="modal-close">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-										<div class="modal-header">
-											<h2 class="modal-title">Headline 2</h2>
-										</div>
-										<div class="modal-body">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-										</div>
-										<div class="modal-footer text-right">
-											<button class="button button-default modal-close-button">Cancel</button>
-											<a class="button button-primary" href="#modal-group-1" toggle>Previous</a>
-										</div>
-									</div>
-								</dialog>
-							</div>
-							<div>
-								<pre><code>
-									&lt;p margin=&quot;&quot;&gt;
-										&lt;a class=&quot;button button-default&quot; href=&quot;#modal-group-1&quot; toggle&gt;Modal 1&lt;/a&gt;
-										&lt;a class=&quot;button button-default&quot; href=&quot;#modal-group-2&quot; toggle&gt;Modal 2&lt;/a&gt;
-									&lt;/p&gt;
+						<pre><code>
+							&lt;div class=&quot;modal&quot;&gt;
+								&lt;div class=&quot;modal-dialog overflow-auto&quot;&gt;&lt;/div&gt;
+							&lt;/div&gt;
+						</code></pre>
 
-									&lt;div id=&quot;modal-group-1&quot; class=&quot;modal&quot;&gt;
-										&lt;div class=&quot;modal-dialog&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;icon modal-close&quot;&gt;close&lt;/a&gt;
-											&lt;div class=&quot;modal-header&quot;&gt;
-												&lt;h2 class=&quot;modal-title&quot;&gt;Headline 1&lt;/h2&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;modal-body&quot;&gt;
-												&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;modal-footer text-right&quot;&gt;
-												&lt;button class=&quot;button button-default modal-close&quot;&gt;Cancel&lt;/button&gt;
-												&lt;a class=&quot;button button-primary&quot; href=&quot;#modal-group-2&quot; toggle&gt;Next&lt;/a&gt;
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<a class="button" href="#modal-overflow" toggle>Open</a>
+
+									<dialog id="modal-overflow" class="modal">
+										<div class="modal-dialog">
+											<a href="#!" class="modal-close modal-close">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+											</a>
+									
+											<div class="modal-header">
+												<h2 class="modal-title">Headline</h2>
+											</div>
+									
+											<div class="modal-body height-lg overflow-auto">
+									
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									
+											</div>
+									
+											<div class="modal-footer text-right">
+												<button class="button button-default modal-close-button">Cancel</button>
+												<button class="button button-primary">Save</button>
+											</div>
+									
+										</div>
+									</dialog>
+								</div>
+								<div>
+									<pre><code>
+										&lt;a class=&quot;button&quot; toggle href=&quot;#modal-overflow&quot;&gt;Open&lt;/a&gt;
+
+										&lt;div id=&quot;modal-overflow&quot; class=&quot;modal&quot;&gt;
+											&lt;div class=&quot;modal-dialog&quot;&gt;
+
+												&lt;div class=&quot;modal-body height-lg overflow-auto&quot;&gt;
+
+												&lt;/div&gt;
+
+												&lt;div class=&quot;modal-footer&quot;&gt;
+
+												&lt;/div&gt;
+
 											&lt;/div&gt;
 										&lt;/div&gt;
-									&lt;/div&gt;
-
-									&lt;div id=&quot;modal-group-2&quot; class=&quot;modal&quot;&gt;
-										&lt;div class=&quot;modal-dialog&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;icon modal-close&quot;&gt;close&lt;/a&gt;
-											&lt;div class=&quot;modal-header&quot;&gt;
-												&lt;h2 class=&quot;modal-title&quot;&gt;Headline 2&lt;/h2&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;modal-body&quot;&gt;
-												&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;modal-footer text-right&quot;&gt;
-												&lt;button class=&quot;button button-default modal-close&quot;&gt;Cancel&lt;/button&gt;
-												&lt;a class=&quot;button button-primary&quot; href=&quot;#modal-group-1&quot; toggle&gt;Previous&lt;/a&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
+					
+						<h2>Media</h2>
+						<p>If you want to display media, you should first check, if the <a href="/component.lightbox.html">Lightbox component</a> doesn't already offer everything you need. However, you can also use the modal to have more control over the markup to wrap your media in.</p>
+					
+						<p><span class="label">Note</span> Use the <code>video</code> attribute from the <a href="/component.video.html">Video component</a> to make sure videos are stopped when the modal is closed.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<p margin="">
+										<a class="button button-default" href="#modal-media-image" toggle>Image</a>
+										<a class="button button-default" href="#modal-media-video" toggle>Video</a>
+										<a class="button button-default" href="#modal-media-youtube" toggle>YouTube</a>
+										<a class="button button-default" href="#modal-media-vimeo" toggle>Vimeo</a>
+									</p>
+									
+									<dialog id="modal-media-image" class="flex-top modal">
+										<div class="modal-dialog width-auto margin-auto-vertical">
+											<a href="#!" class="modal-close modal-close-outside">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+											</a>
+											<img src="/assets/images/photos/image1.webp" width="1800" height="1200" alt="">
+										</div>
+									</dialog>
+									
+									<dialog id="modal-media-video" class="flex-top modal">
+										<div class="modal-dialog width-auto margin-auto-vertical">
+											<a href="#!" class="modal-close modal-close-outside">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+											</a>
+											<video src="https://yootheme.com/site/images/media/yootheme-pro.mp4" width="1920" height="1080" controls="" playsinline="" video=""></video>
+										</div>
+									</dialog>
+									
+									<dialog id="modal-media-youtube" class="flex-top modal">
+										<div class="modal-dialog width-auto margin-auto-vertical">
+											<a href="#!" class="modal-close modal-close-outside">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+											</a>
+											<iframe src="https://www.youtube-nocookie.com/embed/c2pz2mlSfXA?enablejsapi=1" width="1920" height="1080" loading="lazy" video="" responsive="" allow="autoplay" class="responsive-width" style="aspect-ratio: 1920 / 1080;"></iframe>
+										</div>
+									</dialog>
+									
+									<dialog id="modal-media-vimeo" class="flex-top modal">
+										<div class="modal-dialog width-auto margin-auto-vertical">
+											<a href="#!" class="modal-close modal-close-outside">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+											</a>
+											<iframe src="https://player.vimeo.com/video/1084537?api=1&amp;player_id=2" width="1280" height="720" loading="lazy" video="" responsive="" allow="autoplay" class="responsive-width" style="aspect-ratio: 1280 / 720;"></iframe>
+										</div>
+									</dialog>
+								</div>
+								<div>
+									<pre><code>
+										&lt;p margin=&quot;&quot;&gt;
+											&lt;a class=&quot;button button-default&quot; href=&quot;#modal-media-image&quot; toggle&gt;Image&lt;/a&gt;
+											&lt;a class=&quot;button button-default&quot; href=&quot;#modal-media-video&quot; toggle&gt;Video&lt;/a&gt;
+											&lt;a class=&quot;button button-default&quot; href=&quot;#modal-media-youtube&quot; toggle&gt;YouTube&lt;/a&gt;
+											&lt;a class=&quot;button button-default&quot; href=&quot;#modal-media-vimeo&quot; toggle&gt;Vimeo&lt;/a&gt;
+										&lt;/p&gt;
+
+										&lt;div id=&quot;modal-media-image&quot; class=&quot;flex-top modal&quot;&gt;
+											&lt;div class=&quot;modal-dialog width-auto margin-auto-vertical&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-outside&quot;&gt;close&lt;/a&gt;
+												&lt;img src=&quot;/assets/images/photos/image1.webp&quot; width=&quot;1800&quot; height=&quot;1200&quot; alt=&quot;&quot;&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+
+										&lt;div id=&quot;modal-media-video&quot; class=&quot;flex-top modal&quot;&gt;
+											&lt;div class=&quot;modal-dialog width-auto margin-auto-vertical&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-outside&quot;&gt;close&lt;/a&gt;
+												&lt;video src=&quot;https://yootheme.com/site/images/media/yootheme-pro.mp4&quot; width=&quot;1920&quot; height=&quot;1080&quot; controls=&quot;&quot; playsinline=&quot;&quot; video=&quot;&quot;&gt;&lt;/video&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+
+										&lt;div id=&quot;modal-media-youtube&quot; class=&quot;flex-top modal&quot;&gt;
+											&lt;div class=&quot;modal-dialog width-auto margin-auto-vertical&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-outside&quot;&gt;close&lt;/a&gt;
+												&lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/c2pz2mlSfXA?enablejsapi=1&quot; width=&quot;1920&quot; height=&quot;1080&quot; loading=&quot;lazy&quot; video=&quot;&quot; responsive=&quot;&quot; allow=&quot;autoplay&quot; class=&quot;responsive-width&quot; style=&quot;aspect-ratio: 1920 / 1080;&quot;&gt;&lt;/iframe&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+
+										&lt;div id=&quot;modal-media-vimeo&quot; class=&quot;flex-top modal&quot;&gt;
+											&lt;div class=&quot;modal-dialog width-auto margin-auto-vertical&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;icon modal-close modal-close-outside&quot;&gt;close&lt;/a&gt;
+												&lt;iframe src=&quot;https://player.vimeo.com/video/1084537?api=1&amp;amp;player_id=2&quot; width=&quot;1280&quot; height=&quot;720&quot; loading=&quot;lazy&quot; video=&quot;&quot; responsive=&quot;&quot; allow=&quot;autoplay&quot; class=&quot;responsive-width&quot; style=&quot;aspect-ratio: 1280 / 720;&quot;&gt;&lt;/iframe&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+					
+						<h2>Groups</h2>
+						<p>You can group multiple modals by linking from one to the other and back. Use this to create multistep wizards inside your modals.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<p margin="">
+										<a class="button button-default" href="#modal-group-1">Modal 1</a>
+										<a class="button button-default" href="#modal-group-2">Modal 2</a>
+									</p>
+									
+									<dialog id="modal-group-1" class="modal">
+										<div class="modal-dialog">
+											<a href="#!" class="modal-close">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+											</a>
+											<div class="modal-header">
+												<h2 class="modal-title">Headline 1</h2>
+											</div>
+											<div class="modal-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+											</div>
+											<div class="modal-footer text-right">
+												<button class="button button-default modal-close-button">Cancel</button>
+												<a class="button button-primary" href="#modal-group-2">Next</a>
+											</div>
+										</div>
+									</dialog>
+									
+									<dialog id="modal-group-2" class="modal">
+										<div class="modal-dialog">
+											<a href="#!" class="modal-close">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+											</a>
+											<div class="modal-header">
+												<h2 class="modal-title">Headline 2</h2>
+											</div>
+											<div class="modal-body">
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+											</div>
+											<div class="modal-footer text-right">
+												<button class="button button-default modal-close-button">Cancel</button>
+												<a class="button button-primary" href="#modal-group-1" toggle>Previous</a>
+											</div>
+										</div>
+									</dialog>
+								</div>
+								<div>
+									<pre><code>
+										&lt;p margin=&quot;&quot;&gt;
+											&lt;a class=&quot;button button-default&quot; href=&quot;#modal-group-1&quot; toggle&gt;Modal 1&lt;/a&gt;
+											&lt;a class=&quot;button button-default&quot; href=&quot;#modal-group-2&quot; toggle&gt;Modal 2&lt;/a&gt;
+										&lt;/p&gt;
+
+										&lt;div id=&quot;modal-group-1&quot; class=&quot;modal&quot;&gt;
+											&lt;div class=&quot;modal-dialog&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;icon modal-close&quot;&gt;close&lt;/a&gt;
+												&lt;div class=&quot;modal-header&quot;&gt;
+													&lt;h2 class=&quot;modal-title&quot;&gt;Headline 1&lt;/h2&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;modal-body&quot;&gt;
+													&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;modal-footer text-right&quot;&gt;
+													&lt;button class=&quot;button button-default modal-close&quot;&gt;Cancel&lt;/button&gt;
+													&lt;a class=&quot;button button-primary&quot; href=&quot;#modal-group-2&quot; toggle&gt;Next&lt;/a&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+
+										&lt;div id=&quot;modal-group-2&quot; class=&quot;modal&quot;&gt;
+											&lt;div class=&quot;modal-dialog&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;icon modal-close&quot;&gt;close&lt;/a&gt;
+												&lt;div class=&quot;modal-header&quot;&gt;
+													&lt;h2 class=&quot;modal-title&quot;&gt;Headline 2&lt;/h2&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;modal-body&quot;&gt;
+													&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;modal-footer text-right&quot;&gt;
+													&lt;button class=&quot;button button-default modal-close&quot;&gt;Cancel&lt;/button&gt;
+													&lt;a class=&quot;button button-primary&quot; href=&quot;#modal-group-1&quot; toggle&gt;Previous&lt;/a&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

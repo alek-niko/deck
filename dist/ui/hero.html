@@ -308,160 +308,353 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Hero</h1>
-					<p class="text-lead">Create eye-catching banner sections or intros with full-width background support, centered content, and optional overlays.</p>
-					<hr>
-					<h2>Usage</h2>
-					<p>To create a hero section, use the <code>.hero</code> class. Add content inside a <code>.hero-content</code> wrapper to center it properly. You can apply <code>.hero-has-image</code> for background images and <code>.hero-overlay</code> to enable a dark overlay for readability.</p>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Hero</h1>
+						<p class="text-lead">Create eye-catching banner sections or intros with full-width background support, centered content, and optional overlays.</p>
+						<hr>
+						<h2>Usage</h2>
+						<p>To create a hero section, use the <code>.hero</code> class. Add content inside a <code>.hero-content</code> wrapper to center it properly. You can apply <code>.hero-has-image</code> for background images and <code>.hero-overlay</code> to enable a dark overlay for readability.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<section class="hero">
-									<div class="hero-content">
-										<h1>Welcome to Cyberpunk Deck</h1>
-										<p>The Modern-Only Lean Web Framework</p>
-									</div>
-								</section>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<section class="hero">
+										<div class="hero-content">
+											<h1>Welcome to Cyberpunk Deck</h1>
+											<p>The Modern-Only Lean Web Framework</p>
+										</div>
+									</section>
+								</div>
+								<div>
+									<pre><code>
+										&lt;section class=&quot;hero&quot;&gt;
+											&lt;div class=&quot;hero-content&quot;&gt;
+												&lt;h1&gt;Welcome to Cyberpunk Deck&lt;/h1&gt;
+												&lt;p&gt;The Modern-Only Lean Web Framework&lt;/p&gt;
+											&lt;/div&gt;
+										&lt;/section&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;section class=&quot;hero&quot;&gt;
-										&lt;div class=&quot;hero-content&quot;&gt;
-											&lt;h1&gt;Welcome to Cyberpunk Deck&lt;/h1&gt;
-											&lt;p&gt;The Modern-Only Lean Web Framework&lt;/p&gt;
-										&lt;/div&gt;
-									&lt;/section&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Background Image</h2>
+						<h2>Available Tokens</h2>
+						<pre><code>
+							--hero-flex-direction      // Controls the flex direction of hero content (e.g., column, row)
+							--hero-align-items         // Vertical alignment of hero content within the hero container
+							--hero-justify             // Horizontal alignment of hero content within the hero container
+							--hero-text-align          // Text alignment inside the hero (fallback for inline text)
+							--hero-bg                  // Background color of the hero section
+							--hero-min-height          // Minimum height of the hero (e.g., 60vh)
+							--hero-max-height          // Maximum height of the hero (e.g., 100vh)
+							--hero-overlay-bg          // Fallback background color for hero overlay if no gradient is applied
+							--hero-content-width       // Width of the hero content block (default: auto)
+							--hero-content-max-width   // Maximum width of the hero content block (default: 60ch)
+							--hero-content-min-height  // Minimum height of the hero content block (default: auto)
+						</code></pre>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<section class="hero hero-has-image" style="background-image: url('/assets/images/cover.jpg');">
-									<div class="hero-content">
-										<h1>Explore the Future</h1>
-										<p>Cyberpunk-themed interfaces built for speed and style</p>
-									</div>
-								</section>
+						<h2>Background Image</h2>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<section class="hero hero-has-image" style="background-image: url('/assets/images/cover.jpg');">
+										<div class="hero-content">
+											<h1>Explore the Future</h1>
+											<p>Cyberpunk-themed interfaces built for speed and style</p>
+										</div>
+									</section>
+								</div>
+								<div>
+									<pre><code>
+										&lt;section class=&quot;hero hero-has-image&quot; style=&quot;background-image: url(&apos;/assets/images/cover.jpg&apos;);&quot;&gt;
+											&lt;div class=&quot;hero-content&quot;&gt;
+												&lt;h1&gt;Explore the Future&lt;/h1&gt;
+												&lt;p&gt;Cyberpunk-themed interfaces built for speed and style&lt;/p&gt;
+											&lt;/div&gt;
+										&lt;/section&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;section class=&quot;hero hero-has-image&quot; style=&quot;background-image: url(&apos;/assets/images/cover.jpg&apos;);&quot;&gt;
-										&lt;div class=&quot;hero-content&quot;&gt;
-											&lt;h1&gt;Explore the Future&lt;/h1&gt;
-											&lt;p&gt;Cyberpunk-themed interfaces built for speed and style&lt;/p&gt;
-										&lt;/div&gt;
-									&lt;/section&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Background Image and Overlay</h2>
+						<h2>Background Image and Overlay</h2>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<section class="hero hero-has-image hero-overlay" style="background-image: url('/assets/images/cover.jpg');">
-									<div class="hero-content">
-										<h1>Deck Awaits</h1>
-										<p>Self-hosted. Secure. Beautifully customizable.</p>
-									</div>
-								</section>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<section class="hero hero-has-image hero-overlay" style="background-image: url('/assets/images/cover.jpg');">
+										<div class="hero-content">
+											<h1>Deck Awaits</h1>
+											<p>Self-hosted. Secure. Beautifully customizable.</p>
+										</div>
+									</section>
+								</div>
+								<div>
+									<pre><code>
+										&lt;section class=&quot;hero hero-has-image hero-overlay&quot; style=&quot;background-image: url(&apos;/assets/images/cover.jpg&apos;);&quot;&gt;
+											&lt;div class=&quot;hero-content&quot;&gt;
+												&lt;h1&gt;Deck Awaits&lt;/h1&gt;
+												&lt;p&gt;Self-hosted. Secure. Beautifully customizable.&lt;/p&gt;
+											&lt;/div&gt;
+										&lt;/section&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;section class=&quot;hero hero-has-image hero-overlay&quot; style=&quot;background-image: url(&apos;/assets/images/cover.jpg&apos;);&quot;&gt;
-										&lt;div class=&quot;hero-content&quot;&gt;
-											&lt;h1&gt;Deck Awaits&lt;/h1&gt;
-											&lt;p&gt;Self-hosted. Secure. Beautifully customizable.&lt;/p&gt;
-										&lt;/div&gt;
-									&lt;/section&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Variation</h2>
+						<h2>Hero Container</h2>
+						<p>
+							The <code>.hero-container</code> is a specialized layout wrapper designed for high-impact header sections. Unlike standard document containers, it prioritizes horizontal screen real estate on mobile devices while maintaining alignment with the site’s grid on desktop. It serves as the bridge between the full-bleed background of the <code>.hero</code> and the constrained width of the content.
+						</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<section class="hero hero-has-image hero-overlay" style="background-image: url('/assets/images/cover2.jpg');">
-									<div class="hero-content">
-										<h1>CyberDeck</h1>
-										<p>Teradev Advanced Specialized Services</p>
-									</div>
-								</section>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<section class="hero hero-has-image" style="background-image: url('/assets/images/cover.jpg');">
+										<div class="hero-container">
+											<div class="hero-content">
+												<h1>Hero Container</h1>
+												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+											</div>
+										</div>
+									</section>
+								</div>
+								<div>
+									<pre><code>
+										&lt;section class=&quot;hero hero-has-image&quot; style=&quot;background-image: url(&apos;/assets/images/cover.jpg&apos;);&quot;&gt;
+											&lt;div class=&quot;hero-container&quot;&gt;
+												&lt;div class=&quot;hero-content&quot;&gt;
+													&lt;h1&gt;Hero Container&lt;/h1&gt;
+													&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/section&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;section class=&quot;hero hero-has-image hero-overlay&quot; style=&quot;background-image: url(&apos;/assets/images/cover.jpg&apos;);&quot;&gt;
-										&lt;div class=&quot;hero-content&quot;&gt;
-											&lt;h1&gt;CyberDecks&lt;/h1&gt;
-											&lt;p&gt;Teradev Advanced Specialized Services&lt;/p&gt;
-										&lt;/div&gt;
-									&lt;/section&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
+						<h3>Container Position Modifiers</h3>
+						<p>Controls where the content "box" sits within the full-width Hero section. This uses auto-margins to anchor the container.</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.hero-container-left</code></td>
+										<td>Anchors the container to the left edge of the viewport.</td>
+									</tr>
+									<tr>
+										<td><code>.hero-container-center</code></td>
+										<td>Centers the container horizontally (Default behavior).</td>
+									</tr>
+									<tr>
+										<td><code>.hero-container-right</code></td>
+										<td>Anchors the container to the right edge of the viewport.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<h3>Text Alignment Modifiers</h3>
+						<p>Controls the alignment of text and the internal flex-alignment of child elements (like breadcrumbs and buttons).</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.hero-container-text-left</code></td>
+										<td>Aligns text to the left and pins flex items to the start.</td>
+									</tr>
+									<tr>
+										<td><code>.hero-container-text-center</code></td>
+										<td>Centers all text and flex-based components.</td>
+									</tr>
+									<tr>
+										<td><code>.hero-container-text-right</code></td>
+										<td>Aligns text to the right and pins flex items to the end.</td>
+									</tr>
+									<tr>
+										<td><code>.hero-container-text-justify</code></td>
+										<td>Stretches text lines to equal width; ideal for formal blocks.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<h2>Variation</h2>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<section class="hero hero-has-image hero-overlay" style="background-image: url('/assets/images/cover2.jpg');">
+										<div class="hero-content">
+											<h1>CyberDeck</h1>
+											<p>Teradev Advanced Specialized Services</p>
+										</div>
+									</section>
+								</div>
+								<div>
+									<pre><code>
+										&lt;section class=&quot;hero hero-has-image hero-overlay&quot; style=&quot;background-image: url(&apos;/assets/images/cover.jpg&apos;);&quot;&gt;
+											&lt;div class=&quot;hero-content&quot;&gt;
+												&lt;h1&gt;CyberDecks&lt;/h1&gt;
+												&lt;p&gt;Teradev Advanced Specialized Services&lt;/p&gt;
+											&lt;/div&gt;
+										&lt;/section&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Overlay: Bottom to top fade</h2>
+						<!-- Bottom-to-top fade -->
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<!-- Bottom-to-top fade -->
+									<section class="hero hero-has-image" style="background-image:url('/assets/images/cover2.jpg')">
+										<div class="hero-overlay overlay-bottom-top"></div>
+										<div class="hero-content">
+											<h1>Bottom to Top</h1>
+										</div>
+									</section>
+								</div>
+								<div>
+									<pre><code>
+										&lt;section class=&quot;hero hero-has-image&quot; style=&quot;background-image:url(&apos;/assets/images/cover2.jpg&apos;)&quot;&gt;
+											&lt;div class=&quot;hero-overlay overlay-bottom-top&quot;&gt;&lt;/div&gt;
+											&lt;div class=&quot;hero-content&quot;&gt;
+												&lt;h1&gt;Bottom to Top&lt;/h1&gt;
+											&lt;/div&gt;
+										&lt;/section&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Overlay: Left to right fade</h2>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<section class="hero hero-has-image" style="background-image:url('/assets/images/cover2.jpg')">
+										<div class="hero-overlay overlay-left-right"></div>
+										<div class="hero-content">
+											<h1>Left to Right</h1>
+										</div>
+									</section>
+								</div>
+								<div>
+									<pre><code>
+										&lt;section class=&quot;hero hero-has-image&quot; style=&quot;background-image:url(&apos;/assets/images/cover2.jpg&apos;)&quot;&gt;
+											&lt;div class=&quot;hero-overlay overlay-left-right&quot;&gt;&lt;/div&gt;
+											&lt;div class=&quot;hero-content&quot;&gt;
+												&lt;h1&gt;Left to Right&lt;/h1&gt;
+											&lt;/div&gt;
+										&lt;/section&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

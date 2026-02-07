@@ -308,191 +308,195 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Panel</h1>
-					<p class="text-lead">Create layout boxes with different styles.</p>
-					<p>Use panels to group related content inside styled boxes. They're commonly used for cards, alerts, dashboards, or scrollable containers.</p>
-					
-					<hr>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Panel</h1>
+						<p class="text-lead">Create layout boxes with different styles.</p>
+						<p>Use panels to group related content inside styled boxes. They're commonly used for cards, alerts, dashboards, or scrollable containers.</p>
+						
+						<hr>
 
-					<h2>Usage</h2>
-					<p>Add the <code>.panel</code> class to create a base panel. Use <code>.panel-header</code> and <code>.panel-body</code> for structured layouts.</p>
-					
-					<pre><code>
-						&lt;div class="panel"&gt;
-							&lt;div class="panel-header"&gt;Header&lt;/div&gt;
-							&lt;div class="panel-body"&gt;Content inside the panel&lt;/div&gt;
-						&lt;/div&gt;
-					</code></pre>
+						<h2>Usage</h2>
+						<p>Add the <code>.panel</code> class to create a base panel. Use <code>.panel-header</code> and <code>.panel-body</code> for structured layouts.</p>
+						
+						<pre><code>
+							&lt;div class="panel"&gt;
+								&lt;div class="panel-header"&gt;Header&lt;/div&gt;
+								&lt;div class="panel-body"&gt;Content inside the panel&lt;/div&gt;
+							&lt;/div&gt;
+						</code></pre>
 
-					<h3>Default Panel</h3>
+						<h3>Default Panel</h3>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="panel">
-									<div class="panel-header">Default Panel</div>
-									<div class="panel-body">This is a basic panel with a header and body section.</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="panel">
+										<div class="panel-header">Default Panel</div>
+										<div class="panel-body">This is a basic panel with a header and body section.</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;panel&quot;&gt;
+											&lt;div class=&quot;panel-header&quot;&gt;Default Panel&lt;/div&gt;
+											&lt;div class=&quot;panel-body&quot;&gt;This is a basic panel with a header and body section.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;panel&quot;&gt;
-										&lt;div class=&quot;panel-header&quot;&gt;Default Panel&lt;/div&gt;
-										&lt;div class=&quot;panel-body&quot;&gt;This is a basic panel with a header and body section.&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h3>Muted Panel</h3>
+						<h3>Muted Panel</h3>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="panel panel-muted">
-									<div class="panel-header">Muted Panel</div>
-									<div class="panel-body">A softer background for subtle containers.</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="panel panel-muted">
+										<div class="panel-header">Muted Panel</div>
+										<div class="panel-body">A softer background for subtle containers.</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;panel panel-muted&quot;&gt;
+											&lt;div class=&quot;panel-header&quot;&gt;Muted Panel&lt;/div&gt;
+											&lt;div class=&quot;panel-body&quot;&gt;A softer background for subtle containers.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;panel panel-muted&quot;&gt;
-										&lt;div class=&quot;panel-header&quot;&gt;Muted Panel&lt;/div&gt;
-										&lt;div class=&quot;panel-body&quot;&gt;A softer background for subtle containers.&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h3>Card-like Panel</h3>
+						<h3>Card-like Panel</h3>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="panel panel-card">
-									<div class="panel-header">Card Panel</div>
-									<div class="panel-body">Box-shadow and border make this ideal for cards.</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="panel panel-card">
+										<div class="panel-header">Card Panel</div>
+										<div class="panel-body">Box-shadow and border make this ideal for cards.</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;panel panel-card&quot;&gt;
+											&lt;div class=&quot;panel-header&quot;&gt;Card Panel&lt;/div&gt;
+											&lt;div class=&quot;panel-body&quot;&gt;Box-shadow and border make this ideal for cards.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;panel panel-card&quot;&gt;
-										&lt;div class=&quot;panel-header&quot;&gt;Card Panel&lt;/div&gt;
-										&lt;div class=&quot;panel-body&quot;&gt;Box-shadow and border make this ideal for cards.&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h3>Highlight Panel</h3>
+						<h3>Highlight Panel</h3>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="panel panel-highlight">
-									<div class="panel-header">Highlight Panel</div>
-									<div class="panel-body">Use this to draw attention to featured sections.</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="panel panel-highlight">
+										<div class="panel-header">Highlight Panel</div>
+										<div class="panel-body">Use this to draw attention to featured sections.</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;panel panel-highlight&quot;&gt;
+											&lt;div class=&quot;panel-header&quot;&gt;Highlight Panel&lt;/div&gt;
+											&lt;div class=&quot;panel-body&quot;&gt;Use this to draw attention to featured sections.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;panel panel-highlight&quot;&gt;
-										&lt;div class=&quot;panel-header&quot;&gt;Highlight Panel&lt;/div&gt;
-										&lt;div class=&quot;panel-body&quot;&gt;Use this to draw attention to featured sections.&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h3>Scrollable Panel</h3>
+						<h3>Scrollable Panel</h3>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="panel-scrollable">
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nibh eget fermentum dapibus, sapien justo fermentum quam, vel gravida sapien sapien at lorem.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nibh eget fermentum dapibus, sapien justo fermentum quam, vel gravida sapien sapien at lorem.</p>
-									<p>More content... Vestibulum et quam ac felis convallis malesuada. Sed ultricies quam nec risus convallis, nec tempus ipsum fringilla.</p>
-									<p>Scroll me... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec luctus lorem.</p>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="panel-scrollable">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nibh eget fermentum dapibus, sapien justo fermentum quam, vel gravida sapien sapien at lorem.</p>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nibh eget fermentum dapibus, sapien justo fermentum quam, vel gravida sapien sapien at lorem.</p>
+										<p>More content... Vestibulum et quam ac felis convallis malesuada. Sed ultricies quam nec risus convallis, nec tempus ipsum fringilla.</p>
+										<p>Scroll me... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec luctus lorem.</p>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;panel-scrollable&quot;&gt;
+											&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nibh eget fermentum dapibus, sapien justo fermentum quam, vel gravida sapien sapien at lorem.&lt;/p&gt;
+											&lt;p&gt;More content... Vestibulum et quam ac felis convallis malesuada. Sed ultricies quam nec risus convallis, nec tempus ipsum fringilla.&lt;/p&gt;
+											&lt;p&gt;Scroll me... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec luctus lorem.&lt;/p&gt;
+										&lt;/div&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;panel-scrollable&quot;&gt;
-										&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nibh eget fermentum dapibus, sapien justo fermentum quam, vel gravida sapien sapien at lorem.&lt;/p&gt;
-										&lt;p&gt;More content... Vestibulum et quam ac felis convallis malesuada. Sed ultricies quam nec risus convallis, nec tempus ipsum fringilla.&lt;/p&gt;
-										&lt;p&gt;Scroll me... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec luctus lorem.&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

@@ -308,42 +308,46 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-				  
-					<h1>Prose Component</h1>
-					<p>
-						The <code>.prose</code> component enforces a consistent vertical rhythm and 
-						typography rules for structured content. It is intended for rich-text blocks, 
-						articles, documentation, and any container that holds formatted HTML content. 
-						All rules are scoped, so they won't leak into nested components.
-					</p>
-				  
-					<hr>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+					
+						<h1>Prose Component</h1>
+						<p>
+							The <code>.prose</code> component enforces a consistent vertical rhythm and 
+							typography rules for structured content. It is intended for rich-text blocks, 
+							articles, documentation, and any container that holds formatted HTML content. 
+							All rules are scoped, so they won't leak into nested components.
+						</p>
+					
+						<hr>
 
-					<!-- Full Rhythm Demo -->
-					<h2>Full Vertical Rhythm Example</h2>
-					<div class="prose">
-						<h1>Lorem Ipsum Dolor Sit Amet</h1>
-						<p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipiscing elit. <em>Praesent vitae</em> nulla at nulla
-							tincidunt suscipit.</p>
-						<h2>Subheading Example</h2>
-						<p>Fusce quis luctus magna. Integer <a href="#">a link example</a> dapibus risus, sed vulputate orci.</p>
-						<ul>
-							<li>First bullet item</li>
-							<li>Second bullet item</li>
-							<li>Third bullet item</li>
-						</ul>
-						<blockquote>“This is a sample blockquote demonstrating spacing and styling.”</blockquote>
-						<figure>
-							<img src="/assets/images/cover.jpg" alt="Placeholder">
-							<figcaption class="text-center">Figure caption example</figcaption>
-						</figure>
-					</div>
+						<!-- Full Rhythm Demo -->
+						<h2>Full Vertical Rhythm Example</h2>
+						<div class="prose">
+							<h1>Lorem Ipsum Dolor Sit Amet</h1>
+							<p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipiscing elit. <em>Praesent vitae</em> nulla at nulla
+								tincidunt suscipit.</p>
+							<h2>Subheading Example</h2>
+							<p>Fusce quis luctus magna. Integer <a href="#">a link example</a> dapibus risus, sed vulputate orci.</p>
+							<ul>
+								<li>First bullet item</li>
+								<li>Second bullet item</li>
+								<li>Third bullet item</li>
+							</ul>
+							<blockquote>“This is a sample blockquote demonstrating spacing and styling.”</blockquote>
+							<figure>
+								<img src="/assets/images/cover.jpg" alt="Placeholder">
+								<figcaption class="text-center">Figure caption example</figcaption>
+							</figure>
+						</div>
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

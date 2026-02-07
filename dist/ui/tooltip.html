@@ -319,132 +319,135 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-				<h1>Tooltip</h1>
-				<p class="text-lead">
-					An industry-standard singleton tooltip built with native CSS Anchor Positioning and the Popover API.
-    				Optimized for plain-text performance and accessibility.
-				</p>
-				<hr>
-				<h2>Usage</h2>
-				<p>
-					The tooltip leverages the <code>popover</code> attribute for top-layer rendering. 
-    				To connect a trigger to a tooltip, simply add a <code>data-tooltip</code> attribute to the trigger. 
-    				The tooltip automatically uses <code>anchor-name</code> on the trigger and <code>position-anchor</code> on the tooltip.
-				</p>
-				
-				<div class="code-tab">
-					<ul class="tab">
-						<li class="active">Preview</li>
-						<li>Markup</li>
-					</ul>
-					<div class="tab-content">
-						<div class="active">
-							<button class="button" data-tooltip="This is a tooltip">Tooltip</button>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Tooltip</h1>
+						<p class="text-lead">
+							An industry-standard singleton tooltip built with native CSS Anchor Positioning and the Popover API.
+							Optimized for plain-text performance and accessibility.
+						</p>
+						<hr>
+						<h2>Usage</h2>
+						<p>
+							The tooltip leverages the <code>popover</code> attribute for top-layer rendering. 
+							To connect a trigger to a tooltip, simply add a <code>data-tooltip</code> attribute to the trigger. 
+							The tooltip automatically uses <code>anchor-name</code> on the trigger and <code>position-anchor</code> on the tooltip.
+						</p>
+					
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<button class="button" data-tooltip="This is a tooltip">Tooltip</button>
+								</div>
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button&quot; data-tooltip=&quot;This is a tooltip&quot;&gt;Tooltip&lt;/button&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<div>
-							<pre><code>
-								&lt;button class=&quot;button&quot; data-tooltip=&quot;This is a tooltip&quot;&gt;Tooltip&lt;/button&gt;
-							</code></pre>
+
+						<h2>Directional Placement</h2>
+						<p>Use the <code>data-position</code> attribute to control where the tooltip appears relative to the anchor.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<button class="button margin-right" data-tooltip="Left ALIGNED" data-position="left">Left</button>
+									<button class="button margin-right" data-tooltip="Right aligned" data-position="top">Top</button>
+									<button class="button margin-right" data-tooltip="Left ALIGNED" data-position="bottom">Bottom</button>
+									<button class="button margin-right" data-tooltip="Right aligned" data-position="right">Right</button>
+								</div>
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button margin-right&quot; data-tooltip=&quot;Left ALIGNED&quot; data-position=&quot;left&quot;&gt;Left&lt;/button&gt;
+										&lt;button class=&quot;button margin-right&quot; data-tooltip=&quot;Right aligned&quot; data-position=&quot;top&quot;&gt;Top&lt;/button&gt;
+										&lt;button class=&quot;button margin-right&quot; data-tooltip=&quot;Left ALIGNED&quot; data-position=&quot;bottom&quot;&gt;Bottom&lt;/button&gt;
+										&lt;button class=&quot;button margin-right&quot; data-tooltip=&quot;Right aligned&quot; data-position=&quot;right&quot;&gt;Right&lt;/button&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-					</div>
-					<ul class="iconnav">
-						<li>
-							<a href="#!" class="icon-action">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-							</a>
-						</li>
-					</ul>
-				</div>
 
-
-				<h2>Directional Placement</h2>
-				<p>Use the <code>data-position</code> attribute to control where the tooltip appears relative to the anchor.</p>
-
-				<div class="code-tab">
-					<ul class="tab">
-						<li class="active">Preview</li>
-						<li>Markup</li>
-					</ul>
-					<div class="tab-content">
-						<div class="active">
-							<button class="button margin-right" data-tooltip="Left ALIGNED" data-position="left">Left</button>
-							<button class="button margin-right" data-tooltip="Right aligned" data-position="top">Top</button>
-							<button class="button margin-right" data-tooltip="Left ALIGNED" data-position="bottom">Bottom</button>
-							<button class="button margin-right" data-tooltip="Right aligned" data-position="right">Right</button>
+						<h2>Technical Specifications</h2>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Feature</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>Safe Bridge</code></td>
+										<td>Uses <code>::before</code> to create an invisible hit-area. This allows the user to move the mouse diagonally from the trigger to the tooltip without it closing.</td>
+									</tr>
+									<tr>
+										<td><code>Smart Flipping</code></td>
+										<td>Utilizes <code>position-try-fallbacks: flip-block</code>. If the tooltip would go off-screen at the top, it automatically flips to the bottom.</td>
+									</tr>
+									<tr>
+										<td><code>Top Layer</code></td>
+										<td>Built on the <code>popover</code> API, ensuring the tooltip is never clipped by <code>overflow: hidden</code> or parent z-index issues.</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
-						<div>
-							<pre><code>
-								&lt;button class=&quot;button margin-right&quot; data-tooltip=&quot;Left ALIGNED&quot; data-position=&quot;left&quot;&gt;Left&lt;/button&gt;
-								&lt;button class=&quot;button margin-right&quot; data-tooltip=&quot;Right aligned&quot; data-position=&quot;top&quot;&gt;Top&lt;/button&gt;
-								&lt;button class=&quot;button margin-right&quot; data-tooltip=&quot;Left ALIGNED&quot; data-position=&quot;bottom&quot;&gt;Bottom&lt;/button&gt;
-								&lt;button class=&quot;button margin-right&quot; data-tooltip=&quot;Right aligned&quot; data-position=&quot;right&quot;&gt;Right&lt;/button&gt;
-							</code></pre>
+
+						<h3>Design Tokens (SCSS Variables)</h3>
+						<p>You can customize the tooltip appearance by overriding these CSS variables:</p>
+
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Variable</th>
+										<th>Default</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr><td><code>--tt-bg</code></td><td><code>#1a1a1a</code></td></tr>
+									<tr><td><code>--tt-color</code></td><td><code>#fff</code></td></tr>
+									<tr><td><code>--tt-font-size</code></td><td><code>0.8125rem</code></td></tr>
+									<tr><td><code>--tt-padding</code></td><td><code>6px 12px</code></td></tr>
+									<tr><td><code>--tt-radius</code></td><td><code>4px</code></td></tr>
+									<tr><td><code>--tt-arrow-size</code></td><td><code>6px</code></td></tr>
+									<tr><td><code>--tt-offset</code></td><td><code>12px</code></td></tr>
+									<tr><td><code>--tt-z-index</code></td><td><code>2147483647</code></td></tr>
+								</tbody>
+							</table>
 						</div>
-					</div>
-					<ul class="iconnav">
-						<li>
-							<a href="#!" class="icon-action">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-							</a>
-						</li>
-					</ul>
+					</article>
 				</div>
-
-				<h2>Technical Specifications</h2>
-				<div class="overflow-auto">
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Feature</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>Safe Bridge</code></td>
-								<td>Uses <code>::before</code> to create an invisible hit-area. This allows the user to move the mouse diagonally from the trigger to the tooltip without it closing.</td>
-							</tr>
-							<tr>
-								<td><code>Smart Flipping</code></td>
-								<td>Utilizes <code>position-try-fallbacks: flip-block</code>. If the tooltip would go off-screen at the top, it automatically flips to the bottom.</td>
-							</tr>
-							<tr>
-								<td><code>Top Layer</code></td>
-								<td>Built on the <code>popover</code> API, ensuring the tooltip is never clipped by <code>overflow: hidden</code> or parent z-index issues.</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-
-				<h3>Design Tokens (SCSS Variables)</h3>
-				<p>You can customize the tooltip appearance by overriding these CSS variables:</p>
-
-				<div class="overflow-auto">
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Variable</th>
-								<th>Default</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr><td><code>--tt-bg</code></td><td><code>#1a1a1a</code></td></tr>
-							<tr><td><code>--tt-color</code></td><td><code>#fff</code></td></tr>
-							<tr><td><code>--tt-font-size</code></td><td><code>0.8125rem</code></td></tr>
-							<tr><td><code>--tt-padding</code></td><td><code>6px 12px</code></td></tr>
-							<tr><td><code>--tt-radius</code></td><td><code>4px</code></td></tr>
-							<tr><td><code>--tt-arrow-size</code></td><td><code>6px</code></td></tr>
-							<tr><td><code>--tt-offset</code></td><td><code>12px</code></td></tr>
-							<tr><td><code>--tt-z-index</code></td><td><code>2147483647</code></td></tr>
-						</tbody>
-					</table>
-				</div>
-
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

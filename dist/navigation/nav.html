@@ -200,1022 +200,928 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Nav</h1>
-					<p class="text-lead">Defines different styles for list navigations.</p>
-					<hr>
-					<h2>Usage</h2>
-					<p>To apply this component, use the following classes.</p>
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.nav</code></td>
-									<td>Add this class to a <code>&lt;ul&gt;</code> element to define the Nav component. Use
-										<code>&lt;a&gt;</code> elements as nav items within the list.</td>
-								</tr>
-								<tr>
-									<td><code>.active </code></td>
-									<td>Add this class to a list item to apply an active state to a menu item.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;nav&quot;&gt;
-	&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-						</code></pre>
-					</div>
-
-					<div class="position-relative margin-medium padding-bottom">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="width-1-2@s width-2-5@m">
-									<ul class="nav nav-default">
-										<li class="active"><a href="#!">Active</a></li>
-										<li><a href="#!">Item</a></li>
-										<li><a href="#!">Item</a></li>
-									</ul>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;ul class=&quot;nav nav-default&quot;&gt;
-	&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
-					<p><span class="label label-outline">Note</span> By default, the nav has no styling. That's why it is important to add a modifier class. In our example we are using the <code>.nav-default</code> class.</p>
-					
-					<h2>Nested navs</h2>
-					<p>Add the <code>.parent</code> class to an item to turn it into a parent. Add the <code>.nav-sub</code> class to a <code>&lt;ul&gt;</code> element inside the item to create the subnav.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;nav&quot;&gt;
-	&lt;li class=&quot;parent&quot;&gt;
-		&lt;a href=&quot;&quot;&gt;&lt;/a&gt;
-		&lt;ul class=&quot;nav-sub&quot;&gt;
-			&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;
-				&lt;a href=&quot;&quot;&gt;&lt;/a&gt;
-				&lt;ul&gt;…&lt;/ul&gt;
-			&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/li&gt;
-&lt;/ul&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="width-1-2@s width-2-5@m">
-									<ul class="nav nav-default">
-										<li class="active"><a href="#!">Active</a></li>
-										<li>
-											<a href="#!">Parent</a>
-											<ul class="nav-sub">
-												<li><a href="#!">Sub item</a></li>
-												<li>
-													<a href="#!">Sub item</a>
-													<ul>
-														<li><a href="#!">Sub item</a></li>
-														<li><a href="#!">Sub item</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;width-1-2@s width-2-5@m&quot;&gt;
-	&lt;ul class=&quot;nav nav-default&quot;&gt;
-		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-		&lt;li class=&quot;parent&quot;&gt;
-			&lt;a href=&quot;#&quot;&gt;Parent&lt;/a&gt;
-			&lt;ul class=&quot;nav-sub&quot;&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;
-					&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;
-					&lt;ul&gt;
-						&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-						&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-					&lt;/ul&gt;
-				&lt;/li&gt;
-			&lt;/ul&gt;
-		&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Nav</h1>
+						<p class="text-lead">Defines different styles for list navigations.</p>
+						<hr>
+						<h2>Usage</h2>
+						<p>To apply this component, use the following classes.</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.nav</code></td>
+										<td>Add this class to a <code>&lt;ul&gt;</code> element to define the Nav component. Use
+											<code>&lt;a&gt;</code> elements as nav items within the list.</td>
+									</tr>
+									<tr>
+										<td><code>.active </code></td>
+										<td>Add this class to a list item to apply an active state to a menu item.</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
-
-					
-					<h3>Parent icon</h3>
-					<p>To create a parent icon, just add the <code>nav-parent-icon</code> attribute to a <code>&lt;span&gt;</code> element.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;nav nav-default&quot;&gt;
-	&lt;li&gt;
-		&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;chevron_down&lt;/span&gt;&lt;/a&gt;
-		…
-	&lt;/li&gt;
-&lt;/ul&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="width-1-2@s width-2-5@m">
-									<ul class="nav nav-default">
-										<li class="active"><a href="#!">Active</a></li>
-										<li>
-											<a href="#!">
-												Parent
-												<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-											</a>
-											<ul class="nav-sub">
-												<li><a href="#!">Sub item</a></li>
-												<li>
-													<a href="#!">Sub item</a>
-													<ul>
-														<li><a href="#!">Sub item</a></li>
-														<li><a href="#!">Sub item</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li>
-											<a href="#!">
-												Parent
-												<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-											</a>
-											<ul class="nav-sub">
-												<li><a href="#!">Sub item</a></li>
-												<li><a href="#!">Sub item</a></li>
-											</ul>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;ul class=&quot;nav nav-default&quot;&gt;
-	&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;
-		&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
-		&lt;ul class=&quot;nav-sub&quot;&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;
-				&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;
-				&lt;ul&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/li&gt;
-	&lt;li&gt;
-		&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
-		&lt;ul class=&quot;nav-sub&quot;&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/li&gt;
-&lt;/ul&gt;
-								</code></pre>
-							</div>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;nav&quot;&gt;
+									&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+									&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+								&lt;/ul&gt;
+							</code></pre>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					
-					<h3>Multiple open subnavs</h3>
-					<p>When clicking on a parent item, an open one will close, allowing only one open nested list at a time. To allow multiple open subnavs, just add the <code>data-multiple</code> attribute to the nav component.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;nav nav-default&quot; data-multiple&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="width-1-2@s width-2-5@m">
-									<ul class="nav nav-default" data-multiple>
-										<li class="active"><a href="#!">Active</a></li>
-										<li>
-											<a href="#!"> Parent
-												<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-											</a>
-											<ul class="nav-sub">
-												<li><a href="#!">Sub item</a></li>
-												<li>
-													<a href="#!">Sub item</a>
-													<ul>
-														<li><a href="#!">Sub item</a></li>
-														<li><a href="#!">Sub item</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li>
-											<a href="#!"> Parent
-												<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-											</a>
-											<ul class="nav-sub">
-												<li><a href="#!">Sub item</a></li>
-												<li><a href="#!">Sub item</a></li>
-											</ul>
-										</li>
-									</ul>
+						<div class="position-relative margin-medium padding-bottom">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="width-1-2@s width-2-5@m">
+										<ul class="nav nav-default">
+											<li class="active"><a href="#!">Active</a></li>
+											<li><a href="#!">Item</a></li>
+											<li><a href="#!">Item</a></li>
+										</ul>
+									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;ul class=&quot;nav nav-default&quot; data-multiple&gt;
-	&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;
-		&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
-		&lt;ul class=&quot;nav-sub&quot;&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;
-				&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;
-				&lt;ul&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/li&gt;
-	&lt;li&gt;
-		&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
-		&lt;ul class=&quot;nav-sub&quot;&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/li&gt;
-&lt;/ul&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					
-					<h3>Open Nav</h3>
-					<p>By default, nav component behaves like accordion. To stop this and make nav always open, just add the <code>data-open</code> attribute to the main <code>&lt;ul&gt;</code>.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;nav nav-default&quot; data-open&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="width-1-2@s width-2-5@m">
-									<ul class="nav nav-default" data-open>
-										<li class="active"><a href="#!">Active</a></li>
-										<li>
-											<a href="#!">Parent</a>
-											<ul class="nav-sub">
-												<li><a href="#!">Sub item</a></li>
-												<li>
-													<a href="#!">Sub item</a>
-													<ul>
-														<li><a href="#!">Sub item</a></li>
-														<li><a href="#!">Sub item</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li>
-											<a href="#!">Parent</a>
-											<ul class="nav-sub">
-												<li><a href="#!">Sub item</a></li>
-												<li><a href="#!">Sub item</a></li>
-											</ul>
-										</li>
-									</ul>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;nav nav-default&quot;&gt;
+											&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;ul class=&quot;nav nav-default&quot; data-open&gt;
-	&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;
-		&lt;a href=&quot;#&quot;&gt;Parent&lt;/a&gt;
-		&lt;ul class=&quot;nav-sub&quot;&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;
-				&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;
-				&lt;ul&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/li&gt;
-	&lt;li&gt;
-		&lt;a href=&quot;#&quot;&gt;Parent&lt;/a&gt;
-		&lt;ul class=&quot;nav-sub&quot;&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/li&gt;
-&lt;/ul&gt;
-								</code></pre>
-							</div>
+							</div>		
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					
-					<h2>Header and divider</h2>
-					<p>Add one of the following classes to a list item to create a header or a divider between items.</p>
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Element</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.nav-header</code></td>
-									<td>Add this class to a <code>&lt;li&gt;</code> element to create a header.</td>
-								</tr>
-								<tr>
-									<td><code>.nav-divider</code></td>
-									<td>Add this class to a <code>&lt;li&gt;</code> element to create a divider separating nav items.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
-					<div>
-						<pre><code>
-&lt;li class=&quot;nav-header&quot;&gt;&lt;/li&gt;
-
-&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="width-1-2@s width-2-5@m">
-									<ul class="nav nav-default">
-										<li class="nav-header">Header</li>
-										<li><a href="#!">Item</a></li>
-										<li><a href="#!">Item</a></li>
-										<li class="nav-divider"></li>
-										<li><a href="#!">Item</a></li>
-									</ul>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;width-1-2@s width-2-5@m&quot;&gt;
-	&lt;ul class=&quot;nav nav-default&quot;&gt;
-		&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-		&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
+						<p><span class="label label-outline">Note</span> By default, the nav has no styling. That's why it is important to add a modifier class. In our example we are using the <code>.nav-default</code> class.</p>
+						
+						<h2>Nested navs</h2>
+						<p>Add the <code>.parent</code> class to an item to turn it into a parent. Add the <code>.nav-sub</code> class to a <code>&lt;ul&gt;</code> element inside the item to create the subnav.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;nav&quot;&gt;
+									&lt;li class=&quot;parent&quot;&gt;
+										&lt;a href=&quot;&quot;&gt;&lt;/a&gt;
+										&lt;ul class=&quot;nav-sub&quot;&gt;
+											&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;
+												&lt;a href=&quot;&quot;&gt;&lt;/a&gt;
+												&lt;ul&gt;…&lt;/ul&gt;
+											&lt;/li&gt;
+										&lt;/ul&gt;
+									&lt;/li&gt;
+								&lt;/ul&gt;
+							</code></pre>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					
-					<h2>Subtitle</h2>
-					<p>Add the <code>.nav-subtitle</code> class to a <code>div</code> element to create an item subtitled.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;nav&quot;&gt;
-	&lt;li&gt;
-		&lt;a href=&quot;&quot;&gt;
-			&lt;div&gt;
-				Item
-				&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/a&gt;
-	&lt;/li&gt;
-&lt;/ul&gt;
-						</code></pre>
-					</div>
-
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="width-1-2@s width-2-5@m">
-									<ul class="nav nav-default">
-										<li class="active"><a href="#!"><div>Active<div class="nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
-										<li><a href="#!"><div>Item<div class="nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
-										<li><a href="#!"><div>Item<div class="nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
-										<li><a href="#!"><div>Item<div class="nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
-									</ul>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;width-1-2@s width-2-5@m&quot;&gt;
-	&lt;ul class=&quot;nav nav-default&quot;&gt;
-		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;&lt;div&gt;Active&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;div&gt;Item&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;div&gt;Item&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;div&gt;Item&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					
-					<h2>Default modifier</h2>
-					<p>Add the <code>.nav-default</code> class to give the nav its default style. You can place the nav inside cards or anywhere else in your content.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;nav nav-default&quot;&gt;…&lt;/ul&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="card card-default card-body width-1-2@s round">
-									<ul class="nav nav-default">
-										<li class="active"><a href="#!">Active</a></li>
-										<li>
-											<a href="#!"> Parent
-												<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-											</a>
-											<ul class="nav-sub">
-												<li><a href="#!">Sub item</a></li>
-												<li><a href="#!">Sub item</a></li>
-											</ul>
-										</li>
-										<li>
-											<a href="#!"> Parent
-												<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-											</a>
-											<ul class="nav-sub">
-												<li><a href="#!">Sub item</a></li>
-												<li><a href="#!">Sub item</a></li>
-											</ul>
-										</li>
-										<li class="nav-header">Header</li>
-										<li>
-											<a href="#!" class="margin-small-right">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z"/></svg>
-												Item
-											</a>
-										</li>
-										<li>
-											<a href="#!" class="margin-small-right">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-512.69V-820h307.31v307.31H140ZM140-140v-307.31h307.31V-140H140Zm372.69-372.69V-820H820v307.31H512.69Zm0 372.69v-307.31H820V-140H512.69Zm-327.3-418.08h216.53v-216.53H185.39v216.53Zm372.69 0h216.53v-216.53H558.08v216.53Zm0 372.69h216.53v-216.53H558.08v216.53Zm-372.69 0h216.53v-216.53H185.39v216.53Zm372.69-372.69Zm0 156.16Zm-156.16 0Zm0-156.16Z"/></svg>
-												Item
-											</a>
-										</li>
-										<li class="nav-divider"></li>
-										<li>
-											<a href="#!" class="margin-small-right">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z"/></svg>
-												Item
-											</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;card card-default card-body width-1-2@s round&quot;&gt;
-	&lt;ul class=&quot;nav nav-default&quot;&gt;
-		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
-			&lt;ul class=&quot;nav-sub&quot;&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-			&lt;/ul&gt;
-		&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
-			&lt;ul class=&quot;nav-sub&quot;&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-			&lt;/ul&gt;
-		&lt;/li&gt;
-		&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;margin-small-right icon&quot;&gt;menu&lt;/span&gt; Item&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;margin-small-right icon&quot;&gt;grid_view&lt;/span&gt; Item&lt;/a&gt;&lt;/li&gt;
-		&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;margin-small-right icon&quot;&gt;delete&lt;/span&gt; Item&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					
-					<h2>Primary modifier</h2>
-					<p>Add the <code>.nav-primary</code> class to give the nav a more distinct styling, for example when placing it inside a modal.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;nav nav-primary&quot;&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="width-1-2@s">
-									<ul class="nav nav-primary">
-										<li class="active"><a href="#!">Active</a></li>
-										<li>
-											<a href="#!">
-												Parent
-												<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-											</a>
-											<ul class="nav-sub">
-												<li><a href="#!">Sub item</a></li>
-												<li><a href="#!">Sub item</a></li>
-											</ul>
-										</li>
-										<li>
-											<a href="#!">
-												Parent
-												<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-											</a>
-											<ul class="nav-sub">
-												<li><a href="#!">Sub item</a></li>
-												<li><a href="#!">Sub item</a></li>
-											</ul>
-										</li>
-										<li><a href="#!">Item</a></li>
-									</ul>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;width-1-2@s&quot;&gt;
-	&lt;ul class=&quot;nav nav-primary&quot;&gt;
-		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
-			&lt;ul class=&quot;nav-sub&quot;&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-			&lt;/ul&gt;
-		&lt;/li&gt;
-		&lt;li&gt;
-			&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
-			&lt;ul class=&quot;nav-sub&quot;&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-			&lt;/ul&gt;
-		&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					
-					<h2>Secondary modifier</h2>
-					<p>Add the <code>.nav-secondary</code> class to have an extra style if the nav has subtitles.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;nav nav-secondary&quot;&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="width-1-2@s">
-									<ul class="nav nav-secondary">
-										<li class="active"><a href="#!"><div>Active<div class="nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
-										<li><a href="#!"><div>Item<div class="nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
-										<li><a href="#!"><div>Item<div class="nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
-										<li><a href="#!"><div>Item<div class="nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
-									</ul>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;width-1-2@s&quot;&gt;
-	&lt;ul class=&quot;nav nav-secondary&quot;&gt;
-		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;&lt;div&gt;Active&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;div&gt;Item&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;div&gt;Item&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;div&gt;Item&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					
-					<h2>Center modifier</h2>
-					<p>Add the <code>.nav-center</code> class to the center nav items. This can be combined with the default and primary style modifiers.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;nav nav-default nav-center&quot;&gt;
-						</code></pre>
-					</div>
-
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="card card-default card-body width-1-2@s round">
-									<ul class="nav nav-default nav-center">
-										<li class="active"><a href="#!">Active</a></li>
-										<li><a href="#!">Item</a></li>
-										<li><a href="#!">Item</a></li>
-									</ul>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;card card-default card-body width-1-2@s round&quot;&gt;
-	&lt;ul class=&quot;nav nav-default nav-center&quot;&gt;
-		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					
-					<h2>Divider modifier</h2>
-					<p>Add the <code>.nav-divider</code> class to separate nav items with lines. This can be combined with the default, primary and secondary style modifiers.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;nav nav-default nav-divider&quot;&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="width-1-2@s">
-									<ul class="nav nav-default nav-divider">
-										<li class="active"><a href="#!">Active</a></li>
-										<li><a href="#!">Item</a></li>
-										<li><a href="#!">Item</a></li>
-									</ul>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;width-1-2@s&quot;&gt;
-	&lt;ul class=&quot;nav nav-default nav-divider&quot;&gt;
-		&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					
-					<h2>Size modifiers</h2>
-					<p>Add one of the following classes to modify the size of primary navs.</p>
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.nav-medium</code></td>
-									<td>Add this class to apply a medium-sized primary nav.</td>
-								</tr>
-								<tr>
-									<td><code>.nav-large</code></td>
-									<td>Add this class to apply a large-sized primary nav.</td>
-								</tr>
-								<tr>
-									<td><code>.nav-xlarge</code></td>
-									<td>Add this class to apply a xlarge-sized primary nav.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
-					<div>
-						<pre><code>
-
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="width-1-2@s">
-									<ul class="nav-primary nav-large nav">
-										<li class="active"><a href="#!">Active</a></li>
-										<li><a href="#!">Item</a></li>
-										<li><a href="#!">Item</a></li>
-										<li><a href="#!">Item</a></li>
-									</ul>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					
-					<h2>Nav in Dropdown</h2>
-					<p>Add the <code>.dropdown-nav</code> class to place a nav inside a default dropdown from the <a href="/docs/dropdown">Dropdown component</a>.</p>
-					<div>
-						<pre><code>
-
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<button class="button button-default" type="button">Hover</button>
-								<div dropdown="" class="drop dropdown">
-									<ul class="nav dropdown-nav">
-										<li class="active"><a href="#!">Active</a></li>
-										<li><a href="#!">Item</a></li>
-										<li class="nav-header">Header</li>
-										<li><a href="#!">Item</a></li>
-										<li><a href="#!">Item</a></li>
-										<li class="nav-divider"></li>
-										<li><a href="#!">Item</a></li>
-									</ul>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					
-					<h2>Nav in Navbar</h2>
-					<p>Add the <code>.navbar-dropdown-nav</code> class to place the nav inside a navbar dropdown from the <a href="/docs/navbar">Navbar component</a>.</p>
-					<div>
-						<pre><code>
-
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<nav class="navbar-container navbar" navbar="">
-									<div class="navbar-left">
-										<ul class="navbar-nav">
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="width-1-2@s width-2-5@m">
+										<ul class="nav nav-default">
+											<li class="active"><a href="#!">Active</a></li>
 											<li>
-												<a href="#!" role="button">Parent</a>
-												<div class="navbar-dropdown drop">
-													<ul class="nav navbar-dropdown-nav">
-														<li class="active"><a href="#!">Active</a></li>
-														<li><a href="#!">Item</a></li>
-														<li class="nav-header">Header</li>
-														<li><a href="#!">Item</a></li>
-														<li><a href="#!">Item</a></li>
-														<li class="nav-divider"></li>
-														<li><a href="#!">Item</a></li>
-													</ul>
-												</div>
+												<a href="#!">Parent</a>
+												<ul class="nav-sub">
+													<li><a href="#!">Sub item</a></li>
+													<li>
+														<a href="#!">Sub item</a>
+														<ul>
+															<li><a href="#!">Sub item</a></li>
+															<li><a href="#!">Sub item</a></li>
+														</ul>
+													</li>
+												</ul>
 											</li>
 										</ul>
-								
 									</div>
-								</nav>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;width-1-2@s width-2-5@m&quot;&gt;
+											&lt;ul class=&quot;nav nav-default&quot;&gt;
+												&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+												&lt;li class=&quot;parent&quot;&gt;
+													&lt;a href=&quot;#&quot;&gt;Parent&lt;/a&gt;
+													&lt;ul class=&quot;nav-sub&quot;&gt;
+														&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+														&lt;li&gt;
+															&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;
+															&lt;ul&gt;
+																&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+																&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+															&lt;/ul&gt;
+														&lt;/li&gt;
+													&lt;/ul&gt;
+												&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					
-					<h2>Nav in offcanvas</h2>
-					<p>A nav can be used inside an offcanvas from the <a href="/docs/offcanvas">Offcanvas component</a>. No modifier class needs to be added.</p>
+						
+						<h3>Parent icon</h3>
+						<p>To create a parent icon, just add the <code>nav-parent-icon</code> attribute to a <code>&lt;span&gt;</code> element.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;nav nav-default&quot;&gt;
+									&lt;li&gt;
+										&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;chevron_down&lt;/span&gt;&lt;/a&gt;
+										…
+									&lt;/li&gt;
+								&lt;/ul&gt;
+							</code></pre>
+						</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<a href="#offcanvas-slide" class="button button-default" toggle="" role="button">Open</a>
-
-								<div id="offcanvas-slide" offcanvas="" class="offcanvas">
-									<div class="offcanvas-bar" role="dialog">
-								
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="width-1-2@s width-2-5@m">
 										<ul class="nav nav-default">
+											<li class="active"><a href="#!">Active</a></li>
+											<li>
+												<a href="#!">
+													Parent
+													<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+												</a>
+												<ul class="nav-sub">
+													<li><a href="#!">Sub item</a></li>
+													<li>
+														<a href="#!">Sub item</a>
+														<ul>
+															<li><a href="#!">Sub item</a></li>
+															<li><a href="#!">Sub item</a></li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<a href="#!">
+													Parent
+													<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+												</a>
+												<ul class="nav-sub">
+													<li><a href="#!">Sub item</a></li>
+													<li><a href="#!">Sub item</a></li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;nav nav-default&quot;&gt;
+											&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;
+												&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
+												&lt;ul class=&quot;nav-sub&quot;&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+													&lt;li&gt;
+														&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;
+														&lt;ul&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/li&gt;
+											&lt;li&gt;
+												&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
+												&lt;ul class=&quot;nav-sub&quot;&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h3>Multiple open subnavs</h3>
+						<p>When clicking on a parent item, an open one will close, allowing only one open nested list at a time. To allow multiple open subnavs, just add the <code>data-multiple</code> attribute to the nav component.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;nav nav-default&quot; data-multiple&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="width-1-2@s width-2-5@m">
+										<ul class="nav nav-default" data-multiple>
+											<li class="active"><a href="#!">Active</a></li>
+											<li>
+												<a href="#!"> Parent
+													<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+												</a>
+												<ul class="nav-sub">
+													<li><a href="#!">Sub item</a></li>
+													<li>
+														<a href="#!">Sub item</a>
+														<ul>
+															<li><a href="#!">Sub item</a></li>
+															<li><a href="#!">Sub item</a></li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<a href="#!"> Parent
+													<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+												</a>
+												<ul class="nav-sub">
+													<li><a href="#!">Sub item</a></li>
+													<li><a href="#!">Sub item</a></li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;nav nav-default&quot; data-multiple&gt;
+											&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;
+												&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
+												&lt;ul class=&quot;nav-sub&quot;&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+													&lt;li&gt;
+														&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;
+														&lt;ul&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/li&gt;
+											&lt;li&gt;
+												&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
+												&lt;ul class=&quot;nav-sub&quot;&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h3>Open Nav</h3>
+						<p>By default, nav component behaves like accordion. To stop this and make nav always open, just add the <code>data-open</code> attribute to the main <code>&lt;ul&gt;</code>.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;nav nav-default&quot; data-open&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="width-1-2@s width-2-5@m">
+										<ul class="nav nav-default" data-open>
+											<li class="active"><a href="#!">Active</a></li>
+											<li>
+												<a href="#!">Parent</a>
+												<ul class="nav-sub">
+													<li><a href="#!">Sub item</a></li>
+													<li>
+														<a href="#!">Sub item</a>
+														<ul>
+															<li><a href="#!">Sub item</a></li>
+															<li><a href="#!">Sub item</a></li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<a href="#!">Parent</a>
+												<ul class="nav-sub">
+													<li><a href="#!">Sub item</a></li>
+													<li><a href="#!">Sub item</a></li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;nav nav-default&quot; data-open&gt;
+											&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;
+												&lt;a href=&quot;#&quot;&gt;Parent&lt;/a&gt;
+												&lt;ul class=&quot;nav-sub&quot;&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+													&lt;li&gt;
+														&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;
+														&lt;ul&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/li&gt;
+											&lt;li&gt;
+												&lt;a href=&quot;#&quot;&gt;Parent&lt;/a&gt;
+												&lt;ul class=&quot;nav-sub&quot;&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+													&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h2>Header and divider</h2>
+						<p>Add one of the following classes to a list item to create a header or a divider between items.</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Element</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.nav-header</code></td>
+										<td>Add this class to a <code>&lt;li&gt;</code> element to create a header.</td>
+									</tr>
+									<tr>
+										<td><code>.nav-divider</code></td>
+										<td>Add this class to a <code>&lt;li&gt;</code> element to create a divider separating nav items.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div>
+							<pre><code>
+								&lt;li class=&quot;nav-header&quot;&gt;&lt;/li&gt;
+
+								&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="width-1-2@s width-2-5@m">
+										<ul class="nav nav-default">
+											<li class="nav-header">Header</li>
+											<li><a href="#!">Item</a></li>
+											<li><a href="#!">Item</a></li>
+											<li class="nav-divider"></li>
+											<li><a href="#!">Item</a></li>
+										</ul>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;width-1-2@s width-2-5@m&quot;&gt;
+											&lt;ul class=&quot;nav nav-default&quot;&gt;
+												&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+												&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h2>Subtitle</h2>
+						<p>Add the <code>.nav-subtitle</code> class to a <code>div</code> element to create an item subtitled.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;nav&quot;&gt;
+									&lt;li&gt;
+										&lt;a href=&quot;&quot;&gt;
+											&lt;div&gt;
+												Item
+												&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/a&gt;
+									&lt;/li&gt;
+								&lt;/ul&gt;
+							</code></pre>
+						</div>
+
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="width-1-2@s width-2-5@m">
+										<ul class="nav nav-default">
+											<li class="active"><a href="#!"><div>Active<div class="nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
+											<li><a href="#!"><div>Item<div class="nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
+											<li><a href="#!"><div>Item<div class="nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
+											<li><a href="#!"><div>Item<div class="nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
+										</ul>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;width-1-2@s width-2-5@m&quot;&gt;
+											&lt;ul class=&quot;nav nav-default&quot;&gt;
+												&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;&lt;div&gt;Active&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;div&gt;Item&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;div&gt;Item&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;div&gt;Item&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h2>Default modifier</h2>
+						<p>Add the <code>.nav-default</code> class to give the nav its default style. You can place the nav inside cards or anywhere else in your content.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;nav nav-default&quot;&gt;…&lt;/ul&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="card card-default card-body width-1-2@s round">
+										<ul class="nav nav-default">
+											<li class="active"><a href="#!">Active</a></li>
+											<li>
+												<a href="#!"> Parent
+													<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+												</a>
+												<ul class="nav-sub">
+													<li><a href="#!">Sub item</a></li>
+													<li><a href="#!">Sub item</a></li>
+												</ul>
+											</li>
+											<li>
+												<a href="#!"> Parent
+													<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+												</a>
+												<ul class="nav-sub">
+													<li><a href="#!">Sub item</a></li>
+													<li><a href="#!">Sub item</a></li>
+												</ul>
+											</li>
+											<li class="nav-header">Header</li>
+											<li>
+												<a href="#!" class="margin-small-right">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z"/></svg>
+													Item
+												</a>
+											</li>
+											<li>
+												<a href="#!" class="margin-small-right">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-512.69V-820h307.31v307.31H140ZM140-140v-307.31h307.31V-140H140Zm372.69-372.69V-820H820v307.31H512.69Zm0 372.69v-307.31H820V-140H512.69Zm-327.3-418.08h216.53v-216.53H185.39v216.53Zm372.69 0h216.53v-216.53H558.08v216.53Zm0 372.69h216.53v-216.53H558.08v216.53Zm-372.69 0h216.53v-216.53H185.39v216.53Zm372.69-372.69Zm0 156.16Zm-156.16 0Zm0-156.16Z"/></svg>
+													Item
+												</a>
+											</li>
+											<li class="nav-divider"></li>
+											<li>
+												<a href="#!" class="margin-small-right">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z"/></svg>
+													Item
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card card-default card-body width-1-2@s round&quot;&gt;
+											&lt;ul class=&quot;nav nav-default&quot;&gt;
+												&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
+													&lt;ul class=&quot;nav-sub&quot;&gt;
+														&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+														&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+													&lt;/ul&gt;
+												&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
+													&lt;ul class=&quot;nav-sub&quot;&gt;
+														&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+														&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+													&lt;/ul&gt;
+												&lt;/li&gt;
+												&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;margin-small-right icon&quot;&gt;menu&lt;/span&gt; Item&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;margin-small-right icon&quot;&gt;grid_view&lt;/span&gt; Item&lt;/a&gt;&lt;/li&gt;
+												&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;margin-small-right icon&quot;&gt;delete&lt;/span&gt; Item&lt;/a&gt;&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						
+						<h2>Primary modifier</h2>
+						<p>Add the <code>.nav-primary</code> class to give the nav a more distinct styling, for example when placing it inside a modal.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;nav nav-primary&quot;&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="width-1-2@s">
+										<ul class="nav nav-primary">
+											<li class="active"><a href="#!">Active</a></li>
+											<li>
+												<a href="#!">
+													Parent
+													<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+												</a>
+												<ul class="nav-sub">
+													<li><a href="#!">Sub item</a></li>
+													<li><a href="#!">Sub item</a></li>
+												</ul>
+											</li>
+											<li>
+												<a href="#!">
+													Parent
+													<svg class="nav-parent-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+												</a>
+												<ul class="nav-sub">
+													<li><a href="#!">Sub item</a></li>
+													<li><a href="#!">Sub item</a></li>
+												</ul>
+											</li>
+											<li><a href="#!">Item</a></li>
+										</ul>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;width-1-2@s&quot;&gt;
+											&lt;ul class=&quot;nav nav-primary&quot;&gt;
+												&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
+													&lt;ul class=&quot;nav-sub&quot;&gt;
+														&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+														&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+													&lt;/ul&gt;
+												&lt;/li&gt;
+												&lt;li&gt;
+													&lt;a href=&quot;#&quot;&gt;Parent &lt;span class=&quot;icon nav-parent-icon&quot;&gt;keyboard_arrow_down&lt;/span&gt;&lt;/a&gt;
+													&lt;ul class=&quot;nav-sub&quot;&gt;
+														&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+														&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+													&lt;/ul&gt;
+												&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h2>Secondary modifier</h2>
+						<p>Add the <code>.nav-secondary</code> class to have an extra style if the nav has subtitles.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;nav nav-secondary&quot;&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="width-1-2@s">
+										<ul class="nav nav-secondary">
+											<li class="active"><a href="#!"><div>Active<div class="nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
+											<li><a href="#!"><div>Item<div class="nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
+											<li><a href="#!"><div>Item<div class="nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
+											<li><a href="#!"><div>Item<div class="nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
+										</ul>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;width-1-2@s&quot;&gt;
+											&lt;ul class=&quot;nav nav-secondary&quot;&gt;
+												&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;&lt;div&gt;Active&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;div&gt;Item&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;div&gt;Item&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;div&gt;Item&lt;div class=&quot;nav-subtitle&quot;&gt;Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h2>Center modifier</h2>
+						<p>Add the <code>.nav-center</code> class to the center nav items. This can be combined with the default and primary style modifiers.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;nav nav-default nav-center&quot;&gt;
+							</code></pre>
+						</div>
+
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="card card-default card-body width-1-2@s round">
+										<ul class="nav nav-default nav-center">
+											<li class="active"><a href="#!">Active</a></li>
+											<li><a href="#!">Item</a></li>
+											<li><a href="#!">Item</a></li>
+										</ul>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card card-default card-body width-1-2@s round&quot;&gt;
+											&lt;ul class=&quot;nav nav-default nav-center&quot;&gt;
+												&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h2>Divider modifier</h2>
+						<p>Add the <code>.nav-divider</code> class to separate nav items with lines. This can be combined with the default, primary and secondary style modifiers.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;nav nav-default nav-divider&quot;&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="width-1-2@s">
+										<ul class="nav nav-default nav-divider">
+											<li class="active"><a href="#!">Active</a></li>
+											<li><a href="#!">Item</a></li>
+											<li><a href="#!">Item</a></li>
+										</ul>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;width-1-2@s&quot;&gt;
+											&lt;ul class=&quot;nav nav-default nav-divider&quot;&gt;
+												&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+												&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h2>Size modifiers</h2>
+						<p>Add one of the following classes to modify the size of primary navs.</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.nav-medium</code></td>
+										<td>Add this class to apply a medium-sized primary nav.</td>
+									</tr>
+									<tr>
+										<td><code>.nav-large</code></td>
+										<td>Add this class to apply a large-sized primary nav.</td>
+									</tr>
+									<tr>
+										<td><code>.nav-xlarge</code></td>
+										<td>Add this class to apply a xlarge-sized primary nav.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div>
+							<pre><code>
+
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="width-1-2@s">
+										<ul class="nav-primary nav-large nav">
+											<li class="active"><a href="#!">Active</a></li>
+											<li><a href="#!">Item</a></li>
+											<li><a href="#!">Item</a></li>
+											<li><a href="#!">Item</a></li>
+										</ul>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h2>Nav in Dropdown</h2>
+						<p>Add the <code>.dropdown-nav</code> class to place a nav inside a default dropdown from the <a href="/docs/dropdown">Dropdown component</a>.</p>
+						<div>
+							<pre><code>
+
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<button class="button button-default" type="button">Hover</button>
+									<div dropdown="" class="drop dropdown">
+										<ul class="nav dropdown-nav">
 											<li class="active"><a href="#!">Active</a></li>
 											<li><a href="#!">Item</a></li>
 											<li class="nav-header">Header</li>
@@ -1224,27 +1130,124 @@
 											<li class="nav-divider"></li>
 											<li><a href="#!">Item</a></li>
 										</ul>
-								
 									</div>
 								</div>
+								<div>
+									<pre><code>
+
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-					
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
+						
+						
+						<h2>Nav in Navbar</h2>
+						<p>Add the <code>.navbar-dropdown-nav</code> class to place the nav inside a navbar dropdown from the <a href="/docs/navbar">Navbar component</a>.</p>
+						<div>
+							<pre><code>
+
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<nav class="navbar-container navbar" navbar="">
+										<div class="navbar-left">
+											<ul class="navbar-nav">
+												<li>
+													<a href="#!" role="button">Parent</a>
+													<div class="navbar-dropdown drop">
+														<ul class="nav navbar-dropdown-nav">
+															<li class="active"><a href="#!">Active</a></li>
+															<li><a href="#!">Item</a></li>
+															<li class="nav-header">Header</li>
+															<li><a href="#!">Item</a></li>
+															<li><a href="#!">Item</a></li>
+															<li class="nav-divider"></li>
+															<li><a href="#!">Item</a></li>
+														</ul>
+													</div>
+												</li>
+											</ul>
+									
+										</div>
+									</nav>
+								</div>
+								<div>
+									<pre><code>
+
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h2>Nav in offcanvas</h2>
+						<p>A nav can be used inside an offcanvas from the <a href="/docs/offcanvas">Offcanvas component</a>. No modifier class needs to be added.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<a href="#offcanvas-slide" class="button button-default" toggle="" role="button">Open</a>
+
+									<div id="offcanvas-slide" offcanvas="" class="offcanvas">
+										<div class="offcanvas-bar" role="dialog">
+									
+											<ul class="nav nav-default">
+												<li class="active"><a href="#!">Active</a></li>
+												<li><a href="#!">Item</a></li>
+												<li class="nav-header">Header</li>
+												<li><a href="#!">Item</a></li>
+												<li><a href="#!">Item</a></li>
+												<li class="nav-divider"></li>
+												<li><a href="#!">Item</a></li>
+											</ul>
+									
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+						
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

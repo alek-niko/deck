@@ -308,441 +308,445 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Offcanvas</h1>
-					<p class="text-lead">Create an offcanvas sidebar that slides in and out of the page, which is perfect for creating mobile navigations.</p>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Offcanvas</h1>
+						<p class="text-lead">Create an offcanvas sidebar that slides in and out of the page, which is perfect for creating mobile navigations.</p>
+						
+						<hr>
+						
+						<h2>Usage</h2>
+						<p>To apply this component, add the <code>offcanvas</code> class to a parent <code>&lt;div&gt;</code> element and use the following classes.</p>
 					
-					<hr>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.offcanvas-bar</code></td>
+										<td>Add this class to a child <code>&lt;div&gt;</code> element.</td>
+									</tr>
+									<tr>
+										<td><code>.offcanvas-close</code></td>
+										<td>Wrap close icon in a div element with this class to vreate close element</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					
-					<h2>Usage</h2>
-					<p>To apply this component, add the <code>offcanvas</code> class to a parent <code>&lt;div&gt;</code> element and use the following classes.</p>
-				
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.offcanvas-bar</code></td>
-									<td>Add this class to a child <code>&lt;div&gt;</code> element.</td>
-								</tr>
-								<tr>
-									<td><code>.offcanvas-close</code></td>
-									<td>Wrap close icon in a div element with this class to vreate close element</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				
-					<p>You can use any element to toggle an off-canvas sidebar. To enable the necessary JavaScript, add the <code>toggle</code> attribute. An <code>&lt;a&gt;</code> element needs to be linked to the id of the off-canvas container. If you are using another element, like a button, just add the <code>toggle-offcanvas="#ID"</code> attribute to target the id of the off-canvas container.</p>
+						<p>You can use any element to toggle an off-canvas sidebar. To enable the necessary JavaScript, add the <code>toggle</code> attribute. An <code>&lt;a&gt;</code> element needs to be linked to the id of the off-canvas container. If you are using another element, like a button, just add the <code>toggle-offcanvas="#ID"</code> attribute to target the id of the off-canvas container.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<button class="button button-default margin-small-right" toggle="target: #offcanvas-usage">Open</button>
-								<a href="#offcanvas-usage" toggle>Open</a>
-								
-								<dialog id="offcanvas-usage" class="offcanvas">
-									<div class="offcanvas-bar">
-										<div class="offcanvas-close">
-											<a href="#!">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-											</a>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<button class="button button-default margin-small-right" toggle="target: #offcanvas-usage">Open</button>
+									<a href="#offcanvas-usage" toggle>Open</a>
+									
+									<dialog id="offcanvas-usage" class="offcanvas">
+										<div class="offcanvas-bar">
+											<div class="offcanvas-close">
+												<a href="#!">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+												</a>
+											</div>
+											<h3>Title</h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 										</div>
-										<h3>Title</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									</div>
-								</dialog>
-							</div>
-							<div>
-								<pre><code>
-									&lt;button class=&quot;button button-default margin-small-right&quot; toggle=&quot;target: #offcanvas-usage&quot;&gt;Open&lt;/button&gt;
-									&lt;a href=&quot;#offcanvas-usage&quot;&gt;Open&lt;/a&gt;
+									</dialog>
+								</div>
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button button-default margin-small-right&quot; toggle=&quot;target: #offcanvas-usage&quot;&gt;Open&lt;/button&gt;
+										&lt;a href=&quot;#offcanvas-usage&quot;&gt;Open&lt;/a&gt;
 
-									&lt;div id=&quot;offcanvas-usage&quot; class=&quot;offcanvas&quot;&gt;
-										&lt;div class=&quot;offcanvas-bar&quot;&gt;
-											&lt;div class=&quot;offcanvas-close&quot;&gt;
-												&lt;a href=&quot;#!&quot;&gt;
-													&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z&quot;/&gt;&lt;/svg&gt;
-												&lt;/a&gt;
+										&lt;div id=&quot;offcanvas-usage&quot; class=&quot;offcanvas&quot;&gt;
+											&lt;div class=&quot;offcanvas-bar&quot;&gt;
+												&lt;div class=&quot;offcanvas-close&quot;&gt;
+													&lt;a href=&quot;#!&quot;&gt;
+														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z&quot;/&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+												&lt;/div&gt;
+												&lt;h3&gt;Title&lt;/h3&gt;
+												&lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
 											&lt;/div&gt;
-											&lt;h3&gt;Title&lt;/h3&gt;
-											&lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
 										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					
-					<h3>Overlay</h3>
-					<p>To add an overlay, blanking out the page, add the <code>overlay: true</code> attribute to the <code>offcanvas</code> element.</p>
-					<div>
-						<pre><code>
-							&lt;div id=&quot;offcanvas-overlay&quot; class=&quot;offcanvas&quot; offcanvas=&quot;overlay: true&quot;&gt;
-						</code></pre>
-					</div>
+						
+						<h3>Overlay</h3>
+						<p>To add an overlay, blanking out the page, add the <code>overlay: true</code> attribute to the <code>offcanvas</code> element.</p>
+						<div>
+							<pre><code>
+								&lt;div id=&quot;offcanvas-overlay&quot; class=&quot;offcanvas&quot; offcanvas=&quot;overlay: true&quot;&gt;
+							</code></pre>
+						</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<button class="button" toggle="target: #offcanvas-overlay">Open</button>
-								<dialog id="offcanvas-overlay" class="offcanvas" offcanvas="overlay: true">
-									<div class="offcanvas-bar">
-										<div class="offcanvas-close">
-											<a href="#!">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-											</a>
-										</div>								
-										<h3>Title</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									</div>
-								</dialog>
-							</div>
-							<div>
-								<pre><code>
-									&lt;button class=&quot;button&quot; toggle=&quot;target: #offcanvas-overlay&quot;&gt;Open&lt;/button&gt;
-									&lt;div id=&quot;offcanvas-overlay&quot; class=&quot;offcanvas&quot; offcanvas=&quot;overlay: true&quot;&gt;
-										&lt;div class=&quot;offcanvas-bar&quot;&gt;
-											&lt;div class=&quot;offcanvas-close&quot;&gt;
-												&lt;a href=&quot;#!&quot;&gt;
-													&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z&quot;/&gt;&lt;/svg&gt;
-												&lt;/a&gt;
-											&lt;/div&gt;								
-											&lt;h3&gt;Title&lt;/h3&gt;
-											&lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<button class="button" toggle="target: #offcanvas-overlay">Open</button>
+									<dialog id="offcanvas-overlay" class="offcanvas" offcanvas="overlay: true">
+										<div class="offcanvas-bar">
+											<div class="offcanvas-close">
+												<a href="#!">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+												</a>
+											</div>								
+											<h3>Title</h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+										</div>
+									</dialog>
+								</div>
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button&quot; toggle=&quot;target: #offcanvas-overlay&quot;&gt;Open&lt;/button&gt;
+										&lt;div id=&quot;offcanvas-overlay&quot; class=&quot;offcanvas&quot; offcanvas=&quot;overlay: true&quot;&gt;
+											&lt;div class=&quot;offcanvas-bar&quot;&gt;
+												&lt;div class=&quot;offcanvas-close&quot;&gt;
+													&lt;a href=&quot;#!&quot;&gt;
+														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z&quot;/&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+												&lt;/div&gt;								
+												&lt;h3&gt;Title&lt;/h3&gt;
+												&lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
+											&lt;/div&gt;
 										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-	
-					<h2>Flip modifier</h2>
-					<p>Add the <code>offcanvas-flip</code> class to the <code>offcanvas</code> element to adjust its alignment, so that it slides in from the right.</p>
-				
-					<pre><code>
-						&lt;div id=&quot;offcanvas-flip&quot; class=&quot;offcanvas offcanvas-flip&quot;&gt;
-					</code></pre>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<button class="button button-default" toggle="target: #offcanvas-flip">Open</button>
-								<dialog id="offcanvas-flip" class="offcanvas offcanvas-flip" >
-									<div class="offcanvas-bar">
-										<div class="offcanvas-close">
-											<a href="#!">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-											</a>
-										</div>									
-										<h3>Title</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									</div>
-								</dialog>
-							</div>
-							<div>
-								<pre><code>
-									&lt;button class=&quot;button button-default&quot; toggle=&quot;target: #offcanvas-flip&quot;&gt;Open&lt;/button&gt;
-									&lt;div id=&quot;offcanvas-flip&quot; class=&quot;offcanvas offcanvas-flip&quot; &gt;
-										&lt;div class=&quot;offcanvas-bar&quot;&gt;
-											&lt;div class=&quot;offcanvas-close&quot;&gt;
-												&lt;a href=&quot;#!&quot;&gt;
-													&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z&quot;/&gt;&lt;/svg&gt;
-												&lt;/a&gt;
-											&lt;/div&gt;									
-											&lt;h3&gt;Title&lt;/h3&gt;
-											&lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Prevent close</h2>
-					<p>To prevent offcavans dialog to close on click add the <code>bgClose: false</code> attribute to offcanvas element. </p>
-			
-					<pre><code>
-						&lt;div id=&quot;offcanvas-prevent-close&quot; class=&quot;offcanvas&quot; offcanvas=&quot;bgClose: false&quot;&gt;
-					</code></pre>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<button class="button button-default" toggle="target: #offcanvas-prevent-close">Open</button>
-								<dialog id="offcanvas-prevent-close" class="offcanvas" offcanvas="bgClose: false">
-									<div class="offcanvas-bar">
-										<div class="offcanvas-close">
-											<a href="#!">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-											</a>
-										</div>									
-										<h3>Title</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									</div>
-								</dialog>
-							</div>
-							<div>
-								<pre><code>
-									&lt;button class=&quot;button button-default&quot; toggle=&quot;target: #offcanvas-prevent-close&quot;&gt;Open&lt;/button&gt;
-									&lt;div id=&quot;offcanvas-prevent-close&quot; class=&quot;offcanvas&quot; offcanvas=&quot;bgClose: false&quot;&gt;
-										&lt;div class=&quot;offcanvas-bar&quot;&gt;
-											&lt;div class=&quot;offcanvas-close&quot;&gt;
-												&lt;a href=&quot;#!&quot;&gt;
-													&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z&quot;/&gt;&lt;/svg&gt;
-												&lt;/a&gt;
-											&lt;/div&gt;									
-											&lt;h3&gt;Title&lt;/h3&gt;
-											&lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					
-					<h2>Nav in Off-canvas</h2>
-					<p>You can use the <a href="/component.nav.html">Nav component</a> inside an off-canvas to create a mobile navigation.</p>
 		
-					<pre><code>
-						&lt;div id=&quot;my-id&quot; class=&quot;offcanvas&quot;&gt;
-							&lt;div class=&quot;offcanvas-bar&quot;&gt;
-								&lt;ul class=&quot;nav nav-default&quot;&gt;…&lt;/ul&gt;
-							&lt;/div&gt;
-						&lt;/div&gt;
-					</code></pre>
+						<h2>Flip modifier</h2>
+						<p>Add the <code>offcanvas-flip</code> class to the <code>offcanvas</code> element to adjust its alignment, so that it slides in from the right.</p>
+					
+						<pre><code>
+							&lt;div id=&quot;offcanvas-flip&quot; class=&quot;offcanvas offcanvas-flip&quot;&gt;
+						</code></pre>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<button class="button margin-small-right" toggle="target: #offcanvas-primary">Primary Nav</button>
-
-								<button class="button" toggle="target: #offcanvas-nav">Default Nav</button>
-								
-								<dialog id="offcanvas-primary" class="offcanvas" offcanvas="overlay: true">
-									<div class="offcanvas-bar flex flex-col">
-								
-										<ul class="nav nav-primary nav-center margin-auto-vertical">
-											<li class="active"><a href="#">Active</a></li>
-											<li class="parent">
-												<a href="#">Parent</a>
-												<ul class="nav-sub">
-													<li><a href="#">Sub item</a></li>
-													<li><a href="#">Sub item</a></li>
-												</ul>
-											</li>
-											<li class="nav-header">Header</li>
-											<li>
-												<a href="#!" class="margin-small-right">
-													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z"/></svg>
-													Item
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<button class="button button-default" toggle="target: #offcanvas-flip">Open</button>
+									<dialog id="offcanvas-flip" class="offcanvas offcanvas-flip" >
+										<div class="offcanvas-bar">
+											<div class="offcanvas-close">
+												<a href="#!">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
 												</a>
-											</li>
-											<li>
-												<a href="#!" class="margin-small-right">
-													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-512.69V-820h307.31v307.31H140ZM140-140v-307.31h307.31V-140H140Zm372.69-372.69V-820H820v307.31H512.69Zm0 372.69v-307.31H820V-140H512.69Zm-327.3-418.08h216.53v-216.53H185.39v216.53Zm372.69 0h216.53v-216.53H558.08v216.53Zm0 372.69h216.53v-216.53H558.08v216.53Zm-372.69 0h216.53v-216.53H185.39v216.53Zm372.69-372.69Zm0 156.16Zm-156.16 0Zm0-156.16Z"/></svg>
-													Item
-												</a>
-											</li>
-											<li class="nav-divider"></li>
-											<li>
-												<a href="#!" class="margin-small-right">
-													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z"/></svg>
-													Item
-												</a>
-											</li>
-										</ul>
-								
-									</div>
-								</dialog>
-								
-								<dialog id="offcanvas-nav" class="offcanvas" offcanvas="overlay: true">
-									<div class="offcanvas-bar">
-								
-										<ul class="nav nav-default">
-											<li class="active"><a href="#">Active</a></li>
-											<li class="parent">
-												<a href="#">Parent</a>
-												<ul class="nav-sub">
-													<li><a href="#">Sub item</a></li>
-													<li><a href="#">Sub item</a></li>
-												</ul>
-											</li>
-											<li class="nav-header">Header</li>
-											<li>
-												<a href="#!" class="margin-small-right">
-													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z"/></svg>
-													Item
-												</a>
-											</li>
-											<li>
-												<a href="#!" class="margin-small-right">
-													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-512.69V-820h307.31v307.31H140ZM140-140v-307.31h307.31V-140H140Zm372.69-372.69V-820H820v307.31H512.69Zm0 372.69v-307.31H820V-140H512.69Zm-327.3-418.08h216.53v-216.53H185.39v216.53Zm372.69 0h216.53v-216.53H558.08v216.53Zm0 372.69h216.53v-216.53H558.08v216.53Zm-372.69 0h216.53v-216.53H185.39v216.53Zm372.69-372.69Zm0 156.16Zm-156.16 0Zm0-156.16Z"/></svg>
-													Item
-												</a>
-											</li>
-											<li class="nav-divider"></li>
-											<li>
-												<a href="#!" class="margin-small-right">
-													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z"/></svg>
-													Item
-												</a>
-											</li>
-										</ul>
-								
-									</div>
-								</dialog>
-							</div>
-							<div>
-								<pre><code>
-									&lt;button class=&quot;button margin-small-right&quot; toggle=&quot;target: #offcanvas-primary&quot;&gt;Primary Nav&lt;/button&gt;
-
-									&lt;button class=&quot;button&quot; toggle=&quot;target: #offcanvas-nav&quot;&gt;Default Nav&lt;/button&gt;
-
-									&lt;div id=&quot;offcanvas-primary&quot; class=&quot;offcanvas&quot; offcanvas=&quot;overlay: true&quot;&gt;
-										&lt;div class=&quot;offcanvas-bar flex flex-col&quot;&gt;
-
-											&lt;ul class=&quot;nav nav-primary nav-center margin-auto-vertical&quot;&gt;
-												&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-												&lt;li class=&quot;parent&quot;&gt;
-													&lt;a href=&quot;#&quot;&gt;Parent&lt;/a&gt;
-													&lt;ul class=&quot;nav-sub&quot;&gt;
-														&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-														&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-													&lt;/ul&gt;
-												&lt;/li&gt;
-												&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-												&lt;li&gt;
-													&lt;a href=&quot;#!&quot; class=&quot;margin-small-right&quot;&gt;
-														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z&quot;/&gt;&lt;/svg&gt;
-														Item
+											</div>									
+											<h3>Title</h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+										</div>
+									</dialog>
+								</div>
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button button-default&quot; toggle=&quot;target: #offcanvas-flip&quot;&gt;Open&lt;/button&gt;
+										&lt;div id=&quot;offcanvas-flip&quot; class=&quot;offcanvas offcanvas-flip&quot; &gt;
+											&lt;div class=&quot;offcanvas-bar&quot;&gt;
+												&lt;div class=&quot;offcanvas-close&quot;&gt;
+													&lt;a href=&quot;#!&quot;&gt;
+														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z&quot;/&gt;&lt;/svg&gt;
 													&lt;/a&gt;
-												&lt;/li&gt;
-												&lt;li&gt;
-													&lt;a href=&quot;#!&quot; class=&quot;margin-small-right&quot;&gt;
-														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M140-512.69V-820h307.31v307.31H140ZM140-140v-307.31h307.31V-140H140Zm372.69-372.69V-820H820v307.31H512.69Zm0 372.69v-307.31H820V-140H512.69Zm-327.3-418.08h216.53v-216.53H185.39v216.53Zm372.69 0h216.53v-216.53H558.08v216.53Zm0 372.69h216.53v-216.53H558.08v216.53Zm-372.69 0h216.53v-216.53H185.39v216.53Zm372.69-372.69Zm0 156.16Zm-156.16 0Zm0-156.16Z&quot;/&gt;&lt;/svg&gt;
-														Item
-													&lt;/a&gt;
-												&lt;/li&gt;
-												&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-												&lt;li&gt;
-													&lt;a href=&quot;#!&quot; class=&quot;margin-small-right&quot;&gt;
-														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z&quot;/&gt;&lt;/svg&gt;
-														Item
-													&lt;/a&gt;
-												&lt;/li&gt;
-											&lt;/ul&gt;
-
+												&lt;/div&gt;									
+												&lt;h3&gt;Title&lt;/h3&gt;
+												&lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
+											&lt;/div&gt;
 										&lt;/div&gt;
-									&lt;/div&gt;
-
-									&lt;div id=&quot;offcanvas-nav&quot; class=&quot;offcanvas&quot; offcanvas=&quot;overlay: true&quot;&gt;
-										&lt;div class=&quot;offcanvas-bar&quot;&gt;
-
-											&lt;ul class=&quot;nav nav-default&quot;&gt;
-												&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-												&lt;li class=&quot;parent&quot;&gt;
-													&lt;a href=&quot;#&quot;&gt;Parent&lt;/a&gt;
-													&lt;ul class=&quot;nav-sub&quot;&gt;
-														&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-														&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
-													&lt;/ul&gt;
-												&lt;/li&gt;
-												&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-												&lt;li&gt;
-													&lt;a href=&quot;#!&quot; class=&quot;margin-small-right&quot;&gt;
-														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z&quot;/&gt;&lt;/svg&gt;
-														Item
-													&lt;/a&gt;
-												&lt;/li&gt;
-												&lt;li&gt;
-													&lt;a href=&quot;#!&quot; class=&quot;margin-small-right&quot;&gt;
-														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M140-512.69V-820h307.31v307.31H140ZM140-140v-307.31h307.31V-140H140Zm372.69-372.69V-820H820v307.31H512.69Zm0 372.69v-307.31H820V-140H512.69Zm-327.3-418.08h216.53v-216.53H185.39v216.53Zm372.69 0h216.53v-216.53H558.08v216.53Zm0 372.69h216.53v-216.53H558.08v216.53Zm-372.69 0h216.53v-216.53H185.39v216.53Zm372.69-372.69Zm0 156.16Zm-156.16 0Zm0-156.16Z&quot;/&gt;&lt;/svg&gt;
-														Item
-													&lt;/a&gt;
-												&lt;/li&gt;
-												&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-												&lt;li&gt;
-													&lt;a href=&quot;#!&quot; class=&quot;margin-small-right&quot;&gt;
-														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z&quot;/&gt;&lt;/svg&gt;
-														Item
-													&lt;/a&gt;
-												&lt;/li&gt;
-											&lt;/ul&gt;
-
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
+						
+						<h2>Prevent close</h2>
+						<p>To prevent offcavans dialog to close on click add the <code>bgClose: false</code> attribute to offcanvas element. </p>
+				
+						<pre><code>
+							&lt;div id=&quot;offcanvas-prevent-close&quot; class=&quot;offcanvas&quot; offcanvas=&quot;bgClose: false&quot;&gt;
+						</code></pre>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<button class="button button-default" toggle="target: #offcanvas-prevent-close">Open</button>
+									<dialog id="offcanvas-prevent-close" class="offcanvas" offcanvas="bgClose: false">
+										<div class="offcanvas-bar">
+											<div class="offcanvas-close">
+												<a href="#!">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+												</a>
+											</div>									
+											<h3>Title</h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+										</div>
+									</dialog>
+								</div>
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button button-default&quot; toggle=&quot;target: #offcanvas-prevent-close&quot;&gt;Open&lt;/button&gt;
+										&lt;div id=&quot;offcanvas-prevent-close&quot; class=&quot;offcanvas&quot; offcanvas=&quot;bgClose: false&quot;&gt;
+											&lt;div class=&quot;offcanvas-bar&quot;&gt;
+												&lt;div class=&quot;offcanvas-close&quot;&gt;
+													&lt;a href=&quot;#!&quot;&gt;
+														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z&quot;/&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+												&lt;/div&gt;									
+												&lt;h3&gt;Title&lt;/h3&gt;
+												&lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h2>Nav in Off-canvas</h2>
+						<p>You can use the <a href="/component.nav.html">Nav component</a> inside an off-canvas to create a mobile navigation.</p>
+			
+						<pre><code>
+							&lt;div id=&quot;my-id&quot; class=&quot;offcanvas&quot;&gt;
+								&lt;div class=&quot;offcanvas-bar&quot;&gt;
+									&lt;ul class=&quot;nav nav-default&quot;&gt;…&lt;/ul&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+						</code></pre>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<button class="button margin-small-right" toggle="target: #offcanvas-primary">Primary Nav</button>
+
+									<button class="button" toggle="target: #offcanvas-nav">Default Nav</button>
+									
+									<dialog id="offcanvas-primary" class="offcanvas" offcanvas="overlay: true">
+										<div class="offcanvas-bar flex flex-column">
+									
+											<ul class="nav nav-primary nav-center margin-auto-vertical">
+												<li class="active"><a href="#">Active</a></li>
+												<li class="parent">
+													<a href="#">Parent</a>
+													<ul class="nav-sub">
+														<li><a href="#">Sub item</a></li>
+														<li><a href="#">Sub item</a></li>
+													</ul>
+												</li>
+												<li class="nav-header">Header</li>
+												<li>
+													<a href="#!" class="margin-small-right">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z"/></svg>
+														Item
+													</a>
+												</li>
+												<li>
+													<a href="#!" class="margin-small-right">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-512.69V-820h307.31v307.31H140ZM140-140v-307.31h307.31V-140H140Zm372.69-372.69V-820H820v307.31H512.69Zm0 372.69v-307.31H820V-140H512.69Zm-327.3-418.08h216.53v-216.53H185.39v216.53Zm372.69 0h216.53v-216.53H558.08v216.53Zm0 372.69h216.53v-216.53H558.08v216.53Zm-372.69 0h216.53v-216.53H185.39v216.53Zm372.69-372.69Zm0 156.16Zm-156.16 0Zm0-156.16Z"/></svg>
+														Item
+													</a>
+												</li>
+												<li class="nav-divider"></li>
+												<li>
+													<a href="#!" class="margin-small-right">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z"/></svg>
+														Item
+													</a>
+												</li>
+											</ul>
+									
+										</div>
+									</dialog>
+									
+									<dialog id="offcanvas-nav" class="offcanvas" offcanvas="overlay: true">
+										<div class="offcanvas-bar">
+									
+											<ul class="nav nav-default">
+												<li class="active"><a href="#">Active</a></li>
+												<li class="parent">
+													<a href="#">Parent</a>
+													<ul class="nav-sub">
+														<li><a href="#">Sub item</a></li>
+														<li><a href="#">Sub item</a></li>
+													</ul>
+												</li>
+												<li class="nav-header">Header</li>
+												<li>
+													<a href="#!" class="margin-small-right">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z"/></svg>
+														Item
+													</a>
+												</li>
+												<li>
+													<a href="#!" class="margin-small-right">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M140-512.69V-820h307.31v307.31H140ZM140-140v-307.31h307.31V-140H140Zm372.69-372.69V-820H820v307.31H512.69Zm0 372.69v-307.31H820V-140H512.69Zm-327.3-418.08h216.53v-216.53H185.39v216.53Zm372.69 0h216.53v-216.53H558.08v216.53Zm0 372.69h216.53v-216.53H558.08v216.53Zm-372.69 0h216.53v-216.53H185.39v216.53Zm372.69-372.69Zm0 156.16Zm-156.16 0Zm0-156.16Z"/></svg>
+														Item
+													</a>
+												</li>
+												<li class="nav-divider"></li>
+												<li>
+													<a href="#!" class="margin-small-right">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z"/></svg>
+														Item
+													</a>
+												</li>
+											</ul>
+									
+										</div>
+									</dialog>
+								</div>
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button margin-small-right&quot; toggle=&quot;target: #offcanvas-primary&quot;&gt;Primary Nav&lt;/button&gt;
+
+										&lt;button class=&quot;button&quot; toggle=&quot;target: #offcanvas-nav&quot;&gt;Default Nav&lt;/button&gt;
+
+										&lt;div id=&quot;offcanvas-primary&quot; class=&quot;offcanvas&quot; offcanvas=&quot;overlay: true&quot;&gt;
+											&lt;div class=&quot;offcanvas-bar flex flex-column&quot;&gt;
+
+												&lt;ul class=&quot;nav nav-primary nav-center margin-auto-vertical&quot;&gt;
+													&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+													&lt;li class=&quot;parent&quot;&gt;
+														&lt;a href=&quot;#&quot;&gt;Parent&lt;/a&gt;
+														&lt;ul class=&quot;nav-sub&quot;&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/li&gt;
+													&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+													&lt;li&gt;
+														&lt;a href=&quot;#!&quot; class=&quot;margin-small-right&quot;&gt;
+															&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z&quot;/&gt;&lt;/svg&gt;
+															Item
+														&lt;/a&gt;
+													&lt;/li&gt;
+													&lt;li&gt;
+														&lt;a href=&quot;#!&quot; class=&quot;margin-small-right&quot;&gt;
+															&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M140-512.69V-820h307.31v307.31H140ZM140-140v-307.31h307.31V-140H140Zm372.69-372.69V-820H820v307.31H512.69Zm0 372.69v-307.31H820V-140H512.69Zm-327.3-418.08h216.53v-216.53H185.39v216.53Zm372.69 0h216.53v-216.53H558.08v216.53Zm0 372.69h216.53v-216.53H558.08v216.53Zm-372.69 0h216.53v-216.53H185.39v216.53Zm372.69-372.69Zm0 156.16Zm-156.16 0Zm0-156.16Z&quot;/&gt;&lt;/svg&gt;
+															Item
+														&lt;/a&gt;
+													&lt;/li&gt;
+													&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+													&lt;li&gt;
+														&lt;a href=&quot;#!&quot; class=&quot;margin-small-right&quot;&gt;
+															&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z&quot;/&gt;&lt;/svg&gt;
+															Item
+														&lt;/a&gt;
+													&lt;/li&gt;
+												&lt;/ul&gt;
+
+											&lt;/div&gt;
+										&lt;/div&gt;
+
+										&lt;div id=&quot;offcanvas-nav&quot; class=&quot;offcanvas&quot; offcanvas=&quot;overlay: true&quot;&gt;
+											&lt;div class=&quot;offcanvas-bar&quot;&gt;
+
+												&lt;ul class=&quot;nav nav-default&quot;&gt;
+													&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+													&lt;li class=&quot;parent&quot;&gt;
+														&lt;a href=&quot;#&quot;&gt;Parent&lt;/a&gt;
+														&lt;ul class=&quot;nav-sub&quot;&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Sub item&lt;/a&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/li&gt;
+													&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+													&lt;li&gt;
+														&lt;a href=&quot;#!&quot; class=&quot;margin-small-right&quot;&gt;
+															&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M140-254.62V-300h680v45.38H140Zm0-202.69v-45.38h680v45.38H140ZM140-660v-45.38h680V-660H140Z&quot;/&gt;&lt;/svg&gt;
+															Item
+														&lt;/a&gt;
+													&lt;/li&gt;
+													&lt;li&gt;
+														&lt;a href=&quot;#!&quot; class=&quot;margin-small-right&quot;&gt;
+															&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M140-512.69V-820h307.31v307.31H140ZM140-140v-307.31h307.31V-140H140Zm372.69-372.69V-820H820v307.31H512.69Zm0 372.69v-307.31H820V-140H512.69Zm-327.3-418.08h216.53v-216.53H185.39v216.53Zm372.69 0h216.53v-216.53H558.08v216.53Zm0 372.69h216.53v-216.53H558.08v216.53Zm-372.69 0h216.53v-216.53H185.39v216.53Zm372.69-372.69Zm0 156.16Zm-156.16 0Zm0-156.16Z&quot;/&gt;&lt;/svg&gt;
+															Item
+														&lt;/a&gt;
+													&lt;/li&gt;
+													&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+													&lt;li&gt;
+														&lt;a href=&quot;#!&quot; class=&quot;margin-small-right&quot;&gt;
+															&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z&quot;/&gt;&lt;/svg&gt;
+															Item
+														&lt;/a&gt;
+													&lt;/li&gt;
+												&lt;/ul&gt;
+
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

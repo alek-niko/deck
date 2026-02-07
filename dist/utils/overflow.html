@@ -311,118 +311,120 @@
 		
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
 
-					<h1>Overflow</h1>
-					<p class="text-lead">Control how content behaves when it exceeds its container — clip it, scroll it, or show it.</p>
-					<p>Overflow utilities help manage layout stability, prevent content from spilling outside containers, and enable scroll behavior. Use these classes to apply <code>overflow</code> rules on both axes, including <code>scroll</code> and <code>auto</code> modes. These utilities also support smooth scrolling and touch momentum on iOS.</p>
+						<h1>Overflow</h1>
+						<p class="text-lead">Control how content behaves when it exceeds its container — clip it, scroll it, or show it.</p>
+						<p>Overflow utilities help manage layout stability, prevent content from spilling outside containers, and enable scroll behavior. Use these classes to apply <code>overflow</code> rules on both axes, including <code>scroll</code> and <code>auto</code> modes. These utilities also support smooth scrolling and touch momentum on iOS.</p>
+						
+						<hr>
+						
+						<h2>Usage</h2>
+						<p>To toggle a transition on hover or focus, add the <code>.transition-toggle</code> class to a parent element. Also add <code>tabindex="0"</code> to make the animation focusable through keyboard navigation and on touch devices. Add one of the <code>.transition-*</code> classes to any child element to apply the actual effect.</p>
 					
-					<hr>
-					
-					<h2>Usage</h2>
-					<p>To toggle a transition on hover or focus, add the <code>.transition-toggle</code> class to a parent element. Also add <code>tabindex="0"</code> to make the animation focusable through keyboard navigation and on touch devices. Add one of the <code>.transition-*</code> classes to any child element to apply the actual effect.</p>
-				
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.overflow-visible</code></td>
-									<td>Content is not clipped; may overflow</td>
-								</tr>
-								<tr>
-									<td><code>.overflow-hidden</code></td>
-									<td>Clips content and hides overflow</td>
-								</tr>
-								<tr>
-									<td><code>.overflow-scroll</code></td>
-									<td>Always shows scrollbars, even if not needed</td>
-								</tr>
-								<tr>
-									<td><code>.overflow-auto</code></td>
-									<td>Scrollbars appear when content overflows</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.overflow-visible</code></td>
+										<td>Content is not clipped; may overflow</td>
+									</tr>
+									<tr>
+										<td><code>.overflow-hidden</code></td>
+										<td>Clips content and hides overflow</td>
+									</tr>
+									<tr>
+										<td><code>.overflow-scroll</code></td>
+										<td>Always shows scrollbars, even if not needed</td>
+									</tr>
+									<tr>
+										<td><code>.overflow-auto</code></td>
+										<td>Scrollbars appear when content overflows</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-					<h2>Axis-Specific Overflow</h2>
-					<p>These utilities control overflow behavior independently on the horizontal (X) or vertical (Y) axis. Useful when you want scrolling or clipping in just one direction.</p>
+						<h2>Axis-Specific Overflow</h2>
+						<p>These utilities control overflow behavior independently on the horizontal (X) or vertical (Y) axis. Useful when you want scrolling or clipping in just one direction.</p>
 
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.overflow-x-hidden</code></td>
-									<td>Hides overflow on the horizontal axis</td>
-								</tr>
-								<tr>
-									<td><code>.overflow-x-scroll</code></td>
-									<td>Enables horizontal scrolling only</td>
-								</tr>
-								<tr>
-									<td><code>.overflow-x-auto</code></td>
-									<td>Horizontal scrollbars appear when needed</td>
-								</tr>
-								<tr>
-									<td><code>.overflow-y-hidden</code></td>
-									<td>Hides overflow on the vertical axis</td>
-								</tr>
-								<tr>
-									<td><code>.overflow-y-scroll</code></td>
-									<td>Enables vertical scrolling only</td>
-								</tr>
-								<tr>
-									<td><code>.overflow-y-auto</code></td>
-									<td>Vertical scrollbars appear when needed</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.overflow-x-hidden</code></td>
+										<td>Hides overflow on the horizontal axis</td>
+									</tr>
+									<tr>
+										<td><code>.overflow-x-scroll</code></td>
+										<td>Enables horizontal scrolling only</td>
+									</tr>
+									<tr>
+										<td><code>.overflow-x-auto</code></td>
+										<td>Horizontal scrollbars appear when needed</td>
+									</tr>
+									<tr>
+										<td><code>.overflow-y-hidden</code></td>
+										<td>Hides overflow on the vertical axis</td>
+									</tr>
+									<tr>
+										<td><code>.overflow-y-scroll</code></td>
+										<td>Enables vertical scrolling only</td>
+									</tr>
+									<tr>
+										<td><code>.overflow-y-auto</code></td>
+										<td>Vertical scrollbars appear when needed</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-					<h2>Scrolling Helpers</h2>
-					<p>Additional classes to enhance scrolling behavior. Enable smooth scrolling animations, iOS momentum scrolling, or force scrolling only on a specific axis while hiding overflow on the other.</p>
-  
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.scroll-smooth</code></td>
-									<td>Enables smooth scrolling behavior</td>
-								</tr>
-								<tr>
-									<td><code>.scroll-touch</code></td>
-									<td>Enables iOS momentum scrolling</td>
-								</tr>
-								<tr>
-									<td><code>.scroll-x</code></td>
-									<td>Horizontal scroll only; disables vertical overflow</td>
-								</tr>
-								<tr>
-									<td><code>.scroll-y</code></td>
-									<td>Vertical scroll only; disables horizontal overflow</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					
+						<h2>Scrolling Helpers</h2>
+						<p>Additional classes to enhance scrolling behavior. Enable smooth scrolling animations, iOS momentum scrolling, or force scrolling only on a specific axis while hiding overflow on the other.</p>
+	
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.scroll-smooth</code></td>
+										<td>Enables smooth scrolling behavior</td>
+									</tr>
+									<tr>
+										<td><code>.scroll-touch</code></td>
+										<td>Enables iOS momentum scrolling</td>
+									</tr>
+									<tr>
+										<td><code>.scroll-x</code></td>
+										<td>Horizontal scroll only; disables vertical overflow</td>
+									</tr>
+									<tr>
+										<td><code>.scroll-y</code></td>
+										<td>Vertical scroll only; disables horizontal overflow</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+					</article>
 				</div>
 			</div>
 		</main>

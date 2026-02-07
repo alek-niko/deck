@@ -308,108 +308,112 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Code</h1>
-					<p class="text-lead">Style and structure inline and block-level code using &lt;code&gt; and &lt;pre&gt; elements with full theme support.</p>
-					<hr>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Code</h1>
+						<p class="text-lead">Style and structure inline and block-level code using &lt;code&gt; and &lt;pre&gt; elements with full theme support.</p>
+						<hr>
 
-					<h2>Code Block (<code>&lt;pre&gt;</code>)</h2>
-					<p>Use &lt;pre&gt; to display preformatted, multi-line code blocks. It preserves whitespace and formatting, and is typically paired with &lt;code&gt; for semantic clarity and styling.</p>
-					
-						<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<pre><code>
-								// Example: JavaScript function
-								function greet(name) {
-									console.log("Hello, " + name + "!");
-								}
-								greet("Cyberpunk");
-								</code></pre>
-							</div>
-							<div>
-								<pre><code>
-									&lt;pre&gt;&lt;code&gt;
+						<h2>Code Block (<code>&lt;pre&gt;</code>)</h2>
+						<p>Use &lt;pre&gt; to display preformatted, multi-line code blocks. It preserves whitespace and formatting, and is typically paired with &lt;code&gt; for semantic clarity and styling.</p>
+						
+							<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<pre><code>
 									// Example: JavaScript function
 									function greet(name) {
-										console.log(&quot;Hello, &quot; + name + &quot;!&quot;);
+										console.log("Hello, " + name + "!");
 									}
-									greet(&quot;Cyberpunk&quot;);
-									&lt;/code&gt;&lt;/pre&gt;
-								</code></pre>
+									greet("Cyberpunk");
+									</code></pre>
+								</div>
+								<div>
+									<pre><code>
+										&lt;pre&gt;&lt;code&gt;
+										// Example: JavaScript function
+										function greet(name) {
+											console.log(&quot;Hello, &quot; + name + &quot;!&quot;);
+										}
+										greet(&quot;Cyberpunk&quot;);
+										&lt;/code&gt;&lt;/pre&gt;
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Inline Code (<code>&lt;code&gt;</code>)</h2>
-					<p>Use &lt;code&gt; for short snippets or inline references to code elements. It inherits the surrounding font size and can be styled for visual emphasis within text.</p>
-					
-						<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								To style a button, add the <code>.btn-primary</code> class to your element.
+						<h2>Inline Code (<code>&lt;code&gt;</code>)</h2>
+						<p>Use &lt;code&gt; for short snippets or inline references to code elements. It inherits the surrounding font size and can be styled for visual emphasis within text.</p>
+						
+							<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									To style a button, add the <code>.btn-primary</code> class to your element.
+								</div>
+								<div>
+									<pre><code>
+										To style a button, add the &lt;code&gt;.btn-primary&lt;/code&gt; class to your element.
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									To style a button, add the &lt;code&gt;.btn-primary&lt;/code&gt; class to your element.
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Inline Code Selector (<code>:not(pre) &gt; code</code>)</h2>
-					<p>This selector targets &lt;code&gt; elements not inside a &lt;pre&gt;, ensuring inline code appears consistently styled—typically with monospace font, subtle background, and padding—without affecting full block-level &lt;pre&gt; elements.</p>
-					
-						<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								Wrap class names like <code>.grid</code> and <code>.section</code> in <code>code</code> tags for clarity.
+						<h2>Inline Code Selector (<code>:not(pre) &gt; code</code>)</h2>
+						<p>This selector targets &lt;code&gt; elements not inside a &lt;pre&gt;, ensuring inline code appears consistently styled—typically with monospace font, subtle background, and padding—without affecting full block-level &lt;pre&gt; elements.</p>
+						
+							<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									Wrap class names like <code>.grid</code> and <code>.section</code> in <code>code</code> tags for clarity.
+								</div>
+								<div>
+									<pre><code>
+										Wrap class names like &lt;code&gt;.grid&lt;/code&gt; and &lt;code&gt;.section&lt;/code&gt; in &lt;code&gt;code&lt;/code&gt; tags for clarity.
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									Wrap class names like &lt;code&gt;.grid&lt;/code&gt; and &lt;code&gt;.section&lt;/code&gt; in &lt;code&gt;code&lt;/code&gt; tags for clarity.
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

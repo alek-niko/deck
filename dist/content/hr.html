@@ -308,176 +308,180 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
 				  
-					<h1>HR Component</h1>
-					<p class="text-lead">Accessible and customizable horizontal rule with scalable spacing, thickness, style, and alignment variants. Uses design tokens for colors and spacing, with automatic dark mode support.</p>
+						<h1>HR Component</h1>
+						<p class="text-lead">Accessible and customizable horizontal rule with scalable spacing, thickness, style, and alignment variants. Uses design tokens for colors and spacing, with automatic dark mode support.</p>
 
-					<hr>
+						<hr>
 
-					<h2>Overview</h2>
-					<p>The <code>&lt;hr&gt;</code> element is styled with token-based colors and spacing. It removes default browser appearance to provide a clean and consistent divider across the app. Variants allow adjusting margin, thickness, border style, and alignment.</p>
+						<h2>Overview</h2>
+						<p>The <code>&lt;hr&gt;</code> element is styled with token-based colors and spacing. It removes default browser appearance to provide a clean and consistent divider across the app. Variants allow adjusting margin, thickness, border style, and alignment.</p>
 
-					<h2>Base Styles</h2>
-					<p>The base horizontal rule has a full-width solid top border, with height reset to avoid artifacts. It uses the <code>--color-border</code> token for its color, ensuring automatic dark mode compatibility. Vertical margins are scalable using design tokens.</p>
+						<h2>Base Styles</h2>
+						<p>The base horizontal rule has a full-width solid top border, with height reset to avoid artifacts. It uses the <code>--color-border</code> token for its color, ensuring automatic dark mode compatibility. Vertical margins are scalable using design tokens.</p>
 
-					<hr />
+						<hr />
 
 
-					<h2>Variants</h2>
-					
-					<h3>Margin Size Variants</h3>
-					<p>Adjust vertical spacing above and below the horizontal rule using margin size utility classes.</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.hr-sm</code></td>
-								<td>Sets vertical margin to <code>--spacing-sm</code>, creating a tighter space.</td>
-							</tr>
-							<tr>
-								<td><code>.hr-lg</code></td>
-								<td>Sets vertical margin to <code>--spacing-lg</code>, increasing space around the rule.</td>
-							</tr>
-							<tr>
-								<td><code>.hr-xl</code></td>
-								<td>Sets vertical margin to <code>--spacing-xl</code>, creating extra-large spacing.</td>
-							</tr>
-						</tbody>
-					</table>
+						<h2>Variants</h2>
+						
+						<h3>Margin Size Variants</h3>
+						<p>Adjust vertical spacing above and below the horizontal rule using margin size utility classes.</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.hr-sm</code></td>
+									<td>Sets vertical margin to <code>--spacing-sm</code>, creating a tighter space.</td>
+								</tr>
+								<tr>
+									<td><code>.hr-lg</code></td>
+									<td>Sets vertical margin to <code>--spacing-lg</code>, increasing space around the rule.</td>
+								</tr>
+								<tr>
+									<td><code>.hr-xl</code></td>
+									<td>Sets vertical margin to <code>--spacing-xl</code>, creating extra-large spacing.</td>
+								</tr>
+							</tbody>
+						</table>
 
-					<h4>Usage Examples</h4>
-					<pre><code>
-						&lt;hr class="hr-sm" /&gt;
-						&lt;hr class="hr-lg" /&gt;
-						&lt;hr class="hr-xl" /&gt;
-					</code></pre>
-					
-					<h3>Border Style Variants</h3>
-					<p>Change the border style to dashed or dotted for visual differentiation or thematic needs.</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.hr-dashed</code></td>
-								<td>Renders the horizontal rule with a dashed top border.</td>
-							</tr>
-							<tr>
-								<td><code>.hr-dotted</code></td>
-								<td>Renders the horizontal rule with a dotted top border.</td>
-							</tr>
-						</tbody>
-					</table>
+						<h4>Usage Examples</h4>
+						<pre><code>
+							&lt;hr class="hr-sm" /&gt;
+							&lt;hr class="hr-lg" /&gt;
+							&lt;hr class="hr-xl" /&gt;
+						</code></pre>
+						
+						<h3>Border Style Variants</h3>
+						<p>Change the border style to dashed or dotted for visual differentiation or thematic needs.</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.hr-dashed</code></td>
+									<td>Renders the horizontal rule with a dashed top border.</td>
+								</tr>
+								<tr>
+									<td><code>.hr-dotted</code></td>
+									<td>Renders the horizontal rule with a dotted top border.</td>
+								</tr>
+							</tbody>
+						</table>
 
-					<div>
-						<hr class="hr-dashed hr-thick hr-lg" />
-						<hr class="hr-dotted hr-thick hr-lg" />
-					</div>
-					
-					<h4>Usage Examples</h4>
+						<div>
+							<hr class="hr-dashed hr-thick hr-lg" />
+							<hr class="hr-dotted hr-thick hr-lg" />
+						</div>
+						
+						<h4>Usage Examples</h4>
 
-					<pre><code>
-						&lt;hr class="hr-dashed" /&gt;
-						&lt;hr class="hr-dotted" /&gt;
-					</code></pre>
-					
-					<h3>Thickness Variants</h3>
-					<p>Control the thickness of the horizontal rule's top border to match design needs, from thin to thick lines.</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.hr-thin</code></td>
-								<td>Sets the border thickness to 1px for a subtle divider.</td>
-							</tr>
-							<tr>
-								<td><code>.hr-medium</code></td>
-								<td>Sets the border thickness to 2px for medium emphasis.</td>
-							</tr>
-							<tr>
-								<td><code>.hr-thick</code></td>
-								<td>Sets the border thickness to 3px for strong visual separation.</td>
-							</tr>
-						</tbody>
-					</table>
+						<pre><code>
+							&lt;hr class="hr-dashed" /&gt;
+							&lt;hr class="hr-dotted" /&gt;
+						</code></pre>
+						
+						<h3>Thickness Variants</h3>
+						<p>Control the thickness of the horizontal rule's top border to match design needs, from thin to thick lines.</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.hr-thin</code></td>
+									<td>Sets the border thickness to 1px for a subtle divider.</td>
+								</tr>
+								<tr>
+									<td><code>.hr-medium</code></td>
+									<td>Sets the border thickness to 2px for medium emphasis.</td>
+								</tr>
+								<tr>
+									<td><code>.hr-thick</code></td>
+									<td>Sets the border thickness to 3px for strong visual separation.</td>
+								</tr>
+							</tbody>
+						</table>
 
-					<div>
-						<hr class="hr-dashed hr-thin hr-lg" />
-						<hr class="hr-dotted hr-medium hr-lg" />
-						<hr class="hr-dotted hr-thick hr-lg" />
-					</div>
-					
-					<h4>Usage Examples</h4>
+						<div>
+							<hr class="hr-dashed hr-thin hr-lg" />
+							<hr class="hr-dotted hr-medium hr-lg" />
+							<hr class="hr-dotted hr-thick hr-lg" />
+						</div>
+						
+						<h4>Usage Examples</h4>
 
-					<pre><code>
-						&lt;hr class="hr-thin" /&gt;
-						&lt;hr class="hr-medium" /&gt;
-						&lt;hr class="hr-thick" /&gt;
-					</code></pre>
-					
-					<h3>Alignment Variants</h3>
-					<p>Control horizontal positioning of the horizontal rule within its container using margin and width adjustments.</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.hr-left</code></td>
-								<td>Aligns the rule to the left, width set to 25%, margin-end automatic.</td>
-							</tr>
-							<tr>
-								<td><code>.hr-center</code></td>
-								<td>Centers the rule with width 50%, automatic margins on both sides.</td>
-							</tr>
-							<tr>
-								<td><code>.hr-right</code></td>
-								<td>Aligns the rule to the right, width 25%, margin-start automatic.</td>
-							</tr>
-						</tbody>
-					</table>
+						<pre><code>
+							&lt;hr class="hr-thin" /&gt;
+							&lt;hr class="hr-medium" /&gt;
+							&lt;hr class="hr-thick" /&gt;
+						</code></pre>
+						
+						<h3>Alignment Variants</h3>
+						<p>Control horizontal positioning of the horizontal rule within its container using margin and width adjustments.</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.hr-left</code></td>
+									<td>Aligns the rule to the left, width set to 25%, margin-end automatic.</td>
+								</tr>
+								<tr>
+									<td><code>.hr-center</code></td>
+									<td>Centers the rule with width 50%, automatic margins on both sides.</td>
+								</tr>
+								<tr>
+									<td><code>.hr-right</code></td>
+									<td>Aligns the rule to the right, width 25%, margin-start automatic.</td>
+								</tr>
+							</tbody>
+						</table>
 
-					<div>
-						<hr class="hr-left hr-thick hr-lg" />
-						<hr class="hr-center hr-thick hr-lg" />
-						<hr class="hr-right hr-thick hr-lg" />
-					</div>
-					
-					<h4>Usage Examples</h4>
-					
-					<pre><code>
-						&lt;hr class="hr-left" /&gt;
-						&lt;hr class="hr-center" /&gt;
-						&lt;hr class="hr-right" /&gt;
-					</code></pre>
+						<div>
+							<hr class="hr-left hr-thick hr-lg" />
+							<hr class="hr-center hr-thick hr-lg" />
+							<hr class="hr-right hr-thick hr-lg" />
+						</div>
+						
+						<h4>Usage Examples</h4>
+						
+						<pre><code>
+							&lt;hr class="hr-left" /&gt;
+							&lt;hr class="hr-center" /&gt;
+							&lt;hr class="hr-right" /&gt;
+						</code></pre>
 
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

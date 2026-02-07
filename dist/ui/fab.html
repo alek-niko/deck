@@ -308,511 +308,189 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
 
-					<h1>Floating Action Button (FAB)</h1>
-					<p class="text-lead">A FAB highlights a primary action and floats above the page content.</p>
-					
-					<p>The Floating Action Button (FAB) is a circular button that floats above the content to promote a primary action. It can be used to trigger key tasks like adding, creating, or navigating, and is typically positioned in the bottom corner of the screen.</p>
-					<hr>
-					
-					<h2>Usage (Default Icon Only)</h2>
-					<p>Use a single-icon FAB for quick access to the primary action on a page.</p>
-					
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="card round">
-									<div class="card-body height-sm">
-										<h5>Default</h5>
-									</div>
-									<div class="fab-card-wrapper position-bottom-right">
-										<a href="#!" class="fab">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z"/></svg>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;card round&quot;&gt;
-										&lt;div class=&quot;card-body height-sm&quot;&gt;
-											&lt;h5&gt;Default&lt;/h5&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;fab-card-wrapper position-bottom-right&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/a&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Text Only</h2>
-					<p>Use a text-only FAB when icons aren’t needed, ideal for more descriptive actions.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="card round">
-									<div class="card-body height-sm">
-										<h5>Text default</h5>
-									</div>
-									<div class="fab-card-wrapper position-bottom-right">
-										<a href="#!" class="fab fab-text fab-secondary">Create</a>
+						<h1>Floating Action Button (FAB)</h1>
+						<p class="text-lead">A FAB highlights a primary action and floats above the page content.</p>
+						
+						<p>The Floating Action Button (FAB) is a circular button that floats above the content to promote a primary action. It can be used to trigger key tasks like adding, creating, or navigating, and is typically positioned in the bottom corner of the screen.</p>
+						<hr>
+						
+						<h2>Usage (Default Icon Only)</h2>
+						<p>Use a single-icon FAB for quick access to the primary action on a page.</p>
+						
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="card round">
+										<div class="card-body height-sm">
+											<h5>Default</h5>
+										</div>
+										<div class="fab-card-wrapper position-bottom-right">
+											<a href="#!" class="fab">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z"/></svg>
+											</a>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;card round&quot;&gt;
-										&lt;div class=&quot;card-body height-sm&quot;&gt;
-											&lt;h5&gt;Text default&lt;/h5&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card round&quot;&gt;
+											&lt;div class=&quot;card-body height-sm&quot;&gt;
+												&lt;h5&gt;Default&lt;/h5&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;fab-card-wrapper position-bottom-right&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/a&gt;
+											&lt;/div&gt;
 										&lt;/div&gt;
-										&lt;div class=&quot;fab-card-wrapper position-bottom-right&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;fab fab-text fab-secondary&quot;&gt;Create&lt;/a&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Text and Icon</h2>
-					<p>Combine text with an icon to make the FAB’s purpose clearer and more intuitive.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="card round">
-									<div class="card-body height-sm">
-										<h5>Text + icon default</h5>
-									</div>
-									<div class="fab-card-wrapper position-bottom-right">
-										<a href="#!" class="fab fab-text fab-success">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
-											Create
-										</a>
-									</div>
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;card round&quot;&gt;
-										&lt;div class=&quot;card-body height-sm&quot;&gt;
-											&lt;h5&gt;Text + icon default&lt;/h5&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;fab-card-wrapper position-bottom-right&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;fab fab-text fab-success&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-												Create
-											&lt;/a&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Multiple FABs</h2>
-					<p>Display a group of floating action buttons for quick access to several related actions.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="card round">
-									<div class="card-body height-md">
-										<h5>Multiple</h5>
-									</div>
-									<div class="fab-card-wrapper position-bottom-right">
-										<a href="#!" class="fab fab-success fab-dark">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M820-673.77v476.08q0 23.53-17.08 40.61T762.31-140H197.69q-23.53 0-40.61-17.08T140-197.69v-564.62q0-23.53 17.08-40.61T197.69-820h476.08L820-673.77Zm-45.39 20.46-121.3-121.3H197.69q-5.38 0-8.84 3.46t-3.46 8.84v564.62q0 5.38 3.46 8.84t8.84 3.46h564.62q5.38 0 8.84-3.46t3.46-8.84v-455.62ZM479.76-273.08q36.54 0 62.51-25.73 25.96-25.73 25.96-62.26 0-36.54-25.73-62.5-25.73-25.97-62.26-25.97-36.54 0-62.51 25.73-25.96 25.73-25.96 62.27 0 36.53 25.73 62.5 25.73 25.96 62.26 25.96Zm-229.45-309h326.84v-127.61H250.31v127.61Zm-64.92-71.23v467.92-589.22 121.3Z"/></svg>
-										</a>
-										<a href="#!" class="fab fab-secondary fab-dark">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M201-344.46q-16.92-32.54-23.96-65.77Q170-443.46 170-478q0-127.54 91.23-218.96T480-788.38h57.62l-85.77-85.77 29.77-29.77 138.23 138.23-138.23 137.84-30.39-30.38L536-743h-56q-109.31 0-186.96 77.85-77.66 77.84-77.66 187.15 0 27.08 5.12 52.69 5.11 25.62 13.11 48.23L201-344.46ZM477.15-53.85 338.92-192.08l138.23-137.84 29.39 29.38-85.39 85.77H480q109.31 0 186.96-77.85 77.66-77.84 77.66-187.15 0-27.08-4.62-52.69-4.61-25.62-14.23-48.23l32.61-32.62q16.54 32.54 24.08 65.77 7.54 33.23 7.54 67.77 0 127.54-91.23 218.96T480-169.39h-58.85l85.39 85.77-29.39 29.77Z"/></svg>
-										</a>
-										<a href="#!" class="fab">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M820-673.77v476.08q0 23.53-17.08 40.61T762.31-140H197.69q-23.53 0-40.61-17.08T140-197.69v-564.62q0-23.53 17.08-40.61T197.69-820h476.08L820-673.77Zm-45.39 20.46-121.3-121.3H197.69q-5.38 0-8.84 3.46t-3.46 8.84v564.62q0 5.38 3.46 8.84t8.84 3.46h564.62q5.38 0 8.84-3.46t3.46-8.84v-455.62ZM479.76-273.08q36.54 0 62.51-25.73 25.96-25.73 25.96-62.26 0-36.54-25.73-62.5-25.73-25.97-62.26-25.97-36.54 0-62.51 25.73-25.96 25.73-25.96 62.27 0 36.53 25.73 62.5 25.73 25.96 62.26 25.96Zm-229.45-309h326.84v-127.61H250.31v127.61Zm-64.92-71.23v467.92-589.22 121.3Z"/></svg>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;card round&quot;&gt;
-										&lt;div class=&quot;card-body height-md&quot;&gt;
-											&lt;h5&gt;Multiple&lt;/h5&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;fab-card-wrapper position-bottom-right&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;fab fab-success fab-dark&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/a&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;fab fab-secondary fab-dark&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/a&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/a&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>FAB Card Wrapper Position</h2>
-					<p>Floating Action Buttons (FABs) can be positioned in different corners of their card wrapper. Apply one of the following classes to control placement.</p>
-				
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.fab-bottom-left</code></td>
-								<td>Positions the FAB in the bottom-left corner of the card wrapper.</td>
-							</tr>
-							<tr>
-								<td><code>.fab-bottom-right</code></td>
-								<td>Positions the FAB in the bottom-right corner of the card wrapper.</td>
-							</tr>
-							<tr>
-								<td><code>.fab-top-left</code></td>
-								<td>Positions the FAB in the top-left corner of the card wrapper.</td>
-							</tr>
-							<tr>
-								<td><code>.fab-top-right</code></td>
-								<td>Positions the FAB in the top-right corner of the card wrapper.</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="card round">
-									<div class="card-body height-md">
-									
-									<div class="fab-card-wrapper fab-top-left">
-										<a href="#!" class="fab fab-success fab-dark">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
-										</a>
-									</div>
-									<div class="fab-card-wrapper fab-top-right">
-										<a href="#!" class="fab fab-success fab-dark">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
-										</a>
-									</div>
-
-									<div class="fab-card-wrapper fab-bottom-left">
-										<a href="#!" class="fab fab-success fab-dark">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
-										</a>
-									</div>
-
-									<div class="fab-card-wrapper fab-bottom-right">
-										<a href="#!" class="fab fab-success fab-dark">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
-										</a>
-									</div>
-									</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;card round&quot;&gt;
-										&lt;div class=&quot;card-body height-md&quot;&gt;
-										
-										&lt;div class=&quot;fab-card-wrapper fab-top-left&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;fab fab-success fab-dark&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/a&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;fab-card-wrapper fab-top-right&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;fab fab-success fab-dark&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/a&gt;
-										&lt;/div&gt;
-
-										&lt;div class=&quot;fab-card-wrapper fab-bottom-left&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;fab fab-success fab-dark&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/a&gt;
-										&lt;/div&gt;
-
-										&lt;div class=&quot;fab-card-wrapper fab-bottom-right&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;fab fab-success fab-dark&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/a&gt;
-										&lt;/div&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Size Modifiers</h2>
-					<p>Use <code>.fab-small</code> or <code>.fab-large</code> to change the size of the button according to your layout needs.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-
-								<div class="card round">
-									<div class="card-body height-sm">
-										<h5>Small</h5>
-									</div>
-									<div class="fab-card-wrapper position-bottom-right">
-										<a href="#!" class="fab fab-small fab-danger">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
-										</a>
-									</div>
-								</div>
-
-								<div class="card round margin-large-top">
-									<div class="card-body height-sm">
-										<h5>Large</h5>
-									</div>
-									<div class="fab-card-wrapper position-bottom-right">
-										<a href="#!" class="fab fab-large fab-primary">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M201-344.46q-16.92-32.54-23.96-65.77Q170-443.46 170-478q0-127.54 91.23-218.96T480-788.38h57.62l-85.77-85.77 29.77-29.77 138.23 138.23-138.23 137.84-30.39-30.38L536-743h-56q-109.31 0-186.96 77.85-77.66 77.84-77.66 187.15 0 27.08 5.12 52.69 5.11 25.62 13.11 48.23L201-344.46ZM477.15-53.85 338.92-192.08l138.23-137.84 29.39 29.38-85.39 85.77H480q109.31 0 186.96-77.85 77.66-77.84 77.66-187.15 0-27.08-4.62-52.69-4.61-25.62-14.23-48.23l32.61-32.62q16.54 32.54 24.08 65.77 7.54 33.23 7.54 67.77 0 127.54-91.23 218.96T480-169.39h-58.85l85.39 85.77-29.39 29.77Z"/></svg>
-										</a>
-									</div>
-								</div>
-
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;card round&quot;&gt;
-										&lt;div class=&quot;card-body height-sm&quot;&gt;
-											&lt;h5&gt;Mini&lt;/h5&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;fab-card-wrapper position-bottom-right&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;fab fab-small fab-danger&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/a&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-
-									&lt;div class=&quot;card round margin-large-top&quot;&gt;
-										&lt;div class=&quot;card-body height-sm&quot;&gt;
-											&lt;h5&gt;Large&lt;/h5&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;fab-card-wrapper position-bottom-right&quot;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;fab fab-large fab-primary&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/a&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>FAB Color Modifiers</h2>
-					<p>FABs can use different color styles to match your theme or indicate purpose. Apply one of the following modifier classes to change the background and text color.</p>
-
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.is-dark</code></td>
-								<td>Applies a dark background with light text.</td>
-							</tr>
-							<tr>
-								<td><code>.is-primary</code></td>
-								<td>Uses the primary theme color for the background with white text.</td>
-							</tr>
-							<tr>
-								<td><code>.is-secondary</code></td>
-								<td>Uses the secondary theme color for the background with white text.</td>
-							</tr>
-							<tr>
-								<td><code>.is-success</code></td>
-								<td>Indicates success with a green-style background and white text.</td>
-							</tr>
-							<tr>
-								<td><code>.is-danger</code></td>
-								<td>Indicates an error or destructive action with a red-style background and white text.</td>
-							</tr>
-							<tr>
-								<td><code>.is-warning</code></td>
-								<td>Indicates caution with a yellow/orange-style background and white text.</td>
-							</tr>
-						</tbody>
-					</table>
-					
-					<h2>Page FAB</h2>
-					<p>The <code>.fab-page-wrapper</code> is used to position a single FAB button fixed to the bottom-right of the viewport. It ensures proper spacing from other page elements and adjusts automatically if a footer is present.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-
-								<div class="fab-page-wrapper">
-									<a href="#!" class="fab" style="--fab-size: 64px; --icon-size: 32px;">
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
 									</a>
-								</div>
-
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;fab-page-wrapper&quot;&gt;
-										&lt;a href=&quot;#!&quot; class=&quot;fab&quot; style=&quot;--fab-size: 64px; --icon-size: 32px;&quot;&gt;
-											&lt;svg&gt;&lt;/svg&gt;
-										&lt;/a&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Speed Dial FAB</h2>
-					</p class="text-lead">A floating action button that expands to reveal multiple related actions on tap or hover.</p>
+						<h2>Text Only</h2>
+						<p>Use a text-only FAB when icons aren’t needed, ideal for more descriptive actions.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="card round">
-									<div class="card-body height-md">
-										<h5>Speed dial horizontal</h5>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="card round">
+										<div class="card-body height-sm">
+											<h5>Text default</h5>
+										</div>
+										<div class="fab-card-wrapper position-bottom-right">
+											<a href="#!" class="fab fab-text fab-secondary">Create</a>
+										</div>
 									</div>
-									<div class="fab-card-wrapper fab-speed-dial position-bottom-right" data-fab='{"horizontal": true}'>
-										<a href="#!" class="fab">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M157.69-180q-23.53 0-40.61-17.08T100-237.69v-484.62q0-23.53 17.08-40.61T157.69-780h644.62q23.53 0 40.61 17.08T860-722.31v484.62q0 23.53-17.08 40.61T802.31-180H157.69ZM480-473.92 145.39-695.39v457.7q0 5.38 3.46 8.84t8.84 3.46h644.62q5.38 0 8.84-3.46t3.46-8.84v-457.7L480-473.92Zm0-47.7 325.61-212.99H155.39L480-521.62ZM145.39-695.39v-39.22 496.92q0 5.38 3.46 8.84t8.84 3.46h-12.3v-470Z"/></svg>
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-										<div class="fab-wrapper-inner">
-											<a href="#!" class="fab">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M379.15-258.31 168.62-468.85l32.61-32.23 177.92 177.93 379-379.39 32.62 32.62-411.62 411.61Z"/></svg>
-											</a>
-											<a href="#!" class="fab">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M185.39-185.39h40.92l468.54-467.92-40.93-40.92-468.53 467.92v40.92ZM140-140v-104.54l561.92-562.07q6.23-5.63 14.66-9.2 8.42-3.57 17.6-3.57 8.57 0 16.81 3.34 8.24 3.35 15.32 9.43l40.92 40.92q6.69 6.69 9.73 15.16 3.04 8.46 3.04 16.93 0 8.6-3.51 17.33-3.5 8.73-9.26 14.96L244.54-140H140Zm634.38-594.31-39.46-39.07 39.46 39.07Zm-99.75 60.68-20.71-20.6 40.93 40.92-20.22-20.32Z"/></svg>
-											</a>
-											<a href="#!" class="fab">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M159.92-180q-24.21 0-42.06-17.35Q100-214.69 100-237.69v-484.62q0-23 17.08-40.34Q134.16-780 157.69-780h644.62q23 0 40.34 17.35Q860-745.31 860-722.31v168.85h-45.39v-138.08L480-474.54l-334.61-217v453.85q0 5.38 3.46 8.84t8.84 3.46h496.54V-180H159.92ZM480-525.08l328.46-209.53H151.54L480-525.08ZM145.39-225.39v-509.22 509.22ZM753.85-180q-14 0-24.12-10.12-10.12-10.11-10.12-24.11v-120q0-13.62 11.5-23.73 11.5-10.12 28.5-10.12v-46.15q0-30.65 21.68-52.25 21.67-21.6 52.42-21.6t52.37 21.6q21.61 21.6 21.61 52.25v46.15q17 0 28.5 10.12 11.5 10.11 11.5 23.73v120q0 14-10.11 24.11Q927.46-180 913.85-180h-160Zm33.84-188.08h91.92v-46.06q0-19.21-13.29-32.53Q853.03-460 833.74-460q-19.28 0-32.66 13.32-13.39 13.32-13.39 32.64v45.96Z"/></svg>
-											</a>
-											<a href="#!" class="fab">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M178.15-173.08v-45.38h131.54l-28.46-26.23q-57.84-49.46-84.54-106.58Q170-408.39 170-476.62q0-99.84 57.69-180.69 57.69-80.84 152.77-114.38v47q-74.61 30.92-119.85 98.81-45.23 67.88-45.23 149.26 0 60.31 22.54 107.39t62.93 83l40 33.69v-128.61h45.38v208.07H178.15Zm402-14.61v-47.62q75.62-30.92 120.04-98.81 44.43-67.88 44.43-149.26 0-49.16-22.54-98.66t-61.31-88.27l-39.39-37.15v128.61H576v-208.07h208.08v45.38H651.92L680-713.69q55.38 52.54 82.69 112.88Q790-540.46 790-483.38q0 99.84-57.39 180.99-57.38 81.16-152.46 114.7Z"/></svg>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card round&quot;&gt;
+											&lt;div class=&quot;card-body height-sm&quot;&gt;
+												&lt;h5&gt;Text default&lt;/h5&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;fab-card-wrapper position-bottom-right&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;fab fab-text fab-secondary&quot;&gt;Create&lt;/a&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Text and Icon</h2>
+						<p>Combine text with an icon to make the FAB’s purpose clearer and more intuitive.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="card round">
+										<div class="card-body height-sm">
+											<h5>Text + icon default</h5>
+										</div>
+										<div class="fab-card-wrapper position-bottom-right">
+											<a href="#!" class="fab fab-text fab-success">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
+												Create
 											</a>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;card round&quot;&gt;
-										&lt;div class=&quot;card-body height-md&quot;&gt;
-											&lt;h5&gt;Speed dial horizontal&lt;/h5&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card round&quot;&gt;
+											&lt;div class=&quot;card-body height-sm&quot;&gt;
+												&lt;h5&gt;Text + icon default&lt;/h5&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;fab-card-wrapper position-bottom-right&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;fab fab-text fab-success&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+													Create
+												&lt;/a&gt;
+											&lt;/div&gt;
 										&lt;/div&gt;
-										&lt;div class=&quot;fab-card-wrapper fab-speed-dial position-bottom-right&quot; data-fab=&apos;{&quot;horizontal&quot;: true}&apos;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/a&gt;
-											&lt;div class=&quot;fab-wrapper-inner&quot;&gt;
-												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Multiple FABs</h2>
+						<p>Display a group of floating action buttons for quick access to several related actions.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="card round">
+										<div class="card-body height-md">
+											<h5>Multiple</h5>
+										</div>
+										<div class="fab-card-wrapper position-bottom-right">
+											<a href="#!" class="fab fab-success fab-dark">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M820-673.77v476.08q0 23.53-17.08 40.61T762.31-140H197.69q-23.53 0-40.61-17.08T140-197.69v-564.62q0-23.53 17.08-40.61T197.69-820h476.08L820-673.77Zm-45.39 20.46-121.3-121.3H197.69q-5.38 0-8.84 3.46t-3.46 8.84v564.62q0 5.38 3.46 8.84t8.84 3.46h564.62q5.38 0 8.84-3.46t3.46-8.84v-455.62ZM479.76-273.08q36.54 0 62.51-25.73 25.96-25.73 25.96-62.26 0-36.54-25.73-62.5-25.73-25.97-62.26-25.97-36.54 0-62.51 25.73-25.96 25.73-25.96 62.27 0 36.53 25.73 62.5 25.73 25.96 62.26 25.96Zm-229.45-309h326.84v-127.61H250.31v127.61Zm-64.92-71.23v467.92-589.22 121.3Z"/></svg>
+											</a>
+											<a href="#!" class="fab fab-secondary fab-dark">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M201-344.46q-16.92-32.54-23.96-65.77Q170-443.46 170-478q0-127.54 91.23-218.96T480-788.38h57.62l-85.77-85.77 29.77-29.77 138.23 138.23-138.23 137.84-30.39-30.38L536-743h-56q-109.31 0-186.96 77.85-77.66 77.84-77.66 187.15 0 27.08 5.12 52.69 5.11 25.62 13.11 48.23L201-344.46ZM477.15-53.85 338.92-192.08l138.23-137.84 29.39 29.38-85.39 85.77H480q109.31 0 186.96-77.85 77.66-77.84 77.66-187.15 0-27.08-4.62-52.69-4.61-25.62-14.23-48.23l32.61-32.62q16.54 32.54 24.08 65.77 7.54 33.23 7.54 67.77 0 127.54-91.23 218.96T480-169.39h-58.85l85.39 85.77-29.39 29.77Z"/></svg>
+											</a>
+											<a href="#!" class="fab">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M820-673.77v476.08q0 23.53-17.08 40.61T762.31-140H197.69q-23.53 0-40.61-17.08T140-197.69v-564.62q0-23.53 17.08-40.61T197.69-820h476.08L820-673.77Zm-45.39 20.46-121.3-121.3H197.69q-5.38 0-8.84 3.46t-3.46 8.84v564.62q0 5.38 3.46 8.84t8.84 3.46h564.62q5.38 0 8.84-3.46t3.46-8.84v-455.62ZM479.76-273.08q36.54 0 62.51-25.73 25.96-25.73 25.96-62.26 0-36.54-25.73-62.5-25.73-25.97-62.26-25.97-36.54 0-62.51 25.73-25.96 25.73-25.96 62.27 0 36.53 25.73 62.5 25.73 25.96 62.26 25.96Zm-229.45-309h326.84v-127.61H250.31v127.61Zm-64.92-71.23v467.92-589.22 121.3Z"/></svg>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card round&quot;&gt;
+											&lt;div class=&quot;card-body height-md&quot;&gt;
+												&lt;h5&gt;Multiple&lt;/h5&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;fab-card-wrapper position-bottom-right&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;fab fab-success fab-dark&quot;&gt;
 													&lt;svg&gt;&lt;/svg&gt;
 												&lt;/a&gt;
-												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
-												&lt;/a&gt;
-												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;fab fab-secondary fab-dark&quot;&gt;
 													&lt;svg&gt;&lt;/svg&gt;
 												&lt;/a&gt;
 												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
@@ -820,380 +498,705 @@
 												&lt;/a&gt;
 											&lt;/div&gt;
 										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="card round">
-									<div class="card-body height-md">
-										<h5>Speed dial horizontal (hover mode)</h5>
-									</div>
-									<div class="fab-card-wrapper fab-speed-dial position-bottom-right" data-fab='{"horizontal": true, "hover": true}'>
-										<a href="#!" class="fab">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M157.69-180q-23.53 0-40.61-17.08T100-237.69v-484.62q0-23.53 17.08-40.61T157.69-780h644.62q23.53 0 40.61 17.08T860-722.31v484.62q0 23.53-17.08 40.61T802.31-180H157.69ZM480-473.92 145.39-695.39v457.7q0 5.38 3.46 8.84t8.84 3.46h644.62q5.38 0 8.84-3.46t3.46-8.84v-457.7L480-473.92Zm0-47.7 325.61-212.99H155.39L480-521.62ZM145.39-695.39v-39.22 496.92q0 5.38 3.46 8.84t8.84 3.46h-12.3v-470Z"/></svg>
-										</a>
-										<div class="fab-wrapper-inner">
-											<a href="#!" class="fab">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M379.15-258.31 168.62-468.85l32.61-32.23 177.92 177.93 379-379.39 32.62 32.62-411.62 411.61Z"/></svg>
+
+						<h2>FAB Card Wrapper Position</h2>
+						<p>Floating Action Buttons (FABs) can be positioned in different corners of their card wrapper. Apply one of the following classes to control placement.</p>
+					
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.fab-bottom-left</code></td>
+									<td>Positions the FAB in the bottom-left corner of the card wrapper.</td>
+								</tr>
+								<tr>
+									<td><code>.fab-bottom-right</code></td>
+									<td>Positions the FAB in the bottom-right corner of the card wrapper.</td>
+								</tr>
+								<tr>
+									<td><code>.fab-top-left</code></td>
+									<td>Positions the FAB in the top-left corner of the card wrapper.</td>
+								</tr>
+								<tr>
+									<td><code>.fab-top-right</code></td>
+									<td>Positions the FAB in the top-right corner of the card wrapper.</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="card round">
+										<div class="card-body height-md">
+										
+										<div class="fab-card-wrapper fab-top-left">
+											<a href="#!" class="fab fab-success fab-dark">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
 											</a>
-											<a href="#!" class="fab">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M185.39-185.39h40.92l468.54-467.92-40.93-40.92-468.53 467.92v40.92ZM140-140v-104.54l561.92-562.07q6.23-5.63 14.66-9.2 8.42-3.57 17.6-3.57 8.57 0 16.81 3.34 8.24 3.35 15.32 9.43l40.92 40.92q6.69 6.69 9.73 15.16 3.04 8.46 3.04 16.93 0 8.6-3.51 17.33-3.5 8.73-9.26 14.96L244.54-140H140Zm634.38-594.31-39.46-39.07 39.46 39.07Zm-99.75 60.68-20.71-20.6 40.93 40.92-20.22-20.32Z"/></svg>
+										</div>
+										<div class="fab-card-wrapper fab-top-right">
+											<a href="#!" class="fab fab-success fab-dark">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
 											</a>
-											<a href="#!" class="fab">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M159.92-180q-24.21 0-42.06-17.35Q100-214.69 100-237.69v-484.62q0-23 17.08-40.34Q134.16-780 157.69-780h644.62q23 0 40.34 17.35Q860-745.31 860-722.31v168.85h-45.39v-138.08L480-474.54l-334.61-217v453.85q0 5.38 3.46 8.84t8.84 3.46h496.54V-180H159.92ZM480-525.08l328.46-209.53H151.54L480-525.08ZM145.39-225.39v-509.22 509.22ZM753.85-180q-14 0-24.12-10.12-10.12-10.11-10.12-24.11v-120q0-13.62 11.5-23.73 11.5-10.12 28.5-10.12v-46.15q0-30.65 21.68-52.25 21.67-21.6 52.42-21.6t52.37 21.6q21.61 21.6 21.61 52.25v46.15q17 0 28.5 10.12 11.5 10.11 11.5 23.73v120q0 14-10.11 24.11Q927.46-180 913.85-180h-160Zm33.84-188.08h91.92v-46.06q0-19.21-13.29-32.53Q853.03-460 833.74-460q-19.28 0-32.66 13.32-13.39 13.32-13.39 32.64v45.96Z"/></svg>
+										</div>
+
+										<div class="fab-card-wrapper fab-bottom-left">
+											<a href="#!" class="fab fab-success fab-dark">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
 											</a>
-											<a href="#!" class="fab">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M178.15-173.08v-45.38h131.54l-28.46-26.23q-57.84-49.46-84.54-106.58Q170-408.39 170-476.62q0-99.84 57.69-180.69 57.69-80.84 152.77-114.38v47q-74.61 30.92-119.85 98.81-45.23 67.88-45.23 149.26 0 60.31 22.54 107.39t62.93 83l40 33.69v-128.61h45.38v208.07H178.15Zm402-14.61v-47.62q75.62-30.92 120.04-98.81 44.43-67.88 44.43-149.26 0-49.16-22.54-98.66t-61.31-88.27l-39.39-37.15v128.61H576v-208.07h208.08v45.38H651.92L680-713.69q55.38 52.54 82.69 112.88Q790-540.46 790-483.38q0 99.84-57.39 180.99-57.38 81.16-152.46 114.7Z"/></svg>
+										</div>
+
+										<div class="fab-card-wrapper fab-bottom-right">
+											<a href="#!" class="fab fab-success fab-dark">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
 											</a>
+										</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;card round&quot;&gt;
-										&lt;div class=&quot;card-body height-md&quot;&gt;
-											&lt;h5&gt;Speed dial horizontal (hover mode)&lt;/h5&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card round&quot;&gt;
+											&lt;div class=&quot;card-body height-md&quot;&gt;
+											
+											&lt;div class=&quot;fab-card-wrapper fab-top-left&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;fab fab-success fab-dark&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/a&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;fab-card-wrapper fab-top-right&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;fab fab-success fab-dark&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/a&gt;
+											&lt;/div&gt;
+
+											&lt;div class=&quot;fab-card-wrapper fab-bottom-left&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;fab fab-success fab-dark&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/a&gt;
+											&lt;/div&gt;
+
+											&lt;div class=&quot;fab-card-wrapper fab-bottom-right&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;fab fab-success fab-dark&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/a&gt;
+											&lt;/div&gt;
+											&lt;/div&gt;
 										&lt;/div&gt;
-										&lt;div class=&quot;fab-card-wrapper fab-speed-dial position-bottom-right&quot; data-fab=&apos;{&quot;horizontal&quot;: true, &quot;hover&quot;: true}&apos;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/a&gt;
-											&lt;div class=&quot;fab-wrapper-inner&quot;&gt;
-												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
-												&lt;/a&gt;
-												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
-												&lt;/a&gt;
-												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
-												&lt;/a&gt;
-												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Size Modifiers</h2>
+						<p>Use <code>.fab-small</code> or <code>.fab-large</code> to change the size of the button according to your layout needs.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+
+									<div class="card round">
+										<div class="card-body height-sm">
+											<h5>Small</h5>
+										</div>
+										<div class="fab-card-wrapper position-bottom-right">
+											<a href="#!" class="fab fab-small fab-danger">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
+											</a>
+										</div>
+									</div>
+
+									<div class="card round margin-large-top">
+										<div class="card-body height-sm">
+											<h5>Large</h5>
+										</div>
+										<div class="fab-card-wrapper position-bottom-right">
+											<a href="#!" class="fab fab-large fab-primary">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M201-344.46q-16.92-32.54-23.96-65.77Q170-443.46 170-478q0-127.54 91.23-218.96T480-788.38h57.62l-85.77-85.77 29.77-29.77 138.23 138.23-138.23 137.84-30.39-30.38L536-743h-56q-109.31 0-186.96 77.85-77.66 77.84-77.66 187.15 0 27.08 5.12 52.69 5.11 25.62 13.11 48.23L201-344.46ZM477.15-53.85 338.92-192.08l138.23-137.84 29.39 29.38-85.39 85.77H480q109.31 0 186.96-77.85 77.66-77.84 77.66-187.15 0-27.08-4.62-52.69-4.61-25.62-14.23-48.23l32.61-32.62q16.54 32.54 24.08 65.77 7.54 33.23 7.54 67.77 0 127.54-91.23 218.96T480-169.39h-58.85l85.39 85.77-29.39 29.77Z"/></svg>
+											</a>
+										</div>
+									</div>
+
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card round&quot;&gt;
+											&lt;div class=&quot;card-body height-sm&quot;&gt;
+												&lt;h5&gt;Mini&lt;/h5&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;fab-card-wrapper position-bottom-right&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;fab fab-small fab-danger&quot;&gt;
 													&lt;svg&gt;&lt;/svg&gt;
 												&lt;/a&gt;
 											&lt;/div&gt;
 										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="card round">
-									<div class="card-body height-md">
-										<h5>Speed dial</h5>
-									</div>
-									<div class="fab-card-wrapper fab-speed-dial position-bottom-right" data-fab>
-										<a href="#!" class="fab">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M157.69-180q-23.53 0-40.61-17.08T100-237.69v-484.62q0-23.53 17.08-40.61T157.69-780h644.62q23.53 0 40.61 17.08T860-722.31v484.62q0 23.53-17.08 40.61T802.31-180H157.69ZM480-473.92 145.39-695.39v457.7q0 5.38 3.46 8.84t8.84 3.46h644.62q5.38 0 8.84-3.46t3.46-8.84v-457.7L480-473.92Zm0-47.7 325.61-212.99H155.39L480-521.62ZM145.39-695.39v-39.22 496.92q0 5.38 3.46 8.84t8.84 3.46h-12.3v-470Z"/></svg>
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-										<div class="fab-wrapper-inner">
-											<a href="#!" class="fab">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M379.15-258.31 168.62-468.85l32.61-32.23 177.92 177.93 379-379.39 32.62 32.62-411.62 411.61Z"/></svg>
-											</a>
-											<a href="#!" class="fab">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M185.39-185.39h40.92l468.54-467.92-40.93-40.92-468.53 467.92v40.92ZM140-140v-104.54l561.92-562.07q6.23-5.63 14.66-9.2 8.42-3.57 17.6-3.57 8.57 0 16.81 3.34 8.24 3.35 15.32 9.43l40.92 40.92q6.69 6.69 9.73 15.16 3.04 8.46 3.04 16.93 0 8.6-3.51 17.33-3.5 8.73-9.26 14.96L244.54-140H140Zm634.38-594.31-39.46-39.07 39.46 39.07Zm-99.75 60.68-20.71-20.6 40.93 40.92-20.22-20.32Z"/></svg>
-											</a>
-											<a href="#!" class="fab">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M159.92-180q-24.21 0-42.06-17.35Q100-214.69 100-237.69v-484.62q0-23 17.08-40.34Q134.16-780 157.69-780h644.62q23 0 40.34 17.35Q860-745.31 860-722.31v168.85h-45.39v-138.08L480-474.54l-334.61-217v453.85q0 5.38 3.46 8.84t8.84 3.46h496.54V-180H159.92ZM480-525.08l328.46-209.53H151.54L480-525.08ZM145.39-225.39v-509.22 509.22ZM753.85-180q-14 0-24.12-10.12-10.12-10.11-10.12-24.11v-120q0-13.62 11.5-23.73 11.5-10.12 28.5-10.12v-46.15q0-30.65 21.68-52.25 21.67-21.6 52.42-21.6t52.37 21.6q21.61 21.6 21.61 52.25v46.15q17 0 28.5 10.12 11.5 10.11 11.5 23.73v120q0 14-10.11 24.11Q927.46-180 913.85-180h-160Zm33.84-188.08h91.92v-46.06q0-19.21-13.29-32.53Q853.03-460 833.74-460q-19.28 0-32.66 13.32-13.39 13.32-13.39 32.64v45.96Z"/></svg>
-											</a>
-											<a href="#!" class="fab">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M178.15-173.08v-45.38h131.54l-28.46-26.23q-57.84-49.46-84.54-106.58Q170-408.39 170-476.62q0-99.84 57.69-180.69 57.69-80.84 152.77-114.38v47q-74.61 30.92-119.85 98.81-45.23 67.88-45.23 149.26 0 60.31 22.54 107.39t62.93 83l40 33.69v-128.61h45.38v208.07H178.15Zm402-14.61v-47.62q75.62-30.92 120.04-98.81 44.43-67.88 44.43-149.26 0-49.16-22.54-98.66t-61.31-88.27l-39.39-37.15v128.61H576v-208.07h208.08v45.38H651.92L680-713.69q55.38 52.54 82.69 112.88Q790-540.46 790-483.38q0 99.84-57.39 180.99-57.38 81.16-152.46 114.7Z"/></svg>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;card round&quot;&gt;
-										&lt;div class=&quot;card-body height-md&quot;&gt;
-											&lt;h5&gt;Speed dial&lt;/h5&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;fab-card-wrapper fab-speed-dial position-bottom-right&quot; data-fab&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/a&gt;
-											&lt;div class=&quot;fab-wrapper-inner&quot;&gt;
-												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
-												&lt;/a&gt;
-												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
-												&lt;/a&gt;
-												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
-												&lt;/a&gt;
-												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+										&lt;div class=&quot;card round margin-large-top&quot;&gt;
+											&lt;div class=&quot;card-body height-sm&quot;&gt;
+												&lt;h5&gt;Large&lt;/h5&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;fab-card-wrapper position-bottom-right&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;fab fab-large fab-primary&quot;&gt;
 													&lt;svg&gt;&lt;/svg&gt;
 												&lt;/a&gt;
 											&lt;/div&gt;
 										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="card round">
-									<div class="card-body height-md">
-										<h5>Speed dial (hover mode)</h5>
-									</div>
-									<div class="fab-card-wrapper fab-speed-dial position-bottom-right" data-fab='{"hover": true}'>
-										<a href="#!" class="fab">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M157.69-180q-23.53 0-40.61-17.08T100-237.69v-484.62q0-23.53 17.08-40.61T157.69-780h644.62q23.53 0 40.61 17.08T860-722.31v484.62q0 23.53-17.08 40.61T802.31-180H157.69ZM480-473.92 145.39-695.39v457.7q0 5.38 3.46 8.84t8.84 3.46h644.62q5.38 0 8.84-3.46t3.46-8.84v-457.7L480-473.92Zm0-47.7 325.61-212.99H155.39L480-521.62ZM145.39-695.39v-39.22 496.92q0 5.38 3.46 8.84t8.84 3.46h-12.3v-470Z"/></svg>
-										</a>
-										<div class="fab-wrapper-inner">
-											<a href="#!" class="fab">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M379.15-258.31 168.62-468.85l32.61-32.23 177.92 177.93 379-379.39 32.62 32.62-411.62 411.61Z"/></svg>
-											</a>
-											<a href="#!" class="fab">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M185.39-185.39h40.92l468.54-467.92-40.93-40.92-468.53 467.92v40.92ZM140-140v-104.54l561.92-562.07q6.23-5.63 14.66-9.2 8.42-3.57 17.6-3.57 8.57 0 16.81 3.34 8.24 3.35 15.32 9.43l40.92 40.92q6.69 6.69 9.73 15.16 3.04 8.46 3.04 16.93 0 8.6-3.51 17.33-3.5 8.73-9.26 14.96L244.54-140H140Zm634.38-594.31-39.46-39.07 39.46 39.07Zm-99.75 60.68-20.71-20.6 40.93 40.92-20.22-20.32Z"/></svg>
-											</a>
-											<a href="#!" class="fab">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M159.92-180q-24.21 0-42.06-17.35Q100-214.69 100-237.69v-484.62q0-23 17.08-40.34Q134.16-780 157.69-780h644.62q23 0 40.34 17.35Q860-745.31 860-722.31v168.85h-45.39v-138.08L480-474.54l-334.61-217v453.85q0 5.38 3.46 8.84t8.84 3.46h496.54V-180H159.92ZM480-525.08l328.46-209.53H151.54L480-525.08ZM145.39-225.39v-509.22 509.22ZM753.85-180q-14 0-24.12-10.12-10.12-10.11-10.12-24.11v-120q0-13.62 11.5-23.73 11.5-10.12 28.5-10.12v-46.15q0-30.65 21.68-52.25 21.67-21.6 52.42-21.6t52.37 21.6q21.61 21.6 21.61 52.25v46.15q17 0 28.5 10.12 11.5 10.11 11.5 23.73v120q0 14-10.11 24.11Q927.46-180 913.85-180h-160Zm33.84-188.08h91.92v-46.06q0-19.21-13.29-32.53Q853.03-460 833.74-460q-19.28 0-32.66 13.32-13.39 13.32-13.39 32.64v45.96Z"/></svg>
-											</a>
-											<a href="#!" class="fab">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M178.15-173.08v-45.38h131.54l-28.46-26.23q-57.84-49.46-84.54-106.58Q170-408.39 170-476.62q0-99.84 57.69-180.69 57.69-80.84 152.77-114.38v47q-74.61 30.92-119.85 98.81-45.23 67.88-45.23 149.26 0 60.31 22.54 107.39t62.93 83l40 33.69v-128.61h45.38v208.07H178.15Zm402-14.61v-47.62q75.62-30.92 120.04-98.81 44.43-67.88 44.43-149.26 0-49.16-22.54-98.66t-61.31-88.27l-39.39-37.15v128.61H576v-208.07h208.08v45.38H651.92L680-713.69q55.38 52.54 82.69 112.88Q790-540.46 790-483.38q0 99.84-57.39 180.99-57.38 81.16-152.46 114.7Z"/></svg>
-											</a>
-										</div>
-									</div>
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;card round&quot;&gt;
-										&lt;div class=&quot;card-body height-md&quot;&gt;
-											&lt;h5&gt;Speed dial (hover mode)&lt;/h5&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;fab-card-wrapper fab-speed-dial position-bottom-right&quot; data-fab=&apos;{&quot;hover&quot;: true}&apos;&gt;
-											&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>FAB Color Modifiers</h2>
+						<p>FABs can use different color styles to match your theme or indicate purpose. Apply one of the following modifier classes to change the background and text color.</p>
+
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.is-dark</code></td>
+									<td>Applies a dark background with light text.</td>
+								</tr>
+								<tr>
+									<td><code>.is-primary</code></td>
+									<td>Uses the primary theme color for the background with white text.</td>
+								</tr>
+								<tr>
+									<td><code>.is-secondary</code></td>
+									<td>Uses the secondary theme color for the background with white text.</td>
+								</tr>
+								<tr>
+									<td><code>.is-success</code></td>
+									<td>Indicates success with a green-style background and white text.</td>
+								</tr>
+								<tr>
+									<td><code>.is-danger</code></td>
+									<td>Indicates an error or destructive action with a red-style background and white text.</td>
+								</tr>
+								<tr>
+									<td><code>.is-warning</code></td>
+									<td>Indicates caution with a yellow/orange-style background and white text.</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<h2>Page FAB</h2>
+						<p>The <code>.fab-page-wrapper</code> is used to position a single FAB button fixed to the bottom-right of the viewport. It ensures proper spacing from other page elements and adjusts automatically if a footer is present.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<p>Preview on page</p>
+									<div class="fab-page-wrapper">
+										<a href="#!" class="fab" style="--fab-size: 64px; --icon-size: 32px;">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
+										</a>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;fab-page-wrapper&quot;&gt;
+											&lt;a href=&quot;#!&quot; class=&quot;fab&quot; style=&quot;--fab-size: 64px; --icon-size: 32px;&quot;&gt;
 												&lt;svg&gt;&lt;/svg&gt;
 											&lt;/a&gt;
-											&lt;div class=&quot;fab-wrapper-inner&quot;&gt;
-												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
-												&lt;/a&gt;
-												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
-												&lt;/a&gt;
-												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
-												&lt;/a&gt;
-												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
-												&lt;/a&gt;
-											&lt;/div&gt;
 										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Single Sheet FAB</h2>
-					<p>Display a list of related actions in a single sheet that appears when the FAB is triggered.</p>
+						<h2>Speed Dial FAB</h2>
+						<p class="text-lead">A floating action button that expands to reveal multiple related actions on tap or hover.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="card round">
-									<div class="card-body height-md"></div>
-									<div class="fab-card-wrapper fab-sheet position-bottom-right" data-fab>
-										<svg class="fab-sheet-trigger" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M157.69-180q-23.53 0-40.61-17.08T100-237.69v-484.62q0-23.53 17.08-40.61T157.69-780h644.62q23.53 0 40.61 17.08T860-722.31v484.62q0 23.53-17.08 40.61T802.31-180H157.69ZM480-473.92 145.39-695.39v457.7q0 5.38 3.46 8.84t8.84 3.46h644.62q5.38 0 8.84-3.46t3.46-8.84v-457.7L480-473.92Zm0-47.7 325.61-212.99H155.39L480-521.62ZM145.39-695.39v-39.22 496.92q0 5.38 3.46 8.84t8.84 3.46h-12.3v-470Z"/></svg>
-
-										<div class="fab-sheet-actions">
-											<a href="#!">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M157.69-180q-23.53 0-40.61-17.35Q100-214.69 100-237.69v-484.62q0-23 17.08-40.34Q134.16-780 157.69-780h249.46l65.39 65.39h329.77q23 0 40.34 17.34Q860-679.92 860-656.92v419.23q0 23-17.35 40.34Q825.31-180 802.31-180H157.69Zm0-45.39h644.62q5.38 0 8.84-3.46t3.46-8.84v-419.23q0-5.39-3.46-8.85t-8.84-3.46H454.08l-65.39-65.38h-231q-5.38 0-8.84 3.46t-3.46 8.84v484.62q0 5.38 3.46 8.84t8.84 3.46Zm-12.3 0v-509.22 509.22Z"/></svg>
-												Move to folder
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="card round">
+										<div class="card-body height-md">
+											<h5>Speed dial horizontal</h5>
+										</div>
+										<div class="fab-card-wrapper fab-speed-dial position-bottom-right" data-fab='{"horizontal": true}'>
+											<a href="#!" class="fab">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M157.69-180q-23.53 0-40.61-17.08T100-237.69v-484.62q0-23.53 17.08-40.61T157.69-780h644.62q23.53 0 40.61 17.08T860-722.31v484.62q0 23.53-17.08 40.61T802.31-180H157.69ZM480-473.92 145.39-695.39v457.7q0 5.38 3.46 8.84t8.84 3.46h644.62q5.38 0 8.84-3.46t3.46-8.84v-457.7L480-473.92Zm0-47.7 325.61-212.99H155.39L480-521.62ZM145.39-695.39v-39.22 496.92q0 5.38 3.46 8.84t8.84 3.46h-12.3v-470Z"/></svg>
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
 											</a>
-											<a href="#!">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M185.39-185.39h40.92l468.54-467.92-40.93-40.92-468.53 467.92v40.92ZM140-140v-104.54l561.92-562.07q6.23-5.63 14.66-9.2 8.42-3.57 17.6-3.57 8.57 0 16.81 3.34 8.24 3.35 15.32 9.43l40.92 40.92q6.69 6.69 9.73 15.16 3.04 8.46 3.04 16.93 0 8.6-3.51 17.33-3.5 8.73-9.26 14.96L244.54-140H140Zm634.38-594.31-39.46-39.07 39.46 39.07Zm-99.75 60.68-20.71-20.6 40.93 40.92-20.22-20.32Z"/></svg>
-												Edit
-											</a>
-											<a href="#!">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M220-130v-650h311.46l18.23 84.46H780v338.08H553.62l-18.14-83.85H265.39V-130H220Zm280-438.92Zm92.69 166.07h141.92v-247.3H510.62l-18.24-84.46H265.39v247.92h309.07l18.23 83.84Z"/></svg>
-												Flag
-											</a>
-											<a href="#!">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z"/></svg>
-												Delete
-											</a>
+											<div class="fab-wrapper-inner">
+												<a href="#!" class="fab">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M379.15-258.31 168.62-468.85l32.61-32.23 177.92 177.93 379-379.39 32.62 32.62-411.62 411.61Z"/></svg>
+												</a>
+												<a href="#!" class="fab">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M185.39-185.39h40.92l468.54-467.92-40.93-40.92-468.53 467.92v40.92ZM140-140v-104.54l561.92-562.07q6.23-5.63 14.66-9.2 8.42-3.57 17.6-3.57 8.57 0 16.81 3.34 8.24 3.35 15.32 9.43l40.92 40.92q6.69 6.69 9.73 15.16 3.04 8.46 3.04 16.93 0 8.6-3.51 17.33-3.5 8.73-9.26 14.96L244.54-140H140Zm634.38-594.31-39.46-39.07 39.46 39.07Zm-99.75 60.68-20.71-20.6 40.93 40.92-20.22-20.32Z"/></svg>
+												</a>
+												<a href="#!" class="fab">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M159.92-180q-24.21 0-42.06-17.35Q100-214.69 100-237.69v-484.62q0-23 17.08-40.34Q134.16-780 157.69-780h644.62q23 0 40.34 17.35Q860-745.31 860-722.31v168.85h-45.39v-138.08L480-474.54l-334.61-217v453.85q0 5.38 3.46 8.84t8.84 3.46h496.54V-180H159.92ZM480-525.08l328.46-209.53H151.54L480-525.08ZM145.39-225.39v-509.22 509.22ZM753.85-180q-14 0-24.12-10.12-10.12-10.11-10.12-24.11v-120q0-13.62 11.5-23.73 11.5-10.12 28.5-10.12v-46.15q0-30.65 21.68-52.25 21.67-21.6 52.42-21.6t52.37 21.6q21.61 21.6 21.61 52.25v46.15q17 0 28.5 10.12 11.5 10.11 11.5 23.73v120q0 14-10.11 24.11Q927.46-180 913.85-180h-160Zm33.84-188.08h91.92v-46.06q0-19.21-13.29-32.53Q853.03-460 833.74-460q-19.28 0-32.66 13.32-13.39 13.32-13.39 32.64v45.96Z"/></svg>
+												</a>
+												<a href="#!" class="fab">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M178.15-173.08v-45.38h131.54l-28.46-26.23q-57.84-49.46-84.54-106.58Q170-408.39 170-476.62q0-99.84 57.69-180.69 57.69-80.84 152.77-114.38v47q-74.61 30.92-119.85 98.81-45.23 67.88-45.23 149.26 0 60.31 22.54 107.39t62.93 83l40 33.69v-128.61h45.38v208.07H178.15Zm402-14.61v-47.62q75.62-30.92 120.04-98.81 44.43-67.88 44.43-149.26 0-49.16-22.54-98.66t-61.31-88.27l-39.39-37.15v128.61H576v-208.07h208.08v45.38H651.92L680-713.69q55.38 52.54 82.69 112.88Q790-540.46 790-483.38q0 99.84-57.39 180.99-57.38 81.16-152.46 114.7Z"/></svg>
+												</a>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;card round&quot;&gt;
-										&lt;div class=&quot;card-body height-md&quot;&gt;&lt;/div&gt;
-										&lt;div class=&quot;fab-card-wrapper fab-sheet position-bottom-right&quot; data-fab&gt;
-											&lt;svg class=&quot;fab-sheet-trigger&quot; /&gt;&lt;/svg&gt;
-
-											&lt;div class=&quot;fab-sheet-actions&quot;&gt;
-												&lt;a href=&quot;#!&quot;&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card round&quot;&gt;
+											&lt;div class=&quot;card-body height-md&quot;&gt;
+												&lt;h5&gt;Speed dial horizontal&lt;/h5&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;fab-card-wrapper fab-speed-dial position-bottom-right&quot; data-fab=&apos;{&quot;horizontal&quot;: true}&apos;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
 													&lt;svg&gt;&lt;/svg&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/a&gt;
+												&lt;div class=&quot;fab-wrapper-inner&quot;&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="card round">
+										<div class="card-body height-md">
+											<h5>Speed dial horizontal (hover mode)</h5>
+										</div>
+										<div class="fab-card-wrapper fab-speed-dial position-bottom-right" data-fab='{"horizontal": true, "hover": true}'>
+											<a href="#!" class="fab">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M157.69-180q-23.53 0-40.61-17.08T100-237.69v-484.62q0-23.53 17.08-40.61T157.69-780h644.62q23.53 0 40.61 17.08T860-722.31v484.62q0 23.53-17.08 40.61T802.31-180H157.69ZM480-473.92 145.39-695.39v457.7q0 5.38 3.46 8.84t8.84 3.46h644.62q5.38 0 8.84-3.46t3.46-8.84v-457.7L480-473.92Zm0-47.7 325.61-212.99H155.39L480-521.62ZM145.39-695.39v-39.22 496.92q0 5.38 3.46 8.84t8.84 3.46h-12.3v-470Z"/></svg>
+											</a>
+											<div class="fab-wrapper-inner">
+												<a href="#!" class="fab">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M379.15-258.31 168.62-468.85l32.61-32.23 177.92 177.93 379-379.39 32.62 32.62-411.62 411.61Z"/></svg>
+												</a>
+												<a href="#!" class="fab">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M185.39-185.39h40.92l468.54-467.92-40.93-40.92-468.53 467.92v40.92ZM140-140v-104.54l561.92-562.07q6.23-5.63 14.66-9.2 8.42-3.57 17.6-3.57 8.57 0 16.81 3.34 8.24 3.35 15.32 9.43l40.92 40.92q6.69 6.69 9.73 15.16 3.04 8.46 3.04 16.93 0 8.6-3.51 17.33-3.5 8.73-9.26 14.96L244.54-140H140Zm634.38-594.31-39.46-39.07 39.46 39.07Zm-99.75 60.68-20.71-20.6 40.93 40.92-20.22-20.32Z"/></svg>
+												</a>
+												<a href="#!" class="fab">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M159.92-180q-24.21 0-42.06-17.35Q100-214.69 100-237.69v-484.62q0-23 17.08-40.34Q134.16-780 157.69-780h644.62q23 0 40.34 17.35Q860-745.31 860-722.31v168.85h-45.39v-138.08L480-474.54l-334.61-217v453.85q0 5.38 3.46 8.84t8.84 3.46h496.54V-180H159.92ZM480-525.08l328.46-209.53H151.54L480-525.08ZM145.39-225.39v-509.22 509.22ZM753.85-180q-14 0-24.12-10.12-10.12-10.11-10.12-24.11v-120q0-13.62 11.5-23.73 11.5-10.12 28.5-10.12v-46.15q0-30.65 21.68-52.25 21.67-21.6 52.42-21.6t52.37 21.6q21.61 21.6 21.61 52.25v46.15q17 0 28.5 10.12 11.5 10.11 11.5 23.73v120q0 14-10.11 24.11Q927.46-180 913.85-180h-160Zm33.84-188.08h91.92v-46.06q0-19.21-13.29-32.53Q853.03-460 833.74-460q-19.28 0-32.66 13.32-13.39 13.32-13.39 32.64v45.96Z"/></svg>
+												</a>
+												<a href="#!" class="fab">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M178.15-173.08v-45.38h131.54l-28.46-26.23q-57.84-49.46-84.54-106.58Q170-408.39 170-476.62q0-99.84 57.69-180.69 57.69-80.84 152.77-114.38v47q-74.61 30.92-119.85 98.81-45.23 67.88-45.23 149.26 0 60.31 22.54 107.39t62.93 83l40 33.69v-128.61h45.38v208.07H178.15Zm402-14.61v-47.62q75.62-30.92 120.04-98.81 44.43-67.88 44.43-149.26 0-49.16-22.54-98.66t-61.31-88.27l-39.39-37.15v128.61H576v-208.07h208.08v45.38H651.92L680-713.69q55.38 52.54 82.69 112.88Q790-540.46 790-483.38q0 99.84-57.39 180.99-57.38 81.16-152.46 114.7Z"/></svg>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card round&quot;&gt;
+											&lt;div class=&quot;card-body height-md&quot;&gt;
+												&lt;h5&gt;Speed dial horizontal (hover mode)&lt;/h5&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;fab-card-wrapper fab-speed-dial position-bottom-right&quot; data-fab=&apos;{&quot;horizontal&quot;: true, &quot;hover&quot;: true}&apos;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/a&gt;
+												&lt;div class=&quot;fab-wrapper-inner&quot;&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="card round">
+										<div class="card-body height-md">
+											<h5>Speed dial</h5>
+										</div>
+										<div class="fab-card-wrapper fab-speed-dial position-bottom-right" data-fab>
+											<a href="#!" class="fab">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M157.69-180q-23.53 0-40.61-17.08T100-237.69v-484.62q0-23.53 17.08-40.61T157.69-780h644.62q23.53 0 40.61 17.08T860-722.31v484.62q0 23.53-17.08 40.61T802.31-180H157.69ZM480-473.92 145.39-695.39v457.7q0 5.38 3.46 8.84t8.84 3.46h644.62q5.38 0 8.84-3.46t3.46-8.84v-457.7L480-473.92Zm0-47.7 325.61-212.99H155.39L480-521.62ZM145.39-695.39v-39.22 496.92q0 5.38 3.46 8.84t8.84 3.46h-12.3v-470Z"/></svg>
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+											</a>
+											<div class="fab-wrapper-inner">
+												<a href="#!" class="fab">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M379.15-258.31 168.62-468.85l32.61-32.23 177.92 177.93 379-379.39 32.62 32.62-411.62 411.61Z"/></svg>
+												</a>
+												<a href="#!" class="fab">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M185.39-185.39h40.92l468.54-467.92-40.93-40.92-468.53 467.92v40.92ZM140-140v-104.54l561.92-562.07q6.23-5.63 14.66-9.2 8.42-3.57 17.6-3.57 8.57 0 16.81 3.34 8.24 3.35 15.32 9.43l40.92 40.92q6.69 6.69 9.73 15.16 3.04 8.46 3.04 16.93 0 8.6-3.51 17.33-3.5 8.73-9.26 14.96L244.54-140H140Zm634.38-594.31-39.46-39.07 39.46 39.07Zm-99.75 60.68-20.71-20.6 40.93 40.92-20.22-20.32Z"/></svg>
+												</a>
+												<a href="#!" class="fab">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M159.92-180q-24.21 0-42.06-17.35Q100-214.69 100-237.69v-484.62q0-23 17.08-40.34Q134.16-780 157.69-780h644.62q23 0 40.34 17.35Q860-745.31 860-722.31v168.85h-45.39v-138.08L480-474.54l-334.61-217v453.85q0 5.38 3.46 8.84t8.84 3.46h496.54V-180H159.92ZM480-525.08l328.46-209.53H151.54L480-525.08ZM145.39-225.39v-509.22 509.22ZM753.85-180q-14 0-24.12-10.12-10.12-10.11-10.12-24.11v-120q0-13.62 11.5-23.73 11.5-10.12 28.5-10.12v-46.15q0-30.65 21.68-52.25 21.67-21.6 52.42-21.6t52.37 21.6q21.61 21.6 21.61 52.25v46.15q17 0 28.5 10.12 11.5 10.11 11.5 23.73v120q0 14-10.11 24.11Q927.46-180 913.85-180h-160Zm33.84-188.08h91.92v-46.06q0-19.21-13.29-32.53Q853.03-460 833.74-460q-19.28 0-32.66 13.32-13.39 13.32-13.39 32.64v45.96Z"/></svg>
+												</a>
+												<a href="#!" class="fab">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M178.15-173.08v-45.38h131.54l-28.46-26.23q-57.84-49.46-84.54-106.58Q170-408.39 170-476.62q0-99.84 57.69-180.69 57.69-80.84 152.77-114.38v47q-74.61 30.92-119.85 98.81-45.23 67.88-45.23 149.26 0 60.31 22.54 107.39t62.93 83l40 33.69v-128.61h45.38v208.07H178.15Zm402-14.61v-47.62q75.62-30.92 120.04-98.81 44.43-67.88 44.43-149.26 0-49.16-22.54-98.66t-61.31-88.27l-39.39-37.15v128.61H576v-208.07h208.08v45.38H651.92L680-713.69q55.38 52.54 82.69 112.88Q790-540.46 790-483.38q0 99.84-57.39 180.99-57.38 81.16-152.46 114.7Z"/></svg>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card round&quot;&gt;
+											&lt;div class=&quot;card-body height-md&quot;&gt;
+												&lt;h5&gt;Speed dial&lt;/h5&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;fab-card-wrapper fab-speed-dial position-bottom-right&quot; data-fab&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/a&gt;
+												&lt;div class=&quot;fab-wrapper-inner&quot;&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="card round">
+										<div class="card-body height-md">
+											<h5>Speed dial (hover mode)</h5>
+										</div>
+										<div class="fab-card-wrapper fab-speed-dial position-bottom-right" data-fab='{"hover": true}'>
+											<a href="#!" class="fab">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M157.69-180q-23.53 0-40.61-17.08T100-237.69v-484.62q0-23.53 17.08-40.61T157.69-780h644.62q23.53 0 40.61 17.08T860-722.31v484.62q0 23.53-17.08 40.61T802.31-180H157.69ZM480-473.92 145.39-695.39v457.7q0 5.38 3.46 8.84t8.84 3.46h644.62q5.38 0 8.84-3.46t3.46-8.84v-457.7L480-473.92Zm0-47.7 325.61-212.99H155.39L480-521.62ZM145.39-695.39v-39.22 496.92q0 5.38 3.46 8.84t8.84 3.46h-12.3v-470Z"/></svg>
+											</a>
+											<div class="fab-wrapper-inner">
+												<a href="#!" class="fab">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M379.15-258.31 168.62-468.85l32.61-32.23 177.92 177.93 379-379.39 32.62 32.62-411.62 411.61Z"/></svg>
+												</a>
+												<a href="#!" class="fab">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M185.39-185.39h40.92l468.54-467.92-40.93-40.92-468.53 467.92v40.92ZM140-140v-104.54l561.92-562.07q6.23-5.63 14.66-9.2 8.42-3.57 17.6-3.57 8.57 0 16.81 3.34 8.24 3.35 15.32 9.43l40.92 40.92q6.69 6.69 9.73 15.16 3.04 8.46 3.04 16.93 0 8.6-3.51 17.33-3.5 8.73-9.26 14.96L244.54-140H140Zm634.38-594.31-39.46-39.07 39.46 39.07Zm-99.75 60.68-20.71-20.6 40.93 40.92-20.22-20.32Z"/></svg>
+												</a>
+												<a href="#!" class="fab">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M159.92-180q-24.21 0-42.06-17.35Q100-214.69 100-237.69v-484.62q0-23 17.08-40.34Q134.16-780 157.69-780h644.62q23 0 40.34 17.35Q860-745.31 860-722.31v168.85h-45.39v-138.08L480-474.54l-334.61-217v453.85q0 5.38 3.46 8.84t8.84 3.46h496.54V-180H159.92ZM480-525.08l328.46-209.53H151.54L480-525.08ZM145.39-225.39v-509.22 509.22ZM753.85-180q-14 0-24.12-10.12-10.12-10.11-10.12-24.11v-120q0-13.62 11.5-23.73 11.5-10.12 28.5-10.12v-46.15q0-30.65 21.68-52.25 21.67-21.6 52.42-21.6t52.37 21.6q21.61 21.6 21.61 52.25v46.15q17 0 28.5 10.12 11.5 10.11 11.5 23.73v120q0 14-10.11 24.11Q927.46-180 913.85-180h-160Zm33.84-188.08h91.92v-46.06q0-19.21-13.29-32.53Q853.03-460 833.74-460q-19.28 0-32.66 13.32-13.39 13.32-13.39 32.64v45.96Z"/></svg>
+												</a>
+												<a href="#!" class="fab">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M178.15-173.08v-45.38h131.54l-28.46-26.23q-57.84-49.46-84.54-106.58Q170-408.39 170-476.62q0-99.84 57.69-180.69 57.69-80.84 152.77-114.38v47q-74.61 30.92-119.85 98.81-45.23 67.88-45.23 149.26 0 60.31 22.54 107.39t62.93 83l40 33.69v-128.61h45.38v208.07H178.15Zm402-14.61v-47.62q75.62-30.92 120.04-98.81 44.43-67.88 44.43-149.26 0-49.16-22.54-98.66t-61.31-88.27l-39.39-37.15v128.61H576v-208.07h208.08v45.38H651.92L680-713.69q55.38 52.54 82.69 112.88Q790-540.46 790-483.38q0 99.84-57.39 180.99-57.38 81.16-152.46 114.7Z"/></svg>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card round&quot;&gt;
+											&lt;div class=&quot;card-body height-md&quot;&gt;
+												&lt;h5&gt;Speed dial (hover mode)&lt;/h5&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;fab-card-wrapper fab-speed-dial position-bottom-right&quot; data-fab=&apos;{&quot;hover&quot;: true}&apos;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/a&gt;
+												&lt;div class=&quot;fab-wrapper-inner&quot;&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot; class=&quot;fab&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Single Sheet FAB</h2>
+						<p>Display a list of related actions in a single sheet that appears when the FAB is triggered.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="card round">
+										<div class="card-body height-md"></div>
+										<div class="fab-card-wrapper fab-sheet position-bottom-right" data-fab>
+											<svg class="fab-sheet-trigger" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M157.69-180q-23.53 0-40.61-17.08T100-237.69v-484.62q0-23.53 17.08-40.61T157.69-780h644.62q23.53 0 40.61 17.08T860-722.31v484.62q0 23.53-17.08 40.61T802.31-180H157.69ZM480-473.92 145.39-695.39v457.7q0 5.38 3.46 8.84t8.84 3.46h644.62q5.38 0 8.84-3.46t3.46-8.84v-457.7L480-473.92Zm0-47.7 325.61-212.99H155.39L480-521.62ZM145.39-695.39v-39.22 496.92q0 5.38 3.46 8.84t8.84 3.46h-12.3v-470Z"/></svg>
+
+											<div class="fab-sheet-actions">
+												<a href="#!">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M157.69-180q-23.53 0-40.61-17.35Q100-214.69 100-237.69v-484.62q0-23 17.08-40.34Q134.16-780 157.69-780h249.46l65.39 65.39h329.77q23 0 40.34 17.34Q860-679.92 860-656.92v419.23q0 23-17.35 40.34Q825.31-180 802.31-180H157.69Zm0-45.39h644.62q5.38 0 8.84-3.46t3.46-8.84v-419.23q0-5.39-3.46-8.85t-8.84-3.46H454.08l-65.39-65.38h-231q-5.38 0-8.84 3.46t-3.46 8.84v484.62q0 5.38 3.46 8.84t8.84 3.46Zm-12.3 0v-509.22 509.22Z"/></svg>
 													Move to folder
-												&lt;/a&gt;
-												&lt;a href=&quot;#!&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
+												</a>
+												<a href="#!">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M185.39-185.39h40.92l468.54-467.92-40.93-40.92-468.53 467.92v40.92ZM140-140v-104.54l561.92-562.07q6.23-5.63 14.66-9.2 8.42-3.57 17.6-3.57 8.57 0 16.81 3.34 8.24 3.35 15.32 9.43l40.92 40.92q6.69 6.69 9.73 15.16 3.04 8.46 3.04 16.93 0 8.6-3.51 17.33-3.5 8.73-9.26 14.96L244.54-140H140Zm634.38-594.31-39.46-39.07 39.46 39.07Zm-99.75 60.68-20.71-20.6 40.93 40.92-20.22-20.32Z"/></svg>
 													Edit
-												&lt;/a&gt;
-												&lt;a href=&quot;#!&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
+												</a>
+												<a href="#!">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M220-130v-650h311.46l18.23 84.46H780v338.08H553.62l-18.14-83.85H265.39V-130H220Zm280-438.92Zm92.69 166.07h141.92v-247.3H510.62l-18.24-84.46H265.39v247.92h309.07l18.23 83.84Z"/></svg>
 													Flag
-												&lt;/a&gt;
-												&lt;a href=&quot;#!&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
+												</a>
+												<a href="#!">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z"/></svg>
 													Delete
-												&lt;/a&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="card round">
-									<div class="card-body height-md"></div>
-									<div class="fab-card-wrapper fab-sheet  position-bottom-right" data-fab>
-										<svg class="fab-sheet-trigger" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M157.69-180q-23.53 0-40.61-17.08T100-237.69v-484.62q0-23.53 17.08-40.61T157.69-780h644.62q23.53 0 40.61 17.08T860-722.31v484.62q0 23.53-17.08 40.61T802.31-180H157.69ZM480-473.92 145.39-695.39v457.7q0 5.38 3.46 8.84t8.84 3.46h644.62q5.38 0 8.84-3.46t3.46-8.84v-457.7L480-473.92Zm0-47.7 325.61-212.99H155.39L480-521.62ZM145.39-695.39v-39.22 496.92q0 5.38 3.46 8.84t8.84 3.46h-12.3v-470Z"/></svg>
-										<div class="fab-sheet-actions">
-											<a href="#!">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M157.69-180q-23.53 0-40.61-17.35Q100-214.69 100-237.69v-484.62q0-23 17.08-40.34Q134.16-780 157.69-780h249.46l65.39 65.39h329.77q23 0 40.34 17.34Q860-679.92 860-656.92v419.23q0 23-17.35 40.34Q825.31-180 802.31-180H157.69Zm0-45.39h644.62q5.38 0 8.84-3.46t3.46-8.84v-419.23q0-5.39-3.46-8.85t-8.84-3.46H454.08l-65.39-65.38h-231q-5.38 0-8.84 3.46t-3.46 8.84v484.62q0 5.38 3.46 8.84t8.84 3.46Zm-12.3 0v-509.22 509.22Z"/></svg>
-												Move to folder
-											</a>
-											<a href="#!">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M185.39-185.39h40.92l468.54-467.92-40.93-40.92-468.53 467.92v40.92ZM140-140v-104.54l561.92-562.07q6.23-5.63 14.66-9.2 8.42-3.57 17.6-3.57 8.57 0 16.81 3.34 8.24 3.35 15.32 9.43l40.92 40.92q6.69 6.69 9.73 15.16 3.04 8.46 3.04 16.93 0 8.6-3.51 17.33-3.5 8.73-9.26 14.96L244.54-140H140Zm634.38-594.31-39.46-39.07 39.46 39.07Zm-99.75 60.68-20.71-20.6 40.93 40.92-20.22-20.32Z"/></svg>
-												Edit
-											</a>
-											<a href="#!">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M220-130v-650h311.46l18.23 84.46H780v338.08H553.62l-18.14-83.85H265.39V-130H220Zm280-438.92Zm92.69 166.07h141.92v-247.3H510.62l-18.24-84.46H265.39v247.92h309.07l18.23 83.84Z"/></svg>
-												Flag
-											</a>
-											<a href="#!">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z"/></svg>
-												Delete
-											</a>
+												</a>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;card round&quot;&gt;
-										&lt;div class=&quot;card-body height-md&quot;&gt;&lt;/div&gt;
-										&lt;div class=&quot;fab-card-wrapper fab-sheet  position-bottom-right&quot; data-fab&gt;
-											&lt;svg class=&quot;fab-sheet-trigger&quot;&gt;&lt;/svg&gt;
-											&lt;div class=&quot;fab-sheet-actions&quot;&gt;
-												&lt;a href=&quot;#!&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
-													Move to folder
-												&lt;/a&gt;
-												&lt;a href=&quot;#!&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
-													Edit
-												&lt;/a&gt;
-												&lt;a href=&quot;#!&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
-													Flag
-												&lt;/a&gt;
-												&lt;a href=&quot;#!&quot;&gt;
-													&lt;svg&gt;&lt;/svg&gt;
-													Delete
-												&lt;/a&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card round&quot;&gt;
+											&lt;div class=&quot;card-body height-md&quot;&gt;&lt;/div&gt;
+											&lt;div class=&quot;fab-card-wrapper fab-sheet position-bottom-right&quot; data-fab&gt;
+												&lt;svg class=&quot;fab-sheet-trigger&quot; /&gt;&lt;/svg&gt;
+
+												&lt;div class=&quot;fab-sheet-actions&quot;&gt;
+													&lt;a href=&quot;#!&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+														Move to folder
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+														Edit
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+														Flag
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+														Delete
+													&lt;/a&gt;
+												&lt;/div&gt;
 											&lt;/div&gt;
 										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="card round">
+										<div class="card-body height-md"></div>
+										<div class="fab-card-wrapper fab-sheet  position-bottom-right" data-fab>
+											<svg class="fab-sheet-trigger" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M157.69-180q-23.53 0-40.61-17.08T100-237.69v-484.62q0-23.53 17.08-40.61T157.69-780h644.62q23.53 0 40.61 17.08T860-722.31v484.62q0 23.53-17.08 40.61T802.31-180H157.69ZM480-473.92 145.39-695.39v457.7q0 5.38 3.46 8.84t8.84 3.46h644.62q5.38 0 8.84-3.46t3.46-8.84v-457.7L480-473.92Zm0-47.7 325.61-212.99H155.39L480-521.62ZM145.39-695.39v-39.22 496.92q0 5.38 3.46 8.84t8.84 3.46h-12.3v-470Z"/></svg>
+											<div class="fab-sheet-actions">
+												<a href="#!">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M157.69-180q-23.53 0-40.61-17.35Q100-214.69 100-237.69v-484.62q0-23 17.08-40.34Q134.16-780 157.69-780h249.46l65.39 65.39h329.77q23 0 40.34 17.34Q860-679.92 860-656.92v419.23q0 23-17.35 40.34Q825.31-180 802.31-180H157.69Zm0-45.39h644.62q5.38 0 8.84-3.46t3.46-8.84v-419.23q0-5.39-3.46-8.85t-8.84-3.46H454.08l-65.39-65.38h-231q-5.38 0-8.84 3.46t-3.46 8.84v484.62q0 5.38 3.46 8.84t8.84 3.46Zm-12.3 0v-509.22 509.22Z"/></svg>
+													Move to folder
+												</a>
+												<a href="#!">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M185.39-185.39h40.92l468.54-467.92-40.93-40.92-468.53 467.92v40.92ZM140-140v-104.54l561.92-562.07q6.23-5.63 14.66-9.2 8.42-3.57 17.6-3.57 8.57 0 16.81 3.34 8.24 3.35 15.32 9.43l40.92 40.92q6.69 6.69 9.73 15.16 3.04 8.46 3.04 16.93 0 8.6-3.51 17.33-3.5 8.73-9.26 14.96L244.54-140H140Zm634.38-594.31-39.46-39.07 39.46 39.07Zm-99.75 60.68-20.71-20.6 40.93 40.92-20.22-20.32Z"/></svg>
+													Edit
+												</a>
+												<a href="#!">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M220-130v-650h311.46l18.23 84.46H780v338.08H553.62l-18.14-83.85H265.39V-130H220Zm280-438.92Zm92.69 166.07h141.92v-247.3H510.62l-18.24-84.46H265.39v247.92h309.07l18.23 83.84Z"/></svg>
+													Flag
+												</a>
+												<a href="#!">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z"/></svg>
+													Delete
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card round&quot;&gt;
+											&lt;div class=&quot;card-body height-md&quot;&gt;&lt;/div&gt;
+											&lt;div class=&quot;fab-card-wrapper fab-sheet  position-bottom-right&quot; data-fab&gt;
+												&lt;svg class=&quot;fab-sheet-trigger&quot;&gt;&lt;/svg&gt;
+												&lt;div class=&quot;fab-sheet-actions&quot;&gt;
+													&lt;a href=&quot;#!&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+														Move to folder
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+														Edit
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+														Flag
+													&lt;/a&gt;
+													&lt;a href=&quot;#!&quot;&gt;
+														&lt;svg&gt;&lt;/svg&gt;
+														Delete
+													&lt;/a&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+					</article>
 				</div>
 			</div>
-												
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

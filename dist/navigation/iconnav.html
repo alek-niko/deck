@@ -308,131 +308,135 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
 
-					<h1>Iconnav</h1>
-					<p class="text-lead">Create a navigation consisting of icons.</p>
-					<hr>
+						<h1>Iconnav</h1>
+						<p class="text-lead">Create a navigation consisting of icons.</p>
+						<hr>
 
-					<h2>Usage</h2>
-					<p>To apply this component, add the <code>.iconnav</code> class to a <code>&lt;ul&gt;</code>  element. Use <code>&lt;a&gt;</code> elements as menu items within the list and add icons from the <a href="component-icons.html">Icon component</a>. To apply an active state to a menu item, just add the <code>.active</code> class.</p>
-					<div class="margin-medium">
-						<pre><code>
-&lt;ul class=&quot;iconnav&quot;&gt;
-	&lt;li&gt;&lt;a href=&quot;&quot; icon=&quot;icon: check&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="iconnav">
-									<li>
-										<a href="#!" class="icon-action">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
-										</a>
-									</li>
-									<li>
-										<a href="#!" class="icon-action">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M155.39-180q-21.85 0-38.62-16.77Q100-213.54 100-235.39v-486.92q0-21.84 17.92-39.77Q135.85-780 157.69-780h249.46l65.39 65.39h329.77q19.53 0 35.34 13.69 15.81 13.69 18.89 31.69H145.39v431.54q0 4.23 2.11 6.92 2.12 2.69 5.58 4.62l97.77-370h676.46l-99.7 374.38q-5.61 21.31-20.26 31.54Q792.69-180 770.38-180H155.39Z"/></svg>
-										</a>
-									</li>
-									<li>
-										<a href="#!" class="icon-action">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-										</a>
-									</li>
-									<li>
-										<a href="#!" class="icon-action">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-									</li>
-								</ul>
-							</div>
-							<div>
-								<pre><code>
-&lt;ul class=&quot;iconnav&quot;&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;&lt;svg&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;&lt;svg&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;&lt;svg&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;&lt;svg&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-								</code></pre>
-							</div>
+						<h2>Usage</h2>
+						<p>To apply this component, add the <code>.iconnav</code> class to a <code>&lt;ul&gt;</code>  element. Use <code>&lt;a&gt;</code> elements as menu items within the list and add icons from the <a href="component-icons.html">Icon component</a>. To apply an active state to a menu item, just add the <code>.active</code> class.</p>
+						<div class="margin-medium">
+							<pre><code>
+								&lt;ul class=&quot;iconnav&quot;&gt;
+									&lt;li&gt;&lt;a href=&quot;&quot; icon=&quot;icon: check&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+								&lt;/ul&gt;
+							</code></pre>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Vertical alignment</h2>
-					<p>By default, the items of an iconnav are aligned horizontally. To apply a vertical alignment, add the <code>.iconnav-vertical</code> class.</p>
-					
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="iconnav iconnav-vertical">
-									<li>
-										<a href="#!" class="icon-action">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
-										</a>
-									</li>
-									<li>
-										<a href="#!" class="icon-action">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M155.39-180q-21.85 0-38.62-16.77Q100-213.54 100-235.39v-486.92q0-21.84 17.92-39.77Q135.85-780 157.69-780h249.46l65.39 65.39h329.77q19.53 0 35.34 13.69 15.81 13.69 18.89 31.69H145.39v431.54q0 4.23 2.11 6.92 2.12 2.69 5.58 4.62l97.77-370h676.46l-99.7 374.38q-5.61 21.31-20.26 31.54Q792.69-180 770.38-180H155.39Z"/></svg>
-										</a>
-									</li>
-									<li>
-										<a href="#!" class="icon-action">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-										</a>
-									</li>
-									<li>
-										<a href="#!" class="icon-action">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
-										</a>
-									</li>
-								</ul>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="iconnav">
+										<li>
+											<a href="#!" class="icon-action">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
+											</a>
+										</li>
+										<li>
+											<a href="#!" class="icon-action">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M155.39-180q-21.85 0-38.62-16.77Q100-213.54 100-235.39v-486.92q0-21.84 17.92-39.77Q135.85-780 157.69-780h249.46l65.39 65.39h329.77q19.53 0 35.34 13.69 15.81 13.69 18.89 31.69H145.39v431.54q0 4.23 2.11 6.92 2.12 2.69 5.58 4.62l97.77-370h676.46l-99.7 374.38q-5.61 21.31-20.26 31.54Q792.69-180 770.38-180H155.39Z"/></svg>
+											</a>
+										</li>
+										<li>
+											<a href="#!" class="icon-action">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+											</a>
+										</li>
+										<li>
+											<a href="#!" class="icon-action">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+											</a>
+										</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;iconnav&quot;&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;&lt;svg&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;&lt;svg&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;&lt;svg&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;&lt;svg&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;ul class=&quot;iconnav iconnav-vertical&quot;&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;&lt;svg&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;&lt;svg&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;&lt;svg&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;&lt;svg&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
 
+						<h2>Vertical alignment</h2>
+						<p>By default, the items of an iconnav are aligned horizontally. To apply a vertical alignment, add the <code>.iconnav-vertical</code> class.</p>
+						
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="iconnav iconnav-vertical">
+										<li>
+											<a href="#!" class="icon-action">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
+											</a>
+										</li>
+										<li>
+											<a href="#!" class="icon-action">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M155.39-180q-21.85 0-38.62-16.77Q100-213.54 100-235.39v-486.92q0-21.84 17.92-39.77Q135.85-780 157.69-780h249.46l65.39 65.39h329.77q19.53 0 35.34 13.69 15.81 13.69 18.89 31.69H145.39v431.54q0 4.23 2.11 6.92 2.12 2.69 5.58 4.62l97.77-370h676.46l-99.7 374.38q-5.61 21.31-20.26 31.54Q792.69-180 770.38-180H155.39Z"/></svg>
+											</a>
+										</li>
+										<li>
+											<a href="#!" class="icon-action">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+											</a>
+										</li>
+										<li>
+											<a href="#!" class="icon-action">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m250.92-218.92-32-32L448-480 218.92-709.08l32-32L480-512l229.08-229.08 32 32L512-480l229.08 229.08-32 32L480-448 250.92-218.92Z"/></svg>
+											</a>
+										</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;iconnav iconnav-vertical&quot;&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;&lt;svg&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;&lt;svg&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;&lt;svg&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot; class=&quot;icon-action&quot;&gt;&lt;svg&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
+						</div>
+
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 
 	</body>

@@ -308,241 +308,245 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Subnav</h1>
-					<p class="text-lead">Defines different styles for a sub navigation.</p>
-					<hr>
-					<h2>Usage</h2>
-					<p>To apply this component, use the following classes. To align a subnav, for example to horizontally center it, you can use the <a href="component-flex.html">Flex component</a>.</p>
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.subnav</code></td>
-									<td>Add this class to a <code>&lt;ul&gt;</code> element to define the Subnav component. Use
-										<code>&lt;a&gt;</code> elements as nav items within the list.</td>
-								</tr>
-								<tr>
-									<td><code>.active </code></td>
-									<td>Add this class to a list item to apply an active state.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<p>To add list items without a link, use a <code>&lt;span&gt;</code> element instead of an <code>&lt;a&gt;</code>. Alternatively, disable an <code>&lt;a&gt;</code> element by adding the <code>.disabled</code> class to the <code>&lt;li&gt;</code> element and remove the <code>href</code> attribute from the anchor to make it inaccessible through keyboard navigation.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;subnav&quot;&gt;
-	&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
-						</code></pre>
-					</div>
-					
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="subnav">
-									<li class="active first-column"><a href="#!">Active</a></li>
-									<li><a href="#!">Item</a></li>
-									<li><a href="#!">Item</a></li>
-									<li><span>Disabled</span></li>
-								</ul>
-							</div>
-							<div>
-								<pre><code>
-&lt;ul class=&quot;subnav&quot;&gt;
-	&lt;li class=&quot;active first-column&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;span&gt;Disabled&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
-								</code></pre>
-							</div>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Subnav</h1>
+						<p class="text-lead">Defines different styles for a sub navigation.</p>
+						<hr>
+						<h2>Usage</h2>
+						<p>To apply this component, use the following classes. To align a subnav, for example to horizontally center it, you can use the <a href="component-flex.html">Flex component</a>.</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.subnav</code></td>
+										<td>Add this class to a <code>&lt;ul&gt;</code> element to define the Subnav component. Use
+											<code>&lt;a&gt;</code> elements as nav items within the list.</td>
+									</tr>
+									<tr>
+										<td><code>.active </code></td>
+										<td>Add this class to a list item to apply an active state.</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
-					
-					<h2>Divider modifier</h2>
-					<p>Add the <code>.subnav-divider</code> class to separate menu items with lines.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;subnav subnav-divider&quot;&gt;…&lt;/ul&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="subnav subnav-divider">
-									<li class="active first-column"><a href="#!">Active</a></li>
-									<li><a href="#!">Item</a></li>
-									<li><a href="#!">Item</a></li>
-								</ul>
-							</div>
-							<div>
-								<pre><code>
-&lt;ul class=&quot;subnav subnav-divider&quot;&gt;
-	&lt;li class=&quot;active first-column&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-								</code></pre>
-							</div>
+						<p>To add list items without a link, use a <code>&lt;span&gt;</code> element instead of an <code>&lt;a&gt;</code>. Alternatively, disable an <code>&lt;a&gt;</code> element by adding the <code>.disabled</code> class to the <code>&lt;li&gt;</code> element and remove the <code>href</code> attribute from the anchor to make it inaccessible through keyboard navigation.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;subnav&quot;&gt;
+									&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+									&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+									&lt;li&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt;
+								&lt;/ul&gt;
+							</code></pre>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
-					
-					<h2>Subnav and Dropdown</h2>
-					<p>You can also use a dropdown from the <a href="component-dropdown.html">Dropdown component</a> with a subnav.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;subnav&quot;&gt;
-	&lt;li&gt;
-		&lt;a href=&quot;&quot;&gt;&lt;/a&gt;
-		&lt;div class=&quot;dropdown&quot;&gt;
-			&lt;ul class=&quot;nav dropdown-nav&quot;&gt;…&lt;/ul&gt;
-		&lt;/div&gt;
-	&lt;/li&gt;
-&lt;/ul&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="subnav subnav-pill">
-									<li class="active first-column"><a href="#">Active</a></li>
-									<li><a href="#">Item</a></li>
-									<li>
-										<a href="#!">
-											More
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
-										</a>
-										<div class="dropdown">
-											<ul class="nav dropdown-nav">
-												<li class="active"><a href="#">Active</a></li>
-												<li><a href="#">Item</a></li>
-												<li class="nav-header">Header</li>
-												<li><a href="#">Item</a></li>
-												<li><a href="#">Item</a></li>
-												<li class="nav-divider"></li>
-												<li><a href="#">Item</a></li>
-											</ul>
-										</div>
-									</li>
-								</ul>
+						
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="subnav">
+										<li class="active first-column"><a href="#!">Active</a></li>
+										<li><a href="#!">Item</a></li>
+										<li><a href="#!">Item</a></li>
+										<li><span>Disabled</span></li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;subnav&quot;&gt;
+											&lt;li class=&quot;active first-column&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;span&gt;Disabled&lt;/span&gt;&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;ul class=&quot;subnav subnav-pill&quot;&gt;
-	&lt;li class=&quot;active first-column&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;
-		&lt;a href=&quot;#!&quot;&gt;More 
-			&lt;span class=&quot;icon&quot;&gt;
-				keyboard_arrow_down
-		&lt;/span&gt;&lt;/a&gt;
-		&lt;div class=&quot;drop dropdown&quot;&gt;
-			&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
-				&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-				&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
-				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-			&lt;/ul&gt;
-		&lt;/div&gt;
-	&lt;/li&gt;
-&lt;/ul&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
-
-					<h2>Pill modifier</h2>
-					<p>Add the <code>.subnav-pill</code> class to highlight the active menu item with a background.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;subnav subnav-pill&quot;&gt;…&lt;/ul&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="subnav subnav-pill">
-									<li class="active first-column"><a href="#!">Active</a></li>
-									<li><a href="#!">Item</a></li>
-									<li><a href="#!">Item</a></li>
-								</ul>
-							</div>
-							<div>
-								<pre><code>
-&lt;ul class=&quot;subnav subnav-pill&quot;&gt;
-	&lt;li class=&quot;active first-column&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-								</code></pre>
-							</div>
+						
+						<h2>Divider modifier</h2>
+						<p>Add the <code>.subnav-divider</code> class to separate menu items with lines.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;subnav subnav-divider&quot;&gt;…&lt;/ul&gt;
+							</code></pre>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="subnav subnav-divider">
+										<li class="active first-column"><a href="#!">Active</a></li>
+										<li><a href="#!">Item</a></li>
+										<li><a href="#!">Item</a></li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;subnav subnav-divider&quot;&gt;
+											&lt;li class=&quot;active first-column&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
+						</div>
+						
+						<h2>Subnav and Dropdown</h2>
+						<p>You can also use a dropdown from the <a href="component-dropdown.html">Dropdown component</a> with a subnav.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;subnav&quot;&gt;
+									&lt;li&gt;
+										&lt;a href=&quot;&quot;&gt;&lt;/a&gt;
+										&lt;div class=&quot;dropdown&quot;&gt;
+											&lt;ul class=&quot;nav dropdown-nav&quot;&gt;…&lt;/ul&gt;
+										&lt;/div&gt;
+									&lt;/li&gt;
+								&lt;/ul&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="subnav subnav-pill">
+										<li class="active first-column"><a href="#">Active</a></li>
+										<li><a href="#">Item</a></li>
+										<li>
+											<a href="#!">
+												More
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+											</a>
+											<div class="dropdown">
+												<ul class="nav dropdown-nav">
+													<li class="active"><a href="#">Active</a></li>
+													<li><a href="#">Item</a></li>
+													<li class="nav-header">Header</li>
+													<li><a href="#">Item</a></li>
+													<li><a href="#">Item</a></li>
+													<li class="nav-divider"></li>
+													<li><a href="#">Item</a></li>
+												</ul>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;subnav subnav-pill&quot;&gt;
+											&lt;li class=&quot;active first-column&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;
+												&lt;a href=&quot;#!&quot;&gt;More 
+													&lt;span class=&quot;icon&quot;&gt;
+														keyboard_arrow_down
+												&lt;/span&gt;&lt;/a&gt;
+												&lt;div class=&quot;drop dropdown&quot;&gt;
+													&lt;ul class=&quot;nav dropdown-nav&quot;&gt;
+														&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+														&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;li class=&quot;nav-header&quot;&gt;Header&lt;/li&gt;
+														&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+														&lt;li class=&quot;nav-divider&quot;&gt;&lt;/li&gt;
+														&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+													&lt;/ul&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
+						</div>
+
+						<h2>Pill modifier</h2>
+						<p>Add the <code>.subnav-pill</code> class to highlight the active menu item with a background.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;subnav subnav-pill&quot;&gt;…&lt;/ul&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="subnav subnav-pill">
+										<li class="active first-column"><a href="#!">Active</a></li>
+										<li><a href="#!">Item</a></li>
+										<li><a href="#!">Item</a></li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;subnav subnav-pill&quot;&gt;
+											&lt;li class=&quot;active first-column&quot;&gt;&lt;a href=&quot;#!&quot;&gt;Active&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;Item&lt;/a&gt;&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

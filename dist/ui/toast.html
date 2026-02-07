@@ -312,335 +312,338 @@
 		<main id="main">
 
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Toast</h1>
-					<p class="text-lead">Create toggleable notifications that fade out automatically.</p>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Toast</h1>
+						<p class="text-lead">Create toggleable notifications that fade out automatically.</p>
 
-					<hr>
+						<hr>
 
-					<h2>Usage</h2>
-					<p>To show notifications, the component provides a simple JavaScript API. The following code snippet gets you started.</p>
+						<h2>Usage</h2>
+						<p>To show notifications, the component provides a simple JavaScript API. The following code snippet gets you started.</p>
 
-					<pre><code>
-						Toast.notification({
-							message: &apos;my-message!&apos;,
-							type: &apos;primary&apos;,
-							position: &apos;top-right&apos;,
-							timeout: 4000
-						});
+						<pre><code>
+							Toast.notification({
+								message: &apos;my-message!&apos;,
+								type: &apos;primary&apos;,
+								position: &apos;top-right&apos;,
+								timeout: 4000
+							});
 
-						// Shortcuts
-						Toast.notification(&apos;My message&apos;);
-						Toast.notification(&apos;My message&apos;, status);
-						Toast.notification(&apos;My message&apos;, { /* options */ });
-					</code></pre>
+							// Shortcuts
+							Toast.notification(&apos;My message&apos;);
+							Toast.notification(&apos;My message&apos;, status);
+							Toast.notification(&apos;My message&apos;, { /* options */ });
+						</code></pre>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<button class="button" type="button round" onclick="Deck.say({message: 'Notification message'})">Toast</button>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<button class="button" type="button round" onclick="Deck.say({message: 'Notification message'})">Toast</button>
+								</div>
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button&quot; type=&quot;button round&quot; onclick=&quot;Deck.say({message: &apos;Notification message&apos;})&quot;&gt;Toast&lt;/button&gt;
+									</code></pre>
+								</div>	
 							</div>
-							<div>
-								<pre><code>
-									&lt;button class=&quot;button&quot; type=&quot;button round&quot; onclick=&quot;Deck.say({message: &apos;Notification message&apos;})&quot;&gt;Toast&lt;/button&gt;
-								</code></pre>
-							</div>	
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
 
-					<h2>HTML message</h2>
-					<p>You can use HTML inside your notification message, like an icon from the Icon component.</p>
+						<h2>HTML message</h2>
+						<p>You can use HTML inside your notification message, like an icon from the Icon component.</p>
 
-					<pre><code>
-						Toast.notification(&quot;&lt;b&gt;Bold&lt;/b&gt; Message&quot;);
-					</code></pre>
+						<pre><code>
+							Toast.notification(&quot;&lt;b&gt;Bold&lt;/b&gt; Message&quot;);
+						</code></pre>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<button class="button" type="button round" onclick="Deck.say(`<b>Bold</b> Message`);">Toast</button>
-							</div>
-							<div>
-								<pre><code>
-									&lt;button class=&quot;button&quot; type=&quot;button round&quot; onclick=&quot;Deck.say(`&lt;b&gt;Bold&lt;/b&gt; Message`);&quot;&gt;Toast&lt;/button&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
-
-					<h2>Position</h2>
-					<p>Add one of the following parameters to adjust the notification's position to different corners.</p>
-
-					<pre><code>
-						Toast.notification(<span>"…"</span>, {position: '<span>top</span>-<span>right</span>'})
-					</code></pre>
-
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Position</th>
-									<th>Code</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>top-left</code></td>
-									<td><code>Toast.notification("…", {position: 'top-left'})</code></td>
-								</tr>
-								<tr>
-									<td><code>top-center</code></td>
-									<td><code>Toast.notification("…", {position: 'top-center'})</code></td>
-								</tr>
-								<tr>
-									<td><code>top-right</code></td>
-									<td><code>Toast.notification("…", {position: 'top-right'})</code></td>
-								</tr>
-								<tr>
-									<td><code>bottom-left</code></td>
-									<td><code>Toast.notification("…", {position: 'bottom-left'})</code></td>
-								</tr>
-								<tr>
-									<td><code>bottom-center</code></td>
-									<td><code>Toast.notification("…", {position: 'bottom-center'})</code></td>
-								</tr>
-								<tr>
-									<td><code>bottom-right</code></td>
-									<td><code>Toast.notification("…", {position: 'bottom-right'})</code></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid col-3">
-									<button class="button round" type="button" onclick="Deck.say({message: 'Top Left…', position: 'top-left'})">Top Left</button>
-									<button class="button round" type="button" onclick="Deck.say({message: 'Top Center…', position: 'top-center'})">Top Center</button>
-									<button class="button round" type="button" onclick="Deck.say({message: 'Top Right…', position: 'top-right'})">Top Right</button>
-									<button class="button round" type="button" onclick="Deck.say({message: 'Bottom Left…', position: 'bottom-left'})">Bottom Left</button>
-									<button class="button round" type="button" onclick="Deck.say({message: 'Bottom Center…', position: 'bottom-center'})">Bottom Center</button>
-									<button class="button round" type="button" onclick="Deck.say({message: 'Bottom Right…', position: 'bottom-right'})">Bottom Right</button>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<button class="button" type="button round" onclick="Deck.say(`<b>Bold</b> Message`);">Toast</button>
+								</div>
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button&quot; type=&quot;button round&quot; onclick=&quot;Deck.say(`&lt;b&gt;Bold&lt;/b&gt; Message`);&quot;&gt;Toast&lt;/button&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid col-3&quot;&gt;
-										&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Top Left…&apos;, position: &apos;top-left&apos;})&quot;&gt;Top Left&lt;/button&gt;
-										&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Top Center…&apos;, position: &apos;top-center&apos;})&quot;&gt;Top Center&lt;/button&gt;
-										&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Top Right…&apos;, position: &apos;top-right&apos;})&quot;&gt;Top Right&lt;/button&gt;
-										&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Bottom Left…&apos;, position: &apos;bottom-left&apos;})&quot;&gt;Bottom Left&lt;/button&gt;
-										&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Bottom Center…&apos;, position: &apos;bottom-center&apos;})&quot;&gt;Bottom Center&lt;/button&gt;
-										&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Bottom Right…&apos;, position: &apos;bottom-right&apos;})&quot;&gt;Bottom Right&lt;/button&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
 
-					<h2>Style</h2>
-					<p>A notification can be styled by adding a type to the message to indicate a primary, success, warning or danger status.</p>
+						<h2>Position</h2>
+						<p>Add one of the following parameters to adjust the notification's position to different corners.</p>
 
-					<pre><code>
-						Toast.notification(<span>"…"</span>, {<span>type</span>: <span>'primary'</span>})
-					</code></pre>
+						<pre><code>
+							Toast.notification(<span>"…"</span>, {position: '<span>top</span>-<span>right</span>'})
+						</code></pre>
 
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Style</th>
-									<th>Code</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>primary</code></td>
-									<td><code>Toast.notification("…", {type:'primary'})</code></td>
-								</tr>
-								<tr>
-									<td><code>success</code></td>
-									<td><code>Toast.notification("…", {type:'success'})</code></td>
-								</tr>
-								<tr>
-									<td><code>warning</code></td>
-									<td><code>Toast.notification("…", {type:'warning'})</code></td>
-								</tr>
-								<tr>
-									<td><code>danger</code></td>
-									<td><code>Toast.notification("…", {type:'danger'})</code></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Position</th>
+										<th>Code</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>top-left</code></td>
+										<td><code>Toast.notification("…", {position: 'top-left'})</code></td>
+									</tr>
+									<tr>
+										<td><code>top-center</code></td>
+										<td><code>Toast.notification("…", {position: 'top-center'})</code></td>
+									</tr>
+									<tr>
+										<td><code>top-right</code></td>
+										<td><code>Toast.notification("…", {position: 'top-right'})</code></td>
+									</tr>
+									<tr>
+										<td><code>bottom-left</code></td>
+										<td><code>Toast.notification("…", {position: 'bottom-left'})</code></td>
+									</tr>
+									<tr>
+										<td><code>bottom-center</code></td>
+										<td><code>Toast.notification("…", {position: 'bottom-center'})</code></td>
+									</tr>
+									<tr>
+										<td><code>bottom-right</code></td>
+										<td><code>Toast.notification("…", {position: 'bottom-right'})</code></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid col-4">
-									<button class="button round" type="button" onclick="Deck.say({message: 'Primary message…', type: 'primary'})">Primary</button>
-									<button class="button round" type="button" onclick="Deck.say({message: 'Success message…', type: 'success'})">Success</button>
-									<button class="button round" type="button" onclick="Deck.say({message: 'Warning message…', type: 'warning'})">Warning</button>
-									<button class="button round" type="button" onclick="Deck.say({message: 'Danger message…', type: 'danger'})">Danger</button>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid col-3">
+										<button class="button round" type="button" onclick="Deck.say({message: 'Top Left…', position: 'top-left'})">Top Left</button>
+										<button class="button round" type="button" onclick="Deck.say({message: 'Top Center…', position: 'top-center'})">Top Center</button>
+										<button class="button round" type="button" onclick="Deck.say({message: 'Top Right…', position: 'top-right'})">Top Right</button>
+										<button class="button round" type="button" onclick="Deck.say({message: 'Bottom Left…', position: 'bottom-left'})">Bottom Left</button>
+										<button class="button round" type="button" onclick="Deck.say({message: 'Bottom Center…', position: 'bottom-center'})">Bottom Center</button>
+										<button class="button round" type="button" onclick="Deck.say({message: 'Bottom Right…', position: 'bottom-right'})">Bottom Right</button>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid col-3&quot;&gt;
+											&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Top Left…&apos;, position: &apos;top-left&apos;})&quot;&gt;Top Left&lt;/button&gt;
+											&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Top Center…&apos;, position: &apos;top-center&apos;})&quot;&gt;Top Center&lt;/button&gt;
+											&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Top Right…&apos;, position: &apos;top-right&apos;})&quot;&gt;Top Right&lt;/button&gt;
+											&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Bottom Left…&apos;, position: &apos;bottom-left&apos;})&quot;&gt;Bottom Left&lt;/button&gt;
+											&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Bottom Center…&apos;, position: &apos;bottom-center&apos;})&quot;&gt;Bottom Center&lt;/button&gt;
+											&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Bottom Right…&apos;, position: &apos;bottom-right&apos;})&quot;&gt;Bottom Right&lt;/button&gt;
+										&lt;/div&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid col-4&quot;&gt;
-										&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Primary message…&apos;, type: &apos;primary&apos;})&quot;&gt;Primary&lt;/button&gt;
-										&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Success message…&apos;, type: &apos;success&apos;})&quot;&gt;Success&lt;/button&gt;
-										&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Warning message…&apos;, type: &apos;warning&apos;})&quot;&gt;Warning&lt;/button&gt;
-										&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Danger message…&apos;, type: &apos;danger&apos;})&quot;&gt;Danger&lt;/button&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
 
-					<h3>Background color</h3>
+						<h2>Style</h2>
+						<p>A notification can be styled by adding a type to the message to indicate a primary, success, warning or danger status.</p>
 
-					<pre><code>
-						Toast.notification(<span>"…"</span>, {<span>type</span>: <span>'primary-bg'</span>})
-					</code></pre>
+						<pre><code>
+							Toast.notification(<span>"…"</span>, {<span>type</span>: <span>'primary'</span>})
+						</code></pre>
 
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Style</th>
-									<th>Code</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>primary</code></td>
-									<td><code>Toast.notification("…", {type:'primary-bg'})</code></td>
-								</tr>
-								<tr>
-									<td><code>success</code></td>
-									<td><code>Toast.notification("…", {type:'success-bg'})</code></td>
-								</tr>
-								<tr>
-									<td><code>warning</code></td>
-									<td><code>Toast.notification("…", {type:'warning-bg'})</code></td>
-								</tr>
-								<tr>
-									<td><code>danger</code></td>
-									<td><code>Toast.notification("…", {type:'danger-bg'})</code></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Style</th>
+										<th>Code</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>primary</code></td>
+										<td><code>Toast.notification("…", {type:'primary'})</code></td>
+									</tr>
+									<tr>
+										<td><code>success</code></td>
+										<td><code>Toast.notification("…", {type:'success'})</code></td>
+									</tr>
+									<tr>
+										<td><code>warning</code></td>
+										<td><code>Toast.notification("…", {type:'warning'})</code></td>
+									</tr>
+									<tr>
+										<td><code>danger</code></td>
+										<td><code>Toast.notification("…", {type:'danger'})</code></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid col-4">
-									<button class="button round" type="button" onclick="Deck.say({message: 'Primary message…', type: 'primary-bg'})">Primary</button>
-									<button class="button round" type="button" onclick="Deck.say({message: 'Success message…', type: 'success-bg'})">Success</button>
-									<button class="button round" type="button" onclick="Deck.say({message: 'Warning message…', type: 'warning-bg'})">Warning</button>
-									<button class="button round" type="button" onclick="Deck.say({message: 'Danger message…', type: 'danger-bg'})">Danger</button>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid col-4">
+										<button class="button round" type="button" onclick="Deck.say({message: 'Primary message…', type: 'primary'})">Primary</button>
+										<button class="button round" type="button" onclick="Deck.say({message: 'Success message…', type: 'success'})">Success</button>
+										<button class="button round" type="button" onclick="Deck.say({message: 'Warning message…', type: 'warning'})">Warning</button>
+										<button class="button round" type="button" onclick="Deck.say({message: 'Danger message…', type: 'danger'})">Danger</button>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid col-4&quot;&gt;
+											&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Primary message…&apos;, type: &apos;primary&apos;})&quot;&gt;Primary&lt;/button&gt;
+											&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Success message…&apos;, type: &apos;success&apos;})&quot;&gt;Success&lt;/button&gt;
+											&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Warning message…&apos;, type: &apos;warning&apos;})&quot;&gt;Warning&lt;/button&gt;
+											&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Danger message…&apos;, type: &apos;danger&apos;})&quot;&gt;Danger&lt;/button&gt;
+										&lt;/div&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid col-4&quot;&gt;
-										&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Primary message…&apos;, type: &apos;primary-bg&apos;})&quot;&gt;Primary&lt;/button&gt;
-										&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Success message…&apos;, type: &apos;success-bg&apos;})&quot;&gt;Success&lt;/button&gt;
-										&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Warning message…&apos;, type: &apos;warning-bg&apos;})&quot;&gt;Warning&lt;/button&gt;
-										&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Danger message…&apos;, type: &apos;danger-bg&apos;})&quot;&gt;Danger&lt;/button&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
 
-					<h2>Close all</h2>
-					<p>You can close all open notifications by calling <code>Toast.notification.closeAll()</code>.</p>
+						<h3>Background color</h3>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
+						<pre><code>
+							Toast.notification(<span>"…"</span>, {<span>type</span>: <span>'primary-bg'</span>})
+						</code></pre>
 
-							</div>
-							<div>
-								<pre><code>
-									<button class="button round close" onclick="Deck.notification.closeAll()">Close All</button>
-								</code></pre>
-							</div>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Style</th>
+										<th>Code</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>primary</code></td>
+										<td><code>Toast.notification("…", {type:'primary-bg'})</code></td>
+									</tr>
+									<tr>
+										<td><code>success</code></td>
+										<td><code>Toast.notification("…", {type:'success-bg'})</code></td>
+									</tr>
+									<tr>
+										<td><code>warning</code></td>
+										<td><code>Toast.notification("…", {type:'warning-bg'})</code></td>
+									</tr>
+									<tr>
+										<td><code>danger</code></td>
+										<td><code>Toast.notification("…", {type:'danger-bg'})</code></td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
 
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid col-4">
+										<button class="button round" type="button" onclick="Deck.say({message: 'Primary message…', type: 'primary-bg'})">Primary</button>
+										<button class="button round" type="button" onclick="Deck.say({message: 'Success message…', type: 'success-bg'})">Success</button>
+										<button class="button round" type="button" onclick="Deck.say({message: 'Warning message…', type: 'warning-bg'})">Warning</button>
+										<button class="button round" type="button" onclick="Deck.say({message: 'Danger message…', type: 'danger-bg'})">Danger</button>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid col-4&quot;&gt;
+											&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Primary message…&apos;, type: &apos;primary-bg&apos;})&quot;&gt;Primary&lt;/button&gt;
+											&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Success message…&apos;, type: &apos;success-bg&apos;})&quot;&gt;Success&lt;/button&gt;
+											&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Warning message…&apos;, type: &apos;warning-bg&apos;})&quot;&gt;Warning&lt;/button&gt;
+											&lt;button class=&quot;button round&quot; type=&quot;button&quot; onclick=&quot;Deck.say({message: &apos;Danger message…&apos;, type: &apos;danger-bg&apos;})&quot;&gt;Danger&lt;/button&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
+						</div>
+
+						<h2>Close all</h2>
+						<p>You can close all open notifications by calling <code>Toast.notification.closeAll()</code>.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+
+								</div>
+								<div>
+									<pre><code>
+										<button class="button round close" onclick="Deck.notification.closeAll()">Close All</button>
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
+						</div>
+
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

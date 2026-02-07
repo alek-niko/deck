@@ -308,1873 +308,1878 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
 
-					<h1>List</h1>
-					<p class="text-lead">Easily create nice looking lists, which come in different styles.</p>
-					
-					<hr>
-					
-					<h2>Usage</h2>
-					<p>To apply this component, add the <code>.list</code> class to an unordered or ordered list. The list will now display without any spacing or list-style.</p>
-					
-					<pre><code>
-						&lt;ul class=&quot;list&quot;&gt;
-							&lt;li&gt;List item 1&lt;/li&gt;
-							&lt;li&gt;List item 2&lt;/li&gt;
-							&lt;li&gt;List item 3&lt;/li&gt;
-						&lt;/ul&gt;
-					</code></pre>
+						<h1>List</h1>
+						<p class="text-lead">Easily create nice looking lists, which come in different styles.</p>
+						
+						<hr>
+						
+						<h2>Usage</h2>
+						<p>To apply this component, add the <code>.list</code> class to an unordered or ordered list. The list will now display without any spacing or list-style.</p>
+						
+						<pre><code>
+							&lt;ul class=&quot;list&quot;&gt;
+								&lt;li&gt;List item 1&lt;/li&gt;
+								&lt;li&gt;List item 2&lt;/li&gt;
+								&lt;li&gt;List item 3&lt;/li&gt;
+							&lt;/ul&gt;
+						</code></pre>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list">
-									<li>List item 1</li>
-									<li>List item 2</li>
-									<li>List item 3</li>
-								</ul>
-							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list&quot;&gt;
-										&lt;li&gt;List item 1&lt;/li&gt;
-										&lt;li&gt;List item 2&lt;/li&gt;
-										&lt;li&gt;List item 3&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-							
-					<h2>Divider modifier</h2>
-					<p>Add the <code>.list-divider</code> class to separate list items with lines.</p>
-					<pre><code><span>&lt;<span>ul</span> <span>class</span>=<span>"list list-divider"</span>&gt;</span>…<span>&lt;/<span>ul</span>&gt;</span></code></pre>
-					
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list list-divider">
-									<li>List item 1</li>
-									<li>List item 2</li>
-									<li>List item 3</li>
-								</ul>
-							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list list-divider&quot;&gt;
-										&lt;li&gt;List item 1&lt;/li&gt;
-										&lt;li&gt;List item 2&lt;/li&gt;
-										&lt;li&gt;List item 3&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Striped modifier</h2>
-					<p>Add zebra-striping to a list using the <code>.list-striped</code> class.</p>
-					<pre><code><span>&lt;<span>ul</span> <span>class</span>=<span>"list list-striped"</span>&gt;</span>…<span>&lt;/<span>ul</span>&gt;</span></code></pre>
-					
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list list-striped">
-									<li>List item 1</li>
-									<li>List item 2</li>
-									<li>List item 3</li>
-								</ul>
-							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list list-striped&quot;&gt;
-										&lt;li&gt;List item 1&lt;/li&gt;
-										&lt;li&gt;List item 2&lt;/li&gt;
-										&lt;li&gt;List item 3&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Hiding List Bullets</h2>
-					<p>Apply <code>.list-no-bullets</code> modifier class to remove the list markers and all left padding.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list list-no-bullets">
-									<li>List item 1</li>
-									<li>List item 2</li>
-									<li>List item 3</li>
-								</ul>
-							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list list-no-bullets&quot;&gt;
-										&lt;li&gt;List item 1&lt;/li&gt;
-										&lt;li&gt;List item 2&lt;/li&gt;
-										&lt;li&gt;List item 3&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Size modifier</h2>
-					<p>Add one of the following classes to increase or decrease the spacing between list items. You can combine this with any of the other list modifiers.</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.list-large</code></td>
-								<td>Larger padding and spacing between items.</td>
-							</tr>
-							<tr>
-								<td><code>.list-condensed</code></td>
-								<td>Smaller vertical padding for compact lists.</td>
-							</tr>
-							<tr>
-								<td><code>.list-collapse</code></td>
-								<td>Removes vertical padding and spacing between items.</td>
-							</tr>
-						</tbody>
-					</table>
-					
-					<h3>Large modifier</h3>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid col-4">	
-									<div class="first-column">
-										<ul class="list list-large">
-											<li>List item 1</li>
-											<li>List item 2</li>
-											<li>List item 3</li>
-										</ul>
-									</div>
-									<div>
-										<ul class="list list-large list-no-bullets">
-											<li>List item 1</li>
-											<li>List item 2</li>
-											<li>List item 3</li>
-										</ul>
-									</div>
-									<div>
-										<ul class="list list-large list-divider">
-											<li>List item 1</li>
-											<li>List item 2</li>
-											<li>List item 3</li>
-										</ul>
-									</div>
-									<div>
-										<ul class="list list-large list-striped">
-											<li>List item 1</li>
-											<li>List item 2</li>
-											<li>List item 3</li>
-										</ul>
-									</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list">
+										<li>List item 1</li>
+										<li>List item 2</li>
+										<li>List item 3</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list&quot;&gt;
+											&lt;li&gt;List item 1&lt;/li&gt;
+											&lt;li&gt;List item 2&lt;/li&gt;
+											&lt;li&gt;List item 3&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid col-4&quot;&gt;	
-										&lt;div&gt;
-											&lt;ul class=&quot;list list-large&quot;&gt;
-												&lt;li&gt;List item 1&lt;/li&gt;
-												&lt;li&gt;List item 2&lt;/li&gt;
-												&lt;li&gt;List item 3&lt;/li&gt;
-											&lt;/ul&gt;
-										&lt;/div&gt;
-										&lt;div&gt;
-											&lt;ul class=&quot;list list-large list-no-bullets&quot;&gt;
-												&lt;li&gt;List item 1&lt;/li&gt;
-												&lt;li&gt;List item 2&lt;/li&gt;
-												&lt;li&gt;List item 3&lt;/li&gt;
-											&lt;/ul&gt;
-										&lt;/div&gt;
-										&lt;div&gt;
-											&lt;ul class=&quot;list list-large list-divider&quot;&gt;
-												&lt;li&gt;List item 1&lt;/li&gt;
-												&lt;li&gt;List item 2&lt;/li&gt;
-												&lt;li&gt;List item 3&lt;/li&gt;
-											&lt;/ul&gt;
-										&lt;/div&gt;
-										&lt;div&gt;
-											&lt;ul class=&quot;list list-large list-striped&quot;&gt;
-												&lt;li&gt;List item 1&lt;/li&gt;
-												&lt;li&gt;List item 2&lt;/li&gt;
-												&lt;li&gt;List item 3&lt;/li&gt;
-											&lt;/ul&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h3>Condensed modifier</h3>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid col-4">	
-									<div>
-										<ul class="list list-condensed">
-											<li>List item 1</li>
-											<li>List item 2</li>
-											<li>List item 3</li>
-										</ul>
-									</div>
-									<div>
-										<ul class="list list-condensed list-no-bullets">
-											<li>List item 1</li>
-											<li>List item 2</li>
-											<li>List item 3</li>
-										</ul>
-									</div>
-									<div>
-										<ul class="list list-condensed list-divider">
-											<li>List item 1</li>
-											<li>List item 2</li>
-											<li>List item 3</li>
-										</ul>
-									</div>
-									<div>
-										<ul class="list list-condensed list-striped">
-											<li>List item 1</li>
-											<li>List item 2</li>
-											<li>List item 3</li>
-										</ul>
-									</div>
+								
+						<h2>Divider modifier</h2>
+						<p>Add the <code>.list-divider</code> class to separate list items with lines.</p>
+						<pre><code><span>&lt;<span>ul</span> <span>class</span>=<span>"list list-divider"</span>&gt;</span>…<span>&lt;/<span>ul</span>&gt;</span></code></pre>
+						
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list list-divider">
+										<li>List item 1</li>
+										<li>List item 2</li>
+										<li>List item 3</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list list-divider&quot;&gt;
+											&lt;li&gt;List item 1&lt;/li&gt;
+											&lt;li&gt;List item 2&lt;/li&gt;
+											&lt;li&gt;List item 3&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid col-4&quot;&gt;	
-										&lt;div&gt;
-											&lt;ul class=&quot;list list-condensed&quot;&gt;
-												&lt;li&gt;List item 1&lt;/li&gt;
-												&lt;li&gt;List item 2&lt;/li&gt;
-												&lt;li&gt;List item 3&lt;/li&gt;
-											&lt;/ul&gt;
-										&lt;/div&gt;
-										&lt;div&gt;
-											&lt;ul class=&quot;list list-condensed list-no-bullets&quot;&gt;
-												&lt;li&gt;List item 1&lt;/li&gt;
-												&lt;li&gt;List item 2&lt;/li&gt;
-												&lt;li&gt;List item 3&lt;/li&gt;
-											&lt;/ul&gt;
-										&lt;/div&gt;
-										&lt;div&gt;
-											&lt;ul class=&quot;list list-condensed list-divider&quot;&gt;
-												&lt;li&gt;List item 1&lt;/li&gt;
-												&lt;li&gt;List item 2&lt;/li&gt;
-												&lt;li&gt;List item 3&lt;/li&gt;
-											&lt;/ul&gt;
-										&lt;/div&gt;
-										&lt;div&gt;
-											&lt;ul class=&quot;list list-condensed list-striped&quot;&gt;
-												&lt;li&gt;List item 1&lt;/li&gt;
-												&lt;li&gt;List item 2&lt;/li&gt;
-												&lt;li&gt;List item 3&lt;/li&gt;
-											&lt;/ul&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h3>Collapse modifier</h3>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid col-4">
-									<div>
-										<ul class="list list-collapse">
-											<li>List item 1</li>
-											<li>List item 2</li>
-											<li>List item 3</li>
-										</ul>
-									</div>
-									<div>
-										<ul class="list list-collapse list-no-bullets">
-											<li>List item 1</li>
-											<li>List item 2</li>
-											<li>List item 3</li>
-										</ul>
-									</div>
-									<div>
-										<ul class="list list-collapse list-divider">
-											<li>List item 1</li>
-											<li>List item 2</li>
-											<li>List item 3</li>
-										</ul>
-									</div>
-									<div>
-										<ul class="list list-collapse list-striped">
-											<li>List item 1</li>
-											<li>List item 2</li>
-											<li>List item 3</li>
-										</ul>
-									</div>
+						
+						<h2>Striped modifier</h2>
+						<p>Add zebra-striping to a list using the <code>.list-striped</code> class.</p>
+						<pre><code><span>&lt;<span>ul</span> <span>class</span>=<span>"list list-striped"</span>&gt;</span>…<span>&lt;/<span>ul</span>&gt;</span></code></pre>
+						
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list list-striped">
+										<li>List item 1</li>
+										<li>List item 2</li>
+										<li>List item 3</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list list-striped&quot;&gt;
+											&lt;li&gt;List item 1&lt;/li&gt;
+											&lt;li&gt;List item 2&lt;/li&gt;
+											&lt;li&gt;List item 3&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div&gt;
-										&lt;ul class=&quot;list list-collapse&quot;&gt;
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Hiding List Bullets</h2>
+						<p>Apply <code>.list-no-bullets</code> modifier class to remove the list markers and all left padding.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list list-no-bullets">
+										<li>List item 1</li>
+										<li>List item 2</li>
+										<li>List item 3</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list list-no-bullets&quot;&gt;
 											&lt;li&gt;List item 1&lt;/li&gt;
 											&lt;li&gt;List item 2&lt;/li&gt;
 											&lt;li&gt;List item 3&lt;/li&gt;
 										&lt;/ul&gt;
-									&lt;/div&gt;
-									&lt;div&gt;
-										&lt;ul class=&quot;list list-collapse list-no-bullets&quot;&gt;
-											&lt;li&gt;List item 1&lt;/li&gt;
-											&lt;li&gt;List item 2&lt;/li&gt;
-											&lt;li&gt;List item 3&lt;/li&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Size modifier</h2>
+						<p>Add one of the following classes to increase or decrease the spacing between list items. You can combine this with any of the other list modifiers.</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.list-large</code></td>
+									<td>Larger padding and spacing between items.</td>
+								</tr>
+								<tr>
+									<td><code>.list-condensed</code></td>
+									<td>Smaller vertical padding for compact lists.</td>
+								</tr>
+								<tr>
+									<td><code>.list-collapse</code></td>
+									<td>Removes vertical padding and spacing between items.</td>
+								</tr>
+							</tbody>
+						</table>
+						
+						<h3>Large modifier</h3>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid col-4">	
+										<div class="first-column">
+											<ul class="list list-large">
+												<li>List item 1</li>
+												<li>List item 2</li>
+												<li>List item 3</li>
+											</ul>
+										</div>
+										<div>
+											<ul class="list list-large list-no-bullets">
+												<li>List item 1</li>
+												<li>List item 2</li>
+												<li>List item 3</li>
+											</ul>
+										</div>
+										<div>
+											<ul class="list list-large list-divider">
+												<li>List item 1</li>
+												<li>List item 2</li>
+												<li>List item 3</li>
+											</ul>
+										</div>
+										<div>
+											<ul class="list list-large list-striped">
+												<li>List item 1</li>
+												<li>List item 2</li>
+												<li>List item 3</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid col-4&quot;&gt;	
+											&lt;div&gt;
+												&lt;ul class=&quot;list list-large&quot;&gt;
+													&lt;li&gt;List item 1&lt;/li&gt;
+													&lt;li&gt;List item 2&lt;/li&gt;
+													&lt;li&gt;List item 3&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/div&gt;
+											&lt;div&gt;
+												&lt;ul class=&quot;list list-large list-no-bullets&quot;&gt;
+													&lt;li&gt;List item 1&lt;/li&gt;
+													&lt;li&gt;List item 2&lt;/li&gt;
+													&lt;li&gt;List item 3&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/div&gt;
+											&lt;div&gt;
+												&lt;ul class=&quot;list list-large list-divider&quot;&gt;
+													&lt;li&gt;List item 1&lt;/li&gt;
+													&lt;li&gt;List item 2&lt;/li&gt;
+													&lt;li&gt;List item 3&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/div&gt;
+											&lt;div&gt;
+												&lt;ul class=&quot;list list-large list-striped&quot;&gt;
+													&lt;li&gt;List item 1&lt;/li&gt;
+													&lt;li&gt;List item 2&lt;/li&gt;
+													&lt;li&gt;List item 3&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h3>Condensed modifier</h3>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid col-4">	
+										<div>
+											<ul class="list list-condensed">
+												<li>List item 1</li>
+												<li>List item 2</li>
+												<li>List item 3</li>
+											</ul>
+										</div>
+										<div>
+											<ul class="list list-condensed list-no-bullets">
+												<li>List item 1</li>
+												<li>List item 2</li>
+												<li>List item 3</li>
+											</ul>
+										</div>
+										<div>
+											<ul class="list list-condensed list-divider">
+												<li>List item 1</li>
+												<li>List item 2</li>
+												<li>List item 3</li>
+											</ul>
+										</div>
+										<div>
+											<ul class="list list-condensed list-striped">
+												<li>List item 1</li>
+												<li>List item 2</li>
+												<li>List item 3</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid col-4&quot;&gt;	
+											&lt;div&gt;
+												&lt;ul class=&quot;list list-condensed&quot;&gt;
+													&lt;li&gt;List item 1&lt;/li&gt;
+													&lt;li&gt;List item 2&lt;/li&gt;
+													&lt;li&gt;List item 3&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/div&gt;
+											&lt;div&gt;
+												&lt;ul class=&quot;list list-condensed list-no-bullets&quot;&gt;
+													&lt;li&gt;List item 1&lt;/li&gt;
+													&lt;li&gt;List item 2&lt;/li&gt;
+													&lt;li&gt;List item 3&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/div&gt;
+											&lt;div&gt;
+												&lt;ul class=&quot;list list-condensed list-divider&quot;&gt;
+													&lt;li&gt;List item 1&lt;/li&gt;
+													&lt;li&gt;List item 2&lt;/li&gt;
+													&lt;li&gt;List item 3&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/div&gt;
+											&lt;div&gt;
+												&lt;ul class=&quot;list list-condensed list-striped&quot;&gt;
+													&lt;li&gt;List item 1&lt;/li&gt;
+													&lt;li&gt;List item 2&lt;/li&gt;
+													&lt;li&gt;List item 3&lt;/li&gt;
+												&lt;/ul&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h3>Collapse modifier</h3>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid col-4">
+										<div>
+											<ul class="list list-collapse">
+												<li>List item 1</li>
+												<li>List item 2</li>
+												<li>List item 3</li>
+											</ul>
+										</div>
+										<div>
+											<ul class="list list-collapse list-no-bullets">
+												<li>List item 1</li>
+												<li>List item 2</li>
+												<li>List item 3</li>
+											</ul>
+										</div>
+										<div>
+											<ul class="list list-collapse list-divider">
+												<li>List item 1</li>
+												<li>List item 2</li>
+												<li>List item 3</li>
+											</ul>
+										</div>
+										<div>
+											<ul class="list list-collapse list-striped">
+												<li>List item 1</li>
+												<li>List item 2</li>
+												<li>List item 3</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div&gt;
+											&lt;ul class=&quot;list list-collapse&quot;&gt;
+												&lt;li&gt;List item 1&lt;/li&gt;
+												&lt;li&gt;List item 2&lt;/li&gt;
+												&lt;li&gt;List item 3&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/div&gt;
+										&lt;div&gt;
+											&lt;ul class=&quot;list list-collapse list-no-bullets&quot;&gt;
+												&lt;li&gt;List item 1&lt;/li&gt;
+												&lt;li&gt;List item 2&lt;/li&gt;
+												&lt;li&gt;List item 3&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/div&gt;
+										&lt;div&gt;
+											&lt;ul class=&quot;list list-collapse list-divider&quot;&gt;
+												&lt;li&gt;List item 1&lt;/li&gt;
+												&lt;li&gt;List item 2&lt;/li&gt;
+												&lt;li&gt;List item 3&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/div&gt;
+										&lt;div&gt;
+											&lt;ul class=&quot;list list-collapse list-striped&quot;&gt;
+												&lt;li&gt;List item 1&lt;/li&gt;
+												&lt;li&gt;List item 2&lt;/li&gt;
+												&lt;li&gt;List item 3&lt;/li&gt;
+											&lt;/ul&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Clickable List</h2>
+						<p>Apply the <code>.list-clickable</code> modifier class to change the cursor to a pointer, indicating that list items are interactive elements.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list list-clickable">
+										<li><a href="#">Clickable Item 1</a></li>
+										<li><a href="#">Clickable Item 2</a></li>
+										<li><a href="#">Clickable Item 3</a></li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list list-clickable&quot;&gt;
+											&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Clickable Item 1&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Clickable Item 2&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Clickable Item 3&lt;/a&gt;&lt;/li&gt;
 										&lt;/ul&gt;
-									&lt;/div&gt;
-									&lt;div&gt;
-										&lt;ul class=&quot;list list-collapse list-divider&quot;&gt;
-											&lt;li&gt;List item 1&lt;/li&gt;
-											&lt;li&gt;List item 2&lt;/li&gt;
-											&lt;li&gt;List item 3&lt;/li&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Split List (Two Columns)</h2>
+						<p>Use the <code>.split-list</code> class to format the list into two balanced columns on larger screens. The list automatically reverts to a single column on smaller devices.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list split-list">
+										<li>Item A</li>
+										<li>Item B</li>
+										<li>Item C</li>
+										<li>Item D</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list split-list&quot;&gt;
+											&lt;li&gt;Item A&lt;/li&gt;
+											&lt;li&gt;Item B&lt;/li&gt;
+											&lt;li&gt;Item C&lt;/li&gt;
+											&lt;li&gt;Item D&lt;/li&gt;
 										&lt;/ul&gt;
-									&lt;/div&gt;
-									&lt;div&gt;
-										&lt;ul class=&quot;list list-collapse list-striped&quot;&gt;
-											&lt;li&gt;List item 1&lt;/li&gt;
-											&lt;li&gt;List item 2&lt;/li&gt;
-											&lt;li&gt;List item 3&lt;/li&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Hoverable List</h2>
+						<p>Add the <code>.list-hoverable</code> class to apply a subtle background color to list items when the user hovers over them with their mouse.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list list-hoverable">
+										<li class="list-group">Hoverable Group 1</li>
+										<li class="list-group">Hoverable Group 2</li>
+										<li class="list-group">Hoverable Group 3</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list list-hoverable&quot;&gt;
+											&lt;li class=&quot;list-group&quot;&gt;Hoverable Group 1&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;Hoverable Group 2&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;Hoverable Group 3&lt;/li&gt;
 										&lt;/ul&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Clickable List</h2>
-					<p>Apply the <code>.list-clickable</code> modifier class to change the cursor to a pointer, indicating that list items are interactive elements.</p>
+						<h2>Bullet & Marker Styles</h2>
+						<p>Change the default bullet style by applying one of the available modifier classes: <code>.list-disc</code>, <code>.list-circle</code>, <code>.list-square</code>, <code>.list-decimal</code>, or <code>.list-hyphen</code>.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list list-clickable">
-									<li><a href="#">Clickable Item 1</a></li>
-									<li><a href="#">Clickable Item 2</a></li>
-									<li><a href="#">Clickable Item 3</a></li>
-								</ul>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list list-disc">
+										<li>Disc</li>
+										<li>Disc</li>
+									</ul>
+									<ul class="list list-circle margin-top">
+										<li>Circle</li>
+										<li>Circle</li>
+									</ul>
+									<ul class="list list-square margin-top">
+										<li>Square</li>
+										<li>Square</li>
+									</ul>
+									<ul class="list list-decimal margin-top">
+										<li>Decimal One</li>
+										<li>Decimal Two</li>
+									</ul>
+									<ul class="list list-hyphen margin-top">
+										<li>Hyphen One</li>
+										<li>Hyphen Two</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list list-disc&quot;&gt;
+											&lt;li&gt;Disc&lt;/li&gt;
+											&lt;li&gt;Disc&lt;/li&gt;
+										&lt;/ul&gt;
+										&lt;ul class=&quot;list list-circle margin-top&quot;&gt;
+											&lt;li&gt;Circle&lt;/li&gt;
+											&lt;li&gt;Circle&lt;/li&gt;
+										&lt;/ul&gt;
+										&lt;ul class=&quot;list list-square margin-top&quot;&gt;
+											&lt;li&gt;Square&lt;/li&gt;
+											&lt;li&gt;Square&lt;/li&gt;
+										&lt;/ul&gt;
+										&lt;ul class=&quot;list list-decimal margin-top&quot;&gt;
+											&lt;li&gt;Decimal One&lt;/li&gt;
+											&lt;li&gt;Decimal Two&lt;/li&gt;
+										&lt;/ul&gt;
+										&lt;ul class=&quot;list list-hyphen margin-top&quot;&gt;
+											&lt;li&gt;Hyphen One&lt;/li&gt;
+											&lt;li&gt;Hyphen Two&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list list-clickable&quot;&gt;
-										&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Clickable Item 1&lt;/a&gt;&lt;/li&gt;
-										&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Clickable Item 2&lt;/a&gt;&lt;/li&gt;
-										&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Clickable Item 3&lt;/a&gt;&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Split List (Two Columns)</h2>
-					<p>Use the <code>.split-list</code> class to format the list into two balanced columns on larger screens. The list automatically reverts to a single column on smaller devices.</p>
+						<h2>Marker Color Modifiers</h2>
+						<p>Easily change the color of the list markers by adding a color modifier class: <code>.list-primary</code>, <code>.list-secondary</code>, <code>.list-emphasis</code>, or <code>.list-muted</code>.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list split-list">
-									<li>Item A</li>
-									<li>Item B</li>
-									<li>Item C</li>
-									<li>Item D</li>
-								</ul>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list list-disc list-muted">
+										<li>Muted</li>
+										<li>Muted</li>
+									</ul>
+									<ul class="list list-disc list-primary margin-top">
+										<li>Primary</li>
+										<li>Primary</li>
+									</ul>
+									<ul class="list list-disc list-emphasis margin-top">
+										<li>Emphasis</li>
+										<li>Emphasis</li>
+									</ul>
+									<ul class="list list-disc list-secondary margin-top">
+										<li>Secondary</li>
+										<li>Secondary</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list list-disc list-muted&quot;&gt;
+											&lt;li&gt;Muted&lt;/li&gt;
+											&lt;li&gt;Muted&lt;/li&gt;
+										&lt;/ul&gt;
+										&lt;ul class=&quot;list list-disc list-primary margin-top&quot;&gt;
+											&lt;li&gt;Primary&lt;/li&gt;
+											&lt;li&gt;Primary&lt;/li&gt;
+										&lt;/ul&gt;
+										&lt;ul class=&quot;list list-disc list-emphasis margin-top&quot;&gt;
+											&lt;li&gt;Emphasis&lt;/li&gt;
+											&lt;li&gt;Emphasis&lt;/li&gt;
+										&lt;/ul&gt;
+										&lt;ul class=&quot;list list-disc list-secondary margin-top&quot;&gt;
+											&lt;li&gt;Secondary&lt;/li&gt;
+											&lt;li&gt;Secondary&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list split-list&quot;&gt;
-										&lt;li&gt;Item A&lt;/li&gt;
-										&lt;li&gt;Item B&lt;/li&gt;
-										&lt;li&gt;Item C&lt;/li&gt;
-										&lt;li&gt;Item D&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Hoverable List</h2>
-					<p>Add the <code>.list-hoverable</code> class to apply a subtle background color to list items when the user hovers over them with their mouse.</p>
+						<h2>Utility Classes</h2>
+						<p>Use the <code>.list-secondary-text</code> class inside a list item to style sub-text with a muted color and truncate it with an ellipsis if it overflows.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list list-hoverable">
-									<li class="list-group">Hoverable Group 1</li>
-									<li class="list-group">Hoverable Group 2</li>
-									<li class="list-group">Hoverable Group 3</li>
-								</ul>
-							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list list-hoverable&quot;&gt;
-										&lt;li class=&quot;list-group&quot;&gt;Hoverable Group 1&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;Hoverable Group 2&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;Hoverable Group 3&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Bullet & Marker Styles</h2>
-					<p>Change the default bullet style by applying one of the available modifier classes: <code>.list-disc</code>, <code>.list-circle</code>, <code>.list-square</code>, <code>.list-decimal</code>, or <code>.list-hyphen</code>.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list list-disc">
-									<li>Disc</li>
-									<li>Disc</li>
-								</ul>
-								<ul class="list list-circle margin-top">
-									<li>Circle</li>
-									<li>Circle</li>
-								</ul>
-								<ul class="list list-square margin-top">
-									<li>Square</li>
-									<li>Square</li>
-								</ul>
-								<ul class="list list-decimal margin-top">
-									<li>Decimal One</li>
-									<li>Decimal Two</li>
-								</ul>
-								<ul class="list list-hyphen margin-top">
-									<li>Hyphen One</li>
-									<li>Hyphen Two</li>
-								</ul>
-							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list list-disc&quot;&gt;
-										&lt;li&gt;Disc&lt;/li&gt;
-										&lt;li&gt;Disc&lt;/li&gt;
-									&lt;/ul&gt;
-									&lt;ul class=&quot;list list-circle margin-top&quot;&gt;
-										&lt;li&gt;Circle&lt;/li&gt;
-										&lt;li&gt;Circle&lt;/li&gt;
-									&lt;/ul&gt;
-									&lt;ul class=&quot;list list-square margin-top&quot;&gt;
-										&lt;li&gt;Square&lt;/li&gt;
-										&lt;li&gt;Square&lt;/li&gt;
-									&lt;/ul&gt;
-									&lt;ul class=&quot;list list-decimal margin-top&quot;&gt;
-										&lt;li&gt;Decimal One&lt;/li&gt;
-										&lt;li&gt;Decimal Two&lt;/li&gt;
-									&lt;/ul&gt;
-									&lt;ul class=&quot;list list-hyphen margin-top&quot;&gt;
-										&lt;li&gt;Hyphen One&lt;/li&gt;
-										&lt;li&gt;Hyphen Two&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Marker Color Modifiers</h2>
-					<p>Easily change the color of the list markers by adding a color modifier class: <code>.list-primary</code>, <code>.list-secondary</code>, <code>.list-emphasis</code>, or <code>.list-muted</code>.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list list-disc list-muted">
-									<li>Muted</li>
-									<li>Muted</li>
-								</ul>
-								<ul class="list list-disc list-primary margin-top">
-									<li>Primary</li>
-									<li>Primary</li>
-								</ul>
-								<ul class="list list-disc list-emphasis margin-top">
-									<li>Emphasis</li>
-									<li>Emphasis</li>
-								</ul>
-								<ul class="list list-disc list-secondary margin-top">
-									<li>Secondary</li>
-									<li>Secondary</li>
-								</ul>
-							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list list-disc list-muted&quot;&gt;
-										&lt;li&gt;Muted&lt;/li&gt;
-										&lt;li&gt;Muted&lt;/li&gt;
-									&lt;/ul&gt;
-									&lt;ul class=&quot;list list-disc list-primary margin-top&quot;&gt;
-										&lt;li&gt;Primary&lt;/li&gt;
-										&lt;li&gt;Primary&lt;/li&gt;
-									&lt;/ul&gt;
-									&lt;ul class=&quot;list list-disc list-emphasis margin-top&quot;&gt;
-										&lt;li&gt;Emphasis&lt;/li&gt;
-										&lt;li&gt;Emphasis&lt;/li&gt;
-									&lt;/ul&gt;
-									&lt;ul class=&quot;list list-disc list-secondary margin-top&quot;&gt;
-										&lt;li&gt;Secondary&lt;/li&gt;
-										&lt;li&gt;Secondary&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Utility Classes</h2>
-					<p>Use the <code>.list-secondary-text</code> class inside a list item to style sub-text with a muted color and truncate it with an ellipsis if it overflows.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list list-disc">
-									<li>
-										Main text
-										<span class="list-secondary-text">Secondary text</span>
-									</li>
-									<li>
-										Main text
-										<span class="list-secondary-text nowrap">Secondary text wrapped</span>
-									</li>
-								</ul>
-
-								<ul class="list margin-top width-1-3-lg">
-									<li>
-										Default text
-										<span class="list-secondary-text">Secondary text</span>
-									</li>
-									<li>
-										Multi-line secondary text
-										<span class="list-secondary-text wrap-text">
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-											dolore magna aliqua.
-										</span>
-									</li>
-								</ul>
-							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list list-disc&quot;&gt;
-										&lt;li&gt;
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list list-disc">
+										<li>
 											Main text
-											&lt;span class=&quot;list-secondary-text&quot;&gt;Secondary text&lt;/span&gt;
-										&lt;/li&gt;
-										&lt;li&gt;
+											<span class="list-secondary-text">Secondary text</span>
+										</li>
+										<li>
 											Main text
-											&lt;span class=&quot;list-secondary-text nowrap&quot;&gt;Secondary text wrapped&lt;/span&gt;
-										&lt;/li&gt;
-									&lt;/ul&gt;
+											<span class="list-secondary-text nowrap">Secondary text wrapped</span>
+										</li>
+									</ul>
 
-									&lt;ul class=&quot;list margin-top width-1-3-lg&quot;&gt;
-										&lt;li&gt;
+									<ul class="list margin-top width-1-3-lg">
+										<li>
 											Default text
-											&lt;span class=&quot;list-secondary-text&quot;&gt;Secondary text&lt;/span&gt;
-										&lt;/li&gt;
-										&lt;li&gt;
+											<span class="list-secondary-text">Secondary text</span>
+										</li>
+										<li>
 											Multi-line secondary text
-											&lt;span class=&quot;list-secondary-text wrap-text&quot;&gt;
+											<span class="list-secondary-text wrap-text">
 												Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
 												dolore magna aliqua.
-											&lt;/span&gt;
-										&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
+											</span>
+										</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list list-disc&quot;&gt;
+											&lt;li&gt;
+												Main text
+												&lt;span class=&quot;list-secondary-text&quot;&gt;Secondary text&lt;/span&gt;
+											&lt;/li&gt;
+											&lt;li&gt;
+												Main text
+												&lt;span class=&quot;list-secondary-text nowrap&quot;&gt;Secondary text wrapped&lt;/span&gt;
+											&lt;/li&gt;
+										&lt;/ul&gt;
+
+										&lt;ul class=&quot;list margin-top width-1-3-lg&quot;&gt;
+											&lt;li&gt;
+												Default text
+												&lt;span class=&quot;list-secondary-text&quot;&gt;Secondary text&lt;/span&gt;
+											&lt;/li&gt;
+											&lt;li&gt;
+												Multi-line secondary text
+												&lt;span class=&quot;list-secondary-text wrap-text&quot;&gt;
+													Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+													dolore magna aliqua.
+												&lt;/span&gt;
+											&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>List Group with Addon and Body</h2>
-					<p>Use <code>.list-group</code> to structure list items with optional <code>.list-addon</code> for icons, avatars, or
-						controls, and <code>.list-body</code> for titles and descriptions. By default <code>.list-body</code> wrapps. Add <code>.no-wrap</code> to prevent wrapping</p>
+						<h2>List Group with Addon and Body</h2>
+						<p>Use <code>.list-group</code> to structure list items with optional <code>.list-addon</code> for icons, avatars, or
+							controls, and <code>.list-body</code> for titles and descriptions. By default <code>.list-body</code> wrapps. Add <code>.no-wrap</code> to prevent wrapping</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list">
-									<li class="list-group">
-										<div class="list-addon">
-											<img src="/assets/images/avatars/avatar.png" alt="Alice" class="avatar">
-										</div>
-										<div class="list-body">
-											<h4 class="list-title">Alice Johnson</h4>
-											<p class="list-description">Frontend developer, UI/UX enthusiast.</p>
-										</div>
-									</li>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list">
+										<li class="list-group">
+											<div class="list-addon">
+												<img src="/assets/images/avatars/avatar.png" alt="Alice" class="avatar">
+											</div>
+											<div class="list-body">
+												<h4 class="list-title">Alice Johnson</h4>
+												<p class="list-description">Frontend developer, UI/UX enthusiast.</p>
+											</div>
+										</li>
 
-									<li class="list-group">
-										<div class="list-addon">
-											<span class="icon">★</span>
-										</div>
-										<div class="list-body">
-											<h4 class="list-title">Starred Item</h4>
-											<p class="list-description">An example with an icon instead of an avatar.</p>
-										</div>
-									</li>
+										<li class="list-group">
+											<div class="list-addon">
+												<span class="icon">★</span>
+											</div>
+											<div class="list-body">
+												<h4 class="list-title">Starred Item</h4>
+												<p class="list-description">An example with an icon instead of an avatar.</p>
+											</div>
+										</li>
 
-									<li class="list-group">
-										<div class="list-addon">
-											<input type="checkbox" aria-label="Select Charlie">
-										</div>
-										<div class="list-body">
-											<h4 class="list-title">Charlie</h4>
-											<p class="list-description">Product manager, loves clean documentation.</p>
-										</div>
-									</li>
-								</ul>
+										<li class="list-group">
+											<div class="list-addon">
+												<input type="checkbox" aria-label="Select Charlie">
+											</div>
+											<div class="list-body">
+												<h4 class="list-title">Charlie</h4>
+												<p class="list-description">Product manager, loves clean documentation.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list&quot;&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; alt=&quot;Alice&quot; class=&quot;avatar&quot;&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;h4 class=&quot;list-title&quot;&gt;Alice Johnson&lt;/h4&gt;
+													&lt;p class=&quot;list-description&quot;&gt;Frontend developer, UI/UX enthusiast.&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;span class=&quot;icon&quot;&gt;★&lt;/span&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;h4 class=&quot;list-title&quot;&gt;Starred Item&lt;/h4&gt;
+													&lt;p class=&quot;list-description&quot;&gt;An example with an icon instead of an avatar.&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;input type=&quot;checkbox&quot; aria-label=&quot;Select Charlie&quot;&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;h4 class=&quot;list-title&quot;&gt;Charlie&lt;/h4&gt;
+													&lt;p class=&quot;list-description&quot;&gt;Product manager, loves clean documentation.&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list&quot;&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; alt=&quot;Alice&quot; class=&quot;avatar&quot;&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;h4 class=&quot;list-title&quot;&gt;Alice Johnson&lt;/h4&gt;
-												&lt;p class=&quot;list-description&quot;&gt;Frontend developer, UI/UX enthusiast.&lt;/p&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;span class=&quot;icon&quot;&gt;★&lt;/span&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;h4 class=&quot;list-title&quot;&gt;Starred Item&lt;/h4&gt;
-												&lt;p class=&quot;list-description&quot;&gt;An example with an icon instead of an avatar.&lt;/p&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;input type=&quot;checkbox&quot; aria-label=&quot;Select Charlie&quot;&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;h4 class=&quot;list-title&quot;&gt;Charlie&lt;/h4&gt;
-												&lt;p class=&quot;list-description&quot;&gt;Product manager, loves clean documentation.&lt;/p&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Horizontal List</h2>
-					<p>Apply the <code>.list-horizontal</code> class to a <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> element to display its items in a horizontal row. Optional modifier classes can control alignment and spacing.</p>
+						<h2>Horizontal List</h2>
+						<p>Apply the <code>.list-horizontal</code> class to a <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> element to display its items in a horizontal row. Optional modifier classes can control alignment and spacing.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list-horizontal">
-									<li>Home</li>
-									<li>About</li>
-									<li>Contact</li>
-								</ul>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list-horizontal">
+										<li>Home</li>
+										<li>About</li>
+										<li>Contact</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list-horizontal&quot;&gt;
+											&lt;li&gt;Home&lt;/li&gt;
+											&lt;li&gt;About&lt;/li&gt;
+											&lt;li&gt;Contact&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list-horizontal&quot;&gt;
-										&lt;li&gt;Home&lt;/li&gt;
-										&lt;li&gt;About&lt;/li&gt;
-										&lt;li&gt;Contact&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Horizontal List (with bullets)</h2>
-					<p>Apply the <code>.list-horizontal</code> class along with the <code>.with-bullets</code> modifier to a <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> element to display its items in a horizontal row with bullets.</p>
+						<h2>Horizontal List (with bullets)</h2>
+						<p>Apply the <code>.list-horizontal</code> class along with the <code>.with-bullets</code> modifier to a <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> element to display its items in a horizontal row with bullets.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list-horizontal with-bullets">
-									<li>Apples</li>
-									<li>Oranges</li>
-									<li>Bananas</li>
-								</ul>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list-horizontal with-bullets">
+										<li>Apples</li>
+										<li>Oranges</li>
+										<li>Bananas</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list-horizontal with-bullets&quot;&gt;
+											&lt;li&gt;Apples&lt;/li&gt;
+											&lt;li&gt;Oranges&lt;/li&gt;
+											&lt;li&gt;Bananas&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list-horizontal with-bullets&quot;&gt;
-										&lt;li&gt;Apples&lt;/li&gt;
-										&lt;li&gt;Oranges&lt;/li&gt;
-										&lt;li&gt;Bananas&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Horizontal List (with numbers)</h2>
-					<p>Apply the <code>.list-horizontal</code> class along with the <code>.with-numbers</code> modifier to a <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> element to display its items in a horizontal row with numbered markers.</p>
+						<h2>Horizontal List (with numbers)</h2>
+						<p>Apply the <code>.list-horizontal</code> class along with the <code>.with-numbers</code> modifier to a <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> element to display its items in a horizontal row with numbered markers.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list-horizontal with-numbers">
-									<li>Step One</li>
-									<li>Step Two</li>
-									<li>Step Three</li>
-								</ul>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list-horizontal with-numbers">
+										<li>Step One</li>
+										<li>Step Two</li>
+										<li>Step Three</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list-horizontal with-numbers&quot;&gt;
+											&lt;li&gt;Step One&lt;/li&gt;
+											&lt;li&gt;Step Two&lt;/li&gt;
+											&lt;li&gt;Step Three&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list-horizontal with-numbers&quot;&gt;
-										&lt;li&gt;Step One&lt;/li&gt;
-										&lt;li&gt;Step Two&lt;/li&gt;
-										&lt;li&gt;Step Three&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Horizontal List (pills)</h2>
-					<p>Apply the <code>.list-horizontal</code> class along with the <code>.pills</code> modifier to a <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> element to display its items as inline pill-shaped badges.</p>
+						<h2>Horizontal List (pills)</h2>
+						<p>Apply the <code>.list-horizontal</code> class along with the <code>.pills</code> modifier to a <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> element to display its items as inline pill-shaped badges.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list-horizontal pills">
-									<li>Pill Text</li>
-									<li>Pill Text</li>
-									<li>Pill Text</li>
-								</ul>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list-horizontal pills">
+										<li>Pill Text</li>
+										<li>Pill Text</li>
+										<li>Pill Text</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list-horizontal pills&quot;&gt;
+											&lt;li&gt;Pill Text&lt;/li&gt;
+											&lt;li&gt;Pill Text&lt;/li&gt;
+											&lt;li&gt;Pill Text&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list-horizontal pills&quot;&gt;
-										&lt;li&gt;Pill Text&lt;/li&gt;
-										&lt;li&gt;Pill Text&lt;/li&gt;
-										&lt;li&gt;Pill Text&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Numbered List Component</h2>
-					<p>Apply the <code>.list-numbered</code> class to a <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> element to display its items with numbered circular markers. Optional modifier classes can control spacing, alignment, and layout.</p>
+						<h2>Numbered List Component</h2>
+						<p>Apply the <code>.list-numbered</code> class to a <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> element to display its items with numbered circular markers. Optional modifier classes can control spacing, alignment, and layout.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list-numbered flex-col margin-bottom">
-									<li>Step One</li>
-									<li>Step Two</li>
-									<li>Step Three</li>
-								</ul>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list-numbered flex-col margin-bottom">
+										<li>Step One</li>
+										<li>Step Two</li>
+										<li>Step Three</li>
+									</ul>
 
-								<hr>
+									<hr>
 
-								<ul class="list-numbered margin-bottom">
-									<li>Step One</li>
-									<li>Step Two</li>
-									<li>Step Three</li>
-								</ul>
+									<ul class="list-numbered margin-bottom">
+										<li>Step One</li>
+										<li>Step Two</li>
+										<li>Step Three</li>
+									</ul>
 
-								<hr>
+									<hr>
 
-								<ul class="list-numbered split">
-									<li style="--list-marker-bg: #2173ba; --list-marker-color:white">Step One</li>
-									<li>Step Two</li>
-									<li style="--list-marker-bg: #c24400; --list-marker-color:white">Step Three</li>
-									<li style="--list-marker-bg: #8b0a03; --list-marker-color:white">Step Four</li>
-								</ul>
+									<ul class="list-numbered split">
+										<li style="--list-marker-bg: #2173ba; --list-marker-color:white">Step One</li>
+										<li>Step Two</li>
+										<li style="--list-marker-bg: #c24400; --list-marker-color:white">Step Three</li>
+										<li style="--list-marker-bg: #8b0a03; --list-marker-color:white">Step Four</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list-numbered flex-col margin-bottom&quot;&gt;
+											&lt;li&gt;Step One&lt;/li&gt;
+											&lt;li&gt;Step Two&lt;/li&gt;
+											&lt;li&gt;Step Three&lt;/li&gt;
+										&lt;/ul&gt;
+
+										&lt;hr&gt;
+
+										&lt;ul class=&quot;list-numbered margin-bottom&quot;&gt;
+											&lt;li&gt;Step One&lt;/li&gt;
+											&lt;li&gt;Step Two&lt;/li&gt;
+											&lt;li&gt;Step Three&lt;/li&gt;
+										&lt;/ul&gt;
+
+										&lt;hr&gt;
+
+										&lt;ul class=&quot;list-numbered split&quot;&gt;
+											&lt;li style=&quot;--list-marker-bg: #2173ba; --list-marker-color:white&quot;&gt;Step One&lt;/li&gt;
+											&lt;li&gt;Step Two&lt;/li&gt;
+											&lt;li style=&quot;--list-marker-bg: #c24400; --list-marker-color:white&quot;&gt;Step Three&lt;/li&gt;
+											&lt;li style=&quot;--list-marker-bg: #8b0a03; --list-marker-color:white&quot;&gt;Step Four&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list-numbered flex-col margin-bottom&quot;&gt;
-										&lt;li&gt;Step One&lt;/li&gt;
-										&lt;li&gt;Step Two&lt;/li&gt;
-										&lt;li&gt;Step Three&lt;/li&gt;
-									&lt;/ul&gt;
-
-									&lt;hr&gt;
-
-									&lt;ul class=&quot;list-numbered margin-bottom&quot;&gt;
-										&lt;li&gt;Step One&lt;/li&gt;
-										&lt;li&gt;Step Two&lt;/li&gt;
-										&lt;li&gt;Step Three&lt;/li&gt;
-									&lt;/ul&gt;
-
-									&lt;hr&gt;
-
-									&lt;ul class=&quot;list-numbered split&quot;&gt;
-										&lt;li style=&quot;--list-marker-bg: #2173ba; --list-marker-color:white&quot;&gt;Step One&lt;/li&gt;
-										&lt;li&gt;Step Two&lt;/li&gt;
-										&lt;li style=&quot;--list-marker-bg: #c24400; --list-marker-color:white&quot;&gt;Step Three&lt;/li&gt;
-										&lt;li style=&quot;--list-marker-bg: #8b0a03; --list-marker-color:white&quot;&gt;Step Four&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Ordered (Numbered) List Component</h2>
-					<p>
-						Apply the <code>.list-ordered</code> class to an <code>&lt;ol&gt;</code> element to render items with custom circular number markers powered by CSS counters. 
-						The component supports structured header and content blocks, theme-aware design tokens, and per-item customization via CSS custom properties.
-					</p>
+						<h2>Ordered (Numbered) List Component</h2>
+						<p>
+							Apply the <code>.list-ordered</code> class to an <code>&lt;ol&gt;</code> element to render items with custom circular number markers powered by CSS counters. 
+							The component supports structured header and content blocks, theme-aware design tokens, and per-item customization via CSS custom properties.
+						</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ol class="list-ordered">
-									<li style="--marker-bg: #2173ba">
-										<div class="header">Header 1</div>
-										<div class="content">
-											Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.
-										</div>
-									</li>
-
-									<li style="--marker-bg: #f2c94c; --marker-color: #000">
-										<div class="header">Header 2</div>
-										<div class="content">
-											Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.
-										</div>
-									</li>
-
-									<li style="--marker-bg: #eb5757">
-										<div class="header">Header 3</div>
-										<div class="content">
-											Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.
-										</div>
-									</li>
-
-									<li style="--marker-bg: #8b0000">
-										<div class="header">Header 4</div>
-										<div class="content">
-											Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.
-										</div>
-									</li>
-								</ol>
-							</div>
-							<div>
-								<pre><code>
-									&lt;ol class=&quot;list-ordered&quot;&gt;
-										&lt;li style=&quot;--marker-bg: #2173ba&quot;&gt;
-											&lt;div class=&quot;header&quot;&gt;Header 1&lt;/div&gt;
-											&lt;div class=&quot;content&quot;&gt;
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ol class="list-ordered">
+										<li style="--marker-bg: #2173ba">
+											<div class="header">Header 1</div>
+											<div class="content">
 												Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.
-											&lt;/div&gt;
-										&lt;/li&gt;
+											</div>
+										</li>
 
-										&lt;li style=&quot;--marker-bg: #f2c94c; --marker-color: #000&quot;&gt;
-											&lt;div class=&quot;header&quot;&gt;Header 2&lt;/div&gt;
-											&lt;div class=&quot;content&quot;&gt;
+										<li style="--marker-bg: #f2c94c; --marker-color: #000">
+											<div class="header">Header 2</div>
+											<div class="content">
 												Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.
-											&lt;/div&gt;
-										&lt;/li&gt;
+											</div>
+										</li>
 
-										&lt;li style=&quot;--marker-bg: #eb5757&quot;&gt;
-											&lt;div class=&quot;header&quot;&gt;Header 3&lt;/div&gt;
-											&lt;div class=&quot;content&quot;&gt;
+										<li style="--marker-bg: #eb5757">
+											<div class="header">Header 3</div>
+											<div class="content">
 												Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.
-											&lt;/div&gt;
-										&lt;/li&gt;
+											</div>
+										</li>
 
-										&lt;li style=&quot;--marker-bg: #8b0000&quot;&gt;
-											&lt;div class=&quot;header&quot;&gt;Header 4&lt;/div&gt;
-											&lt;div class=&quot;content&quot;&gt;
+										<li style="--marker-bg: #8b0000">
+											<div class="header">Header 4</div>
+											<div class="content">
 												Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.
-											&lt;/div&gt;
-										&lt;/li&gt;
-									&lt;/ol&gt;
-								</code></pre>
+											</div>
+										</li>
+									</ol>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ol class=&quot;list-ordered&quot;&gt;
+											&lt;li style=&quot;--marker-bg: #2173ba&quot;&gt;
+												&lt;div class=&quot;header&quot;&gt;Header 1&lt;/div&gt;
+												&lt;div class=&quot;content&quot;&gt;
+													Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.
+												&lt;/div&gt;
+											&lt;/li&gt;
+
+											&lt;li style=&quot;--marker-bg: #f2c94c; --marker-color: #000&quot;&gt;
+												&lt;div class=&quot;header&quot;&gt;Header 2&lt;/div&gt;
+												&lt;div class=&quot;content&quot;&gt;
+													Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.
+												&lt;/div&gt;
+											&lt;/li&gt;
+
+											&lt;li style=&quot;--marker-bg: #eb5757&quot;&gt;
+												&lt;div class=&quot;header&quot;&gt;Header 3&lt;/div&gt;
+												&lt;div class=&quot;content&quot;&gt;
+													Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.
+												&lt;/div&gt;
+											&lt;/li&gt;
+
+											&lt;li style=&quot;--marker-bg: #8b0000&quot;&gt;
+												&lt;div class=&quot;header&quot;&gt;Header 4&lt;/div&gt;
+												&lt;div class=&quot;content&quot;&gt;
+													Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.
+												&lt;/div&gt;
+											&lt;/li&gt;
+										&lt;/ol&gt;
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h4>Examples</h4>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list width-1-2-md">
-									<li class="list-group">
-										<div class="list-addon">
-											<div class="avatar-wrapper">
-												<img src="/assets/images/avatars/avatar.png" class="avatar">
-											</div>
-										</div>
-										<div class="list-body overflow-hidden">
-											<div class="flex flex-middle">
-												<div class="flex-1 text-truncate">
-													<p class="margin-remove text-semibold">User Name</p>
-													<span class="list-secondary-text">Lorem ipsum dolor sit.</span>
-												</div>
-												<div>
-													<input class="checkbox" type="checkbox">
-												</div>
-											</div>
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon">
-											<div class="avatar-wrapper">
-												<img src="/assets/images/avatars/avatar.png" class="avatar">
-											</div>
-										</div>
-										<div class="list-body overflow-hidden">
-											<p class="margin-remove text-semibold">User Name</p>
-											<span class="list-secondary-text text-truncate">Lorem ipsum dolor sit.</span>
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon">
-											<div class="avatar-wrapper">
-												<img src="/assets/images/avatars/avatar.png" class="avatar">
-											</div>
-										</div>
-										<div class="list-body overflow-hidden">
-											<p class="margin-remove text-semibold">User Name</p>
-											<span class="list-secondary-text text-truncate">Lorem ipsum dolor sit.</span>
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon">
-											<div class="avatar-wrapper">
-												<img src="/assets/images/avatars/avatar.png" class="avatar">
-											</div>
-										</div>
-										<div class="list-body overflow-hidden">
-											<div class="flex flex-middle">
-												<div class="flex-1 text-truncate">
-													<p class="margin-remove text-semibold">User Name</p>
-													<span class="list-secondary-text">Lorem ipsum dolor sit.</span>
-												</div>
-												<div>
-													<input class="checkbox" type="checkbox">
+						<h4>Examples</h4>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list width-1-2-md">
+										<li class="list-group">
+											<div class="list-addon">
+												<div class="avatar-wrapper">
+													<img src="/assets/images/avatars/avatar.png" class="avatar">
 												</div>
 											</div>
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon">
-											<div class="avatar-wrapper">
-												<img src="/assets/images/avatars/avatar.png" class="avatar">
+											<div class="list-body overflow-hidden">
+												<div class="flex flex-middle">
+													<div class="flex-1 text-truncate">
+														<p class="margin-remove text-semibold">User Name</p>
+														<span class="list-secondary-text">Lorem ipsum dolor sit.</span>
+													</div>
+													<div>
+														<input class="checkbox" type="checkbox">
+													</div>
+												</div>
 											</div>
-										</div>
-										<div class="list-body overflow-hidden">
-											<p class="margin-remove text-semibold">User Name</p>
-											<span class="list-secondary-text">Lorem ipsum dolor sit.</span>
-										</div>
-									</li>
-								</ul>
+										</li>
+										<li class="list-group">
+											<div class="list-addon">
+												<div class="avatar-wrapper">
+													<img src="/assets/images/avatars/avatar.png" class="avatar">
+												</div>
+											</div>
+											<div class="list-body overflow-hidden">
+												<p class="margin-remove text-semibold">User Name</p>
+												<span class="list-secondary-text text-truncate">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="list-group">
+											<div class="list-addon">
+												<div class="avatar-wrapper">
+													<img src="/assets/images/avatars/avatar.png" class="avatar">
+												</div>
+											</div>
+											<div class="list-body overflow-hidden">
+												<p class="margin-remove text-semibold">User Name</p>
+												<span class="list-secondary-text text-truncate">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="list-group">
+											<div class="list-addon">
+												<div class="avatar-wrapper">
+													<img src="/assets/images/avatars/avatar.png" class="avatar">
+												</div>
+											</div>
+											<div class="list-body overflow-hidden">
+												<div class="flex flex-middle">
+													<div class="flex-1 text-truncate">
+														<p class="margin-remove text-semibold">User Name</p>
+														<span class="list-secondary-text">Lorem ipsum dolor sit.</span>
+													</div>
+													<div>
+														<input class="checkbox" type="checkbox">
+													</div>
+												</div>
+											</div>
+										</li>
+										<li class="list-group">
+											<div class="list-addon">
+												<div class="avatar-wrapper">
+													<img src="/assets/images/avatars/avatar.png" class="avatar">
+												</div>
+											</div>
+											<div class="list-body overflow-hidden">
+												<p class="margin-remove text-semibold">User Name</p>
+												<span class="list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list width-1-2-md&quot;&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;div class=&quot;avatar-wrapper&quot;&gt;
+														&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body overflow-hidden&quot;&gt;
+													&lt;div class=&quot;flex flex-middle&quot;&gt;
+														&lt;div class=&quot;flex-1 text-truncate&quot;&gt;
+															&lt;p class=&quot;margin-remove text-semibold&quot;&gt;User Name&lt;/p&gt;
+															&lt;span class=&quot;list-secondary-text&quot;&gt;Lorem ipsum dolor sit.&lt;/span&gt;
+														&lt;/div&gt;
+														&lt;div&gt;
+															&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
+														&lt;/div&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;div class=&quot;avatar-wrapper&quot;&gt;
+														&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body overflow-hidden&quot;&gt;
+													&lt;p class=&quot;margin-remove text-semibold&quot;&gt;User Name&lt;/p&gt;
+													&lt;span class=&quot;list-secondary-text text-truncate&quot;&gt;Lorem ipsum dolor sit.&lt;/span&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;div class=&quot;avatar-wrapper&quot;&gt;
+														&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body overflow-hidden&quot;&gt;
+													&lt;p class=&quot;margin-remove text-semibold&quot;&gt;User Name&lt;/p&gt;
+													&lt;span class=&quot;list-secondary-text text-truncate&quot;&gt;Lorem ipsum dolor sit.&lt;/span&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;div class=&quot;avatar-wrapper&quot;&gt;
+														&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body overflow-hidden&quot;&gt;
+													&lt;div class=&quot;flex flex-middle&quot;&gt;
+														&lt;div class=&quot;flex-1 text-truncate&quot;&gt;
+															&lt;p class=&quot;margin-remove text-semibold&quot;&gt;User Name&lt;/p&gt;
+															&lt;span class=&quot;list-secondary-text&quot;&gt;Lorem ipsum dolor sit.&lt;/span&gt;
+														&lt;/div&gt;
+														&lt;div&gt;
+															&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
+														&lt;/div&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;div class=&quot;avatar-wrapper&quot;&gt;
+														&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body overflow-hidden&quot;&gt;
+													&lt;p class=&quot;margin-remove text-semibold&quot;&gt;User Name&lt;/p&gt;
+													&lt;span class=&quot;list-secondary-text&quot;&gt;Lorem ipsum dolor sit.&lt;/span&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list width-1-2-md&quot;&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;div class=&quot;avatar-wrapper&quot;&gt;
-													&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body overflow-hidden&quot;&gt;
-												&lt;div class=&quot;flex flex-middle&quot;&gt;
-													&lt;div class=&quot;flex-1 text-truncate&quot;&gt;
-														&lt;p class=&quot;margin-remove text-semibold&quot;&gt;User Name&lt;/p&gt;
-														&lt;span class=&quot;list-secondary-text&quot;&gt;Lorem ipsum dolor sit.&lt;/span&gt;
-													&lt;/div&gt;
-													&lt;div&gt;
-														&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
-													&lt;/div&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;div class=&quot;avatar-wrapper&quot;&gt;
-													&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body overflow-hidden&quot;&gt;
-												&lt;p class=&quot;margin-remove text-semibold&quot;&gt;User Name&lt;/p&gt;
-												&lt;span class=&quot;list-secondary-text text-truncate&quot;&gt;Lorem ipsum dolor sit.&lt;/span&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;div class=&quot;avatar-wrapper&quot;&gt;
-													&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body overflow-hidden&quot;&gt;
-												&lt;p class=&quot;margin-remove text-semibold&quot;&gt;User Name&lt;/p&gt;
-												&lt;span class=&quot;list-secondary-text text-truncate&quot;&gt;Lorem ipsum dolor sit.&lt;/span&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;div class=&quot;avatar-wrapper&quot;&gt;
-													&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body overflow-hidden&quot;&gt;
-												&lt;div class=&quot;flex flex-middle&quot;&gt;
-													&lt;div class=&quot;flex-1 text-truncate&quot;&gt;
-														&lt;p class=&quot;margin-remove text-semibold&quot;&gt;User Name&lt;/p&gt;
-														&lt;span class=&quot;list-secondary-text&quot;&gt;Lorem ipsum dolor sit.&lt;/span&gt;
-													&lt;/div&gt;
-													&lt;div&gt;
-														&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
-													&lt;/div&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;div class=&quot;avatar-wrapper&quot;&gt;
-													&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body overflow-hidden&quot;&gt;
-												&lt;p class=&quot;margin-remove text-semibold&quot;&gt;User Name&lt;/p&gt;
-												&lt;span class=&quot;list-secondary-text&quot;&gt;Lorem ipsum dolor sit.&lt;/span&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list list-divider width-1-2-md">
-									<li class="list-group">
-										<div class="list-addon">
-											<div class="avatar-wrapper">
-												<img src="/assets/images/avatars/avatar.png" class="avatar">
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list list-divider width-1-2-md">
+										<li class="list-group">
+											<div class="list-addon">
+												<div class="avatar-wrapper">
+													<img src="/assets/images/avatars/avatar.png" class="avatar">
+												</div>
 											</div>
-										</div>
-										<div class="list-body">
-											<div class="flex flex-middle items-center">
-												<div class="flex-1 text-truncate">
+											<div class="list-body">
+												<div class="flex flex-middle items-center">
+													<div class="flex-1 text-truncate">
+														<p class="margin-remove text-semibold text-truncate">User Name</p>
+														<span class="list-secondary-text">Lorem ipsum dolor sit.</span>
+													</div>
+													<div>
+														<span class="label label-danger">Label</span>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li class="list-group">
+											<div class="list-addon">
+												<div class="avatar-wrapper">
+													<img src="/assets/images/avatars/avatar.png" class="avatar">
+												</div>
+											</div>
+											<div class="list-body">
+												<div class="text-truncate margin-small-right">
 													<p class="margin-remove text-semibold text-truncate">User Name</p>
 													<span class="list-secondary-text">Lorem ipsum dolor sit.</span>
 												</div>
-												<div>
-													<span class="label label-danger">Label</span>
+											</div>
+										</li>
+										<li class="list-group">
+											<div class="list-addon">
+												<div class="avatar-wrapper">
+													<img src="/assets/images/avatars/avatar.png" class="avatar">
 												</div>
 											</div>
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon">
-											<div class="avatar-wrapper">
-												<img src="/assets/images/avatars/avatar.png" class="avatar">
+											<div class="list-body">
+												<div class="flex flex-middle items-center">
+													<div class="flex-1 text-truncate">
+														<p class="margin-remove text-semibold text-truncate">User Name</p>
+														<span class="list-secondary-text">Lorem ipsum dolor sit.</span>
+													</div>
+													<div>
+														<span class="label rounded">Label</span>
+													</div>
+												</div>
 											</div>
-										</div>
-										<div class="list-body">
-											<div class="text-truncate margin-small-right">
-												<p class="margin-remove text-semibold text-truncate">User Name</p>
-												<span class="list-secondary-text">Lorem ipsum dolor sit.</span>
+										</li>
+										<li class="list-group">
+											<div class="list-addon">
+												<div class="avatar-wrapper">
+													<img src="/assets/images/avatars/avatar.png" class="avatar">
+												</div>
 											</div>
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon">
-											<div class="avatar-wrapper">
-												<img src="/assets/images/avatars/avatar.png" class="avatar">
-											</div>
-										</div>
-										<div class="list-body">
-											<div class="flex flex-middle items-center">
-												<div class="flex-1 text-truncate">
+											<div class="list-body">
+												<div class="text-truncate margin-small-right">
 													<p class="margin-remove text-semibold text-truncate">User Name</p>
 													<span class="list-secondary-text">Lorem ipsum dolor sit.</span>
 												</div>
-												<div>
-													<span class="label rounded">Label</span>
+											</div>
+										</li>
+										<li class="list-group">
+											<div class="list-addon">
+												<div class="avatar-wrapper">
+													<img src="/assets/images/avatars/avatar.png" class="avatar">
 												</div>
 											</div>
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon">
-											<div class="avatar-wrapper">
-												<img src="/assets/images/avatars/avatar.png" class="avatar">
+											<div class="list-body">
+												<div class="text-truncate margin-small-right">
+													<p class="margin-remove text-semibold text-truncate">User Name</p>
+													<span class="list-secondary-text">Lorem ipsum dolor sit amet.</span>
+												</div>
 											</div>
-										</div>
-										<div class="list-body">
-											<div class="text-truncate margin-small-right">
-												<p class="margin-remove text-semibold text-truncate">User Name</p>
-												<span class="list-secondary-text">Lorem ipsum dolor sit.</span>
-											</div>
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon">
-											<div class="avatar-wrapper">
-												<img src="/assets/images/avatars/avatar.png" class="avatar">
-											</div>
-										</div>
-										<div class="list-body">
-											<div class="text-truncate margin-small-right">
-												<p class="margin-remove text-semibold text-truncate">User Name</p>
-												<span class="list-secondary-text">Lorem ipsum dolor sit amet.</span>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list list-divider width-1-2-md&quot;&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;div class=&quot;avatar-wrapper&quot;&gt;
-													&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
+										</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list list-divider width-1-2-md&quot;&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;div class=&quot;avatar-wrapper&quot;&gt;
+														&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
+													&lt;/div&gt;
 												&lt;/div&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;div class=&quot;flex flex-middle&quot;&gt;
-													&lt;div class=&quot;flex-1 text-truncate items-center&quot;&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;div class=&quot;flex flex-middle&quot;&gt;
+														&lt;div class=&quot;flex-1 text-truncate items-center&quot;&gt;
+															&lt;p class=&quot;margin-remove text-semibold text-truncate&quot;&gt;User Name&lt;/p&gt;
+															&lt;span class=&quot;list-secondary-text&quot;&gt;Lorem ipsum dolor sit.&lt;/span&gt;
+														&lt;/div&gt;
+														&lt;div&gt;
+															&lt;span class=&quot;label label-danger&quot;&gt;Label&lt;/span&gt;
+														&lt;/div&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;div class=&quot;avatar-wrapper&quot;&gt;
+														&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;div class=&quot;text-truncate margin-small-right&quot;&gt;
 														&lt;p class=&quot;margin-remove text-semibold text-truncate&quot;&gt;User Name&lt;/p&gt;
 														&lt;span class=&quot;list-secondary-text&quot;&gt;Lorem ipsum dolor sit.&lt;/span&gt;
 													&lt;/div&gt;
-													&lt;div&gt;
-														&lt;span class=&quot;label label-danger&quot;&gt;Label&lt;/span&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;div class=&quot;avatar-wrapper&quot;&gt;
+														&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
 													&lt;/div&gt;
 												&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;div class=&quot;avatar-wrapper&quot;&gt;
-													&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;div class=&quot;flex flex-middle&quot;&gt;
+														&lt;div class=&quot;flex-1 text-truncate items-center&quot;&gt;
+															&lt;p class=&quot;margin-remove text-semibold text-truncate&quot;&gt;User Name&lt;/p&gt;
+															&lt;span class=&quot;list-secondary-text&quot;&gt;Lorem ipsum dolor sit.&lt;/span&gt;
+														&lt;/div&gt;
+														&lt;div&gt;
+															&lt;span class=&quot;label rounded&quot;&gt;Label&lt;/span&gt;
+														&lt;/div&gt;
+													&lt;/div&gt;
 												&lt;/div&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;div class=&quot;text-truncate margin-small-right&quot;&gt;
-													&lt;p class=&quot;margin-remove text-semibold text-truncate&quot;&gt;User Name&lt;/p&gt;
-													&lt;span class=&quot;list-secondary-text&quot;&gt;Lorem ipsum dolor sit.&lt;/span&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;div class=&quot;avatar-wrapper&quot;&gt;
+														&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
+													&lt;/div&gt;
 												&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;div class=&quot;avatar-wrapper&quot;&gt;
-													&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;div class=&quot;flex flex-middle&quot;&gt;
-													&lt;div class=&quot;flex-1 text-truncate items-center&quot;&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;div class=&quot;text-truncate margin-small-right&quot;&gt;
 														&lt;p class=&quot;margin-remove text-semibold text-truncate&quot;&gt;User Name&lt;/p&gt;
 														&lt;span class=&quot;list-secondary-text&quot;&gt;Lorem ipsum dolor sit.&lt;/span&gt;
 													&lt;/div&gt;
-													&lt;div&gt;
-														&lt;span class=&quot;label rounded&quot;&gt;Label&lt;/span&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;div class=&quot;avatar-wrapper&quot;&gt;
+														&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
 													&lt;/div&gt;
 												&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;div class=&quot;avatar-wrapper&quot;&gt;
-													&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;div class=&quot;text-truncate margin-small-right&quot;&gt;
+														&lt;p class=&quot;margin-remove text-semibold text-truncate&quot;&gt;User Name&lt;/p&gt;
+														&lt;span class=&quot;list-secondary-text&quot;&gt;Lorem ipsum dolor sit amet.&lt;/span&gt;
+													&lt;/div&gt;
 												&lt;/div&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;div class=&quot;text-truncate margin-small-right&quot;&gt;
-													&lt;p class=&quot;margin-remove text-semibold text-truncate&quot;&gt;User Name&lt;/p&gt;
-													&lt;span class=&quot;list-secondary-text&quot;&gt;Lorem ipsum dolor sit.&lt;/span&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;div class=&quot;avatar-wrapper&quot;&gt;
-													&lt;img src=&quot;/assets/images/avatars/avatar.png&quot; class=&quot;avatar&quot;&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;div class=&quot;text-truncate margin-small-right&quot;&gt;
-													&lt;p class=&quot;margin-remove text-semibold text-truncate&quot;&gt;User Name&lt;/p&gt;
-													&lt;span class=&quot;list-secondary-text&quot;&gt;Lorem ipsum dolor sit amet.&lt;/span&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
+											&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-	
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list width-1-2-md">
-									<li class="list-group">
-										<div class="list-addon">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M180-204.62V-250h72.31v-315.92q0-81.24 49.31-144.89 49.3-63.65 128.38-78.92V-810q0-20.83 14.57-35.42Q459.14-860 479.95-860q20.82 0 35.43 14.58Q530-830.83 530-810v20.46q79.08 15.08 128.38 78.73 49.31 63.65 49.31 144.89V-250H780v45.38H180Zm300-294.69Zm-.07 407q-29.85 0-51.04-21.24-21.2-21.24-21.2-51.07h144.62q0 29.93-21.26 51.12-21.26 21.19-51.12 21.19ZM297.69-250h364.62v-315.92q0-75.77-53.27-129.04-53.27-53.27-129.04-53.27-75.77 0-129.04 53.27-53.27 53.27-53.27 129.04V-250Z"/></svg>
-										</div>
-										<div class="list-body">
-											<div class="flex flex-middle">
-												<div class="flex-1 text-truncate items-center">
-													<label class="text-large text-truncate">Bell</label>
-												</div>
-												<div>
-													<input type="checkbox" class="switch-input" id="switch-css">
-													<label for="switch-css" class="switch-label"></label>
+		
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list width-1-2-md">
+										<li class="list-group">
+											<div class="list-addon">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M180-204.62V-250h72.31v-315.92q0-81.24 49.31-144.89 49.3-63.65 128.38-78.92V-810q0-20.83 14.57-35.42Q459.14-860 479.95-860q20.82 0 35.43 14.58Q530-830.83 530-810v20.46q79.08 15.08 128.38 78.73 49.31 63.65 49.31 144.89V-250H780v45.38H180Zm300-294.69Zm-.07 407q-29.85 0-51.04-21.24-21.2-21.24-21.2-51.07h144.62q0 29.93-21.26 51.12-21.26 21.19-51.12 21.19ZM297.69-250h364.62v-315.92q0-75.77-53.27-129.04-53.27-53.27-129.04-53.27-75.77 0-129.04 53.27-53.27 53.27-53.27 129.04V-250Z"/></svg>
+											</div>
+											<div class="list-body">
+												<div class="flex flex-middle">
+													<div class="flex-1 text-truncate items-center">
+														<label class="text-large text-truncate">Bell</label>
+													</div>
+													<div>
+														<input type="checkbox" class="switch-input" id="switch-css">
+														<label for="switch-css" class="switch-label"></label>
+													</div>
 												</div>
 											</div>
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M232-253.08q59.92-41.3 119.23-64.03 59.31-22.74 128.77-22.74 69.46 0 129.08 22.74 59.61 22.73 119.53 64.03 43.62-50.53 64.81-106.72 21.19-56.19 21.19-120.2 0-141.54-96.53-238.08-96.54-96.53-238.08-96.53-141.54 0-238.08 96.53-96.53 96.54-96.53 238.08 0 64.01 21.5 120.2T232-253.08Zm247.78-204.23q-53.93 0-90.74-37.02-36.81-37.03-36.81-90.96 0-53.94 37.03-90.75 37.02-36.81 90.96-36.81 53.93 0 90.74 37.03 36.81 37.02 36.81 90.96 0 53.94-37.03 90.74-37.02 36.81-90.96 36.81Zm.69 357.31q-79.01 0-148.24-29.77-69.24-29.77-120.96-81.58-51.73-51.8-81.5-120.72-29.77-68.92-29.77-148T129.77-628q29.77-68.85 81.58-120.65 51.8-51.81 120.72-81.58 68.92-29.77 148-29.77T628-830.23q68.85 29.77 120.65 81.58 51.81 51.8 81.58 120.68Q860-559.09 860-480.47q0 79.01-29.77 148.24-29.77 69.24-81.58 120.96-51.8 51.73-120.68 81.5Q559.09-100 480.47-100Zm-.47-45.39q55.77 0 110-17.73t102.15-57.34q-47.92-35.23-101.5-54.62-53.57-19.38-110.65-19.38-57.08 0-110.85 19.19-53.77 19.19-100.92 54.81 47.54 39.61 101.77 57.34 54.23 17.73 110 17.73Zm.05-357.3q35.87 0 59.1-23.29 23.24-23.28 23.24-59.15t-23.29-59.1q-23.28-23.23-59.15-23.23t-59.1 23.28q-23.24 23.29-23.24 59.16t23.29 59.1q23.28 23.23 59.15 23.23Zm-.05-82.39Zm0 365.16Z"/></svg>
-										</div>
-										<div class="list-body">
-											<div class="flex flex-middle items-center">
-												<div class="flex-1">
-													<label class="text-large">Account</label>
-												</div>
-												<div>
-													<input class="checkbox" type="checkbox">
+										</li>
+										<li class="list-group">
+											<div class="list-addon">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M232-253.08q59.92-41.3 119.23-64.03 59.31-22.74 128.77-22.74 69.46 0 129.08 22.74 59.61 22.73 119.53 64.03 43.62-50.53 64.81-106.72 21.19-56.19 21.19-120.2 0-141.54-96.53-238.08-96.54-96.53-238.08-96.53-141.54 0-238.08 96.53-96.53 96.54-96.53 238.08 0 64.01 21.5 120.2T232-253.08Zm247.78-204.23q-53.93 0-90.74-37.02-36.81-37.03-36.81-90.96 0-53.94 37.03-90.75 37.02-36.81 90.96-36.81 53.93 0 90.74 37.03 36.81 37.02 36.81 90.96 0 53.94-37.03 90.74-37.02 36.81-90.96 36.81Zm.69 357.31q-79.01 0-148.24-29.77-69.24-29.77-120.96-81.58-51.73-51.8-81.5-120.72-29.77-68.92-29.77-148T129.77-628q29.77-68.85 81.58-120.65 51.8-51.81 120.72-81.58 68.92-29.77 148-29.77T628-830.23q68.85 29.77 120.65 81.58 51.81 51.8 81.58 120.68Q860-559.09 860-480.47q0 79.01-29.77 148.24-29.77 69.24-81.58 120.96-51.8 51.73-120.68 81.5Q559.09-100 480.47-100Zm-.47-45.39q55.77 0 110-17.73t102.15-57.34q-47.92-35.23-101.5-54.62-53.57-19.38-110.65-19.38-57.08 0-110.85 19.19-53.77 19.19-100.92 54.81 47.54 39.61 101.77 57.34 54.23 17.73 110 17.73Zm.05-357.3q35.87 0 59.1-23.29 23.24-23.28 23.24-59.15t-23.29-59.1q-23.28-23.23-59.15-23.23t-59.1 23.28q-23.24 23.29-23.24 59.16t23.29 59.1q23.28 23.23 59.15 23.23Zm-.05-82.39Zm0 365.16Z"/></svg>
+											</div>
+											<div class="list-body">
+												<div class="flex flex-middle items-center">
+													<div class="flex-1">
+														<label class="text-large">Account</label>
+													</div>
+													<div>
+														<input class="checkbox" type="checkbox">
+													</div>
 												</div>
 											</div>
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M250-409.39h294.92v-45.38H250v45.38Zm0-127.3h460v-45.39H250v45.39ZM250-664h460v-45.38H250V-664ZM100-118.46v-683.85q0-23.53 17.08-40.61T157.69-860h644.62q23.53 0 40.61 17.08T860-802.31v484.62q0 23.53-17.08 40.61T802.31-260H241.54L100-118.46Zm121.69-186.93h580.62q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-484.62q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H157.69q-4.61 0-8.46 3.84-3.84 3.85-3.84 8.46v577.69l76.3-80.77Zm-76.3 0v-509.22 509.22Z"/></svg>
-										</div>
-										<div class="list-body">
-											<div class="flex flex-middle items-center">
-												<div class="flex-1">
-													<label class="text-large">Chat</label>
-												</div>
-												<div>
-													<input class="checkbox" type="checkbox">
+										</li>
+										<li class="list-group">
+											<div class="list-addon">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M250-409.39h294.92v-45.38H250v45.38Zm0-127.3h460v-45.39H250v45.39ZM250-664h460v-45.38H250V-664ZM100-118.46v-683.85q0-23.53 17.08-40.61T157.69-860h644.62q23.53 0 40.61 17.08T860-802.31v484.62q0 23.53-17.08 40.61T802.31-260H241.54L100-118.46Zm121.69-186.93h580.62q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-484.62q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H157.69q-4.61 0-8.46 3.84-3.84 3.85-3.84 8.46v577.69l76.3-80.77Zm-76.3 0v-509.22 509.22Z"/></svg>
+											</div>
+											<div class="list-body">
+												<div class="flex flex-middle items-center">
+													<div class="flex-1">
+														<label class="text-large">Chat</label>
+													</div>
+													<div>
+														<input class="checkbox" type="checkbox">
+													</div>
 												</div>
 											</div>
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M253.31-180q-80.88 0-137.09-56.56Q60-293.12 60-373.69q0-74.39 49.54-129.62 49.54-55.23 122.46-62.23 11.92-81.69 77.58-145.04 65.65-63.34 148.34-63.34 18.23 0 31.81 10.42 13.58 10.42 13.58 27.65v304.77l87.23-87.61 32.61 33-142.53 142.15-142.16-142.15 32.62-33 86.84 87.61V-732q-82.92 6.38-135.19 70.69-52.27 64.31-52.27 139.69h-19.38q-60.05 0-102.87 42.62-42.82 42.62-42.82 105.69 0 63.08 43.84 105.5 43.85 42.42 104.18 42.42h494.51q44.23 0 75.46-31.29 31.23-31.29 31.23-75.27 0-43.97-31.23-75.2-31.23-31.23-75.59-31.23h-62.1v-83.24q0-62.99-29.92-110.38-29.92-47.38-77.69-75.61v-50q70.61 28.61 111.8 93.3 41.2 64.7 41.2 142.69v37.85h12.3q65.47-2.38 111.04 41Q900-399.38 900-332.08q0 62.46-44.81 107.27Q810.38-180 747.92-180H253.31ZM480-500.46Z"/></svg>
-										</div>
-										<div class="list-body">
-											<div class="flex flex-middle items-center">
-												<div class="flex-1">
-													<label class="text-large text-wrap">Download</label>
-												</div>
-												<div>
-													<input class="checkbox" type="checkbox">
+										</li>
+										<li class="list-group">
+											<div class="list-addon">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M253.31-180q-80.88 0-137.09-56.56Q60-293.12 60-373.69q0-74.39 49.54-129.62 49.54-55.23 122.46-62.23 11.92-81.69 77.58-145.04 65.65-63.34 148.34-63.34 18.23 0 31.81 10.42 13.58 10.42 13.58 27.65v304.77l87.23-87.61 32.61 33-142.53 142.15-142.16-142.15 32.62-33 86.84 87.61V-732q-82.92 6.38-135.19 70.69-52.27 64.31-52.27 139.69h-19.38q-60.05 0-102.87 42.62-42.82 42.62-42.82 105.69 0 63.08 43.84 105.5 43.85 42.42 104.18 42.42h494.51q44.23 0 75.46-31.29 31.23-31.29 31.23-75.27 0-43.97-31.23-75.2-31.23-31.23-75.59-31.23h-62.1v-83.24q0-62.99-29.92-110.38-29.92-47.38-77.69-75.61v-50q70.61 28.61 111.8 93.3 41.2 64.7 41.2 142.69v37.85h12.3q65.47-2.38 111.04 41Q900-399.38 900-332.08q0 62.46-44.81 107.27Q810.38-180 747.92-180H253.31ZM480-500.46Z"/></svg>
+											</div>
+											<div class="list-body">
+												<div class="flex flex-middle items-center">
+													<div class="flex-1">
+														<label class="text-large text-wrap">Download</label>
+													</div>
+													<div>
+														<input class="checkbox" type="checkbox">
+													</div>
 												</div>
 											</div>
-										</div>
-									</li>
-								</ul>
+										</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list width-1-2-md&quot;&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;div class=&quot;flex flex-middl items-center&quot;&gt;
+														&lt;div class=&quot;flex-1 text-truncate&quot;&gt;
+															&lt;label class=&quot;text-large text-truncate&quot;&gt;Bell&lt;/label&gt;
+														&lt;/div&gt;
+														&lt;div&gt;
+															&lt;input type=&quot;checkbox&quot; class=&quot;switch-input&quot; id=&quot;switch-css&quot;&gt;
+															&lt;label for=&quot;switch-css&quot; class=&quot;switch-label&quot;&gt;&lt;/label&gt;
+														&lt;/div&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;div class=&quot;flex flex-middle items-center&quot;&gt;
+														&lt;div class=&quot;flex-1&quot;&gt;
+															&lt;label class=&quot;text-large&quot;&gt;Account&lt;/label&gt;
+														&lt;/div&gt;
+														&lt;div&gt;
+															&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
+														&lt;/div&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;div class=&quot;flex flex-middle items-center&quot;&gt;
+														&lt;div class=&quot;flex-1&quot;&gt;
+															&lt;label class=&quot;text-large&quot;&gt;Chat&lt;/label&gt;
+														&lt;/div&gt;
+														&lt;div&gt;
+															&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
+														&lt;/div&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;div class=&quot;flex flex-middle items-center&quot;&gt;
+														&lt;div class=&quot;flex-1&quot;&gt;
+															&lt;label class=&quot;text-large text-wrap&quot;&gt;Download&lt;/label&gt;
+														&lt;/div&gt;
+														&lt;div&gt;
+															&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
+														&lt;/div&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list width-1-2-md&quot;&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;div class=&quot;flex flex-middl items-center&quot;&gt;
-													&lt;div class=&quot;flex-1 text-truncate&quot;&gt;
-														&lt;label class=&quot;text-large text-truncate&quot;&gt;Bell&lt;/label&gt;
-													&lt;/div&gt;
-													&lt;div&gt;
-														&lt;input type=&quot;checkbox&quot; class=&quot;switch-input&quot; id=&quot;switch-css&quot;&gt;
-														&lt;label for=&quot;switch-css&quot; class=&quot;switch-label&quot;&gt;&lt;/label&gt;
-													&lt;/div&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;div class=&quot;flex flex-middle items-center&quot;&gt;
-													&lt;div class=&quot;flex-1&quot;&gt;
-														&lt;label class=&quot;text-large&quot;&gt;Account&lt;/label&gt;
-													&lt;/div&gt;
-													&lt;div&gt;
-														&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
-													&lt;/div&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;div class=&quot;flex flex-middle items-center&quot;&gt;
-													&lt;div class=&quot;flex-1&quot;&gt;
-														&lt;label class=&quot;text-large&quot;&gt;Chat&lt;/label&gt;
-													&lt;/div&gt;
-													&lt;div&gt;
-														&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
-													&lt;/div&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;div class=&quot;flex flex-middle items-center&quot;&gt;
-													&lt;div class=&quot;flex-1&quot;&gt;
-														&lt;label class=&quot;text-large text-wrap&quot;&gt;Download&lt;/label&gt;
-													&lt;/div&gt;
-													&lt;div&gt;
-														&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
-													&lt;/div&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list list-divider width-1-2-md">
-									<li class="list-group">
-										<div class="list-addon"><input class="checkbox" type="checkbox"></div>
-										<div class="list-body">
-											<label class="text-truncate">Lorem ipsum dolor sit amet, consectetur.</label>
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon"><input class="checkbox" type="checkbox"></div>
-										<div class="list-body">
-											<label class="text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon"><input class="checkbox" type="checkbox"></div>
-										<div class="list-body">
-											<label class="text-wrap">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, optio?</label>
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon"><input class="checkbox" type="checkbox"></div>
-										<div class="list-body">
-											<label class="text-wrap">Lorem ipsum dolor sit amet, consectetur adipisicing.</label>
-										</div>
-									</li>
-								</ul>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list list-divider width-1-2-md">
+										<li class="list-group">
+											<div class="list-addon"><input class="checkbox" type="checkbox"></div>
+											<div class="list-body">
+												<label class="text-truncate">Lorem ipsum dolor sit amet, consectetur.</label>
+											</div>
+										</li>
+										<li class="list-group">
+											<div class="list-addon"><input class="checkbox" type="checkbox"></div>
+											<div class="list-body">
+												<label class="text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
+											</div>
+										</li>
+										<li class="list-group">
+											<div class="list-addon"><input class="checkbox" type="checkbox"></div>
+											<div class="list-body">
+												<label class="text-wrap">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, optio?</label>
+											</div>
+										</li>
+										<li class="list-group">
+											<div class="list-addon"><input class="checkbox" type="checkbox"></div>
+											<div class="list-body">
+												<label class="text-wrap">Lorem ipsum dolor sit amet, consectetur adipisicing.</label>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list list-divider width-1-2-md&quot;&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;label class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet, consectetur.&lt;/label&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;label class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/label&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;label class=&quot;text-wrap&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, optio?&lt;/label&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;label class=&quot;text-wrap&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing.&lt;/label&gt;
+												&lt;/div&gt;
+											&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list list-divider width-1-2-md&quot;&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;label class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet, consectetur.&lt;/label&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;label class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/label&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;label class=&quot;text-wrap&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, optio?&lt;/label&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;label class=&quot;text-wrap&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing.&lt;/label&gt;
-											&lt;/div&gt;
-										&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list list-divider width-1-2-md">
-									<li class="list-group">
-										<div class="list-body">
-											<label class="text-truncate">Lorem ipsum dolor sit amet, consectetur.</label>
-										</div>
-										<div class="list-addon"><input class="checkbox" type="checkbox"></div>
-									</li>
-									<li class="list-group">
-										<div class="list-body">
-											<label class="text-truncate">Lorem ipsum dolor sit.</label>
-										</div>
-										<div class="list-addon"><input class="checkbox" type="checkbox"></div>
-									</li>
-									<li class="list-group">
-										<div class="list-body">
-											<label class="text-truncate">Lorem ipsum dolor sit amet.</label>
-										</div>
-										<div class="list-addon"><input class="checkbox" type="checkbox"></div>
-									</li>
-									<li class="list-group">
-										<div class="list-body">
-											<label class="text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, repellendus?</label>
-										</div>
-										<div class="list-addon"><input class="checkbox" type="checkbox" checked></div>
-									</li>
-								</ul>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list list-divider width-1-2-md">
+										<li class="list-group">
+											<div class="list-body">
+												<label class="text-truncate">Lorem ipsum dolor sit amet, consectetur.</label>
+											</div>
+											<div class="list-addon"><input class="checkbox" type="checkbox"></div>
+										</li>
+										<li class="list-group">
+											<div class="list-body">
+												<label class="text-truncate">Lorem ipsum dolor sit.</label>
+											</div>
+											<div class="list-addon"><input class="checkbox" type="checkbox"></div>
+										</li>
+										<li class="list-group">
+											<div class="list-body">
+												<label class="text-truncate">Lorem ipsum dolor sit amet.</label>
+											</div>
+											<div class="list-addon"><input class="checkbox" type="checkbox"></div>
+										</li>
+										<li class="list-group">
+											<div class="list-body">
+												<label class="text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, repellendus?</label>
+											</div>
+											<div class="list-addon"><input class="checkbox" type="checkbox" checked></div>
+										</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list list-divider width-1-2-md&quot;&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;label class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet, consectetur.&lt;/label&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;label class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit.&lt;/label&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;label class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet.&lt;/label&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													&lt;label class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, repellendus?&lt;/label&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; checked&gt;&lt;/div&gt;
+											&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list list-divider width-1-2-md&quot;&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;label class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet, consectetur.&lt;/label&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;label class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit.&lt;/label&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;label class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet.&lt;/label&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
-												&lt;label class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, repellendus?&lt;/label&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; checked&gt;&lt;/div&gt;
-										&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-	
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list list-divider width-1-2-md">
-									<li class="list-group">
-										<div class="list-addon">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M459.54-290h45.38v-230h-45.38v230Zm20.44-294q11.52 0 19.39-7.56 7.86-7.57 7.86-19.05 0-11.95-7.85-19.9-7.85-7.95-19.36-7.95-11.9 0-19.58 7.95-7.67 7.95-7.67 19.9 0 11.48 7.85 19.05 7.85 7.56 19.36 7.56Zm.35 484q-78.95 0-147.89-29.92-68.95-29.92-120.76-81.71-51.81-51.79-81.75-120.78Q100-401.39 100-480.43q0-78.66 29.92-147.87 29.92-69.21 81.71-120.52 51.79-51.31 120.78-81.25Q401.39-860 480.43-860q78.66 0 147.87 29.92 69.21 29.92 120.52 81.21 51.31 51.29 81.25 120.63Q860-558.9 860-480.33q0 78.95-29.92 147.89-29.92 68.95-81.21 120.57-51.29 51.63-120.63 81.75Q558.9-100 480.33-100Zm.17-45.39q139.19 0 236.65-97.76 97.46-97.77 97.46-237.35 0-139.19-97.27-236.65-97.27-97.46-237.34-97.46-139.08 0-236.85 97.27-97.76 97.27-97.76 237.34 0 139.08 97.76 236.85 97.77 97.76 237.35 97.76ZM480-480Z"/></svg>
-										</div>
-										<div class="list-body">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, provident!
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M479.98-290.77q11.9 0 19.58-7.66 7.67-7.65 7.67-19.55t-7.66-19.58q-7.65-7.67-19.55-7.67t-19.58 7.65q-7.67 7.66-7.67 19.56 0 11.9 7.66 19.58 7.65 7.67 19.55 7.67Zm-20.44-141.08h45.38v-249.53h-45.38v249.53ZM480.33-100q-78.95 0-147.89-29.92-68.95-29.92-120.76-81.71-51.81-51.79-81.75-120.78Q100-401.39 100-480.43q0-78.66 29.92-147.87 29.92-69.21 81.71-120.52 51.79-51.31 120.78-81.25Q401.39-860 480.43-860q78.66 0 147.87 29.92 69.21 29.92 120.52 81.21 51.31 51.29 81.25 120.63Q860-558.9 860-480.33q0 78.95-29.92 147.89-29.92 68.95-81.21 120.57-51.29 51.63-120.63 81.75Q558.9-100 480.33-100Zm.17-45.39q139.19 0 236.65-97.76 97.46-97.77 97.46-237.35 0-139.19-97.27-236.65-97.27-97.46-237.34-97.46-139.08 0-236.85 97.27-97.76 97.27-97.76 237.34 0 139.08 97.76 236.85 97.77 97.76 237.35 97.76ZM480-480Z"/></svg>
-										</div>
-										<div class="list-body">
-											Lorem ipsum dolor sit amet, consectetur adipisicing.
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-292.15q11.88 0 20.37-8.49 8.48-8.48 8.48-20.17 0-11.69-8.48-20.17-8.49-8.48-20.37-8.48t-20.17 8.48q-8.29 8.48-8.29 20.17 0 11.69 8.29 20.17 8.29 8.49 20.17 8.49ZM457.31-420h45.38v-258h-45.38v258ZM338.46-140 140-338.28v-283.26L338.28-820h283.26L820-621.72v283.26L621.72-140H338.46Zm18.74-45.39h245.49L774.61-357.2v-245.49L602.8-774.61H357.31L185.39-602.8v245.49L357.2-185.39ZM480-480Z"/></svg>
-										</div>
-										<div class="list-body">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, veniam!
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M74.62-140 480-840l405.38 700H74.62Zm78.61-45.39h653.54L480-749.23 153.23-185.39Zm329.8-60.07q10.7 0 17.76-7.24 7.06-7.24 7.06-17.94 0-10.71-7.24-17.76-7.24-7.06-17.95-7.06-10.7 0-17.76 7.24-7.05 7.24-7.05 17.94 0 10.7 7.24 17.76 7.24 7.06 17.94 7.06Zm-22.88-97.92h45.39v-217.85h-45.39v217.85ZM480-467.31Z"/></svg>
-										</div>
-										<div class="list-body">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-										</div>
-									</li>
-									<li class="list-group">
-										<div class="list-addon">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-323.39 314.31-489.08l32.61-32.23 110.39 110V-780h45.38v368.69l110.39-110 32.61 32.23L480-323.39ZM237.69-180q-23.53 0-40.61-17.08T180-237.69V-363h45.39v125.31q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84h484.62q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46V-363H780v125.31q0 23.53-17.08 40.61T722.31-180H237.69Z"/></svg>
-										</div>
-										<div class="list-body">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid magnam quibusdam repellendus!
-										</div>
-									</li>
-								</ul>
-							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list list-divider width-1-2-md&quot;&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
+		
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list list-divider width-1-2-md">
+										<li class="list-group">
+											<div class="list-addon">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M459.54-290h45.38v-230h-45.38v230Zm20.44-294q11.52 0 19.39-7.56 7.86-7.57 7.86-19.05 0-11.95-7.85-19.9-7.85-7.95-19.36-7.95-11.9 0-19.58 7.95-7.67 7.95-7.67 19.9 0 11.48 7.85 19.05 7.85 7.56 19.36 7.56Zm.35 484q-78.95 0-147.89-29.92-68.95-29.92-120.76-81.71-51.81-51.79-81.75-120.78Q100-401.39 100-480.43q0-78.66 29.92-147.87 29.92-69.21 81.71-120.52 51.79-51.31 120.78-81.25Q401.39-860 480.43-860q78.66 0 147.87 29.92 69.21 29.92 120.52 81.21 51.31 51.29 81.25 120.63Q860-558.9 860-480.33q0 78.95-29.92 147.89-29.92 68.95-81.21 120.57-51.29 51.63-120.63 81.75Q558.9-100 480.33-100Zm.17-45.39q139.19 0 236.65-97.76 97.46-97.77 97.46-237.35 0-139.19-97.27-236.65-97.27-97.46-237.34-97.46-139.08 0-236.85 97.27-97.76 97.27-97.76 237.34 0 139.08 97.76 236.85 97.77 97.76 237.35 97.76ZM480-480Z"/></svg>
+											</div>
+											<div class="list-body">
 												Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, provident!
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
+											</div>
+										</li>
+										<li class="list-group">
+											<div class="list-addon">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M479.98-290.77q11.9 0 19.58-7.66 7.67-7.65 7.67-19.55t-7.66-19.58q-7.65-7.67-19.55-7.67t-19.58 7.65q-7.67 7.66-7.67 19.56 0 11.9 7.66 19.58 7.65 7.67 19.55 7.67Zm-20.44-141.08h45.38v-249.53h-45.38v249.53ZM480.33-100q-78.95 0-147.89-29.92-68.95-29.92-120.76-81.71-51.81-51.79-81.75-120.78Q100-401.39 100-480.43q0-78.66 29.92-147.87 29.92-69.21 81.71-120.52 51.79-51.31 120.78-81.25Q401.39-860 480.43-860q78.66 0 147.87 29.92 69.21 29.92 120.52 81.21 51.31 51.29 81.25 120.63Q860-558.9 860-480.33q0 78.95-29.92 147.89-29.92 68.95-81.21 120.57-51.29 51.63-120.63 81.75Q558.9-100 480.33-100Zm.17-45.39q139.19 0 236.65-97.76 97.46-97.77 97.46-237.35 0-139.19-97.27-236.65-97.27-97.46-237.34-97.46-139.08 0-236.85 97.27-97.76 97.27-97.76 237.34 0 139.08 97.76 236.85 97.77 97.76 237.35 97.76ZM480-480Z"/></svg>
+											</div>
+											<div class="list-body">
 												Lorem ipsum dolor sit amet, consectetur adipisicing.
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
+											</div>
+										</li>
+										<li class="list-group">
+											<div class="list-addon">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-292.15q11.88 0 20.37-8.49 8.48-8.48 8.48-20.17 0-11.69-8.48-20.17-8.49-8.48-20.37-8.48t-20.17 8.48q-8.29 8.48-8.29 20.17 0 11.69 8.29 20.17 8.29 8.49 20.17 8.49ZM457.31-420h45.38v-258h-45.38v258ZM338.46-140 140-338.28v-283.26L338.28-820h283.26L820-621.72v283.26L621.72-140H338.46Zm18.74-45.39h245.49L774.61-357.2v-245.49L602.8-774.61H357.31L185.39-602.8v245.49L357.2-185.39ZM480-480Z"/></svg>
+											</div>
+											<div class="list-body">
 												Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, veniam!
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
+											</div>
+										</li>
+										<li class="list-group">
+											<div class="list-addon">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M74.62-140 480-840l405.38 700H74.62Zm78.61-45.39h653.54L480-749.23 153.23-185.39Zm329.8-60.07q10.7 0 17.76-7.24 7.06-7.24 7.06-17.94 0-10.71-7.24-17.76-7.24-7.06-17.95-7.06-10.7 0-17.76 7.24-7.05 7.24-7.05 17.94 0 10.7 7.24 17.76 7.24 7.06 17.94 7.06Zm-22.88-97.92h45.39v-217.85h-45.39v217.85ZM480-467.31Z"/></svg>
+											</div>
+											<div class="list-body">
 												Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-											&lt;/div&gt;
-										&lt;/li&gt;
-										&lt;li class=&quot;list-group&quot;&gt;
-											&lt;div class=&quot;list-addon&quot;&gt;
-												&lt;svg&gt;&lt;/svg&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;list-body&quot;&gt;
+											</div>
+										</li>
+										<li class="list-group">
+											<div class="list-addon">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-323.39 314.31-489.08l32.61-32.23 110.39 110V-780h45.38v368.69l110.39-110 32.61 32.23L480-323.39ZM237.69-180q-23.53 0-40.61-17.08T180-237.69V-363h45.39v125.31q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84h484.62q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46V-363H780v125.31q0 23.53-17.08 40.61T722.31-180H237.69Z"/></svg>
+											</div>
+											<div class="list-body">
 												Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid magnam quibusdam repellendus!
-											&lt;/div&gt;
-										&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list list-divider width-1-2-md&quot;&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, provident!
+												&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													Lorem ipsum dolor sit amet, consectetur adipisicing.
+												&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, veniam!
+												&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+												&lt;/div&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;list-group&quot;&gt;
+												&lt;div class=&quot;list-addon&quot;&gt;
+													&lt;svg&gt;&lt;/svg&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;list-body&quot;&gt;
+													Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid magnam quibusdam repellendus!
+												&lt;/div&gt;
+											&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

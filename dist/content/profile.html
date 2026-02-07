@@ -309,166 +309,171 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-				  
-					<h1>Profile</h1>
-					<p class="text-lead">User profile component featuring a cover image, circular avatar, user info block, stats, and action buttons. Supports an editable state and adapts responsively to different screen sizes.</p>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+					
+						<h1>Profile</h1>
+						<p class="text-lead">User profile component featuring a cover image, circular avatar, user info block, stats, and action buttons. Supports an editable state and adapts responsively to different screen sizes.</p>
 
-					<hr>
+						<hr>
 
-					<h2>Example Usage</h2>
-					<p>Basic profile component structure with avatar, cover, info, stats, and action buttons:</p>
+						<h2>Example Usage</h2>
+						<p>Basic profile component structure with avatar, cover, info, stats, and action buttons:</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<section class="profile">
-									<div class="profile-cover">
-										<img src="/assets/images/cover.jpg" alt="Profile Cover">
-									</div>
-									<div class="profile-avatar animate-in">
-										<img src="/assets/images/avatars/profile.jpg" alt="User Avatar">
-									</div>
-									<div class="profile-info">
-										<h2 class="profile-name">Jane Doe</h2>
-										<div class="profile-username">@janedoe</div>
-										<p class="profile-about">Frontend developer passionate about UI/UX and open source.</p>
-										<div class="profile-actions">
-											<button class="follow-btn">Follow</button>
-											<button class="message-btn">Message</button>
-											<a href=#!" class="icon-action settings-icon" title="Settings">
-												<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m400.69-100-18.07-120.23q-20.54-7-44.23-20.35-23.7-13.34-40.85-28.27l-111.85 50.93-79.92-141.31 101.08-74.38q-2-10.54-2.89-23.01-.88-12.46-.88-23 0-10.15.88-22.61.89-12.46 2.89-24.16l-101.08-74.76 79.92-140.16 111.46 50.16q18.31-14.93 41.24-28.08 22.92-13.15 43.84-19.54L400.69-860h158.62l18.07 120.62q22.08 8.15 44.16 20.23 22.07 12.07 39.77 28l113.38-50.16 79.54 140.16-102.62 74.3q2.77 11.93 3.47 24 .69 12.08.69 22.85 0 10.38-.89 22.15-.88 11.77-3.27 24.47l102.23 74.15-79.92 141.31-112.61-51.31q-18.7 15.69-40.35 28.96-21.65 13.27-43.58 19.65L559.31-100H400.69Zm36.46-45.39h85.31L536.85-257q31.84-8 59.42-23.85 27.58-15.84 52.73-40.23l104.46 45.23 40-70.84L701-414.92q4-17.77 6.31-33.5 2.3-15.73 2.3-31.58 0-16.62-2-31.96-2-15.35-6.61-32.35l93.23-69-40-70.84-105.62 45.23q-21.07-23.69-50.84-41.77Q568-698.77 536.46-703l-13.61-111.61h-85.7l-13.23 111.23q-33.23 6.61-61.19 22.65t-52.11 41.42l-104.85-44.84-40 70.84 92.46 67.85q-4.38 15.84-6.69 32.15-2.31 16.31-2.31 33.69 0 16.62 2.31 32.54 2.31 15.93 6.31 32.16l-92.08 68.23 40 70.84 104.46-44.84q24 24.38 52.15 40.23 28.16 15.84 61.16 23.84l13.61 111.23Zm41.7-221.92q47.07 0 79.88-32.81 32.81-32.8 32.81-79.88t-32.81-79.88q-32.81-32.81-79.88-32.81-46.7 0-79.7 32.81-32.99 32.8-32.99 79.88t32.99 79.88q33 32.81 79.7 32.81ZM480-480Z"/></svg>
-											</a>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<section class="profile">
+										<div class="profile-cover">
+											<img src="/assets/images/cover.jpg" alt="Profile Cover">
 										</div>
-										<div class="profile-stats">
-											<div><strong>245</strong> Followers</div>
-											<div><strong>180</strong> Following</div>
-											<div><strong>37</strong> Posts</div>
+										<div class="profile-avatar animate-in">
+											<img src="/assets/images/avatars/profile.jpg" alt="User Avatar">
 										</div>
-									</div>
-								</section>
-							</div>
-							<div>
-								<pre><code>
-									&lt;section class=&quot;profile&quot;&gt;
-										&lt;div class=&quot;profile-cover&quot;&gt;
-											&lt;img src=&quot;/assets/images/cover.jpg&quot; alt=&quot;Profile Cover&quot;&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;profile-avatar animate-in&quot;&gt;
-											&lt;img src=&quot;/assets/images/avatars/profile.jpg&quot; alt=&quot;User Avatar&quot;&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;profile-info&quot;&gt;
-											&lt;h2 class=&quot;profile-name&quot;&gt;Jane Doe&lt;/h2&gt;
-											&lt;div class=&quot;profile-username&quot;&gt;@janedoe&lt;/div&gt;
-											&lt;p class=&quot;profile-about&quot;&gt;Frontend developer passionate about UI/UX and open source.&lt;/p&gt;
-											&lt;div class=&quot;profile-actions&quot;&gt;
-												&lt;button class=&quot;follow-btn&quot;&gt;Follow&lt;/button&gt;
-												&lt;button class=&quot;message-btn&quot;&gt;Message&lt;/button&gt;
-												&lt;a href=#!&quot; class=&quot;icon-action settings-icon&quot; title=&quot;Settings&quot;&gt;
-													&lt;svg class=&quot;icon&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;m400.69-100-18.07-120.23q-20.54-7-44.23-20.35-23.7-13.34-40.85-28.27l-111.85 50.93-79.92-141.31 101.08-74.38q-2-10.54-2.89-23.01-.88-12.46-.88-23 0-10.15.88-22.61.89-12.46 2.89-24.16l-101.08-74.76 79.92-140.16 111.46 50.16q18.31-14.93 41.24-28.08 22.92-13.15 43.84-19.54L400.69-860h158.62l18.07 120.62q22.08 8.15 44.16 20.23 22.07 12.07 39.77 28l113.38-50.16 79.54 140.16-102.62 74.3q2.77 11.93 3.47 24 .69 12.08.69 22.85 0 10.38-.89 22.15-.88 11.77-3.27 24.47l102.23 74.15-79.92 141.31-112.61-51.31q-18.7 15.69-40.35 28.96-21.65 13.27-43.58 19.65L559.31-100H400.69Zm36.46-45.39h85.31L536.85-257q31.84-8 59.42-23.85 27.58-15.84 52.73-40.23l104.46 45.23 40-70.84L701-414.92q4-17.77 6.31-33.5 2.3-15.73 2.3-31.58 0-16.62-2-31.96-2-15.35-6.61-32.35l93.23-69-40-70.84-105.62 45.23q-21.07-23.69-50.84-41.77Q568-698.77 536.46-703l-13.61-111.61h-85.7l-13.23 111.23q-33.23 6.61-61.19 22.65t-52.11 41.42l-104.85-44.84-40 70.84 92.46 67.85q-4.38 15.84-6.69 32.15-2.31 16.31-2.31 33.69 0 16.62 2.31 32.54 2.31 15.93 6.31 32.16l-92.08 68.23 40 70.84 104.46-44.84q24 24.38 52.15 40.23 28.16 15.84 61.16 23.84l13.61 111.23Zm41.7-221.92q47.07 0 79.88-32.81 32.81-32.8 32.81-79.88t-32.81-79.88q-32.81-32.81-79.88-32.81-46.7 0-79.7 32.81-32.99 32.8-32.99 79.88t32.99 79.88q33 32.81 79.7 32.81ZM480-480Z&quot;/&gt;&lt;/svg&gt;
-												&lt;/a&gt;
+										<div class="profile-info">
+											<h2 class="profile-name">Jane Doe</h2>
+											<div class="profile-username">@janedoe</div>
+											<p class="profile-about">Frontend developer passionate about UI/UX and open source.</p>
+											<div class="profile-actions">
+												<button class="follow-btn">Follow</button>
+												<button class="message-btn">Message</button>
+												<a href=#!" class="icon-action settings-icon" title="Settings">
+													<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m400.69-100-18.07-120.23q-20.54-7-44.23-20.35-23.7-13.34-40.85-28.27l-111.85 50.93-79.92-141.31 101.08-74.38q-2-10.54-2.89-23.01-.88-12.46-.88-23 0-10.15.88-22.61.89-12.46 2.89-24.16l-101.08-74.76 79.92-140.16 111.46 50.16q18.31-14.93 41.24-28.08 22.92-13.15 43.84-19.54L400.69-860h158.62l18.07 120.62q22.08 8.15 44.16 20.23 22.07 12.07 39.77 28l113.38-50.16 79.54 140.16-102.62 74.3q2.77 11.93 3.47 24 .69 12.08.69 22.85 0 10.38-.89 22.15-.88 11.77-3.27 24.47l102.23 74.15-79.92 141.31-112.61-51.31q-18.7 15.69-40.35 28.96-21.65 13.27-43.58 19.65L559.31-100H400.69Zm36.46-45.39h85.31L536.85-257q31.84-8 59.42-23.85 27.58-15.84 52.73-40.23l104.46 45.23 40-70.84L701-414.92q4-17.77 6.31-33.5 2.3-15.73 2.3-31.58 0-16.62-2-31.96-2-15.35-6.61-32.35l93.23-69-40-70.84-105.62 45.23q-21.07-23.69-50.84-41.77Q568-698.77 536.46-703l-13.61-111.61h-85.7l-13.23 111.23q-33.23 6.61-61.19 22.65t-52.11 41.42l-104.85-44.84-40 70.84 92.46 67.85q-4.38 15.84-6.69 32.15-2.31 16.31-2.31 33.69 0 16.62 2.31 32.54 2.31 15.93 6.31 32.16l-92.08 68.23 40 70.84 104.46-44.84q24 24.38 52.15 40.23 28.16 15.84 61.16 23.84l13.61 111.23Zm41.7-221.92q47.07 0 79.88-32.81 32.81-32.8 32.81-79.88t-32.81-79.88q-32.81-32.81-79.88-32.81-46.7 0-79.7 32.81-32.99 32.8-32.99 79.88t32.99 79.88q33 32.81 79.7 32.81ZM480-480Z"/></svg>
+												</a>
+											</div>
+											<div class="profile-stats">
+												<div><strong>245</strong> Followers</div>
+												<div><strong>180</strong> Following</div>
+												<div><strong>37</strong> Posts</div>
+											</div>
+										</div>
+									</section>
+								</div>
+								<div>
+									<pre><code>
+										&lt;section class=&quot;profile&quot;&gt;
+											&lt;div class=&quot;profile-cover&quot;&gt;
+												&lt;img src=&quot;/assets/images/cover.jpg&quot; alt=&quot;Profile Cover&quot;&gt;
 											&lt;/div&gt;
-											&lt;div class=&quot;profile-stats&quot;&gt;
-												&lt;div&gt;&lt;strong&gt;245&lt;/strong&gt; Followers&lt;/div&gt;
-												&lt;div&gt;&lt;strong&gt;180&lt;/strong&gt; Following&lt;/div&gt;
-												&lt;div&gt;&lt;strong&gt;37&lt;/strong&gt; Posts&lt;/div&gt;
+											&lt;div class=&quot;profile-avatar animate-in&quot;&gt;
+												&lt;img src=&quot;/assets/images/avatars/profile.jpg&quot; alt=&quot;User Avatar&quot;&gt;
 											&lt;/div&gt;
-										&lt;/div&gt;
-									&lt;/section&gt;
-								</code></pre>
+											&lt;div class=&quot;profile-info&quot;&gt;
+												&lt;h2 class=&quot;profile-name&quot;&gt;Jane Doe&lt;/h2&gt;
+												&lt;div class=&quot;profile-username&quot;&gt;@janedoe&lt;/div&gt;
+												&lt;p class=&quot;profile-about&quot;&gt;Frontend developer passionate about UI/UX and open source.&lt;/p&gt;
+												&lt;div class=&quot;profile-actions&quot;&gt;
+													&lt;button class=&quot;follow-btn&quot;&gt;Follow&lt;/button&gt;
+													&lt;button class=&quot;message-btn&quot;&gt;Message&lt;/button&gt;
+													&lt;a href=#!&quot; class=&quot;icon-action settings-icon&quot; title=&quot;Settings&quot;&gt;
+														&lt;svg class=&quot;icon&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;m400.69-100-18.07-120.23q-20.54-7-44.23-20.35-23.7-13.34-40.85-28.27l-111.85 50.93-79.92-141.31 101.08-74.38q-2-10.54-2.89-23.01-.88-12.46-.88-23 0-10.15.88-22.61.89-12.46 2.89-24.16l-101.08-74.76 79.92-140.16 111.46 50.16q18.31-14.93 41.24-28.08 22.92-13.15 43.84-19.54L400.69-860h158.62l18.07 120.62q22.08 8.15 44.16 20.23 22.07 12.07 39.77 28l113.38-50.16 79.54 140.16-102.62 74.3q2.77 11.93 3.47 24 .69 12.08.69 22.85 0 10.38-.89 22.15-.88 11.77-3.27 24.47l102.23 74.15-79.92 141.31-112.61-51.31q-18.7 15.69-40.35 28.96-21.65 13.27-43.58 19.65L559.31-100H400.69Zm36.46-45.39h85.31L536.85-257q31.84-8 59.42-23.85 27.58-15.84 52.73-40.23l104.46 45.23 40-70.84L701-414.92q4-17.77 6.31-33.5 2.3-15.73 2.3-31.58 0-16.62-2-31.96-2-15.35-6.61-32.35l93.23-69-40-70.84-105.62 45.23q-21.07-23.69-50.84-41.77Q568-698.77 536.46-703l-13.61-111.61h-85.7l-13.23 111.23q-33.23 6.61-61.19 22.65t-52.11 41.42l-104.85-44.84-40 70.84 92.46 67.85q-4.38 15.84-6.69 32.15-2.31 16.31-2.31 33.69 0 16.62 2.31 32.54 2.31 15.93 6.31 32.16l-92.08 68.23 40 70.84 104.46-44.84q24 24.38 52.15 40.23 28.16 15.84 61.16 23.84l13.61 111.23Zm41.7-221.92q47.07 0 79.88-32.81 32.81-32.8 32.81-79.88t-32.81-79.88q-32.81-32.81-79.88-32.81-46.7 0-79.7 32.81-32.99 32.8-32.99 79.88t32.99 79.88q33 32.81 79.7 32.81ZM480-480Z&quot;/&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;profile-stats&quot;&gt;
+													&lt;div&gt;&lt;strong&gt;245&lt;/strong&gt; Followers&lt;/div&gt;
+													&lt;div&gt;&lt;strong&gt;180&lt;/strong&gt; Following&lt;/div&gt;
+													&lt;div&gt;&lt;strong&gt;37&lt;/strong&gt; Posts&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/section&gt;
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+											<path
+												d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z" />
+										</svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-										<path
-											d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z" />
-									</svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Classes and Elements</h2>
-					<p>Overview of key classes used inside the Profile component:</p>
+						<h2>Classes and Elements</h2>
+						<p>Overview of key classes used inside the Profile component:</p>
 
-					<table class="table table-divider">
-						<thead>
-						<tr>
-							<th>Class</th>
-							<th>Description</th>
-						</tr>
-						</thead>
-						<tbody>
-						<tr>
-							<td><code>.profile</code></td>
-							<td>Main container for the profile component with theme tokens and positioning.</td>
-						</tr>
-						<tr>
-							<td><code>.profile-cover</code></td>
-							<td>Container for the cover image with fixed height and transition effects.</td>
-						</tr>
-						<tr>
-							<td><code>.profile-avatar</code></td>
-							<td>Circular user avatar, positioned overlapping the cover, with animation support.</td>
-						</tr>
-						<tr>
-							<td><code>.animate-in</code></td>
-							<td>Modifier for avatar to trigger fade and scale-in animation.</td>
-						</tr>
-						<tr>
-							<td><code>.is-editable</code></td>
-							<td>Modifier on <code>.profile</code> to switch the profile into editable mode, toggling action buttons.</td>
-						</tr>
-						<tr>
-							<td><code>.profile-info</code></td>
-							<td>Container for profile text info, stats, and action buttons.</td>
-						</tr>
-						<tr>
-							<td><code>.profile-name</code></td>
-							<td>User's display name styled prominently.</td>
-						</tr>
-						<tr>
-							<td><code>.profile-username</code></td>
-							<td>User's username styled with muted color.</td>
-						</tr>
-						<tr>
-							<td><code>.profile-about</code></td>
-							<td>Short biography or about text for the user.</td>
-						</tr>
-						<tr>
-							<td><code>.profile-stats</code></td>
-							<td>Flex container showing user statistics with spacing and muted color.</td>
-						</tr>
-						<tr>
-							<td><code>.profile-actions</code></td>
-							<td>Container for action buttons such as follow, edit, message, and more options.</td>
-						</tr>
-						<tr>
-							<td><code>.follow-btn</code></td>
-							<td>Follow button styled with primary blue color and hover effect.</td>
-						</tr>
-						<tr>
-							<td><code>.edit-btn</code>, <code>.message-btn</code></td>
-							<td>Buttons for editing profile or messaging, with border and hover background.</td>
-						</tr>
-						<tr>
-							<td><code>.more-btn</code></td>
-							<td>Small circular button for additional options, muted color with hover background.</td>
-						</tr>
-						</tbody>
-					</table>
+						<table class="table table-divider">
+							<thead>
+							<tr>
+								<th>Class</th>
+								<th>Description</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td><code>.profile</code></td>
+								<td>Main container for the profile component with theme tokens and positioning.</td>
+							</tr>
+							<tr>
+								<td><code>.profile-cover</code></td>
+								<td>Container for the cover image with fixed height and transition effects.</td>
+							</tr>
+							<tr>
+								<td><code>.profile-avatar</code></td>
+								<td>Circular user avatar, positioned overlapping the cover, with animation support.</td>
+							</tr>
+							<tr>
+								<td><code>.animate-in</code></td>
+								<td>Modifier for avatar to trigger fade and scale-in animation.</td>
+							</tr>
+							<tr>
+								<td><code>.is-editable</code></td>
+								<td>Modifier on <code>.profile</code> to switch the profile into editable mode, toggling action buttons.</td>
+							</tr>
+							<tr>
+								<td><code>.profile-info</code></td>
+								<td>Container for profile text info, stats, and action buttons.</td>
+							</tr>
+							<tr>
+								<td><code>.profile-name</code></td>
+								<td>User's display name styled prominently.</td>
+							</tr>
+							<tr>
+								<td><code>.profile-username</code></td>
+								<td>User's username styled with muted color.</td>
+							</tr>
+							<tr>
+								<td><code>.profile-about</code></td>
+								<td>Short biography or about text for the user.</td>
+							</tr>
+							<tr>
+								<td><code>.profile-stats</code></td>
+								<td>Flex container showing user statistics with spacing and muted color.</td>
+							</tr>
+							<tr>
+								<td><code>.profile-actions</code></td>
+								<td>Container for action buttons such as follow, edit, message, and more options.</td>
+							</tr>
+							<tr>
+								<td><code>.follow-btn</code></td>
+								<td>Follow button styled with primary blue color and hover effect.</td>
+							</tr>
+							<tr>
+								<td><code>.edit-btn</code>, <code>.message-btn</code></td>
+								<td>Buttons for editing profile or messaging, with border and hover background.</td>
+							</tr>
+							<tr>
+								<td><code>.more-btn</code></td>
+								<td>Small circular button for additional options, muted color with hover background.</td>
+							</tr>
+							</tbody>
+						</table>
 
+					</article>		
 				</div>
+
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

@@ -308,65 +308,69 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
 
-					<h1>Inline Utility</h1>
-					<p class="text-lead">A utility that allows block elements like images or videos to behave like inline containers with overlay and positioning support.</p>
-					
-					<hr>
+						<h1>Inline Utility</h1>
+						<p class="text-lead">A utility that allows block elements like images or videos to behave like inline containers with overlay and positioning support.</p>
+						
+						<hr>
 
-					<h2>Usage</h2>
-					<p>Apply <code>.inline</code> or its variants to media containers (e.g., images, videos, picture elements). It provides a responsive inline context with relative positioning and vertical alignment.</p>
+						<h2>Usage</h2>
+						<p>Apply <code>.inline</code> or its variants to media containers (e.g., images, videos, picture elements). It provides a responsive inline context with relative positioning and vertical alignment.</p>
 
-					<h3>Variants</h3>
+						<h3>Variants</h3>
 
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.inline</code></td>
-									<td>Base container (inline-block + positioning).</td>
-								</tr>
-								<tr>
-									<td><code>.inline-media</code></td>
-									<td>Alias for inline media usage</td>
-								</tr>
-								<tr>
-									<td><code>.has-overlay</code></td>
-									<td>Semantic flag for media blocks that contain overlays</td>
-								</tr>
-								<tr>
-									<td><code>.inline-flex</code></td>
-									<td>Inline container with flexbox layout</td>
-								</tr>
-								<tr>
-									<td><code>.inline-grid</code></td>
-									<td>Inline container with flexbox layout</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.inline</code></td>
+										<td>Base container (inline-block + positioning).</td>
+									</tr>
+									<tr>
+										<td><code>.inline-media</code></td>
+										<td>Alias for inline media usage</td>
+									</tr>
+									<tr>
+										<td><code>.has-overlay</code></td>
+										<td>Semantic flag for media blocks that contain overlays</td>
+									</tr>
+									<tr>
+										<td><code>.inline-flex</code></td>
+										<td>Inline container with flexbox layout</td>
+									</tr>
+									<tr>
+										<td><code>.inline-grid</code></td>
+										<td>Inline container with flexbox layout</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-					<h2>Best Practices</h2>
+						<h2>Best Practices</h2>
 
-					<ul>
-						<li>Always use <code>position: relative</code> when you plan to add overlay elements inside.</li>
-						<li>Keep media elements responsive by using <code>max-width: 100%</code>.</li>
-						<li>Use <code>object-fit: contain</code> for consistent aspect ratios and scaling.</li>
-					</ul>
+						<ul>
+							<li>Always use <code>position: relative</code> when you plan to add overlay elements inside.</li>
+							<li>Keep media elements responsive by using <code>max-width: 100%</code>.</li>
+							<li>Use <code>object-fit: contain</code> for consistent aspect ratios and scaling.</li>
+						</ul>
 
 
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

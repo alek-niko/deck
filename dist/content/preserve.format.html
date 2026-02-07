@@ -308,137 +308,141 @@
 				version: 0.9
 			</div>
 		</aside>
-			<main id="main">
+
+		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-				  
-					<h1>Preserve Format</h1>
-					<p>
-						The <code>.preserve-format</code> utility ensures user-generated text preserves
-						line breaks, spacing, and indentation. It is applied both to display blocks
-						(e.g., posts, comments) and to textareas for composition.
-						It uses <code>white-space: pre-wrap</code> and <code>overflow-wrap: break-word</code>
-						to mimic platforms like Twitter/X while preventing layout overflow.
-					</p>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+					
+						<h1>Preserve Format</h1>
+						<p>
+							The <code>.preserve-format</code> utility ensures user-generated text preserves
+							line breaks, spacing, and indentation. It is applied both to display blocks
+							(e.g., posts, comments) and to textareas for composition.
+							It uses <code>white-space: pre-wrap</code> and <code>overflow-wrap: break-word</code>
+							to mimic platforms like Twitter/X while preventing layout overflow.
+						</p>
 
-					<h2>Behavior</h2>
-					<ul>
-						<li>Preserves newlines and spacing (<code>white-space: pre-wrap</code>).</li>
-						<li>Breaks long unbreakable words to avoid overflow.</li>
-						<li>Respects <code>tab-size</code> via a theme token.</li>
-						<li>Applies consistent typography and colors using theme variables.</li>
-					</ul>
-
-					<h2>Class Reference</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.preserve-format</code></td>
-								<td>
-									Used on <code>&lt;div&gt;</code>, <code>&lt;section&gt;</code>, or other
-									block containers to render posts or comments with preserved formatting.
-									Adds optional padding, background, and border-radius for readability.
-								</td>
-							</tr>
-							<tr>
-								<td><code>textarea.preserve-format</code></td>
-								<td>
-									Used on <code>&lt;textarea&gt;</code> inputs for post or comment composition.
-									Inherits the same preserve-format styles but includes input-specific
-									enhancements such as full-width sizing, resize handles, focus states,
-									and muted background.
-								</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<h2>Post / Comment Display</h2>
-					<p>
-						Use <code>.preserve-format</code> on any block element that displays user content.
-					</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
+						<h2>Behavior</h2>
+						<ul>
+							<li>Preserves newlines and spacing (<code>white-space: pre-wrap</code>).</li>
+							<li>Breaks long unbreakable words to avoid overflow.</li>
+							<li>Respects <code>tab-size</code> via a theme token.</li>
+							<li>Applies consistent typography and colors using theme variables.</li>
 						</ul>
-						<div class="tab-content">
-							<div class="active">
-<div class="preserve-format">
-	This is a user's post.
 
-	It correctly preserves the newlines 
-	and    extra   spacing, thanks to 
-	"white-space: pre-wrap".
-</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;preserve-format&quot;&gt;
-										This is a user&apos;s post.
+						<h2>Class Reference</h2>
+						<table>
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.preserve-format</code></td>
+									<td>
+										Used on <code>&lt;div&gt;</code>, <code>&lt;section&gt;</code>, or other
+										block containers to render posts or comments with preserved formatting.
+										Adds optional padding, background, and border-radius for readability.
+									</td>
+								</tr>
+								<tr>
+									<td><code>textarea.preserve-format</code></td>
+									<td>
+										Used on <code>&lt;textarea&gt;</code> inputs for post or comment composition.
+										Inherits the same preserve-format styles but includes input-specific
+										enhancements such as full-width sizing, resize handles, focus states,
+										and muted background.
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<h2>Post / Comment Display</h2>
+						<p>
+							Use <code>.preserve-format</code> on any block element that displays user content.
+						</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="preserve-format">
+										This is a user's post.
 
 										It correctly preserves the newlines 
 										and    extra   spacing, thanks to 
-										&quot;white-space: pre-wrap&quot;.
-									&lt;/div&gt;
-								</code></pre>
+										"white-space: pre-wrap".
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;preserve-format&quot;&gt;
+											This is a user&apos;s post.
+
+											It correctly preserves the newlines 
+											and    extra   spacing, thanks to 
+											&quot;white-space: pre-wrap&quot;.
+										&lt;/div&gt;
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Composition Form</h2>
-					<p>
-						Use <code>textarea.preserve-format</code> for writing posts or comments.
-					</p>
+						<h2>Composition Form</h2>
+						<p>
+							Use <code>textarea.preserve-format</code> for writing posts or comments.
+						</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<textarea 
-									class="preserve-format" 
-									rows="5" 
-									placeholder="Compose your post..."
-								></textarea>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<textarea 
+										class="preserve-format" 
+										rows="5" 
+										placeholder="Compose your post..."
+									></textarea>
+								</div>
+								<div>
+									<pre><code>
+										&lt;textarea 
+											class=&quot;preserve-format&quot; 
+											rows=&quot;5&quot; 
+											placeholder=&quot;Compose your post...&quot;
+										&gt;&lt;/textarea&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;textarea 
-										class=&quot;preserve-format&quot; 
-										rows=&quot;5&quot; 
-										placeholder=&quot;Compose your post...&quot;
-									&gt;&lt;/textarea&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

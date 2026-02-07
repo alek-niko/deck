@@ -308,352 +308,356 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Overlay</h1>
-					<p class="text-lead">Create an image overlay, which comes in different styles.</p>
-					
-					<hr>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Overlay</h1>
+						<p class="text-lead">Create an image overlay, which comes in different styles.</p>
+						
+						<hr>
 
-					<h2>Usage</h2>
-					<p>Add the <code>.overlay</code> class to an element following an image to create the overlay panel. To create a position context, add the <code>.inline</code> class from the <a href="/deck/inline" target="_blank">Inline component</a> to a container element around both. Finally, add one of the <code>.position-*</code> classes from the <a href="/deck/position" target="_blank">Position component</a> to align the overlay.</p>
-					
-					<pre><code>
-						&lt;div class=&quot;inline&quot;&gt;
-							&lt;img src=&quot;/assets/images/image.webp&quot; width=&quot;1800&quot; height=&quot;1200&quot; alt&gt;
-							&lt;div class=&quot;overlay position-bottom dark&quot;&gt;
-								&lt;p&gt;Default Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+						<h2>Usage</h2>
+						<p>Add the <code>.overlay</code> class to an element following an image to create the overlay panel. To create a position context, add the <code>.inline</code> class from the <a href="/deck/inline" target="_blank">Inline component</a> to a container element around both. Finally, add one of the <code>.position-*</code> classes from the <a href="/deck/position" target="_blank">Position component</a> to align the overlay.</p>
+						
+						<pre><code>
+							&lt;div class=&quot;inline&quot;&gt;
+								&lt;img src=&quot;/assets/images/image.webp&quot; width=&quot;1800&quot; height=&quot;1200&quot; alt&gt;
+								&lt;div class=&quot;overlay position-bottom dark&quot;&gt;
+									&lt;p&gt;Default Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+								&lt;/div&gt;
 							&lt;/div&gt;
-						&lt;/div&gt;
-					</code></pre>
+						</code></pre>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>		
-						<div class="tab-content">
-							<div class="active">
-								<div class="overlay">
-									<p>This is a default overlay with semi-transparent white background.</p>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;overlay&quot;&gt;
-										&lt;p&gt;This is a default overlay with semi-transparent white background.&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<hr>
-
-					<h3>Primary</h3>
-					<p>Dark overlay with white text. Ideal for covering bright backgrounds like images or videos.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>		
-						<div class="tab-content">
-							<div class="active">
-								<div class="overlay overlay-primary">
-									<p>Overlay with dark background and white text.</p>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;overlay overlay-primary&quot;&gt;
-										&lt;p&gt;Overlay with dark background and white text.&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h3>Muted</h3>
-					<p>Semi-transparent overlay with low contrast. Use for subtle UI hints or disabled states.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>		
-						<div class="tab-content">
-							<div class="active">	
-								<div class="overlay overlay-muted">
-									<p>Muted overlay with lower contrast, for subtle emphasis.</p>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;overlay overlay-muted&quot;&gt;
-										&lt;p&gt;Muted overlay with lower contrast, for subtle emphasis.&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h3>Inverted</h3>
-					<p>Light overlay with dark text. Designed for use on dark backgrounds.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>		
-						<div class="tab-content">
-							<div class="active">	
-								<div class="overlay overlay-inverted">
-									<p>Light background with dark text – suitable for darkened backgrounds.</p>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;overlay overlay-inverted&quot;&gt;
-										&lt;p&gt;Light background with dark text – suitable for darkened backgrounds.&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Hover Overlay</h2>
-					<p>Overlay background and text colors shift on hover. Useful for CTA banners or interactive cards.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>		
-						<div class="tab-content">
-							<div class="active">
-								<div class="overlay overlay-primary overlay-hover">
-									<p>This overlay changes on hover for visual feedback.</p>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;overlay overlay-primary overlay-hover&quot;&gt;
-										&lt;p&gt;This overlay changes on hover for visual feedback.&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<hr>
-					<h2>Fade Animations</h2>
-
-					<h3>Fade-in</h3>
-					<p>Use this when overlays appear dynamically — for example, modals or lazy-loaded sections.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>		
-						<div class="tab-content">
-							<div class="active">
-								<div class="overlay overlay-primary overlay-fade-in">
-									<p>Fades in smoothly on load.</p>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;overlay overlay-primary overlay-fade-in&quot;&gt;
-										&lt;p&gt;Fades in smoothly on load.&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h3>Fade-out</h3>
-					<p>Apply this when removing an overlay with a smooth transition. Requires JavaScript to toggle class.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>		
-						<div class="tab-content">
-							<div class="active">
-								<div class="overlay overlay-primary overlay-fade-out">
-									<p>This will fade out if toggled dynamically.</p>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;overlay overlay-primary overlay-fade-out&quot;&gt;
-										&lt;p&gt;This will fade out if toggled dynamically.&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<hr>
-					<h2>Customizing with CSS Tokens</h2>
-					<p>You can override overlay styling using inline custom properties:</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>		
-						<div class="tab-content">
-							<div class="active">
-								<div class="overlay" style="--overlay-bg: rgba(255, 0, 0, 0.3); --overlay-color: white;">
-									<p>Custom red overlay via inline tokens.</p>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;overlay&quot; style=&quot;--overlay-bg: rgba(255, 0, 0, 0.3); --overlay-color: white;&quot;&gt;
-										&lt;p&gt;Custom red overlay via inline tokens.&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Default overlay</h2>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>		
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline">
-									<img src="/assets/images/photos/image2.webp" width="1800" height="1200" alt>
-									<div class="overlay position-bottom dark">
-										<p>Default Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>		
+							<div class="tab-content">
+								<div class="active">
+									<div class="overlay">
+										<p>This is a default overlay with semi-transparent white background.</p>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;inline&quot;&gt;
-										&lt;img src=&quot;/assets/images/photos/image2.webp&quot; width=&quot;1800&quot; height=&quot;1200&quot; alt&gt;
-										&lt;div class=&quot;overlay position-bottom dark&quot;&gt;
-											&lt;p&gt;Default Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;overlay&quot;&gt;
+											&lt;p&gt;This is a default overlay with semi-transparent white background.&lt;/p&gt;
 										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-				
-					<h2>Overlay icon</h2>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active"><a href="#!">Preview</a></li>
-							<li><a href="#!">Markup</a></li>
-						</ul>				
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline">
-									<img src="/assets/images/photos/image2.webp" width="1800" height="1200" alt="">
-									<div class="overlay position-cover">
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m480-147.54-31.77-28.92q-103.07-94.43-170.27-162.56-67.19-68.13-106.84-120.94-39.66-52.81-55.39-95.38Q100-597.9 100-640.69q0-82.3 55.5-137.8Q211-834 292.69-834q55.85 0 103.58 28.16Q444-777.69 480-724q40.46-55.92 86.83-82.96Q613.2-834 667.31-834q81.69 0 137.19 55.51 55.5 55.5 55.5 137.8 0 42.79-15.73 85.35-15.73 42.57-55.34 95.3-39.61 52.72-106.85 120.93-67.24 68.22-170.31 162.65L480-147.54Zm0-60.15q99.72-91.29 164.12-156.48 64.4-65.2 102.33-114.09 37.93-48.89 53.05-86.94 15.11-38.04 15.11-75.35 0-64.22-41.61-106.14-41.62-41.92-105.47-41.92-51.14 0-94.03 30.53-42.88 30.54-74.89 90.23h-37.84q-31.77-59.07-74.65-89.92-42.88-30.84-93.65-30.84-63.47 0-105.28 41.92-41.8 41.92-41.8 106.44 0 37.25 15.17 75.5 15.18 38.24 52.85 87.38 37.67 49.14 102.71 113.98 65.03 64.85 163.88 155.7Zm0-290.46Z"/></svg>
-									</div>
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;inline&quot;&gt;
-										&lt;img src=&quot;/assets/images/photos/image2.webp&quot; width=&quot;1800&quot; height=&quot;1200&quot; alt=&quot;&quot;&gt;
-										&lt;div class=&quot;overlay position-cover&quot;&gt;
-											&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;m480-147.54-31.77-28.92q-103.07-94.43-170.27-162.56-67.19-68.13-106.84-120.94-39.66-52.81-55.39-95.38Q100-597.9 100-640.69q0-82.3 55.5-137.8Q211-834 292.69-834q55.85 0 103.58 28.16Q444-777.69 480-724q40.46-55.92 86.83-82.96Q613.2-834 667.31-834q81.69 0 137.19 55.51 55.5 55.5 55.5 137.8 0 42.79-15.73 85.35-15.73 42.57-55.34 95.3-39.61 52.72-106.85 120.93-67.24 68.22-170.31 162.65L480-147.54Zm0-60.15q99.72-91.29 164.12-156.48 64.4-65.2 102.33-114.09 37.93-48.89 53.05-86.94 15.11-38.04 15.11-75.35 0-64.22-41.61-106.14-41.62-41.92-105.47-41.92-51.14 0-94.03 30.53-42.88 30.54-74.89 90.23h-37.84q-31.77-59.07-74.65-89.92-42.88-30.84-93.65-30.84-63.47 0-105.28 41.92-41.8 41.92-41.8 106.44 0 37.25 15.17 75.5 15.18 38.24 52.85 87.38 37.67 49.14 102.71 113.98 65.03 64.85 163.88 155.7Zm0-290.46Z&quot;/&gt;&lt;/svg&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
+						<hr>
+
+						<h3>Primary</h3>
+						<p>Dark overlay with white text. Ideal for covering bright backgrounds like images or videos.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>		
+							<div class="tab-content">
+								<div class="active">
+									<div class="overlay overlay-primary">
+										<p>Overlay with dark background and white text.</p>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;overlay overlay-primary&quot;&gt;
+											&lt;p&gt;Overlay with dark background and white text.&lt;/p&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h3>Muted</h3>
+						<p>Semi-transparent overlay with low contrast. Use for subtle UI hints or disabled states.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>		
+							<div class="tab-content">
+								<div class="active">	
+									<div class="overlay overlay-muted">
+										<p>Muted overlay with lower contrast, for subtle emphasis.</p>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;overlay overlay-muted&quot;&gt;
+											&lt;p&gt;Muted overlay with lower contrast, for subtle emphasis.&lt;/p&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h3>Inverted</h3>
+						<p>Light overlay with dark text. Designed for use on dark backgrounds.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>		
+							<div class="tab-content">
+								<div class="active">	
+									<div class="overlay overlay-inverted">
+										<p>Light background with dark text – suitable for darkened backgrounds.</p>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;overlay overlay-inverted&quot;&gt;
+											&lt;p&gt;Light background with dark text – suitable for darkened backgrounds.&lt;/p&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Hover Overlay</h2>
+						<p>Overlay background and text colors shift on hover. Useful for CTA banners or interactive cards.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>		
+							<div class="tab-content">
+								<div class="active">
+									<div class="overlay overlay-primary overlay-hover">
+										<p>This overlay changes on hover for visual feedback.</p>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;overlay overlay-primary overlay-hover&quot;&gt;
+											&lt;p&gt;This overlay changes on hover for visual feedback.&lt;/p&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<hr>
+						<h2>Fade Animations</h2>
+
+						<h3>Fade-in</h3>
+						<p>Use this when overlays appear dynamically — for example, modals or lazy-loaded sections.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>		
+							<div class="tab-content">
+								<div class="active">
+									<div class="overlay overlay-primary overlay-fade-in">
+										<p>Fades in smoothly on load.</p>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;overlay overlay-primary overlay-fade-in&quot;&gt;
+											&lt;p&gt;Fades in smoothly on load.&lt;/p&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h3>Fade-out</h3>
+						<p>Apply this when removing an overlay with a smooth transition. Requires JavaScript to toggle class.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>		
+							<div class="tab-content">
+								<div class="active">
+									<div class="overlay overlay-primary overlay-fade-out">
+										<p>This will fade out if toggled dynamically.</p>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;overlay overlay-primary overlay-fade-out&quot;&gt;
+											&lt;p&gt;This will fade out if toggled dynamically.&lt;/p&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<hr>
+						<h2>Customizing with CSS Tokens</h2>
+						<p>You can override overlay styling using inline custom properties:</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>		
+							<div class="tab-content">
+								<div class="active">
+									<div class="overlay" style="--overlay-bg: rgba(255, 0, 0, 0.3); --overlay-color: white;">
+										<p>Custom red overlay via inline tokens.</p>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;overlay&quot; style=&quot;--overlay-bg: rgba(255, 0, 0, 0.3); --overlay-color: white;&quot;&gt;
+											&lt;p&gt;Custom red overlay via inline tokens.&lt;/p&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Default overlay</h2>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>		
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline">
+										<img src="/assets/images/photos/image2.webp" width="1800" height="1200" alt>
+										<div class="overlay position-bottom dark">
+											<p>Default Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;img src=&quot;/assets/images/photos/image2.webp&quot; width=&quot;1800&quot; height=&quot;1200&quot; alt&gt;
+											&lt;div class=&quot;overlay position-bottom dark&quot;&gt;
+												&lt;p&gt;Default Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+					
+						<h2>Overlay icon</h2>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active"><a href="#!">Preview</a></li>
+								<li><a href="#!">Markup</a></li>
+							</ul>				
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline">
+										<img src="/assets/images/photos/image2.webp" width="1800" height="1200" alt="">
+										<div class="overlay position-cover">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m480-147.54-31.77-28.92q-103.07-94.43-170.27-162.56-67.19-68.13-106.84-120.94-39.66-52.81-55.39-95.38Q100-597.9 100-640.69q0-82.3 55.5-137.8Q211-834 292.69-834q55.85 0 103.58 28.16Q444-777.69 480-724q40.46-55.92 86.83-82.96Q613.2-834 667.31-834q81.69 0 137.19 55.51 55.5 55.5 55.5 137.8 0 42.79-15.73 85.35-15.73 42.57-55.34 95.3-39.61 52.72-106.85 120.93-67.24 68.22-170.31 162.65L480-147.54Zm0-60.15q99.72-91.29 164.12-156.48 64.4-65.2 102.33-114.09 37.93-48.89 53.05-86.94 15.11-38.04 15.11-75.35 0-64.22-41.61-106.14-41.62-41.92-105.47-41.92-51.14 0-94.03 30.53-42.88 30.54-74.89 90.23h-37.84q-31.77-59.07-74.65-89.92-42.88-30.84-93.65-30.84-63.47 0-105.28 41.92-41.8 41.92-41.8 106.44 0 37.25 15.17 75.5 15.18 38.24 52.85 87.38 37.67 49.14 102.71 113.98 65.03 64.85 163.88 155.7Zm0-290.46Z"/></svg>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;img src=&quot;/assets/images/photos/image2.webp&quot; width=&quot;1800&quot; height=&quot;1200&quot; alt=&quot;&quot;&gt;
+											&lt;div class=&quot;overlay position-cover&quot;&gt;
+												&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;m480-147.54-31.77-28.92q-103.07-94.43-170.27-162.56-67.19-68.13-106.84-120.94-39.66-52.81-55.39-95.38Q100-597.9 100-640.69q0-82.3 55.5-137.8Q211-834 292.69-834q55.85 0 103.58 28.16Q444-777.69 480-724q40.46-55.92 86.83-82.96Q613.2-834 667.31-834q81.69 0 137.19 55.51 55.5 55.5 55.5 137.8 0 42.79-15.73 85.35-15.73 42.57-55.34 95.3-39.61 52.72-106.85 120.93-67.24 68.22-170.31 162.65L480-147.54Zm0-60.15q99.72-91.29 164.12-156.48 64.4-65.2 102.33-114.09 37.93-48.89 53.05-86.94 15.11-38.04 15.11-75.35 0-64.22-41.61-106.14-41.62-41.92-105.47-41.92-51.14 0-94.03 30.53-42.88 30.54-74.89 90.23h-37.84q-31.77-59.07-74.65-89.92-42.88-30.84-93.65-30.84-63.47 0-105.28 41.92-41.8 41.92-41.8 106.44 0 37.25 15.17 75.5 15.18 38.24 52.85 87.38 37.67 49.14 102.71 113.98 65.03 64.85 163.88 155.7Zm0-290.46Z&quot;/&gt;&lt;/svg&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

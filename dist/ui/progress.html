@@ -308,142 +308,146 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Progress</h1>
-					<p class="text-lead">Defines progress bars that indicate how far along a process is.</p>
-					<hr>
-					<h2>Usage</h2>
-					<p>To apply this component, add the <code>.progress</code> class to a <code>&lt;progress&gt;</code> element.</p>
-					<div><pre><code>&lt;progress <span><span>class</span></span>=<span>"progress"</span> value=<span>""</span> max=<span>""</span>&gt;<span><span>&lt;/<span>progress</span>&gt;</span></span></code></pre></div>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Progress</h1>
+						<p class="text-lead">Defines progress bars that indicate how far along a process is.</p>
+						<hr>
+						<h2>Usage</h2>
+						<p>To apply this component, add the <code>.progress</code> class to a <code>&lt;progress&gt;</code> element.</p>
+						<div><pre><code>&lt;progress <span><span>class</span></span>=<span>"progress"</span> value=<span>""</span> max=<span>""</span>&gt;<span><span>&lt;/<span>progress</span>&gt;</span></span></code></pre></div>
 
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<progress id="js-progressbar-1" class="progress" value="10" max="100"></progress>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<progress id="js-progressbar-1" class="progress" value="10" max="100"></progress>
+								</div>
+								<div>
+									<pre><code>
+										&lt;progress id=&quot;js-progressbar-1&quot; class=&quot;progress&quot; value=&quot;10&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;progress id=&quot;js-progressbar-1&quot; class=&quot;progress&quot; value=&quot;10&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					code-tab
-					<h2>Available Tokens</h2>
+						code-tab
+						<h2>Available Tokens</h2>
 
-					<pre><code>
---progress-size
---progress-color
-					</code></pre>
-					
+						<pre><code>
+							--progress-size
+							--progress-color
+						</code></pre>
+						
 
-					code-tab
-	
-					<h4 class="heading-line"><span>Examples</span></h4>
+						code-tab
+		
+						<h4 class="heading-line"><span>Examples</span></h4>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<p class="color-secondary margin-small">Default</p>
-								<div class="progress margin-large-bottom">
-									<div class="progress-bar" style="width: 62%"></div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<p class="color-secondary margin-small">Default</p>
+									<div class="progress margin-large-bottom">
+										<div class="progress-bar" style="width: 62%"></div>
+									</div>
+									<p class="color-secondary margin-small">Green</p>
+									<div class="progress margin-large-bottom">
+										<div class="progress-bar color-green" style="width: 62%"></div>
+									</div>
+									<p class="color-secondary margin-small">Orange</p>
+									<div class="progress margin-large-bottom">
+										<div class="progress-bar color-orange" style="width: 62%"></div>
+									</div>
+									<p class="color-secondary margin-small">Red</p>
+									<div class="progress margin-large-bottom">
+										<div class="progress-bar color-red" style="width: 62%"></div>
+									</div>
+									<p class="color-secondary margin-small">Small</p>
+									<div class="progress progress-small margin-large-bottom">
+										<div class="progress-bar color-red" style="width: 21%"></div>
+									</div>
+									<p class="color-secondary margin-small">Group</p>
+									<div class="progress progress-small margin-large-bottom progress-group">
+										<div class="progress-bar color-red" style="width: 15%"></div>
+										<div class="progress-bar color-orange" style="width: 25%"></div>
+										<div class="progress-bar color-green" style="width: 30%"></div>
+									</div>
+									<div class="progress progress-small margin-large-bottom">
+										<span class="progress-label text-center">Progress Label</span>
+										<div class="progress-bar" style="width: 21%"></div>
+									</div>
+									<p class="color-secondary margin-small">Indeterminate</p>
+									<div class="progress progress-small margin-large-bottom progress-indeterminate">
+										<div class="progress-bar"></div>
+									</div>
+									<p class="color-secondary margin-small">Dynamic progress</p>
+									<div class="progress progress-small margin-large-bottom js-progress">
+										<div class="progress-bar color-red" style="width: 12%"></div>
+									</div>
 								</div>
-								<p class="color-secondary margin-small">Green</p>
-								<div class="progress margin-large-bottom">
-									<div class="progress-bar color-green" style="width: 62%"></div>
-								</div>
-								<p class="color-secondary margin-small">Orange</p>
-								<div class="progress margin-large-bottom">
-									<div class="progress-bar color-orange" style="width: 62%"></div>
-								</div>
-								<p class="color-secondary margin-small">Red</p>
-								<div class="progress margin-large-bottom">
-									<div class="progress-bar color-red" style="width: 62%"></div>
-								</div>
-								<p class="color-secondary margin-small">Small</p>
-								<div class="progress progress-small margin-large-bottom">
-									<div class="progress-bar color-red" style="width: 21%"></div>
-								</div>
-								<p class="color-secondary margin-small">Group</p>
-								<div class="progress progress-small margin-large-bottom progress-group">
-									<div class="progress-bar color-red" style="width: 15%"></div>
-									<div class="progress-bar color-orange" style="width: 25%"></div>
-									<div class="progress-bar color-green" style="width: 30%"></div>
-								</div>
-								<div class="progress progress-small margin-large-bottom">
-									<span class="progress-label text-center">Progress Label</span>
-									<div class="progress-bar" style="width: 21%"></div>
-								</div>
-								<p class="color-secondary margin-small">Indeterminate</p>
-								<div class="progress progress-small margin-large-bottom progress-indeterminate">
-									<div class="progress-bar"></div>
-								</div>
-								<p class="color-secondary margin-small">Dynamic progress</p>
-								<div class="progress progress-small margin-large-bottom js-progress">
-									<div class="progress-bar color-red" style="width: 12%"></div>
+								<div>
+									<pre><code>
+										&lt;p class=&quot;color-secondary margin-small&quot;&gt;Default&lt;/p&gt;
+										&lt;div class=&quot;progress margin-large-bottom&quot;&gt;
+											&lt;div class=&quot;progress-bar color-bg-green-400&quot; style=&quot;width: 62%&quot;&gt;&lt;/div&gt;
+										&lt;/div&gt;
+										&lt;p class=&quot;color-secondary margin-small&quot;&gt;Small&lt;/p&gt;
+										&lt;div class=&quot;progress progress-small margin-large-bottom&quot;&gt;
+											&lt;div class=&quot;progress-bar color-bg-red-400&quot; style=&quot;width: 21%&quot;&gt;&lt;/div&gt;
+										&lt;/div&gt;
+										&lt;p class=&quot;color-secondary margin-small&quot;&gt;Group&lt;/p&gt;
+										&lt;div class=&quot;progress progress-small margin-large-bottom progress-group&quot;&gt;
+											&lt;div class=&quot;progress-bar color-bg-red-400&quot; style=&quot;width: 15%&quot;&gt;&lt;/div&gt;
+											&lt;div class=&quot;progress-bar color-bg-amber-400&quot; style=&quot;width: 25%&quot;&gt;&lt;/div&gt;
+											&lt;div class=&quot;progress-bar color-bg-green-400&quot; style=&quot;width: 30%&quot;&gt;&lt;/div&gt;
+										&lt;/div&gt;
+										&lt;div class=&quot;progress progress-small margin-large-bottom&quot;&gt;
+											&lt;span class=&quot;progress-label text-center&quot;&gt;Progress Label&lt;/span&gt;
+											&lt;div class=&quot;progress-bar color-bg-blue-800&quot; style=&quot;width: 21%&quot;&gt;&lt;/div&gt;
+										&lt;/div&gt;
+										&lt;p class=&quot;color-secondary margin-small&quot;&gt;Indeterminate&lt;/p&gt;
+										&lt;div class=&quot;progress progress-small margin-large-bottom progress-indeterminate&quot;&gt;
+											&lt;div class=&quot;progress-bar color-bg-blue-800&quot;&gt;&lt;/div&gt;
+										&lt;/div&gt;
+										&lt;p class=&quot;color-secondary margin-small&quot;&gt;Dynamic progress&lt;/p&gt;
+										&lt;div class=&quot;progress progress-small margin-large-bottom js-progress&quot;&gt;
+											&lt;div class=&quot;progress-bar color-bg-red-400&quot; style=&quot;width: 12%&quot;&gt;&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;p class=&quot;color-secondary margin-small&quot;&gt;Default&lt;/p&gt;
-									&lt;div class=&quot;progress margin-large-bottom&quot;&gt;
-										&lt;div class=&quot;progress-bar color-bg-green-400&quot; style=&quot;width: 62%&quot;&gt;&lt;/div&gt;
-									&lt;/div&gt;
-									&lt;p class=&quot;color-secondary margin-small&quot;&gt;Small&lt;/p&gt;
-									&lt;div class=&quot;progress progress-small margin-large-bottom&quot;&gt;
-										&lt;div class=&quot;progress-bar color-bg-red-400&quot; style=&quot;width: 21%&quot;&gt;&lt;/div&gt;
-									&lt;/div&gt;
-									&lt;p class=&quot;color-secondary margin-small&quot;&gt;Group&lt;/p&gt;
-									&lt;div class=&quot;progress progress-small margin-large-bottom progress-group&quot;&gt;
-										&lt;div class=&quot;progress-bar color-bg-red-400&quot; style=&quot;width: 15%&quot;&gt;&lt;/div&gt;
-										&lt;div class=&quot;progress-bar color-bg-amber-400&quot; style=&quot;width: 25%&quot;&gt;&lt;/div&gt;
-										&lt;div class=&quot;progress-bar color-bg-green-400&quot; style=&quot;width: 30%&quot;&gt;&lt;/div&gt;
-									&lt;/div&gt;
-									&lt;div class=&quot;progress progress-small margin-large-bottom&quot;&gt;
-										&lt;span class=&quot;progress-label text-center&quot;&gt;Progress Label&lt;/span&gt;
-										&lt;div class=&quot;progress-bar color-bg-blue-800&quot; style=&quot;width: 21%&quot;&gt;&lt;/div&gt;
-									&lt;/div&gt;
-									&lt;p class=&quot;color-secondary margin-small&quot;&gt;Indeterminate&lt;/p&gt;
-									&lt;div class=&quot;progress progress-small margin-large-bottom progress-indeterminate&quot;&gt;
-										&lt;div class=&quot;progress-bar color-bg-blue-800&quot;&gt;&lt;/div&gt;
-									&lt;/div&gt;
-									&lt;p class=&quot;color-secondary margin-small&quot;&gt;Dynamic progress&lt;/p&gt;
-									&lt;div class=&quot;progress progress-small margin-large-bottom js-progress&quot;&gt;
-										&lt;div class=&quot;progress-bar color-bg-red-400&quot; style=&quot;width: 12%&quot;&gt;&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 		<script>
 

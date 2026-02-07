@@ -308,462 +308,466 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
 
-					<h1>Border Utilities</h1>
-					<p class="text-lead">Apply consistent borders, radii, and styles using theme-aware utilities that support token-based customization and responsive design.</p>
+						<h1>Border Utilities</h1>
+						<p class="text-lead">Apply consistent borders, radii, and styles using theme-aware utilities that support token-based customization and responsive design.</p>
 
-					<p>Border utility classes let you quickly apply and customize border width, color, radius, and styles. All classes are based on your design system tokens and integrate seamlessly with dark/light themes. Use them to style cards, buttons, containers, or layout boundaries.</p>
+						<p>Border utility classes let you quickly apply and customize border width, color, radius, and styles. All classes are based on your design system tokens and integrate seamlessly with dark/light themes. Use them to style cards, buttons, containers, or layout boundaries.</p>
 
-					<h2>Available Tokens</h2>
+						<h2>Available Tokens</h2>
 
-					<pre><code>
-						--border-width
-						--border-style
-						--color-border
-					</code></pre>
+						<pre><code>
+							--border-width
+							--border-style
+							--color-border
+						</code></pre>
 
-					<hr>
+						<hr>
 
-					<h2>Usage</h2>
+						<h2>Usage</h2>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="border padding margin-bottom">
-									<p>This element uses <code>.border</code> to apply the default tokenized border.</p>
-								</div>
-
-								<div class="border border-primary padding margin-bottom">
-									<p><code>.border.border-primary</code> combines default border with primary color.</p>
-								</div>
-
-								<div class="border-0 padding">
-									<p><code>.border-0</code> removes all borders even if defined by parent.</p>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;border padding&quot;&gt;
-										&lt;p&gt;This element uses &lt;code&gt;.border&lt;/code&gt; to apply the default tokenized border.&lt;/p&gt;
-									&lt;/div&gt;
-
-									&lt;div class=&quot;border border-primary padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border.border-primary&lt;/code&gt; combines default border with primary color.&lt;/p&gt;
-									&lt;/div&gt;
-
-									&lt;div class=&quot;border-0 padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-0&lt;/code&gt; removes all borders even if defined by parent.&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
-
-					<h2>Border Widths</h2>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="flex flex-col gap-md">
-									<div class="border border-thin padding">
-										<p><code>.border.border-thin</code> applies a 1px width border.</p>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="border padding margin-bottom">
+										<p>This element uses <code>.border</code> to apply the default tokenized border.</p>
 									</div>
 
-									<div class="border border-thick padding">
-										<p><code>.border.border-thick</code> applies a 2px width border.</p>
+									<div class="border border-primary padding margin-bottom">
+										<p><code>.border.border-primary</code> combines default border with primary color.</p>
+									</div>
+
+									<div class="border-0 padding">
+										<p><code>.border-0</code> removes all borders even if defined by parent.</p>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;border border-thin padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border.border-thin&lt;/code&gt; applies a 1px width border.&lt;/p&gt;
-									&lt;/div&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;border padding&quot;&gt;
+											&lt;p&gt;This element uses &lt;code&gt;.border&lt;/code&gt; to apply the default tokenized border.&lt;/p&gt;
+										&lt;/div&gt;
 
-									&lt;div class=&quot;border border-thick padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border.border-thick&lt;/code&gt; applies a 2px width border.&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
+										&lt;div class=&quot;border border-primary padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border.border-primary&lt;/code&gt; combines default border with primary color.&lt;/p&gt;
+										&lt;/div&gt;
 
-					<h2>Border Sides</h2>
+										&lt;div class=&quot;border-0 padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-0&lt;/code&gt; removes all borders even if defined by parent.&lt;/p&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="flex flex-col gap-md">
-									<div class="border-top padding">
-										<p><code>.border-top</code> applies border only to the top side.</p>
-									</div>
+						<h2>Border Widths</h2>
 
-									<div class="border-left padding">
-										<p><code>.border-left</code> applies border only to the left side.</p>
-									</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="flex flex-column flex-gap-md">
+										<div class="border border-thin padding">
+											<p><code>.border.border-thin</code> applies a 1px width border.</p>
+										</div>
 
-									<div class="border-right padding">
-										<p><code>.border-right</code> applies border only to the right side.</p>
-									</div>
-
-									<div class="border-bottom padding">
-										<p><code>.border-bottom</code> applies border only to the bottom side.</p>
+										<div class="border border-thick padding">
+											<p><code>.border.border-thick</code> applies a 2px width border.</p>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;border-top padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-top&lt;/code&gt; applies border only to the top side.&lt;/p&gt;
-									&lt;/div&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;border border-thin padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border.border-thin&lt;/code&gt; applies a 1px width border.&lt;/p&gt;
+										&lt;/div&gt;
 
-									&lt;div class=&quot;border-left padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-left&lt;/code&gt; applies border only to the left side.&lt;/p&gt;
-									&lt;/div&gt;
+										&lt;div class=&quot;border border-thick padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border.border-thick&lt;/code&gt; applies a 2px width border.&lt;/p&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
 
-									&lt;div class=&quot;border-right padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-right&lt;/code&gt; applies border only to the right side.&lt;/p&gt;
-									&lt;/div&gt;
+						<h2>Border Sides</h2>
 
-									&lt;div class=&quot;border-bottom padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-bottom&lt;/code&gt; applies border only to the bottom side.&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="flex flex-column flex-gap-md">
+										<div class="border-top padding">
+											<p><code>.border-top</code> applies border only to the top side.</p>
+										</div>
 
-					<h2>Border Axes</h2>
+										<div class="border-left padding">
+											<p><code>.border-left</code> applies border only to the left side.</p>
+										</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="flex flex-col gap-md">
-									<div class="border-x padding">
-										<p><code>.border-x</code> applies borders to left and right sides.</p>
-									</div>
+										<div class="border-right padding">
+											<p><code>.border-right</code> applies border only to the right side.</p>
+										</div>
 
-									<div class="border-y padding">
-										<p><code>.border-y</code> applies borders to top and bottom sides.</p>
+										<div class="border-bottom padding">
+											<p><code>.border-bottom</code> applies border only to the bottom side.</p>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;border-x padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-x&lt;/code&gt; applies borders to left and right sides.&lt;/p&gt;
-									&lt;/div&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;border-top padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-top&lt;/code&gt; applies border only to the top side.&lt;/p&gt;
+										&lt;/div&gt;
 
-									&lt;div class=&quot;border-y padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-y&lt;/code&gt; applies borders to top and bottom sides.&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
+										&lt;div class=&quot;border-left padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-left&lt;/code&gt; applies border only to the left side.&lt;/p&gt;
+										&lt;/div&gt;
 
-					<h2>Border Styles</h2>
+										&lt;div class=&quot;border-right padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-right&lt;/code&gt; applies border only to the right side.&lt;/p&gt;
+										&lt;/div&gt;
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="flex flex-col gap-md">
-									<div class="border border-dashed padding">
-										<p><code>.border-dashed</code> sets dashed style.</p>
-									</div>
+										&lt;div class=&quot;border-bottom padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-bottom&lt;/code&gt; applies border only to the bottom side.&lt;/p&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
 
-									<div class="border border-dotted padding">
-										<p><code>.border-dotted</code> sets dotted style.</p>
-									</div>
+						<h2>Border Axes</h2>
 
-									<div class="border border-double padding">
-										<p><code>.border-double</code> sets double border style.</p>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="flex flex-column flex-gap-md">
+										<div class="border-x padding">
+											<p><code>.border-x</code> applies borders to left and right sides.</p>
+										</div>
+
+										<div class="border-y padding">
+											<p><code>.border-y</code> applies borders to top and bottom sides.</p>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;border border-dashed padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-dashed&lt;/code&gt; sets dashed style.&lt;/p&gt;
-									&lt;/div&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;border-x padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-x&lt;/code&gt; applies borders to left and right sides.&lt;/p&gt;
+										&lt;/div&gt;
 
-									&lt;div class=&quot;border border-dotted padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-dotted&lt;/code&gt; sets dotted style.&lt;/p&gt;
-									&lt;/div&gt;
+										&lt;div class=&quot;border-y padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-y&lt;/code&gt; applies borders to top and bottom sides.&lt;/p&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
 
-									&lt;div class=&quot;border border-double padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-double&lt;/code&gt; sets double border style.&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
+						<h2>Border Styles</h2>
 
-					<h2>Border Colors</h2>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="flex flex-column flex-gap-md">
+										<div class="border border-dashed padding">
+											<p><code>.border-dashed</code> sets dashed style.</p>
+										</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active ">
-								<div class="flex flex-col gap-md">
-									 <div class="border border-primary padding">
-										<p><code>.border-primary</code> uses primary token color.</p>
-									</div>
+										<div class="border border-dotted padding">
+											<p><code>.border-dotted</code> sets dotted style.</p>
+										</div>
 
-									<div class="border border-success padding">
-										<p><code>.border-success</code> shows a success color border.</p>
-									</div>
-
-									<div class="border border-warning padding">
-										<p><code>.border-warning</code> applies a warning-themed border.</p>
-									</div>
-
-									<div class="border border-danger padding">
-										<p><code>.border-danger</code> for error or danger alerts.</p>
-									</div>
-
-									<div class="border border-muted padding">
-										<p><code>.border-muted</code> for neutral/light-gray borders.</p>
-									</div>
-
-									<div class="border border-strong padding">
-										<p><code>.border-muted</code> for neutral/light-gray borders.</p>
-									</div>
-
-									<div class="border border-white padding">
-										<p><code>.border-white</code> useful for dark backgrounds.</p>
-									</div>
-
-									<div class="border border-transparent padding">
-										<p><code>.border-transparent</code> hides the border visually while keeping spacing.</p>
+										<div class="border border-double padding">
+											<p><code>.border-double</code> sets double border style.</p>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									 &lt;div class=&quot;border border-primary padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-primary&lt;/code&gt; uses primary token color.&lt;/p&gt;
-									&lt;/div&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;border border-dashed padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-dashed&lt;/code&gt; sets dashed style.&lt;/p&gt;
+										&lt;/div&gt;
 
-									&lt;div class=&quot;border border-success padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-success&lt;/code&gt; shows a success color border.&lt;/p&gt;
-									&lt;/div&gt;
+										&lt;div class=&quot;border border-dotted padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-dotted&lt;/code&gt; sets dotted style.&lt;/p&gt;
+										&lt;/div&gt;
 
-									&lt;div class=&quot;border border-warning padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-warning&lt;/code&gt; applies a warning-themed border.&lt;/p&gt;
-									&lt;/div&gt;
+										&lt;div class=&quot;border border-double padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-double&lt;/code&gt; sets double border style.&lt;/p&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
 
-									&lt;div class=&quot;border border-danger padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-danger&lt;/code&gt; for error or danger alerts.&lt;/p&gt;
-									&lt;/div&gt;
+						<h2>Border Colors</h2>
 
-									&lt;div class=&quot;border border-muted padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-muted&lt;/code&gt; for neutral/light-gray borders.&lt;/p&gt;
-									&lt;/div&gt;
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active ">
+									<div class="flex flex-column flex-gap-md">
+										<div class="border border-primary padding">
+											<p><code>.border-primary</code> uses primary token color.</p>
+										</div>
 
-									&lt;div class=&quot;border border-strong padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-muted&lt;/code&gt; for neutral/light-gray borders.&lt;/p&gt;
-									&lt;/div&gt;
+										<div class="border border-success padding">
+											<p><code>.border-success</code> shows a success color border.</p>
+										</div>
 
-									&lt;div class=&quot;border border-white padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-white&lt;/code&gt; useful for dark backgrounds.&lt;/p&gt;
-									&lt;/div&gt;
+										<div class="border border-warning padding">
+											<p><code>.border-warning</code> applies a warning-themed border.</p>
+										</div>
 
-									&lt;div class=&quot;border border-transparent padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.border-transparent&lt;/code&gt; hides the border visually while keeping spacing.&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
+										<div class="border border-danger padding">
+											<p><code>.border-danger</code> for error or danger alerts.</p>
+										</div>
 
-					<h2>Border Radius</h2>
+										<div class="border border-muted padding">
+											<p><code>.border-muted</code> for neutral/light-gray borders.</p>
+										</div>
 
-					<h3>Basic Radius</h3>
+										<div class="border border-strong padding">
+											<p><code>.border-muted</code> for neutral/light-gray borders.</p>
+										</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="flex flex-col gap-md">
-									<div class="border rounded-xs padding">
-										<p><code>.rounded-xs</code> applies small radius.</p>
-									</div>
+										<div class="border border-white padding">
+											<p><code>.border-white</code> useful for dark backgrounds.</p>
+										</div>
 
-									<div class="border rounded-sm padding">
-										<p><code>.rounded-sm</code> applies small radius.</p>
-									</div>
-
-									<div class="border rounded padding">
-										<p><code>.rounded</code> applies small radius.</p>
-									</div>
-
-									<div class="border rounded-md padding">
-										<p><code>.rounded-md</code> applies small radius.</p>
-									</div>
-
-									<div class="border rounded-lg padding">
-										<p><code>.rounded-lg</code> applies small radius.</p>
-									</div>
-
-									<div class="border rounded-sm padding">
-										<p><code>.rounded-xl</code> applies small radius.</p>
+										<div class="border border-transparent padding">
+											<p><code>.border-transparent</code> hides the border visually while keeping spacing.</p>
+										</div>
 									</div>
 								</div>
-								
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;border rounded-xs padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.rounded-xs&lt;/code&gt; applies small radius.&lt;/p&gt;
-									&lt;/div&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;border border-primary padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-primary&lt;/code&gt; uses primary token color.&lt;/p&gt;
+										&lt;/div&gt;
 
-									&lt;div class=&quot;border rounded-sm padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.rounded-sm&lt;/code&gt; applies small radius.&lt;/p&gt;
-									&lt;/div&gt;
+										&lt;div class=&quot;border border-success padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-success&lt;/code&gt; shows a success color border.&lt;/p&gt;
+										&lt;/div&gt;
 
-									&lt;div class=&quot;border rounded padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.rounded&lt;/code&gt; applies small radius.&lt;/p&gt;
-									&lt;/div&gt;
+										&lt;div class=&quot;border border-warning padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-warning&lt;/code&gt; applies a warning-themed border.&lt;/p&gt;
+										&lt;/div&gt;
 
-									&lt;div class=&quot;border rounded-md padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.rounded-md&lt;/code&gt; applies small radius.&lt;/p&gt;
-									&lt;/div&gt;
+										&lt;div class=&quot;border border-danger padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-danger&lt;/code&gt; for error or danger alerts.&lt;/p&gt;
+										&lt;/div&gt;
 
-									&lt;div class=&quot;border rounded-lg padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.rounded-lg&lt;/code&gt; applies small radius.&lt;/p&gt;
-									&lt;/div&gt;
+										&lt;div class=&quot;border border-muted padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-muted&lt;/code&gt; for neutral/light-gray borders.&lt;/p&gt;
+										&lt;/div&gt;
 
-									&lt;div class=&quot;border rounded-sm padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.rounded-xl&lt;/code&gt; applies small radius.&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
+										&lt;div class=&quot;border border-strong padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-muted&lt;/code&gt; for neutral/light-gray borders.&lt;/p&gt;
+										&lt;/div&gt;
 
-					<h3>Pill & Circle</h3>
+										&lt;div class=&quot;border border-white padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-white&lt;/code&gt; useful for dark backgrounds.&lt;/p&gt;
+										&lt;/div&gt;
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="flex flex-col gap-md">
-									<div class="border rounded-pill padding" style="width: 200px;">
-										<p><code>.rounded-pill</code></p>
+										&lt;div class=&quot;border border-transparent padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.border-transparent&lt;/code&gt; hides the border visually while keeping spacing.&lt;/p&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
+
+						<h2>Border Radius</h2>
+
+						<h3>Basic Radius</h3>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="flex flex-column flex-gap-md">
+										<div class="border rounded-xs padding">
+											<p><code>.rounded-xs</code> applies small radius.</p>
+										</div>
+
+										<div class="border rounded-sm padding">
+											<p><code>.rounded-sm</code> applies small radius.</p>
+										</div>
+
+										<div class="border rounded padding">
+											<p><code>.rounded</code> applies small radius.</p>
+										</div>
+
+										<div class="border rounded-md padding">
+											<p><code>.rounded-md</code> applies small radius.</p>
+										</div>
+
+										<div class="border rounded-lg padding">
+											<p><code>.rounded-lg</code> applies small radius.</p>
+										</div>
+
+										<div class="border rounded-sm padding">
+											<p><code>.rounded-xl</code> applies small radius.</p>
+										</div>
 									</div>
+									
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;border rounded-xs padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.rounded-xs&lt;/code&gt; applies small radius.&lt;/p&gt;
+										&lt;/div&gt;
 
-									<div class="border rounded-circle" style="width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1rem;">
-										<p style="text-align: center;"><code>.rounded-circle</code></p>
-									</div>
+										&lt;div class=&quot;border rounded-sm padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.rounded-sm&lt;/code&gt; applies small radius.&lt;/p&gt;
+										&lt;/div&gt;
 
-									<div class="border rounded-square" style="width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1rem;">
-										<p style="text-align: center;"><code>.rounded-square</code></p>
+										&lt;div class=&quot;border rounded padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.rounded&lt;/code&gt; applies small radius.&lt;/p&gt;
+										&lt;/div&gt;
+
+										&lt;div class=&quot;border rounded-md padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.rounded-md&lt;/code&gt; applies small radius.&lt;/p&gt;
+										&lt;/div&gt;
+
+										&lt;div class=&quot;border rounded-lg padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.rounded-lg&lt;/code&gt; applies small radius.&lt;/p&gt;
+										&lt;/div&gt;
+
+										&lt;div class=&quot;border rounded-sm padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.rounded-xl&lt;/code&gt; applies small radius.&lt;/p&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
+
+						<h3>Pill & Circle</h3>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="flex flex-column flex-gap-md">
+										<div class="border rounded-pill padding" style="width: 200px;">
+											<p><code>.rounded-pill</code></p>
+										</div>
+
+										<div class="border rounded-circle" style="width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1rem;">
+											<p style="text-align: center;"><code>.rounded-circle</code></p>
+										</div>
+
+										<div class="border rounded-square" style="width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1rem;">
+											<p style="text-align: center;"><code>.rounded-square</code></p>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;border rounded-pill padding&quot; style=&quot;width: 200px;&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.rounded-pill&lt;/code&gt;&lt;/p&gt;
-									&lt;/div&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;border rounded-pill padding&quot; style=&quot;width: 200px;&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.rounded-pill&lt;/code&gt;&lt;/p&gt;
+										&lt;/div&gt;
 
-									&lt;div class=&quot;border rounded-circle&quot; style=&quot;width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1rem;&quot;&gt;
-										&lt;p style=&quot;text-align: center;&quot;&gt;&lt;code&gt;.rounded-circle&lt;/code&gt;&lt;/p&gt;
-									&lt;/div&gt;
+										&lt;div class=&quot;border rounded-circle&quot; style=&quot;width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1rem;&quot;&gt;
+											&lt;p style=&quot;text-align: center;&quot;&gt;&lt;code&gt;.rounded-circle&lt;/code&gt;&lt;/p&gt;
+										&lt;/div&gt;
 
-									&lt;div class=&quot;border rounded-square&quot; style=&quot;width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1rem;&quot;&gt;
-										&lt;p style=&quot;text-align: center;&quot;&gt;&lt;code&gt;.rounded-square&lt;/code&gt;&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
+										&lt;div class=&quot;border rounded-square&quot; style=&quot;width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1rem;&quot;&gt;
+											&lt;p style=&quot;text-align: center;&quot;&gt;&lt;code&gt;.rounded-square&lt;/code&gt;&lt;/p&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
 
-					<h3>Sides Only</h3>
+						<h3>Sides Only</h3>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="flex flex-col gap-md">
-									<div class="border rounded-top padding">
-										<p><code>.rounded-top</code> applies radius to top only.</p>
-									</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="flex flex-column flex-gap-md">
+										<div class="border rounded-top padding">
+											<p><code>.rounded-top</code> applies radius to top only.</p>
+										</div>
 
-									<div class="border rounded-bottom padding">
-										<p><code>.rounded-bottom</code> applies radius to bottom only.</p>
-									</div>
+										<div class="border rounded-bottom padding">
+											<p><code>.rounded-bottom</code> applies radius to bottom only.</p>
+										</div>
 
-									<div class="border rounded-left padding">
-										<p><code>.rounded-left</code> applies radius to left only.</p>
-									</div>
+										<div class="border rounded-left padding">
+											<p><code>.rounded-left</code> applies radius to left only.</p>
+										</div>
 
-									<div class="border rounded-right padding">
-										<p><code>.rounded-right</code> applies radius to right only.</p>
+										<div class="border rounded-right padding">
+											<p><code>.rounded-right</code> applies radius to right only.</p>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;border rounded-top padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.rounded-top&lt;/code&gt; applies radius to top only.&lt;/p&gt;
-									&lt;/div&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;border rounded-top padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.rounded-top&lt;/code&gt; applies radius to top only.&lt;/p&gt;
+										&lt;/div&gt;
 
-									&lt;div class=&quot;border rounded-bottom padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.rounded-bottom&lt;/code&gt; applies radius to bottom only.&lt;/p&gt;
-									&lt;/div&gt;
+										&lt;div class=&quot;border rounded-bottom padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.rounded-bottom&lt;/code&gt; applies radius to bottom only.&lt;/p&gt;
+										&lt;/div&gt;
 
-									&lt;div class=&quot;border rounded-left padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.rounded-left&lt;/code&gt; applies radius to left only.&lt;/p&gt;
-									&lt;/div&gt;
+										&lt;div class=&quot;border rounded-left padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.rounded-left&lt;/code&gt; applies radius to left only.&lt;/p&gt;
+										&lt;/div&gt;
 
-									&lt;div class=&quot;border rounded-right padding&quot;&gt;
-										&lt;p&gt;&lt;code&gt;.rounded-right&lt;/code&gt; applies radius to right only.&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
+										&lt;div class=&quot;border rounded-right padding&quot;&gt;
+											&lt;p&gt;&lt;code&gt;.rounded-right&lt;/code&gt; applies radius to right only.&lt;/p&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
 
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

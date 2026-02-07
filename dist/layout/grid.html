@@ -308,574 +308,578 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
 
-					<h1>Grid</h1>
-					<p class="text-lead">Two-dimensional grid-based layout system.</p>
-					
-					<hr>
-					
-					<h2>Usage</h2>
-					<p>Deck uses CSS grid system as CSS grid can creates complex responsive web design grid layouts more easily and consistently across browsers. Deck defaults to 6 column grids. Customizable through <code>$grid-columns</code> variable or <code>--grid-columns</code>.</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.grid</code></td>
-								<td>Base grid container (6 columns by default)</td>
-							</tr>
-							<tr>
-								<td><code>.col-1 to col-6</code></td>
-								<td>Grid with 1 to 6 columns</td>
-							</tr>
-							<tr>
-								<td><code>.col-1-sm/md/lg to col-6-sm/md/lg</code></td>
-								<td>Grid with 1 to 6 columns - Responsive</td>
-							</tr>
-							<tr>
-								<td><code>.col-1-6 to col-6-6</code></td>
-								<td>Grid 1/6 to 6/6</td>
-							</tr>
-							<tr>
-								<td><code>.col-1-6-sm/md/lg to col-6-6-sm/md/lg</code></td>
-								<td>Grid 1/6 to 6/6 - Responsive</td>
-							</tr>
-							<td><code>.column</code></td>
-								<td>Grid item that respects <code>--grid-column</code> custom property</td>
-							</tr>
-						</tbody>
-					</table>
+						<h1>Grid</h1>
+						<p class="text-lead">Two-dimensional grid-based layout system.</p>
+						
+						<hr>
+						
+						<h2>Usage</h2>
+						<p>Deck uses CSS grid system as CSS grid can creates complex responsive web design grid layouts more easily and consistently across browsers. Deck defaults to 6 column grids. Customizable through <code>$grid-columns</code> variable or <code>--grid-columns</code>.</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.grid</code></td>
+									<td>Base grid container (6 columns by default)</td>
+								</tr>
+								<tr>
+									<td><code>.col-1 to col-6</code></td>
+									<td>Grid with 1 to 6 columns</td>
+								</tr>
+								<tr>
+									<td><code>.col-1-sm/md/lg to col-6-sm/md/lg</code></td>
+									<td>Grid with 1 to 6 columns - Responsive</td>
+								</tr>
+								<tr>
+									<td><code>.col-1-6 to col-6-6</code></td>
+									<td>Grid 1/6 to 6/6</td>
+								</tr>
+								<tr>
+									<td><code>.col-1-6-sm/md/lg to col-6-6-sm/md/lg</code></td>
+									<td>Grid 1/6 to 6/6 - Responsive</td>
+								</tr>
+								<td><code>.column</code></td>
+									<td>Grid item that respects <code>--grid-column</code> custom property</td>
+								</tr>
+							</tbody>
+						</table>
 
-					<h2>Available Tokens</h2>
+						<h2>Available Tokens</h2>
 
-					<pre><code>
-						--grid-gap
-						--column-gap
-						--row-gap
-						--justify-content
-						--justify-items
-						--align-items
-						--place-items
-					</code></pre>
+						<pre><code>
+							--grid-gap
+							--column-gap
+							--row-gap
+							--justify-content
+							--justify-items
+							--align-items
+							--place-items
+						</code></pre>
 
 
-					<h2>Fixed width</h2>
-					<p>Fixed width sizes. <code>col-1</code> through <code>col-6</code></p>
+						<h2>Fixed width</h2>
+						<p>Fixed width sizes. <code>col-1</code> through <code>col-6</code></p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid col-2 margin-xlarge-bottom">
-									<div class="card padding-small round">
-										<div class="card-body">
-											<p class="text-center">Card 1</p>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid col-2 margin-xlarge-bottom">
+										<div class="card padding-small round">
+											<div class="card-body">
+												<p class="text-center">Card 1</p>
+											</div>
 										</div>
-									</div>
-									<div class="card padding-small round">
-										<div class="card-body">
-											<p class="text-center">Card 2</p>
+										<div class="card padding-small round">
+											<div class="card-body">
+												<p class="text-center">Card 2</p>
+											</div>
 										</div>
 									</div>
 								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid col-2 margin-xlarge-bottom&quot;&gt;
+											&lt;div class=&quot;card padding-small round&quot;&gt;
+												&lt;div class=&quot;card-body&quot;&gt;
+													&lt;p class=&quot;text-center&quot;&gt;Card 1&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;card padding-small round&quot;&gt;
+												&lt;div class=&quot;card-body&quot;&gt;
+													&lt;p class=&quot;text-center&quot;&gt;Card 2&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid col-2 margin-xlarge-bottom&quot;&gt;
-										&lt;div class=&quot;card padding-small round&quot;&gt;
-											&lt;div class=&quot;card-body&quot;&gt;
-												&lt;p class=&quot;text-center&quot;&gt;Card 1&lt;/p&gt;
-											&lt;/div&gt;
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
+						</div>
+						
+						<h3>Basic Grid Example</h3>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid col-3 gap-md margin-bottom">
+										<div class="card"><div class="card-body">Item 1</div></div>
+										<div class="card"><div class="card-body">Item 2</div></div>
+										<div class="card"><div class="card-body">Item 3</div></div>
+										<div class="card col-2-6"><div class="card-body">Item 4 (span 2)</div></div>
+										<div class="card"><div class="card-body">Item 5</div></div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid col-3 gap-md margin-bottom&quot;&gt;
+											&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 1&lt;/div&gt;&lt;/div&gt;
+											&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 2&lt;/div&gt;&lt;/div&gt;
+											&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 3&lt;/div&gt;&lt;/div&gt;
+											&lt;div class=&quot;card col-2-6&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 4 (span 2)&lt;/div&gt;&lt;/div&gt;
+											&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 5&lt;/div&gt;&lt;/div&gt;
 										&lt;/div&gt;
-										&lt;div class=&quot;card padding-small round&quot;&gt;
-											&lt;div class=&quot;card-body&quot;&gt;
-												&lt;p class=&quot;text-center&quot;&gt;Card 2&lt;/p&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
-					
-					<h3>Basic Grid Example</h3>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid col-3 gap-md margin-bottom">
-									<div class="card"><div class="card-body">Item 1</div></div>
-									<div class="card"><div class="card-body">Item 2</div></div>
-									<div class="card"><div class="card-body">Item 3</div></div>
-									<div class="card col-2-6"><div class="card-body">Item 4 (span 2)</div></div>
-									<div class="card"><div class="card-body">Item 5</div></div>
+						<h2>Custom widths</h2>
+						<p><code>.col-1-6 to col-6-6</code></p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid">
+										<div class="card padding-small round col-6-6">
+											<div class="card-body">
+												<p class="text-center">col-6-6</p>
+											</div>
+										</div>
+										<div class="card padding-small round col-1-6">
+											<div class="card-body">
+												<p class="text-center">col-1-6</p>
+											</div>
+										</div>
+										<div class="card padding-small round col-5-6">
+											<div class="card-body">
+												<p class="text-center">col-5-6</p>
+											</div>
+										</div>
+										<div class="card padding-small round col-2-6">
+											<div class="card-body">
+												<p class="text-center">col-2-6</p>
+											</div>
+										</div>
+										<div class="card padding-small round col-4-6">
+											<div class="card-body">
+												<p class="text-center">col-4-6</p>											
+											</div>
+										</div>
+										<div class="card padding-small round col-3-6">
+											<div class="card-body">
+												<p class="text-center">col-3-6</p>
+											</div>
+										</div>
+										<div class="card padding-small round col-3-6">
+											<div class="card-body">
+												<p class="text-center">col-3-6</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid&quot;&gt;
+											&lt;div class=&quot;card padding-small round col-6-6&quot;&gt;
+												&lt;div class=&quot;card-body&quot;&gt;
+													&lt;p class=&quot;text-center&quot;&gt;col-6-6&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;card padding-small round col-1-6&quot;&gt;
+												&lt;div class=&quot;card-body&quot;&gt;
+													&lt;p class=&quot;text-center&quot;&gt;col-1-6&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;card padding-small round col-5-6&quot;&gt;
+												&lt;div class=&quot;card-body&quot;&gt;
+													&lt;p class=&quot;text-center&quot;&gt;col-5-6&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;card padding-small round col-2-6&quot;&gt;
+												&lt;div class=&quot;card-body&quot;&gt;
+													&lt;p class=&quot;text-center&quot;&gt;col-2-6&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;card padding-small round col-4-6&quot;&gt;
+												&lt;div class=&quot;card-body&quot;&gt;
+													&lt;p class=&quot;text-center&quot;&gt;col-4-6&lt;/p&gt;											
+												&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;card padding-small round col-3-6&quot;&gt;
+												&lt;div class=&quot;card-body&quot;&gt;
+													&lt;p class=&quot;text-center&quot;&gt;col-3-6&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;card padding-small round col-3-6&quot;&gt;
+												&lt;div class=&quot;card-body&quot;&gt;
+													&lt;p class=&quot;text-center&quot;&gt;col-3-6&lt;/p&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid col-3 gap-md margin-bottom&quot;&gt;
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
+						</div>
+
+						<h2>Responsive Grid</h2>
+						<p>Responsive variants are available for all breakpoints (sm, md, lg, xl).</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.col-1-sm</code> to <code>.col-6-sm</code></td>
+									<td>Small breakpoint column counts</td>
+								</tr>
+								<tr>
+									<td><code>.col-1-md</code> to <code>.col-6-md</code></td>
+									<td>Medium breakpoint column counts</td>
+								</tr>
+								<tr>
+									<td><code>.col-1-6-sm</code> to <code>.col-6-6-sm</code></td>
+									<td>Small breakpoint column spans</td>
+								</tr>
+								<tr>
+									<td><code>.col-1-6-md</code> to <code>.col-6-6-md</code></td>
+									<td>Medium breakpoint column spans</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<h3>Responsive Example</h3>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid col-1 col-2-sm col-3-md gap-md margin-bottom">
+										<div class="card"><div class="card-body">Item 1</div></div>
+										<div class="card"><div class="card-body">Item 2</div></div>
+										<div class="card col-1-6 col-2-6-md"><div class="card-body">Item 3 (span 2 on md+)</div></div>
+										<div class="card"><div class="card-body">Item 4</div></div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid col-1 col-2-sm col-3-md gap-md margin-bottom&quot;&gt;
+											&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 1&lt;/div&gt;&lt;/div&gt;
+											&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 2&lt;/div&gt;&lt;/div&gt;
+											&lt;div class=&quot;card col-1-6 col-2-6-md&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 3 (span 2 on md+)&lt;/div&gt;&lt;/div&gt;
+											&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 4&lt;/div&gt;&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+						</div>
+
+						<h2>Masonry Layout</h2>
+						<p>Auto-filling masonry-style grids with predefined sizes.</p>
+						<p> Note: grid-template-rows: masonry; is still experimental</p>
+
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.masonry-xs</code></td>
+									<td>120px columns</td>
+								</tr>
+								<tr>
+									<td><code>.masonry-sm</code></td>
+									<td>160px columns</td>
+								</tr>
+								<tr>
+									<td><code>.masonry-md</code></td>
+									<td>240px columns</td>
+								</tr>
+								<tr>
+									<td><code>.masonry-lg</code></td>
+									<td>320px columns</td>
+								</tr>
+								<tr>
+									<td><code>.masonry-xl</code></td>
+									<td>400px columns</td>
+								</tr>
+								<tr>
+									<td><code>.masonry-xxl</code></td>
+									<td>480px columns</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<h3>Masonry Example</h3>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid masonry-md gap-md margin-bottom">
+										<div class="card" style="height: 100px"><div class="card-body">Item 1</div></div>
+										<div class="card" style="height: 150px"><div class="card-body">Item 2</div></div>
+										<div class="card" style="height: 80px"><div class="card-body">Item 3</div></div>
+										<div class="card" style="height: 120px"><div class="card-body">Item 4</div></div>
+										<div class="card" style="height: 200px"><div class="card-body">Item 5</div></div>
+										<div class="card" style="height: 90px"><div class="card-body">Item 6</div></div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid masonry-md gap-md margin-bottom&quot;&gt;
+										&lt;div class=&quot;card&quot; style=&quot;height: 100px&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 1&lt;/div&gt;&lt;/div&gt;
+										&lt;div class=&quot;card&quot; style=&quot;height: 150px&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 2&lt;/div&gt;&lt;/div&gt;
+										&lt;div class=&quot;card&quot; style=&quot;height: 80px&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 3&lt;/div&gt;&lt;/div&gt;
+										&lt;div class=&quot;card&quot; style=&quot;height: 120px&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 4&lt;/div&gt;&lt;/div&gt;
+										&lt;div class=&quot;card&quot; style=&quot;height: 200px&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 5&lt;/div&gt;&lt;/div&gt;
+										&lt;div class=&quot;card&quot; style=&quot;height: 90px&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 6&lt;/div&gt;&lt;/div&gt;
+									&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+						</div>
+
+						<h2>Vertical Grid</h2>
+						<p>Single-column grids with row spacing utilities, ideal for forms, cards, and lists.</p>
+					
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.grid-vertical</code></td>
+									<td>Base vertical grid (single column)</td>
+								</tr>
+								<tr>
+									<td><code>.grid-vertical-sm</code>, <code>.grid-vertical-md</code>, etc.</td>
+									<td>Responsive vertical grids</td>
+								</tr>
+								<tr>
+									<td><code>.grid-row-auto</code></td>
+									<td>Auto-sized rows</td>
+								</tr>
+								<tr>
+									<td><code>.grid-row-min</code></td>
+									<td>Minimum content row height</td>
+								</tr>
+								<tr>
+									<td><code>.grid-row-max</code></td>
+									<td>Maximum content row height</td>
+								</tr>
+								<tr>
+									<td><code>.grid-row-fixed</code></td>
+									<td>Equal height rows (1fr)</td>
+								</tr>
+								<tr>
+									<td><code>.grid-row-xs</code> to <code>.grid-row-xl</code></td>
+									<td>Fixed height rows using spacing tokens</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<h3>Vertical Grid Example</h3>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid-vertical gap-sm margin-bottom">
+										<div class="card"><div class="card-body">Card 1</div></div>
+										<div class="card"><div class="card-body">Card 2</div></div>
+										<div class="card"><div class="card-body">Card 3</div></div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid-vertical gap-sm margin-bottom&quot;&gt;
+											&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Card 1&lt;/div&gt;&lt;/div&gt;
+											&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Card 2&lt;/div&gt;&lt;/div&gt;
+											&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Card 3&lt;/div&gt;&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+						</div>
+
+						<h2>Alignment Utilities</h2>
+						<p>Control item placement within grid cells.</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.grid-items-start</code></td>
+									<td>Align items to start</td>
+								</tr>
+								<tr>
+									<td><code>.grid-items-center</code></td>
+									<td>Center items vertically</td>
+								</tr>
+								<tr>
+									<td><code>.grid-items-end</code></td>
+									<td>Align items to end</td>
+								</tr>
+								<tr>
+									<td><code>.grid-items-stretch</code></td>
+									<td>Stretch items vertically (default)</td>
+								</tr>
+								<tr>
+									<td><code>.grid-justify-start</code></td>
+									<td>Justify items to start</td>
+								</tr>
+								<tr>
+									<td><code>.grid-justify-center</code></td>
+									<td>Center items horizontally</td>
+								</tr>
+								<tr>
+									<td><code>.grid-justify-end</code></td>
+									<td>Justify items to end</td>
+								</tr>
+								<tr>
+									<td><code>.grid-justify-stretch</code></td>
+									<td>Stretch items horizontally (default)</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<h3>Alignment Example</h3>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid col-3 grid-items-center grid-justify-end gap-md margin-bottom">
+										<div class="card"><div class="card-body">Centered</div></div>
+										<div class="card"><div class="card-body">Centered</div></div>
+										<div class="card"><div class="card-body">Right-aligned</div></div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid col-3 grid-items-center grid-justify-end gap-md margin-bottom&quot;&gt;
+											&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Centered&lt;/div&gt;&lt;/div&gt;
+											&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Centered&lt;/div&gt;&lt;/div&gt;
+											&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Right-aligned&lt;/div&gt;&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+						</div>
+
+						<h2>Gap Utilities</h2>
+						<p>Control spacing between grid items.</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Property</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>--column-gap</code></td>
+									<td>Custom property for column gaps (default: 15px)</td>
+								</tr>
+								<tr>
+									<td><code>--row-gap</code></td>
+									<td>Custom property for row gaps (default: 15px)</td>
+								</tr>
+								<tr>
+									<td><code>--grid-gap</code></td>
+									<td>Custom property for both gaps (shorthand)</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<h3>Custom Gap Example</h3>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid col-2" style="--column-gap: 30px; --row-gap: 10px">
+										<div class="card"><div class="card-body">Item 1</div></div>
+										<div class="card"><div class="card-body">Item 2</div></div>
+										<div class="card"><div class="card-body">Item 3</div></div>
+										<div class="card"><div class="card-body">Item 4</div></div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+									&lt;div class=&quot;grid col-2&quot; style=&quot;--column-gap: 30px; --row-gap: 10px&quot;&gt;
 										&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 1&lt;/div&gt;&lt;/div&gt;
 										&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 2&lt;/div&gt;&lt;/div&gt;
 										&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 3&lt;/div&gt;&lt;/div&gt;
-										&lt;div class=&quot;card col-2-6&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 4 (span 2)&lt;/div&gt;&lt;/div&gt;
-										&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 5&lt;/div&gt;&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-					</div>
-
-					<h2>Custom widths</h2>
-					<p><code>.col-1-6 to col-6-6</code></p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid">
-									<div class="card padding-small round col-6-6">
-										<div class="card-body">
-											<p class="text-center">col-6-6</p>
-										</div>
-									</div>
-									<div class="card padding-small round col-1-6">
-										<div class="card-body">
-											<p class="text-center">col-1-6</p>
-										</div>
-									</div>
-									<div class="card padding-small round col-5-6">
-										<div class="card-body">
-											<p class="text-center">col-5-6</p>
-										</div>
-									</div>
-									<div class="card padding-small round col-2-6">
-										<div class="card-body">
-											<p class="text-center">col-2-6</p>
-										</div>
-									</div>
-									<div class="card padding-small round col-4-6">
-										<div class="card-body">
-											<p class="text-center">col-4-6</p>											
-										</div>
-									</div>
-									<div class="card padding-small round col-3-6">
-										<div class="card-body">
-											<p class="text-center">col-3-6</p>
-										</div>
-									</div>
-									<div class="card padding-small round col-3-6">
-										<div class="card-body">
-											<p class="text-center">col-3-6</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid&quot;&gt;
-										&lt;div class=&quot;card padding-small round col-6-6&quot;&gt;
-											&lt;div class=&quot;card-body&quot;&gt;
-												&lt;p class=&quot;text-center&quot;&gt;col-6-6&lt;/p&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;card padding-small round col-1-6&quot;&gt;
-											&lt;div class=&quot;card-body&quot;&gt;
-												&lt;p class=&quot;text-center&quot;&gt;col-1-6&lt;/p&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;card padding-small round col-5-6&quot;&gt;
-											&lt;div class=&quot;card-body&quot;&gt;
-												&lt;p class=&quot;text-center&quot;&gt;col-5-6&lt;/p&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;card padding-small round col-2-6&quot;&gt;
-											&lt;div class=&quot;card-body&quot;&gt;
-												&lt;p class=&quot;text-center&quot;&gt;col-2-6&lt;/p&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;card padding-small round col-4-6&quot;&gt;
-											&lt;div class=&quot;card-body&quot;&gt;
-												&lt;p class=&quot;text-center&quot;&gt;col-4-6&lt;/p&gt;											
-											&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;card padding-small round col-3-6&quot;&gt;
-											&lt;div class=&quot;card-body&quot;&gt;
-												&lt;p class=&quot;text-center&quot;&gt;col-3-6&lt;/p&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;card padding-small round col-3-6&quot;&gt;
-											&lt;div class=&quot;card-body&quot;&gt;
-												&lt;p class=&quot;text-center&quot;&gt;col-3-6&lt;/p&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
-
-					<h2>Responsive Grid</h2>
-					<p>Responsive variants are available for all breakpoints (sm, md, lg, xl).</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.col-1-sm</code> to <code>.col-6-sm</code></td>
-								<td>Small breakpoint column counts</td>
-							</tr>
-							<tr>
-								<td><code>.col-1-md</code> to <code>.col-6-md</code></td>
-								<td>Medium breakpoint column counts</td>
-							</tr>
-							<tr>
-								<td><code>.col-1-6-sm</code> to <code>.col-6-6-sm</code></td>
-								<td>Small breakpoint column spans</td>
-							</tr>
-							<tr>
-								<td><code>.col-1-6-md</code> to <code>.col-6-6-md</code></td>
-								<td>Medium breakpoint column spans</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<h3>Responsive Example</h3>
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid col-1 col-2-sm col-3-md gap-md margin-bottom">
-									<div class="card"><div class="card-body">Item 1</div></div>
-									<div class="card"><div class="card-body">Item 2</div></div>
-									<div class="card col-1-6 col-2-6-md"><div class="card-body">Item 3 (span 2 on md+)</div></div>
-									<div class="card"><div class="card-body">Item 4</div></div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid col-1 col-2-sm col-3-md gap-md margin-bottom&quot;&gt;
-										&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 1&lt;/div&gt;&lt;/div&gt;
-										&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 2&lt;/div&gt;&lt;/div&gt;
-										&lt;div class=&quot;card col-1-6 col-2-6-md&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 3 (span 2 on md+)&lt;/div&gt;&lt;/div&gt;
 										&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 4&lt;/div&gt;&lt;/div&gt;
 									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-					</div>
-
-					<h2>Masonry Layout</h2>
-					<p>Auto-filling masonry-style grids with predefined sizes.</p>
-					<p> Note: grid-template-rows: masonry; is still experimental</p>
-
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.masonry-xs</code></td>
-								<td>120px columns</td>
-							</tr>
-							<tr>
-								<td><code>.masonry-sm</code></td>
-								<td>160px columns</td>
-							</tr>
-							<tr>
-								<td><code>.masonry-md</code></td>
-								<td>240px columns</td>
-							</tr>
-							<tr>
-								<td><code>.masonry-lg</code></td>
-								<td>320px columns</td>
-							</tr>
-							<tr>
-								<td><code>.masonry-xl</code></td>
-								<td>400px columns</td>
-							</tr>
-							<tr>
-								<td><code>.masonry-xxl</code></td>
-								<td>480px columns</td>
-							</tr>
-						</tbody>
-					</table>
-
-			        <h3>Masonry Example</h3>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid masonry-md gap-md margin-bottom">
-									<div class="card" style="height: 100px"><div class="card-body">Item 1</div></div>
-									<div class="card" style="height: 150px"><div class="card-body">Item 2</div></div>
-									<div class="card" style="height: 80px"><div class="card-body">Item 3</div></div>
-									<div class="card" style="height: 120px"><div class="card-body">Item 4</div></div>
-									<div class="card" style="height: 200px"><div class="card-body">Item 5</div></div>
-									<div class="card" style="height: 90px"><div class="card-body">Item 6</div></div>
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid masonry-md gap-md margin-bottom&quot;&gt;
-									&lt;div class=&quot;card&quot; style=&quot;height: 100px&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 1&lt;/div&gt;&lt;/div&gt;
-									&lt;div class=&quot;card&quot; style=&quot;height: 150px&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 2&lt;/div&gt;&lt;/div&gt;
-									&lt;div class=&quot;card&quot; style=&quot;height: 80px&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 3&lt;/div&gt;&lt;/div&gt;
-									&lt;div class=&quot;card&quot; style=&quot;height: 120px&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 4&lt;/div&gt;&lt;/div&gt;
-									&lt;div class=&quot;card&quot; style=&quot;height: 200px&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 5&lt;/div&gt;&lt;/div&gt;
-									&lt;div class=&quot;card&quot; style=&quot;height: 90px&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 6&lt;/div&gt;&lt;/div&gt;
-								&lt;/div&gt;
-								</code></pre>
-							</div>
 						</div>
-					</div>
 
-					<h2>Vertical Grid</h2>
-					<p>Single-column grids with row spacing utilities, ideal for forms, cards, and lists.</p>
-				
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.grid-vertical</code></td>
-								<td>Base vertical grid (single column)</td>
-							</tr>
-							<tr>
-								<td><code>.grid-vertical-sm</code>, <code>.grid-vertical-md</code>, etc.</td>
-								<td>Responsive vertical grids</td>
-							</tr>
-							<tr>
-								<td><code>.grid-row-auto</code></td>
-								<td>Auto-sized rows</td>
-							</tr>
-							<tr>
-								<td><code>.grid-row-min</code></td>
-								<td>Minimum content row height</td>
-							</tr>
-							<tr>
-								<td><code>.grid-row-max</code></td>
-								<td>Maximum content row height</td>
-							</tr>
-							<tr>
-								<td><code>.grid-row-fixed</code></td>
-								<td>Equal height rows (1fr)</td>
-							</tr>
-							<tr>
-								<td><code>.grid-row-xs</code> to <code>.grid-row-xl</code></td>
-								<td>Fixed height rows using spacing tokens</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<h3>Vertical Grid Example</h3>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid-vertical gap-sm margin-bottom">
-									<div class="card"><div class="card-body">Card 1</div></div>
-									<div class="card"><div class="card-body">Card 2</div></div>
-									<div class="card"><div class="card-body">Card 3</div></div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid-vertical gap-sm margin-bottom&quot;&gt;
-										&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Card 1&lt;/div&gt;&lt;/div&gt;
-										&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Card 2&lt;/div&gt;&lt;/div&gt;
-										&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Card 3&lt;/div&gt;&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-					</div>
-
-					<h2>Alignment Utilities</h2>
-					<p>Control item placement within grid cells.</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.grid-items-start</code></td>
-								<td>Align items to start</td>
-							</tr>
-							<tr>
-								<td><code>.grid-items-center</code></td>
-								<td>Center items vertically</td>
-							</tr>
-							<tr>
-								<td><code>.grid-items-end</code></td>
-								<td>Align items to end</td>
-							</tr>
-							<tr>
-								<td><code>.grid-items-stretch</code></td>
-								<td>Stretch items vertically (default)</td>
-							</tr>
-							<tr>
-								<td><code>.grid-justify-start</code></td>
-								<td>Justify items to start</td>
-							</tr>
-							<tr>
-								<td><code>.grid-justify-center</code></td>
-								<td>Center items horizontally</td>
-							</tr>
-							<tr>
-								<td><code>.grid-justify-end</code></td>
-								<td>Justify items to end</td>
-							</tr>
-							<tr>
-								<td><code>.grid-justify-stretch</code></td>
-								<td>Stretch items horizontally (default)</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<h3>Alignment Example</h3>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid col-3 grid-items-center grid-justify-end gap-md margin-bottom">
-									<div class="card"><div class="card-body">Centered</div></div>
-									<div class="card"><div class="card-body">Centered</div></div>
-									<div class="card"><div class="card-body">Right-aligned</div></div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid col-3 grid-items-center grid-justify-end gap-md margin-bottom&quot;&gt;
-										&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Centered&lt;/div&gt;&lt;/div&gt;
-										&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Centered&lt;/div&gt;&lt;/div&gt;
-										&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Right-aligned&lt;/div&gt;&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-					</div>
-
-					<h2>Gap Utilities</h2>
-					<p>Control spacing between grid items.</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Property</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>--column-gap</code></td>
-								<td>Custom property for column gaps (default: 15px)</td>
-							</tr>
-							<tr>
-								<td><code>--row-gap</code></td>
-								<td>Custom property for row gaps (default: 15px)</td>
-							</tr>
-							<tr>
-								<td><code>--grid-gap</code></td>
-								<td>Custom property for both gaps (shorthand)</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<h3>Custom Gap Example</h3>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid col-2" style="--column-gap: 30px; --row-gap: 10px">
-									<div class="card"><div class="card-body">Item 1</div></div>
-									<div class="card"><div class="card-body">Item 2</div></div>
-									<div class="card"><div class="card-body">Item 3</div></div>
-									<div class="card"><div class="card-body">Item 4</div></div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-								&lt;div class=&quot;grid col-2&quot; style=&quot;--column-gap: 30px; --row-gap: 10px&quot;&gt;
-									&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 1&lt;/div&gt;&lt;/div&gt;
-									&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 2&lt;/div&gt;&lt;/div&gt;
-									&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 3&lt;/div&gt;&lt;/div&gt;
-									&lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;Item 4&lt;/div&gt;&lt;/div&gt;
-								&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-					</div>
-
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

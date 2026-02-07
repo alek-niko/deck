@@ -310,460 +310,462 @@
 		</aside>
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Visibility</h1>
-					<p class="text-lead">Use responsive visibility classes to display or hide elements on different devices.</p>
-					
-					<hr>
-					
-					<h2>Usage</h2>
-					<p>Add one of these classes to hide an element.</p>
-					
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.hidden</code></td>
-									<td>Hides the element on any device. This is more of a legacy class. The recommended way to do this, is
-										to use the <code>hidden</code> attribute.</td>
-								</tr>
-								<tr>
-									<td><code>.invisible</code></td>
-									<td>Hides the element without removing it from the document flow.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
-					<pre><code>
-						&lt;div hidden&gt;&lt;/div&gt;
-						&lt;div class=&quot;invisible&quot;&gt;&lt;/div&gt;
-					</code></pre>
-					
-					<h2>Responsive</h2>
-					<p>This component provides responsive classes to hide or display elements on different viewports.</p>
-					
-					<h3>Hidden</h3>
-					<p>Add one of the <code>.hidden-*</code> classes to hide the element from screens larger than a specified width.</p>
-					
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>hidden-xs</code></td>
-									<td>Only affects device widths of <em>0px</em> and larger.</td>
-								</tr>
-								<tr>
-									<td><code>hidden-sm</code></td>
-									<td>Only affects device widths of <em>500px</em> and larger.</td>
-								</tr>
-								<tr>
-									<td><code>hidden-md</code></td>
-									<td>Only affects device widths of <em>1005px</em> and larger.</td>
-								</tr>
-								<tr>
-									<td><code>hidden-lg</code></td>
-									<td>Only affects device widths of <em>1095px</em> and larger.</td>
-								</tr>
-								<tr>
-									<td><code>hidden-xl</code></td>
-									<td>Only affects device widths of <em>1282px</em> and larger.</td>
-								</tr>
-								<tr>
-									<td><code>hidden-xxl</code></td>
-									<td>Only affects device widths of <em>1920px</em> and larger.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					
-					<pre><code>
-						&lt;!-- Hidden on tablets and larger --&gt;
-						&lt;div class=&quot;hidden-md&quot;&gt;&lt;/div&gt;
-					</code></pre>
-
-					<p><span class="label">Note</span> In this example the green elements are hidden on screens that are larger than the defined breakpoint. Resize your browser window to see the effect.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid col-4 margin-xlarge-bottom">
-									<div class="first-column">
-										<div class="panel">
-											<div class="alert margin-remove alert-success">✔ Small</div>
-											<div class="alert position-cover margin-remove hidden-sm">Small</div>
-										</div>
-									</div>
-									<div>
-										<div class="panel">
-											<div class="alert margin-remove alert-success">✔ Medium</div>
-											<div class="alert position-cover margin-remove hidden-md">Medium</div>
-										</div>
-									</div>
-									<div>
-										<div class="panel">
-											<div class="alert margin-remove alert-success">✔ Large</div>
-											<div class="alert position-cover margin-remove hidden-lg">Large</div>
-										</div>
-									</div>
-									<div>
-										<div class="panel">
-											<div class="alert margin-remove alert-success">✔ X-Large</div>
-											<div class="alert position-cover margin-remove hidden-xl">X-Large</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid col-4 margin-xlarge-bottom&quot;&gt;
-										&lt;div class=&quot;first-column&quot;&gt;
-											&lt;div class=&quot;panel&quot;&gt;
-												&lt;div class=&quot;alert margin-remove alert-success&quot;&gt;✔ Small&lt;/div&gt;
-												&lt;div class=&quot;alert position-cover margin-remove hidden-sm&quot;&gt;Small&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div&gt;
-											&lt;div class=&quot;panel&quot;&gt;
-												&lt;div class=&quot;alert margin-remove alert-success&quot;&gt;✔ Medium&lt;/div&gt;
-												&lt;div class=&quot;alert position-cover margin-remove hidden-md&quot;&gt;Medium&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div&gt;
-											&lt;div class=&quot;panel&quot;&gt;
-												&lt;div class=&quot;alert margin-remove alert-success&quot;&gt;✔ Large&lt;/div&gt;
-												&lt;div class=&quot;alert position-cover margin-remove hidden-lg&quot;&gt;Large&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div&gt;
-											&lt;div class=&quot;panel&quot;&gt;
-												&lt;div class=&quot;alert margin-remove alert-success&quot;&gt;✔ X-Large&lt;/div&gt;
-												&lt;div class=&quot;alert position-cover margin-remove hidden-xl&quot;&gt;X-Large&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h3>Visible</h3>
-					<p>Use <code>.visible-*</code> classes to show the element for screens larger than the specified width.</p>
-					
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>visible-xs</code></td>
-									<td>Only affects device widths of <em>0px</em> and larger.</td>
-								</tr>
-								<tr>
-									<td><code>visible-sm</code></td>
-									<td>Only affects device widths of <em>500px</em> and larger.</td>
-								</tr>
-								<tr>
-									<td><code>visible-md</code></td>
-									<td>Only affects device widths of <em>1005px</em> and larger.</td>
-								</tr>
-								<tr>
-									<td><code>visible-lg</code></td>
-									<td>Only affects device widths of <em>1095px</em> and larger.</td>
-								</tr>
-								<tr>
-									<td><code>visible-xl</code></td>
-									<td>Only affects device widths of <em>1282px</em> and larger.</td>
-								</tr>
-								<tr>
-									<td><code>visible-xxl</code></td>
-									<td>Only affects device widths of <em>1920px</em> and larger.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
-					<code><pre>
-						&lt;!-- Visible on tablets and larger --&gt;
-						&lt;div class=&quot;visible-md&quot;&gt;&lt;/div&gt;
-					</code></pre>
-				
-					<p><span class="label">Note</span> In this example the green elements are displayed on screens that are larger than the defined breakpoint. Resize your browser window to see the effect.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid col-4 margin-xlarge-bottom">
-									<div class="first-column">
-										<div class="panel">
-											<div class="alert margin-remove">Small</div>
-											<div class="alert alert-success position-cover margin-remove visible-sm">✔ Small</div>
-										</div>
-									</div>
-									<div>
-										<div class="panel">
-											<div class="alert margin-remove">Medium</div>
-											<div class="alert alert-success position-cover margin-remove visible-md">✔ Medium</div>
-										</div>
-									</div>
-									<div>
-										<div class="panel">
-											<div class="alert margin-remove">Large</div>
-											<div class="alert alert-success position-cover margin-remove visible-lg">✔ Large</div>
-										</div>
-									</div>
-									<div>
-										<div class="panel">
-											<div class="alert margin-remove">X-Large</div>
-											<div class="alert alert-success position-cover margin-remove visible-xl">✔ X-Large</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid col-4 margin-xlarge-bottom&quot;&gt;
-										&lt;div class=&quot;first-column&quot;&gt;
-											&lt;div class=&quot;panel&quot;&gt;
-												&lt;div class=&quot;alert margin-remove&quot;&gt;Small&lt;/div&gt;
-												&lt;div class=&quot;alert alert-success position-cover margin-remove visible-sm&quot;&gt;✔ Small&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div&gt;
-											&lt;div class=&quot;panel&quot;&gt;
-												&lt;div class=&quot;alert margin-remove&quot;&gt;Medium&lt;/div&gt;
-												&lt;div class=&quot;alert alert-success position-cover margin-remove visible-md&quot;&gt;✔ Medium&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div&gt;
-											&lt;div class=&quot;panel&quot;&gt;
-												&lt;div class=&quot;alert margin-remove&quot;&gt;Large&lt;/div&gt;
-												&lt;div class=&quot;alert alert-success position-cover margin-remove visible-lg&quot;&gt;✔ Large&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div&gt;
-											&lt;div class=&quot;panel&quot;&gt;
-												&lt;div class=&quot;alert margin-remove&quot;&gt;X-Large&lt;/div&gt;
-												&lt;div class=&quot;alert alert-success position-cover margin-remove visible-xl&quot;&gt;✔ X-Large&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-                
-					<h2>Toggle</h2>
-					<p>To display elements on hover or focus only, add the <code>.visible-toggle</code> class to a parent element and one of the following classes to any child elements that should be hidden.</p>
-				
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.hidden-hover</code></td>
-									<td>The element is removed from the document flow when hidden.</td>
-								</tr>
-								<tr>
-									<td><code>.invisible-hover</code></td>
-									<td>The element is not removed from the document flow when hidden.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
-					<p>The child elements will be displayed when the parent element is hovered or focused. Add <code>tabindex="0"</code> to the parent element to allow it to receive focus through keyboard navigation and on touch devices.</p>
-					<p>If there are <code>a</code> or <code>button</code> elements within the hidden child element, they are already focusable through keyboard navigation and will make the child element appear. Therefore, add <code>tabindex="-1"</code> so the parent element is still focusable on touch devices.</p>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Visibility</h1>
+						<p class="text-lead">Use responsive visibility classes to display or hide elements on different devices.</p>
 						
-					<pre><code>
-						&lt;div class=&quot;visible-toggle&quot; tabindex=&quot;0&quot;&gt;
-							&lt;div class=&quot;hidden-hover&quot;&gt;&lt;/div&gt;
-						&lt;/div&gt;
-					</code></pre>
+						<hr>
+						
+						<h2>Usage</h2>
+						<p>Add one of these classes to hide an element.</p>
+						
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.hidden</code></td>
+										<td>Hides the element on any device. This is more of a legacy class. The recommended way to do this, is
+											to use the <code>hidden</code> attribute.</td>
+									</tr>
+									<tr>
+										<td><code>.invisible</code></td>
+										<td>Hides the element without removing it from the document flow.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid col-2 margin-xlarge-bottom">
-									<div class="visible-toggle">
-										<h4>Hidden when not hovered</h4>
-										<div class="grid masonry-xsmall">
-											<div class="width-expand first-column">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-											</div>
-											<div class="width-auto">
-												<ul class="hidden-hover iconnav">
-													<li><i class="icon item-icon">article</i></li>
-													<li><i class="icon item-icon">article</i></li>
-													<li><i class="icon item-icon">article</i></li>
-												</ul>
+						<pre><code>
+							&lt;div hidden&gt;&lt;/div&gt;
+							&lt;div class=&quot;invisible&quot;&gt;&lt;/div&gt;
+						</code></pre>
+						
+						<h2>Responsive</h2>
+						<p>This component provides responsive classes to hide or display elements on different viewports.</p>
+						
+						<h3>Hidden</h3>
+						<p>Add one of the <code>.hidden-*</code> classes to hide the element from screens larger than a specified width.</p>
+						
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>hidden-xs</code></td>
+										<td>Only affects device widths of <em>0px</em> and larger.</td>
+									</tr>
+									<tr>
+										<td><code>hidden-sm</code></td>
+										<td>Only affects device widths of <em>500px</em> and larger.</td>
+									</tr>
+									<tr>
+										<td><code>hidden-md</code></td>
+										<td>Only affects device widths of <em>1005px</em> and larger.</td>
+									</tr>
+									<tr>
+										<td><code>hidden-lg</code></td>
+										<td>Only affects device widths of <em>1095px</em> and larger.</td>
+									</tr>
+									<tr>
+										<td><code>hidden-xl</code></td>
+										<td>Only affects device widths of <em>1282px</em> and larger.</td>
+									</tr>
+									<tr>
+										<td><code>hidden-xxl</code></td>
+										<td>Only affects device widths of <em>1920px</em> and larger.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+						<pre><code>
+							&lt;!-- Hidden on tablets and larger --&gt;
+							&lt;div class=&quot;hidden-md&quot;&gt;&lt;/div&gt;
+						</code></pre>
+
+						<p><span class="label">Note</span> In this example the green elements are hidden on screens that are larger than the defined breakpoint. Resize your browser window to see the effect.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid col-4 margin-xlarge-bottom">
+										<div class="first-column">
+											<div class="panel">
+												<div class="alert margin-remove alert-success">✔ Small</div>
+												<div class="alert position-cover margin-remove hidden-sm">Small</div>
 											</div>
 										</div>
-									</div>
-									<div class="visible-toggle">
-										<h4>Invisible when not hovered</h4>
-										<div class="grid masonry-xsmall">
-											<div class="width-expand first-column">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-											<div class="width-auto">
-												<ul class="invisible-hover iconnav">
-													<li><i class="icon item-icon">article</i></li>
-													<li><i class="icon item-icon">article</i></li>
-													<li><i class="icon item-icon">article</i></li>
-												</ul>
+										<div>
+											<div class="panel">
+												<div class="alert margin-remove alert-success">✔ Medium</div>
+												<div class="alert position-cover margin-remove hidden-md">Medium</div>
+											</div>
+										</div>
+										<div>
+											<div class="panel">
+												<div class="alert margin-remove alert-success">✔ Large</div>
+												<div class="alert position-cover margin-remove hidden-lg">Large</div>
+											</div>
+										</div>
+										<div>
+											<div class="panel">
+												<div class="alert margin-remove alert-success">✔ X-Large</div>
+												<div class="alert position-cover margin-remove hidden-xl">X-Large</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid col-2 margin-xlarge-bottom&quot;&gt;
-										&lt;div class=&quot;visible-toggle&quot;&gt;
-											&lt;h4&gt;Hidden when not hovered&lt;/h4&gt;
-											&lt;div class=&quot;grid masonry-xsmall&quot;&gt;
-												&lt;div class=&quot;width-expand first-column&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid col-4 margin-xlarge-bottom&quot;&gt;
+											&lt;div class=&quot;first-column&quot;&gt;
+												&lt;div class=&quot;panel&quot;&gt;
+													&lt;div class=&quot;alert margin-remove alert-success&quot;&gt;✔ Small&lt;/div&gt;
+													&lt;div class=&quot;alert position-cover margin-remove hidden-sm&quot;&gt;Small&lt;/div&gt;
 												&lt;/div&gt;
-												&lt;div class=&quot;width-auto&quot;&gt;
-													&lt;ul class=&quot;hidden-hover iconnav&quot;&gt;
-														&lt;li&gt;&lt;i class=&quot;icon item-icon&quot;&gt;article&lt;/i&gt;&lt;/li&gt;
-														&lt;li&gt;&lt;i class=&quot;icon item-icon&quot;&gt;article&lt;/i&gt;&lt;/li&gt;
-														&lt;li&gt;&lt;i class=&quot;icon item-icon&quot;&gt;article&lt;/i&gt;&lt;/li&gt;
-													&lt;/ul&gt;
+											&lt;/div&gt;
+											&lt;div&gt;
+												&lt;div class=&quot;panel&quot;&gt;
+													&lt;div class=&quot;alert margin-remove alert-success&quot;&gt;✔ Medium&lt;/div&gt;
+													&lt;div class=&quot;alert position-cover margin-remove hidden-md&quot;&gt;Medium&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div&gt;
+												&lt;div class=&quot;panel&quot;&gt;
+													&lt;div class=&quot;alert margin-remove alert-success&quot;&gt;✔ Large&lt;/div&gt;
+													&lt;div class=&quot;alert position-cover margin-remove hidden-lg&quot;&gt;Large&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div&gt;
+												&lt;div class=&quot;panel&quot;&gt;
+													&lt;div class=&quot;alert margin-remove alert-success&quot;&gt;✔ X-Large&lt;/div&gt;
+													&lt;div class=&quot;alert position-cover margin-remove hidden-xl&quot;&gt;X-Large&lt;/div&gt;
 												&lt;/div&gt;
 											&lt;/div&gt;
 										&lt;/div&gt;
-										&lt;div class=&quot;visible-toggle&quot;&gt;
-											&lt;h4&gt;Invisible when not hovered&lt;/h4&gt;
-											&lt;div class=&quot;grid masonry-xsmall&quot;&gt;
-												&lt;div class=&quot;width-expand first-column&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/div&gt;
-												&lt;div class=&quot;width-auto&quot;&gt;
-													&lt;ul class=&quot;invisible-hover iconnav&quot;&gt;
-														&lt;li&gt;&lt;i class=&quot;icon item-icon&quot;&gt;article&lt;/i&gt;&lt;/li&gt;
-														&lt;li&gt;&lt;i class=&quot;icon item-icon&quot;&gt;article&lt;/i&gt;&lt;/li&gt;
-														&lt;li&gt;&lt;i class=&quot;icon item-icon&quot;&gt;article&lt;/i&gt;&lt;/li&gt;
-													&lt;/ul&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Touch</h2>
-					<p>Add the <code>.hidden-touch</code> class to hide elements on touch devices and the <code>.hidden-notouch</code> to hide elements on devices without a touch screen.</p>
-					
-					<pre><code>
-						&lt;!-- Hidden on touch devices --&gt;
-						&lt;div class=&quot;hidden-touch&quot;&gt;&lt;/div&gt;
+						
+						<h3>Visible</h3>
+						<p>Use <code>.visible-*</code> classes to show the element for screens larger than the specified width.</p>
+						
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>visible-xs</code></td>
+										<td>Only affects device widths of <em>0px</em> and larger.</td>
+									</tr>
+									<tr>
+										<td><code>visible-sm</code></td>
+										<td>Only affects device widths of <em>500px</em> and larger.</td>
+									</tr>
+									<tr>
+										<td><code>visible-md</code></td>
+										<td>Only affects device widths of <em>1005px</em> and larger.</td>
+									</tr>
+									<tr>
+										<td><code>visible-lg</code></td>
+										<td>Only affects device widths of <em>1095px</em> and larger.</td>
+									</tr>
+									<tr>
+										<td><code>visible-xl</code></td>
+										<td>Only affects device widths of <em>1282px</em> and larger.</td>
+									</tr>
+									<tr>
+										<td><code>visible-xxl</code></td>
+										<td>Only affects device widths of <em>1920px</em> and larger.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-						&lt;!-- Hidden on no-touch devices --&gt;
-						&lt;div class=&quot;hidden-notouch&quot;&gt;&lt;/div&gt;
-					</code></pre>
+						<code><pre>
+							&lt;!-- Visible on tablets and larger --&gt;
+							&lt;div class=&quot;visible-md&quot;&gt;&lt;/div&gt;
+						</code></pre>
+					
+						<p><span class="label">Note</span> In this example the green elements are displayed on screens that are larger than the defined breakpoint. Resize your browser window to see the effect.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid col-2 margin-xlarge-bottom">
-									<div class="first-column">
-										<div class="panel">
-											<div class="alert margin-remove alert-success">✔ Hidden Touch</div>
-											<div class="alert position-cover margin-remove hidden-touch">Hidden Touch</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid col-4 margin-xlarge-bottom">
+										<div class="first-column">
+											<div class="panel">
+												<div class="alert margin-remove">Small</div>
+												<div class="alert alert-success position-cover margin-remove visible-sm">✔ Small</div>
+											</div>
 										</div>
-									</div>
-									<div>
-										<div class="panel">
-											<div class="alert margin-remove alert-success">✔ Hidden No-Touch</div>
-											<div class="alert position-cover margin-remove hidden-notouch">Hidden No-Touch</div>
+										<div>
+											<div class="panel">
+												<div class="alert margin-remove">Medium</div>
+												<div class="alert alert-success position-cover margin-remove visible-md">✔ Medium</div>
+											</div>
+										</div>
+										<div>
+											<div class="panel">
+												<div class="alert margin-remove">Large</div>
+												<div class="alert alert-success position-cover margin-remove visible-lg">✔ Large</div>
+											</div>
+										</div>
+										<div>
+											<div class="panel">
+												<div class="alert margin-remove">X-Large</div>
+												<div class="alert alert-success position-cover margin-remove visible-xl">✔ X-Large</div>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid col-2 margin-xlarge-bottom&quot;&gt;
-										&lt;div class=&quot;first-column&quot;&gt;
-											&lt;div class=&quot;panel&quot;&gt;
-												&lt;div class=&quot;alert margin-remove alert-success&quot;&gt;✔ Hidden Touch&lt;/div&gt;
-												&lt;div class=&quot;alert position-cover margin-remove hidden-touch&quot;&gt;Hidden Touch&lt;/div&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid col-4 margin-xlarge-bottom&quot;&gt;
+											&lt;div class=&quot;first-column&quot;&gt;
+												&lt;div class=&quot;panel&quot;&gt;
+													&lt;div class=&quot;alert margin-remove&quot;&gt;Small&lt;/div&gt;
+													&lt;div class=&quot;alert alert-success position-cover margin-remove visible-sm&quot;&gt;✔ Small&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div&gt;
+												&lt;div class=&quot;panel&quot;&gt;
+													&lt;div class=&quot;alert margin-remove&quot;&gt;Medium&lt;/div&gt;
+													&lt;div class=&quot;alert alert-success position-cover margin-remove visible-md&quot;&gt;✔ Medium&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div&gt;
+												&lt;div class=&quot;panel&quot;&gt;
+													&lt;div class=&quot;alert margin-remove&quot;&gt;Large&lt;/div&gt;
+													&lt;div class=&quot;alert alert-success position-cover margin-remove visible-lg&quot;&gt;✔ Large&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div&gt;
+												&lt;div class=&quot;panel&quot;&gt;
+													&lt;div class=&quot;alert margin-remove&quot;&gt;X-Large&lt;/div&gt;
+													&lt;div class=&quot;alert alert-success position-cover margin-remove visible-xl&quot;&gt;✔ X-Large&lt;/div&gt;
+												&lt;/div&gt;
 											&lt;/div&gt;
 										&lt;/div&gt;
-										&lt;div&gt;
-											&lt;div class=&quot;panel&quot;&gt;
-												&lt;div class=&quot;alert margin-remove alert-success&quot;&gt;✔ Hidden No-Touch&lt;/div&gt;
-												&lt;div class=&quot;alert position-cover margin-remove hidden-notouch&quot;&gt;Hidden No-Touch&lt;/div&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
+					
+						<h2>Toggle</h2>
+						<p>To display elements on hover or focus only, add the <code>.visible-toggle</code> class to a parent element and one of the following classes to any child elements that should be hidden.</p>
+					
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.hidden-hover</code></td>
+										<td>The element is removed from the document flow when hidden.</td>
+									</tr>
+									<tr>
+										<td><code>.invisible-hover</code></td>
+										<td>The element is not removed from the document flow when hidden.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<p>The child elements will be displayed when the parent element is hovered or focused. Add <code>tabindex="0"</code> to the parent element to allow it to receive focus through keyboard navigation and on touch devices.</p>
+						<p>If there are <code>a</code> or <code>button</code> elements within the hidden child element, they are already focusable through keyboard navigation and will make the child element appear. Therefore, add <code>tabindex="-1"</code> so the parent element is still focusable on touch devices.</p>
+							
+						<pre><code>
+							&lt;div class=&quot;visible-toggle&quot; tabindex=&quot;0&quot;&gt;
+								&lt;div class=&quot;hidden-hover&quot;&gt;&lt;/div&gt;
+							&lt;/div&gt;
+						</code></pre>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid col-2 margin-xlarge-bottom">
+										<div class="visible-toggle">
+											<h4>Hidden when not hovered</h4>
+											<div class="grid masonry-xsmall">
+												<div class="width-expand first-column">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+												</div>
+												<div class="width-auto">
+													<ul class="hidden-hover iconnav">
+														<li><i class="icon item-icon">article</i></li>
+														<li><i class="icon item-icon">article</i></li>
+														<li><i class="icon item-icon">article</i></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="visible-toggle">
+											<h4>Invisible when not hovered</h4>
+											<div class="grid masonry-xsmall">
+												<div class="width-expand first-column">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+												<div class="width-auto">
+													<ul class="invisible-hover iconnav">
+														<li><i class="icon item-icon">article</i></li>
+														<li><i class="icon item-icon">article</i></li>
+														<li><i class="icon item-icon">article</i></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid col-2 margin-xlarge-bottom&quot;&gt;
+											&lt;div class=&quot;visible-toggle&quot;&gt;
+												&lt;h4&gt;Hidden when not hovered&lt;/h4&gt;
+												&lt;div class=&quot;grid masonry-xsmall&quot;&gt;
+													&lt;div class=&quot;width-expand first-column&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+													&lt;/div&gt;
+													&lt;div class=&quot;width-auto&quot;&gt;
+														&lt;ul class=&quot;hidden-hover iconnav&quot;&gt;
+															&lt;li&gt;&lt;i class=&quot;icon item-icon&quot;&gt;article&lt;/i&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;i class=&quot;icon item-icon&quot;&gt;article&lt;/i&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;i class=&quot;icon item-icon&quot;&gt;article&lt;/i&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;visible-toggle&quot;&gt;
+												&lt;h4&gt;Invisible when not hovered&lt;/h4&gt;
+												&lt;div class=&quot;grid masonry-xsmall&quot;&gt;
+													&lt;div class=&quot;width-expand first-column&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/div&gt;
+													&lt;div class=&quot;width-auto&quot;&gt;
+														&lt;ul class=&quot;invisible-hover iconnav&quot;&gt;
+															&lt;li&gt;&lt;i class=&quot;icon item-icon&quot;&gt;article&lt;/i&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;i class=&quot;icon item-icon&quot;&gt;article&lt;/i&gt;&lt;/li&gt;
+															&lt;li&gt;&lt;i class=&quot;icon item-icon&quot;&gt;article&lt;/i&gt;&lt;/li&gt;
+														&lt;/ul&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h2>Touch</h2>
+						<p>Add the <code>.hidden-touch</code> class to hide elements on touch devices and the <code>.hidden-notouch</code> to hide elements on devices without a touch screen.</p>
+						
+						<pre><code>
+							&lt;!-- Hidden on touch devices --&gt;
+							&lt;div class=&quot;hidden-touch&quot;&gt;&lt;/div&gt;
+
+							&lt;!-- Hidden on no-touch devices --&gt;
+							&lt;div class=&quot;hidden-notouch&quot;&gt;&lt;/div&gt;
+						</code></pre>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid col-2 margin-xlarge-bottom">
+										<div class="first-column">
+											<div class="panel">
+												<div class="alert margin-remove alert-success">✔ Hidden Touch</div>
+												<div class="alert position-cover margin-remove hidden-touch">Hidden Touch</div>
+											</div>
+										</div>
+										<div>
+											<div class="panel">
+												<div class="alert margin-remove alert-success">✔ Hidden No-Touch</div>
+												<div class="alert position-cover margin-remove hidden-notouch">Hidden No-Touch</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid col-2 margin-xlarge-bottom&quot;&gt;
+											&lt;div class=&quot;first-column&quot;&gt;
+												&lt;div class=&quot;panel&quot;&gt;
+													&lt;div class=&quot;alert margin-remove alert-success&quot;&gt;✔ Hidden Touch&lt;/div&gt;
+													&lt;div class=&quot;alert position-cover margin-remove hidden-touch&quot;&gt;Hidden Touch&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div&gt;
+												&lt;div class=&quot;panel&quot;&gt;
+													&lt;div class=&quot;alert margin-remove alert-success&quot;&gt;✔ Hidden No-Touch&lt;/div&gt;
+													&lt;div class=&quot;alert position-cover margin-remove hidden-notouch&quot;&gt;Hidden No-Touch&lt;/div&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</article>
 				</div>
 			</div>
 		</main>

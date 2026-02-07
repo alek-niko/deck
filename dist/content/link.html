@@ -308,172 +308,176 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-                    <h1>Link</h1>
-                    <p class="text-lead">Define different styles to integrate links into specific content.</p>
-                    <hr>
-					<h2>Muted modifier</h2>
-                    <p>The <a href="component-base.html">Base component</a> determines the default link color. If you want the link to apply a muted style instead, just add the <code>.link-muted</code> class to the anchor element. You can also add the class to a parent element, and it will be applied to all <code>&lt;a&gt;</code> elements inside it.</p>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Link</h1>
+						<p class="text-lead">Define different styles to integrate links into specific content.</p>
+						<hr>
+						<h2>Muted modifier</h2>
+						<p>The <a href="component-base.html">Base component</a> determines the default link color. If you want the link to apply a muted style instead, just add the <code>.link-muted</code> class to the anchor element. You can also add the class to a parent element, and it will be applied to all <code>&lt;a&gt;</code> elements inside it.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<a class="link-muted" href="#">Link</a>
-								<p class="link-muted">Lorem ipsum <a href="#!">dolor sit</a> amet, consectetur adipiscing elit, sed do <a href="#!">eiusmod</a> tempor incididunt ut <a href="#!">labore et</a> dolore magna aliqua.</p>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<a class="link-muted" href="#">Link</a>
+									<p class="link-muted">Lorem ipsum <a href="#!">dolor sit</a> amet, consectetur adipiscing elit, sed do <a href="#!">eiusmod</a> tempor incididunt ut <a href="#!">labore et</a> dolore magna aliqua.</p>
+								</div>
+								<div>
+									<pre><code>
+										&lt;a class=&quot;link-muted&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+										&lt;p class=&quot;link-muted&quot;&gt;Lorem ipsum &lt;a href=&quot;#&quot;&gt;dolor sit&lt;/a&gt; amet, consectetur adipiscing elit, sed do &lt;a href=&quot;#&quot;&gt;eiusmod&lt;/a&gt; tempor incididunt ut &lt;a href=&quot;#&quot;&gt;labore et&lt;/a&gt; dolore magna aliqua.&lt;/p&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;a class=&quot;link-muted&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
-									&lt;p class=&quot;link-muted&quot;&gt;Lorem ipsum &lt;a href=&quot;#&quot;&gt;dolor sit&lt;/a&gt; amet, consectetur adipiscing elit, sed do &lt;a href=&quot;#&quot;&gt;eiusmod&lt;/a&gt; tempor incididunt ut &lt;a href=&quot;#&quot;&gt;labore et&lt;/a&gt; dolore magna aliqua.&lt;/p&gt;
-								</code></pre>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>	
+						
+						<h2>Text modifier</h2>
+						<p>To make a link appear like body text and apply a hover effect, add the <code>.link-text</code> class to the anchor element. You can also add the class to a parent element, and it will be applied to all <code>&lt;a&gt;</code> elements inside it. This is useful for link lists in the page footer.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="list link-text">
+										<li><a href="#!">Link</a></li>
+										<li><a href="#!">Link</a></li>
+										<li><a href="#!">Link</a></li>
+									</ul> 
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;list link-text&quot;&gt;
+											&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt;
+										&lt;/ul&gt; 
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>	
-                    
-                    <h2>Text modifier</h2>
-                    <p>To make a link appear like body text and apply a hover effect, add the <code>.link-text</code> class to the anchor element. You can also add the class to a parent element, and it will be applied to all <code>&lt;a&gt;</code> elements inside it. This is useful for link lists in the page footer.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="list link-text">
-									<li><a href="#!">Link</a></li>
-									<li><a href="#!">Link</a></li>
-									<li><a href="#!">Link</a></li>
-								</ul> 
+						<h2>Heading modifier</h2>
+						<p>To style a link inside a heading element, add the <code>.link-heading</code> class to the anchor element.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<h3><a class="link-heading" href="#">Heading</a></h3>
+								</div>
+								<div>
+									<pre><code>
+										&lt;h3&gt;&lt;a class=&quot;link-heading&quot; href=&quot;#&quot;&gt;Heading&lt;/a&gt;&lt;/h3&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;ul class=&quot;list link-text&quot;&gt;
-										&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt;
-										&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt;
-										&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt;
-									&lt;/ul&gt; 
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-                    <h2>Heading modifier</h2>
-                    <p>To style a link inside a heading element, add the <code>.link-heading</code> class to the anchor element.</p>
+						<h2>Reset modifier</h2>
+						<p>To reset a link's color, so that it inherits the color from its parent, add the <code>.link-reset</code> class. There won't be any hover effect at all. This is useful for links inside heading elements. You can also add the class to a parent element, and it will be applied to all <code>&lt;a&gt;</code> elements inside it.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<h3><a class="link-heading" href="#">Heading</a></h3>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<a class="link-reset" href="#">Link</a>
+									<h3><a class="link-reset" href="#">Heading</a></h3>  
+								</div>
+								<div>
+									<pre><code>
+										&lt;a class=&quot;link-reset&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+										&lt;h3&gt;&lt;a class=&quot;link-reset&quot; href=&quot;#&quot;&gt;Heading&lt;/a&gt;&lt;/h3&gt;  
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;h3&gt;&lt;a class=&quot;link-heading&quot; href=&quot;#&quot;&gt;Heading&lt;/a&gt;&lt;/h3&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-                    <h2>Reset modifier</h2>
-                    <p>To reset a link's color, so that it inherits the color from its parent, add the <code>.link-reset</code> class. There won't be any hover effect at all. This is useful for links inside heading elements. You can also add the class to a parent element, and it will be applied to all <code>&lt;a&gt;</code> elements inside it.</p>
+						<h2>Toggle</h2>
+						<p>To use an anchor as parent element and apply the link style on one of its child elements, just add the <code>.link-toggle</code> class to the parent element and one of the <code>.link-*</code> classes to the child element. For instance, you can link the whole card and still have the hover effect on the heading.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<a class="link-reset" href="#">Link</a>
-								<h3><a class="link-reset" href="#">Heading</a></h3>  
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<a href="#!" class="display-block card card-body link-toggle width-medium">
+										<h3 class="card-title"><span class="link-heading">Heading</span></h3>
+										<div class="card-body">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+									</a>
+								</div>
+								<div>
+									<pre><code>
+										&lt;a href=&quot;#!&quot; class=&quot;display-block card card-body link-toggle width-medium&quot;&gt;
+											&lt;h3 class=&quot;card-title&quot;&gt;&lt;span class=&quot;link-heading&quot;&gt;Heading&lt;/span&gt;&lt;/h3&gt;
+											&lt;div class=&quot;card-body&quot;&gt;
+												&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;
+											&lt;/div&gt;
+										&lt;/a&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;a class=&quot;link-reset&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
-									&lt;h3&gt;&lt;a class=&quot;link-reset&quot; href=&quot;#&quot;&gt;Heading&lt;/a&gt;&lt;/h3&gt;  
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-                    <h2>Toggle</h2>
-                    <p>To use an anchor as parent element and apply the link style on one of its child elements, just add the <code>.link-toggle</code> class to the parent element and one of the <code>.link-*</code> classes to the child element. For instance, you can link the whole card and still have the hover effect on the heading.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<a href="#!" class="display-block card card-body link-toggle width-medium">
-									<h3 class="card-title"><span class="link-heading">Heading</span></h3>
-									<div class="card-body">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-									</div>
-								</a>
-							</div>
-							<div>
-								<pre><code>
-									&lt;a href=&quot;#!&quot; class=&quot;display-block card card-body link-toggle width-medium&quot;&gt;
-										&lt;h3 class=&quot;card-title&quot;&gt;&lt;span class=&quot;link-heading&quot;&gt;Heading&lt;/span&gt;&lt;/h3&gt;
-										&lt;div class=&quot;card-body&quot;&gt;
-											&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;
-										&lt;/div&gt;
-									&lt;/a&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

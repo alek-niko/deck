@@ -310,118 +310,120 @@
 		</aside>
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
 
-					<h1>Shadow Utilities</h1>
-					<p class="text-lead">Modular shadow helpers for elevation, depth, and visual effects.</p>
-					<p>These utilities provide consistent shadow styling based on your elevation map, including base shadows, hover shadows, bottom glow effects, and legacy shadow styles. Designed for performance and theme adaptability with dark mode support.</p>
-					
-					<hr>
-					
-					<h2>Elevation Shadow Utilities</h2>
-					<p>Apply predefined elevation shadows corresponding to different depth levels using the
-						<code>@include elevation()</code> mixin. Use these to add consistent drop shadows that align with your design
-						system.</p>
+						<h1>Shadow Utilities</h1>
+						<p class="text-lead">Modular shadow helpers for elevation, depth, and visual effects.</p>
+						<p>These utilities provide consistent shadow styling based on your elevation map, including base shadows, hover shadows, bottom glow effects, and legacy shadow styles. Designed for performance and theme adaptability with dark mode support.</p>
+						
+						<hr>
+						
+						<h2>Elevation Shadow Utilities</h2>
+						<p>Apply predefined elevation shadows corresponding to different depth levels using the
+							<code>@include elevation()</code> mixin. Use these to add consistent drop shadows that align with your design
+							system.</p>
 
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.box-shadow-sm</code></td>
-								<td>Small elevation shadow (level 1)</td>
-							</tr>
-							<tr>
-								<td><code>.box-shadow-md</code></td>
-								<td>Medium elevation shadow (level 4)</td>
-							</tr>
-							<tr>
-								<td><code>.box-shadow-lg</code></td>
-								<td>Large elevation shadow (level 8)</td>
-							</tr>
-							<tr>
-								<td><code>.box-shadow-xl</code></td>
-								<td>Extra large elevation shadow (level 16)</td>
-							</tr>
-						</tbody>
-					</table>
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.box-shadow-sm</code></td>
+									<td>Small elevation shadow (level 1)</td>
+								</tr>
+								<tr>
+									<td><code>.box-shadow-md</code></td>
+									<td>Medium elevation shadow (level 4)</td>
+								</tr>
+								<tr>
+									<td><code>.box-shadow-lg</code></td>
+									<td>Large elevation shadow (level 8)</td>
+								</tr>
+								<tr>
+									<td><code>.box-shadow-xl</code></td>
+									<td>Extra large elevation shadow (level 16)</td>
+								</tr>
+							</tbody>
+						</table>
 
-					<h2>Hover Shadow Utilities</h2>
-					<p>
-						Shadow styles that activate on hover with smooth transitions. Use these to add interactive depth feedback to
-						elements.
-					</p>
+						<h2>Hover Shadow Utilities</h2>
+						<p>
+							Shadow styles that activate on hover with smooth transitions. Use these to add interactive depth feedback to
+							elements.
+						</p>
 
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.box-shadow-hover-sm</code></td>
-								<td>Small shadow on hover</td>
-							</tr>
-							<tr>
-								<td><code>.box-shadow-hover-md</code></td>
-								<td>Medium shadow on hover</td>
-							</tr>
-							<tr>
-								<td><code>.box-shadow-hover-lg</code></td>
-								<td>Large shadow on hover</td>
-							</tr>
-							<tr>
-								<td><code>.box-shadow-hover-xl</code></td>
-								<td>Extra large shadow on hover</td>
-							</tr>
-						</tbody>
-					</table>
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.box-shadow-hover-sm</code></td>
+									<td>Small shadow on hover</td>
+								</tr>
+								<tr>
+									<td><code>.box-shadow-hover-md</code></td>
+									<td>Medium shadow on hover</td>
+								</tr>
+								<tr>
+									<td><code>.box-shadow-hover-lg</code></td>
+									<td>Large shadow on hover</td>
+								</tr>
+								<tr>
+									<td><code>.box-shadow-hover-xl</code></td>
+									<td>Extra large shadow on hover</td>
+								</tr>
+							</tbody>
+						</table>
 
-					<h2>Bottom Shadow Effect</h2>
-					<p>
-						Adds a subtle blurred shadow below the element using a pseudo-element with CSS filter. The shadow color can be
-						customized via <code>--shadow-bottom-color</code>.
-					</p>
-					<p><code>.box-shadow-bottom</code> is ideal for floating UI elements or cards with soft grounding shadows.</p>
+						<h2>Bottom Shadow Effect</h2>
+						<p>
+							Adds a subtle blurred shadow below the element using a pseudo-element with CSS filter. The shadow color can be
+							customized via <code>--shadow-bottom-color</code>.
+						</p>
+						<p><code>.box-shadow-bottom</code> is ideal for floating UI elements or cards with soft grounding shadows.</p>
 
-					<h2>General Purpose Shadows</h2>
-					<p>
-						Utility classes for complex or inset shadows to create sunken or raised effects. Use these for stylized visual
-						textures beyond elevation.
-					</p>
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.shadow</code></td>
-								<td>Complex multi-layer drop shadow</td>
-							</tr>
-							<tr>
-								<td><code>.sunken</code></td>
-								<td>Inset shadow effect creating a sunken look</td>
-							</tr>
-							<tr>
-								<td><code>.raised</code></td>
-								<td>Legacy raised shadow with light and dark offsets</td>
-							</tr>
-							<tr>
-								<td><code>.raised2</code></td>
-								<td>Legacy complex raised shadow</td>
-							</tr>
-						</tbody>
-					</table>
+						<h2>General Purpose Shadows</h2>
+						<p>
+							Utility classes for complex or inset shadows to create sunken or raised effects. Use these for stylized visual
+							textures beyond elevation.
+						</p>
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.shadow</code></td>
+									<td>Complex multi-layer drop shadow</td>
+								</tr>
+								<tr>
+									<td><code>.sunken</code></td>
+									<td>Inset shadow effect creating a sunken look</td>
+								</tr>
+								<tr>
+									<td><code>.raised</code></td>
+									<td>Legacy raised shadow with light and dark offsets</td>
+								</tr>
+								<tr>
+									<td><code>.raised2</code></td>
+									<td>Legacy complex raised shadow</td>
+								</tr>
+							</tbody>
+						</table>
 
+					</article>
 				</div>
 			</div>
 		</main>

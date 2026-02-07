@@ -308,279 +308,283 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Pagination</h1>
-					<p class="text-lead">Easily create a nice looking pagination to navigate through pages.</p>
-					<hr>
-					<h2>Usage</h2>
-					<p>The Pagination component consists of button-like styled links, that are aligned side by side in a horizontal list.</p>
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.pagination</code></td>
-									<td>Add this class to a <code>&lt;ul&gt;</code> element to define the Pagination component. Use <code>&lt;a&gt;</code> elements as pagination items within the list.</td>
-								</tr>
-								<tr>
-									<td><code>.active</code></td>
-									<td>Add this class to a list item to apply an active state and use a <code>&lt;span&gt;</code> instead of an <code>&lt;a&gt;</code> element.</td>
-								</tr>
-								<tr>
-									<td><code>.disabled</code></td>
-									<td>Add this class to a list item to apply a disabled state and use a <code>&lt;span&gt;</code> instead of an <code>&lt;a&gt;</code> element.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="margin-medium">
-						<pre><code>
-&lt;ul class=&quot;pagination&quot;&gt;
-	&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;li class=&quot;active&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt;
-	&lt;li class=&quot;disabled&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
-						</code></pre>
-					</div>
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>				
-						<div class="tab-content">
-							<div class="active" id="tab-5-tabpanel-0">
-								<ul class="pagination" margin>
-									<li class="first-column">
-										<a href="#!" class="pagination-previous">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M560.62-253.85 333.85-480.62l226.77-227.15 32.61 32.62-194.15 194.53 194.15 194.16-32.61 32.61Z"/></svg>
-										</a>
-									</li>
-									<li><a href="#!">1</a></li>
-									<li class="disabled"><span>…</span></li>
-									<li><a href="#!">5</a></li>
-									<li><a href="#!">6</a></li>
-									<li class="active"><span>7</span></li>
-									<li><a href="#!">8</a></li>
-									<li><a href="#!">9</a></li>
-									<li><a href="#!">10</a></li>
-									<li class="disabled"><span>…</span></li>
-									<li><a href="#!">20</a></li>
-									<li>
-										<a href="#!" class="pagination-next">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M536.92-480.62 342.77-675.15l32.61-32.62 226.77 227.15-226.77 226.77-32.61-32.61 194.15-194.16Z"/></svg>
-										</a>
-									</li>
-								</ul>
-							</div>
-							<div>
-								<pre><code>
-&lt;ul class=&quot;pagination&quot; margin&gt;
-	&lt;li class=&quot;first-column&quot;&gt;
-		&lt;a href=&quot;#!&quot; class=&quot;pagination-previous&quot;&gt;
-			&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M560.62-253.85 333.85-480.62l226.77-227.15 32.61 32.62-194.15 194.53 194.15 194.16-32.61 32.61Z&quot;/&gt;&lt;/svg&gt;
-		&lt;/a&gt;
-	&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
-	&lt;li class=&quot;disabled&quot;&gt;&lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;6&lt;/a&gt;&lt;/li&gt;
-	&lt;li class=&quot;active&quot;&gt;&lt;span&gt;7&lt;/span&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;8&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;9&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;10&lt;/a&gt;&lt;/li&gt;
-	&lt;li class=&quot;disabled&quot;&gt;&lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;20&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;
-		&lt;a href=&quot;#!&quot; class=&quot;pagination-next&quot;&gt;
-			&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M536.92-480.62 342.77-675.15l32.61-32.62 226.77 227.15-226.77 226.77-32.61-32.61 194.15-194.16Z&quot;/&gt;&lt;/svg&gt;
-		&lt;/a&gt;
-	&lt;/li&gt;
-&lt;/ul&gt;
-								</code></pre>
-							</div>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Pagination</h1>
+						<p class="text-lead">Easily create a nice looking pagination to navigate through pages.</p>
+						<hr>
+						<h2>Usage</h2>
+						<p>The Pagination component consists of button-like styled links, that are aligned side by side in a horizontal list.</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.pagination</code></td>
+										<td>Add this class to a <code>&lt;ul&gt;</code> element to define the Pagination component. Use <code>&lt;a&gt;</code> elements as pagination items within the list.</td>
+									</tr>
+									<tr>
+										<td><code>.active</code></td>
+										<td>Add this class to a list item to apply an active state and use a <code>&lt;span&gt;</code> instead of an <code>&lt;a&gt;</code> element.</td>
+									</tr>
+									<tr>
+										<td><code>.disabled</code></td>
+										<td>Add this class to a list item to apply a disabled state and use a <code>&lt;span&gt;</code> instead of an <code>&lt;a&gt;</code> element.</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Alignment</h2>
-					<p>The Pagination component utilizes flexbox, so navigations can easily be aligned with the <a href="component-flex.html" target="_blank">Flex component</a>.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;pagination flex-center&quot;&gt;…&lt;/ul&gt;
-						</code></pre>
-					</div>
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>				
-						<div class="tab-content">
-							<div class="active">
-								<ul class="pagination flex-center" margin>
-									<li class="first-column">
-										<a href="#!" class="pagination-previous">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M560.62-253.85 333.85-480.62l226.77-227.15 32.61 32.62-194.15 194.53 194.15 194.16-32.61 32.61Z"/></svg>
-										</a>
-									</li>
-									<li><a href="#!">1</a></li>
-									<li class="disabled"><span>…</span></li>
-									<li><a href="#!">5</a></li>
-									<li><a href="#!">6</a></li>
-									<li class="active"><span>7</span></li>
-									<li><a href="#!">8</a></li>
-									<li>
-										<a href="#!" class="pagination-next">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M536.92-480.62 342.77-675.15l32.61-32.62 226.77 227.15-226.77 226.77-32.61-32.61 194.15-194.16Z"/></svg>
-										</a>
-									</li>
-								</ul>
-								
-								<ul class="pagination flex-right margin-medium-top" margin>
-									<li class="first-column">
-										<a href="#!" class="pagination-previous">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M560.62-253.85 333.85-480.62l226.77-227.15 32.61 32.62-194.15 194.53 194.15 194.16-32.61 32.61Z"/></svg>
-										</a>
-									</li>
-									<li><a href="#!">1</a></li>
-									<li class="disabled"><span>…</span></li>
-									<li><a href="#!">5</a></li>
-									<li><a href="#!">6</a></li>
-									<li class="active"><span>7</span></li>
-									<li><a href="#!">8</a></li>
-									<li>
-										<a href="#!" class="pagination-next">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M536.92-480.62 342.77-675.15l32.61-32.62 226.77 227.15-226.77 226.77-32.61-32.61 194.15-194.16Z"/></svg>
-										</a>
-									</li>
-								</ul>
+						<div class="margin-medium">
+							<pre><code>
+								&lt;ul class=&quot;pagination&quot;&gt;
+									&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+									&lt;li class=&quot;active&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt;
+									&lt;li class=&quot;disabled&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt;
+								&lt;/ul&gt;
+							</code></pre>
+						</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>				
+							<div class="tab-content">
+								<div class="active" id="tab-5-tabpanel-0">
+									<ul class="pagination" margin>
+										<li class="first-column">
+											<a href="#!" class="pagination-previous">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M560.62-253.85 333.85-480.62l226.77-227.15 32.61 32.62-194.15 194.53 194.15 194.16-32.61 32.61Z"/></svg>
+											</a>
+										</li>
+										<li><a href="#!">1</a></li>
+										<li class="disabled"><span>…</span></li>
+										<li><a href="#!">5</a></li>
+										<li><a href="#!">6</a></li>
+										<li class="active"><span>7</span></li>
+										<li><a href="#!">8</a></li>
+										<li><a href="#!">9</a></li>
+										<li><a href="#!">10</a></li>
+										<li class="disabled"><span>…</span></li>
+										<li><a href="#!">20</a></li>
+										<li>
+											<a href="#!" class="pagination-next">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M536.92-480.62 342.77-675.15l32.61-32.62 226.77 227.15-226.77 226.77-32.61-32.61 194.15-194.16Z"/></svg>
+											</a>
+										</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;pagination&quot; margin&gt;
+											&lt;li class=&quot;first-column&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;pagination-previous&quot;&gt;
+													&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M560.62-253.85 333.85-480.62l226.77-227.15 32.61 32.62-194.15 194.53 194.15 194.16-32.61 32.61Z&quot;/&gt;&lt;/svg&gt;
+												&lt;/a&gt;
+											&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+											&lt;li class=&quot;disabled&quot;&gt;&lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;6&lt;/a&gt;&lt;/li&gt;
+											&lt;li class=&quot;active&quot;&gt;&lt;span&gt;7&lt;/span&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;8&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;9&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;10&lt;/a&gt;&lt;/li&gt;
+											&lt;li class=&quot;disabled&quot;&gt;&lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;20&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;pagination-next&quot;&gt;
+													&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M536.92-480.62 342.77-675.15l32.61-32.62 226.77 227.15-226.77 226.77-32.61-32.61 194.15-194.16Z&quot;/&gt;&lt;/svg&gt;
+												&lt;/a&gt;
+											&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;ul class=&quot;pagination flex-center&quot; margin&gt;
-	&lt;li class=&quot;first-column&quot;&gt;
-		&lt;a href=&quot;#!&quot; class=&quot;pagination-previous&quot;&gt;
-			&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M560.62-253.85 333.85-480.62l226.77-227.15 32.61 32.62-194.15 194.53 194.15 194.16-32.61 32.61Z&quot;/&gt;&lt;/svg&gt;
-		&lt;/a&gt;
-	&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
-	&lt;li class=&quot;disabled&quot;&gt;&lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;6&lt;/a&gt;&lt;/li&gt;
-	&lt;li class=&quot;active&quot;&gt;&lt;span&gt;7&lt;/span&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;8&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;
-		&lt;a href=&quot;#!&quot; class=&quot;pagination-next&quot;&gt;
-			&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M536.92-480.62 342.77-675.15l32.61-32.62 226.77 227.15-226.77 226.77-32.61-32.61 194.15-194.16Z&quot;/&gt;&lt;/svg&gt;
-		&lt;/a&gt;
-	&lt;/li&gt;
-&lt;/ul&gt;
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h2>Alignment</h2>
+						<p>The Pagination component utilizes flexbox, so navigations can easily be aligned with the <a href="component-flex.html" target="_blank">Flex component</a>.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;pagination flex-center&quot;&gt;…&lt;/ul&gt;
+							</code></pre>
+						</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>				
+							<div class="tab-content">
+								<div class="active">
+									<ul class="pagination flex-center" margin>
+										<li class="first-column">
+											<a href="#!" class="pagination-previous">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M560.62-253.85 333.85-480.62l226.77-227.15 32.61 32.62-194.15 194.53 194.15 194.16-32.61 32.61Z"/></svg>
+											</a>
+										</li>
+										<li><a href="#!">1</a></li>
+										<li class="disabled"><span>…</span></li>
+										<li><a href="#!">5</a></li>
+										<li><a href="#!">6</a></li>
+										<li class="active"><span>7</span></li>
+										<li><a href="#!">8</a></li>
+										<li>
+											<a href="#!" class="pagination-next">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M536.92-480.62 342.77-675.15l32.61-32.62 226.77 227.15-226.77 226.77-32.61-32.61 194.15-194.16Z"/></svg>
+											</a>
+										</li>
+									</ul>
+									
+									<ul class="pagination flex-right margin-medium-top" margin>
+										<li class="first-column">
+											<a href="#!" class="pagination-previous">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M560.62-253.85 333.85-480.62l226.77-227.15 32.61 32.62-194.15 194.53 194.15 194.16-32.61 32.61Z"/></svg>
+											</a>
+										</li>
+										<li><a href="#!">1</a></li>
+										<li class="disabled"><span>…</span></li>
+										<li><a href="#!">5</a></li>
+										<li><a href="#!">6</a></li>
+										<li class="active"><span>7</span></li>
+										<li><a href="#!">8</a></li>
+										<li>
+											<a href="#!" class="pagination-next">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M536.92-480.62 342.77-675.15l32.61-32.62 226.77 227.15-226.77 226.77-32.61-32.61 194.15-194.16Z"/></svg>
+											</a>
+										</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;pagination flex-center&quot; margin&gt;
+											&lt;li class=&quot;first-column&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;pagination-previous&quot;&gt;
+													&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M560.62-253.85 333.85-480.62l226.77-227.15 32.61 32.62-194.15 194.53 194.15 194.16-32.61 32.61Z&quot;/&gt;&lt;/svg&gt;
+												&lt;/a&gt;
+											&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+											&lt;li class=&quot;disabled&quot;&gt;&lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;6&lt;/a&gt;&lt;/li&gt;
+											&lt;li class=&quot;active&quot;&gt;&lt;span&gt;7&lt;/span&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;8&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;pagination-next&quot;&gt;
+													&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M536.92-480.62 342.77-675.15l32.61-32.62 226.77 227.15-226.77 226.77-32.61-32.61 194.15-194.16Z&quot;/&gt;&lt;/svg&gt;
+												&lt;/a&gt;
+											&lt;/li&gt;
+										&lt;/ul&gt;
 
-&lt;ul class=&quot;pagination flex-right margin-medium-top&quot; margin&gt;
-	&lt;li class=&quot;first-column&quot;&gt;
-		&lt;a href=&quot;#!&quot; class=&quot;pagination-previous&quot;&gt;
-			&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M560.62-253.85 333.85-480.62l226.77-227.15 32.61 32.62-194.15 194.53 194.15 194.16-32.61 32.61Z&quot;/&gt;&lt;/svg&gt;
-		&lt;/a&gt;
-	&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
-	&lt;li class=&quot;disabled&quot;&gt;&lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;6&lt;/a&gt;&lt;/li&gt;
-	&lt;li class=&quot;active&quot;&gt;&lt;span&gt;7&lt;/span&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;8&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;
-		&lt;a href=&quot;#!&quot; class=&quot;pagination-next&quot;&gt;
-			&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M536.92-480.62 342.77-675.15l32.61-32.62 226.77 227.15-226.77 226.77-32.61-32.61 194.15-194.16Z&quot;/&gt;&lt;/svg&gt;
-		&lt;/a&gt;
-	&lt;/li&gt;
-&lt;/ul&gt;
-								</code></pre>
+										&lt;ul class=&quot;pagination flex-right margin-medium-top&quot; margin&gt;
+											&lt;li class=&quot;first-column&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;pagination-previous&quot;&gt;
+													&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M560.62-253.85 333.85-480.62l226.77-227.15 32.61 32.62-194.15 194.53 194.15 194.16-32.61 32.61Z&quot;/&gt;&lt;/svg&gt;
+												&lt;/a&gt;
+											&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+											&lt;li class=&quot;disabled&quot;&gt;&lt;span&gt;…&lt;/span&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;6&lt;/a&gt;&lt;/li&gt;
+											&lt;li class=&quot;active&quot;&gt;&lt;span&gt;7&lt;/span&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;8&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;pagination-next&quot;&gt;
+													&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M536.92-480.62 342.77-675.15l32.61-32.62 226.77 227.15-226.77 226.77-32.61-32.61 194.15-194.16Z&quot;/&gt;&lt;/svg&gt;
+												&lt;/a&gt;
+											&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Previous and next</h2>
-					<p>To apply a previous and next button, add the <code>pagination-previous</code> or <code>pagination-next</code> attribute to a <code>&lt;span&gt;</code> element inside a pagination item.</p>
-					<div class="margin-medium">
-						<pre><code>
-&lt;ul class=&quot;pagination&quot;&gt;
-	&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;span pagination-previous&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;span pagination-next&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-						</code></pre>
-					</div>
+						
+						<h2>Previous and next</h2>
+						<p>To apply a previous and next button, add the <code>pagination-previous</code> or <code>pagination-next</code> attribute to a <code>&lt;span&gt;</code> element inside a pagination item.</p>
+						<div class="margin-medium">
+							<pre><code>
+								&lt;ul class=&quot;pagination&quot;&gt;
+									&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;span pagination-previous&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+									&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;span pagination-next&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+								&lt;/ul&gt;
+							</code></pre>
+						</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="pagination">
-									<li>
-										<a href="#!" class="margin-small-right pagination-previous">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M560.62-253.85 333.85-480.62l226.77-227.15 32.61 32.62-194.15 194.53 194.15 194.16-32.61 32.61Z"/></svg>
-											Previous
-										</a>
-									</li>
-									<li class="margin-auto-left">
-										<a href="#!" class="margin-small-right pagination-next">
-											Next
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M536.92-480.62 342.77-675.15l32.61-32.62 226.77 227.15-226.77 226.77-32.61-32.61 194.15-194.16Z"/></svg>
-										</a>
-									</li>
-								</ul>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="pagination">
+										<li>
+											<a href="#!" class="margin-small-right pagination-previous">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M560.62-253.85 333.85-480.62l226.77-227.15 32.61 32.62-194.15 194.53 194.15 194.16-32.61 32.61Z"/></svg>
+												Previous
+											</a>
+										</li>
+										<li class="margin-auto-left">
+											<a href="#!" class="margin-small-right pagination-next">
+												Next
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M536.92-480.62 342.77-675.15l32.61-32.62 226.77 227.15-226.77 226.77-32.61-32.61 194.15-194.16Z"/></svg>
+											</a>
+										</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;pagination&quot;&gt;
+											&lt;li&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;margin-small-right pagination-previous&quot;&gt;
+													&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M560.62-253.85 333.85-480.62l226.77-227.15 32.61 32.62-194.15 194.53 194.15 194.16-32.61 32.61Z&quot;/&gt;&lt;/svg&gt;
+													Previous
+												&lt;/a&gt;
+											&lt;/li&gt;
+											&lt;li class=&quot;margin-auto-left&quot;&gt;
+												&lt;a href=&quot;#!&quot; class=&quot;margin-small-right pagination-next&quot;&gt;
+													Next
+													&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M536.92-480.62 342.77-675.15l32.61-32.62 226.77 227.15-226.77 226.77-32.61-32.61 194.15-194.16Z&quot;/&gt;&lt;/svg&gt;
+												&lt;/a&gt;
+											&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;ul class=&quot;pagination&quot;&gt;
-	&lt;li&gt;
-		&lt;a href=&quot;#!&quot; class=&quot;margin-small-right pagination-previous&quot;&gt;
-			&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M560.62-253.85 333.85-480.62l226.77-227.15 32.61 32.62-194.15 194.53 194.15 194.16-32.61 32.61Z&quot;/&gt;&lt;/svg&gt;
-			Previous
-		&lt;/a&gt;
-	&lt;/li&gt;
-	&lt;li class=&quot;margin-auto-left&quot;&gt;
-		&lt;a href=&quot;#!&quot; class=&quot;margin-small-right pagination-next&quot;&gt;
-			Next
-			&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;48&quot; height=&quot;48&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M536.92-480.62 342.77-675.15l32.61-32.62 226.77 227.15-226.77 226.77-32.61-32.61 194.15-194.16Z&quot;/&gt;&lt;/svg&gt;
-		&lt;/a&gt;
-	&lt;/li&gt;
-&lt;/ul&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

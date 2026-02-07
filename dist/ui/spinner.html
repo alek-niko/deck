@@ -308,336 +308,340 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Spinner</h1>
-					<p class="text-lead">Create an animated loading spinner.</p>
-					<hr>
-					<h2 >Usage</h2>
-					<p>To create a spinner, add the <code>.spinner</code> class to a div element.</p>
-					
-					<div>
-						<pre><code>
-							&lt;div clas=&quot;spinner&quot;&gt;&lt;/div&gt;
-						</code></pre>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>					
-						<div class="tab-content">
-							<div class="active">
-								<div class="spinner" role="status">
-									<span class="spinner-visually-hidden">Loading...</span>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;spinner&quot;&gt;&lt;/div&gt;
-								</code></pre>
-							</div>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Spinner</h1>
+						<p class="text-lead">Create an animated loading spinner.</p>
+						<hr>
+						<h2 >Usage</h2>
+						<p>To create a spinner, add the <code>.spinner</code> class to a div element.</p>
+						
+						<div>
+							<pre><code>
+								&lt;div clas=&quot;spinner&quot;&gt;&lt;/div&gt;
+							</code></pre>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					
-					<h2>Available Tokens</h2>
-
-					<pre><code>
-						--spinner-size
-						--spinner-color
-					</code></pre>
-
-					
-					<h2>Size modifiers</h2>
-					<p>Te spinner comes with a few predefined sizes. Use <code>--spinner-size</code> to set custom spinner size.</p>
-
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.spinner-small</code></td>
-									<td>30px width</td>
-								</tr>
-								<tr>
-									<td><code>.spinner-medium</code></td>
-									<td>60px width.</td>
-								</tr>
-								<tr>
-									<td><code>.spinner-large</code></td>
-									<td>100px width.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>					
-						<div class="tab-content">
-							<div class="active">
-								<div class="flex-grid">
-									<div class="spinner spinner-small"></div>
-									<div class="spinner spinner-medium"></div>
-									<div class="spinner spinner-large"></div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;flex-grid&quot;&gt;
-										&lt;div class=&quot;spinner spinner-small&quot;&gt;&lt;/div&gt;
-										&lt;div class=&quot;spinner spinner-medium&quot;&gt;&lt;/div&gt;
-										&lt;div class=&quot;spinner spinner-large&quot;&gt;&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					
-					<h2>Color</h2>
-					<p>Use <code>--spinner-color</code> to set custom spinner color.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>					
-						<div class="tab-content">
-							<div class="active">
-								<div class="flex-grid">
-									<div class="spinner spinner-small" style="--spinner-color: red;"></div>
-									<div class="spinner spinner-medium" style="--spinner-color: green;"></div>
-									<div class="spinner spinner-large" style="--spinner-color: orange;"></div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;flex-grid&quot;&gt;
-										&lt;div class=&quot;spinner spinner-small&quot; style=&quot;--spinner-color: red;&quot;&gt;&lt;/div&gt;
-										&lt;div class=&quot;spinner spinner-medium&quot; style=&quot;--spinner-color: green;&quot;&gt;&lt;/div&gt;
-										&lt;div class=&quot;spinner spinner-large&quot; style=&quot;--spinner-color: orange;&quot;&gt;&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2> Inline Spinner (next to text or icon)</h2>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>					
-						<div class="tab-content">
-							<div class="active">
-								Loading<span class="spinner spinner-small spinner-inline" role="status" aria-hidden="true"></span>
-							</div>
-							<div>
-								<pre><code>
-									Loading&lt;span class=&quot;spinner spinner-small spinner-inline&quot; role=&quot;status&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Block Spinner (centered horizontally)</h2>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>					
-						<div class="tab-content">
-							<div class="active">
-								<div class="spinner spinner-medium spinner-block" role="status">
-									<span class="spinner-visually-hidden">Loading...</span>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;spinner spinner-medium spinner-block&quot; role=&quot;status&quot;&gt;
-										&lt;span class=&quot;spinner-visually-hidden&quot;&gt;Loading...&lt;/span&gt;
-									&lt;/div&gt;									
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Fullscreen Centered Spinner</h2>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>					
-						<div class="tab-content">
-							<div class="active">
-								<p>Preview on page</p>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;spinner spinner-large spinner-center&quot; role=&quot;status&quot;&gt;
-										&lt;span class=&quot;spinner-visually-hidden&quot;&gt;Loading...&lt;/span&gt;
-										&lt;span&gt;Loading, please wait...&lt;/span&gt;
-								&lt;/div&gt;									
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Overlay Spinner</h2>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>					
-						<div class="tab-content">
-							<div class="active">
-								<div class="card height-md">
-									<!-- Card content here -->
-									<div class="spinner spinner-overlay enter" role="status">
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>					
+							<div class="tab-content">
+								<div class="active">
+									<div class="spinner" role="status">
 										<span class="spinner-visually-hidden">Loading...</span>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;card height-md&quot;&gt;
-										&lt;!-- Card content here --&gt;
-										&lt;div class=&quot;spinner spinner-overlay enter&quot; role=&quot;status&quot;&gt;
-											&lt;span class=&quot;spinner-visually-hidden&quot;&gt;Loading...&lt;/span&gt;
-										&lt;/div&gt;
-								&lt;/div&gt;									
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Overlay Fixed </h2>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>					
-						<div class="tab-content">
-							<div class="active">
-								<p>Preview on page</p>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;spinner spinner-overlay fixed enter&quot; role=&quot;status&quot;&gt;
-										&lt;span class=&quot;spinner-visually-hidden&quot;&gt;Loading...&lt;/span&gt;
-									&lt;/div&gt;									
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Spinner with inline text </h2>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>					
-						<div class="tab-content">
-							<div class="active">
-								<div class="spinner spinner-small" role="status">
-									<span class="spinner-visually-hidden">Loading...</span>
-									<span>Loading</span>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;spinner&quot;&gt;&lt;/div&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;spinner spinner-small&quot; role=&quot;status&quot;&gt;
-										&lt;span class=&quot;spinner-visually-hidden&quot;&gt;Loading...&lt;/span&gt;
-										&lt;span&gt;Loading&lt;/span&gt;
-								&lt;/div&gt;								
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
+						
+						<h2>Available Tokens</h2>
+
+						<pre><code>
+							--spinner-size
+							--spinner-color
+						</code></pre>
+
+						
+						<h2>Size modifiers</h2>
+						<p>Te spinner comes with a few predefined sizes. Use <code>--spinner-size</code> to set custom spinner size.</p>
+
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.spinner-small</code></td>
+										<td>30px width</td>
+									</tr>
+									<tr>
+										<td><code>.spinner-medium</code></td>
+										<td>60px width.</td>
+									</tr>
+									<tr>
+										<td><code>.spinner-large</code></td>
+										<td>100px width.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>					
+							<div class="tab-content">
+								<div class="active">
+									<div class="flex-grid">
+										<div class="spinner spinner-small"></div>
+										<div class="spinner spinner-medium"></div>
+										<div class="spinner spinner-large"></div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;flex-grid&quot;&gt;
+											&lt;div class=&quot;spinner spinner-small&quot;&gt;&lt;/div&gt;
+											&lt;div class=&quot;spinner spinner-medium&quot;&gt;&lt;/div&gt;
+											&lt;div class=&quot;spinner spinner-large&quot;&gt;&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						
+						<h2>Color</h2>
+						<p>Use <code>--spinner-color</code> to set custom spinner color.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>					
+							<div class="tab-content">
+								<div class="active">
+									<div class="flex-grid">
+										<div class="spinner spinner-small" style="--spinner-color: red;"></div>
+										<div class="spinner spinner-medium" style="--spinner-color: green;"></div>
+										<div class="spinner spinner-large" style="--spinner-color: orange;"></div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;flex-grid&quot;&gt;
+											&lt;div class=&quot;spinner spinner-small&quot; style=&quot;--spinner-color: red;&quot;&gt;&lt;/div&gt;
+											&lt;div class=&quot;spinner spinner-medium&quot; style=&quot;--spinner-color: green;&quot;&gt;&lt;/div&gt;
+											&lt;div class=&quot;spinner spinner-large&quot; style=&quot;--spinner-color: orange;&quot;&gt;&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2> Inline Spinner (next to text or icon)</h2>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>					
+							<div class="tab-content">
+								<div class="active">
+									Loading<span class="spinner spinner-small spinner-inline" role="status" aria-hidden="true"></span>
+								</div>
+								<div>
+									<pre><code>
+										Loading&lt;span class=&quot;spinner spinner-small spinner-inline&quot; role=&quot;status&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Block Spinner (centered horizontally)</h2>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>					
+							<div class="tab-content">
+								<div class="active">
+									<div class="spinner spinner-medium spinner-block" role="status">
+										<span class="spinner-visually-hidden">Loading...</span>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;spinner spinner-medium spinner-block&quot; role=&quot;status&quot;&gt;
+											&lt;span class=&quot;spinner-visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+										&lt;/div&gt;									
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Fullscreen Centered Spinner</h2>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>					
+							<div class="tab-content">
+								<div class="active">
+									<p>Preview on page</p>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;spinner spinner-large spinner-center&quot; role=&quot;status&quot;&gt;
+											&lt;span class=&quot;spinner-visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+											&lt;span&gt;Loading, please wait...&lt;/span&gt;
+									&lt;/div&gt;									
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Overlay Spinner</h2>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>					
+							<div class="tab-content">
+								<div class="active">
+									<div class="card height-md">
+										<!-- Card content here -->
+										<div class="spinner spinner-overlay enter" role="status">
+											<span class="spinner-visually-hidden">Loading...</span>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card height-md&quot;&gt;
+											&lt;!-- Card content here --&gt;
+											&lt;div class=&quot;spinner spinner-overlay enter&quot; role=&quot;status&quot;&gt;
+												&lt;span class=&quot;spinner-visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+											&lt;/div&gt;
+									&lt;/div&gt;									
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Overlay Fixed </h2>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>					
+							<div class="tab-content">
+								<div class="active">
+									<p>Preview on page</p>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;spinner spinner-overlay fixed enter&quot; role=&quot;status&quot;&gt;
+											&lt;span class=&quot;spinner-visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+										&lt;/div&gt;									
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Spinner with inline text </h2>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>					
+							<div class="tab-content">
+								<div class="active">
+									<div class="spinner spinner-small" role="status">
+										<span class="spinner-visually-hidden">Loading...</span>
+										<span>Loading</span>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;spinner spinner-small&quot; role=&quot;status&quot;&gt;
+											&lt;span class=&quot;spinner-visually-hidden&quot;&gt;Loading...&lt;/span&gt;
+											&lt;span&gt;Loading&lt;/span&gt;
+									&lt;/div&gt;								
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

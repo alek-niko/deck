@@ -308,149 +308,19 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Form</h1>
-					<p class="text-lead">Easily create nice looking forms with different styles and layouts.</p>
-					
-					<hr>
-					
-					<h2>Usage</h2>
-					<p>Add one of the following classes to form controls inside a <code>&lt;form&gt;</code> element to define them.</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.input</code></td>
-								<td>Add this class to <code>&lt;input&gt;</code> elements.</td>
-							</tr>
-							<tr>
-								<td><code>.select</code></td>
-								<td>Add this class to <code>&lt;select&gt;</code> elements.</td>
-							</tr>
-							<tr>
-								<td><code>.textarea</code></td>
-								<td>Add this class to <code>&lt;textarea&gt;</code> elements.</td>
-							</tr>
-							<tr>
-								<td><code>.radio</code></td>
-								<td>Add this class to <code>&lt;input type="radio"&gt;</code> elements to create radio buttons.</td>
-							</tr>
-							<tr>
-								<td><code>.checkbox</code></td>
-								<td>Add this class to <code>&lt;input type="checkbox"&gt;</code> elements to create checkboxes.</td>
-							</tr>
-							<tr>
-								<td><code>.range</code></td>
-								<td>Add this class to <code>&lt;input type="range"&gt;</code> elements to create range forms.</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<div class="margin-medium">
-						<pre><code>
-							&lt;form&gt;
-								&lt;input class=&quot;input&quot; type=&quot;text&quot;&gt;
-								&lt;select class=&quot;select&quot;&gt;
-									&lt;option&gt;&lt;/option&gt;
-									&lt;option&gt;&lt;/option&gt;
-								&lt;/select&gt;
-								&lt;textarea class=&quot;textarea&quot;&gt;&lt;/textarea&gt;
-								&lt;input class=&quot;radio&quot; type=&quot;radio&quot;&gt;
-								&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
-								&lt;input class=&quot;range&quot; type=&quot;range&quot;&gt;
-							&lt;/form&gt;
-						</code></pre>
-					</div>
-
-					<p>Add the <code>.fieldset</code> class to a <code>&lt;fieldset&gt;</code> element and the <code>.legend</code> class to a <code>&lt;legend&gt;</code> element to define a fieldset and a form legend.</p>
-					
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<form class="form-stacked">
-									<fieldset class="fieldset flex flex-col gap-md">
-
-										<legend class="legend">Legend</legend>
-
-										<input class="input" type="text" placeholder="Input" aria-label="Input">
-
-										<select class="select" aria-label="Select">
-											<option>Option 01</option>
-											<option>Option 02</option>
-										</select>
-
-										<textarea class="textarea" rows="5" placeholder="Textarea" aria-label="Textarea"></textarea>
-
-										<div class="flex flex-row gap-md">
-											<label><input class="radio" type="radio" name="radio2" checked> A</label>
-											<label><input class="radio" type="radio" name="radio2"> B</label>
-										</div>
-										<div class="flex flex-row gap-md">
-											<label><input class="checkbox" type="checkbox" checked> A</label>
-											<label><input class="checkbox" type="checkbox"> B</label>
-										</div>
-
-										<input class="range" type="range" value="2" min="0" max="10" step="0.1" aria-label="Range">
-
-									</fieldset>
-								</form>
-							</div>
-							<div>
-								<pre><code>
-									&lt;form&gt;
-										&lt;fieldset class=&quot;fieldset flex flex-col gap-md&quot;&gt;
-
-											&lt;legend class=&quot;legend&quot;&gt;Legend&lt;/legend&gt;
-
-											&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;Input&quot; aria-label=&quot;Input&quot;&gt;
-
-											&lt;select class=&quot;select&quot; aria-label=&quot;Select&quot;&gt;
-												&lt;option&gt;Option 01&lt;/option&gt;
-												&lt;option&gt;Option 02&lt;/option&gt;
-											&lt;/select&gt;
-
-											&lt;textarea class=&quot;textarea&quot; rows=&quot;5&quot; placeholder=&quot;Textarea&quot; aria-label=&quot;Textarea&quot;&gt;&lt;/textarea&gt;
-
-											&lt;div class=&quot;flex flex-row gap-md&quot;&gt;
-												&lt;label&gt;&lt;input class=&quot;radio&quot; type=&quot;radio&quot; name=&quot;radio2&quot; checked&gt; A&lt;/label&gt;
-												&lt;label&gt;&lt;input class=&quot;radio&quot; type=&quot;radio&quot; name=&quot;radio2&quot;&gt; B&lt;/label&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;flex flex-row gap-md&quot;&gt;
-												&lt;label&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; checked&gt; A&lt;/label&gt;
-												&lt;label&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt; B&lt;/label&gt;
-											&lt;/div&gt;
-											
-											&lt;input class=&quot;range&quot; type=&quot;range&quot; value=&quot;2&quot; min=&quot;0&quot; max=&quot;10&quot; step=&quot;0.1&quot; aria-label=&quot;Range&quot;&gt;
-
-										&lt;/fieldset&gt;
-									&lt;/form&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
-
-					<h2>States modifiers</h2>
-					<p>Provide the user with basic information through feedback states on form controls by using one of the following classes.</p>
-					
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Form</h1>
+						<p class="text-lead">Easily create nice looking forms with different styles and layouts.</p>
+						
+						<hr>
+						
+						<h2>Usage</h2>
+						<p>Add one of the following classes to form controls inside a <code>&lt;form&gt;</code> element to define them.</p>
+						
 						<table class="table table-divider">
 							<thead>
 								<tr>
@@ -460,1429 +330,1564 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td><code>.form-danger</code></td>
-									<td>Add this class to notify the user that the value is not validated.</td>
+									<td><code>.input</code></td>
+									<td>Add this class to <code>&lt;input&gt;</code> elements.</td>
 								</tr>
 								<tr>
-									<td><code>.form-success</code></td>
-									<td>Add this class to notify the user that the value is validated.</td>
+									<td><code>.select</code></td>
+									<td>Add this class to <code>&lt;select&gt;</code> elements.</td>
+								</tr>
+								<tr>
+									<td><code>.textarea</code></td>
+									<td>Add this class to <code>&lt;textarea&gt;</code> elements.</td>
+								</tr>
+								<tr>
+									<td><code>.radio</code></td>
+									<td>Add this class to <code>&lt;input type="radio"&gt;</code> elements to create radio buttons.</td>
+								</tr>
+								<tr>
+									<td><code>.checkbox</code></td>
+									<td>Add this class to <code>&lt;input type="checkbox"&gt;</code> elements to create checkboxes.</td>
+								</tr>
+								<tr>
+									<td><code>.range</code></td>
+									<td>Add this class to <code>&lt;input type="range"&gt;</code> elements to create range forms.</td>
 								</tr>
 							</tbody>
 						</table>
 
-					<p>Add the <code>disabled</code> attribute to a form control. It will appear muted.</p>
+						<div class="margin-medium">
+							<pre><code>
+								&lt;form&gt;
+									&lt;input class=&quot;input&quot; type=&quot;text&quot;&gt;
+									&lt;select class=&quot;select&quot;&gt;
+										&lt;option&gt;&lt;/option&gt;
+										&lt;option&gt;&lt;/option&gt;
+									&lt;/select&gt;
+									&lt;textarea class=&quot;textarea&quot;&gt;&lt;/textarea&gt;
+									&lt;input class=&quot;radio&quot; type=&quot;radio&quot;&gt;
+									&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
+									&lt;input class=&quot;range&quot; type=&quot;range&quot;&gt;
+								&lt;/form&gt;
+							</code></pre>
+						</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<form class="form-stacked">
-									
-									<input class="input form-danger form-width-medium" type="text" placeholder="form-danger" aria-label="form-danger" value="form-danger">
-									<input class="input form-success form-width-medium" type="text" placeholder="form-success" aria-label="form-success" value="form-success">
-									<input class="input form-width-medium" type="text" placeholder="disabled" aria-label="disabled" value="disabled" disabled>
+						<p>Add the <code>.fieldset</code> class to a <code>&lt;fieldset&gt;</code> element and the <code>.legend</code> class to a <code>&lt;legend&gt;</code> element to define a fieldset and a form legend.</p>
+						
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<form class="form-stacked">
+										<fieldset class="fieldset flex flex-col gap-md">
 
-								</form>
+											<legend class="legend">Legend</legend>
 
+											<input class="input" type="text" placeholder="Input" aria-label="Input">
+
+											<select class="select" aria-label="Select">
+												<option>Option 01</option>
+												<option>Option 02</option>
+											</select>
+
+											<textarea class="textarea" rows="5" placeholder="Textarea" aria-label="Textarea"></textarea>
+
+											<div class="flex flex-row gap-md">
+												<label><input class="radio" type="radio" name="radio2" checked> A</label>
+												<label><input class="radio" type="radio" name="radio2"> B</label>
+											</div>
+											<div class="flex flex-row gap-md">
+												<label><input class="checkbox" type="checkbox" checked> A</label>
+												<label><input class="checkbox" type="checkbox"> B</label>
+											</div>
+
+											<input class="range" type="range" value="2" min="0" max="10" step="0.1" aria-label="Range">
+
+										</fieldset>
+									</form>
+								</div>
+								<div>
+									<pre><code>
+										&lt;form&gt;
+											&lt;fieldset class=&quot;fieldset flex flex-col gap-md&quot;&gt;
+
+												&lt;legend class=&quot;legend&quot;&gt;Legend&lt;/legend&gt;
+
+												&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;Input&quot; aria-label=&quot;Input&quot;&gt;
+
+												&lt;select class=&quot;select&quot; aria-label=&quot;Select&quot;&gt;
+													&lt;option&gt;Option 01&lt;/option&gt;
+													&lt;option&gt;Option 02&lt;/option&gt;
+												&lt;/select&gt;
+
+												&lt;textarea class=&quot;textarea&quot; rows=&quot;5&quot; placeholder=&quot;Textarea&quot; aria-label=&quot;Textarea&quot;&gt;&lt;/textarea&gt;
+
+												&lt;div class=&quot;flex flex-row gap-md&quot;&gt;
+													&lt;label&gt;&lt;input class=&quot;radio&quot; type=&quot;radio&quot; name=&quot;radio2&quot; checked&gt; A&lt;/label&gt;
+													&lt;label&gt;&lt;input class=&quot;radio&quot; type=&quot;radio&quot; name=&quot;radio2&quot;&gt; B&lt;/label&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;flex flex-row gap-md&quot;&gt;
+													&lt;label&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; checked&gt; A&lt;/label&gt;
+													&lt;label&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt; B&lt;/label&gt;
+												&lt;/div&gt;
+												
+												&lt;input class=&quot;range&quot; type=&quot;range&quot; value=&quot;2&quot; min=&quot;0&quot; max=&quot;10&quot; step=&quot;0.1&quot; aria-label=&quot;Range&quot;&gt;
+
+											&lt;/fieldset&gt;
+										&lt;/form&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;form class=&quot;form-stacked&quot;&gt;
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
+						</div>
+
+						<h2>States modifiers</h2>
+						<p>Provide the user with basic information through feedback states on form controls by using one of the following classes.</p>
+						
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.form-danger</code></td>
+										<td>Add this class to notify the user that the value is not validated.</td>
+									</tr>
+									<tr>
+										<td><code>.form-success</code></td>
+										<td>Add this class to notify the user that the value is validated.</td>
+									</tr>
+								</tbody>
+							</table>
+
+						<p>Add the <code>disabled</code> attribute to a form control. It will appear muted.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<form class="form-stacked">
 										
-										&lt;input class=&quot;input form-danger form-width-medium&quot; type=&quot;text&quot; placeholder=&quot;form-danger&quot; aria-label=&quot;form-danger&quot; value=&quot;form-danger&quot;&gt;
-										&lt;input class=&quot;input form-success form-width-medium&quot; type=&quot;text&quot; placeholder=&quot;form-success&quot; aria-label=&quot;form-success&quot; value=&quot;form-success&quot;&gt;
-										&lt;input class=&quot;input form-width-medium&quot; type=&quot;text&quot; placeholder=&quot;disabled&quot; aria-label=&quot;disabled&quot; value=&quot;disabled&quot; disabled&gt;
+										<input class="input form-danger form-width-medium" type="text" placeholder="form-danger" aria-label="form-danger" value="form-danger">
+										<input class="input form-success form-width-medium" type="text" placeholder="form-success" aria-label="form-success" value="form-success">
+										<input class="input form-width-medium" type="text" placeholder="disabled" aria-label="disabled" value="disabled" disabled>
 
-									&lt;/form&gt;
-								</code></pre>
+									</form>
+
+								</div>
+								<div>
+									<pre><code>
+										&lt;form class=&quot;form-stacked&quot;&gt;
+											
+											&lt;input class=&quot;input form-danger form-width-medium&quot; type=&quot;text&quot; placeholder=&quot;form-danger&quot; aria-label=&quot;form-danger&quot; value=&quot;form-danger&quot;&gt;
+											&lt;input class=&quot;input form-success form-width-medium&quot; type=&quot;text&quot; placeholder=&quot;form-success&quot; aria-label=&quot;form-success&quot; value=&quot;form-success&quot;&gt;
+											&lt;input class=&quot;input form-width-medium&quot; type=&quot;text&quot; placeholder=&quot;disabled&quot; aria-label=&quot;disabled&quot; value=&quot;disabled&quot; disabled&gt;
+
+										&lt;/form&gt;
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
 
-					<h2>Size modifiers</h2>
-					<p>Add one of the classes to an <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code> or <code>&lt;textarea&gt;</code> element to modify its size.</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.form-large</code></td>
-								<td>Add this class to make the element larger.</td>
-							</tr>
-							<tr>
-								<td><code>.form-small</code></td>
-								<td>Add this class to make the element smaller.</td>
-							</tr>
-						</tbody>
-					</table>
+						<h2>Size modifiers</h2>
+						<p>Add one of the classes to an <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code> or <code>&lt;textarea&gt;</code> element to modify its size.</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.form-large</code></td>
+									<td>Add this class to make the element larger.</td>
+								</tr>
+								<tr>
+									<td><code>.form-small</code></td>
+									<td>Add this class to make the element smaller.</td>
+								</tr>
+							</tbody>
+						</table>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<form class="form-stacked">
-									<input class="input form-width-medium form-large" type="text" placeholder="Large" aria-label="Large">
-									<input class="input form-width-medium" type="text" placeholder="Default" aria-label="Default">
-									<input class="input form-width-medium form-small" type="text" placeholder="Small" aria-label="Small">
-								</form>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<form class="form-stacked">
+										<input class="input form-width-medium form-large" type="text" placeholder="Large" aria-label="Large">
+										<input class="input form-width-medium" type="text" placeholder="Default" aria-label="Default">
+										<input class="input form-width-medium form-small" type="text" placeholder="Small" aria-label="Small">
+									</form>
+								</div>
+								<div>
+									<pre><code>
+										&lt;form class=&quot;form-stacked&quot;&gt;
+											&lt;input class=&quot;input form-width-medium form-large&quot; type=&quot;text&quot; placeholder=&quot;Large&quot; aria-label=&quot;Large&quot;&gt;
+											&lt;input class=&quot;input form-width-medium&quot; type=&quot;text&quot; placeholder=&quot;Default&quot; aria-label=&quot;Default&quot;&gt;
+											&lt;input class=&quot;input form-width-medium form-small&quot; type=&quot;text&quot; placeholder=&quot;Small&quot; aria-label=&quot;Small&quot;&gt;
+										&lt;/form&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;form class=&quot;form-stacked&quot;&gt;
-										&lt;input class=&quot;input form-width-medium form-large&quot; type=&quot;text&quot; placeholder=&quot;Large&quot; aria-label=&quot;Large&quot;&gt;
-										&lt;input class=&quot;input form-width-medium&quot; type=&quot;text&quot; placeholder=&quot;Default&quot; aria-label=&quot;Default&quot;&gt;
-										&lt;input class=&quot;input form-width-medium form-small&quot; type=&quot;text&quot; placeholder=&quot;Small&quot; aria-label=&quot;Small&quot;&gt;
-									&lt;/form&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
-					
-					<h2 id="width-modifiers">Width modifiers</h2>
-					<p>Add one of the following classes to an <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code> or <code>&lt;textarea&gt;</code> element to adjust its width.</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.form-width-large</code></td>
-								<td>Applies a width of <em>500px</em>.</td>
-							</tr>
-							<tr>
-								<td><code>.form-width-medium</code></td>
-								<td>Applies a width of <em>200px</em>.</td>
-							</tr>
-							<tr>
-								<td><code>.form-width-small</code></td>
-								<td>Applies a width of <em>130px</em>.</td>
-							</tr>
-							<tr>
-								<td><code>.form-width-xsmall</code></td>
-								<td>Applies a width of <em>40px</em>.</td>
-							</tr>
-						</tbody>
-					</table>
-					
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<form class="form-stacked">
-										<input class="input form-width-large" type="text" placeholder="Large" aria-label="Large">
-										<input class="input form-width-medium" type="text" placeholder="Medium" aria-label="Medium">
-										<input class="input form-width-small" type="text" placeholder="Small" aria-label="Small">
-										<input class="input form-width-xsmall" type="text" placeholder="X-Small" aria-label="X-Small">
-								</form>
+						
+						<h2 id="width-modifiers">Width modifiers</h2>
+						<p>Add one of the following classes to an <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code> or <code>&lt;textarea&gt;</code> element to adjust its width.</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.form-width-large</code></td>
+									<td>Applies a width of <em>500px</em>.</td>
+								</tr>
+								<tr>
+									<td><code>.form-width-medium</code></td>
+									<td>Applies a width of <em>200px</em>.</td>
+								</tr>
+								<tr>
+									<td><code>.form-width-small</code></td>
+									<td>Applies a width of <em>130px</em>.</td>
+								</tr>
+								<tr>
+									<td><code>.form-width-xsmall</code></td>
+									<td>Applies a width of <em>40px</em>.</td>
+								</tr>
+							</tbody>
+						</table>
+						
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<form class="form-stacked">
+											<input class="input form-width-large" type="text" placeholder="Large" aria-label="Large">
+											<input class="input form-width-medium" type="text" placeholder="Medium" aria-label="Medium">
+											<input class="input form-width-small" type="text" placeholder="Small" aria-label="Small">
+											<input class="input form-width-xsmall" type="text" placeholder="X-Small" aria-label="X-Small">
+									</form>
+								</div>
+								<div>
+									<pre><code>
+										&lt;form class=&quot;form-stacked&quot;&gt;
+												&lt;input class=&quot;input form-width-large&quot; type=&quot;text&quot; placeholder=&quot;Large&quot; aria-label=&quot;Large&quot;&gt;
+												&lt;input class=&quot;input form-width-medium&quot; type=&quot;text&quot; placeholder=&quot;Medium&quot; aria-label=&quot;Medium&quot;&gt;
+												&lt;input class=&quot;input form-width-small&quot; type=&quot;text&quot; placeholder=&quot;Small&quot; aria-label=&quot;Small&quot;&gt;
+												&lt;input class=&quot;input form-width-xsmall&quot; type=&quot;text&quot; placeholder=&quot;X-Small&quot; aria-label=&quot;X-Small&quot;&gt;
+										&lt;/form&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;form class=&quot;form-stacked&quot;&gt;
-											&lt;input class=&quot;input form-width-large&quot; type=&quot;text&quot; placeholder=&quot;Large&quot; aria-label=&quot;Large&quot;&gt;
-											&lt;input class=&quot;input form-width-medium&quot; type=&quot;text&quot; placeholder=&quot;Medium&quot; aria-label=&quot;Medium&quot;&gt;
-											&lt;input class=&quot;input form-width-small&quot; type=&quot;text&quot; placeholder=&quot;Small&quot; aria-label=&quot;Small&quot;&gt;
-											&lt;input class=&quot;input form-width-xsmall&quot; type=&quot;text&quot; placeholder=&quot;X-Small&quot; aria-label=&quot;X-Small&quot;&gt;
-									&lt;/form&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
 
-					<p>You can also apply the <code>.width-*</code> classes from the <a href="component-width.html" target="_blank">Width component</a> to form controls.</p>
-					
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<form>
-									<input class="input width-1-3" type="text" placeholder="width-1-3" aria-label="width-1-3">
-								</form>
+						<p>You can also apply the <code>.width-*</code> classes from the <a href="component-width.html" target="_blank">Width component</a> to form controls.</p>
+						
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<form>
+										<input class="input width-1-3" type="text" placeholder="width-1-3" aria-label="width-1-3">
+									</form>
+								</div>
+								<div>
+									<pre><code>
+										&lt;form&gt;
+											&lt;input class=&quot;input width-1-3&quot; type=&quot;text&quot; placeholder=&quot;width-1-3&quot; aria-label=&quot;width-1-3&quot;&gt;
+										&lt;/form&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;form&gt;
-										&lt;input class=&quot;input width-1-3&quot; type=&quot;text&quot; placeholder=&quot;width-1-3&quot; aria-label=&quot;width-1-3&quot;&gt;
-									&lt;/form&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
-					
-					<h2>Blank modifier</h2>
-					<p>Add the <code>.form-blank</code> class to minimize the styling of form controls.</p>
-					
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<form>
-									<input class="input form-blank form-width-medium" type="text" placeholder="Form blank">
-								</form>
+						
+						<h2>Blank modifier</h2>
+						<p>Add the <code>.form-blank</code> class to minimize the styling of form controls.</p>
+						
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<form>
+										<input class="input form-blank form-width-medium" type="text" placeholder="Form blank">
+									</form>
+								</div>
+								<div>
+									<pre><code>
+										&lt;form&gt;
+											&lt;input class=&quot;input form-blank form-width-medium&quot; type=&quot;text&quot; placeholder=&quot;Form blank&quot;&gt;
+										&lt;/form&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;form&gt;
-										&lt;input class=&quot;input form-blank form-width-medium&quot; type=&quot;text&quot; placeholder=&quot;Form blank&quot;&gt;
-									&lt;/form&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h3>Helper text</h3>
-					<p>
-						Use the <code>.form-help-inline</code> class to provide additional guidance or context for inputs. 
-						Place it inside <code>.form-controls</code> for consistent alignment and styling.
-					</p>
+						<h3>Helper text</h3>
+						<p>
+							Use the <code>.form-help-inline</code> class to provide additional guidance or context for inputs. 
+							Place it inside <code>.form-controls</code> for consistent alignment and styling.
+						</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<form class="form-stacked padding">
-
-									<div class="form-group">
-										<input type="text" placeholder="Text input" class="input form-width-large" data-input>
-										<span class="form-help-inline">The <code>.form-help-inline</code> class creates spacing to the left.</span>
-									</div>
-
-									<div class="form-group">
-										<textarea cols="30" rows="5" placeholder="Textarea" class="textarea form-width-large" data-input></textarea>
-										<p class="form-help-inline">The <code>.form-help-inline</code> class creates an associated paragraph.</p>
-									</div>
-
-								</form>
-							</div>
-							<div>
-								<pre><code>
-									&lt;form class=&quot;form-stacked padding&quot;&gt;
-
-										&lt;div class=&quot;form-group&quot;&gt;
-											&lt;input type=&quot;text&quot; placeholder=&quot;Text input&quot; class=&quot;input form-width-large&quot; data-input&gt;
-											&lt;span class=&quot;form-help-inline&quot;&gt;The &lt;code&gt;.form-help-inline&lt;/code&gt; class creates spacing to the left.&lt;/span&gt;
-										&lt;/div&gt;
-
-										&lt;div class=&quot;form-group&quot;&gt;
-											&lt;textarea cols=&quot;30&quot; rows=&quot;5&quot; placeholder=&quot;Textarea&quot; class=&quot;textarea form-width-large&quot; data-input&gt;&lt;/textarea&gt;
-											&lt;p class=&quot;form-help-block&quot;&gt;The &lt;code&gt;.form-help-block&lt;/code&gt; class creates an associated paragraph.&lt;/p&gt;
-										&lt;/div&gt;
-
-									&lt;/form&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Form layout</h2>
-					<p>
-						Forms use a flexbox-based layout with consistent spacing between labels, inputs,
-						and help text. Layout modifiers can be applied to the parent
-						<code>.form-horizontal</code> or <code>.form-stacked</code> container.
-						You can also scope layouts per <code>&lt;fieldset&gt;</code> to mix horizontal
-						and stacked sections within the same form.
-					</p>
-
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.form-horizontal</code></td>
-								<td>
-									Default layout. Labels are displayed in a fixed-width column on the left,
-									and controls are aligned side by side on the right. Fields will wrap on
-									smaller screens.
-								</td>
-							</tr>
-							<tr>
-								<td><code>.form-stacked</code></td>
-								<td>
-									Modifier for vertical forms. Labels are placed above their controls,
-									spanning the full width for a tighter stacked appearance.
-								</td>
-							</tr>
-							<tr>
-								<td><code>.form-group</code></td>
-								<td>
-									A flex container that groups a label and its control(s).
-									Ensures proper spacing and alignment for both layouts.
-								</td>
-							</tr>
-							<tr>
-								<td><code>.form-label</code></td>
-								<td>
-									Defines the form label. In horizontal forms it has a fixed width and
-									aligns with the input text; in stacked forms it expands full-width.
-								</td>
-							</tr>
-							<tr>
-								<td><code>.form-controls</code></td>
-								<td>
-									Defines the form control area. Expands to fill remaining space, and stacks
-									inputs with help or error messages vertically.
-								</td>
-							</tr>
-						</tbody>
-					</table>
-
-					
-					<h3>Stacked Form Layout</h3>
-					<p>Use the <code>.form-stacked</code> class to place labels directly above their form controls. This layout is highly responsive, works well on mobile devices, and is easy for users to scan.</p>
-					
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-
-								<form class="form-stacked">	
-									<fieldset>
-
-										<legend>Legend</legend>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<form class="form-stacked padding">
 
 										<div class="form-group">
-											<label for="username-stacked" class="form-label">Input</label>
-											<div class="form-controls">
-												<input type="text" id="username-stacked" class="input" placeholder="e.g., input">
-												<span class="form-help-inline">Form help inline.</span>
-											</div>
+											<input type="text" placeholder="Text input" class="input form-width-large" data-input>
+											<span class="form-help-inline">The <code>.form-help-inline</code> class creates spacing to the left.</span>
 										</div>
 
 										<div class="form-group">
-											<label for="bio-stacked" class="form-label">Textarea</label>
-											<div class="form-controls">
-												<textarea class="textarea" rows="5" placeholder="Textarea" aria-label="Textarea"></textarea>
-												<span class="char-counter">0/150</span>
-											</div>
+											<textarea cols="30" rows="5" placeholder="Textarea" class="textarea form-width-large" data-input></textarea>
+											<p class="form-help-inline">The <code>.form-help-inline</code> class creates an associated paragraph.</p>
 										</div>
 
+									</form>
+								</div>
+								<div>
+									<pre><code>
+										&lt;form class=&quot;form-stacked padding&quot;&gt;
+
+											&lt;div class=&quot;form-group&quot;&gt;
+												&lt;input type=&quot;text&quot; placeholder=&quot;Text input&quot; class=&quot;input form-width-large&quot; data-input&gt;
+												&lt;span class=&quot;form-help-inline&quot;&gt;The &lt;code&gt;.form-help-inline&lt;/code&gt; class creates spacing to the left.&lt;/span&gt;
+											&lt;/div&gt;
+
+											&lt;div class=&quot;form-group&quot;&gt;
+												&lt;textarea cols=&quot;30&quot; rows=&quot;5&quot; placeholder=&quot;Textarea&quot; class=&quot;textarea form-width-large&quot; data-input&gt;&lt;/textarea&gt;
+												&lt;p class=&quot;form-help-block&quot;&gt;The &lt;code&gt;.form-help-block&lt;/code&gt; class creates an associated paragraph.&lt;/p&gt;
+											&lt;/div&gt;
+
+										&lt;/form&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Form layout</h2>
+						<p>
+							Forms use a flexbox-based layout with consistent spacing between labels, inputs,
+							and help text. Layout modifiers can be applied to the parent
+							<code>.form-horizontal</code> or <code>.form-stacked</code> container.
+							You can also scope layouts per <code>&lt;fieldset&gt;</code> to mix horizontal
+							and stacked sections within the same form.
+						</p>
+
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.form-horizontal</code></td>
+									<td>
+										Default layout. Labels are displayed in a fixed-width column on the left,
+										and controls are aligned side by side on the right. Fields will wrap on
+										smaller screens.
+									</td>
+								</tr>
+								<tr>
+									<td><code>.form-stacked</code></td>
+									<td>
+										Modifier for vertical forms. Labels are placed above their controls,
+										spanning the full width for a tighter stacked appearance.
+									</td>
+								</tr>
+								<tr>
+									<td><code>.form-group</code></td>
+									<td>
+										A flex container that groups a label and its control(s).
+										Ensures proper spacing and alignment for both layouts.
+									</td>
+								</tr>
+								<tr>
+									<td><code>.form-label</code></td>
+									<td>
+										Defines the form label. In horizontal forms it has a fixed width and
+										aligns with the input text; in stacked forms it expands full-width.
+									</td>
+								</tr>
+								<tr>
+									<td><code>.form-controls</code></td>
+									<td>
+										Defines the form control area. Expands to fill remaining space, and stacks
+										inputs with help or error messages vertically.
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						
+						<h3>Stacked Form Layout</h3>
+						<p>Use the <code>.form-stacked</code> class to place labels directly above their form controls. This layout is highly responsive, works well on mobile devices, and is easy for users to scan.</p>
+						
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+
+									<form class="form-stacked">	
+										<fieldset>
+
+											<legend>Legend</legend>
+
+											<div class="form-group">
+												<label for="username-stacked" class="form-label">Input</label>
+												<div class="form-controls">
+													<input type="text" id="username-stacked" class="input" placeholder="e.g., input">
+													<span class="form-help-inline">Form help inline.</span>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label for="bio-stacked" class="form-label">Textarea</label>
+												<div class="form-controls">
+													<textarea class="textarea" rows="5" placeholder="Textarea" aria-label="Textarea"></textarea>
+													<span class="char-counter">0/150</span>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="form-label" for="form-stacked-select">Select</label>
+												<div class="form-controls">
+													<select class="select" id="form-stacked-select">
+														<option>Option 01</option>
+														<option>Option 02</option>
+													</select>
+													<span class="form-error-block">This field is required.</span>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<div class="form-label">Radio</div>
+												<div class="form-controls">
+													<label><input class="radio" type="radio" name="radio1"> Option 01</label><br>
+													<label><input class="radio" type="radio" name="radio1"> Option 02</label>
+												</div>
+											</div>
+											
+										</fieldset>
+
+									</form>
+
+								</div>
+								<div>
+									<pre><code>
+
+										&lt;form class=&quot;form-stacked&quot;&gt;	
+											&lt;fieldset&gt;
+
+												&lt;legend&gt;Legend&lt;/legend&gt;
+
+												&lt;div class=&quot;form-group&quot;&gt;
+													&lt;label for=&quot;username-stacked&quot; class=&quot;form-label&quot;&gt;Input&lt;/label&gt;
+													&lt;div class=&quot;form-controls&quot;&gt;
+														&lt;input type=&quot;text&quot; id=&quot;username-stacked&quot; class=&quot;input&quot; placeholder=&quot;e.g., input&quot;&gt;
+														&lt;span class=&quot;form-help-inline&quot;&gt;Form help inline.&lt;/span&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+
+												&lt;div class=&quot;form-group&quot;&gt;
+													&lt;label for=&quot;bio-stacked&quot; class=&quot;form-label&quot;&gt;Textarea&lt;/label&gt;
+													&lt;div class=&quot;form-controls&quot;&gt;
+														&lt;textarea class=&quot;textarea&quot; rows=&quot;5&quot; placeholder=&quot;Textarea&quot; aria-label=&quot;Textarea&quot;&gt;&lt;/textarea&gt;
+														&lt;span class=&quot;char-counter&quot;&gt;0/150&lt;/span&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+
+												&lt;div class=&quot;form-group&quot;&gt;
+													&lt;label class=&quot;form-label&quot; for=&quot;form-stacked-select&quot;&gt;Select&lt;/label&gt;
+													&lt;div class=&quot;form-controls&quot;&gt;
+														&lt;select class=&quot;select&quot; id=&quot;form-stacked-select&quot;&gt;
+															&lt;option&gt;Option 01&lt;/option&gt;
+															&lt;option&gt;Option 02&lt;/option&gt;
+														&lt;/select&gt;
+														&lt;span class=&quot;form-error-block&quot;&gt;This field is required.&lt;/span&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+
+												&lt;div class=&quot;form-group&quot;&gt;
+													&lt;div class=&quot;form-label&quot;&gt;Radio&lt;/div&gt;
+													&lt;div class=&quot;form-controls&quot;&gt;
+														&lt;label&gt;&lt;input class=&quot;radio&quot; type=&quot;radio&quot; name=&quot;radio1&quot;&gt; Option 01&lt;/label&gt;&lt;br&gt;
+														&lt;label&gt;&lt;input class=&quot;radio&quot; type=&quot;radio&quot; name=&quot;radio1&quot;&gt; Option 02&lt;/label&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+												
+											&lt;/fieldset&gt;
+
+										&lt;/form&gt;
+
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h3>Horizontal Form Layout</h3>
+						<p>Use the <code>.form-horizontal</code> class for a layout where labels are aligned to the left of their corresponding form controls. This is ideal for desktop views or forms with fewer fields.</p>					
+						
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+
+									<form class="form-horizontal">
+										<fieldset>
+											<legend>Legend</legend>
+
+											<div class="form-group">
+												<label for="username" class="form-label">Username</label>
+												<div class="form-controls">
+													<input class="input" type="text" id="username" placeholder="e.g., john.doe">
+													<span class="form-help-inline">Your public display name.</span>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label for="bio" class="form-label">Biography</label>
+												<div class="form-controls">
+													<textarea class="textarea" id="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+													<span class="char-counter">0/150</span>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label for="country" class="form-label">Country</label>
+												<div class="form-controls">
+													<select id="country" class="select" class="form-danger">
+														<option>Select a country...</option>
+														<option>Canada</option>
+														<option>United States</option>
+														<option>United Kingdom</option>
+													</select>
+													<span class="form-error-block">This field is required.</span>
+												</div>
+											</div>
+
+										</fieldset>
+									</form>
+
+								</div>
+								<div>
+									<pre><code>
+
+										&lt;form class=&quot;form-horizontal&quot;&gt;
+											&lt;fieldset&gt;
+												&lt;legend&gt;Legend&lt;/legend&gt;
+
+												&lt;div class=&quot;form-group&quot;&gt;
+													&lt;label for=&quot;username&quot; class=&quot;form-label&quot;&gt;Username&lt;/label&gt;
+													&lt;div class=&quot;form-controls&quot;&gt;
+														&lt;input class=&quot;input&quot; type=&quot;text&quot; id=&quot;username&quot; placeholder=&quot;e.g., john.doe&quot;&gt;
+														&lt;span class=&quot;form-help-inline&quot;&gt;Your public display name.&lt;/span&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+
+												&lt;div class=&quot;form-group&quot;&gt;
+													&lt;label for=&quot;bio&quot; class=&quot;form-label&quot;&gt;Biography&lt;/label&gt;
+													&lt;div class=&quot;form-controls&quot;&gt;
+														&lt;textarea class=&quot;textarea&quot; id=&quot;bio&quot; rows=&quot;4&quot; placeholder=&quot;Tell us about yourself...&quot;&gt;&lt;/textarea&gt;
+														&lt;span class=&quot;char-counter&quot;&gt;0/150&lt;/span&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+
+												&lt;div class=&quot;form-group&quot;&gt;
+													&lt;label for=&quot;country&quot; class=&quot;form-label&quot;&gt;Country&lt;/label&gt;
+													&lt;div class=&quot;form-controls&quot;&gt;
+														&lt;select id=&quot;country&quot; class=&quot;select&quot; class=&quot;form-danger&quot;&gt;
+															&lt;option&gt;Select a country...&lt;/option&gt;
+															&lt;option&gt;Canada&lt;/option&gt;
+															&lt;option&gt;United States&lt;/option&gt;
+															&lt;option&gt;United Kingdom&lt;/option&gt;
+														&lt;/select&gt;
+														&lt;span class=&quot;form-error-block&quot;&gt;This field is required.&lt;/span&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+
+											&lt;/fieldset&gt;
+										&lt;/form&gt;
+
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h2>Form and icons</h2>
+						<p>You use an icon from the <a href="component-icons-ms.html" target="_blank">Icon component</a> inside a form. Add the <code>.form-icon</code> class to a <code>&lt;span&gt;</code> element. Group it with an <code>&lt;input&gt;</code> element by adding the <code>.inline</code> class from the <a href="component-util.html" target="_blank">Utility component</a> to a container element around both. The icon has to come first in the markup. By default, the icon will be placed on the left side of the form. To change the alignment, add the <code>.form-icon-flip</code> class.</p>
+					
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+
+									<form class="form-stacked width-1-3">
+										<div class="inline">
+											<span class="form-icon">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-492.92q-57.75 0-95.22-37.47-37.47-37.48-37.47-95.42 0-57.94 37.47-95.22T480-758.31q57.75 0 95.22 37.28t37.47 95.22q0 57.94-37.47 95.42-37.47 37.47-95.22 37.47ZM180-187.69v-75.93q0-32.23 17.08-56.15t44.38-36.77q63.16-28.07 121.76-42.31 58.6-14.23 116.77-14.23 58.16 0 116.47 14.54t121.21 42.27q28.38 12.82 45.35 36.62Q780-295.85 780-263.62v75.93H180Zm45.39-45.39h509.22v-30.54q0-15.61-9.88-29.92-9.88-14.31-25.81-22.46-59-28.69-111.3-40.19-52.3-11.5-107.62-11.5-55.32 0-108.43 11.5-53.11 11.5-111.11 40.19-15.92 8.15-25.5 22.46-9.57 14.31-9.57 29.92v30.54ZM480-538.31q37.46 0 62.38-24.92 24.93-24.92 24.93-62.38 0-37.47-24.93-62.39-24.92-24.92-62.38-24.92T417.62-688q-24.93 24.92-24.93 62.39 0 37.46 24.93 62.38 24.92 24.92 62.38 24.92Zm0-87.3Zm0 392.53Z"/></svg>
+											</span>
+											<input class="input" type="text" aria-label="Not clickable icon">
+										</div>
+										<div class="inline">
+											<span class="form-icon form-icon-flip">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M237.69-100q-23.59 0-40.64-17.05T180-157.69v-400.15q0-23.9 17.05-40.8t40.64-16.9h69.62v-91.77q0-71.89 50.44-122.29Q408.19-880 480.13-880q71.95 0 122.25 50.4 50.31 50.4 50.31 122.29v91.77h69.62q23.59 0 40.64 16.9t17.05 40.8v400.15q0 23.59-17.05 40.64T722.31-100H237.69Zm0-45.39h484.62q5.38 0 8.84-3.46t3.46-8.84v-400.15q0-5.39-3.46-8.85t-8.84-3.46H237.69q-5.38 0-8.84 3.46t-3.46 8.85v400.15q0 5.38 3.46 8.84t8.84 3.46ZM480.17-290q27.98 0 47.79-19.53t19.81-47.01q0-26.54-19.98-47.77-19.97-21.23-47.96-21.23-27.98 0-47.79 21.23t-19.81 48.27q0 27.04 19.98 46.54 19.97 19.5 47.96 19.5ZM352.69-615.54h254.62v-91.77q0-53.04-37.09-90.17t-90.08-37.13q-52.99 0-90.22 37.13t-37.23 90.17v91.77Zm-127.3 470.15v-424.76 424.76Z"/></svg>
+											</span>
+											<input class="input" type="text" aria-label="Not clickable icon">
+										</div>
+									</form>
+
+								</div>
+								<div>
+									<pre><code>
+
+										&lt;form class=&quot;form-stacked width-1-3&quot;&gt;
+											&lt;div class=&quot;inline&quot;&gt;
+												&lt;span class=&quot;form-icon&quot;&gt;
+													&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-492.92q-57.75 0-95.22-37.47-37.47-37.48-37.47-95.42 0-57.94 37.47-95.22T480-758.31q57.75 0 95.22 37.28t37.47 95.22q0 57.94-37.47 95.42-37.47 37.47-95.22 37.47ZM180-187.69v-75.93q0-32.23 17.08-56.15t44.38-36.77q63.16-28.07 121.76-42.31 58.6-14.23 116.77-14.23 58.16 0 116.47 14.54t121.21 42.27q28.38 12.82 45.35 36.62Q780-295.85 780-263.62v75.93H180Zm45.39-45.39h509.22v-30.54q0-15.61-9.88-29.92-9.88-14.31-25.81-22.46-59-28.69-111.3-40.19-52.3-11.5-107.62-11.5-55.32 0-108.43 11.5-53.11 11.5-111.11 40.19-15.92 8.15-25.5 22.46-9.57 14.31-9.57 29.92v30.54ZM480-538.31q37.46 0 62.38-24.92 24.93-24.92 24.93-62.38 0-37.47-24.93-62.39-24.92-24.92-62.38-24.92T417.62-688q-24.93 24.92-24.93 62.39 0 37.46 24.93 62.38 24.92 24.92 62.38 24.92Zm0-87.3Zm0 392.53Z&quot;/&gt;&lt;/svg&gt;
+												&lt;/span&gt;
+												&lt;input class=&quot;input&quot; type=&quot;text&quot; aria-label=&quot;Not clickable icon&quot;&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;inline&quot;&gt;
+												&lt;span class=&quot;form-icon form-icon-flip&quot;&gt;
+													&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M237.69-100q-23.59 0-40.64-17.05T180-157.69v-400.15q0-23.9 17.05-40.8t40.64-16.9h69.62v-91.77q0-71.89 50.44-122.29Q408.19-880 480.13-880q71.95 0 122.25 50.4 50.31 50.4 50.31 122.29v91.77h69.62q23.59 0 40.64 16.9t17.05 40.8v400.15q0 23.59-17.05 40.64T722.31-100H237.69Zm0-45.39h484.62q5.38 0 8.84-3.46t3.46-8.84v-400.15q0-5.39-3.46-8.85t-8.84-3.46H237.69q-5.38 0-8.84 3.46t-3.46 8.85v400.15q0 5.38 3.46 8.84t8.84 3.46ZM480.17-290q27.98 0 47.79-19.53t19.81-47.01q0-26.54-19.98-47.77-19.97-21.23-47.96-21.23-27.98 0-47.79 21.23t-19.81 48.27q0 27.04 19.98 46.54 19.97 19.5 47.96 19.5ZM352.69-615.54h254.62v-91.77q0-53.04-37.09-90.17t-90.08-37.13q-52.99 0-90.22 37.13t-37.23 90.17v91.77Zm-127.3 470.15v-424.76 424.76Z&quot;/&gt;&lt;/svg&gt;
+												&lt;/span&gt;
+												&lt;input class=&quot;input&quot; type=&quot;text&quot; aria-label=&quot;Not clickable icon&quot;&gt;
+											&lt;/div&gt;
+										&lt;/form&gt;
+
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h3>Clickable icons</h3>
+						<p>To enable an action, for example opening a modal to pick an image or link, use an <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> element to create the icon.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<form class="form-stacked width-1-3">
+
+										<div class="inline">
+											<span class="form-icon">
+												<a href="#!">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-492.92q-57.75 0-95.22-37.47-37.47-37.48-37.47-95.42 0-57.94 37.47-95.22T480-758.31q57.75 0 95.22 37.28t37.47 95.22q0 57.94-37.47 95.42-37.47 37.47-95.22 37.47ZM180-187.69v-75.93q0-32.23 17.08-56.15t44.38-36.77q63.16-28.07 121.76-42.31 58.6-14.23 116.77-14.23 58.16 0 116.47 14.54t121.21 42.27q28.38 12.82 45.35 36.62Q780-295.85 780-263.62v75.93H180Zm45.39-45.39h509.22v-30.54q0-15.61-9.88-29.92-9.88-14.31-25.81-22.46-59-28.69-111.3-40.19-52.3-11.5-107.62-11.5-55.32 0-108.43 11.5-53.11 11.5-111.11 40.19-15.92 8.15-25.5 22.46-9.57 14.31-9.57 29.92v30.54ZM480-538.31q37.46 0 62.38-24.92 24.93-24.92 24.93-62.38 0-37.47-24.93-62.39-24.92-24.92-62.38-24.92T417.62-688q-24.93 24.92-24.93 62.39 0 37.46 24.93 62.38 24.92 24.92 62.38 24.92Zm0-87.3Zm0 392.53Z"/></svg>
+												</a>
+											</span>
+											<input class="input" type="text" aria-label="Clickable icon">
+										</div>
+
+										<div class="inline">
+											<span class="form-icon form-icon-flip">
+												<a href="#!">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M237.69-100q-23.59 0-40.64-17.05T180-157.69v-400.15q0-23.9 17.05-40.8t40.64-16.9h69.62v-91.77q0-71.89 50.44-122.29Q408.19-880 480.13-880q71.95 0 122.25 50.4 50.31 50.4 50.31 122.29v91.77h69.62q23.59 0 40.64 16.9t17.05 40.8v400.15q0 23.59-17.05 40.64T722.31-100H237.69Zm0-45.39h484.62q5.38 0 8.84-3.46t3.46-8.84v-400.15q0-5.39-3.46-8.85t-8.84-3.46H237.69q-5.38 0-8.84 3.46t-3.46 8.85v400.15q0 5.38 3.46 8.84t8.84 3.46ZM480.17-290q27.98 0 47.79-19.53t19.81-47.01q0-26.54-19.98-47.77-19.97-21.23-47.96-21.23-27.98 0-47.79 21.23t-19.81 48.27q0 27.04 19.98 46.54 19.97 19.5 47.96 19.5ZM352.69-615.54h254.62v-91.77q0-53.04-37.09-90.17t-90.08-37.13q-52.99 0-90.22 37.13t-37.23 90.17v91.77Zm-127.3 470.15v-424.76 424.76Z"/></svg>
+												</a>
+											</span>
+											<input class="input" type="text" aria-label="Not clickable icon">
+										</div>
+
+									</form>
+								</div>
+								<div>
+									<pre><code>
+										&lt;form class=&quot;form-stacked width-1-3&quot;&gt;
+
+											&lt;div class=&quot;inline&quot;&gt;
+												&lt;span class=&quot;form-icon&quot;&gt;
+													&lt;a href=&quot;#!&quot;&gt;
+														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-492.92q-57.75 0-95.22-37.47-37.47-37.48-37.47-95.42 0-57.94 37.47-95.22T480-758.31q57.75 0 95.22 37.28t37.47 95.22q0 57.94-37.47 95.42-37.47 37.47-95.22 37.47ZM180-187.69v-75.93q0-32.23 17.08-56.15t44.38-36.77q63.16-28.07 121.76-42.31 58.6-14.23 116.77-14.23 58.16 0 116.47 14.54t121.21 42.27q28.38 12.82 45.35 36.62Q780-295.85 780-263.62v75.93H180Zm45.39-45.39h509.22v-30.54q0-15.61-9.88-29.92-9.88-14.31-25.81-22.46-59-28.69-111.3-40.19-52.3-11.5-107.62-11.5-55.32 0-108.43 11.5-53.11 11.5-111.11 40.19-15.92 8.15-25.5 22.46-9.57 14.31-9.57 29.92v30.54ZM480-538.31q37.46 0 62.38-24.92 24.93-24.92 24.93-62.38 0-37.47-24.93-62.39-24.92-24.92-62.38-24.92T417.62-688q-24.93 24.92-24.93 62.39 0 37.46 24.93 62.38 24.92 24.92 62.38 24.92Zm0-87.3Zm0 392.53Z&quot;/&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+												&lt;/span&gt;
+												&lt;input class=&quot;input&quot; type=&quot;text&quot; aria-label=&quot;Clickable icon&quot;&gt;
+											&lt;/div&gt;
+
+											&lt;div class=&quot;inline&quot;&gt;
+												&lt;span class=&quot;form-icon form-icon-flip&quot;&gt;
+													&lt;a href=&quot;#!&quot;&gt;
+														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M237.69-100q-23.59 0-40.64-17.05T180-157.69v-400.15q0-23.9 17.05-40.8t40.64-16.9h69.62v-91.77q0-71.89 50.44-122.29Q408.19-880 480.13-880q71.95 0 122.25 50.4 50.31 50.4 50.31 122.29v91.77h69.62q23.59 0 40.64 16.9t17.05 40.8v400.15q0 23.59-17.05 40.64T722.31-100H237.69Zm0-45.39h484.62q5.38 0 8.84-3.46t3.46-8.84v-400.15q0-5.39-3.46-8.85t-8.84-3.46H237.69q-5.38 0-8.84 3.46t-3.46 8.85v400.15q0 5.38 3.46 8.84t8.84 3.46ZM480.17-290q27.98 0 47.79-19.53t19.81-47.01q0-26.54-19.98-47.77-19.97-21.23-47.96-21.23-27.98 0-47.79 21.23t-19.81 48.27q0 27.04 19.98 46.54 19.97 19.5 47.96 19.5ZM352.69-615.54h254.62v-91.77q0-53.04-37.09-90.17t-90.08-37.13q-52.99 0-90.22 37.13t-37.23 90.17v91.77Zm-127.3 470.15v-424.76 424.76Z&quot;/&gt;&lt;/svg&gt;
+													&lt;/a&gt;
+												&lt;/span&gt;
+												&lt;input class=&quot;input&quot; type=&quot;text&quot; aria-label=&quot;Not clickable icon&quot;&gt;
+											&lt;/div&gt;
+
+										&lt;/form&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h2>Form and grid</h2>
+						<p>You can also use the <a href="component-grid.html" target="_blank">Grid</a> and <a href="component-width.html" target="_blank">Width</a> components to define the layout of a form.</p>
+						
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<form class="grid">
+										<div class="col-6-6">
+											<input class="input" type="text" placeholder="100" aria-label="100">
+										</div>
+										<div class="col-3-6">
+											<input class="input" type="text" placeholder="50" aria-label="50">
+										</div>
+										<div class="col-2-6">
+											<input class="input" type="text" placeholder="30" aria-label="30">
+										</div>
+										<div class="col-1-6">
+											<input class="input" type="text" placeholder="20" aria-label="20">
+										</div>
+										<div class="col-3-6">
+											<input class="input" type="text" placeholder="50" aria-label="50">
+										</div>
+										<div class="col-3-6">
+											<input class="input" type="text" placeholder="50" aria-label="50">
+										</div>
+									</form>
+								</div>
+								<div>
+									<pre><code>
+										&lt;form class=&quot;grid&quot;&gt;
+											&lt;div class=&quot;col-6-6&quot;&gt;
+												&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;100&quot; aria-label=&quot;100&quot;&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;col-3-6&quot;&gt;
+												&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;50&quot; aria-label=&quot;50&quot;&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;col-2-6&quot;&gt;
+												&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;30&quot; aria-label=&quot;30&quot;&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;col-1-6&quot;&gt;
+												&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;20&quot; aria-label=&quot;20&quot;&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;col-3-6&quot;&gt;
+												&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;50&quot; aria-label=&quot;50&quot;&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;col-3-6&quot;&gt;
+												&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;50&quot; aria-label=&quot;50&quot;&gt;
+											&lt;/div&gt;
+										&lt;/form&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+
+						<h2>Form error messages</h2>
+						<p>
+							Use <code>.form-error-block</code> for a single error message below an input,
+							or <code>.form-errors-list</code> when displaying multiple validation errors.
+							Apply <code>.filled</code> to <code>.form-errors-list</code> to make it visible.
+						</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<form class="form-stacked padding-horizontal">
+										<!-- Single error below input -->
 										<div class="form-group">
-											<label class="form-label" for="form-stacked-select">Select</label>
-											<div class="form-controls">
-												<select class="select" id="form-stacked-select">
-													<option>Option 01</option>
-													<option>Option 02</option>
-												</select>
+											<label for="username">Username</label>
+											<div class="form-controls form-danger">
+												<input class="input" type="text" id="username" name="username" required />
 												<span class="form-error-block">This field is required.</span>
 											</div>
 										</div>
+										
+										<!-- Multiple errors list -->
+										<div class="form-group">
+											<label for="password">Password</label>
+											<div class="form-controls">
+												<input class="input" type="password" id="password" name="password" />
+												<ul class="form-errors-list filled">
+													<li>Password must be at least 8 characters.</li>
+													<li>Must contain at least one number.</li>
+													<li>Must contain at least one special character.</li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</div>
+								<div>
+									<pre><code>
+
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
+						</div>
+
+						<h2>Custom controls</h2>
+						<p>To replace a file inputs or select forms with your own HTML content, like a button or text, add the <code>form-custom</code> attribute to a container element.</p>
+						
+						<h3>File</h3>
+						<p>Use a button or text as a file input.</p>
+						
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<form class="form-stacked padding-horizontal">
 
 										<div class="form-group">
-											<div class="form-label">Radio</div>
-											<div class="form-controls">
-												<label><input class="radio" type="radio" name="radio1"> Option 01</label><br>
-												<label><input class="radio" type="radio" name="radio1"> Option 02</label>
+											<label class="form-label">Button Upload</label>
+											<div class="form-custom">
+												<input type="file" aria-label="Custom controls">
+												<button class="button button-default round" type="button" tabindex="-1">Select</button>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="form-label">Text Upload</label>
+											<div class="form-custom">
+												<input type="file" aria-label="Custom controls">
+												<span class="link">Click here to upload</span>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="form-label">Input Upload</label>
+											<div class="form-custom">
+												<input type="file" aria-label="Custom controls">
+												<input class="input form-width-medium" type="text" placeholder="Select file" aria-label="Custom controls" disabled="">
 											</div>
 										</div>
 										
-									</fieldset>
-
-								</form>
-
-							</div>
-							<div>
-								<pre><code>
-
-									&lt;form class=&quot;form-stacked&quot;&gt;	
-										&lt;fieldset&gt;
-
-											&lt;legend&gt;Legend&lt;/legend&gt;
+									</form>
+								</div>
+								<div>
+									<pre><code>
+										&lt;form class=&quot;form-stacked padding-horizontal&quot;&gt;
 
 											&lt;div class=&quot;form-group&quot;&gt;
-												&lt;label for=&quot;username-stacked&quot; class=&quot;form-label&quot;&gt;Input&lt;/label&gt;
-												&lt;div class=&quot;form-controls&quot;&gt;
-													&lt;input type=&quot;text&quot; id=&quot;username-stacked&quot; class=&quot;input&quot; placeholder=&quot;e.g., input&quot;&gt;
-													&lt;span class=&quot;form-help-inline&quot;&gt;Form help inline.&lt;/span&gt;
+												&lt;label class=&quot;form-label&quot;&gt;Button Upload&lt;/label&gt;
+												&lt;div class=&quot;form-custom&quot;&gt;
+													&lt;input type=&quot;file&quot; aria-label=&quot;Custom controls&quot;&gt;
+													&lt;button class=&quot;button button-default round&quot; type=&quot;button&quot; tabindex=&quot;-1&quot;&gt;Select&lt;/button&gt;
 												&lt;/div&gt;
 											&lt;/div&gt;
 
 											&lt;div class=&quot;form-group&quot;&gt;
-												&lt;label for=&quot;bio-stacked&quot; class=&quot;form-label&quot;&gt;Textarea&lt;/label&gt;
-												&lt;div class=&quot;form-controls&quot;&gt;
-													&lt;textarea class=&quot;textarea&quot; rows=&quot;5&quot; placeholder=&quot;Textarea&quot; aria-label=&quot;Textarea&quot;&gt;&lt;/textarea&gt;
-													&lt;span class=&quot;char-counter&quot;&gt;0/150&lt;/span&gt;
+												&lt;label class=&quot;form-label&quot;&gt;Text Upload&lt;/label&gt;
+												&lt;div class=&quot;form-custom&quot;&gt;
+													&lt;input type=&quot;file&quot; aria-label=&quot;Custom controls&quot;&gt;
+													&lt;span class=&quot;link&quot;&gt;Click here to upload&lt;/span&gt;
 												&lt;/div&gt;
 											&lt;/div&gt;
 
 											&lt;div class=&quot;form-group&quot;&gt;
-												&lt;label class=&quot;form-label&quot; for=&quot;form-stacked-select&quot;&gt;Select&lt;/label&gt;
-												&lt;div class=&quot;form-controls&quot;&gt;
-													&lt;select class=&quot;select&quot; id=&quot;form-stacked-select&quot;&gt;
-														&lt;option&gt;Option 01&lt;/option&gt;
-														&lt;option&gt;Option 02&lt;/option&gt;
-													&lt;/select&gt;
-													&lt;span class=&quot;form-error-block&quot;&gt;This field is required.&lt;/span&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-
-											&lt;div class=&quot;form-group&quot;&gt;
-												&lt;div class=&quot;form-label&quot;&gt;Radio&lt;/div&gt;
-												&lt;div class=&quot;form-controls&quot;&gt;
-													&lt;label&gt;&lt;input class=&quot;radio&quot; type=&quot;radio&quot; name=&quot;radio1&quot;&gt; Option 01&lt;/label&gt;&lt;br&gt;
-													&lt;label&gt;&lt;input class=&quot;radio&quot; type=&quot;radio&quot; name=&quot;radio1&quot;&gt; Option 02&lt;/label&gt;
+												&lt;label class=&quot;form-label&quot;&gt;Input Upload&lt;/label&gt;
+												&lt;div class=&quot;form-custom&quot;&gt;
+													&lt;input type=&quot;file&quot; aria-label=&quot;Custom controls&quot;&gt;
+													&lt;input class=&quot;input form-width-medium&quot; type=&quot;text&quot; placeholder=&quot;Select file&quot; aria-label=&quot;Custom controls&quot; disabled=&quot;&quot;&gt;
 												&lt;/div&gt;
 											&lt;/div&gt;
 											
-										&lt;/fieldset&gt;
-
-									&lt;/form&gt;
-
-								</code></pre>
+										&lt;/form&gt;
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h3>Horizontal Form Layout</h3>
-					<p>Use the <code>.form-horizontal</code> class for a layout where labels are aligned to the left of their corresponding form controls. This is ideal for desktop views or forms with fewer fields.</p>					
-					
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
+						
+						<h3>Select</h3>
+						<p>Use a button, text or a link as a select form. Just add the <code>target: SELECTOR</code> option to the <code>form-custom</code> attribute to select where the option value should be displayed. <code>target: true</code> will select the adjacent element in the markup.</p>
 
-								<form class="form-horizontal">
-									<fieldset>
-										<legend>Legend</legend>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<form class="form-stacked padding-horizontal">	
 
 										<div class="form-group">
-											<label for="username" class="form-label">Username</label>
-											<div class="form-controls">
-												<input class="input" type="text" id="username" placeholder="e.g., john.doe">
-												<span class="form-help-inline">Your public display name.</span>
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label for="bio" class="form-label">Biography</label>
-											<div class="form-controls">
-												<textarea class="textarea" id="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
-												<span class="char-counter">0/150</span>
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label for="country" class="form-label">Country</label>
-											<div class="form-controls">
-												<select id="country" class="select" class="form-danger">
-													<option>Select a country...</option>
-													<option>Canada</option>
-													<option>United States</option>
-													<option>United Kingdom</option>
+											<label class="form-label">Select text</label>
+											<div class="form-custom">
+												<select aria-label="Custom controls">
+													<option value="1">Option 01</option>
+													<option value="2">Option 02</option>
+													<option value="3">Option 03</option>
+													<option value="4">Option 04</option>
 												</select>
-												<span class="form-error-block">This field is required.</span>
+												<span>Option 01</span>
 											</div>
 										</div>
 
-									</fieldset>
-								</form>
-
-							</div>
-							<div>
-								<pre><code>
-
-									&lt;form class=&quot;form-horizontal&quot;&gt;
-										&lt;fieldset&gt;
-											&lt;legend&gt;Legend&lt;/legend&gt;
-
-											&lt;div class=&quot;form-group&quot;&gt;
-												&lt;label for=&quot;username&quot; class=&quot;form-label&quot;&gt;Username&lt;/label&gt;
-												&lt;div class=&quot;form-controls&quot;&gt;
-													&lt;input class=&quot;input&quot; type=&quot;text&quot; id=&quot;username&quot; placeholder=&quot;e.g., john.doe&quot;&gt;
-													&lt;span class=&quot;form-help-inline&quot;&gt;Your public display name.&lt;/span&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-
-											&lt;div class=&quot;form-group&quot;&gt;
-												&lt;label for=&quot;bio&quot; class=&quot;form-label&quot;&gt;Biography&lt;/label&gt;
-												&lt;div class=&quot;form-controls&quot;&gt;
-													&lt;textarea class=&quot;textarea&quot; id=&quot;bio&quot; rows=&quot;4&quot; placeholder=&quot;Tell us about yourself...&quot;&gt;&lt;/textarea&gt;
-													&lt;span class=&quot;char-counter&quot;&gt;0/150&lt;/span&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-
-											&lt;div class=&quot;form-group&quot;&gt;
-												&lt;label for=&quot;country&quot; class=&quot;form-label&quot;&gt;Country&lt;/label&gt;
-												&lt;div class=&quot;form-controls&quot;&gt;
-													&lt;select id=&quot;country&quot; class=&quot;select&quot; class=&quot;form-danger&quot;&gt;
-														&lt;option&gt;Select a country...&lt;/option&gt;
-														&lt;option&gt;Canada&lt;/option&gt;
-														&lt;option&gt;United States&lt;/option&gt;
-														&lt;option&gt;United Kingdom&lt;/option&gt;
-													&lt;/select&gt;
-													&lt;span class=&quot;form-error-block&quot;&gt;This field is required.&lt;/span&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-
-										&lt;/fieldset&gt;
-									&lt;/form&gt;
-
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Form and icons</h2>
-					<p>You use an icon from the <a href="component-icons-ms.html" target="_blank">Icon component</a> inside a form. Add the <code>.form-icon</code> class to a <code>&lt;span&gt;</code> element. Group it with an <code>&lt;input&gt;</code> element by adding the <code>.inline</code> class from the <a href="component-util.html" target="_blank">Utility component</a> to a container element around both. The icon has to come first in the markup. By default, the icon will be placed on the left side of the form. To change the alignment, add the <code>.form-icon-flip</code> class.</p>
-				
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-
-								<form class="form-stacked width-1-3">
-									<div class="inline">
-										<span class="form-icon">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-492.92q-57.75 0-95.22-37.47-37.47-37.48-37.47-95.42 0-57.94 37.47-95.22T480-758.31q57.75 0 95.22 37.28t37.47 95.22q0 57.94-37.47 95.42-37.47 37.47-95.22 37.47ZM180-187.69v-75.93q0-32.23 17.08-56.15t44.38-36.77q63.16-28.07 121.76-42.31 58.6-14.23 116.77-14.23 58.16 0 116.47 14.54t121.21 42.27q28.38 12.82 45.35 36.62Q780-295.85 780-263.62v75.93H180Zm45.39-45.39h509.22v-30.54q0-15.61-9.88-29.92-9.88-14.31-25.81-22.46-59-28.69-111.3-40.19-52.3-11.5-107.62-11.5-55.32 0-108.43 11.5-53.11 11.5-111.11 40.19-15.92 8.15-25.5 22.46-9.57 14.31-9.57 29.92v30.54ZM480-538.31q37.46 0 62.38-24.92 24.93-24.92 24.93-62.38 0-37.47-24.93-62.39-24.92-24.92-62.38-24.92T417.62-688q-24.93 24.92-24.93 62.39 0 37.46 24.93 62.38 24.92 24.92 62.38 24.92Zm0-87.3Zm0 392.53Z"/></svg>
-										</span>
-										<input class="input" type="text" aria-label="Not clickable icon">
-									</div>
-									<div class="inline">
-										<span class="form-icon form-icon-flip">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M237.69-100q-23.59 0-40.64-17.05T180-157.69v-400.15q0-23.9 17.05-40.8t40.64-16.9h69.62v-91.77q0-71.89 50.44-122.29Q408.19-880 480.13-880q71.95 0 122.25 50.4 50.31 50.4 50.31 122.29v91.77h69.62q23.59 0 40.64 16.9t17.05 40.8v400.15q0 23.59-17.05 40.64T722.31-100H237.69Zm0-45.39h484.62q5.38 0 8.84-3.46t3.46-8.84v-400.15q0-5.39-3.46-8.85t-8.84-3.46H237.69q-5.38 0-8.84 3.46t-3.46 8.85v400.15q0 5.38 3.46 8.84t8.84 3.46ZM480.17-290q27.98 0 47.79-19.53t19.81-47.01q0-26.54-19.98-47.77-19.97-21.23-47.96-21.23-27.98 0-47.79 21.23t-19.81 48.27q0 27.04 19.98 46.54 19.97 19.5 47.96 19.5ZM352.69-615.54h254.62v-91.77q0-53.04-37.09-90.17t-90.08-37.13q-52.99 0-90.22 37.13t-37.23 90.17v91.77Zm-127.3 470.15v-424.76 424.76Z"/></svg>
-										</span>
-										<input class="input" type="text" aria-label="Not clickable icon">
-									</div>
-								</form>
-
-							</div>
-							<div>
-								<pre><code>
-
-									&lt;form class=&quot;form-stacked width-1-3&quot;&gt;
-										&lt;div class=&quot;inline&quot;&gt;
-											&lt;span class=&quot;form-icon&quot;&gt;
-												&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-492.92q-57.75 0-95.22-37.47-37.47-37.48-37.47-95.42 0-57.94 37.47-95.22T480-758.31q57.75 0 95.22 37.28t37.47 95.22q0 57.94-37.47 95.42-37.47 37.47-95.22 37.47ZM180-187.69v-75.93q0-32.23 17.08-56.15t44.38-36.77q63.16-28.07 121.76-42.31 58.6-14.23 116.77-14.23 58.16 0 116.47 14.54t121.21 42.27q28.38 12.82 45.35 36.62Q780-295.85 780-263.62v75.93H180Zm45.39-45.39h509.22v-30.54q0-15.61-9.88-29.92-9.88-14.31-25.81-22.46-59-28.69-111.3-40.19-52.3-11.5-107.62-11.5-55.32 0-108.43 11.5-53.11 11.5-111.11 40.19-15.92 8.15-25.5 22.46-9.57 14.31-9.57 29.92v30.54ZM480-538.31q37.46 0 62.38-24.92 24.93-24.92 24.93-62.38 0-37.47-24.93-62.39-24.92-24.92-62.38-24.92T417.62-688q-24.93 24.92-24.93 62.39 0 37.46 24.93 62.38 24.92 24.92 62.38 24.92Zm0-87.3Zm0 392.53Z&quot;/&gt;&lt;/svg&gt;
-											&lt;/span&gt;
-											&lt;input class=&quot;input&quot; type=&quot;text&quot; aria-label=&quot;Not clickable icon&quot;&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;inline&quot;&gt;
-											&lt;span class=&quot;form-icon form-icon-flip&quot;&gt;
-												&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M237.69-100q-23.59 0-40.64-17.05T180-157.69v-400.15q0-23.9 17.05-40.8t40.64-16.9h69.62v-91.77q0-71.89 50.44-122.29Q408.19-880 480.13-880q71.95 0 122.25 50.4 50.31 50.4 50.31 122.29v91.77h69.62q23.59 0 40.64 16.9t17.05 40.8v400.15q0 23.59-17.05 40.64T722.31-100H237.69Zm0-45.39h484.62q5.38 0 8.84-3.46t3.46-8.84v-400.15q0-5.39-3.46-8.85t-8.84-3.46H237.69q-5.38 0-8.84 3.46t-3.46 8.85v400.15q0 5.38 3.46 8.84t8.84 3.46ZM480.17-290q27.98 0 47.79-19.53t19.81-47.01q0-26.54-19.98-47.77-19.97-21.23-47.96-21.23-27.98 0-47.79 21.23t-19.81 48.27q0 27.04 19.98 46.54 19.97 19.5 47.96 19.5ZM352.69-615.54h254.62v-91.77q0-53.04-37.09-90.17t-90.08-37.13q-52.99 0-90.22 37.13t-37.23 90.17v91.77Zm-127.3 470.15v-424.76 424.76Z&quot;/&gt;&lt;/svg&gt;
-											&lt;/span&gt;
-											&lt;input class=&quot;input&quot; type=&quot;text&quot; aria-label=&quot;Not clickable icon&quot;&gt;
-										&lt;/div&gt;
-									&lt;/form&gt;
-
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h3>Clickable icons</h3>
-					<p>To enable an action, for example opening a modal to pick an image or link, use an <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> element to create the icon.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<form class="form-stacked width-1-3">
-
-									<div class="inline">
-										<span class="form-icon">
-											<a href="#!">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-492.92q-57.75 0-95.22-37.47-37.47-37.48-37.47-95.42 0-57.94 37.47-95.22T480-758.31q57.75 0 95.22 37.28t37.47 95.22q0 57.94-37.47 95.42-37.47 37.47-95.22 37.47ZM180-187.69v-75.93q0-32.23 17.08-56.15t44.38-36.77q63.16-28.07 121.76-42.31 58.6-14.23 116.77-14.23 58.16 0 116.47 14.54t121.21 42.27q28.38 12.82 45.35 36.62Q780-295.85 780-263.62v75.93H180Zm45.39-45.39h509.22v-30.54q0-15.61-9.88-29.92-9.88-14.31-25.81-22.46-59-28.69-111.3-40.19-52.3-11.5-107.62-11.5-55.32 0-108.43 11.5-53.11 11.5-111.11 40.19-15.92 8.15-25.5 22.46-9.57 14.31-9.57 29.92v30.54ZM480-538.31q37.46 0 62.38-24.92 24.93-24.92 24.93-62.38 0-37.47-24.93-62.39-24.92-24.92-62.38-24.92T417.62-688q-24.93 24.92-24.93 62.39 0 37.46 24.93 62.38 24.92 24.92 62.38 24.92Zm0-87.3Zm0 392.53Z"/></svg>
-											</a>
-										</span>
-										<input class="input" type="text" aria-label="Clickable icon">
-									</div>
-
-									<div class="inline">
-										<span class="form-icon form-icon-flip">
-											<a href="#!">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M237.69-100q-23.59 0-40.64-17.05T180-157.69v-400.15q0-23.9 17.05-40.8t40.64-16.9h69.62v-91.77q0-71.89 50.44-122.29Q408.19-880 480.13-880q71.95 0 122.25 50.4 50.31 50.4 50.31 122.29v91.77h69.62q23.59 0 40.64 16.9t17.05 40.8v400.15q0 23.59-17.05 40.64T722.31-100H237.69Zm0-45.39h484.62q5.38 0 8.84-3.46t3.46-8.84v-400.15q0-5.39-3.46-8.85t-8.84-3.46H237.69q-5.38 0-8.84 3.46t-3.46 8.85v400.15q0 5.38 3.46 8.84t8.84 3.46ZM480.17-290q27.98 0 47.79-19.53t19.81-47.01q0-26.54-19.98-47.77-19.97-21.23-47.96-21.23-27.98 0-47.79 21.23t-19.81 48.27q0 27.04 19.98 46.54 19.97 19.5 47.96 19.5ZM352.69-615.54h254.62v-91.77q0-53.04-37.09-90.17t-90.08-37.13q-52.99 0-90.22 37.13t-37.23 90.17v91.77Zm-127.3 470.15v-424.76 424.76Z"/></svg>
-											</a>
-										</span>
-										<input class="input" type="text" aria-label="Not clickable icon">
-									</div>
-
-								</form>
-							</div>
-							<div>
-								<pre><code>
-									&lt;form class=&quot;form-stacked width-1-3&quot;&gt;
-
-										&lt;div class=&quot;inline&quot;&gt;
-											&lt;span class=&quot;form-icon&quot;&gt;
-												&lt;a href=&quot;#!&quot;&gt;
-													&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-492.92q-57.75 0-95.22-37.47-37.47-37.48-37.47-95.42 0-57.94 37.47-95.22T480-758.31q57.75 0 95.22 37.28t37.47 95.22q0 57.94-37.47 95.42-37.47 37.47-95.22 37.47ZM180-187.69v-75.93q0-32.23 17.08-56.15t44.38-36.77q63.16-28.07 121.76-42.31 58.6-14.23 116.77-14.23 58.16 0 116.47 14.54t121.21 42.27q28.38 12.82 45.35 36.62Q780-295.85 780-263.62v75.93H180Zm45.39-45.39h509.22v-30.54q0-15.61-9.88-29.92-9.88-14.31-25.81-22.46-59-28.69-111.3-40.19-52.3-11.5-107.62-11.5-55.32 0-108.43 11.5-53.11 11.5-111.11 40.19-15.92 8.15-25.5 22.46-9.57 14.31-9.57 29.92v30.54ZM480-538.31q37.46 0 62.38-24.92 24.93-24.92 24.93-62.38 0-37.47-24.93-62.39-24.92-24.92-62.38-24.92T417.62-688q-24.93 24.92-24.93 62.39 0 37.46 24.93 62.38 24.92 24.92 62.38 24.92Zm0-87.3Zm0 392.53Z&quot;/&gt;&lt;/svg&gt;
-												&lt;/a&gt;
-											&lt;/span&gt;
-											&lt;input class=&quot;input&quot; type=&quot;text&quot; aria-label=&quot;Clickable icon&quot;&gt;
-										&lt;/div&gt;
-
-										&lt;div class=&quot;inline&quot;&gt;
-											&lt;span class=&quot;form-icon form-icon-flip&quot;&gt;
-												&lt;a href=&quot;#!&quot;&gt;
-													&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M237.69-100q-23.59 0-40.64-17.05T180-157.69v-400.15q0-23.9 17.05-40.8t40.64-16.9h69.62v-91.77q0-71.89 50.44-122.29Q408.19-880 480.13-880q71.95 0 122.25 50.4 50.31 50.4 50.31 122.29v91.77h69.62q23.59 0 40.64 16.9t17.05 40.8v400.15q0 23.59-17.05 40.64T722.31-100H237.69Zm0-45.39h484.62q5.38 0 8.84-3.46t3.46-8.84v-400.15q0-5.39-3.46-8.85t-8.84-3.46H237.69q-5.38 0-8.84 3.46t-3.46 8.85v400.15q0 5.38 3.46 8.84t8.84 3.46ZM480.17-290q27.98 0 47.79-19.53t19.81-47.01q0-26.54-19.98-47.77-19.97-21.23-47.96-21.23-27.98 0-47.79 21.23t-19.81 48.27q0 27.04 19.98 46.54 19.97 19.5 47.96 19.5ZM352.69-615.54h254.62v-91.77q0-53.04-37.09-90.17t-90.08-37.13q-52.99 0-90.22 37.13t-37.23 90.17v91.77Zm-127.3 470.15v-424.76 424.76Z&quot;/&gt;&lt;/svg&gt;
-												&lt;/a&gt;
-											&lt;/span&gt;
-											&lt;input class=&quot;input&quot; type=&quot;text&quot; aria-label=&quot;Not clickable icon&quot;&gt;
-										&lt;/div&gt;
-
-									&lt;/form&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Form and grid</h2>
-					<p>You can also use the <a href="component-grid.html" target="_blank">Grid</a> and <a href="component-width.html" target="_blank">Width</a> components to define the layout of a form.</p>
-					
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<form class="grid">
-									<div class="col-6-6">
-										<input class="input" type="text" placeholder="100" aria-label="100">
-									</div>
-									<div class="col-3-6">
-										<input class="input" type="text" placeholder="50" aria-label="50">
-									</div>
-									<div class="col-2-6">
-										<input class="input" type="text" placeholder="30" aria-label="30">
-									</div>
-									<div class="col-1-6">
-										<input class="input" type="text" placeholder="20" aria-label="20">
-									</div>
-									<div class="col-3-6">
-										<input class="input" type="text" placeholder="50" aria-label="50">
-									</div>
-									<div class="col-3-6">
-										<input class="input" type="text" placeholder="50" aria-label="50">
-									</div>
-								</form>
-							</div>
-							<div>
-								<pre><code>
-									&lt;form class=&quot;grid&quot;&gt;
-										&lt;div class=&quot;col-6-6&quot;&gt;
-											&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;100&quot; aria-label=&quot;100&quot;&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;col-3-6&quot;&gt;
-											&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;50&quot; aria-label=&quot;50&quot;&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;col-2-6&quot;&gt;
-											&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;30&quot; aria-label=&quot;30&quot;&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;col-1-6&quot;&gt;
-											&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;20&quot; aria-label=&quot;20&quot;&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;col-3-6&quot;&gt;
-											&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;50&quot; aria-label=&quot;50&quot;&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;col-3-6&quot;&gt;
-											&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;50&quot; aria-label=&quot;50&quot;&gt;
-										&lt;/div&gt;
-									&lt;/form&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-
-					<h2>Form error messages</h2>
-					<p>
-						Use <code>.form-error-block</code> for a single error message below an input,
-						or <code>.form-errors-list</code> when displaying multiple validation errors.
-						Apply <code>.filled</code> to <code>.form-errors-list</code> to make it visible.
-					</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<form class="form-stacked padding-horizontal">
-									<!-- Single error below input -->
-									<div class="form-group">
-										<label for="username">Username</label>
-										<div class="form-controls form-danger">
-											<input class="input" type="text" id="username" name="username" required />
-											<span class="form-error-block">This field is required.</span>
-										</div>
-									</div>
-									
-									<!-- Multiple errors list -->
-									<div class="form-group">
-										<label for="password">Password</label>
-										<div class="form-controls">
-											<input class="input" type="password" id="password" name="password" />
-											<ul class="form-errors-list filled">
-												<li>Password must be at least 8 characters.</li>
-												<li>Must contain at least one number.</li>
-												<li>Must contain at least one special character.</li>
-											</ul>
-										</div>
-									</div>
-								</form>
-							</div>
-							<div>
-								<pre><code>
-
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
-
-					<h2>Custom controls</h2>
-					<p>To replace a file inputs or select forms with your own HTML content, like a button or text, add the <code>form-custom</code> attribute to a container element.</p>
-					
-					<h3>File</h3>
-					<p>Use a button or text as a file input.</p>
-					
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<form class="form-stacked padding-horizontal">
-
-									<div class="form-group">
-										<label class="form-label">Button Upload</label>
-										<div class="form-custom">
-											<input type="file" aria-label="Custom controls">
-											<button class="button button-default round" type="button" tabindex="-1">Select</button>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="form-label">Text Upload</label>
-										<div class="form-custom">
-											<input type="file" aria-label="Custom controls">
-											<span class="link">Click here to upload</span>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="form-label">Input Upload</label>
-										<div class="form-custom">
-											<input type="file" aria-label="Custom controls">
-											<input class="input form-width-medium" type="text" placeholder="Select file" aria-label="Custom controls" disabled="">
-										</div>
-									</div>
-									
-								</form>
-							</div>
-							<div>
-								<pre><code>
-									&lt;form class=&quot;form-stacked padding-horizontal&quot;&gt;
-
-										&lt;div class=&quot;form-group&quot;&gt;
-											&lt;label class=&quot;form-label&quot;&gt;Button Upload&lt;/label&gt;
-											&lt;div class=&quot;form-custom&quot;&gt;
-												&lt;input type=&quot;file&quot; aria-label=&quot;Custom controls&quot;&gt;
-												&lt;button class=&quot;button button-default round&quot; type=&quot;button&quot; tabindex=&quot;-1&quot;&gt;Select&lt;/button&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-
-										&lt;div class=&quot;form-group&quot;&gt;
-											&lt;label class=&quot;form-label&quot;&gt;Text Upload&lt;/label&gt;
-											&lt;div class=&quot;form-custom&quot;&gt;
-												&lt;input type=&quot;file&quot; aria-label=&quot;Custom controls&quot;&gt;
-												&lt;span class=&quot;link&quot;&gt;Click here to upload&lt;/span&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-
-										&lt;div class=&quot;form-group&quot;&gt;
-											&lt;label class=&quot;form-label&quot;&gt;Input Upload&lt;/label&gt;
-											&lt;div class=&quot;form-custom&quot;&gt;
-												&lt;input type=&quot;file&quot; aria-label=&quot;Custom controls&quot;&gt;
-												&lt;input class=&quot;input form-width-medium&quot; type=&quot;text&quot; placeholder=&quot;Select file&quot; aria-label=&quot;Custom controls&quot; disabled=&quot;&quot;&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-										
-									&lt;/form&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h3>Select</h3>
-					<p>Use a button, text or a link as a select form. Just add the <code>target: SELECTOR</code> option to the <code>form-custom</code> attribute to select where the option value should be displayed. <code>target: true</code> will select the adjacent element in the markup.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<form class="form-stacked padding-horizontal">	
-
-									<div class="form-group">
-										<label class="form-label">Select text</label>
-										<div class="form-custom">
-											<select aria-label="Custom controls">
-												<option value="1">Option 01</option>
-												<option value="2">Option 02</option>
-												<option value="3">Option 03</option>
-												<option value="4">Option 04</option>
-											</select>
-											<span>Option 01</span>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="form-label">Select with icon</label>
-										<div class="form-custom">
-											<select aria-label="Custom controls">
-												<option value="1">Option 01</option>
-												<option value="2">Option 02</option>
-												<option value="3">Option 03</option>
-												<option value="4">Option 04</option>
-											</select>
-											<span class="link">
-												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M185.39-185.39h40.92l468.54-467.92-40.93-40.92-468.53 467.92v40.92ZM140-140v-104.54l561.92-562.07q6.23-5.63 14.66-9.2 8.42-3.57 17.6-3.57 8.57 0 16.81 3.34 8.24 3.35 15.32 9.43l40.92 40.92q6.69 6.69 9.73 15.16 3.04 8.46 3.04 16.93 0 8.6-3.51 17.33-3.5 8.73-9.26 14.96L244.54-140H140Zm634.38-594.31-39.46-39.07 39.46 39.07Zm-99.75 60.68-20.71-20.6 40.93 40.92-20.22-20.32Z"/></svg>
-												<span>Option 01</span>
-											</span>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="form-label">Select Button</label>
-										<div class="form-custom">
-											<select aria-label="Custom controls">
-												<option value="">Please select...</option>
-												<option value="1">Option 01</option>
-												<option value="2">Option 02</option>
-												<option value="3">Option 03</option>
-												<option value="4">Option 04</option>
-											</select>
-											<button class="button button-default" type="button" tabindex="-1">
-												<span>Please select...</span>
-												<span>
-													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+										<div class="form-group">
+											<label class="form-label">Select with icon</label>
+											<div class="form-custom">
+												<select aria-label="Custom controls">
+													<option value="1">Option 01</option>
+													<option value="2">Option 02</option>
+													<option value="3">Option 03</option>
+													<option value="4">Option 04</option>
+												</select>
+												<span class="link">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M185.39-185.39h40.92l468.54-467.92-40.93-40.92-468.53 467.92v40.92ZM140-140v-104.54l561.92-562.07q6.23-5.63 14.66-9.2 8.42-3.57 17.6-3.57 8.57 0 16.81 3.34 8.24 3.35 15.32 9.43l40.92 40.92q6.69 6.69 9.73 15.16 3.04 8.46 3.04 16.93 0 8.6-3.51 17.33-3.5 8.73-9.26 14.96L244.54-140H140Zm634.38-594.31-39.46-39.07 39.46 39.07Zm-99.75 60.68-20.71-20.6 40.93 40.92-20.22-20.32Z"/></svg>
+													<span>Option 01</span>
 												</span>
-											</button>
+											</div>
 										</div>
-									</div>
-
-								</form>
-							</div>
-							<div>
-								<pre><code>
-									&lt;form class=&quot;form-stacked padding-horizontal&quot;&gt;	
-
-										&lt;div class=&quot;form-group&quot;&gt;
-											&lt;label class=&quot;form-label&quot;&gt;Select text&lt;/label&gt;
-											&lt;div class=&quot;form-custom&quot;&gt;
-												&lt;select aria-label=&quot;Custom controls&quot;&gt;
-													&lt;option value=&quot;1&quot;&gt;Option 01&lt;/option&gt;
-													&lt;option value=&quot;2&quot;&gt;Option 02&lt;/option&gt;
-													&lt;option value=&quot;3&quot;&gt;Option 03&lt;/option&gt;
-													&lt;option value=&quot;4&quot;&gt;Option 04&lt;/option&gt;
-												&lt;/select&gt;
-												&lt;span&gt;Option 01&lt;/span&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-
-										&lt;div class=&quot;form-group&quot;&gt;
-											&lt;label class=&quot;form-label&quot;&gt;Select with icon&lt;/label&gt;
-											&lt;div class=&quot;form-custom&quot;&gt;
-												&lt;select aria-label=&quot;Custom controls&quot;&gt;
-													&lt;option value=&quot;1&quot;&gt;Option 01&lt;/option&gt;
-													&lt;option value=&quot;2&quot;&gt;Option 02&lt;/option&gt;
-													&lt;option value=&quot;3&quot;&gt;Option 03&lt;/option&gt;
-													&lt;option value=&quot;4&quot;&gt;Option 04&lt;/option&gt;
-												&lt;/select&gt;
-												&lt;span class=&quot;link&quot;&gt;
-													&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M185.39-185.39h40.92l468.54-467.92-40.93-40.92-468.53 467.92v40.92ZM140-140v-104.54l561.92-562.07q6.23-5.63 14.66-9.2 8.42-3.57 17.6-3.57 8.57 0 16.81 3.34 8.24 3.35 15.32 9.43l40.92 40.92q6.69 6.69 9.73 15.16 3.04 8.46 3.04 16.93 0 8.6-3.51 17.33-3.5 8.73-9.26 14.96L244.54-140H140Zm634.38-594.31-39.46-39.07 39.46 39.07Zm-99.75 60.68-20.71-20.6 40.93 40.92-20.22-20.32Z&quot;/&gt;&lt;/svg&gt;
-													&lt;span&gt;Option 01&lt;/span&gt;
-												&lt;/span&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-
-										&lt;div class=&quot;form-group&quot;&gt;
-											&lt;label class=&quot;form-label&quot;&gt;Select Button&lt;/label&gt;
-											&lt;div class=&quot;form-custom&quot;&gt;
-												&lt;select aria-label=&quot;Custom controls&quot;&gt;
-													&lt;option value=&quot;&quot;&gt;Please select...&lt;/option&gt;
-													&lt;option value=&quot;1&quot;&gt;Option 01&lt;/option&gt;
-													&lt;option value=&quot;2&quot;&gt;Option 02&lt;/option&gt;
-													&lt;option value=&quot;3&quot;&gt;Option 03&lt;/option&gt;
-													&lt;option value=&quot;4&quot;&gt;Option 04&lt;/option&gt;
-												&lt;/select&gt;
-												&lt;button class=&quot;button button-default&quot; type=&quot;button&quot; tabindex=&quot;-1&quot;&gt;
-													&lt;span&gt;Please select...&lt;/span&gt;
-													&lt;span&gt;
-														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
-													&lt;/span&gt;
-												&lt;/button&gt;
-											&lt;/div&gt;
-										&lt;/div&gt;
-
-									&lt;/form&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>		
-					</div>
-	
-					<h2>Data attribute inputs</h2>
-					<p>
-						Use the <code>[data-input]</code> attribute to apply enhanced input styling and automatic 
-						wrapper generation. When applied, inputs are wrapped in an <code>.input-wrapper</code>, 
-						labels are repositioned, and either an underline bar or outline style is added depending 
-						on the attribute value. This provides a consistent, Material-like input appearance without 
-						requiring manual markup.
-					</p>
-
-					<h2>Underlined inputs</h2>
-					<p>
-						Inputs with <code>[data-input]</code> default to an underlined style. 
-						Each input is wrapped in an <code>.input-wrapper</code> with a subtle underline bar 
-						that highlights on focus, providing a clean and modern appearance.
-					</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<form class="form-stacked padding">
-
-									<fieldset class="fieldset">
-										<legend class="legend">Legend</legend>
 
 										<div class="form-group">
+											<label class="form-label">Select Button</label>
+											<div class="form-custom">
+												<select aria-label="Custom controls">
+													<option value="">Please select...</option>
+													<option value="1">Option 01</option>
+													<option value="2">Option 02</option>
+													<option value="3">Option 03</option>
+													<option value="4">Option 04</option>
+												</select>
+												<button class="button button-default" type="button" tabindex="-1">
+													<span>Please select...</span>
+													<span>
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z"/></svg>
+													</span>
+												</button>
+											</div>
+										</div>
+
+									</form>
+								</div>
+								<div>
+									<pre><code>
+										&lt;form class=&quot;form-stacked padding-horizontal&quot;&gt;	
+
+											&lt;div class=&quot;form-group&quot;&gt;
+												&lt;label class=&quot;form-label&quot;&gt;Select text&lt;/label&gt;
+												&lt;div class=&quot;form-custom&quot;&gt;
+													&lt;select aria-label=&quot;Custom controls&quot;&gt;
+														&lt;option value=&quot;1&quot;&gt;Option 01&lt;/option&gt;
+														&lt;option value=&quot;2&quot;&gt;Option 02&lt;/option&gt;
+														&lt;option value=&quot;3&quot;&gt;Option 03&lt;/option&gt;
+														&lt;option value=&quot;4&quot;&gt;Option 04&lt;/option&gt;
+													&lt;/select&gt;
+													&lt;span&gt;Option 01&lt;/span&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+
+											&lt;div class=&quot;form-group&quot;&gt;
+												&lt;label class=&quot;form-label&quot;&gt;Select with icon&lt;/label&gt;
+												&lt;div class=&quot;form-custom&quot;&gt;
+													&lt;select aria-label=&quot;Custom controls&quot;&gt;
+														&lt;option value=&quot;1&quot;&gt;Option 01&lt;/option&gt;
+														&lt;option value=&quot;2&quot;&gt;Option 02&lt;/option&gt;
+														&lt;option value=&quot;3&quot;&gt;Option 03&lt;/option&gt;
+														&lt;option value=&quot;4&quot;&gt;Option 04&lt;/option&gt;
+													&lt;/select&gt;
+													&lt;span class=&quot;link&quot;&gt;
+														&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M185.39-185.39h40.92l468.54-467.92-40.93-40.92-468.53 467.92v40.92ZM140-140v-104.54l561.92-562.07q6.23-5.63 14.66-9.2 8.42-3.57 17.6-3.57 8.57 0 16.81 3.34 8.24 3.35 15.32 9.43l40.92 40.92q6.69 6.69 9.73 15.16 3.04 8.46 3.04 16.93 0 8.6-3.51 17.33-3.5 8.73-9.26 14.96L244.54-140H140Zm634.38-594.31-39.46-39.07 39.46 39.07Zm-99.75 60.68-20.71-20.6 40.93 40.92-20.22-20.32Z&quot;/&gt;&lt;/svg&gt;
+														&lt;span&gt;Option 01&lt;/span&gt;
+													&lt;/span&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+
+											&lt;div class=&quot;form-group&quot;&gt;
+												&lt;label class=&quot;form-label&quot;&gt;Select Button&lt;/label&gt;
+												&lt;div class=&quot;form-custom&quot;&gt;
+													&lt;select aria-label=&quot;Custom controls&quot;&gt;
+														&lt;option value=&quot;&quot;&gt;Please select...&lt;/option&gt;
+														&lt;option value=&quot;1&quot;&gt;Option 01&lt;/option&gt;
+														&lt;option value=&quot;2&quot;&gt;Option 02&lt;/option&gt;
+														&lt;option value=&quot;3&quot;&gt;Option 03&lt;/option&gt;
+														&lt;option value=&quot;4&quot;&gt;Option 04&lt;/option&gt;
+													&lt;/select&gt;
+													&lt;button class=&quot;button button-default&quot; type=&quot;button&quot; tabindex=&quot;-1&quot;&gt;
+														&lt;span&gt;Please select...&lt;/span&gt;
+														&lt;span&gt;
+															&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 -960 960 960&quot;&gt;&lt;path d=&quot;M480-357.85 253.85-584l32.61-32.61L480-423.08l193.54-193.53L706.15-584 480-357.85Z&quot;/&gt;&lt;/svg&gt;
+														&lt;/span&gt;
+													&lt;/button&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+
+										&lt;/form&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>		
+						</div>
+		
+						<h2>Data attribute inputs</h2>
+						<p>
+							Use the <code>[data-input]</code> attribute to apply enhanced input styling and automatic 
+							wrapper generation. When applied, inputs are wrapped in an <code>.input-wrapper</code>, 
+							labels are repositioned, and either an underline bar or outline style is added depending 
+							on the attribute value. This provides a consistent, Material-like input appearance without 
+							requiring manual markup.
+						</p>
+
+						<h2>Underlined inputs</h2>
+						<p>
+							Inputs with <code>[data-input]</code> default to an underlined style. 
+							Each input is wrapped in an <code>.input-wrapper</code> with a subtle underline bar 
+							that highlights on focus, providing a clean and modern appearance.
+						</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<form class="form-stacked padding">
+
+										<fieldset class="fieldset">
+											<legend class="legend">Legend</legend>
+
+											<div class="form-group">
+												<input class="input" type="text" placeholder="Input ..." data-counter-id="name-count" data-input>
+												<small id="name-count" class="char-counter">0 / 30</small>
+											</div>
+
+											<div class="form-group">
+												<textarea class="textarea" rows="5" placeholder="Textarea ..." data-input></textarea>
+											</div>
+
+											<div class="form-group">
+												<textarea class="textarea autosize" rows="3" placeholder="Autosize textarea ..." data-input></textarea>
+											</div>
+
+											<div class="form-group">
+												<select class="select">
+													<option>Option 01</option>
+													<option>Option 02</option>
+												</select>
+											</div>
+
+											<hr>
+
+											<div class="grid col-3">
+												<div>
+													<p class="margin-small-bottom text-center">Radio boxes (CSS)</p>
+													<div class="grid col-4 gap-none">
+														<label><input class="radio" type="radio" name="radio2">A</label>
+														<label><input class="radio" type="radio" name="radio2" checked>B</label>
+														<label><input class="radio" type="radio" name="radio2c" disabled>C</label>
+														<label><input class="radio" type="radio" name="radio2d" checked disabled>D</label>
+													</div>
+												</div>
+												<div>
+													<p class="margin-small-bottom text-center">Checkboxes (CSS)</p>
+													<div class="grid col-4 gap-none">
+														<label><input class="checkbox" type="checkbox" checked>A</label>
+														<label><input class="checkbox" type="checkbox">B</label>
+														<label><input class="checkbox" type="checkbox" disabled>C</label>
+														<label><input class="checkbox" type="checkbox" checked disabled>D</label>
+													</div>
+												</div>
+												<div>
+													<p class="margin-mini-bottom text-center">Switch (CSS)</p>
+													<div>
+														<input type="checkbox" class="switch-input" id="switch-css">
+														<label for="switch-css" class="switch-label">
+															Switch
+															<span class="switch-toggle-on">On</span>
+															<span class="switch-toggle-off">Off</span>
+														</label>
+													</div>
+												</div>
+											</div>
+
+										</fieldset>
+									</form>
+								</div>
+								<div>
+									<pre><code>
+										&lt;form class=&quot;form-stacked padding&quot;&gt;
+
+											&lt;fieldset class=&quot;fieldset&quot;&gt;
+												&lt;legend class=&quot;legend&quot;&gt;Legend&lt;/legend&gt;
+
+												&lt;div class=&quot;form-group&quot;&gt;
+													&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;Input ...&quot; data-counter-id=&quot;name-count&quot; data-input&gt;
+													&lt;small id=&quot;name-count&quot; class=&quot;char-counter&quot;&gt;0 / 30&lt;/small&gt;
+												&lt;/div&gt;
+
+												&lt;div class=&quot;form-group&quot;&gt;
+													&lt;textarea class=&quot;textarea&quot; rows=&quot;5&quot; placeholder=&quot;Textarea ...&quot; data-input&gt;&lt;/textarea&gt;
+												&lt;/div&gt;
+
+												&lt;div class=&quot;form-group&quot;&gt;
+													&lt;textarea class=&quot;textarea autosize&quot; rows=&quot;3&quot; placeholder=&quot;Autosize textarea ...&quot; data-input&gt;&lt;/textarea&gt;
+												&lt;/div&gt;
+
+												&lt;div class=&quot;form-group&quot;&gt;
+													&lt;select class=&quot;select&quot;&gt;
+														&lt;option&gt;Option 01&lt;/option&gt;
+														&lt;option&gt;Option 02&lt;/option&gt;
+													&lt;/select&gt;
+												&lt;/div&gt;
+
+												&lt;hr&gt;
+
+												&lt;div class=&quot;grid col-3&quot;&gt;
+													&lt;div&gt;
+														&lt;p class=&quot;margin-small-bottom text-center&quot;&gt;Radio boxes (CSS)&lt;/p&gt;
+														&lt;div class=&quot;grid col-4 gap-none&quot;&gt;
+															&lt;label&gt;&lt;input class=&quot;radio&quot; type=&quot;radio&quot; name=&quot;radio2&quot;&gt;A&lt;/label&gt;
+															&lt;label&gt;&lt;input class=&quot;radio&quot; type=&quot;radio&quot; name=&quot;radio2&quot; checked&gt;B&lt;/label&gt;
+															&lt;label&gt;&lt;input class=&quot;radio&quot; type=&quot;radio&quot; name=&quot;radio2c&quot; disabled&gt;C&lt;/label&gt;
+															&lt;label&gt;&lt;input class=&quot;radio&quot; type=&quot;radio&quot; name=&quot;radio2d&quot; checked disabled&gt;D&lt;/label&gt;
+														&lt;/div&gt;
+													&lt;/div&gt;
+													&lt;div&gt;
+														&lt;p class=&quot;margin-small-bottom text-center&quot;&gt;Checkboxes (CSS)&lt;/p&gt;
+														&lt;div class=&quot;grid col-4 gap-none&quot;&gt;
+															&lt;label&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; checked&gt;A&lt;/label&gt;
+															&lt;label&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;B&lt;/label&gt;
+															&lt;label&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; disabled&gt;C&lt;/label&gt;
+															&lt;label&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; checked disabled&gt;D&lt;/label&gt;
+														&lt;/div&gt;
+													&lt;/div&gt;
+													&lt;div&gt;
+														&lt;p class=&quot;margin-mini-bottom text-center&quot;&gt;Switch (CSS)&lt;/p&gt;
+														&lt;div&gt;
+															&lt;input type=&quot;checkbox&quot; class=&quot;switch-input&quot; id=&quot;switch-css&quot;&gt;
+															&lt;label for=&quot;switch-css&quot; class=&quot;switch-label&quot;&gt;
+																Switch
+																&lt;span class=&quot;switch-toggle-on&quot;&gt;On&lt;/span&gt;
+																&lt;span class=&quot;switch-toggle-off&quot;&gt;Off&lt;/span&gt;
+															&lt;/label&gt;
+														&lt;/div&gt;
+													&lt;/div&gt;
+												&lt;/div&gt;
+
+											&lt;/fieldset&gt;
+										&lt;/form&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Outlined inputs</h2>
+						<p>
+							Add <code>data-input="outline"</code> to use an outlined style instead of the default underline. 
+							The input is wrapped in <code>.input-wrapper-outline</code> for consistent spacing and label 
+							alignment, giving it a distinct boxed look.
+						</p>
+		
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid col-2 padding">
+
+										<div>
+											<label>Label</label>
+											<input class="input" type="text" data-input="outline">
+										</div>
+
+										<div>
+											<label>Label</label>
+											<textarea class="textarea" rows="5" data-input="outline"></textarea>
+										</div>
+
+										<div>
+											<input class="input" type="text" placeholder="Input ..." data-input="outline">
+										</div>
+
+										<div>
+											<textarea class="textarea" rows="5" placeholder="Textarea ..." data-input="outline"></textarea>
+										</div>
+
+										<div>
+											<label>Label</label>
+											<input class="input form-danger" type="text" data-input="outline">
+										</div>
+
+										<div>
+											<label>Label</label>
+											<input class="input form-success" type="text" data-input="outline">
+										</div>
+
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid col-2 padding&quot;&gt;
+
+											&lt;div&gt;
+												&lt;label&gt;Label&lt;/label&gt;
+												&lt;input class=&quot;input&quot; type=&quot;text&quot; data-input=&quot;outline&quot;&gt;
+											&lt;/div&gt;
+
+											&lt;div&gt;
+												&lt;label&gt;Label&lt;/label&gt;
+												&lt;textarea class=&quot;textarea&quot; rows=&quot;5&quot; data-input=&quot;outline&quot;&gt;&lt;/textarea&gt;
+											&lt;/div&gt;
+
+											&lt;div&gt;
+												&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;Input ...&quot; data-input=&quot;outline&quot;&gt;
+											&lt;/div&gt;
+
+											&lt;div&gt;
+												&lt;textarea class=&quot;textarea&quot; rows=&quot;5&quot; placeholder=&quot;Textarea ...&quot; data-input=&quot;outline&quot;&gt;&lt;/textarea&gt;
+											&lt;/div&gt;
+
+											&lt;div&gt;
+												&lt;label&gt;Label&lt;/label&gt;
+												&lt;input class=&quot;input form-danger&quot; type=&quot;text&quot; data-input=&quot;outline&quot;&gt;
+											&lt;/div&gt;
+
+											&lt;div&gt;
+												&lt;label&gt;Label&lt;/label&gt;
+												&lt;input class=&quot;input form-success&quot; type=&quot;text&quot; data-input=&quot;outline&quot;&gt;
+											&lt;/div&gt;
+
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Form fieldset separation</h2>
+						<p>
+							Use the native <code>&lt;fieldset&gt;</code> element to group and separate related form fields, 
+							instead of relying on <code>.form-group</code>.
+						</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<form class="form-stacked padding">
+
+										<fieldset>
+											<legend>Legend</legend>
 											<input class="input" type="text" placeholder="Input ..." data-counter-id="name-count" data-input>
 											<small id="name-count" class="char-counter">0 / 30</small>
-										</div>
+										</fieldset>
 
-										<div class="form-group">
+										<fieldset>
+											<legend>Legend</legend>
 											<textarea class="textarea" rows="5" placeholder="Textarea ..." data-input></textarea>
-										</div>
+										</fieldset>
 
-										<div class="form-group">
+										<fieldset>
+											<legend>Legend</legend>
 											<textarea class="textarea autosize" rows="3" placeholder="Autosize textarea ..." data-input></textarea>
-										</div>
+										</fieldset>
 
-										<div class="form-group">
+										<fieldset>
+											<legend>Legend</legend>
 											<select class="select">
 												<option>Option 01</option>
 												<option>Option 02</option>
 											</select>
-										</div>
+										</fieldset>
 
-										<hr>
+									</form>
+								</div>
+								<div>
+									<pre><code>
+										&lt;form class=&quot;form-stacked padding&quot;&gt;
 
-										<div class="grid col-3">
-											<div>
-												<p class="margin-small-bottom text-center">Radio boxes (CSS)</p>
-												<div class="grid col-4 gap-none">
-													<label><input class="radio" type="radio" name="radio2">A</label>
-													<label><input class="radio" type="radio" name="radio2" checked>B</label>
-													<label><input class="radio" type="radio" name="radio2c" disabled>C</label>
-													<label><input class="radio" type="radio" name="radio2d" checked disabled>D</label>
-												</div>
-											</div>
-											<div>
-												<p class="margin-small-bottom text-center">Checkboxes (CSS)</p>
-												<div class="grid col-4 gap-none">
-													<label><input class="checkbox" type="checkbox" checked>A</label>
-													<label><input class="checkbox" type="checkbox">B</label>
-													<label><input class="checkbox" type="checkbox" disabled>C</label>
-													<label><input class="checkbox" type="checkbox" checked disabled>D</label>
-												</div>
-											</div>
-											<div>
-												<p class="margin-mini-bottom text-center">Switch (CSS)</p>
-												<div>
-													<input type="checkbox" class="switch-input" id="switch-css">
-													<label for="switch-css" class="switch-label">
-														Switch
-														<span class="switch-toggle-on">On</span>
-														<span class="switch-toggle-off">Off</span>
-													</label>
-												</div>
-											</div>
-										</div>
-
-									</fieldset>
-								</form>
-							</div>
-							<div>
-								<pre><code>
-									&lt;form class=&quot;form-stacked padding&quot;&gt;
-
-										&lt;fieldset class=&quot;fieldset&quot;&gt;
-											&lt;legend class=&quot;legend&quot;&gt;Legend&lt;/legend&gt;
-
-											&lt;div class=&quot;form-group&quot;&gt;
+											&lt;fieldset&gt;
+												&lt;legend&gt;Legend&lt;/legend&gt;
 												&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;Input ...&quot; data-counter-id=&quot;name-count&quot; data-input&gt;
 												&lt;small id=&quot;name-count&quot; class=&quot;char-counter&quot;&gt;0 / 30&lt;/small&gt;
-											&lt;/div&gt;
+											&lt;/fieldset&gt;
 
-											&lt;div class=&quot;form-group&quot;&gt;
+											&lt;fieldset&gt;
+												&lt;legend&gt;Legend&lt;/legend&gt;
 												&lt;textarea class=&quot;textarea&quot; rows=&quot;5&quot; placeholder=&quot;Textarea ...&quot; data-input&gt;&lt;/textarea&gt;
-											&lt;/div&gt;
+											&lt;/fieldset&gt;
 
-											&lt;div class=&quot;form-group&quot;&gt;
+											&lt;fieldset&gt;
+												&lt;legend&gt;Legend&lt;/legend&gt;
 												&lt;textarea class=&quot;textarea autosize&quot; rows=&quot;3&quot; placeholder=&quot;Autosize textarea ...&quot; data-input&gt;&lt;/textarea&gt;
-											&lt;/div&gt;
+											&lt;/fieldset&gt;
 
-											&lt;div class=&quot;form-group&quot;&gt;
+											&lt;fieldset&gt;
+												&lt;legend&gt;Legend&lt;/legend&gt;
 												&lt;select class=&quot;select&quot;&gt;
 													&lt;option&gt;Option 01&lt;/option&gt;
 													&lt;option&gt;Option 02&lt;/option&gt;
 												&lt;/select&gt;
-											&lt;/div&gt;
+											&lt;/fieldset&gt;
 
-											&lt;hr&gt;
-
-											&lt;div class=&quot;grid col-3&quot;&gt;
-												&lt;div&gt;
-													&lt;p class=&quot;margin-small-bottom text-center&quot;&gt;Radio boxes (CSS)&lt;/p&gt;
-													&lt;div class=&quot;grid col-4 gap-none&quot;&gt;
-														&lt;label&gt;&lt;input class=&quot;radio&quot; type=&quot;radio&quot; name=&quot;radio2&quot;&gt;A&lt;/label&gt;
-														&lt;label&gt;&lt;input class=&quot;radio&quot; type=&quot;radio&quot; name=&quot;radio2&quot; checked&gt;B&lt;/label&gt;
-														&lt;label&gt;&lt;input class=&quot;radio&quot; type=&quot;radio&quot; name=&quot;radio2c&quot; disabled&gt;C&lt;/label&gt;
-														&lt;label&gt;&lt;input class=&quot;radio&quot; type=&quot;radio&quot; name=&quot;radio2d&quot; checked disabled&gt;D&lt;/label&gt;
-													&lt;/div&gt;
-												&lt;/div&gt;
-												&lt;div&gt;
-													&lt;p class=&quot;margin-small-bottom text-center&quot;&gt;Checkboxes (CSS)&lt;/p&gt;
-													&lt;div class=&quot;grid col-4 gap-none&quot;&gt;
-														&lt;label&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; checked&gt;A&lt;/label&gt;
-														&lt;label&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;B&lt;/label&gt;
-														&lt;label&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; disabled&gt;C&lt;/label&gt;
-														&lt;label&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; checked disabled&gt;D&lt;/label&gt;
-													&lt;/div&gt;
-												&lt;/div&gt;
-												&lt;div&gt;
-													&lt;p class=&quot;margin-mini-bottom text-center&quot;&gt;Switch (CSS)&lt;/p&gt;
-													&lt;div&gt;
-														&lt;input type=&quot;checkbox&quot; class=&quot;switch-input&quot; id=&quot;switch-css&quot;&gt;
-														&lt;label for=&quot;switch-css&quot; class=&quot;switch-label&quot;&gt;
-															Switch
-															&lt;span class=&quot;switch-toggle-on&quot;&gt;On&lt;/span&gt;
-															&lt;span class=&quot;switch-toggle-off&quot;&gt;Off&lt;/span&gt;
-														&lt;/label&gt;
-													&lt;/div&gt;
-												&lt;/div&gt;
-											&lt;/div&gt;
-
-										&lt;/fieldset&gt;
-									&lt;/form&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Outlined inputs</h2>
-					<p>
-						Add <code>data-input="outline"</code> to use an outlined style instead of the default underline. 
-						The input is wrapped in <code>.input-wrapper-outline</code> for consistent spacing and label 
-						alignment, giving it a distinct boxed look.
-					</p>
-	
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid col-2 padding">
-
-									<div>
-										<label>Label</label>
-										<input class="input" type="text" data-input="outline">
-									</div>
-
-									<div>
-										<label>Label</label>
-										<textarea class="textarea" rows="5" data-input="outline"></textarea>
-									</div>
-
-									<div>
-										<input class="input" type="text" placeholder="Input ..." data-input="outline">
-									</div>
-
-									<div>
-										<textarea class="textarea" rows="5" placeholder="Textarea ..." data-input="outline"></textarea>
-									</div>
-
-									<div>
-										<label>Label</label>
-										<input class="input form-danger" type="text" data-input="outline">
-									</div>
-
-									<div>
-										<label>Label</label>
-										<input class="input form-success" type="text" data-input="outline">
-									</div>
-
+										&lt;/form&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid col-2 padding&quot;&gt;
-
-										&lt;div&gt;
-											&lt;label&gt;Label&lt;/label&gt;
-											&lt;input class=&quot;input&quot; type=&quot;text&quot; data-input=&quot;outline&quot;&gt;
-										&lt;/div&gt;
-
-										&lt;div&gt;
-											&lt;label&gt;Label&lt;/label&gt;
-											&lt;textarea class=&quot;textarea&quot; rows=&quot;5&quot; data-input=&quot;outline&quot;&gt;&lt;/textarea&gt;
-										&lt;/div&gt;
-
-										&lt;div&gt;
-											&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;Input ...&quot; data-input=&quot;outline&quot;&gt;
-										&lt;/div&gt;
-
-										&lt;div&gt;
-											&lt;textarea class=&quot;textarea&quot; rows=&quot;5&quot; placeholder=&quot;Textarea ...&quot; data-input=&quot;outline&quot;&gt;&lt;/textarea&gt;
-										&lt;/div&gt;
-
-										&lt;div&gt;
-											&lt;label&gt;Label&lt;/label&gt;
-											&lt;input class=&quot;input form-danger&quot; type=&quot;text&quot; data-input=&quot;outline&quot;&gt;
-										&lt;/div&gt;
-
-										&lt;div&gt;
-											&lt;label&gt;Label&lt;/label&gt;
-											&lt;input class=&quot;input form-success&quot; type=&quot;text&quot; data-input=&quot;outline&quot;&gt;
-										&lt;/div&gt;
-
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Form fieldset separation</h2>
-					<p>
-						Use the native <code>&lt;fieldset&gt;</code> element to group and separate related form fields, 
-						instead of relying on <code>.form-group</code>.
-					</p>
+						<h2>Form fieldset borders</h2>
+						<p>
+							Add the <code>.fieldset-border</code> class to display a border around fieldsets. 
+							The border style is controlled with the <code>--fieldset-border</code> design token.
+						</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<form class="form-stacked padding">
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<form class="flex flex-col gap-md fieldset-border padding">
 
-									<fieldset>
-										<legend>Legend</legend>
-										<input class="input" type="text" placeholder="Input ..." data-counter-id="name-count" data-input>
-										<small id="name-count" class="char-counter">0 / 30</small>
-									</fieldset>
+										<fieldset>
+											<legend>Legend</legend>
+											<input class="input form-blank" type="text" placeholder="Input ..." data-counter-id="name-count" >
+											<small id="name-count" class="char-counter">0 / 30</small>
+										</fieldset>
 
-									<fieldset>
-										<legend>Legend</legend>
-										<textarea class="textarea" rows="5" placeholder="Textarea ..." data-input></textarea>
-									</fieldset>
+										<fieldset>
+											<legend>Legend</legend>
+											<textarea class="textarea form-blank" rows="5" placeholder="Textarea ..."></textarea>
+										</fieldset>
 
-									<fieldset>
-										<legend>Legend</legend>
-										<textarea class="textarea autosize" rows="3" placeholder="Autosize textarea ..." data-input></textarea>
-									</fieldset>
+										<fieldset>
+											<legend>Legend</legend>
+											<textarea class="textarea autosize" rows="3" placeholder="Autosize textarea ..."></textarea>
+										</fieldset>
 
-									<fieldset>
-										<legend>Legend</legend>
-										<select class="select">
-											<option>Option 01</option>
-											<option>Option 02</option>
-										</select>
-									</fieldset>
+										<fieldset>
+											<legend>Legend</legend>
+											<select class="select">
+												<option>Option 01</option>
+												<option>Option 02</option>
+											</select>
+										</fieldset>
 
-								</form>
+									</form>
+								</div>
+								<div>
+									<pre><code>
+										&lt;form class=&quot;flex flex-col gap-md fieldset-border padding&quot;&gt;
+
+											&lt;fieldset&gt;
+												&lt;legend&gt;Legend&lt;/legend&gt;
+												&lt;input class=&quot;input form-blank&quot; type=&quot;text&quot; placeholder=&quot;Input ...&quot; data-counter-id=&quot;name-count&quot; data-input&gt;
+												&lt;small id=&quot;name-count&quot; class=&quot;char-counter&quot;&gt;0 / 30&lt;/small&gt;
+											&lt;/fieldset&gt;
+
+											&lt;fieldset&gt;
+												&lt;legend&gt;Legend&lt;/legend&gt;
+												&lt;textarea class=&quot;textarea form-blank&quot; rows=&quot;5&quot; placeholder=&quot;Textarea ...&quot; data-input&gt;&lt;/textarea&gt;
+											&lt;/fieldset&gt;
+
+											&lt;fieldset&gt;
+												&lt;legend&gt;Legend&lt;/legend&gt;
+												&lt;textarea class=&quot;textarea autosize&quot; rows=&quot;3&quot; placeholder=&quot;Autosize textarea ...&quot; data-input&gt;&lt;/textarea&gt;
+											&lt;/fieldset&gt;
+
+											&lt;fieldset&gt;
+												&lt;legend&gt;Legend&lt;/legend&gt;
+												&lt;select class=&quot;select&quot;&gt;
+													&lt;option&gt;Option 01&lt;/option&gt;
+													&lt;option&gt;Option 02&lt;/option&gt;
+												&lt;/select&gt;
+											&lt;/fieldset&gt;
+
+										&lt;/form&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;form class=&quot;form-stacked padding&quot;&gt;
-
-										&lt;fieldset&gt;
-											&lt;legend&gt;Legend&lt;/legend&gt;
-											&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;Input ...&quot; data-counter-id=&quot;name-count&quot; data-input&gt;
-											&lt;small id=&quot;name-count&quot; class=&quot;char-counter&quot;&gt;0 / 30&lt;/small&gt;
-										&lt;/fieldset&gt;
-
-										&lt;fieldset&gt;
-											&lt;legend&gt;Legend&lt;/legend&gt;
-											&lt;textarea class=&quot;textarea&quot; rows=&quot;5&quot; placeholder=&quot;Textarea ...&quot; data-input&gt;&lt;/textarea&gt;
-										&lt;/fieldset&gt;
-
-										&lt;fieldset&gt;
-											&lt;legend&gt;Legend&lt;/legend&gt;
-											&lt;textarea class=&quot;textarea autosize&quot; rows=&quot;3&quot; placeholder=&quot;Autosize textarea ...&quot; data-input&gt;&lt;/textarea&gt;
-										&lt;/fieldset&gt;
-
-										&lt;fieldset&gt;
-											&lt;legend&gt;Legend&lt;/legend&gt;
-											&lt;select class=&quot;select&quot;&gt;
-												&lt;option&gt;Option 01&lt;/option&gt;
-												&lt;option&gt;Option 02&lt;/option&gt;
-											&lt;/select&gt;
-										&lt;/fieldset&gt;
-
-									&lt;/form&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Form fieldset borders</h2>
-					<p>
-						Add the <code>.fieldset-border</code> class to display a border around fieldsets. 
-						The border style is controlled with the <code>--fieldset-border</code> design token.
-					</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<form class="flex flex-col gap-md fieldset-border padding">
-
-									<fieldset>
-										<legend>Legend</legend>
-										<input class="input form-blank" type="text" placeholder="Input ..." data-counter-id="name-count" >
-										<small id="name-count" class="char-counter">0 / 30</small>
-									</fieldset>
-
-									<fieldset>
-										<legend>Legend</legend>
-										<textarea class="textarea form-blank" rows="5" placeholder="Textarea ..."></textarea>
-									</fieldset>
-
-									<fieldset>
-										<legend>Legend</legend>
-										<textarea class="textarea autosize" rows="3" placeholder="Autosize textarea ..."></textarea>
-									</fieldset>
-
-									<fieldset>
-										<legend>Legend</legend>
-										<select class="select">
-											<option>Option 01</option>
-											<option>Option 02</option>
-										</select>
-									</fieldset>
-
-								</form>
-							</div>
-							<div>
-								<pre><code>
-									&lt;form class=&quot;flex flex-col gap-md fieldset-border padding&quot;&gt;
-
-										&lt;fieldset&gt;
-											&lt;legend&gt;Legend&lt;/legend&gt;
-											&lt;input class=&quot;input form-blank&quot; type=&quot;text&quot; placeholder=&quot;Input ...&quot; data-counter-id=&quot;name-count&quot; data-input&gt;
-											&lt;small id=&quot;name-count&quot; class=&quot;char-counter&quot;&gt;0 / 30&lt;/small&gt;
-										&lt;/fieldset&gt;
-
-										&lt;fieldset&gt;
-											&lt;legend&gt;Legend&lt;/legend&gt;
-											&lt;textarea class=&quot;textarea form-blank&quot; rows=&quot;5&quot; placeholder=&quot;Textarea ...&quot; data-input&gt;&lt;/textarea&gt;
-										&lt;/fieldset&gt;
-
-										&lt;fieldset&gt;
-											&lt;legend&gt;Legend&lt;/legend&gt;
-											&lt;textarea class=&quot;textarea autosize&quot; rows=&quot;3&quot; placeholder=&quot;Autosize textarea ...&quot; data-input&gt;&lt;/textarea&gt;
-										&lt;/fieldset&gt;
-
-										&lt;fieldset&gt;
-											&lt;legend&gt;Legend&lt;/legend&gt;
-											&lt;select class=&quot;select&quot;&gt;
-												&lt;option&gt;Option 01&lt;/option&gt;
-												&lt;option&gt;Option 02&lt;/option&gt;
-											&lt;/select&gt;
-										&lt;/fieldset&gt;
-
-									&lt;/form&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

@@ -310,226 +310,228 @@
 		</aside>
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
 
-					<h1>Transition Utilities</h1>
-					<p class="text-lead">
-						Composable transition and transform utility classes for fading, sliding, and scaling content with hover, focus, or
-						state-based triggers.
-					</p>
-					<p>
-						These utilities use CSS custom properties to control opacity, transform, and filter transitions. They support
-						multiple effects including fade, scale, and slide variants with fine control over distance and direction. Modifiers
-						allow adjusting duration or disabling transitions.
-					</p>
+						<h1>Transition Utilities</h1>
+						<p class="text-lead">
+							Composable transition and transform utility classes for fading, sliding, and scaling content with hover, focus, or
+							state-based triggers.
+						</p>
+						<p>
+							These utilities use CSS custom properties to control opacity, transform, and filter transitions. They support
+							multiple effects including fade, scale, and slide variants with fine control over distance and direction. Modifiers
+							allow adjusting duration or disabling transitions.
+						</p>
 
-					<hr>
+						<hr>
 
-					<!-- Base Transition -->
-					<h2>Base Transition</h2>
-					<p>
-						The <code>.transition</code> class applies smooth transitions on opacity, transform, and filter properties, using
-						CSS variables for granular control of translate and scale transforms.
-					</p>
+						<!-- Base Transition -->
+						<h2>Base Transition</h2>
+						<p>
+							The <code>.transition</code> class applies smooth transitions on opacity, transform, and filter properties, using
+							CSS variables for granular control of translate and scale transforms.
+						</p>
 
-					<!-- Fade -->
-					<h2>Fade Transitions</h2>
-					<p>
-						The <code>.transition-fade</code> class fades elements in and out based on hover, focus, or active states on a
-						parent toggle element.
-					</p>
+						<!-- Fade -->
+						<h2>Fade Transitions</h2>
+						<p>
+							The <code>.transition-fade</code> class fades elements in and out based on hover, focus, or active states on a
+							parent toggle element.
+						</p>
 
-					<!-- Scale -->
-					<h2>Scale Transitions</h2>
-					<p>
-						Zoom effects that scale elements up or down smoothly on hover or focus. Use <code>.transition-scale-up</code> to
-						scale up and <code>.transition-scale-down</code> to scale down.
-					</p>
+						<!-- Scale -->
+						<h2>Scale Transitions</h2>
+						<p>
+							Zoom effects that scale elements up or down smoothly on hover or focus. Use <code>.transition-scale-up</code> to
+							scale up and <code>.transition-scale-down</code> to scale down.
+						</p>
 
-					<!-- Slide -->
-					<h2>Slide Transitions</h2>
-					<p>
-						Slide elements into view from various directions with configurable distances: full, small (~10px), and medium
-						(~50px). Classes follow the pattern <code>.transition-slide-[direction]-[size]</code>.
-					</p>
+						<!-- Slide -->
+						<h2>Slide Transitions</h2>
+						<p>
+							Slide elements into view from various directions with configurable distances: full, small (~10px), and medium
+							(~50px). Classes follow the pattern <code>.transition-slide-[direction]-[size]</code>.
+						</p>
 
-					<!-- Modifiers -->
-					<h2>Modifiers</h2>
-					<ul class="margin-bottom">
-						<li><code>.transition-opaque</code>: Makes element fully visible instantly without transition.</li>
-						<li><code>.transition-slow</code>: Extends transition duration for smoother effects (0.7s).</li>
-						<li><code>.transition-disable</code>: Disables all transitions for the element and its children.</li>
-					</ul>
+						<!-- Modifiers -->
+						<h2>Modifiers</h2>
+						<ul class="margin-bottom">
+							<li><code>.transition-opaque</code>: Makes element fully visible instantly without transition.</li>
+							<li><code>.transition-slow</code>: Extends transition duration for smoother effects (0.7s).</li>
+							<li><code>.transition-disable</code>: Disables all transitions for the element and its children.</li>
+						</ul>
 
-					<!-- Class Summary Table -->
-					<h2>Available Classes</h2>
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.transition</code></td>
-								<td>Base transition with opacity and transform</td>
-							</tr>
-							<tr>
-								<td><code>.transition-fade</code></td>
-								<td>Fade in/out on hover or focus</td>
-							</tr>
-							<tr>
-								<td><code>.transition-scale-up</code></td>
-								<td>Scale element up on hover/focus</td>
-							</tr>
-							<tr>
-								<td><code>.transition-scale-down</code></td>
-								<td>Scale element down on hover/focus</td>
-							</tr>
-							<tr>
-								<td><code>.transition-slide-top</code></td>
-								<td>Slide in from top (full distance)</td>
-							</tr>
-							<tr>
-								<td><code>.transition-slide-top-small</code></td>
-								<td>Slide in from top (small distance)</td>
-							</tr>
-							<tr>
-								<td><code>.transition-slide-top-medium</code></td>
-								<td>Slide in from top (medium distance)</td>
-							</tr>
-							<tr>
-								<td><code>.transition-opaque</code></td>
-								<td>Instantly visible without transition</td>
-							</tr>
-							<tr>
-								<td><code>.transition-slow</code></td>
-								<td>Slower transition duration (0.7s)</td>
-							</tr>
-							<tr>
-								<td><code>.transition-disable</code></td>
-								<td>Disable all transitions</td>
-							</tr>
-						</tbody>
-					</table>
+						<!-- Class Summary Table -->
+						<h2>Available Classes</h2>
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.transition</code></td>
+									<td>Base transition with opacity and transform</td>
+								</tr>
+								<tr>
+									<td><code>.transition-fade</code></td>
+									<td>Fade in/out on hover or focus</td>
+								</tr>
+								<tr>
+									<td><code>.transition-scale-up</code></td>
+									<td>Scale element up on hover/focus</td>
+								</tr>
+								<tr>
+									<td><code>.transition-scale-down</code></td>
+									<td>Scale element down on hover/focus</td>
+								</tr>
+								<tr>
+									<td><code>.transition-slide-top</code></td>
+									<td>Slide in from top (full distance)</td>
+								</tr>
+								<tr>
+									<td><code>.transition-slide-top-small</code></td>
+									<td>Slide in from top (small distance)</td>
+								</tr>
+								<tr>
+									<td><code>.transition-slide-top-medium</code></td>
+									<td>Slide in from top (medium distance)</td>
+								</tr>
+								<tr>
+									<td><code>.transition-opaque</code></td>
+									<td>Instantly visible without transition</td>
+								</tr>
+								<tr>
+									<td><code>.transition-slow</code></td>
+									<td>Slower transition duration (0.7s)</td>
+								</tr>
+								<tr>
+									<td><code>.transition-disable</code></td>
+									<td>Disable all transitions</td>
+								</tr>
+							</tbody>
+						</table>
 
-					<!-- Usage Examples -->
-					<h2>Usage Examples</h2>
+						<!-- Usage Examples -->
+						<h2>Usage Examples</h2>
 
-					<h2>Transition Examples</h2>
-					<p>All transitions are triggered on hover of the parent <code>.transition-toggle</code>.</p>
+						<h2>Transition Examples</h2>
+						<p>All transitions are triggered on hover of the parent <code>.transition-toggle</code>.</p>
 
-					<hr>
+						<hr>
 
-					<h3>Fade</h3>
-					<div class="transition-toggle" style="padding: 1rem; border: 1px dashed #ccc;">
-						<div class="transition-fade">This fades in</div>
-					</div>
-
-					<h3>Scale Up</h3>
-					<div class="transition-toggle" style="padding: 1rem; border: 1px dashed #ccc;">
-						<div class="transition-scale-up">This scales up on hover</div>
-					</div>
-
-					<h3>Scale Down</h3>
-					<div class="transition-toggle" style="padding: 1rem; border: 1px dashed #ccc;">
-						<div class="transition-scale-down">This scales down on hover</div>
-					</div>
-
-					<hr>
-
-					<h3>Slide Full (100%)</h3>
-
-					<h4>Slide from Top</h4>
-					<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
-						<div class="transition-slide-top">Slide from top</div>
-					</div>
-
-					<h4>Slide from Bottom</h4>
-					<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
-						<div class="transition-slide-bottom">Slide from bottom</div>
-					</div>
-
-					<h4>Slide from Left</h4>
-					<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
-						<div class="transition-slide-left">Slide from left</div>
-					</div>
-
-					<h4>Slide from Right</h4>
-					<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
-						<div class="transition-slide-right">Slide from right</div>
-					</div>
-
-					<hr>
-
-					<h3>Slide Medium (50px)</h3>
-
-					<h4>Slide from Top Medium</h4>
-					<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
-						<div class="transition-slide-top-medium">Slide from top (medium)</div>
-					</div>
-
-					<h4>Slide from Bottom Medium</h4>
-					<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
-						<div class="transition-slide-bottom-medium">Slide from bottom (medium)</div>
-					</div>
-
-					<h4>Slide from Left Medium</h4>
-					<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
-						<div class="transition-slide-left-medium">Slide from left (medium)</div>
-					</div>
-
-					<h4>Slide from Right Medium</h4>
-					<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
-						<div class="transition-slide-right-medium">Slide from right (medium)</div>
-					</div>
-
-					<hr>
-
-					<h3>Slide Small (10px)</h3>
-
-					<h4>Slide from Top Small</h4>
-					<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
-						<div class="transition-slide-top-small">Slide from top (small)</div>
-					</div>
-
-					<h4>Slide from Bottom Small</h4>
-					<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
-						<div class="transition-slide-bottom-small">Slide from bottom (small)</div>
-					</div>
-
-					<h4>Slide from Left Small</h4>
-					<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
-						<div class="transition-slide-left-small">Slide from left (small)</div>
-					</div>
-
-					<h4>Slide from Right Small</h4>
-					<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
-						<div class="transition-slide-right-small">Slide from right (small)</div>
-					</div>
-
-					<hr>
-
-					<h3>Always Visible Modifier</h3>
-					<div class="transition-opaque" style="padding: 1rem; border: 1px dashed #ccc;">
-						This is always visible using <code>.transition-opaque</code>
-					</div>
-
-					<h3>Slower Transition</h3>
-					<div class="transition-toggle" style="padding: 1rem; border: 1px dashed #ccc;">
-						<div class="transition-slide-left-small transition-slow">
-							Slide in slowly from left (small)
+						<h3>Fade</h3>
+						<div class="transition-toggle" style="padding: 1rem; border: 1px dashed #ccc;">
+							<div class="transition-fade">This fades in</div>
 						</div>
-					</div>
 
-					<h3>Transitions Disabled</h3>
-					<div class="transition-toggle transition-disable" style="padding: 1rem; border: 1px dashed #ccc;">
-						<div class="transition-slide-left-medium">
-							Transitions are disabled
+						<h3>Scale Up</h3>
+						<div class="transition-toggle" style="padding: 1rem; border: 1px dashed #ccc;">
+							<div class="transition-scale-up">This scales up on hover</div>
 						</div>
-					</div>
 
+						<h3>Scale Down</h3>
+						<div class="transition-toggle" style="padding: 1rem; border: 1px dashed #ccc;">
+							<div class="transition-scale-down">This scales down on hover</div>
+						</div>
+
+						<hr>
+
+						<h3>Slide Full (100%)</h3>
+
+						<h4>Slide from Top</h4>
+						<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
+							<div class="transition-slide-top">Slide from top</div>
+						</div>
+
+						<h4>Slide from Bottom</h4>
+						<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
+							<div class="transition-slide-bottom">Slide from bottom</div>
+						</div>
+
+						<h4>Slide from Left</h4>
+						<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
+							<div class="transition-slide-left">Slide from left</div>
+						</div>
+
+						<h4>Slide from Right</h4>
+						<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
+							<div class="transition-slide-right">Slide from right</div>
+						</div>
+
+						<hr>
+
+						<h3>Slide Medium (50px)</h3>
+
+						<h4>Slide from Top Medium</h4>
+						<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
+							<div class="transition-slide-top-medium">Slide from top (medium)</div>
+						</div>
+
+						<h4>Slide from Bottom Medium</h4>
+						<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
+							<div class="transition-slide-bottom-medium">Slide from bottom (medium)</div>
+						</div>
+
+						<h4>Slide from Left Medium</h4>
+						<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
+							<div class="transition-slide-left-medium">Slide from left (medium)</div>
+						</div>
+
+						<h4>Slide from Right Medium</h4>
+						<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
+							<div class="transition-slide-right-medium">Slide from right (medium)</div>
+						</div>
+
+						<hr>
+
+						<h3>Slide Small (10px)</h3>
+
+						<h4>Slide from Top Small</h4>
+						<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
+							<div class="transition-slide-top-small">Slide from top (small)</div>
+						</div>
+
+						<h4>Slide from Bottom Small</h4>
+						<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
+							<div class="transition-slide-bottom-small">Slide from bottom (small)</div>
+						</div>
+
+						<h4>Slide from Left Small</h4>
+						<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
+							<div class="transition-slide-left-small">Slide from left (small)</div>
+						</div>
+
+						<h4>Slide from Right Small</h4>
+						<div class="transition-toggle" style="padding: 2rem; border: 1px dashed #ccc;">
+							<div class="transition-slide-right-small">Slide from right (small)</div>
+						</div>
+
+						<hr>
+
+						<h3>Always Visible Modifier</h3>
+						<div class="transition-opaque" style="padding: 1rem; border: 1px dashed #ccc;">
+							This is always visible using <code>.transition-opaque</code>
+						</div>
+
+						<h3>Slower Transition</h3>
+						<div class="transition-toggle" style="padding: 1rem; border: 1px dashed #ccc;">
+							<div class="transition-slide-left-small transition-slow">
+								Slide in slowly from left (small)
+							</div>
+						</div>
+
+						<h3>Transitions Disabled</h3>
+						<div class="transition-toggle transition-disable" style="padding: 1rem; border: 1px dashed #ccc;">
+							<div class="transition-slide-left-medium">
+								Transitions are disabled
+							</div>
+						</div>
+
+					</article>
 				</div>
 			</div>
 		</main>

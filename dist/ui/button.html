@@ -308,522 +308,525 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Button</h1>
+						<p class="text-lead">Easily create nice looking buttons, which come in different styles.</p>
+						
+						<hr>
+						
+						<h2>Usage</h2>
+						<p>To apply this component, add the <code>.button</code> class to an <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> element. Add the <code>disabled</code> attribute to a <code>&lt;button&gt;</code> element to disable the button.</p>
 
-				<div class="container-flow container-flow-md prose">
-					<h1>Button</h1>
-					<p class="text-lead">Easily create nice looking buttons, which come in different styles.</p>
-					
-					<hr>
-					
-					<h2>Usage</h2>
-					<p>To apply this component, add the <code>.button</code> class to an <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> element. Add the <code>disabled</code> attribute to a <code>&lt;button&gt;</code> element to disable the button.</p>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div style="--gap:10px" class="child-width-1-5 text-center flex-grid">
+										<button class="button" data-variant="secondary">Click Me</button>
+										<button class="button" data-variant="primary">Get Started</button>
+										<button class="button" data-variant="danger" data-size="lg">Delete Account</button>
+										<button class="button" data-variant="success" data-style="outline">View Details</button>
+										<button class="button" data-variant="warning" data-style="flat" data-size="sm">Dismiss</button>
+										<button class="button button-pill" data-variant="primary">
+										<span class="button-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+										</span>
+										<span>Learn More</span>
+										</button>
+										<a class="button-link">Button Link</a>
+										<button class="button" data-variant="primary" disabled>Disabled</button>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div style=&quot;--gap:10px&quot; class=&quot;child-width-1-5 text-center flex-grid&quot;&gt;
+											&lt;button class=&quot;button&quot; data-variant=&quot;secondary&quot;&gt;Click Me&lt;/button&gt;
+											&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot;&gt;Get Started&lt;/button&gt;
+											&lt;button class=&quot;button&quot; data-variant=&quot;danger&quot; data-size=&quot;lg&quot;&gt;Delete Account&lt;/button&gt;
+											&lt;button class=&quot;button&quot; data-variant=&quot;success&quot; data-style=&quot;outline&quot;&gt;View Details&lt;/button&gt;
+											&lt;button class=&quot;button&quot; data-variant=&quot;warning&quot; data-style=&quot;flat&quot; data-size=&quot;sm&quot;&gt;Dismiss&lt;/button&gt;
+											&lt;button class=&quot;button button-pill&quot; data-variant=&quot;primary&quot;&gt;
+											&lt;span class=&quot;button-icon&quot;&gt;
+												&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z&quot;/&gt;&lt;/svg&gt;
+											&lt;/span&gt;
+											&lt;span&gt;Learn More&lt;/span&gt;
+											&lt;/button&gt;
+											&lt;a class=&quot;button-link&quot;&gt;Button Link&lt;/a&gt;
+											&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot; disabled&gt;Cannot Click&lt;/button&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div style="--gap:10px" class="child-width-1-5 text-center flex-grid">
-									<button class="button" data-variant="secondary">Click Me</button>
-									<button class="button" data-variant="primary">Get Started</button>
-									<button class="button" data-variant="danger" data-size="lg">Delete Account</button>
-									<button class="button" data-variant="success" data-style="outline">View Details</button>
-									<button class="button" data-variant="warning" data-style="flat" data-size="sm">Dismiss</button>
-									<button class="button button-pill" data-variant="primary">
-									<span class="button-icon">
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
-									</span>
-									<span>Learn More</span>
+						<h2>Available Tokens</h2>
+						<p>
+							These CSS custom properties control the core appearance of buttons.  
+							Override them in your theme or component styles to adjust colors and interaction states.
+						</p>
+
+						<pre><code>
+							--button-bg           /* Base background color */
+							--button-text         /* Base text color */
+							--button-border-color /* Border color */
+							--button-hover-bg     /* Background color on hover */
+							--button-active-bg    /* Background color when active/pressed */
+						</code></pre>
+						
+						<h2>Variants</h2>
+						<p>
+							Use the <code>data-variant</code> attribute to apply a specific visual style to a button. 
+							Several predefined variants are available for different use cases.
+						</p>
+
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>primary</code></td>
+									<td>Indicates the primary action.</td>
+								</tr>
+								<tr>
+									<td><code>secondary</code></td>
+									<td>Indicates the secondary action.</td>
+								</tr>
+								<tr>
+									<td><code>success</code></td>
+									<td>Indicates an important action.</td>
+								</tr>
+								<tr>
+									<td><code>warning</code></td>
+									<td>Indicates a dangerous or negative action.</td>
+								</tr>
+								<tr>
+									<td><code>danger</code></td>
+									<td>Indicates a dangerous or negative action.</td>
+								</tr>
+								
+							</tbody>
+						</table>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+
+									<button class="button" data-variant="primary">Primary</button>
+									<button class="button" data-variant="secondary">Secondary</button>
+									<button class="button" data-variant="success">Success</button>
+									<button class="button" data-variant="warning">Warning</button>
+									<button class="button" data-variant="danger">Danger</button>
+									<button class="button">Default</button>
+
+								</div>
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot;&gt;Primary&lt;/button&gt;
+										&lt;button class=&quot;button&quot; data-variant=&quot;secondary&quot;&gt;Secondary&lt;/button&gt;
+										&lt;button class=&quot;button&quot; data-variant=&quot;success&quot;&gt;Success&lt;/button&gt;
+										&lt;button class=&quot;button&quot; data-variant=&quot;warning&quot;&gt;Warning&lt;/button&gt;
+										&lt;button class=&quot;button&quot; data-variant=&quot;danger&quot;&gt;Danger&lt;/button&gt;
+										&lt;button class=&quot;button&quot;&gt;Default&lt;/button&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Style Modifiers</h2>
+						<p>
+							Use the <code>data-style</code> attribute to change the button’s style. 
+							The following styles are supported:
+						</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>outline</code></td>
+									<td>Button outline style.</td>
+								</tr>
+								<tr>
+									<td><code>flat</code></td>
+									<td>Button flat style.</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<h3>Outline</h3>
+						<p>
+							Add <code>data-style="outline"</code> to display a button with an outlined border and transparent background.
+						</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+
+									<button class="button" data-variant="primary" data-style="outline">Primary</button>
+									<button class="button" data-variant="success" data-style="outline">Success</button>
+									<button class="button" data-variant="warning" data-style="outline">Warning</button>
+									<button class="button" data-variant="danger" data-style="outline">Danger</button>
+									<button class="button" data-style="outline">Default</button>
+
+								</div>
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot; data-style=&quot;outline&quot;&gt;Primary&lt;/button&gt;
+										&lt;button class=&quot;button&quot; data-variant=&quot;success&quot; data-style=&quot;outline&quot;&gt;Success&lt;/button&gt;
+										&lt;button class=&quot;button&quot; data-variant=&quot;warning&quot; data-style=&quot;outline&quot;&gt;Warning&lt;/button&gt;
+										&lt;button class=&quot;button&quot; data-variant=&quot;danger&quot; data-style=&quot;outline&quot;&gt;Danger&lt;/button&gt;
+										&lt;button class=&quot;button&quot; data-style=&quot;outline&quot;&gt;Default&lt;/button&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h3>Flat</h3>
+						<p>
+							Add <code>data-style="flat"</code> for a button without elevation or borders, ideal for subtle actions.
+						</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+
+									<button class="button" data-variant="primary" data-style="flat">Primary</button>
+									<button class="button" data-variant="success" data-style="flat">Success</button>
+									<button class="button" data-variant="warning" data-style="flat">Warning</button>
+									<button class="button" data-variant="danger" data-style="flat">Danger</button>
+									<button class="button" data-style="flat">Default</button>
+
+								</div>
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot; data-style=&quot;flat&quot;&gt;Primary&lt;/button&gt;
+										&lt;button class=&quot;button&quot; data-variant=&quot;success&quot; data-style=&quot;flat&quot;&gt;Success&lt;/button&gt;
+										&lt;button class=&quot;button&quot; data-variant=&quot;warning&quot; data-style=&quot;flat&quot;&gt;Warning&lt;/button&gt;
+										&lt;button class=&quot;button&quot; data-variant=&quot;danger&quot; data-style=&quot;flat&quot;&gt;Danger&lt;/button&gt;
+										&lt;button class=&quot;button&quot; data-style=&quot;flat&quot;&gt;Default&lt;/button&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Size Modifiers</h2>
+						<p>
+							Use the <code>data-size="*"</code> attribute to adjust the button’s size. 
+							Options typically include <code>small</code>, <code>medium</code>, and <code>large</code>.
+						</p>
+
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Attribute</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>data-size="mini"</code></td>
+									<td>Extra small button, ideal for compact UI elements.</td>
+								</tr>
+								<tr>
+									<td><code>data-size="sm"</code></td>
+									<td>Small button, slightly smaller than the default size.</td>
+								</tr>
+								<tr>
+									<td><code>data-size="lg"</code></td>
+									<td>Large button, bigger than the default size for emphasis.</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<button class="button" data-variant="primary" data-size="mini">Mini</button>
+									<button class="button" data-variant="primary" data-size="sm">Small</button>
+									<button class="button" data-variant="primary">Default</button>
+									<button class="button" data-variant="primary" data-size="lg">Large</button>
+								</div>
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot; data-size=&quot;mini&quot;&gt;Mini&lt;/button&gt;
+										&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot; data-size=&quot;sm&quot;&gt;Small&lt;/button&gt;
+										&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot;&gt;Default&lt;/button&gt;
+										&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot; data-size=&quot;lg&quot;&gt;Large&lt;/button&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Icon Buttons</h2>
+						<p>
+							Add the <code>button-icon</code> class for buttons containing both an icon and text, 
+							or <code>button-icon-only</code> for buttons containing only an icon.
+						</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<button class="button button-icon-only" data-variant="primary">
+										<span class="button-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480.33-100q-78.95 0-147.89-29.92-68.95-29.92-120.76-81.71-51.81-51.79-81.75-120.78Q100-401.39 100-480.43q0-78.66 29.92-147.87 29.92-69.21 81.71-120.52 51.79-51.31 120.78-81.25Q401.39-860 480.43-860q78.66 0 147.87 29.92 69.21 29.92 120.52 81.21 51.31 51.29 81.25 120.63Q860-558.9 860-480.33q0 78.95-29.92 147.89-29.92 68.95-81.21 120.57-51.29 51.63-120.63 81.75Q558.9-100 480.33-100Zm-.33-45.39q140.07 0 237.34-97.76 97.27-97.77 97.27-236.85v-8.73q0-3.96-.38-8.5-4.46 25.61-24.33 42.73-19.86 17.11-47.52 17.11h-90.77q-30.84 0-52.34-21.48-21.5-21.48-21.5-52.31v-36.89H430.08v-73.8q0-30.44 21.5-52.21 21.5-21.76 52.34-21.76h36.93v-31.24q0-21 16.38-42.88 16.39-21.89 38-24.19-26.92-9.93-55.62-15.2-28.7-5.26-59.61-5.26-139.08 0-236.85 97.27-97.76 97.27-97.76 237.34v5.77q0 2.69.38 5.77h153.08q61.38 0 104.53 43.15 43.16 43.16 43.16 104.37v37.09H335.77v105.77q32.85 15.85 69.2 24.27t75.03 8.42Z"/></svg>
+										</span>
 									</button>
-									<a class="button-link">Button Link</a>
-									<button class="button" data-variant="primary" disabled>Disabled</button>
+									<button class="button" data-variant="success">
+										<span class="button-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
+										</span>
+										<span>Save</span>
+										
+									</button>
+									<button class="button" data-variant="danger">
+										<span>Delete</span>
+										
+										<span class="button-icon">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z"/></svg>
+										</span>
+									</button>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div style=&quot;--gap:10px&quot; class=&quot;child-width-1-5 text-center flex-grid&quot;&gt;
-										&lt;button class=&quot;button&quot; data-variant=&quot;secondary&quot;&gt;Click Me&lt;/button&gt;
-										&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot;&gt;Get Started&lt;/button&gt;
-										&lt;button class=&quot;button&quot; data-variant=&quot;danger&quot; data-size=&quot;lg&quot;&gt;Delete Account&lt;/button&gt;
-										&lt;button class=&quot;button&quot; data-variant=&quot;success&quot; data-style=&quot;outline&quot;&gt;View Details&lt;/button&gt;
-										&lt;button class=&quot;button&quot; data-variant=&quot;warning&quot; data-style=&quot;flat&quot; data-size=&quot;sm&quot;&gt;Dismiss&lt;/button&gt;
-										&lt;button class=&quot;button button-pill&quot; data-variant=&quot;primary&quot;&gt;
-										&lt;span class=&quot;button-icon&quot;&gt;
-											&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z&quot;/&gt;&lt;/svg&gt;
-										&lt;/span&gt;
-										&lt;span&gt;Learn More&lt;/span&gt;
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button button-icon-only&quot; data-variant=&quot;primary&quot;&gt;
+											&lt;span class=&quot;button-icon&quot;&gt;
+												&lt;svg&gt;&lt;/svg&gt;
+											&lt;/span&gt;
 										&lt;/button&gt;
+										&lt;button class=&quot;button&quot; data-variant=&quot;success&quot;&gt;
+											&lt;span class=&quot;button-icon&quot;&gt;
+												&lt;svg&gt;&lt;/svg&gt;
+											&lt;/span&gt;
+											&lt;span&gt;Save&lt;/span&gt;
+											
+										&lt;/button&gt;
+										&lt;button class=&quot;button&quot; data-variant=&quot;danger&quot;&gt;
+											&lt;span&gt;Delete&lt;/span&gt;
+											
+											&lt;span class=&quot;button-icon&quot;&gt;
+												&lt;svg&gt;&lt;/svg&gt;
+											&lt;/span&gt;
+										&lt;/button&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Link Modifiers</h2>
+						<p>
+							Use the <code>button-link</code> class on an <code>&lt;a&gt;</code> element to style links like buttons.
+						</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<a class="button-link">Button Link</a>
+								</div>
+								<div>
+									<pre><code>
 										&lt;a class=&quot;button-link&quot;&gt;Button Link&lt;/a&gt;
-										&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot; disabled&gt;Cannot Click&lt;/button&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Available Tokens</h2>
-					<p>
-						These CSS custom properties control the core appearance of buttons.  
-						Override them in your theme or component styles to adjust colors and interaction states.
-					</p>
+						<h2>Shape Modifiers</h2>
+						<p>
+							Apply shape and layout utility classes to adjust the button’s form, such as making it pill-shaped or fully rounded.
+						</p>
 
-					<pre><code>
-						--button-bg           /* Base background color */
-						--button-text         /* Base text color */
-						--button-border-color /* Border color */
-						--button-hover-bg     /* Background color on hover */
-						--button-active-bg    /* Background color when active/pressed */
-					</code></pre>
-					
-					<h2>Variants</h2>
-					<p>
-						Use the <code>data-variant</code> attribute to apply a specific visual style to a button. 
-						Several predefined variants are available for different use cases.
-					</p>
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.button-round</code></td>
+									<td>Round button.</td>
+								</tr>
+								<tr>
+									<td><code>.button-pill</code></td>
+									<td>Pill button</td>
+								</tr>
+								<tr>
+									<td><code>.button-block</code></td>
+									<td>Block button.</td>
+								</tr>
+							</tbody>
+						</table>
 
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>primary</code></td>
-								<td>Indicates the primary action.</td>
-							</tr>
-							<tr>
-								<td><code>secondary</code></td>
-								<td>Indicates the secondary action.</td>
-							</tr>
-							<tr>
-								<td><code>success</code></td>
-								<td>Indicates an important action.</td>
-							</tr>
-							<tr>
-								<td><code>warning</code></td>
-								<td>Indicates a dangerous or negative action.</td>
-							</tr>
-							<tr>
-								<td><code>danger</code></td>
-								<td>Indicates a dangerous or negative action.</td>
-							</tr>
-							
-						</tbody>
-					</table>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-
-								<button class="button" data-variant="primary">Primary</button>
-								<button class="button" data-variant="secondary">Secondary</button>
-								<button class="button" data-variant="success">Success</button>
-								<button class="button" data-variant="warning">Warning</button>
-								<button class="button" data-variant="danger">Danger</button>
-								<button class="button">Default</button>
-
-							</div>
-							<div>
-								<pre><code>
-									&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot;&gt;Primary&lt;/button&gt;
-									&lt;button class=&quot;button&quot; data-variant=&quot;secondary&quot;&gt;Secondary&lt;/button&gt;
-									&lt;button class=&quot;button&quot; data-variant=&quot;success&quot;&gt;Success&lt;/button&gt;
-									&lt;button class=&quot;button&quot; data-variant=&quot;warning&quot;&gt;Warning&lt;/button&gt;
-									&lt;button class=&quot;button&quot; data-variant=&quot;danger&quot;&gt;Danger&lt;/button&gt;
-									&lt;button class=&quot;button&quot;&gt;Default&lt;/button&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Style Modifiers</h2>
-					<p>
-						Use the <code>data-style</code> attribute to change the button’s style. 
-						The following styles are supported:
-					</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>outline</code></td>
-								<td>Button outline style.</td>
-							</tr>
-							<tr>
-								<td><code>flat</code></td>
-								<td>Button flat style.</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<h3>Outline</h3>
-					<p>
-						Add <code>data-style="outline"</code> to display a button with an outlined border and transparent background.
-					</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-
-								<button class="button" data-variant="primary" data-style="outline">Primary</button>
-								<button class="button" data-variant="success" data-style="outline">Success</button>
-								<button class="button" data-variant="warning" data-style="outline">Warning</button>
-								<button class="button" data-variant="danger" data-style="outline">Danger</button>
-								<button class="button" data-style="outline">Default</button>
-
-							</div>
-							<div>
-								<pre><code>
-									&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot; data-style=&quot;outline&quot;&gt;Primary&lt;/button&gt;
-									&lt;button class=&quot;button&quot; data-variant=&quot;success&quot; data-style=&quot;outline&quot;&gt;Success&lt;/button&gt;
-									&lt;button class=&quot;button&quot; data-variant=&quot;warning&quot; data-style=&quot;outline&quot;&gt;Warning&lt;/button&gt;
-									&lt;button class=&quot;button&quot; data-variant=&quot;danger&quot; data-style=&quot;outline&quot;&gt;Danger&lt;/button&gt;
-									&lt;button class=&quot;button&quot; data-style=&quot;outline&quot;&gt;Default&lt;/button&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h3>Flat</h3>
-					<p>
-						Add <code>data-style="flat"</code> for a button without elevation or borders, ideal for subtle actions.
-					</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-
-								<button class="button" data-variant="primary" data-style="flat">Primary</button>
-								<button class="button" data-variant="success" data-style="flat">Success</button>
-								<button class="button" data-variant="warning" data-style="flat">Warning</button>
-								<button class="button" data-variant="danger" data-style="flat">Danger</button>
-								<button class="button" data-style="flat">Default</button>
-
-							</div>
-							<div>
-								<pre><code>
-									&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot; data-style=&quot;flat&quot;&gt;Primary&lt;/button&gt;
-									&lt;button class=&quot;button&quot; data-variant=&quot;success&quot; data-style=&quot;flat&quot;&gt;Success&lt;/button&gt;
-									&lt;button class=&quot;button&quot; data-variant=&quot;warning&quot; data-style=&quot;flat&quot;&gt;Warning&lt;/button&gt;
-									&lt;button class=&quot;button&quot; data-variant=&quot;danger&quot; data-style=&quot;flat&quot;&gt;Danger&lt;/button&gt;
-									&lt;button class=&quot;button&quot; data-style=&quot;flat&quot;&gt;Default&lt;/button&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Size Modifiers</h2>
-					<p>
-						Use the <code>data-size="*"</code> attribute to adjust the button’s size. 
-						Options typically include <code>small</code>, <code>medium</code>, and <code>large</code>.
-					</p>
-
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Attribute</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>data-size="mini"</code></td>
-								<td>Extra small button, ideal for compact UI elements.</td>
-							</tr>
-							<tr>
-								<td><code>data-size="sm"</code></td>
-								<td>Small button, slightly smaller than the default size.</td>
-							</tr>
-							<tr>
-								<td><code>data-size="lg"</code></td>
-								<td>Large button, bigger than the default size for emphasis.</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<button class="button" data-variant="primary" data-size="mini">Mini</button>
-								<button class="button" data-variant="primary" data-size="sm">Small</button>
-								<button class="button" data-variant="primary">Default</button>
-								<button class="button" data-variant="primary" data-size="lg">Large</button>
-							</div>
-							<div>
-								<pre><code>
-									&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot; data-size=&quot;mini&quot;&gt;Mini&lt;/button&gt;
-									&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot; data-size=&quot;sm&quot;&gt;Small&lt;/button&gt;
-									&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot;&gt;Default&lt;/button&gt;
-									&lt;button class=&quot;button&quot; data-variant=&quot;primary&quot; data-size=&quot;lg&quot;&gt;Large&lt;/button&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Icon Buttons</h2>
-					<p>
-						Add the <code>button-icon</code> class for buttons containing both an icon and text, 
-						or <code>button-icon-only</code> for buttons containing only an icon.
-					</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<button class="button button-icon-only" data-variant="primary">
-									<span class="button-icon">
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480.33-100q-78.95 0-147.89-29.92-68.95-29.92-120.76-81.71-51.81-51.79-81.75-120.78Q100-401.39 100-480.43q0-78.66 29.92-147.87 29.92-69.21 81.71-120.52 51.79-51.31 120.78-81.25Q401.39-860 480.43-860q78.66 0 147.87 29.92 69.21 29.92 120.52 81.21 51.31 51.29 81.25 120.63Q860-558.9 860-480.33q0 78.95-29.92 147.89-29.92 68.95-81.21 120.57-51.29 51.63-120.63 81.75Q558.9-100 480.33-100Zm-.33-45.39q140.07 0 237.34-97.76 97.27-97.77 97.27-236.85v-8.73q0-3.96-.38-8.5-4.46 25.61-24.33 42.73-19.86 17.11-47.52 17.11h-90.77q-30.84 0-52.34-21.48-21.5-21.48-21.5-52.31v-36.89H430.08v-73.8q0-30.44 21.5-52.21 21.5-21.76 52.34-21.76h36.93v-31.24q0-21 16.38-42.88 16.39-21.89 38-24.19-26.92-9.93-55.62-15.2-28.7-5.26-59.61-5.26-139.08 0-236.85 97.27-97.76 97.27-97.76 237.34v5.77q0 2.69.38 5.77h153.08q61.38 0 104.53 43.15 43.16 43.16 43.16 104.37v37.09H335.77v105.77q32.85 15.85 69.2 24.27t75.03 8.42Z"/></svg>
-									</span>
-								</button>
-								<button class="button" data-variant="success">
-									<span class="button-icon">
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M457.31-457.31H220v-45.38h237.31V-740h45.38v237.31H740v45.38H502.69V-220h-45.38v-237.31Z"/></svg>
-									</span>
-									<span>Save</span>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
 									
-								</button>
-								<button class="button" data-variant="danger">
-									<span>Delete</span>
+									<button class="button button-pill" data-variant="success">Pill Shape</button>
+									<button class="button button-round" data-variant="success">Round Shape</button>
+									<button class="button button-block margin-lg-top" data-variant="primary">Full Width</button>
+								</div>
+								<div>
+									<pre><code>
+										&lt;button class=&quot;button button-pill&quot; data-variant=&quot;success&quot;&gt;Pill Shape&lt;/button&gt;
+										&lt;button class=&quot;button button-round&quot; data-variant=&quot;success&quot;&gt;Round Shape&lt;/button&gt;
+										&lt;button class=&quot;button button-block margin-lg-top&quot; data-variant=&quot;primary&quot;&gt;Full Width&lt;/button&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Width Modifiers</h2>
+						<p>
+							Use any <code>.width-*</code> utility class from the 
+							<a href="width.html" target="_blank">Width component</a> to control button width.
+						</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="margin-bottom margin-lg-top flex">
+										<button class="button width-1-3">.width-1-3</button>
+									</div>
+									<div class="margin-bottom flex">
+										<button class="button width-1-2">.width-1-2</button>
+									</div>
+									<div class="flex">
+										<button class="button width-1-1">.width-1-1</button>
+									</div>
 									
-									<span class="button-icon">
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M278.31-140q-23.6 0-40.65-17.05-17.04-17.05-17.04-40.64v-544.23H180v-45.39h171.08v-28.07h257.84v28.07H780v45.39h-40.62v544.23q0 23.53-17.08 40.61T681.69-140H278.31ZM694-741.92H266v544.23q0 5.38 3.65 8.84 3.66 3.46 8.66 3.46h403.38q4.62 0 8.46-3.84 3.85-3.85 3.85-8.46v-544.23ZM381.23-269.85h45.39v-388.61h-45.39v388.61Zm152.15 0h45.39v-388.61h-45.39v388.61ZM266-741.92v556.53-556.53Z"/></svg>
-									</span>
-								</button>
-							</div>
-							<div>
-								<pre><code>
-									&lt;button class=&quot;button button-icon-only&quot; data-variant=&quot;primary&quot;&gt;
-										&lt;span class=&quot;button-icon&quot;&gt;
-											&lt;svg&gt;&lt;/svg&gt;
-										&lt;/span&gt;
-									&lt;/button&gt;
-									&lt;button class=&quot;button&quot; data-variant=&quot;success&quot;&gt;
-										&lt;span class=&quot;button-icon&quot;&gt;
-											&lt;svg&gt;&lt;/svg&gt;
-										&lt;/span&gt;
-										&lt;span&gt;Save&lt;/span&gt;
-										
-									&lt;/button&gt;
-									&lt;button class=&quot;button&quot; data-variant=&quot;danger&quot;&gt;
-										&lt;span&gt;Delete&lt;/span&gt;
-										
-										&lt;span class=&quot;button-icon&quot;&gt;
-											&lt;svg&gt;&lt;/svg&gt;
-										&lt;/span&gt;
-									&lt;/button&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Link Modifiers</h2>
-					<p>
-						Use the <code>button-link</code> class on an <code>&lt;a&gt;</code> element to style links like buttons.
-					</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<a class="button-link">Button Link</a>
-							</div>
-							<div>
-								<pre><code>
-									&lt;a class=&quot;button-link&quot;&gt;Button Link&lt;/a&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Shape Modifiers</h2>
-					<p>
-						Apply shape and layout utility classes to adjust the button’s form, such as making it pill-shaped or fully rounded.
-					</p>
-
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.button-round</code></td>
-								<td>Round button.</td>
-							</tr>
-							<tr>
-								<td><code>.button-pill</code></td>
-								<td>Pill button</td>
-							</tr>
-							<tr>
-								<td><code>.button-block</code></td>
-								<td>Block button.</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								
-								<button class="button button-pill" data-variant="success">Pill Shape</button>
-								<button class="button button-round" data-variant="success">Round Shape</button>
-								<button class="button button-block margin-lg-top" data-variant="primary">Full Width</button>
-							</div>
-							<div>
-								<pre><code>
-									&lt;button class=&quot;button button-pill&quot; data-variant=&quot;success&quot;&gt;Pill Shape&lt;/button&gt;
-									&lt;button class=&quot;button button-round&quot; data-variant=&quot;success&quot;&gt;Round Shape&lt;/button&gt;
-									&lt;button class=&quot;button button-block margin-lg-top&quot; data-variant=&quot;primary&quot;&gt;Full Width&lt;/button&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Width Modifiers</h2>
-					<p>
-						Use any <code>.width-*</code> utility class from the 
-						<a href="width.html" target="_blank">Width component</a> to control button width.
-					</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="margin-bottom margin-lg-top flex">
-									<button class="button width-1-3">.width-1-3</button>
 								</div>
-								<div class="margin-bottom flex">
-									<button class="button width-1-2">.width-1-2</button>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;margin-bottom margin-lg-top flex&quot;&gt;
+											&lt;button class=&quot;button width-1-3&quot;&gt;.width-1-3&lt;/button&gt;
+										&lt;/div&gt;
+										&lt;div class=&quot;margin-bottom flex&quot;&gt;
+											&lt;button class=&quot;button width-1-2&quot;&gt;.width-1-2&lt;/button&gt;
+										&lt;/div&gt;
+										&lt;div class=&quot;flex&quot;&gt;
+											&lt;button class=&quot;button width-1-1&quot;&gt;.width-1-1&lt;/button&gt;
+										&lt;/div&gt;
+									</code></pre>
 								</div>
-								<div class="flex">
-									<button class="button width-1-1">.width-1-1</button>
-								</div>
-								
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;margin-bottom margin-lg-top flex&quot;&gt;
-										&lt;button class=&quot;button width-1-3&quot;&gt;.width-1-3&lt;/button&gt;
-									&lt;/div&gt;
-									&lt;div class=&quot;margin-bottom flex&quot;&gt;
-										&lt;button class=&quot;button width-1-2&quot;&gt;.width-1-2&lt;/button&gt;
-									&lt;/div&gt;
-									&lt;div class=&quot;flex&quot;&gt;
-										&lt;button class=&quot;button width-1-1&quot;&gt;.width-1-1&lt;/button&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

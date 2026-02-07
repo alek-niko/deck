@@ -308,142 +308,145 @@
 				version: 0.9
 			</div>
 		</aside>
+		
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
 
-					<h1>Object Fit & Position</h1>
-					<p class="text-lead">Utility classes for controlling image and video scaling, cropping, alignment, and aspect ratios within their containers.</p>
-					<p>These utilities help ensure media content scales and aligns correctly in responsive layouts. Combine <code>.aspect-*</code> classes with <code>.object-*</code> classes to create consistent media blocks that preserve layout integrity, especially in galleries, hero banners, or cards. These classes apply directly to media elements like <code>&lt;img&gt;</code> and <code>&lt;video&gt;</code>.</p>
+						<h1>Object Fit & Position</h1>
+						<p class="text-lead">Utility classes for controlling image and video scaling, cropping, alignment, and aspect ratios within their containers.</p>
+						<p>These utilities help ensure media content scales and aligns correctly in responsive layouts. Combine <code>.aspect-*</code> classes with <code>.object-*</code> classes to create consistent media blocks that preserve layout integrity, especially in galleries, hero banners, or cards. These classes apply directly to media elements like <code>&lt;img&gt;</code> and <code>&lt;video&gt;</code>.</p>
 
-					<pre><code>
-						&lt;div class=&quot;aspect-16-9&quot;&gt;
-							&lt;img src=&quot;...&quot; class=&quot;object-cover object-bottom&quot; alt=&quot;...&quot; /&gt;
-						&lt;/div&gt;
-					</code></pre>
+						<pre><code>
+							&lt;div class=&quot;aspect-16-9&quot;&gt;
+								&lt;img src=&quot;...&quot; class=&quot;object-cover object-bottom&quot; alt=&quot;...&quot; /&gt;
+							&lt;/div&gt;
+						</code></pre>
 
-					<hr>
+						<hr>
 
-					<h2>Aspect Ratio Utilities</h2>
-					<p>Enforces a fixed width-to-height ratio on block-level containers using the <code>aspect-ratio</code> CSS property. Requires a width context to function properly.</p>
+						<h2>Aspect Ratio Utilities</h2>
+						<p>Enforces a fixed width-to-height ratio on block-level containers using the <code>aspect-ratio</code> CSS property. Requires a width context to function properly.</p>
 
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.aspect-1-1</code></td>
-									<td>Square ratio (1:1)</td>
-								</tr>
-								<tr>
-									<td><code>.aspect-16-9</code></td>
-									<td>Widescreen ratio (16:9)</td>
-								</tr>
-								<tr>
-									<td><code>.aspect-4-3</code></td>
-									<td>Traditional ratio (4:3)</td>
-								</tr>
-								<tr>
-									<td><code>.aspect-auto</code></td>
-									<td>No aspect ratio enforced</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.aspect-1-1</code></td>
+										<td>Square ratio (1:1)</td>
+									</tr>
+									<tr>
+										<td><code>.aspect-16-9</code></td>
+										<td>Widescreen ratio (16:9)</td>
+									</tr>
+									<tr>
+										<td><code>.aspect-4-3</code></td>
+										<td>Traditional ratio (4:3)</td>
+									</tr>
+									<tr>
+										<td><code>.aspect-auto</code></td>
+										<td>No aspect ratio enforced</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-					<h2>Object Fit Utilities</h2>
-					<p>Controls how images, videos, and other replaced content scale to fill their containers using the <code>object-fit</code> property.</p>
+						<h2>Object Fit Utilities</h2>
+						<p>Controls how images, videos, and other replaced content scale to fill their containers using the <code>object-fit</code> property.</p>
 
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.object-fill</code></td>
-									<td>tretches content to fill the container (may distort)</td>
-								</tr>
-								<tr>
-									<td><code>.object-contain</code></td>
-									<td>Fits inside container without cropping; preserves aspect ratio</td>
-								</tr>
-								<tr>
-									<td><code>.object-cover</code></td>
-									<td>Fills the container while cropping overflow</td>
-								</tr>
-								<tr>
-									<td><code>.object-none</code></td>
-									<td>No scaling applied</td>
-								</tr>
-								<tr>
-									<td><code>.object-scale-down</code></td>
-									<td>Uses the smallest of <code>none</code> or <code>contain</code></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.object-fill</code></td>
+										<td>tretches content to fill the container (may distort)</td>
+									</tr>
+									<tr>
+										<td><code>.object-contain</code></td>
+										<td>Fits inside container without cropping; preserves aspect ratio</td>
+									</tr>
+									<tr>
+										<td><code>.object-cover</code></td>
+										<td>Fills the container while cropping overflow</td>
+									</tr>
+									<tr>
+										<td><code>.object-none</code></td>
+										<td>No scaling applied</td>
+									</tr>
+									<tr>
+										<td><code>.object-scale-down</code></td>
+										<td>Uses the smallest of <code>none</code> or <code>contain</code></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-					<h2>Object Position Utilities</h2>
-					<p>Sets alignment of the content within its container when using <code>object-fit</code> (e.g. center, top-left). Uses the <code>object-position</code> property.</p>
+						<h2>Object Position Utilities</h2>
+						<p>Sets alignment of the content within its container when using <code>object-fit</code> (e.g. center, top-left). Uses the <code>object-position</code> property.</p>
 
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.object-top</code></td>
-									<td>Aligns content to the top</td>
-								</tr>
-								<tr>
-									<td><code>.object-bottomn</code></td>
-									<td>Aligns content to the bottom</td>
-								</tr>
-								<tr>
-									<td><code>.object-left</code></td>
-									<td>Aligns content to the left</td>
-								</tr>
-								<tr>
-									<td><code>.object-right</code></td>
-									<td>Aligns content to the right</td>
-								</tr>
-								<tr>
-									<td><code>.object-center</code></td>
-									<td>Centers content both ways</td>
-								</tr>
-								<tr>
-									<td><code>.object-top-left</code></td>
-									<td>Top-left alignment</td>
-								</tr>
-								<tr>
-									<td><code>.object-top-right</code></td>
-									<td>Top-right alignment</td>
-								</tr>
-								<tr>
-									<td><code>.object-bottom-left</code></td>
-									<td>Bottom-left alignment</td>
-								</tr>
-								<tr>
-									<td><code>.object-bottom-right</code></td>
-									<td>Bottom-right alignment</code></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.object-top</code></td>
+										<td>Aligns content to the top</td>
+									</tr>
+									<tr>
+										<td><code>.object-bottomn</code></td>
+										<td>Aligns content to the bottom</td>
+									</tr>
+									<tr>
+										<td><code>.object-left</code></td>
+										<td>Aligns content to the left</td>
+									</tr>
+									<tr>
+										<td><code>.object-right</code></td>
+										<td>Aligns content to the right</td>
+									</tr>
+									<tr>
+										<td><code>.object-center</code></td>
+										<td>Centers content both ways</td>
+									</tr>
+									<tr>
+										<td><code>.object-top-left</code></td>
+										<td>Top-left alignment</td>
+									</tr>
+									<tr>
+										<td><code>.object-top-right</code></td>
+										<td>Top-right alignment</td>
+									</tr>
+									<tr>
+										<td><code>.object-bottom-left</code></td>
+										<td>Bottom-left alignment</td>
+									</tr>
+									<tr>
+										<td><code>.object-bottom-right</code></td>
+										<td>Bottom-right alignment</code></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					
+					</article>
 				</div>
 			</div>
 		</main>

@@ -308,125 +308,129 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					
-					<h1>Wire</h1>
-					<p class="text-lead">Lists of news updates or activity feeds with responsive and themed styling. Supports optional hover effect and compact layout modifiers for dense lists or sidebars.</p>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						
+						<h1>Wire</h1>
+						<p class="text-lead">Lists of news updates or activity feeds with responsive and themed styling. Supports optional hover effect and compact layout modifiers for dense lists or sidebars.</p>
 
-					<hr>
+						<hr>
 
-					<h2>Classes and Modifiers</h2>
-					<p>The Wire component includes base styling and several modifiers to adjust layout and interactivity.</p>
+						<h2>Classes and Modifiers</h2>
+						<p>The Wire component includes base styling and several modifiers to adjust layout and interactivity.</p>
 
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.wire</code></td>
-								<td>Base container for the wire list with border and overflow styling.</td>
-							</tr>
-							<tr>
-								<td><code>.news</code></td>
-								<td>Individual news item block with padding, flex layout, and hover cursor.</td>
-							</tr>
-							<tr>
-								<td><code>.content</code></td>
-								<td>Flex column container inside each news item holding title and metadata.</td>
-							</tr>
-							<tr>
-								<td><code>.title</code></td>
-								<td>Headline text for each news item, styled for readability.</td>
-							</tr>
-							<tr>
-								<td><code>.wire-hover</code></td>
-								<td>Enables hover effect on news items, adding a subtle shadow on hover (disabled on smaller screens).</td>
-							</tr>
-							<tr>
-								<td><code>.wire-sm</code></td>
-								<td>Responsive smaller spacing modifier, reducing padding and font sizes.</td>
-							</tr>
-							<tr>
-								<td><code>.wire-compact</code></td>
-								<td>Compact layout modifier designed for sidebars and dense listings with minimal padding.</td>
-							</tr>
-						</tbody>
-					</table>
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.wire</code></td>
+									<td>Base container for the wire list with border and overflow styling.</td>
+								</tr>
+								<tr>
+									<td><code>.news</code></td>
+									<td>Individual news item block with padding, flex layout, and hover cursor.</td>
+								</tr>
+								<tr>
+									<td><code>.content</code></td>
+									<td>Flex column container inside each news item holding title and metadata.</td>
+								</tr>
+								<tr>
+									<td><code>.title</code></td>
+									<td>Headline text for each news item, styled for readability.</td>
+								</tr>
+								<tr>
+									<td><code>.wire-hover</code></td>
+									<td>Enables hover effect on news items, adding a subtle shadow on hover (disabled on smaller screens).</td>
+								</tr>
+								<tr>
+									<td><code>.wire-sm</code></td>
+									<td>Responsive smaller spacing modifier, reducing padding and font sizes.</td>
+								</tr>
+								<tr>
+									<td><code>.wire-compact</code></td>
+									<td>Compact layout modifier designed for sidebars and dense listings with minimal padding.</td>
+								</tr>
+							</tbody>
+						</table>
 
 
-			    	<h2>Example Usage</h2>
-					<p>Basic wire list with hover effect and compact modifier:</p>
+						<h2>Example Usage</h2>
+						<p>Basic wire list with hover effect and compact modifier:</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="wire wire-hover wire-compact">
-									<li class="news">
-										<div class="content">
-											<h3 class="title">New feature release: Dark Mode</h3>
-											<span>Aug 8, 2025</span>
-										</div>
-									</li>
-									<li class="news">
-										<div class="content">
-											<h3 class="title">Server maintenance scheduled</h3>
-											<span>Aug 7, 2025</span>
-										</div>
-									</li>
-									<li class="news">
-										<div class="content">
-											<h3 class="title">Community event next week</h3>
-											<span>Aug 5, 2025</span>
-										</div>
-									</li>
-								</ul>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="wire wire-hover wire-compact">
+										<li class="news">
+											<div class="content">
+												<h3 class="title">New feature release: Dark Mode</h3>
+												<span>Aug 8, 2025</span>
+											</div>
+										</li>
+										<li class="news">
+											<div class="content">
+												<h3 class="title">Server maintenance scheduled</h3>
+												<span>Aug 7, 2025</span>
+											</div>
+										</li>
+										<li class="news">
+											<div class="content">
+												<h3 class="title">Community event next week</h3>
+												<span>Aug 5, 2025</span>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>&lt;ul class="wire wire-hover wire-compact"&gt;
+										&lt;li class="news"&gt;
+											&lt;div class="content"&gt;
+											&lt;h3 class="title"&gt;New feature release: Dark Mode&lt;/h3&gt;
+											&lt;span&gt;Aug 8, 2025&lt;/span&gt;
+											&lt;/div&gt;
+										&lt;/li&gt;
+										&lt;li class="news"&gt;
+											&lt;div class="content"&gt;
+											&lt;h3 class="title"&gt;Server maintenance scheduled&lt;/h3&gt;
+											&lt;span&gt;Aug 7, 2025&lt;/span&gt;
+											&lt;/div&gt;
+										&lt;/li&gt;
+										&lt;li class="news"&gt;
+											&lt;div class="content"&gt;
+											&lt;h3 class="title"&gt;Community event next week&lt;/h3&gt;
+											&lt;span&gt;Aug 5, 2025&lt;/span&gt;
+											&lt;/div&gt;
+										&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>&lt;ul class="wire wire-hover wire-compact"&gt;
-									&lt;li class="news"&gt;
-										&lt;div class="content"&gt;
-										&lt;h3 class="title"&gt;New feature release: Dark Mode&lt;/h3&gt;
-										&lt;span&gt;Aug 8, 2025&lt;/span&gt;
-										&lt;/div&gt;
-									&lt;/li&gt;
-									&lt;li class="news"&gt;
-										&lt;div class="content"&gt;
-										&lt;h3 class="title"&gt;Server maintenance scheduled&lt;/h3&gt;
-										&lt;span&gt;Aug 7, 2025&lt;/span&gt;
-										&lt;/div&gt;
-									&lt;/li&gt;
-									&lt;li class="news"&gt;
-										&lt;div class="content"&gt;
-										&lt;h3 class="title"&gt;Community event next week&lt;/h3&gt;
-										&lt;span&gt;Aug 5, 2025&lt;/span&gt;
-										&lt;/div&gt;
-									&lt;/li&gt;
-									&lt;/ul&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

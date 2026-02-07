@@ -308,384 +308,387 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-				  
-					<h1>Feed Component</h1>
-					<p class="text-lead">Displays a dynamic feed of items in either a grid or single-row list layout, with infinite scroll support, load more button, and end-of-feed markers. Fully themeable and responsive.</p>
+				<div class="container-flow container-flow-md">
+					<article class="prose">				  
+						<h1>Feed Component</h1>
+						<p class="text-lead">Displays a dynamic feed of items in either a grid or single-row list layout, with infinite scroll support, load more button, and end-of-feed markers. Fully themeable and responsive.</p>
 
-					<hr>
+						<hr>
 
-					<h2>Overview</h2>
-					<p>The <code>.feed</code> component organizes feed items with flexible layout options — either a grid or single column.
-						It uses design tokens for consistent spacing, colors, and shadows. Supports hover animations, loading spinners for
-						infinite scrolling, and end-of-feed messages.</p>
+						<h2>Overview</h2>
+						<p>The <code>.feed</code> component organizes feed items with flexible layout options — either a grid or single column.
+							It uses design tokens for consistent spacing, colors, and shadows. Supports hover animations, loading spinners for
+							infinite scrolling, and end-of-feed messages.</p>
+						
 					
-				
-					<h3>Grid Layout (default)</h3>
-					<pre><code>
-						&lt;div class="feed"&gt;
-							&lt;article class="feed-item"&gt;Item 1&lt;/article&gt;
-							&lt;article class="feed-item"&gt;Item 2&lt;/article&gt;
-							&lt;article class="feed-item"&gt;Item 3&lt;/article&gt;
-						&lt;/div&gt;
-					</code></pre>
-					
-					<h3>Single Row Layout</h3>
-					<pre><code>
-						&lt;div class="feed single-row"&gt;
-							&lt;article class="feed-item"&gt;Item 1&lt;/article&gt;
-							&lt;article class="feed-item"&gt;Item 2&lt;/article&gt;
-							&lt;article class="feed-item"&gt;Item 3&lt;/article&gt;
-						&lt;/div&gt;
-					</code></pre>
-					
-					<h3>Load More Button</h3>
-					<pre><code>&lt;button class="feed-load-more"&gt;Load More&lt;/button&gt;</code></pre>
-					
-					<h3>End of Feed Message</h3>
-					<pre><code>&lt;div class="feed-end"&gt;No more items to display.&lt;/div&gt;</code></pre>
-					
-					<h3>Loading Spinner (for infinite scroll)</h3>
-					<pre><code>&lt;div class="feed-spinner"&gt;&lt;/div&gt;</code></pre>
+						<h3>Grid Layout (default)</h3>
+						<pre><code>
+							&lt;div class="feed"&gt;
+								&lt;article class="feed-item"&gt;Item 1&lt;/article&gt;
+								&lt;article class="feed-item"&gt;Item 2&lt;/article&gt;
+								&lt;article class="feed-item"&gt;Item 3&lt;/article&gt;
+							&lt;/div&gt;
+						</code></pre>
+						
+						<h3>Single Row Layout</h3>
+						<pre><code>
+							&lt;div class="feed single-row"&gt;
+								&lt;article class="feed-item"&gt;Item 1&lt;/article&gt;
+								&lt;article class="feed-item"&gt;Item 2&lt;/article&gt;
+								&lt;article class="feed-item"&gt;Item 3&lt;/article&gt;
+							&lt;/div&gt;
+						</code></pre>
+						
+						<h3>Load More Button</h3>
+						<pre><code>&lt;button class="feed-load-more"&gt;Load More&lt;/button&gt;</code></pre>
+						
+						<h3>End of Feed Message</h3>
+						<pre><code>&lt;div class="feed-end"&gt;No more items to display.&lt;/div&gt;</code></pre>
+						
+						<h3>Loading Spinner (for infinite scroll)</h3>
+						<pre><code>&lt;div class="feed-spinner"&gt;&lt;/div&gt;</code></pre>
 
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
 
-								<div class="feed single-row">
+									<div class="feed single-row">
 
-									<div class="card">
-										<h3 class="card-title">Card</h3>
-										<div class="card-body">
-											<p>Lorem ipsum <a href="#!">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-												incididunt ut labore et dolore magna aliqua.</p>
+										<div class="card">
+											<h3 class="card-title">Card</h3>
+											<div class="card-body">
+												<p>Lorem ipsum <a href="#!">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+													incididunt ut labore et dolore magna aliqua.</p>
+											</div>
 										</div>
+
+										<div class="card">
+											<h3 class="card-title">Card</h3>
+											<div class="card-body">
+												<p>Lorem ipsum <a href="#!">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+													incididunt ut labore et dolore magna aliqua.</p>
+											</div>
+										</div>
+
+										<div class="card">
+											<h3 class="card-title">Card</h3>
+											<div class="card-body">
+												<p>Lorem ipsum <a href="#!">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+													incididunt ut labore et dolore magna aliqua.</p>
+											</div>
+										</div>
+
+										<div class="card">
+											<h3 class="card-title">Card</h3>
+											<div class="card-body">
+												<p>Lorem ipsum <a href="#!">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+													incididunt ut labore et dolore magna aliqua.</p>
+											</div>
+										</div>
+
+										<div class="card">
+											<h3 class="card-title">Card</h3>
+											<div class="card-body">
+												<p>Lorem ipsum <a href="#!">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+													incididunt ut labore et dolore magna aliqua.</p>
+											</div>
+										</div>
+
 									</div>
 
-									<div class="card">
-										<h3 class="card-title">Card</h3>
-										<div class="card-body">
-											<p>Lorem ipsum <a href="#!">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-												incididunt ut labore et dolore magna aliqua.</p>
-										</div>
-									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;feed single-row gap-none &quot;&gt;
+											&lt;div class=&quot;card&quot;&gt;...&lt;/div&gt;
+											&lt;div class=&quot;card&quot;&gt;...&lt;/div&gt;
+											&lt;div class=&quot;card&quot;&gt;..&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>	
 
-									<div class="card">
-										<h3 class="card-title">Card</h3>
-										<div class="card-body">
-											<p>Lorem ipsum <a href="#!">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-												incididunt ut labore et dolore magna aliqua.</p>
-										</div>
-									</div>
 
-									<div class="card">
-										<h3 class="card-title">Card</h3>
-										<div class="card-body">
-											<p>Lorem ipsum <a href="#!">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-												incididunt ut labore et dolore magna aliqua.</p>
-										</div>
-									</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
 
-									<div class="card">
-										<h3 class="card-title">Card</h3>
-										<div class="card-body">
-											<p>Lorem ipsum <a href="#!">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-												incididunt ut labore et dolore magna aliqua.</p>
+									<div class="feed single-row gap-none ">
+
+										<div class="post">
+											<div class="avatar">
+												<img src="/assets/images/avatars/profile.jpg" alt="Author's avatar">
+											</div>
+
+											<div class="post-content">
+												<div class="header">
+													<div class="author">
+														<a href="#" class="name">Jane Doe</a>
+														<a href="#" class="handle">@janedoe</a>
+													</div>
+													<time class="timestamp" datetime="2025-08-10T20:15">2h ago</time>
+												</div>
+
+												<div class="body truncate">
+													This is an example of a post body. It supports
+													<a href="#">links</a>,
+													<span class="mention">@mentions</span>, and
+													<a href="#" class="hashtag">#hashtags</a>.
+												</div>
+
+												<div class="actions post-actions">
+													<div class="action like">
+														<a href="#!" class="icon-action" aria-label="Like">
+															<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
+																focusable="false">
+																<path
+																	d="m480-147.54-31.77-28.92q-103.07-94.43-170.27-162.56-67.19-68.13-106.84-120.94-39.66-52.81-55.39-95.38Q100-597.9 100-640.69q0-82.3 55.5-137.8Q211-834 292.69-834q55.85 0 103.58 28.16Q444-777.69 480-724q40.46-55.92 86.83-82.96Q613.2-834 667.31-834q81.69 0 137.19 55.51 55.5 55.5 55.5 137.8 0 42.79-15.73 85.35-15.73 42.57-55.34 95.3-39.61 52.72-106.85 120.93-67.24 68.22-170.31 162.65L480-147.54Zm0-60.15q99.72-91.29 164.12-156.48 64.4-65.2 102.33-114.09 37.93-48.89 53.05-86.94 15.11-38.04 15.11-75.35 0-64.22-41.61-106.14-41.62-41.92-105.47-41.92-51.14 0-94.03 30.53-42.88 30.54-74.89 90.23h-37.84q-31.77-59.07-74.65-89.92-42.88-30.84-93.65-30.84-63.47 0-105.28 41.92-41.8 41.92-41.8 106.44 0 37.25 15.17 75.5 15.18 38.24 52.85 87.38 37.67 49.14 102.71 113.98 65.03 64.85 163.88 155.7Zm0-290.46Z" />
+															</svg>
+														</a>
+														<span class="text">12</span>
+													</div>
+
+													<div class="action reply">
+														<a href="#!" class="icon-action" aria-label="Reply">
+															<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
+																focusable="false">
+																<path
+																	d="M250-410h460v-45.38H250V-410Zm0-127.31h460v-45.38H250v45.38Zm0-127.31h460V-710H250v45.38Zm610 546.16L718.46-260H157.69q-23.53 0-40.61-17.08T100-317.69v-484.62q0-23.53 17.08-40.61T157.69-860h644.62q23.53 0 40.61 17.08T860-802.31v683.85ZM157.69-305.39h580.62l76.3 80.77v-577.69q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H157.69q-4.61 0-8.46 3.84-3.84 3.85-3.84 8.46v484.62q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84Zm-12.3 0v-509.22 509.22Z" />
+															</svg>
+														</a>
+														<span class="text">8</span>
+													</div>
+
+													<div class="action retweet">
+														<a href="#!" class="icon-action" aria-label="Retweet">
+															<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
+																focusable="false">
+																<path
+																	d="M676.68-100q-42.8 0-72.97-30.24t-30.17-72.99q0-7.62 5.38-33.62L281.46-412.23q-14.74 16.57-34.8 26.02-20.07 9.44-43.81 9.44-42.6 0-72.72-30.17Q100-437.12 100-480t30.13-73.06q30.12-30.17 72.72-30.17 22.74 0 42.64 8.91 19.9 8.91 34.36 25.32l299.07-173.77q-2.38-8-3.88-16.5t-1.5-17.5q0-42.75 30.26-72.99Q634.07-860 676.86-860q42.79 0 72.97 30.26Q780-799.47 780-756.68q0 42.8-30.24 72.97t-72.99 30.17q-22.5 0-41.71-9t-33.68-24L300.46-515.23q3 8 4.5 17.11 1.5 9.12 1.5 17.62 0 8.88-1.19 16.58-1.19 7.69-3.58 15.69l300.69 174.15q14.47-15 33.41-23.69 18.94-8.69 41.13-8.69 43.1 0 73.09 30.26Q780-245.93 780-203.14q0 42.79-30.26 72.97Q719.47-100 676.68-100Z" />
+															</svg>
+														</a>
+														<span class="text">54</span>
+													</div>
+												</div>
+												
+											</div>
+										</div>
+
+										<div class="post">
+											<div class="avatar">
+												<img src="/assets/images/avatars/profile.jpg" alt="Author's avatar">
+											</div>
+
+											<div class="post-content">
+												<div class="header">
+													<div class="author">
+														<a href="#" class="name">Jane Doe</a>
+														<a href="#" class="handle">@janedoe</a>
+													</div>
+													<time class="timestamp" datetime="2025-08-10T20:15">2h ago</time>
+												</div>
+
+												<div class="body truncate">
+													This is an example of a post body. It supports
+													<a href="#">links</a>,
+													<span class="mention">@mentions</span>, and
+													<a href="#" class="hashtag">#hashtags</a>.
+												</div>
+
+												<div class="actions post-actions">
+													<div class="action like">
+														<a href="#!" class="icon-action" aria-label="Like">
+															<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
+																focusable="false">
+																<path
+																	d="m480-147.54-31.77-28.92q-103.07-94.43-170.27-162.56-67.19-68.13-106.84-120.94-39.66-52.81-55.39-95.38Q100-597.9 100-640.69q0-82.3 55.5-137.8Q211-834 292.69-834q55.85 0 103.58 28.16Q444-777.69 480-724q40.46-55.92 86.83-82.96Q613.2-834 667.31-834q81.69 0 137.19 55.51 55.5 55.5 55.5 137.8 0 42.79-15.73 85.35-15.73 42.57-55.34 95.3-39.61 52.72-106.85 120.93-67.24 68.22-170.31 162.65L480-147.54Zm0-60.15q99.72-91.29 164.12-156.48 64.4-65.2 102.33-114.09 37.93-48.89 53.05-86.94 15.11-38.04 15.11-75.35 0-64.22-41.61-106.14-41.62-41.92-105.47-41.92-51.14 0-94.03 30.53-42.88 30.54-74.89 90.23h-37.84q-31.77-59.07-74.65-89.92-42.88-30.84-93.65-30.84-63.47 0-105.28 41.92-41.8 41.92-41.8 106.44 0 37.25 15.17 75.5 15.18 38.24 52.85 87.38 37.67 49.14 102.71 113.98 65.03 64.85 163.88 155.7Zm0-290.46Z" />
+															</svg>
+														</a>
+														<span class="text">12</span>
+													</div>
+
+													<div class="action reply">
+														<a href="#!" class="icon-action" aria-label="Reply">
+															<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
+																focusable="false">
+																<path
+																	d="M250-410h460v-45.38H250V-410Zm0-127.31h460v-45.38H250v45.38Zm0-127.31h460V-710H250v45.38Zm610 546.16L718.46-260H157.69q-23.53 0-40.61-17.08T100-317.69v-484.62q0-23.53 17.08-40.61T157.69-860h644.62q23.53 0 40.61 17.08T860-802.31v683.85ZM157.69-305.39h580.62l76.3 80.77v-577.69q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H157.69q-4.61 0-8.46 3.84-3.84 3.85-3.84 8.46v484.62q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84Zm-12.3 0v-509.22 509.22Z" />
+															</svg>
+														</a>
+														<span class="text">8</span>
+													</div>
+
+													<div class="action retweet">
+														<a href="#!" class="icon-action" aria-label="Retweet">
+															<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
+																focusable="false">
+																<path
+																	d="M676.68-100q-42.8 0-72.97-30.24t-30.17-72.99q0-7.62 5.38-33.62L281.46-412.23q-14.74 16.57-34.8 26.02-20.07 9.44-43.81 9.44-42.6 0-72.72-30.17Q100-437.12 100-480t30.13-73.06q30.12-30.17 72.72-30.17 22.74 0 42.64 8.91 19.9 8.91 34.36 25.32l299.07-173.77q-2.38-8-3.88-16.5t-1.5-17.5q0-42.75 30.26-72.99Q634.07-860 676.86-860q42.79 0 72.97 30.26Q780-799.47 780-756.68q0 42.8-30.24 72.97t-72.99 30.17q-22.5 0-41.71-9t-33.68-24L300.46-515.23q3 8 4.5 17.11 1.5 9.12 1.5 17.62 0 8.88-1.19 16.58-1.19 7.69-3.58 15.69l300.69 174.15q14.47-15 33.41-23.69 18.94-8.69 41.13-8.69 43.1 0 73.09 30.26Q780-245.93 780-203.14q0 42.79-30.26 72.97Q719.47-100 676.68-100Z" />
+															</svg>
+														</a>
+														<span class="text">54</span>
+													</div>
+												</div>
+												
+											</div>
+										</div>
+
+										<div class="post">
+											<div class="avatar">
+												<img src="/assets/images/avatars/profile.jpg" alt="Author's avatar">
+											</div>
+
+											<div class="post-content">
+												<div class="header">
+													<div class="author">
+														<a href="#" class="name">Jane Doe</a>
+														<a href="#" class="handle">@janedoe</a>
+													</div>
+													<time class="timestamp" datetime="2025-08-10T20:15">2h ago</time>
+												</div>
+
+												<div class="body truncate">
+													This is an example of a post body. It supports
+													<a href="#">links</a>,
+													<span class="mention">@mentions</span>, and
+													<a href="#" class="hashtag">#hashtags</a>.
+												</div>
+
+												<div class="actions post-actions">
+													<div class="action like">
+														<a href="#!" class="icon-action" aria-label="Like">
+															<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
+																focusable="false">
+																<path
+																	d="m480-147.54-31.77-28.92q-103.07-94.43-170.27-162.56-67.19-68.13-106.84-120.94-39.66-52.81-55.39-95.38Q100-597.9 100-640.69q0-82.3 55.5-137.8Q211-834 292.69-834q55.85 0 103.58 28.16Q444-777.69 480-724q40.46-55.92 86.83-82.96Q613.2-834 667.31-834q81.69 0 137.19 55.51 55.5 55.5 55.5 137.8 0 42.79-15.73 85.35-15.73 42.57-55.34 95.3-39.61 52.72-106.85 120.93-67.24 68.22-170.31 162.65L480-147.54Zm0-60.15q99.72-91.29 164.12-156.48 64.4-65.2 102.33-114.09 37.93-48.89 53.05-86.94 15.11-38.04 15.11-75.35 0-64.22-41.61-106.14-41.62-41.92-105.47-41.92-51.14 0-94.03 30.53-42.88 30.54-74.89 90.23h-37.84q-31.77-59.07-74.65-89.92-42.88-30.84-93.65-30.84-63.47 0-105.28 41.92-41.8 41.92-41.8 106.44 0 37.25 15.17 75.5 15.18 38.24 52.85 87.38 37.67 49.14 102.71 113.98 65.03 64.85 163.88 155.7Zm0-290.46Z" />
+															</svg>
+														</a>
+														<span class="text">12</span>
+													</div>
+
+													<div class="action reply">
+														<a href="#!" class="icon-action" aria-label="Reply">
+															<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
+																focusable="false">
+																<path
+																	d="M250-410h460v-45.38H250V-410Zm0-127.31h460v-45.38H250v45.38Zm0-127.31h460V-710H250v45.38Zm610 546.16L718.46-260H157.69q-23.53 0-40.61-17.08T100-317.69v-484.62q0-23.53 17.08-40.61T157.69-860h644.62q23.53 0 40.61 17.08T860-802.31v683.85ZM157.69-305.39h580.62l76.3 80.77v-577.69q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H157.69q-4.61 0-8.46 3.84-3.84 3.85-3.84 8.46v484.62q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84Zm-12.3 0v-509.22 509.22Z" />
+															</svg>
+														</a>
+														<span class="text">8</span>
+													</div>
+
+													<div class="action retweet">
+														<a href="#!" class="icon-action" aria-label="Retweet">
+															<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
+																focusable="false">
+																<path
+																	d="M676.68-100q-42.8 0-72.97-30.24t-30.17-72.99q0-7.62 5.38-33.62L281.46-412.23q-14.74 16.57-34.8 26.02-20.07 9.44-43.81 9.44-42.6 0-72.72-30.17Q100-437.12 100-480t30.13-73.06q30.12-30.17 72.72-30.17 22.74 0 42.64 8.91 19.9 8.91 34.36 25.32l299.07-173.77q-2.38-8-3.88-16.5t-1.5-17.5q0-42.75 30.26-72.99Q634.07-860 676.86-860q42.79 0 72.97 30.26Q780-799.47 780-756.68q0 42.8-30.24 72.97t-72.99 30.17q-22.5 0-41.71-9t-33.68-24L300.46-515.23q3 8 4.5 17.11 1.5 9.12 1.5 17.62 0 8.88-1.19 16.58-1.19 7.69-3.58 15.69l300.69 174.15q14.47-15 33.41-23.69 18.94-8.69 41.13-8.69 43.1 0 73.09 30.26Q780-245.93 780-203.14q0 42.79-30.26 72.97Q719.47-100 676.68-100Z" />
+															</svg>
+														</a>
+														<span class="text">54</span>
+													</div>
+												</div>
+												
+											</div>
 										</div>
 									</div>
 
 								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;feed single-row gap-none &quot;&gt;
+											&lt;div class=&quot;post&quot;&gt;...&lt;/div&gt;
+											&lt;div class=&quot;post&quot;&gt;...&lt;/div&gt;
+											&lt;div class=&quot;post&quot;&gt;..&lt;/div&gt;
 
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;feed single-row gap-none &quot;&gt;
-										&lt;div class=&quot;card&quot;&gt;...&lt;/div&gt;
-										&lt;div class=&quot;card&quot;&gt;...&lt;/div&gt;
-										&lt;div class=&quot;card&quot;&gt;..&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>	
-
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-
-								<div class="feed single-row gap-none ">
-
-									<div class="post">
-										<div class="avatar">
-											<img src="/assets/images/avatars/profile.jpg" alt="Author's avatar">
-										</div>
-
-										<div class="post-content">
-											<div class="header">
-												<div class="author">
-													<a href="#" class="name">Jane Doe</a>
-													<a href="#" class="handle">@janedoe</a>
-												</div>
-												<time class="timestamp" datetime="2025-08-10T20:15">2h ago</time>
-											</div>
-
-											<div class="body truncate">
-												This is an example of a post body. It supports
-												<a href="#">links</a>,
-												<span class="mention">@mentions</span>, and
-												<a href="#" class="hashtag">#hashtags</a>.
-											</div>
-
-											<div class="actions post-actions">
-												<div class="action like">
-													<a href="#!" class="icon-action" aria-label="Like">
-														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
-															focusable="false">
-															<path
-																d="m480-147.54-31.77-28.92q-103.07-94.43-170.27-162.56-67.19-68.13-106.84-120.94-39.66-52.81-55.39-95.38Q100-597.9 100-640.69q0-82.3 55.5-137.8Q211-834 292.69-834q55.85 0 103.58 28.16Q444-777.69 480-724q40.46-55.92 86.83-82.96Q613.2-834 667.31-834q81.69 0 137.19 55.51 55.5 55.5 55.5 137.8 0 42.79-15.73 85.35-15.73 42.57-55.34 95.3-39.61 52.72-106.85 120.93-67.24 68.22-170.31 162.65L480-147.54Zm0-60.15q99.72-91.29 164.12-156.48 64.4-65.2 102.33-114.09 37.93-48.89 53.05-86.94 15.11-38.04 15.11-75.35 0-64.22-41.61-106.14-41.62-41.92-105.47-41.92-51.14 0-94.03 30.53-42.88 30.54-74.89 90.23h-37.84q-31.77-59.07-74.65-89.92-42.88-30.84-93.65-30.84-63.47 0-105.28 41.92-41.8 41.92-41.8 106.44 0 37.25 15.17 75.5 15.18 38.24 52.85 87.38 37.67 49.14 102.71 113.98 65.03 64.85 163.88 155.7Zm0-290.46Z" />
-														</svg>
-													</a>
-													<span class="text">12</span>
-												</div>
-
-												<div class="action reply">
-													<a href="#!" class="icon-action" aria-label="Reply">
-														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
-															focusable="false">
-															<path
-																d="M250-410h460v-45.38H250V-410Zm0-127.31h460v-45.38H250v45.38Zm0-127.31h460V-710H250v45.38Zm610 546.16L718.46-260H157.69q-23.53 0-40.61-17.08T100-317.69v-484.62q0-23.53 17.08-40.61T157.69-860h644.62q23.53 0 40.61 17.08T860-802.31v683.85ZM157.69-305.39h580.62l76.3 80.77v-577.69q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H157.69q-4.61 0-8.46 3.84-3.84 3.85-3.84 8.46v484.62q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84Zm-12.3 0v-509.22 509.22Z" />
-														</svg>
-													</a>
-													<span class="text">8</span>
-												</div>
-
-												<div class="action retweet">
-													<a href="#!" class="icon-action" aria-label="Retweet">
-														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
-															focusable="false">
-															<path
-																d="M676.68-100q-42.8 0-72.97-30.24t-30.17-72.99q0-7.62 5.38-33.62L281.46-412.23q-14.74 16.57-34.8 26.02-20.07 9.44-43.81 9.44-42.6 0-72.72-30.17Q100-437.12 100-480t30.13-73.06q30.12-30.17 72.72-30.17 22.74 0 42.64 8.91 19.9 8.91 34.36 25.32l299.07-173.77q-2.38-8-3.88-16.5t-1.5-17.5q0-42.75 30.26-72.99Q634.07-860 676.86-860q42.79 0 72.97 30.26Q780-799.47 780-756.68q0 42.8-30.24 72.97t-72.99 30.17q-22.5 0-41.71-9t-33.68-24L300.46-515.23q3 8 4.5 17.11 1.5 9.12 1.5 17.62 0 8.88-1.19 16.58-1.19 7.69-3.58 15.69l300.69 174.15q14.47-15 33.41-23.69 18.94-8.69 41.13-8.69 43.1 0 73.09 30.26Q780-245.93 780-203.14q0 42.79-30.26 72.97Q719.47-100 676.68-100Z" />
-														</svg>
-													</a>
-													<span class="text">54</span>
-												</div>
-											</div>
-											
-										</div>
-									</div>
-
-									<div class="post">
-										<div class="avatar">
-											<img src="/assets/images/avatars/profile.jpg" alt="Author's avatar">
-										</div>
-
-										<div class="post-content">
-											<div class="header">
-												<div class="author">
-													<a href="#" class="name">Jane Doe</a>
-													<a href="#" class="handle">@janedoe</a>
-												</div>
-												<time class="timestamp" datetime="2025-08-10T20:15">2h ago</time>
-											</div>
-
-											<div class="body truncate">
-												This is an example of a post body. It supports
-												<a href="#">links</a>,
-												<span class="mention">@mentions</span>, and
-												<a href="#" class="hashtag">#hashtags</a>.
-											</div>
-
-											<div class="actions post-actions">
-												<div class="action like">
-													<a href="#!" class="icon-action" aria-label="Like">
-														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
-															focusable="false">
-															<path
-																d="m480-147.54-31.77-28.92q-103.07-94.43-170.27-162.56-67.19-68.13-106.84-120.94-39.66-52.81-55.39-95.38Q100-597.9 100-640.69q0-82.3 55.5-137.8Q211-834 292.69-834q55.85 0 103.58 28.16Q444-777.69 480-724q40.46-55.92 86.83-82.96Q613.2-834 667.31-834q81.69 0 137.19 55.51 55.5 55.5 55.5 137.8 0 42.79-15.73 85.35-15.73 42.57-55.34 95.3-39.61 52.72-106.85 120.93-67.24 68.22-170.31 162.65L480-147.54Zm0-60.15q99.72-91.29 164.12-156.48 64.4-65.2 102.33-114.09 37.93-48.89 53.05-86.94 15.11-38.04 15.11-75.35 0-64.22-41.61-106.14-41.62-41.92-105.47-41.92-51.14 0-94.03 30.53-42.88 30.54-74.89 90.23h-37.84q-31.77-59.07-74.65-89.92-42.88-30.84-93.65-30.84-63.47 0-105.28 41.92-41.8 41.92-41.8 106.44 0 37.25 15.17 75.5 15.18 38.24 52.85 87.38 37.67 49.14 102.71 113.98 65.03 64.85 163.88 155.7Zm0-290.46Z" />
-														</svg>
-													</a>
-													<span class="text">12</span>
-												</div>
-
-												<div class="action reply">
-													<a href="#!" class="icon-action" aria-label="Reply">
-														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
-															focusable="false">
-															<path
-																d="M250-410h460v-45.38H250V-410Zm0-127.31h460v-45.38H250v45.38Zm0-127.31h460V-710H250v45.38Zm610 546.16L718.46-260H157.69q-23.53 0-40.61-17.08T100-317.69v-484.62q0-23.53 17.08-40.61T157.69-860h644.62q23.53 0 40.61 17.08T860-802.31v683.85ZM157.69-305.39h580.62l76.3 80.77v-577.69q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H157.69q-4.61 0-8.46 3.84-3.84 3.85-3.84 8.46v484.62q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84Zm-12.3 0v-509.22 509.22Z" />
-														</svg>
-													</a>
-													<span class="text">8</span>
-												</div>
-
-												<div class="action retweet">
-													<a href="#!" class="icon-action" aria-label="Retweet">
-														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
-															focusable="false">
-															<path
-																d="M676.68-100q-42.8 0-72.97-30.24t-30.17-72.99q0-7.62 5.38-33.62L281.46-412.23q-14.74 16.57-34.8 26.02-20.07 9.44-43.81 9.44-42.6 0-72.72-30.17Q100-437.12 100-480t30.13-73.06q30.12-30.17 72.72-30.17 22.74 0 42.64 8.91 19.9 8.91 34.36 25.32l299.07-173.77q-2.38-8-3.88-16.5t-1.5-17.5q0-42.75 30.26-72.99Q634.07-860 676.86-860q42.79 0 72.97 30.26Q780-799.47 780-756.68q0 42.8-30.24 72.97t-72.99 30.17q-22.5 0-41.71-9t-33.68-24L300.46-515.23q3 8 4.5 17.11 1.5 9.12 1.5 17.62 0 8.88-1.19 16.58-1.19 7.69-3.58 15.69l300.69 174.15q14.47-15 33.41-23.69 18.94-8.69 41.13-8.69 43.1 0 73.09 30.26Q780-245.93 780-203.14q0 42.79-30.26 72.97Q719.47-100 676.68-100Z" />
-														</svg>
-													</a>
-													<span class="text">54</span>
-												</div>
-											</div>
-											
-										</div>
-									</div>
-
-									<div class="post">
-										<div class="avatar">
-											<img src="/assets/images/avatars/profile.jpg" alt="Author's avatar">
-										</div>
-
-										<div class="post-content">
-											<div class="header">
-												<div class="author">
-													<a href="#" class="name">Jane Doe</a>
-													<a href="#" class="handle">@janedoe</a>
-												</div>
-												<time class="timestamp" datetime="2025-08-10T20:15">2h ago</time>
-											</div>
-
-											<div class="body truncate">
-												This is an example of a post body. It supports
-												<a href="#">links</a>,
-												<span class="mention">@mentions</span>, and
-												<a href="#" class="hashtag">#hashtags</a>.
-											</div>
-
-											<div class="actions post-actions">
-												<div class="action like">
-													<a href="#!" class="icon-action" aria-label="Like">
-														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
-															focusable="false">
-															<path
-																d="m480-147.54-31.77-28.92q-103.07-94.43-170.27-162.56-67.19-68.13-106.84-120.94-39.66-52.81-55.39-95.38Q100-597.9 100-640.69q0-82.3 55.5-137.8Q211-834 292.69-834q55.85 0 103.58 28.16Q444-777.69 480-724q40.46-55.92 86.83-82.96Q613.2-834 667.31-834q81.69 0 137.19 55.51 55.5 55.5 55.5 137.8 0 42.79-15.73 85.35-15.73 42.57-55.34 95.3-39.61 52.72-106.85 120.93-67.24 68.22-170.31 162.65L480-147.54Zm0-60.15q99.72-91.29 164.12-156.48 64.4-65.2 102.33-114.09 37.93-48.89 53.05-86.94 15.11-38.04 15.11-75.35 0-64.22-41.61-106.14-41.62-41.92-105.47-41.92-51.14 0-94.03 30.53-42.88 30.54-74.89 90.23h-37.84q-31.77-59.07-74.65-89.92-42.88-30.84-93.65-30.84-63.47 0-105.28 41.92-41.8 41.92-41.8 106.44 0 37.25 15.17 75.5 15.18 38.24 52.85 87.38 37.67 49.14 102.71 113.98 65.03 64.85 163.88 155.7Zm0-290.46Z" />
-														</svg>
-													</a>
-													<span class="text">12</span>
-												</div>
-
-												<div class="action reply">
-													<a href="#!" class="icon-action" aria-label="Reply">
-														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
-															focusable="false">
-															<path
-																d="M250-410h460v-45.38H250V-410Zm0-127.31h460v-45.38H250v45.38Zm0-127.31h460V-710H250v45.38Zm610 546.16L718.46-260H157.69q-23.53 0-40.61-17.08T100-317.69v-484.62q0-23.53 17.08-40.61T157.69-860h644.62q23.53 0 40.61 17.08T860-802.31v683.85ZM157.69-305.39h580.62l76.3 80.77v-577.69q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H157.69q-4.61 0-8.46 3.84-3.84 3.85-3.84 8.46v484.62q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84Zm-12.3 0v-509.22 509.22Z" />
-														</svg>
-													</a>
-													<span class="text">8</span>
-												</div>
-
-												<div class="action retweet">
-													<a href="#!" class="icon-action" aria-label="Retweet">
-														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" role="img" aria-hidden="true"
-															focusable="false">
-															<path
-																d="M676.68-100q-42.8 0-72.97-30.24t-30.17-72.99q0-7.62 5.38-33.62L281.46-412.23q-14.74 16.57-34.8 26.02-20.07 9.44-43.81 9.44-42.6 0-72.72-30.17Q100-437.12 100-480t30.13-73.06q30.12-30.17 72.72-30.17 22.74 0 42.64 8.91 19.9 8.91 34.36 25.32l299.07-173.77q-2.38-8-3.88-16.5t-1.5-17.5q0-42.75 30.26-72.99Q634.07-860 676.86-860q42.79 0 72.97 30.26Q780-799.47 780-756.68q0 42.8-30.24 72.97t-72.99 30.17q-22.5 0-41.71-9t-33.68-24L300.46-515.23q3 8 4.5 17.11 1.5 9.12 1.5 17.62 0 8.88-1.19 16.58-1.19 7.69-3.58 15.69l300.69 174.15q14.47-15 33.41-23.69 18.94-8.69 41.13-8.69 43.1 0 73.09 30.26Q780-245.93 780-203.14q0 42.79-30.26 72.97Q719.47-100 676.68-100Z" />
-														</svg>
-													</a>
-													<span class="text">54</span>
-												</div>
-											</div>
-											
-										</div>
-									</div>
+										&lt;/div&gt;
+									</code></pre>
 								</div>
-
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;feed single-row gap-none &quot;&gt;
-										&lt;div class=&quot;post&quot;&gt;...&lt;/div&gt;
-										&lt;div class=&quot;post&quot;&gt;...&lt;/div&gt;
-										&lt;div class=&quot;post&quot;&gt;..&lt;/div&gt;
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>	
 
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>	
+						<h2>Classes and Elements</h2>
+						<p>Key classes and elements within the Feed component:</p>
 
-					<h2>Classes and Elements</h2>
-					<p>Key classes and elements within the Feed component:</p>
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.feed</code></td>
+									<td>Main container for feed items, supports grid or single-row layouts.</td>
+								</tr>
+								<tr>
+									<td><code>.feed.single-row</code></td>
+									<td>Modifier to switch feed to a single column layout.</td>
+								</tr>
+								<tr>
+									<td><code>.feed-item-default</code></td>
+									<td>Individual feed items styled with background, border, padding, and shadow.</td>
+								</tr>
+								<tr>
+									<td><code>.feed-load-more</code></td>
+									<td>Load more button with hover and disabled states.</td>
+								</tr>
+								<tr>
+									<td><code>.feed-end</code></td>
+									<td>Message container displayed at the end of the feed.</td>
+								</tr>
+								<tr>
+									<td><code>.feed-spinner</code></td>
+									<td>Loading spinner element shown during infinite scroll loading.</td>
+								</tr>
+								<tr>
+									<td><code>.feed-scroll-trigger</code></td>
+									<td>Invisible marker element used to trigger infinite scroll events.</td>
+								</tr>
+								<tr>
+									<td><code>.feed-item</code></td>
+									<td>Individual feed items that animate with fade-in on load.</td>
+								</tr>
+								<tr>
+									<td><code>.feed-item-hover</code></td>
+									<td>Add shadow on item hover.</td>
+								</tr>
+							</tbody>
+						</table>
 
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.feed</code></td>
-								<td>Main container for feed items, supports grid or single-row layouts.</td>
-							</tr>
-							<tr>
-								<td><code>.feed.single-row</code></td>
-								<td>Modifier to switch feed to a single column layout.</td>
-							</tr>
-							<tr>
-								<td><code>.feed-item-default</code></td>
-								<td>Individual feed items styled with background, border, padding, and shadow.</td>
-							</tr>
-							<tr>
-								<td><code>.feed-load-more</code></td>
-								<td>Load more button with hover and disabled states.</td>
-							</tr>
-							<tr>
-								<td><code>.feed-end</code></td>
-								<td>Message container displayed at the end of the feed.</td>
-							</tr>
-							<tr>
-								<td><code>.feed-spinner</code></td>
-								<td>Loading spinner element shown during infinite scroll loading.</td>
-							</tr>
-							<tr>
-								<td><code>.feed-scroll-trigger</code></td>
-								<td>Invisible marker element used to trigger infinite scroll events.</td>
-							</tr>
-							<tr>
-								<td><code>.feed-item</code></td>
-								<td>Individual feed items that animate with fade-in on load.</td>
-							</tr>
-							<tr>
-								<td><code>.feed-item-hover</code></td>
-								<td>Add shadow on item hover.</td>
-							</tr>
-						</tbody>
-					</table>
-
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

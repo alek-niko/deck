@@ -308,399 +308,403 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
 
-					<h1>Position</h1>
-					<p class="text-lead">A collection of utility classes to position content.</p>
-					
-					<hr>
-					
-					<h2>Usage</h2>
-					<p>To apply this component, add one of the <code>.position-*</code> classes to a block element. When using this component to place content on top of an image, add the <code>.inline</code> class from the Utility component to a container element around the image and the element to create a position context.</p>
-					<p><span class="label">Note</span> This is often used to position an overlay from the Overlay component. Use the <code>.light</code> or <code>.dark</code> class from the Inverse component to apply a light or dark color for better visibility.</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.position-top</code></td>
-								<td>Positions the element at the top.</td>
-							</tr>
-							<tr>
-								<td><code>.position-left</code></td>
-								<td>Positions the element at the left.</td>
-							</tr>
-							<tr>
-								<td><code>.position-right</code></td>
-								<td>Positions the element at the right.</td>
-							</tr>
-							<tr>
-								<td><code>.position-bottom</code></td>
-								<td>Positions the element at the bottom.</td>
-							</tr>
-						</tbody>
-					</table>
-					
+						<h1>Position</h1>
+						<p class="text-lead">A collection of utility classes to position content.</p>
+						
+						<hr>
+						
+						<h2>Usage</h2>
+						<p>To apply this component, add one of the <code>.position-*</code> classes to a block element. When using this component to place content on top of an image, add the <code>.inline</code> class from the Utility component to a container element around the image and the element to create a position context.</p>
+						<p><span class="label">Note</span> This is often used to position an overlay from the Overlay component. Use the <code>.light</code> or <code>.dark</code> class from the Inverse component to apply a light or dark color for better visibility.</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.position-top</code></td>
+									<td>Positions the element at the top.</td>
+								</tr>
+								<tr>
+									<td><code>.position-left</code></td>
+									<td>Positions the element at the left.</td>
+								</tr>
+								<tr>
+									<td><code>.position-right</code></td>
+									<td>Positions the element at the right.</td>
+								</tr>
+								<tr>
+									<td><code>.position-bottom</code></td>
+									<td>Positions the element at the bottom.</td>
+								</tr>
+							</tbody>
+						</table>
+						
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="position-relative margin-medium">
-									<div class="inline margin">
-										<img src="/assets/images/photos/image1.webp" width="1800" height="1200" alt="">
-										<div class="position-top overlay text-center">Top</div>
-										<div class="position-bottom overlay text-center">Bottom</div>
-										<div class="position-left overlay flex flex-middle">Left</div>
-										<div class="position-right overlay flex flex-middle">Right</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="position-relative margin-medium">
+										<div class="inline margin">
+											<img src="/assets/images/photos/image1.webp" width="1800" height="1200" alt="">
+											<div class="position-top overlay text-center">Top</div>
+											<div class="position-bottom overlay text-center">Bottom</div>
+											<div class="position-left overlay flex flex-middle">Left</div>
+											<div class="position-right overlay flex flex-middle">Right</div>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;position-relative margin-medium&quot;&gt;
-										&lt;div class=&quot;inline margin&quot;&gt;
-											&lt;img src=&quot;/assets/images/photos/image1.webp&quot; width=&quot;1800&quot; height=&quot;1200&quot; alt=&quot;&quot;&gt;
-											&lt;div class=&quot;position-top overlay text-center&quot;&gt;Top&lt;/div&gt;
-											&lt;div class=&quot;position-bottom overlay text-center&quot;&gt;Bottom&lt;/div&gt;
-											&lt;div class=&quot;position-left overlay flex flex-middle&quot;&gt;Left&lt;/div&gt;
-											&lt;div class=&quot;position-right overlay flex flex-middle&quot;&gt;Right&lt;/div&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;position-relative margin-medium&quot;&gt;
+											&lt;div class=&quot;inline margin&quot;&gt;
+												&lt;img src=&quot;/assets/images/photos/image1.webp&quot; width=&quot;1800&quot; height=&quot;1200&quot; alt=&quot;&quot;&gt;
+												&lt;div class=&quot;position-top overlay text-center&quot;&gt;Top&lt;/div&gt;
+												&lt;div class=&quot;position-bottom overlay text-center&quot;&gt;Bottom&lt;/div&gt;
+												&lt;div class=&quot;position-left overlay flex flex-middle&quot;&gt;Left&lt;/div&gt;
+												&lt;div class=&quot;position-right overlay flex flex-middle&quot;&gt;Right&lt;/div&gt;
+											&lt;/div&gt;
 										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h3>X and Y directions</h3>
-					<p>You can also apply more specific positions that won't spread over one side of the parent container by adding one of the following classes.</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.position-top-left</code></td>
-								<td>Positions the element at the top left.</td>
-							</tr>
-							<tr>
-								<td><code>.position-top-center</code></td>
-								<td>Positions the element at the top center.</td>
-							</tr>
-							<tr>
-								<td><code>.position-top-right</code></td>
-								<td>Positions the element at the top right.</td>
-							</tr>
-							<tr>
-								<td><code>.position-center</code></td>
-								<td>Positions the element vertically centered in the middle.</td>
-							</tr>
-							<tr>
-								<td><code>.position-center-left</code></td>
-								<td>Positions the element vertically centered on the left.</td>
-							</tr>
-							<tr>
-								<td><code>.position-center-right</code></td>
-								<td>Positions the element vertically centered on the right.</td>
-							</tr>
-							<tr>
-								<td><code>.position-bottom-left</code></td>
-								<td>Positions the element at the bottom left.</td>
-							</tr>
-							<tr>
-								<td><code>.position-bottom-center</code></td>
-								<td>Positions the element at the bottom center.</td>
-							</tr>
-							<tr>
-								<td><code>.position-bottom-right</code></td>
-								<td>Positions the element at the bottom right.</td>
-							</tr>
-						</tbody>
-					</table>
+						
+						<h3>X and Y directions</h3>
+						<p>You can also apply more specific positions that won't spread over one side of the parent container by adding one of the following classes.</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.position-top-left</code></td>
+									<td>Positions the element at the top left.</td>
+								</tr>
+								<tr>
+									<td><code>.position-top-center</code></td>
+									<td>Positions the element at the top center.</td>
+								</tr>
+								<tr>
+									<td><code>.position-top-right</code></td>
+									<td>Positions the element at the top right.</td>
+								</tr>
+								<tr>
+									<td><code>.position-center</code></td>
+									<td>Positions the element vertically centered in the middle.</td>
+								</tr>
+								<tr>
+									<td><code>.position-center-left</code></td>
+									<td>Positions the element vertically centered on the left.</td>
+								</tr>
+								<tr>
+									<td><code>.position-center-right</code></td>
+									<td>Positions the element vertically centered on the right.</td>
+								</tr>
+								<tr>
+									<td><code>.position-bottom-left</code></td>
+									<td>Positions the element at the bottom left.</td>
+								</tr>
+								<tr>
+									<td><code>.position-bottom-center</code></td>
+									<td>Positions the element at the bottom center.</td>
+								</tr>
+								<tr>
+									<td><code>.position-bottom-right</code></td>
+									<td>Positions the element at the bottom right.</td>
+								</tr>
+							</tbody>
+						</table>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="position-relative margin-medium">
-									<div class="inline">
-										<img src="/assets/images/photos/image1.webp" width="1800" height="1200" alt="">
-										<div class="position-top-left">
-											<div class="overlay">Top Left</div>
-										</div>
-										<div class="position-top-center">
-											<div class="overlay">Top Center</div>
-										</div>
-										<div class="position-top-right">
-											<div class="overlay">Top Right</div>
-										</div>
-										<div class="position-center-left">
-											<div class="overlay">Center Left</div>
-										</div>
-										<div class="position-center">
-											<div class="overlay">Center</div>
-										</div>
-										<div class="position-center-right">
-											<div class="overlay">Center Right</div>
-										</div>
-										<div class="position-bottom-left">
-											<div class="overlay">Bottom Left</div>
-										</div>
-										<div class="position-bottom-center">
-											<div class="overlay">Bottom Center</div>
-										</div>
-										<div class="position-bottom-right">
-											<div class="overlay">Bottom Right</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="position-relative margin-medium">
+										<div class="inline">
+											<img src="/assets/images/photos/image1.webp" width="1800" height="1200" alt="">
+											<div class="position-top-left">
+												<div class="overlay">Top Left</div>
+											</div>
+											<div class="position-top-center">
+												<div class="overlay">Top Center</div>
+											</div>
+											<div class="position-top-right">
+												<div class="overlay">Top Right</div>
+											</div>
+											<div class="position-center-left">
+												<div class="overlay">Center Left</div>
+											</div>
+											<div class="position-center">
+												<div class="overlay">Center</div>
+											</div>
+											<div class="position-center-right">
+												<div class="overlay">Center Right</div>
+											</div>
+											<div class="position-bottom-left">
+												<div class="overlay">Bottom Left</div>
+											</div>
+											<div class="position-bottom-center">
+												<div class="overlay">Bottom Center</div>
+											</div>
+											<div class="position-bottom-right">
+												<div class="overlay">Bottom Right</div>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;inline&quot;&gt;
-										&lt;img src=&quot;/assets/images/photos/image1.webp&quot; width=&quot;1800&quot; height=&quot;1200&quot; alt=&quot;&quot;&gt;
-										&lt;div class=&quot;position-top-left&quot;&gt;
-											&lt;div class=&quot;overlay&quot;&gt;Top Left&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;position-top-center&quot;&gt;
-											&lt;div class=&quot;overlay&quot;&gt;Top Center&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;position-top-right&quot;&gt;
-											&lt;div class=&quot;overlay&quot;&gt;Top Right&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;position-center-left&quot;&gt;
-											&lt;div class=&quot;overlay&quot;&gt;Center Left&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;position-center&quot;&gt;
-											&lt;div class=&quot;overlay&quot;&gt;Center&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;position-center-right&quot;&gt;
-											&lt;div class=&quot;overlay&quot;&gt;Center Right&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;position-bottom-left&quot;&gt;
-											&lt;div class=&quot;overlay&quot;&gt;Bottom Left&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;position-bottom-center&quot;&gt;
-											&lt;div class=&quot;overlay&quot;&gt;Bottom Center&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;position-bottom-right&quot;&gt;
-											&lt;div class=&quot;overlay&quot;&gt;Bottom Right&lt;/div&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h3>Cover</h3>
-					<p>If you want a position element to cover its container, just add the <code>.position-cover</code> class.</p>
-				
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="position-relative margin-medium">
-									<div class="inline">
-										<img src="/assets/images/photos/image1.webp" width="1800" height="1200" alt="">
-										<div class="position-cover overlay flex flex-center flex-middle">Cover</div>
-									</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;position-relative margin-medium&quot;&gt;
+								<div>
+									<pre><code>
 										&lt;div class=&quot;inline&quot;&gt;
 											&lt;img src=&quot;/assets/images/photos/image1.webp&quot; width=&quot;1800&quot; height=&quot;1200&quot; alt=&quot;&quot;&gt;
-											&lt;div class=&quot;position-cover overlay flex flex-center flex-middle&quot;&gt;Cover&lt;/div&gt;
+											&lt;div class=&quot;position-top-left&quot;&gt;
+												&lt;div class=&quot;overlay&quot;&gt;Top Left&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;position-top-center&quot;&gt;
+												&lt;div class=&quot;overlay&quot;&gt;Top Center&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;position-top-right&quot;&gt;
+												&lt;div class=&quot;overlay&quot;&gt;Top Right&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;position-center-left&quot;&gt;
+												&lt;div class=&quot;overlay&quot;&gt;Center Left&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;position-center&quot;&gt;
+												&lt;div class=&quot;overlay&quot;&gt;Center&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;position-center-right&quot;&gt;
+												&lt;div class=&quot;overlay&quot;&gt;Center Right&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;position-bottom-left&quot;&gt;
+												&lt;div class=&quot;overlay&quot;&gt;Bottom Left&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;position-bottom-center&quot;&gt;
+												&lt;div class=&quot;overlay&quot;&gt;Bottom Center&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;position-bottom-right&quot;&gt;
+												&lt;div class=&quot;overlay&quot;&gt;Bottom Right&lt;/div&gt;
+											&lt;/div&gt;
 										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h3>Outside</h3>
-					<p>There are two classes to center elements outside on the left and right of the parent container. This is useful to position the <a href="/docs/slidenav">Slidenav component</a> outside of a <a href="/docs/slideshow">Slideshow</a> or <a href="/docs/slider">Slider</a> component.</p>
-				
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.position-center-left-out</code></td>
-								<td>Positions the element vertically centered outside on the left.</td>
-							</tr>
-							<tr>
-								<td><code>.position-center-right-out</code></td>
-								<td>Positions the element vertically centered outside on the right.</td>
-							</tr>
-						</tbody>
-					</table>
 
-					<p><span class="label">Note</span> Once the outside positioned element sticks out of the viewport to the right, it will cause a horizontal scrollbar. Use the <a href="/docs/visibility">Visibility component</a> to hide the outside positioned element on a smaller viewports and show an inside positioned element instead.</p>
+						<h3>Cover</h3>
+						<p>If you want a position element to cover its container, just add the <code>.position-cover</code> class.</p>
 					
-					<pre><code>
-						&lt;<span>div</span> <span>class</span>=<span>"position-center-left-out"</span>&gt;&lt;/<span>div</span>&gt;
-					</code></pre>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="position-relative margin-medium">
-									<div class="inline">
-										<img src="/assets/images/photos/image1.webp" width="1800" height="1200" alt="">
-									
-										<div class="position-center-left-out visible@s">
-											<div class="overlay">Out</div>
-										</div>
-										<div class="position-center-right-out visible@s">
-											<div class="overlay">Out</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="position-relative margin-medium">
+										<div class="inline">
+											<img src="/assets/images/photos/image1.webp" width="1800" height="1200" alt="">
+											<div class="position-cover overlay flex flex-center flex-middle">Cover</div>
 										</div>
 									</div>
 								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;position-relative margin-medium&quot;&gt;
+											&lt;div class=&quot;inline&quot;&gt;
+												&lt;img src=&quot;/assets/images/photos/image1.webp&quot; width=&quot;1800&quot; height=&quot;1200&quot; alt=&quot;&quot;&gt;
+												&lt;div class=&quot;position-cover overlay flex flex-center flex-middle&quot;&gt;Cover&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;position-relative margin-medium&quot;&gt;
-										&lt;div class=&quot;inline&quot;&gt;
-											&lt;img src=&quot;/assets/images/photos/image1.webp&quot; width=&quot;1800&quot; height=&quot;1200&quot; alt=&quot;&quot;&gt;
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h3>Outside</h3>
+						<p>There are two classes to center elements outside on the left and right of the parent container. This is useful to position the <a href="/docs/slidenav">Slidenav component</a> outside of a <a href="/docs/slideshow">Slideshow</a> or <a href="/docs/slider">Slider</a> component.</p>
+					
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.position-center-left-out</code></td>
+									<td>Positions the element vertically centered outside on the left.</td>
+								</tr>
+								<tr>
+									<td><code>.position-center-right-out</code></td>
+									<td>Positions the element vertically centered outside on the right.</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<p><span class="label">Note</span> Once the outside positioned element sticks out of the viewport to the right, it will cause a horizontal scrollbar. Use the <a href="/docs/visibility">Visibility component</a> to hide the outside positioned element on a smaller viewports and show an inside positioned element instead.</p>
+						
+						<pre><code>
+							&lt;<span>div</span> <span>class</span>=<span>"position-center-left-out"</span>&gt;&lt;/<span>div</span>&gt;
+						</code></pre>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="position-relative margin-medium">
+										<div class="inline">
+											<img src="/assets/images/photos/image1.webp" width="1800" height="1200" alt="">
 										
-											&lt;div class=&quot;position-center-left-out visible@s&quot;&gt;
-												&lt;div class=&quot;overlay&quot;&gt;Out&lt;/div&gt;
-											&lt;/div&gt;
-											&lt;div class=&quot;position-center-right-out visible@s&quot;&gt;
-												&lt;div class=&quot;overlay&quot;&gt;Out&lt;/div&gt;
+											<div class="position-center-left-out visible@s">
+												<div class="overlay">Out</div>
+											</div>
+											<div class="position-center-right-out visible@s">
+												<div class="overlay">Out</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;position-relative margin-medium&quot;&gt;
+											&lt;div class=&quot;inline&quot;&gt;
+												&lt;img src=&quot;/assets/images/photos/image1.webp&quot; width=&quot;1800&quot; height=&quot;1200&quot; alt=&quot;&quot;&gt;
+											
+												&lt;div class=&quot;position-center-left-out visible@s&quot;&gt;
+													&lt;div class=&quot;overlay&quot;&gt;Out&lt;/div&gt;
+												&lt;/div&gt;
+												&lt;div class=&quot;position-center-right-out visible@s&quot;&gt;
+													&lt;div class=&quot;overlay&quot;&gt;Out&lt;/div&gt;
+												&lt;/div&gt;
 											&lt;/div&gt;
 										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Margin Offsets</h2>
-					<p class="text-muted">
-						Margin offset classes apply consistent spacing around absolutely positioned elements. They also define the
-						<code>--position-margin-offset</code> custom property, which is used by center-aligned positioning utilities
-						(e.g., <code>.position-center</code>) to prevent edge overflow.
-					</p>
+						<h2>Margin Offsets</h2>
+						<p class="text-muted">
+							Margin offset classes apply consistent spacing around absolutely positioned elements. They also define the
+							<code>--position-margin-offset</code> custom property, which is used by center-aligned positioning utilities
+							(e.g., <code>.position-center</code>) to prevent edge overflow.
+						</p>
 
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.position-small</code></td>
-								<td>Applies a small margin.</td>
-							</tr>
-							<tr>
-								<td><code>.position-medium</code></td>
-								<td>Applies a medium margin</td>
-							</tr>
-							<tr>
-								<td><code>.position-large</code></td>
-								<td>Applies a large margin</td>
-							</tr>
-							<tr>
-								<td><code>.position-xlarge</code></td>
-								<td>Applies an extra large margin</td>
-							</tr>
-						</tbody>
-					</table>
-					
-					<h2>Utility classes</h2>
-					<p>This component features a number of general position utility classes:</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.position-relative</code></td>
-								<td>Add this class to apply relative positioning.</td>
-							</tr>
-							<tr>
-								<td><code>.position-absolute</code></td>
-								<td>Add this class to apply absolute positioning.</td>
-							</tr>
-							<tr>
-								<td><code>.position-fixed</code></td>
-								<td>Add this class to apply fixed positioning.</td>
-							</tr>
-							<tr>
-								<td><code>.position-z-index</code></td>
-								<td>Add this class to apply a z-index of 1.</td>
-							</tr>
-						</tbody>
-					</table>
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.position-small</code></td>
+									<td>Applies a small margin.</td>
+								</tr>
+								<tr>
+									<td><code>.position-medium</code></td>
+									<td>Applies a medium margin</td>
+								</tr>
+								<tr>
+									<td><code>.position-large</code></td>
+									<td>Applies a large margin</td>
+								</tr>
+								<tr>
+									<td><code>.position-xlarge</code></td>
+									<td>Applies an extra large margin</td>
+								</tr>
+							</tbody>
+						</table>
+						
+						<h2>Utility classes</h2>
+						<p>This component features a number of general position utility classes:</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.position-relative</code></td>
+									<td>Add this class to apply relative positioning.</td>
+								</tr>
+								<tr>
+									<td><code>.position-absolute</code></td>
+									<td>Add this class to apply absolute positioning.</td>
+								</tr>
+								<tr>
+									<td><code>.position-fixed</code></td>
+									<td>Add this class to apply fixed positioning.</td>
+								</tr>
+								<tr>
+									<td><code>.position-z-index</code></td>
+									<td>Add this class to apply a z-index of 1.</td>
+								</tr>
+							</tbody>
+						</table>
 
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

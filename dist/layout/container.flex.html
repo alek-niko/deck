@@ -308,123 +308,127 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
 
-					<h1>Container Flex</h1>
-					<p class="text-lead">A responsive flex-based container layout with customizable max-width, padding, and gap utilities.</p>
-					
-					<hr>
+						<h1>Container Flex</h1>
+						<p class="text-lead">A responsive flex-based container layout with customizable max-width, padding, and gap utilities.</p>
+						
+						<hr>
 
-					<h2>Usage</h2>
-					<p>Add the <code>.container-flex</code> class to a block element to make it a responsive flex container. This layout is ideal for vertical stacking with internal spacing and max-width control.</p>
-					<p><span class="label">Note</span> Padding is automatically removed from nested containers to maintain visual rhythm.</p>
+						<h2>Usage</h2>
+						<p>Add the <code>.container-flex</code> class to a block element to make it a responsive flex container. This layout is ideal for vertical stacking with internal spacing and max-width control.</p>
+						<p><span class="label">Note</span> Padding is automatically removed from nested containers to maintain visual rhythm.</p>
 
-					<pre><code>
-						&lt;<span>div</span> <span>class</span>=<span>"container-flex"</span>&gt;
-							&lt;<span>div</span>&gt;Item 1&lt;/<span>div</span>&gt;
-							&lt;<span>div</span>&gt;Item 2&lt;/<span>div</span>&gt;
-						&lt;/<span>div</span>&gt;
-					</code></pre>
-
-					<h2>Size modifiers</h2>
-					<p>Use one of the following modifiers to change the maximum width of the container.</p>
-
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th class="table-large">Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.container-flex-xs</code></td>
-								<td>Sets max-width to <code>600px</code>.</td>
-							</tr>
-							<tr>
-								<td><code>.container-flex-sm</code></td>
-								<td>Sets max-width to <code>750px</code>.</td>
-							</tr>
-							<tr>
-								<td><code>.container-flex-md</code></td>
-								<td>Sets max-width to <code>960px</code>.</td>
-							</tr>
-							<tr>
-								<td><code>.container-flex-lg</code></td>
-								<td>Sets max-width to <code>1140px</code>.</td>
-							</tr>
-							<tr>
-								<td><code>.container-flex-xl</code></td>
-								<td>Sets max-width to <code>1320px</code>.</td>
-							</tr>
-							<tr>
-								<td><code>.container-flex-expand</code></td>
-								<td>Removes max-width restriction (full-width layout).</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<pre><code>
-						&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-xs"</span>&gt;&lt;/<span>div</span>&gt;
-						&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-sm"</span>&gt;&lt;/<span>div</span>&gt;
-						&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-md"</span>&gt;&lt;/<span>div</span>&gt;
-						&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-lg"</span>&gt;&lt;/<span>div</span>&gt;
-						&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-xl"</span>&gt;&lt;/<span>div</span>&gt;
-						&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-expand"</span>&gt;&lt;/<span>div</span>&gt;
-					</code></pre>
-
-					<h2>Expand edge variants</h2>
-					<p>Use the following modifier classes to allow the container to stretch to one edge of the screen while maintaining padding on the opposite side.</p>
-				
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th class="table-large">Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.container-flex-expand-left</code></td>
-								<td>Removes left margin to align container with the left edge.</td>
-							</tr>
-							<tr>
-								<td><code>.container-flex-expand-right</code></td>
-								<td>Removes right margin to align container with the right edge.</td>
-							</tr>
-						</tbody>
-					</table>
-
-					<pre><code>
-						&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-expand container-flex-expand-left"</span>&gt;&lt;/<span>div</span>&gt;
-						&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-expand container-flex-expand-right"</span>&gt;&lt;/<span>div</span>&gt;
-					</code></pre>
-
-					<h2>Responsive padding</h2>
-					<p>This component automatically increases its horizontal padding on larger breakpoints:</p>
-
-					<ul>
-						<li><code>15px</code> on default screens</li>
-						<li><code>30px</code> from <code>$breakpoint-sm</code> up</li>
-						<li><code>40px</code> from <code>$breakpoint-md</code> up</li>
-					</ul>
-
-					<h2>Example in sections</h2>
-					<p>You can use <code>.container-flex</code> inside section blocks to wrap content with flex behavior.</p>
-				
-					<pre><code>
-						&lt;<span>div</span> <span>class</span>=<span>"section section-muted"</span>&gt;
-							&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-medium"</span>&gt;
-								&lt;<span>p</span>&gt;Inside a medium flex container&lt;/<span>p</span>&gt;
+						<pre><code>
+							&lt;<span>div</span> <span>class</span>=<span>"container-flex"</span>&gt;
+								&lt;<span>div</span>&gt;Item 1&lt;/<span>div</span>&gt;
+								&lt;<span>div</span>&gt;Item 2&lt;/<span>div</span>&gt;
 							&lt;/<span>div</span>&gt;
-						&lt;/<span>div</span>&gt;
-					</code></pre>
+						</code></pre>
 
+						<h2>Size modifiers</h2>
+						<p>Use one of the following modifiers to change the maximum width of the container.</p>
+
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th class="table-large">Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.container-flex-xs</code></td>
+									<td>Sets max-width to <code>600px</code>.</td>
+								</tr>
+								<tr>
+									<td><code>.container-flex-sm</code></td>
+									<td>Sets max-width to <code>750px</code>.</td>
+								</tr>
+								<tr>
+									<td><code>.container-flex-md</code></td>
+									<td>Sets max-width to <code>960px</code>.</td>
+								</tr>
+								<tr>
+									<td><code>.container-flex-lg</code></td>
+									<td>Sets max-width to <code>1140px</code>.</td>
+								</tr>
+								<tr>
+									<td><code>.container-flex-xl</code></td>
+									<td>Sets max-width to <code>1320px</code>.</td>
+								</tr>
+								<tr>
+									<td><code>.container-flex-expand</code></td>
+									<td>Removes max-width restriction (full-width layout).</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<pre><code>
+							&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-xs"</span>&gt;&lt;/<span>div</span>&gt;
+							&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-sm"</span>&gt;&lt;/<span>div</span>&gt;
+							&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-md"</span>&gt;&lt;/<span>div</span>&gt;
+							&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-lg"</span>&gt;&lt;/<span>div</span>&gt;
+							&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-xl"</span>&gt;&lt;/<span>div</span>&gt;
+							&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-expand"</span>&gt;&lt;/<span>div</span>&gt;
+						</code></pre>
+
+						<h2>Expand edge variants</h2>
+						<p>Use the following modifier classes to allow the container to stretch to one edge of the screen while maintaining padding on the opposite side.</p>
+					
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th class="table-large">Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.container-flex-expand-left</code></td>
+									<td>Removes left margin to align container with the left edge.</td>
+								</tr>
+								<tr>
+									<td><code>.container-flex-expand-right</code></td>
+									<td>Removes right margin to align container with the right edge.</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<pre><code>
+							&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-expand container-flex-expand-left"</span>&gt;&lt;/<span>div</span>&gt;
+							&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-expand container-flex-expand-right"</span>&gt;&lt;/<span>div</span>&gt;
+						</code></pre>
+
+						<h2>Responsive padding</h2>
+						<p>This component automatically increases its horizontal padding on larger breakpoints:</p>
+
+						<ul>
+							<li><code>15px</code> on default screens</li>
+							<li><code>30px</code> from <code>$breakpoint-sm</code> up</li>
+							<li><code>40px</code> from <code>$breakpoint-md</code> up</li>
+						</ul>
+
+						<h2>Example in sections</h2>
+						<p>You can use <code>.container-flex</code> inside section blocks to wrap content with flex behavior.</p>
+					
+						<pre><code>
+							&lt;<span>div</span> <span>class</span>=<span>"section section-muted"</span>&gt;
+								&lt;<span>div</span> <span>class</span>=<span>"container-flex container-flex-medium"</span>&gt;
+									&lt;<span>p</span>&gt;Inside a medium flex container&lt;/<span>p</span>&gt;
+								&lt;/<span>div</span>&gt;
+							&lt;/<span>div</span>&gt;
+						</code></pre>
+
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

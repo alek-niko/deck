@@ -308,204 +308,207 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-		
-					<h1>Link Preview</h1>
+				<div class="container-flow container-flow-md">
+					<article class="prose">		
+						<h1>Link Preview</h1>
 
-					<p class="text-lead">Flexible link preview component with image, title, description, and URL. Supports
-						horizontal and vertical layouts with border and shadow variants.</p>
-		
-					<hr>
-		
-					<h2>Usage and Structure</h2>
+						<p class="text-lead">Flexible link preview component with image, title, description, and URL. Supports
+							horizontal and vertical layouts with border and shadow variants.</p>
+			
+						<hr>
+			
+						<h2>Usage and Structure</h2>
 
-					<p>The <code>.link-preview</code> block creates a clickable card with an optional image, content area
-						including title, description, and URL. It supports modifiers for border, shadow, and vertical layout.
-					</p>
+						<p>The <code>.link-preview</code> block creates a clickable card with an optional image, content area
+							including title, description, and URL. It supports modifiers for border, shadow, and vertical layout.
+						</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<!-- 
-									Link Preview Component
-									- Add modifier classes to enable optional styles.
-									- `.link-preview--bordered`: Adds the border.
-									- `.link-preview--shadowed`: Adds the box-shadow and hover effect.
-								-->
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<!-- 
+										Link Preview Component
+										- Add modifier classes to enable optional styles.
+										- `.link-preview--bordered`: Adds the border.
+										- `.link-preview--shadowed`: Adds the box-shadow and hover effect.
+									-->
 
-								<a
-									href="#"
-									target="_blank"
-									rel="noopener noreferrer"
-									class="link-preview link-preview-border link-preview-shadow" 
-								>
+									<a
+										href="#"
+										target="_blank"
+										rel="noopener noreferrer"
+										class="link-preview link-preview-border link-preview-shadow" 
+									>
 
-									 <!-- Image Section -->
-									<div class="link-preview-image">
-										<img
-											src="/assets/images/cover.jpg" alt="Example image"
-											alt=""
-											onerror=""
-										>
-									</div>
+										<!-- Image Section -->
+										<div class="link-preview-image">
+											<img
+												src="/assets/images/cover.jpg" alt="Example image"
+												alt=""
+												onerror=""
+											>
+										</div>
 
-									 <!-- Content Section -->
-									<div class="link-preview-content">
+										<!-- Content Section -->
+										<div class="link-preview-content">
 
-										 <!-- Title -->
-										<h3 class="link-preview-title">Example Website Title</h3>
-										
-										<!-- Description -->
-										<p class="link-preview-description">
-											This is a short description of the linked content, truncated after three lines for neatness.
-										</p>
-										
-										 <!-- URL / Domain -->
-										<div class="link-preview-url">example.com</div>
-									</div>
-								</a>
-							</div>
-							<div>
-								<pre><code>
-									&lt;a
-										href=&quot;#&quot;
-										target=&quot;_blank&quot;
-										rel=&quot;noopener noreferrer&quot;
-										class=&quot;link-preview link-preview-border link-preview-shadow&quot; 
-									&gt;
-
-										&lt;!-- Image Section --&gt;
-										&lt;div class=&quot;link-preview-image&quot;&gt;
-											&lt;img
-												src=&quot;/assets/images/cover.jpg&quot; alt=&quot;Example image&quot;
-												alt=&quot;&quot;
-												onerror=&quot;&quot;
-											&gt;
-										&lt;/div&gt;
-
-										&lt;!-- Content Section --&gt;
-										&lt;div class=&quot;link-preview-content&quot;&gt;
-
-											&lt;!-- Title --&gt;
-											&lt;h3 class=&quot;link-preview-title&quot;&gt;Example Website Title&lt;/h3&gt;
+											<!-- Title -->
+											<h3 class="link-preview-title">Example Website Title</h3>
 											
-											&lt;!-- Description --&gt;
-											&lt;p class=&quot;link-preview-description&quot;&gt;
+											<!-- Description -->
+											<p class="link-preview-description">
 												This is a short description of the linked content, truncated after three lines for neatness.
-											&lt;/p&gt;
+											</p>
 											
-											&lt;!-- URL / Domain --&gt;
-											&lt;div class=&quot;link-preview-url&quot;&gt;example.com&lt;/div&gt;
-										&lt;/div&gt;
-									&lt;/a&gt;
-								</code></pre>
+											<!-- URL / Domain -->
+											<div class="link-preview-url">example.com</div>
+										</div>
+									</a>
+								</div>
+								<div>
+									<pre><code>
+										&lt;a
+											href=&quot;#&quot;
+											target=&quot;_blank&quot;
+											rel=&quot;noopener noreferrer&quot;
+											class=&quot;link-preview link-preview-border link-preview-shadow&quot; 
+										&gt;
+
+											&lt;!-- Image Section --&gt;
+											&lt;div class=&quot;link-preview-image&quot;&gt;
+												&lt;img
+													src=&quot;/assets/images/cover.jpg&quot; alt=&quot;Example image&quot;
+													alt=&quot;&quot;
+													onerror=&quot;&quot;
+												&gt;
+											&lt;/div&gt;
+
+											&lt;!-- Content Section --&gt;
+											&lt;div class=&quot;link-preview-content&quot;&gt;
+
+												&lt;!-- Title --&gt;
+												&lt;h3 class=&quot;link-preview-title&quot;&gt;Example Website Title&lt;/h3&gt;
+												
+												&lt;!-- Description --&gt;
+												&lt;p class=&quot;link-preview-description&quot;&gt;
+													This is a short description of the linked content, truncated after three lines for neatness.
+												&lt;/p&gt;
+												
+												&lt;!-- URL / Domain --&gt;
+												&lt;div class=&quot;link-preview-url&quot;&gt;example.com&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/a&gt;
+									</code></pre>
+								</div>
 							</div>
 						</div>
-					</div>
-					
-					<h2>Vertical Layout</h2>
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<a href="#"
-									target="_blank"
-									rel="noopener noreferrer"
-									class="link-preview link-preview-vertical link-preview-border"
-								>
-									<div class="link-preview-image">
-										<img src="/assets/images/cover.jpg" alt="Example image">
-									</div>
-									<div class="link-preview-content">
-										<h3 class="link-preview-title">Vertical Layout Title</h3>
-										<p class="link-preview-description">Description adapts to vertical layout with fewer lines.</p>
-										<div class="link-preview-url">example.com</div>
-									</div>
-								</a>
-							</div>
-							<div>
-								<pre><code>
-									&lt;a href=&quot;#&quot;
-										target=&quot;_blank&quot;
-										rel=&quot;noopener noreferrer&quot;
-										class=&quot;link-preview link-preview-vertical link-preview-border&quot;
-									&gt;
-										&lt;div class=&quot;link-preview-image&quot;&gt;
-											&lt;img src=&quot;/assets/images/cover.jpg&quot; alt=&quot;Example image&quot;&gt;
-										&lt;/div&gt;
-										&lt;div class=&quot;link-preview-content&quot;&gt;
-											&lt;h3 class=&quot;link-preview-title&quot;&gt;Vertical Layout Title&lt;/h3&gt;
-											&lt;p class=&quot;link-preview-description&quot;&gt;Description adapts to vertical layout with fewer lines.&lt;/p&gt;
-											&lt;div class=&quot;link-preview-url&quot;&gt;example.com&lt;/div&gt;
-										&lt;/div&gt;
-									&lt;/a&gt;
-								</code></pre>
+						
+						<h2>Vertical Layout</h2>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<a href="#"
+										target="_blank"
+										rel="noopener noreferrer"
+										class="link-preview link-preview-vertical link-preview-border"
+									>
+										<div class="link-preview-image">
+											<img src="/assets/images/cover.jpg" alt="Example image">
+										</div>
+										<div class="link-preview-content">
+											<h3 class="link-preview-title">Vertical Layout Title</h3>
+											<p class="link-preview-description">Description adapts to vertical layout with fewer lines.</p>
+											<div class="link-preview-url">example.com</div>
+										</div>
+									</a>
+								</div>
+								<div>
+									<pre><code>
+										&lt;a href=&quot;#&quot;
+											target=&quot;_blank&quot;
+											rel=&quot;noopener noreferrer&quot;
+											class=&quot;link-preview link-preview-vertical link-preview-border&quot;
+										&gt;
+											&lt;div class=&quot;link-preview-image&quot;&gt;
+												&lt;img src=&quot;/assets/images/cover.jpg&quot; alt=&quot;Example image&quot;&gt;
+											&lt;/div&gt;
+											&lt;div class=&quot;link-preview-content&quot;&gt;
+												&lt;h3 class=&quot;link-preview-title&quot;&gt;Vertical Layout Title&lt;/h3&gt;
+												&lt;p class=&quot;link-preview-description&quot;&gt;Description adapts to vertical layout with fewer lines.&lt;/p&gt;
+												&lt;div class=&quot;link-preview-url&quot;&gt;example.com&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/a&gt;
+									</code></pre>
+								</div>
 							</div>
 						</div>
-					</div>
 
-					<h2>Classes and Elements</h2>
-					<p>Overview of key classes used inside the Link Preview component:</p>
+						<h2>Classes and Elements</h2>
+						<p>Overview of key classes used inside the Link Preview component:</p>
 
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.link-preview</code></td>
-								<td>Main container with flexible layout, border-radius, and transitions.</td>
-							</tr>
-							<tr>
-								<td><code>.link-preview-image</code></td>
-								<td>Image container with fixed width and right border; adjusts in vertical layout.</td>
-							</tr>
-							<tr>
-								<td><code>.link-preview-content</code></td>
-								<td>Content area housing title, description, and URL with padding and flexible growth.</td>
-							</tr>
-							<tr>
-								<td><code>.link-preview-title</code></td>
-								<td>Title text with ellipsis truncation and hover color change.</td>
-							</tr>
-							<tr>
-								<td><code>.link-preview-description</code></td>
-								<td>Description text limited to 3 lines (2 lines on mobile) with ellipsis.</td>
-							</tr>
-							<tr>
-								<td><code>.link-preview-url</code></td>
-								<td>URL text shown in uppercase with ellipsis for overflow handling.</td>
-							</tr>
-							<tr>
-								<td><code>.link-preview-border</code></td>
-								<td>Modifier to add a visible border color around the preview card.</td>
-							</tr>
-							<tr>
-								<td><code>.link-preview-shadow</code></td>
-								<td>Modifier adding subtle shadows with hover and focus elevation effects.</td>
-							</tr>
-							<tr>
-								<td><code>.link-preview-vertical</code></td>
-								<td>Modifier switching layout to vertical stacking with adjusted image styles.</td>
-							</tr>
-						</tbody>
-					</table>
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.link-preview</code></td>
+									<td>Main container with flexible layout, border-radius, and transitions.</td>
+								</tr>
+								<tr>
+									<td><code>.link-preview-image</code></td>
+									<td>Image container with fixed width and right border; adjusts in vertical layout.</td>
+								</tr>
+								<tr>
+									<td><code>.link-preview-content</code></td>
+									<td>Content area housing title, description, and URL with padding and flexible growth.</td>
+								</tr>
+								<tr>
+									<td><code>.link-preview-title</code></td>
+									<td>Title text with ellipsis truncation and hover color change.</td>
+								</tr>
+								<tr>
+									<td><code>.link-preview-description</code></td>
+									<td>Description text limited to 3 lines (2 lines on mobile) with ellipsis.</td>
+								</tr>
+								<tr>
+									<td><code>.link-preview-url</code></td>
+									<td>URL text shown in uppercase with ellipsis for overflow handling.</td>
+								</tr>
+								<tr>
+									<td><code>.link-preview-border</code></td>
+									<td>Modifier to add a visible border color around the preview card.</td>
+								</tr>
+								<tr>
+									<td><code>.link-preview-shadow</code></td>
+									<td>Modifier adding subtle shadows with hover and focus elevation effects.</td>
+								</tr>
+								<tr>
+									<td><code>.link-preview-vertical</code></td>
+									<td>Modifier switching layout to vertical stacking with adjusted image styles.</td>
+								</tr>
+							</tbody>
+						</table>
 
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

@@ -308,958 +308,972 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Table</h1>
-					<p class="text-lead">Easily create nice looking tables, which come in different styles.</p>
-					<hr>
-					<h2>Usage</h2>
-					<p>To apply this component, add the <code>.table</code> class to a <code>&lt;table&gt;</code> element.</p>
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>				
-						<div class="tab-content">
-							<div class="active">
-								<table class="table">
-									<caption>Table Caption</caption>
-									<thead>
-										<tr>
-											<th>Table Heading</th>
-											<th>Table Heading</th>
-											<th>Table Heading</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Table Data</td>
-											<td>Table Data</td>
-											<td>Table Data</td>
-										</tr>
-										<tr>
-											<td>Table Data</td>
-											<td>Table Data</td>
-											<td>Table Data</td>
-										</tr>
-									</tbody>
-									<tfoot>
-										<tr>
-											<td>Table Footer</td>
-											<td>Table Footer</td>
-											<td>Table Footer</td>
-										</tr>
-									</tfoot>
-								</table>
-							</div>
-							<div>
-								<pre><code>
-&lt;table class=&quot;table&quot;&gt;
-	&lt;caption&gt;Table Caption&lt;/caption&gt;
-	&lt;thead&gt;
-		&lt;tr&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-		&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-		&lt;/tr&gt;
-	&lt;/tbody&gt;
-	&lt;tfoot&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Footer&lt;/td&gt;
-			&lt;td&gt;Table Footer&lt;/td&gt;
-			&lt;td&gt;Table Footer&lt;/td&gt;
-		&lt;/tr&gt;
-	&lt;/tfoot&gt;
-&lt;/table&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Divider modifier</h2>
-					<p>Add the <code>.table-divider</code> class to display a divider between table rows.</p>
-					<div><pre><code>&lt;<span>table</span> <span>class</span>=<span>"table table-divider"</span>&gt;…&lt;/<span>table</span>&gt;</code></pre></div>
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>				
-						<div class="tab-content">
-							<div class="active">
-								<table class="table table-divider">
-									<thead>
-										<tr>
-											<th>Table Heading</th>
-											<th>Table Heading</th>
-											<th>Table Heading</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Table Data</td>
-											<td>Table Data</td>
-											<td>Table Data</td>
-										</tr>
-										<tr>
-											<td>Table Data</td>
-											<td>Table Data</td>
-											<td>Table Data</td>
-										</tr>
-										<tr>
-											<td>Table Data</td>
-											<td>Table Data</td>
-											<td>Table Data</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div>
-								<pre><code>
-&lt;table class=&quot;table table-divider&quot;&gt;
-	&lt;thead&gt;
-		&lt;tr&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-		&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-		&lt;/tr&gt;
-	&lt;/tbody&gt;
-&lt;/table&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Striped modifier</h2>
-					<p>Add zebra-striping to a table by adding the <code>.table-striped</code> class.</p>
-					<div><pre><code>&lt;<span>table</span> <span>class</span>=<span>"table table-striped"</span>&gt;…&lt;/<span>table</span>&gt;</code></pre></div>
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<table class="table table-striped">
-									<thead>
-										<tr>
-											<th>Table Heading</th>
-											<th>Table Heading</th>
-											<th>Table Heading</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Table Data</td>
-											<td>Table Data</td>
-											<td>Table Data</td>
-										</tr>
-										<tr>
-											<td>Table Data</td>
-											<td>Table Data</td>
-											<td>Table Data</td>
-										</tr>
-										<tr>
-											<td>Table Data</td>
-											<td>Table Data</td>
-											<td>Table Data</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div>
-								<pre><code>
-&lt;table class=&quot;table table-striped&quot;&gt;
-	&lt;thead&gt;
-		&lt;tr&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-		&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-		&lt;/tr&gt;
-	&lt;/tbody&gt;
-&lt;/table&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Hover modifier</h2>
-					<p>Add the <code>.table-hover</code> class to display a hover state on table rows.</p>
-					<div><pre><code>&lt;<span>table</span> <span>class</span>=<span>"table table-hover"</span>&gt;…&lt;/<span>table</span>&gt;</code></pre></div>
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>				
-						<div class="tab-content">
-							<div class="active">
-								<table class="table table-hover table-divider">
-									<thead>
-										<tr>
-											<th>Table Heading</th>
-											<th>Table Heading</th>
-											<th>Table Heading</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Table Data</td>
-											<td>Table Data</td>
-											<td>Table Data</td>
-										</tr>
-										<tr>
-											<td>Table Data</td>
-											<td>Table Data</td>
-											<td>Table Data</td>
-										</tr>
-										<tr>
-											<td>Table Data</td>
-											<td>Table Data</td>
-											<td>Table Data</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div>
-								<pre><code>
-&lt;table class=&quot;table table-hover table-divider&quot;&gt;
-	&lt;thead&gt;
-		&lt;tr&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-		&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-		&lt;/tr&gt;
-	&lt;/tbody&gt;
-&lt;/table&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Size modifiers</h2>
-					<p>Add the <code>.table-small</code> or <code>.table-large</code> class to a table to make it smaller or larger.</p>
-					<div><pre><code>&lt;<span>table</span> <span>class</span>=<span>"table table-small"</span>&gt;…&lt;/<span>table</span>&gt;</code></pre></div>
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>				
-						<div class="tab-content">
-							<div class="active">
-								<table class="table table-small table-divider">
-									<thead>
-										<tr>
-											<th>Table Heading</th>
-											<th>Table Heading</th>
-											<th>Table Heading</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Table Data</td>
-											<td>Table Data</td>
-											<td>Table Data</td>
-										</tr>
-										<tr>
-											<td>Table Data</td>
-											<td>Table Data</td>
-											<td>Table Data</td>
-										</tr>
-										<tr>
-											<td>Table Data</td>
-											<td>Table Data</td>
-											<td>Table Data</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div>
-								<pre><code>
-&lt;table class=&quot;table table-small table-divider&quot;&gt;
-	&lt;thead&gt;
-		&lt;tr&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-		&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-		&lt;/tr&gt;
-	&lt;/tbody&gt;
-&lt;/table&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Justify modifier</h2>
-					<p>To remove the outer padding of the first and last column so that they are flush with the table, add the <code>.table-justify</code> class.</p>
-					<div>
-						<pre><code>
-&lt;<span>table</span> <span>class</span>=<span>"table table-justify"</span>&gt;…&lt;/<span>table</span>&gt;
-						</code></pre>
-					</div>
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>	
-						<div class="tab-content">
-							<div class="active">
-								<table class="table table-justify table-divider">
-									<thead>
-										<tr>
-											<th class="width-small">Table Heading</th>
-											<th>Table Heading</th>
-											<th>Table Heading</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Table Data</td>
-											<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-											<td><button class="button button-default" type="button">Button</button></td>
-										</tr>
-										<tr>
-											<td>Table Data</td>
-											<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-											<td><button class="button button-default" type="button">Button</button></td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div>
-								<pre><code">
-&lt;table class=&quot;table table-justify table-divider&quot;&gt;
-	&lt;thead&gt;
-		&lt;tr&gt;
-			&lt;th class=&quot;width-small&quot;&gt;Table Heading&lt;/th&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-		&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
-			&lt;td&gt;&lt;button class=&quot;button button-default&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
-			&lt;td&gt;&lt;button class=&quot;button button-default&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;&lt;/td&gt;
-		&lt;/tr&gt;
-	&lt;/tbody&gt;
-&lt;/table&gt;
-								</code></pre>
-							</div>
-						</div>
-					</div>
-					
-					<h2>Alignment modifier</h2>
-					<p>To vertically center table content, just add the <code>.table-middle</code> class. You can also apply the class to <code>&lt;tr&gt;</code> or <code>&lt;td&gt;</code> elements for a more specific selection.</p>
-					<div>
-						<pre><code>
-&lt;<span>table</span> <span>class</span>=<span>"table table-middle"</span>&gt;…&lt;/<span>table</span>&gt;
-						</code></pre>
-					</div>
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>				
-						<div class="tab-content">
-							<div class="active">
-								<table class="table table-middle table-divider">
-									<thead>
-										<tr>
-											<th class="width-small">Table Heading</th>
-											<th>Table Heading</th>
-											<th>Table Heading</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Table Data</td>
-											<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-											<td><button class="button button-default" type="button">Button</button></td>
-										</tr>
-										<tr>
-											<td>Table Data</td>
-											<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-											<td><button class="button button-default" type="button">Button</button></td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div>
-								<pre><code>
-&lt;table class=&quot;table table-middle table-divider&quot;&gt;
-	&lt;thead&gt;
-		&lt;tr&gt;
-			&lt;th class=&quot;width-small&quot;&gt;Table Heading&lt;/th&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-			&lt;th&gt;Table Heading&lt;/th&gt;
-		&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
-			&lt;td&gt;&lt;button class=&quot;button button-default&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
-			&lt;td&gt;&lt;button class=&quot;button button-default&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;&lt;/td&gt;
-		&lt;/tr&gt;
-	&lt;/tbody&gt;
-&lt;/table&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Column width modifier</h2>
-					<p>To modify the column width or content, you can use one of the following classes. You just need to add this class to one of the column cells. It's recommended on the header cell.</p>
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.table-shrink </code></td>
-									<td>Add this class to a <code>&lt;th&gt;</code> or <code>&lt;td&gt;</code> element to reduce the column width to fit its content.</td>
-								</tr>
-								<tr>
-									<td><code>.table-expand</code></td>
-									<td>Add this class to a <code>&lt;th&gt;</code> or <code>&lt;td&gt;</code> element to expand the column width to fill the remaining space and apply a min-width.</td>
-								</tr>
-								<tr>
-									<td><code>.width-*</code></td>
-									<td>Add one of these classes from the <a href="https://getuikit.com/docs/width" target="_blank">Width component</a> to a <code>&lt;th&gt;</code> or <code>&lt;td&gt;</code> element to modify the column width.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div><pre><code>&lt;th <span><span>class</span></span>=<span>"table-shrink"</span>&gt;<span><span>&lt;/<span>th</span>&gt;</span></span></code></pre></div>
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>				
-						<div class="tab-content">
-							<div class="active">
-								<table class="table table-divider">
-									<thead>
-										<tr>
-											<th class="table-shrink">Shrink</th>
-											<th class="table-expand">Expand</th>
-											<th class="width-small">Width Small</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Table Data</td>
-											<td>Table Data</td>
-											<td>Table Data</td>
-										</tr>
-										<tr>
-											<td>Table Data</td>
-											<td>Table Data</td>
-											<td>Table Data</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div>
-								<pre><code>
-&lt;table class=&quot;table table-divider&quot;&gt;
-	&lt;thead&gt;
-		&lt;tr&gt;
-			&lt;th class=&quot;table-shrink&quot;&gt;Shrink&lt;/th&gt;
-			&lt;th class=&quot;table-expand&quot;&gt;Expand&lt;/th&gt;
-			&lt;th class=&quot;width-small&quot;&gt;Width Small&lt;/th&gt;
-		&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-			&lt;td&gt;Table Data&lt;/td&gt;
-		&lt;/tr&gt;
-	&lt;/tbody&gt;
-&lt;/table&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Utilities</h2>
-					<p>To optimize the display of table cells and their specific content, you can add one of the following classes.</p>
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.table-link</code></td>
-									<td>To link an entire cell, add this class to a <code>&lt;th&gt;</code>or <code>&lt;td&gt;</code> element and insert an <code>&lt;a&gt;</code>element. Add the <code>.link-reset</code>class from the <a href="https://getuikit.com/docs/link" target="_blank">Link component</a> to reset the default link styling.</td>
-								</tr>
-								<tr>
-									<td><code>.preserve-width </code></td>
-									<td>Since images are responsive by default in UIkit, using an image inside a table cell with the <code>.table-shrink</code> class would reduce the image width to 0. To prevent this behavior, add the <code>.preserve-width</code> class from the <a href="https://getuikit.com/docs/base" target="_blank">Base component</a> to the <code>&lt;img&gt;</code> element.</td>
-								</tr>
-								<tr>
-									<td><code>.text-truncate</code></td>
-									<td>When applying a fixed width to a table cell, you might want to add this class from the <a href="https://getuikit.com/docs/text" target="_blank">Text component</a> to the <code>&lt;td&gt;</code> element to truncate the text.</td>
-								</tr>
-								<tr>
-									<td><code>.text-nowrap</code></td>
-									<td>Add this class from the <a href="https://getuikit.com/docs/text" target="_blank">Text component</a> to keep text from wrapping, for example when using the <code>.table-shrink</code> class.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="margin-medium">
-						<pre><code>
-&lt;!-- Table link --&gt;
-&lt;td class=&quot;table-link&quot;&gt;
-	&lt;a class=&quot;link-reset&quot; href=&quot;&quot;&gt;&lt;/a&gt;
-&lt;/td&gt;
-
-&lt;!-- Preserve width --&gt;
-&lt;td&gt;
-	&lt;img class=&quot;preserve-width&quot; src=&quot;&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot;&gt;
-&lt;/td&gt;
-
-&lt;!-- Text truncate --&gt;
-&lt;td class=&quot;text-truncate&quot;&gt;&lt;/td&gt;
-
-&lt;!-- Text nowrap --&gt;
-&lt;td class=&quot;text-nowrap&quot;&gt;&lt;/td&gt;
-						</code></pre>
-					</div>
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>			
-						<div class="tab-content">
-							<div class="active">
-								<div class="overflow-auto">
-									<table class="table table-hover table-middle table-divider">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Table</h1>
+						<p class="text-lead">Easily create nice looking tables, which come in different styles.</p>
+						<hr>
+						<h2>Usage</h2>
+						<p>To apply this component, add the <code>.table</code> class to a <code>&lt;table&gt;</code> element.</p>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>				
+							<div class="tab-content">
+								<div class="active">
+									<table class="table">
+										<caption>Table Caption</caption>
 										<thead>
 											<tr>
-												<th class="table-shrink"></th>
-												<th class="table-shrink">Preserve</th>
-												<th class="table-expand">Expand + Link</th>
-												<th class="width-small">Truncate</th>
-												<th class="table-shrink text-nowrap">Shrink + Nowrap</th>
+												<th>Table Heading</th>
+												<th>Table Heading</th>
+												<th>Table Heading</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
-												<td><input class="checkbox" type="checkbox" aria-label="Checkbox"></td>
-												<td><img class="preserve-width border-circle" src="/assets/images/avatars/avatar.png" width="40" height="40" alt=""></td>
-												<td class="table-link">
-													<a class="link-reset" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</a>
-												</td>
-												<td class="text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</td>
-												<td class="text-nowrap">Lorem ipsum dolor</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
 											</tr>
 											<tr>
-												<td><input class="checkbox" type="checkbox" aria-label="Checkbox"></td>
-												<td><img class="preserve-width border-circle" src="/assets/images/avatars/avatar.png" width="40" height="40" alt=""></td>
-												<td class="table-link">
-													<a class="link-reset" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</a>
-												</td>
-												<td class="text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</td>
-												<td class="text-nowrap">Lorem ipsum dolor</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
+											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<td>Table Footer</td>
+												<td>Table Footer</td>
+												<td>Table Footer</td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+								<div>
+									<pre><code>
+										&lt;table class=&quot;table&quot;&gt;
+											&lt;caption&gt;Table Caption&lt;/caption&gt;
+											&lt;thead&gt;
+												&lt;tr&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+												&lt;/tr&gt;
+											&lt;/thead&gt;
+											&lt;tbody&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+												&lt;/tr&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+												&lt;/tr&gt;
+											&lt;/tbody&gt;
+											&lt;tfoot&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Footer&lt;/td&gt;
+													&lt;td&gt;Table Footer&lt;/td&gt;
+													&lt;td&gt;Table Footer&lt;/td&gt;
+												&lt;/tr&gt;
+											&lt;/tfoot&gt;
+										&lt;/table&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h2>Divider modifier</h2>
+						<p>Add the <code>.table-divider</code> class to display a divider between table rows.</p>
+						<div><pre><code>&lt;<span>table</span> <span>class</span>=<span>"table table-divider"</span>&gt;…&lt;/<span>table</span>&gt;</code></pre></div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>				
+							<div class="tab-content">
+								<div class="active">
+									<table class="table table-divider">
+										<thead>
+											<tr>
+												<th>Table Heading</th>
+												<th>Table Heading</th>
+												<th>Table Heading</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Table Data</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
 											</tr>
 											<tr>
-												<td><input class="checkbox" type="checkbox" aria-label="Checkbox"></td>
-												<td><img class="preserve-width border-circle" src="/assets/images/avatars/avatar.png" width="40" height="40" alt=""></td>
-												<td class="table-link">
-													<a class="link-reset" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</a>
-												</td>
-												<td class="text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</td>
-												<td class="text-nowrap">Lorem ipsum dolor</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
 											</tr>
 											<tr>
-												<td><input class="checkbox" type="checkbox" aria-label="Checkbox"></td>
-												<td><img class="preserve-width border-circle" src="/assets/images/avatars/avatar.png" width="40" height="40" alt=""></td>
-												<td class="table-link">
-													<a class="link-reset" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</a>
-												</td>
-												<td class="text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</td>
-												<td class="text-nowrap">Lorem ipsum dolor</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
 											</tr>
 										</tbody>
 									</table>
 								</div>
+								<div>
+									<pre><code>
+										&lt;table class=&quot;table table-divider&quot;&gt;
+											&lt;thead&gt;
+												&lt;tr&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+												&lt;/tr&gt;
+											&lt;/thead&gt;
+											&lt;tbody&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+												&lt;/tr&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+												&lt;/tr&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+												&lt;/tr&gt;
+											&lt;/tbody&gt;
+										&lt;/table&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;table class=&quot;table table-hover table-middle table-divider&quot;&gt;
-	&lt;thead&gt;
-		&lt;tr&gt;
-			&lt;th class=&quot;table-shrink&quot;&gt;&lt;/th&gt;
-			&lt;th class=&quot;table-shrink&quot;&gt;Preserve&lt;/th&gt;
-			&lt;th class=&quot;table-expand&quot;&gt;Expand + Link&lt;/th&gt;
-			&lt;th class=&quot;width-small&quot;&gt;Truncate&lt;/th&gt;
-			&lt;th class=&quot;table-shrink text-nowrap&quot;&gt;Shrink + Nowrap&lt;/th&gt;
-		&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-		&lt;tr&gt;
-			&lt;td&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; aria-label=&quot;Checkbox&quot;&gt;&lt;/td&gt;
-			&lt;td&gt;&lt;img class=&quot;preserve-width border-circle&quot; src=&quot;/assets/images/avatars/avatar.png&quot; width=&quot;40&quot; height=&quot;40&quot; alt=&quot;&quot;&gt;&lt;/td&gt;
-			&lt;td class=&quot;table-link&quot;&gt;
-				&lt;a class=&quot;link-reset&quot; href=&quot;&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/a&gt;
-			&lt;/td&gt;
-			&lt;td class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/td&gt;
-			&lt;td class=&quot;text-nowrap&quot;&gt;Lorem ipsum dolor&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; aria-label=&quot;Checkbox&quot;&gt;&lt;/td&gt;
-			&lt;td&gt;&lt;img class=&quot;preserve-width border-circle&quot; src=&quot;/assets/images/avatars/avatar.png&quot; width=&quot;40&quot; height=&quot;40&quot; alt=&quot;&quot;&gt;&lt;/td&gt;
-			&lt;td class=&quot;table-link&quot;&gt;
-				&lt;a class=&quot;link-reset&quot; href=&quot;&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/a&gt;
-			&lt;/td&gt;
-			&lt;td class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/td&gt;
-			&lt;td class=&quot;text-nowrap&quot;&gt;Lorem ipsum dolor&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; aria-label=&quot;Checkbox&quot;&gt;&lt;/td&gt;
-			&lt;td&gt;&lt;img class=&quot;preserve-width border-circle&quot; src=&quot;/assets/images/avatars/avatar.png&quot; width=&quot;40&quot; height=&quot;40&quot; alt=&quot;&quot;&gt;&lt;/td&gt;
-			&lt;td class=&quot;table-link&quot;&gt;
-				&lt;a class=&quot;link-reset&quot; href=&quot;&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/a&gt;
-			&lt;/td&gt;
-			&lt;td class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/td&gt;
-			&lt;td class=&quot;text-nowrap&quot;&gt;Lorem ipsum dolor&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; aria-label=&quot;Checkbox&quot;&gt;&lt;/td&gt;
-			&lt;td&gt;&lt;img class=&quot;preserve-width border-circle&quot; src=&quot;/assets/images/avatars/avatar.png&quot; width=&quot;40&quot; height=&quot;40&quot; alt=&quot;&quot;&gt;&lt;/td&gt;
-			&lt;td class=&quot;table-link&quot;&gt;
-				&lt;a class=&quot;link-reset&quot; href=&quot;&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/a&gt;
-			&lt;/td&gt;
-			&lt;td class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/td&gt;
-			&lt;td class=&quot;text-nowrap&quot;&gt;Lorem ipsum dolor&lt;/td&gt;
-		&lt;/tr&gt;
-	&lt;/tbody&gt;
-&lt;/table&gt;
-								</code></pre>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h2>Striped modifier</h2>
+						<p>Add zebra-striping to a table by adding the <code>.table-striped</code> class.</p>
+						<div><pre><code>&lt;<span>table</span> <span>class</span>=<span>"table table-striped"</span>&gt;…&lt;/<span>table</span>&gt;</code></pre></div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th>Table Heading</th>
+												<th>Table Heading</th>
+												<th>Table Heading</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Table Data</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
+											</tr>
+											<tr>
+												<td>Table Data</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
+											</tr>
+											<tr>
+												<td>Table Data</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div>
+									<pre><code>
+										&lt;table class=&quot;table table-striped&quot;&gt;
+											&lt;thead&gt;
+												&lt;tr&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+												&lt;/tr&gt;
+											&lt;/thead&gt;
+											&lt;tbody&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+												&lt;/tr&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+												&lt;/tr&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+												&lt;/tr&gt;
+											&lt;/tbody&gt;
+										&lt;/table&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h2>Hover modifier</h2>
+						<p>Add the <code>.table-hover</code> class to display a hover state on table rows.</p>
+						<div><pre><code>&lt;<span>table</span> <span>class</span>=<span>"table table-hover"</span>&gt;…&lt;/<span>table</span>&gt;</code></pre></div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>				
+							<div class="tab-content">
+								<div class="active">
+									<table class="table table-hover table-divider">
+										<thead>
+											<tr>
+												<th>Table Heading</th>
+												<th>Table Heading</th>
+												<th>Table Heading</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Table Data</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
+											</tr>
+											<tr>
+												<td>Table Data</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
+											</tr>
+											<tr>
+												<td>Table Data</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div>
+									<pre><code>
+										&lt;table class=&quot;table table-hover table-divider&quot;&gt;
+											&lt;thead&gt;
+												&lt;tr&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+												&lt;/tr&gt;
+											&lt;/thead&gt;
+											&lt;tbody&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+												&lt;/tr&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+												&lt;/tr&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+												&lt;/tr&gt;
+											&lt;/tbody&gt;
+										&lt;/table&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h2>Size modifiers</h2>
+						<p>Add the <code>.table-small</code> or <code>.table-large</code> class to a table to make it smaller or larger.</p>
+						<div><pre><code>&lt;<span>table</span> <span>class</span>=<span>"table table-small"</span>&gt;…&lt;/<span>table</span>&gt;</code></pre></div>
+						
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>				
+							<div class="tab-content">
+								<div class="active">
+									<table class="table table-small table-divider">
+										<thead>
+											<tr>
+												<th>Table Heading</th>
+												<th>Table Heading</th>
+												<th>Table Heading</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Table Data</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
+											</tr>
+											<tr>
+												<td>Table Data</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
+											</tr>
+											<tr>
+												<td>Table Data</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div>
+									<pre><code>
+										&lt;table class=&quot;table table-small table-divider&quot;&gt;
+											&lt;thead&gt;
+												&lt;tr&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+												&lt;/tr&gt;
+											&lt;/thead&gt;
+											&lt;tbody&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+												&lt;/tr&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+												&lt;/tr&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+												&lt;/tr&gt;
+											&lt;/tbody&gt;
+										&lt;/table&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h2>Justify modifier</h2>
+						<p>To remove the outer padding of the first and last column so that they are flush with the table, add the <code>.table-justify</code> class.</p>
+						<div>
+							<pre><code>
+								&lt;<span>table</span> <span>class</span>=<span>"table table-justify"</span>&gt;…&lt;/<span>table</span>&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>	
+							<div class="tab-content">
+								<div class="active">
+									<table class="table table-justify table-divider">
+										<thead>
+											<tr>
+												<th class="width-small">Table Heading</th>
+												<th>Table Heading</th>
+												<th>Table Heading</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Table Data</td>
+												<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+												<td><button class="button button-default" type="button">Button</button></td>
+											</tr>
+											<tr>
+												<td>Table Data</td>
+												<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+												<td><button class="button button-default" type="button">Button</button></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div>
+									<pre><code">
+										&lt;table class=&quot;table table-justify table-divider&quot;&gt;
+											&lt;thead&gt;
+												&lt;tr&gt;
+													&lt;th class=&quot;width-small&quot;&gt;Table Heading&lt;/th&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+												&lt;/tr&gt;
+											&lt;/thead&gt;
+											&lt;tbody&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
+													&lt;td&gt;&lt;button class=&quot;button button-default&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;&lt;/td&gt;
+												&lt;/tr&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
+													&lt;td&gt;&lt;button class=&quot;button button-default&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;&lt;/td&gt;
+												&lt;/tr&gt;
+											&lt;/tbody&gt;
+										&lt;/table&gt;
+									</code></pre>
+								</div>
 							</div>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					<h4 class="heading-line"><span>Examples</span></h4>
-								
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>				
-						<div class="tab-content">
-							<div class="active">
-								<div class="card round shadow">
-									<h3 class="card-title">Example</h3>
-									<div class="card-body">
-										<div class="overflow-auto">
-											<table class="table table-justify table-divider">
-												<thead>
-													<tr>
-														<th class="width-small">Table Heading</th>
-														<th>Table Heading</th>
-														<th class="table-shrink text-nowrap">Heading</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Table Data</td>
-														<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-														<td><button class="button button-primary" type="button">Button</button></td>
-													</tr>
-													<tr>
-														<td>Table Data</td>
-														<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-														<td><button class="button button-primary" type="button">Button</button></td>
-													</tr>
-												</tbody>
-											</table>
+						
+						<h2>Alignment modifier</h2>
+						<p>To vertically center table content, just add the <code>.table-middle</code> class. You can also apply the class to <code>&lt;tr&gt;</code> or <code>&lt;td&gt;</code> elements for a more specific selection.</p>
+						<div>
+							<pre><code>
+								&lt;<span>table</span> <span>class</span>=<span>"table table-middle"</span>&gt;…&lt;/<span>table</span>&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>				
+							<div class="tab-content">
+								<div class="active">
+									<table class="table table-middle table-divider">
+										<thead>
+											<tr>
+												<th class="width-small">Table Heading</th>
+												<th>Table Heading</th>
+												<th>Table Heading</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Table Data</td>
+												<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+												<td><button class="button button-default" type="button">Button</button></td>
+											</tr>
+											<tr>
+												<td>Table Data</td>
+												<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+												<td><button class="button button-default" type="button">Button</button></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div>
+									<pre><code>
+										&lt;table class=&quot;table table-middle table-divider&quot;&gt;
+											&lt;thead&gt;
+												&lt;tr&gt;
+													&lt;th class=&quot;width-small&quot;&gt;Table Heading&lt;/th&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+													&lt;th&gt;Table Heading&lt;/th&gt;
+												&lt;/tr&gt;
+											&lt;/thead&gt;
+											&lt;tbody&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
+													&lt;td&gt;&lt;button class=&quot;button button-default&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;&lt;/td&gt;
+												&lt;/tr&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
+													&lt;td&gt;&lt;button class=&quot;button button-default&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;&lt;/td&gt;
+												&lt;/tr&gt;
+											&lt;/tbody&gt;
+										&lt;/table&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h2>Column width modifier</h2>
+						<p>To modify the column width or content, you can use one of the following classes. You just need to add this class to one of the column cells. It's recommended on the header cell.</p>
+						
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.table-shrink </code></td>
+										<td>Add this class to a <code>&lt;th&gt;</code> or <code>&lt;td&gt;</code> element to reduce the column width to fit its content.</td>
+									</tr>
+									<tr>
+										<td><code>.table-expand</code></td>
+										<td>Add this class to a <code>&lt;th&gt;</code> or <code>&lt;td&gt;</code> element to expand the column width to fill the remaining space and apply a min-width.</td>
+									</tr>
+									<tr>
+										<td><code>.width-*</code></td>
+										<td>Add one of these classes from the <a href="https://getuikit.com/docs/width" target="_blank">Width component</a> to a <code>&lt;th&gt;</code> or <code>&lt;td&gt;</code> element to modify the column width.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+						<div><pre><code>&lt;th <span><span>class</span></span>=<span>"table-shrink"</span>&gt;<span><span>&lt;/<span>th</span>&gt;</span></span></code></pre></div>
+						
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>				
+							<div class="tab-content">
+								<div class="active">
+									<table class="table table-divider">
+										<thead>
+											<tr>
+												<th class="table-shrink">Shrink</th>
+												<th class="table-expand">Expand</th>
+												<th class="width-small">Width Small</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Table Data</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
+											</tr>
+											<tr>
+												<td>Table Data</td>
+												<td>Table Data</td>
+												<td>Table Data</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div>
+									<pre><code>
+										&lt;table class=&quot;table table-divider&quot;&gt;
+											&lt;thead&gt;
+												&lt;tr&gt;
+													&lt;th class=&quot;table-shrink&quot;&gt;Shrink&lt;/th&gt;
+													&lt;th class=&quot;table-expand&quot;&gt;Expand&lt;/th&gt;
+													&lt;th class=&quot;width-small&quot;&gt;Width Small&lt;/th&gt;
+												&lt;/tr&gt;
+											&lt;/thead&gt;
+											&lt;tbody&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+												&lt;/tr&gt;
+												&lt;tr&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+													&lt;td&gt;Table Data&lt;/td&gt;
+												&lt;/tr&gt;
+											&lt;/tbody&gt;
+										&lt;/table&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h2>Utilities</h2>
+						<p>To optimize the display of table cells and their specific content, you can add one of the following classes.</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.table-link</code></td>
+										<td>To link an entire cell, add this class to a <code>&lt;th&gt;</code>or <code>&lt;td&gt;</code> element and insert an <code>&lt;a&gt;</code>element. Add the <code>.link-reset</code>class from the <a href="https://getuikit.com/docs/link" target="_blank">Link component</a> to reset the default link styling.</td>
+									</tr>
+									<tr>
+										<td><code>.preserve-width </code></td>
+										<td>Since images are responsive by default in UIkit, using an image inside a table cell with the <code>.table-shrink</code> class would reduce the image width to 0. To prevent this behavior, add the <code>.preserve-width</code> class from the <a href="https://getuikit.com/docs/base" target="_blank">Base component</a> to the <code>&lt;img&gt;</code> element.</td>
+									</tr>
+									<tr>
+										<td><code>.text-truncate</code></td>
+										<td>When applying a fixed width to a table cell, you might want to add this class from the <a href="https://getuikit.com/docs/text" target="_blank">Text component</a> to the <code>&lt;td&gt;</code> element to truncate the text.</td>
+									</tr>
+									<tr>
+										<td><code>.text-nowrap</code></td>
+										<td>Add this class from the <a href="https://getuikit.com/docs/text" target="_blank">Text component</a> to keep text from wrapping, for example when using the <code>.table-shrink</code> class.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div class="margin-medium">
+							<pre><code>
+								&lt;!-- Table link --&gt;
+								&lt;td class=&quot;table-link&quot;&gt;
+									&lt;a class=&quot;link-reset&quot; href=&quot;&quot;&gt;&lt;/a&gt;
+								&lt;/td&gt;
+
+								&lt;!-- Preserve width --&gt;
+								&lt;td&gt;
+									&lt;img class=&quot;preserve-width&quot; src=&quot;&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot;&gt;
+								&lt;/td&gt;
+
+								&lt;!-- Text truncate --&gt;
+								&lt;td class=&quot;text-truncate&quot;&gt;&lt;/td&gt;
+
+								&lt;!-- Text nowrap --&gt;
+								&lt;td class=&quot;text-nowrap&quot;&gt;&lt;/td&gt;
+							</code></pre>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>			
+							<div class="tab-content">
+								<div class="active">
+									<div class="overflow-auto">
+										<table class="table table-hover table-middle table-divider">
+											<thead>
+												<tr>
+													<th class="table-shrink"></th>
+													<th class="table-shrink">Preserve</th>
+													<th class="table-expand">Expand + Link</th>
+													<th class="width-small">Truncate</th>
+													<th class="table-shrink text-nowrap">Shrink + Nowrap</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><input class="checkbox" type="checkbox" aria-label="Checkbox"></td>
+													<td><img class="preserve-width border-circle" src="/assets/images/avatars/avatar.png" width="40" height="40" alt=""></td>
+													<td class="table-link">
+														<a class="link-reset" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</a>
+													</td>
+													<td class="text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</td>
+													<td class="text-nowrap">Lorem ipsum dolor</td>
+												</tr>
+												<tr>
+													<td><input class="checkbox" type="checkbox" aria-label="Checkbox"></td>
+													<td><img class="preserve-width border-circle" src="/assets/images/avatars/avatar.png" width="40" height="40" alt=""></td>
+													<td class="table-link">
+														<a class="link-reset" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</a>
+													</td>
+													<td class="text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</td>
+													<td class="text-nowrap">Lorem ipsum dolor</td>
+												</tr>
+												<tr>
+													<td><input class="checkbox" type="checkbox" aria-label="Checkbox"></td>
+													<td><img class="preserve-width border-circle" src="/assets/images/avatars/avatar.png" width="40" height="40" alt=""></td>
+													<td class="table-link">
+														<a class="link-reset" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</a>
+													</td>
+													<td class="text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</td>
+													<td class="text-nowrap">Lorem ipsum dolor</td>
+												</tr>
+												<tr>
+													<td><input class="checkbox" type="checkbox" aria-label="Checkbox"></td>
+													<td><img class="preserve-width border-circle" src="/assets/images/avatars/avatar.png" width="40" height="40" alt=""></td>
+													<td class="table-link">
+														<a class="link-reset" href="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</a>
+													</td>
+													<td class="text-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</td>
+													<td class="text-nowrap">Lorem ipsum dolor</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;table class=&quot;table table-hover table-middle table-divider&quot;&gt;
+											&lt;thead&gt;
+												&lt;tr&gt;
+													&lt;th class=&quot;table-shrink&quot;&gt;&lt;/th&gt;
+													&lt;th class=&quot;table-shrink&quot;&gt;Preserve&lt;/th&gt;
+													&lt;th class=&quot;table-expand&quot;&gt;Expand + Link&lt;/th&gt;
+													&lt;th class=&quot;width-small&quot;&gt;Truncate&lt;/th&gt;
+													&lt;th class=&quot;table-shrink text-nowrap&quot;&gt;Shrink + Nowrap&lt;/th&gt;
+												&lt;/tr&gt;
+											&lt;/thead&gt;
+											&lt;tbody&gt;
+												&lt;tr&gt;
+													&lt;td&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; aria-label=&quot;Checkbox&quot;&gt;&lt;/td&gt;
+													&lt;td&gt;&lt;img class=&quot;preserve-width border-circle&quot; src=&quot;/assets/images/avatars/avatar.png&quot; width=&quot;40&quot; height=&quot;40&quot; alt=&quot;&quot;&gt;&lt;/td&gt;
+													&lt;td class=&quot;table-link&quot;&gt;
+														&lt;a class=&quot;link-reset&quot; href=&quot;&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/a&gt;
+													&lt;/td&gt;
+													&lt;td class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/td&gt;
+													&lt;td class=&quot;text-nowrap&quot;&gt;Lorem ipsum dolor&lt;/td&gt;
+												&lt;/tr&gt;
+												&lt;tr&gt;
+													&lt;td&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; aria-label=&quot;Checkbox&quot;&gt;&lt;/td&gt;
+													&lt;td&gt;&lt;img class=&quot;preserve-width border-circle&quot; src=&quot;/assets/images/avatars/avatar.png&quot; width=&quot;40&quot; height=&quot;40&quot; alt=&quot;&quot;&gt;&lt;/td&gt;
+													&lt;td class=&quot;table-link&quot;&gt;
+														&lt;a class=&quot;link-reset&quot; href=&quot;&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/a&gt;
+													&lt;/td&gt;
+													&lt;td class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/td&gt;
+													&lt;td class=&quot;text-nowrap&quot;&gt;Lorem ipsum dolor&lt;/td&gt;
+												&lt;/tr&gt;
+												&lt;tr&gt;
+													&lt;td&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; aria-label=&quot;Checkbox&quot;&gt;&lt;/td&gt;
+													&lt;td&gt;&lt;img class=&quot;preserve-width border-circle&quot; src=&quot;/assets/images/avatars/avatar.png&quot; width=&quot;40&quot; height=&quot;40&quot; alt=&quot;&quot;&gt;&lt;/td&gt;
+													&lt;td class=&quot;table-link&quot;&gt;
+														&lt;a class=&quot;link-reset&quot; href=&quot;&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/a&gt;
+													&lt;/td&gt;
+													&lt;td class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/td&gt;
+													&lt;td class=&quot;text-nowrap&quot;&gt;Lorem ipsum dolor&lt;/td&gt;
+												&lt;/tr&gt;
+												&lt;tr&gt;
+													&lt;td&gt;&lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot; aria-label=&quot;Checkbox&quot;&gt;&lt;/td&gt;
+													&lt;td&gt;&lt;img class=&quot;preserve-width border-circle&quot; src=&quot;/assets/images/avatars/avatar.png&quot; width=&quot;40&quot; height=&quot;40&quot; alt=&quot;&quot;&gt;&lt;/td&gt;
+													&lt;td class=&quot;table-link&quot;&gt;
+														&lt;a class=&quot;link-reset&quot; href=&quot;&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/a&gt;
+													&lt;/td&gt;
+													&lt;td class=&quot;text-truncate&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.&lt;/td&gt;
+													&lt;td class=&quot;text-nowrap&quot;&gt;Lorem ipsum dolor&lt;/td&gt;
+												&lt;/tr&gt;
+											&lt;/tbody&gt;
+										&lt;/table&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h4 class="heading-line"><span>Examples</span></h4>
+									
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>				
+							<div class="tab-content">
+								<div class="active">
+									<div class="card round shadow">
+										<h3 class="card-title">Example</h3>
+										<div class="card-body">
+											<div class="overflow-auto">
+												<table class="table table-justify table-divider">
+													<thead>
+														<tr>
+															<th class="width-small">Table Heading</th>
+															<th>Table Heading</th>
+															<th class="table-shrink text-nowrap">Heading</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>Table Data</td>
+															<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+															<td><button class="button button-primary" type="button">Button</button></td>
+														</tr>
+														<tr>
+															<td>Table Data</td>
+															<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+															<td><button class="button button-primary" type="button">Button</button></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
 										</div>
 									</div>
 								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card round shadow&quot;&gt;
+											&lt;h3 class=&quot;card-title&quot;&gt;Example&lt;/h3&gt;
+											&lt;div class=&quot;card-body&quot;&gt;
+												&lt;div class=&quot;overflow-auto&quot;&gt;
+													&lt;table class=&quot;table table-justify table-divider&quot;&gt;
+														&lt;thead&gt;
+															&lt;tr&gt;
+																&lt;th class=&quot;width-small&quot;&gt;Table Heading&lt;/th&gt;
+																&lt;th&gt;Table Heading&lt;/th&gt;
+																&lt;th class=&quot;table-shrink text-nowrap&quot;&gt;Heading&lt;/th&gt;
+															&lt;/tr&gt;
+														&lt;/thead&gt;
+														&lt;tbody&gt;
+															&lt;tr&gt;
+																&lt;td&gt;Table Data&lt;/td&gt;
+																&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
+																&lt;td&gt;&lt;button class=&quot;button button-primary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;&lt;/td&gt;
+															&lt;/tr&gt;
+															&lt;tr&gt;
+																&lt;td&gt;Table Data&lt;/td&gt;
+																&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
+																&lt;td&gt;&lt;button class=&quot;button button-primary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;&lt;/td&gt;
+															&lt;/tr&gt;
+														&lt;/tbody&gt;
+													&lt;/table&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;card round shadow&quot;&gt;
-	&lt;h3 class=&quot;card-title&quot;&gt;Example&lt;/h3&gt;
-	&lt;div class=&quot;card-body&quot;&gt;
-		&lt;div class=&quot;overflow-auto&quot;&gt;
-			&lt;table class=&quot;table table-justify table-divider&quot;&gt;
-				&lt;thead&gt;
-					&lt;tr&gt;
-						&lt;th class=&quot;width-small&quot;&gt;Table Heading&lt;/th&gt;
-						&lt;th&gt;Table Heading&lt;/th&gt;
-						&lt;th class=&quot;table-shrink text-nowrap&quot;&gt;Heading&lt;/th&gt;
-					&lt;/tr&gt;
-				&lt;/thead&gt;
-				&lt;tbody&gt;
-					&lt;tr&gt;
-						&lt;td&gt;Table Data&lt;/td&gt;
-						&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
-						&lt;td&gt;&lt;button class=&quot;button button-primary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;&lt;/td&gt;
-					&lt;/tr&gt;
-					&lt;tr&gt;
-						&lt;td&gt;Table Data&lt;/td&gt;
-						&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
-						&lt;td&gt;&lt;button class=&quot;button button-primary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;&lt;/td&gt;
-					&lt;/tr&gt;
-				&lt;/tbody&gt;
-			&lt;/table&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-	
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>				
-						<div class="tab-content">
-							<div class="active">
-								<div class="card round shadow">
-									<h3 class="card-title">Example</h3>
-									<div class="card-body">
-										<div class="overflow-auto">
-											<table class="table table-middle table-divider">
-												<thead>
-													<tr>
-														<th class="width-small">Table Heading</th>
-														<th>Table Heading</th>
-														<th>Heading</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Table Data</td>
-														<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-														<td><button class="button button-secondary" type="button">Button</button></td>
-													</tr>
-													<tr>
-														<td>Table Data</td>
-														<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-														<td><button class="button button-secondary" type="button">Button</button></td>
-													</tr>
-												</tbody>
-											</table>
+		
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>				
+							<div class="tab-content">
+								<div class="active">
+									<div class="card round shadow">
+										<h3 class="card-title">Example</h3>
+										<div class="card-body">
+											<div class="overflow-auto">
+												<table class="table table-middle table-divider">
+													<thead>
+														<tr>
+															<th class="width-small">Table Heading</th>
+															<th>Table Heading</th>
+															<th>Heading</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>Table Data</td>
+															<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+															<td><button class="button button-secondary" type="button">Button</button></td>
+														</tr>
+														<tr>
+															<td>Table Data</td>
+															<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+															<td><button class="button button-secondary" type="button">Button</button></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
 										</div>
 									</div>
 								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;card round shadow&quot;&gt;
+											&lt;h3 class=&quot;card-title&quot;&gt;Example&lt;/h3&gt;
+											&lt;div class=&quot;card-body&quot;&gt;
+												&lt;div class=&quot;overflow-auto&quot;&gt;
+													&lt;table class=&quot;table table-middle table-divider&quot;&gt;
+														&lt;thead&gt;
+															&lt;tr&gt;
+																&lt;th class=&quot;width-small&quot;&gt;Table Heading&lt;/th&gt;
+																&lt;th&gt;Table Heading&lt;/th&gt;
+																&lt;th&gt;Heading&lt;/th&gt;
+															&lt;/tr&gt;
+														&lt;/thead&gt;
+														&lt;tbody&gt;
+															&lt;tr&gt;
+																&lt;td&gt;Table Data&lt;/td&gt;
+																&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
+																&lt;td&gt;&lt;button class=&quot;button button-secondary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;&lt;/td&gt;
+															&lt;/tr&gt;
+															&lt;tr&gt;
+																&lt;td&gt;Table Data&lt;/td&gt;
+																&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
+																&lt;td&gt;&lt;button class=&quot;button button-secondary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;&lt;/td&gt;
+															&lt;/tr&gt;
+														&lt;/tbody&gt;
+													&lt;/table&gt;
+												&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;card round shadow&quot;&gt;
-	&lt;h3 class=&quot;card-title&quot;&gt;Example&lt;/h3&gt;
-	&lt;div class=&quot;card-body&quot;&gt;
-		&lt;div class=&quot;overflow-auto&quot;&gt;
-			&lt;table class=&quot;table table-middle table-divider&quot;&gt;
-				&lt;thead&gt;
-					&lt;tr&gt;
-						&lt;th class=&quot;width-small&quot;&gt;Table Heading&lt;/th&gt;
-						&lt;th&gt;Table Heading&lt;/th&gt;
-						&lt;th&gt;Heading&lt;/th&gt;
-					&lt;/tr&gt;
-				&lt;/thead&gt;
-				&lt;tbody&gt;
-					&lt;tr&gt;
-						&lt;td&gt;Table Data&lt;/td&gt;
-						&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
-						&lt;td&gt;&lt;button class=&quot;button button-secondary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;&lt;/td&gt;
-					&lt;/tr&gt;
-					&lt;tr&gt;
-						&lt;td&gt;Table Data&lt;/td&gt;
-						&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/td&gt;
-						&lt;td&gt;&lt;button class=&quot;button button-secondary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;&lt;/td&gt;
-					&lt;/tr&gt;
-				&lt;/tbody&gt;
-			&lt;/table&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
+						
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

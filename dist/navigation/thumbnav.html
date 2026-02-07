@@ -308,120 +308,124 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Thumbnav</h1>
-					<p class="text-lead">Create a flexible thumbnail navigation.</p>
-					<hr>
-					<h2>Usage</h2>
-					<p>To create a navigation with thumbnails, use the following classes. This component is built with Flexbox. So to align
-						a thumbnav, you can use <a href="component-flex.html">Flex component</a>.</p>
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.thumbnav</code></td>
-									<td>Add this class to a <code>&lt;ul&gt;</code> element to define the Thumbnav component. Nest your
-										thumbnail images inside <code>&lt;a&gt;</code> elements within the list.</td>
-								</tr>
-								<tr>
-									<td><code>.active </code></td>
-									<td>Add this class to a list item to apply an active state.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;thumbnav&quot;&gt;
-	&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-						</code></pre>
-					</div>
-					<p><span class="label">Note</span> For a better layout, if items should wrap into the next row, add the <code>margin</code> attribute from the <a href="component-margin.html">Margin component</a>.</p>
-					
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="thumbnav">
-									<li><a href="#!"><img src="/assets/images/photos/image1.webp" width="100" height="67"	alt=""></a></li>
-									<li><a href="#!"><img src="/assets/images/photos/image2.webp" width="100" height="67" alt=""></a></li>
-									<li><a href="#!"><img src="/assets/images/photos/image3.webp" width="100" height="67" alt=""></a></li>
-								</ul>
-							</div>
-							<div>
-								<pre><code>
-&lt;ul class=&quot;thumbnav&quot;&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;&lt;img src=&quot;/assets/images/photos/image1.webp&quot; width=&quot;100&quot; height=&quot;67&quot;	alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;&lt;img src=&quot;/assets/images/photos/image2.webp&quot; width=&quot;100&quot; height=&quot;67&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;&lt;img src=&quot;/assets/images/photos/image3.webp&quot; width=&quot;100&quot; height=&quot;67&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-								</code></pre>
-							</div>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Thumbnav</h1>
+						<p class="text-lead">Create a flexible thumbnail navigation.</p>
+						<hr>
+						<h2>Usage</h2>
+						<p>To create a navigation with thumbnails, use the following classes. This component is built with Flexbox. So to align
+							a thumbnav, you can use <a href="component-flex.html">Flex component</a>.</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.thumbnav</code></td>
+										<td>Add this class to a <code>&lt;ul&gt;</code> element to define the Thumbnav component. Nest your
+											thumbnail images inside <code>&lt;a&gt;</code> elements within the list.</td>
+									</tr>
+									<tr>
+										<td><code>.active </code></td>
+										<td>Add this class to a list item to apply an active state.</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Vertical alignment</h2>
-					<p>The thumbnav can also be displayed vertically. Just add the <code>.thumbnav-vertical</code> modifier.</p>
-					<div>
-						<pre><code>
-&lt;ul class=&quot;thumbnav thumbnav-vertical&quot;&gt;…&lt;/ul&gt;
-						</code></pre>
-					</div>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;thumbnav&quot;&gt;
+									&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+									&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+								&lt;/ul&gt;
+							</code></pre>
+						</div>
+						<p><span class="label">Note</span> For a better layout, if items should wrap into the next row, add the <code>margin</code> attribute from the <a href="component-margin.html">Margin component</a>.</p>
+						
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="thumbnav">
+										<li><a href="#!"><img src="/assets/images/photos/image1.webp" width="100" height="67"	alt=""></a></li>
+										<li><a href="#!"><img src="/assets/images/photos/image2.webp" width="100" height="67" alt=""></a></li>
+										<li><a href="#!"><img src="/assets/images/photos/image3.webp" width="100" height="67" alt=""></a></li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;thumbnav&quot;&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;&lt;img src=&quot;/assets/images/photos/image1.webp&quot; width=&quot;100&quot; height=&quot;67&quot;	alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;&lt;img src=&quot;/assets/images/photos/image2.webp&quot; width=&quot;100&quot; height=&quot;67&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;&lt;img src=&quot;/assets/images/photos/image3.webp&quot; width=&quot;100&quot; height=&quot;67&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h2>Vertical alignment</h2>
+						<p>The thumbnav can also be displayed vertically. Just add the <code>.thumbnav-vertical</code> modifier.</p>
+						<div>
+							<pre><code>
+								&lt;ul class=&quot;thumbnav thumbnav-vertical&quot;&gt;…&lt;/ul&gt;
+							</code></pre>
+						</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<ul class="thumbnav thumbnav-vertical" margin="">
-									<li class="active"><a href="#!"><img src="/assets/images/photos/image1.webp" width="100" height="67"	alt=""></a></li>
-									<li><a href="#!"><img src="/assets/images/photos/image2.webp" width="100" height="67" alt=""></a></li>
-									<li><a href="#!"><img src="/assets/images/photos/image3.webp" width="100" height="67" alt=""></a></li>
-								</ul>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<ul class="thumbnav thumbnav-vertical" margin="">
+										<li class="active"><a href="#!"><img src="/assets/images/photos/image1.webp" width="100" height="67"	alt=""></a></li>
+										<li><a href="#!"><img src="/assets/images/photos/image2.webp" width="100" height="67" alt=""></a></li>
+										<li><a href="#!"><img src="/assets/images/photos/image3.webp" width="100" height="67" alt=""></a></li>
+									</ul>
+								</div>
+								<div>
+									<pre><code>
+										&lt;ul class=&quot;thumbnav thumbnav-vertical&quot; margin=&quot;&quot;&gt;
+											&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;&lt;img src=&quot;/assets/images/photos/image1.webp&quot; width=&quot;100&quot; height=&quot;67&quot;	alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;&lt;img src=&quot;/assets/images/photos/image2.webp&quot; width=&quot;100&quot; height=&quot;67&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+											&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;&lt;img src=&quot;/assets/images/photos/image3.webp&quot; width=&quot;100&quot; height=&quot;67&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+										&lt;/ul&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-&lt;ul class=&quot;thumbnav thumbnav-vertical&quot; margin=&quot;&quot;&gt;
-	&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#!&quot;&gt;&lt;img src=&quot;/assets/images/photos/image1.webp&quot; width=&quot;100&quot; height=&quot;67&quot;	alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;&lt;img src=&quot;/assets/images/photos/image2.webp&quot; width=&quot;100&quot; height=&quot;67&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#!&quot;&gt;&lt;img src=&quot;/assets/images/photos/image3.webp&quot; width=&quot;100&quot; height=&quot;67&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

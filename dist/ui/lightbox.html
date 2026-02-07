@@ -308,234 +308,239 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-				<h1>Lightbox</h1>
-				<p class="text-lead">Create a responsive lightbox gallery with images and videos.</p>
-				<hr>
-				<h2>Usage</h2>
-				<p>To apply this component, add the <code>lightbox</code> attribute to a container to turn all anchors inside that container into lightbox links.</p>
-				<div>
-					<pre><code>
-						&lt;div data-component=&quot;lightbox&quot;&gt;
-							&lt;a class=&quot;button&quot; 
-							href=&quot;/assets/images/photos/image1.webp&quot; 
-							data-caption=&quot;A beautiful mountain sunrise.&quot;
-							data-gallery=&quot;nature-set&quot;&gt;
-							View Full Image
-							&lt;/a&gt;
-						&lt;/div&gt;
-					</code></pre>
-				</div>
-
-				<div class="code-tab">
-					<ul class="tab">
-						<li class="active">Preview</li>
-						<li>Markup</li>
-					</ul>
-					<div class="tab-content">
-						<div class="active">
-
-							<div class="margin-right" lightbox>
-								<a class="button" href="/assets/images/photos/image1.webp">Open Lightbox</a>
-							</div>
-
-							<div data-component="lightbox">
-								<a class="button margin-right" 
-								href="/assets/images/photos/image1.webp" 
-								data-caption="A beautiful mountain sunrise.">
-								Button Trigger
-								</a>
-							</div>
-
-							<a 
-								href="/assets/images/photos/image1.webp" 
-								data-component="lightbox"
-								data-caption="A beautiful mountain sunrise.">
-								Link Trigger
-							</a>
-
-						</div>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Lightbox</h1>
+						<p class="text-lead">Create a responsive lightbox gallery with images and videos.</p>
+						<hr>
+						<h2>Usage</h2>
+						<p>To apply this component, add the <code>lightbox</code> attribute to a container to turn all anchors inside that container into lightbox links.</p>
 						<div>
 							<pre><code>
-								&lt;div class=&quot;margin-right&quot; lightbox&gt;
-									&lt;a class=&quot;button&quot; href=&quot;/assets/images/photos/image1.webp&quot;&gt;Open Lightbox&lt;/a&gt;
-								&lt;/div&gt;
-
 								&lt;div data-component=&quot;lightbox&quot;&gt;
-									&lt;a class=&quot;button margin-right&quot; 
+									&lt;a class=&quot;button&quot; 
 									href=&quot;/assets/images/photos/image1.webp&quot; 
-									data-caption=&quot;A beautiful mountain sunrise.&quot;&gt;
-									Button Trigger
+									data-caption=&quot;A beautiful mountain sunrise.&quot;
+									data-gallery=&quot;nature-set&quot;&gt;
+									View Full Image
 									&lt;/a&gt;
 								&lt;/div&gt;
-
-								&lt;a 
-									href=&quot;/assets/images/photos/image1.webp&quot; 
-									data-component=&quot;lightbox&quot;
-									data-caption=&quot;A beautiful mountain sunrise.&quot;&gt;
-									Link Trigger
-								&lt;/a&gt;
 							</code></pre>
 						</div>
-					</div>
-					<ul class="iconnav">
-						<li>
-							<a href="#!" class="icon-action">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-							</a>
-						</li>
-					</ul>
-				</div>
 
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
 
-				<h2>Gallery</h2>
-				<p>Click on any image to view it in full-screen mode. Once open, you can use the arrow keys to navigate or click outside the image to close the viewer.</p>
+									<div class="margin-right" lightbox>
+										<a class="button" href="/assets/images/photos/image1.webp">Open Lightbox</a>
+									</div>
 
-				<div class="code-tab">
-					<ul class="tab">
-						<li class="active">Preview</li>
-						<li>Markup</li>
-					</ul>
-					<div class="tab-content">
-						<div class="active">
-							<div class="grid">
-								<div data-component="lightbox">
-									<a href="/assets/images/photos/image1.webp" 
-									data-gallery="landscape-collection" 
-									data-caption="Mountain Range">
-										<img src="/assets/images/photos/image1.webp" alt="Thumbnail 1">
+									<div data-component="lightbox">
+										<a class="button margin-right" 
+										href="/assets/images/photos/image1.webp" 
+										data-caption="A beautiful mountain sunrise.">
+										Button Trigger
+										</a>
+									</div>
+
+									<a 
+										href="/assets/images/photos/image1.webp" 
+										data-component="lightbox"
+										data-caption="A beautiful mountain sunrise.">
+										Link Trigger
 									</a>
+
 								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;margin-right&quot; lightbox&gt;
+											&lt;a class=&quot;button&quot; href=&quot;/assets/images/photos/image1.webp&quot;&gt;Open Lightbox&lt;/a&gt;
+										&lt;/div&gt;
 
-								<div data-component="lightbox">
-									<a href="/assets/images/photos/image2.webp" 
-									data-gallery="landscape-collection" 
-									data-caption="Ocean Breeze">
-										<img src="/assets/images/photos/image2.webp" alt="Thumbnail 2">
-									</a>
-								</div>
+										&lt;div data-component=&quot;lightbox&quot;&gt;
+											&lt;a class=&quot;button margin-right&quot; 
+											href=&quot;/assets/images/photos/image1.webp&quot; 
+											data-caption=&quot;A beautiful mountain sunrise.&quot;&gt;
+											Button Trigger
+											&lt;/a&gt;
+										&lt;/div&gt;
 
-								<div data-component="lightbox">
-									<a href="/assets/images/photos/image1.webp" 
-									data-gallery="landscape-collection" 
-									data-caption="Forest Path">
-										<img src="/assets/images/photos/image1.webp" alt="Thumbnail 3">
-									</a>
+										&lt;a 
+											href=&quot;/assets/images/photos/image1.webp&quot; 
+											data-component=&quot;lightbox&quot;
+											data-caption=&quot;A beautiful mountain sunrise.&quot;&gt;
+											Link Trigger
+										&lt;/a&gt;
+									</code></pre>
 								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<div>
-							<pre><code>
-								&lt;div class=&quot;grid&quot;&gt;
-									&lt;div data-component=&quot;lightbox&quot;&gt;
-										&lt;a href=&quot;/assets/images/photos/image1.webp&quot; 
-										data-gallery=&quot;landscape-collection&quot; 
-										data-caption=&quot;Mountain Range&quot;&gt;
-											&lt;img src=&quot;/assets/images/photos/image1.webp&quot; alt=&quot;Thumbnail 1&quot;&gt;
-										&lt;/a&gt;
-									&lt;/div&gt;
-
-									&lt;div data-component=&quot;lightbox&quot;&gt;
-										&lt;a href=&quot;/assets/images/photos/image2.webp&quot; 
-										data-gallery=&quot;landscape-collection&quot; 
-										data-caption=&quot;Ocean Breeze&quot;&gt;
-											&lt;img src=&quot;/assets/images/photos/image2.webp&quot; alt=&quot;Thumbnail 2&quot;&gt;
-										&lt;/a&gt;
-									&lt;/div&gt;
-
-									&lt;div data-component=&quot;lightbox&quot;&gt;
-										&lt;a href=&quot;/assets/images/photos/image1.webp&quot; 
-										data-gallery=&quot;landscape-collection&quot; 
-										data-caption=&quot;Forest Path&quot;&gt;
-											&lt;img src=&quot;/assets/images/photos/image1.webp&quot; alt=&quot;Thumbnail 3&quot;&gt;
-										&lt;/a&gt;
-									&lt;/div&gt;
-								&lt;/div&gt;
-							</code></pre>
-						</div>
-					</div>
-					<ul class="iconnav">
-						<li>
-							<a href="#!" class="icon-action">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-							</a>
-						</li>
-					</ul>
-				</div>
 
 
-				
-				<h2>Caption</h2>
-				<p>To display a caption at the bottom of the lightbox, set the <code>data-caption</code> attribute on an anchor.</p>
-				<div>
-					<pre><code>
-						&lt;div lightbox&gt;
-							&lt;a href=&quot;image.webp&quot; data-caption=&quot;Caption&quot;&gt;&lt;/a&gt;
-						&lt;/div&gt;
-					</code></pre>
-				</div>
+						<h2>Gallery</h2>
+						<p>Click on any image to view it in full-screen mode. Once open, you can use the arrow keys to navigate or click outside the image to close the viewer.</p>
 
-				<div class="code-tab">
-					<ul class="tab">
-						<li class="active">Preview</li>
-						<li>Markup</li>
-					</ul>
-					<div class="tab-content">
-						<div class="active">
-							<div lightbox>
-								<a class="button" href="/assets/images/photos/image2.webp" data-caption="Caption">Open Lightbox</a>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid">
+										<div data-component="lightbox">
+											<a href="/assets/images/photos/image1.webp" 
+											data-gallery="landscape-collection" 
+											data-caption="Mountain Range">
+												<img src="/assets/images/photos/image1.webp" alt="Thumbnail 1">
+											</a>
+										</div>
+
+										<div data-component="lightbox">
+											<a href="/assets/images/photos/image2.webp" 
+											data-gallery="landscape-collection" 
+											data-caption="Ocean Breeze">
+												<img src="/assets/images/photos/image2.webp" alt="Thumbnail 2">
+											</a>
+										</div>
+
+										<div data-component="lightbox">
+											<a href="/assets/images/photos/image1.webp" 
+											data-gallery="landscape-collection" 
+											data-caption="Forest Path">
+												<img src="/assets/images/photos/image1.webp" alt="Thumbnail 3">
+											</a>
+										</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid&quot;&gt;
+											&lt;div data-component=&quot;lightbox&quot;&gt;
+												&lt;a href=&quot;/assets/images/photos/image1.webp&quot; 
+												data-gallery=&quot;landscape-collection&quot; 
+												data-caption=&quot;Mountain Range&quot;&gt;
+													&lt;img src=&quot;/assets/images/photos/image1.webp&quot; alt=&quot;Thumbnail 1&quot;&gt;
+												&lt;/a&gt;
+											&lt;/div&gt;
+
+											&lt;div data-component=&quot;lightbox&quot;&gt;
+												&lt;a href=&quot;/assets/images/photos/image2.webp&quot; 
+												data-gallery=&quot;landscape-collection&quot; 
+												data-caption=&quot;Ocean Breeze&quot;&gt;
+													&lt;img src=&quot;/assets/images/photos/image2.webp&quot; alt=&quot;Thumbnail 2&quot;&gt;
+												&lt;/a&gt;
+											&lt;/div&gt;
+
+											&lt;div data-component=&quot;lightbox&quot;&gt;
+												&lt;a href=&quot;/assets/images/photos/image1.webp&quot; 
+												data-gallery=&quot;landscape-collection&quot; 
+												data-caption=&quot;Forest Path&quot;&gt;
+													&lt;img src=&quot;/assets/images/photos/image1.webp&quot; alt=&quot;Thumbnail 3&quot;&gt;
+												&lt;/a&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
 							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
+
+
+					
+						<h2>Caption</h2>
+						<p>To display a caption at the bottom of the lightbox, set the <code>data-caption</code> attribute on an anchor.</p>
 						<div>
 							<pre><code>
 								&lt;div lightbox&gt;
-									&lt;a class=&quot;button&quot; href=&quot;/assets/images/photos/image2.webp&quot; data-caption=&quot;Caption&quot;&gt;Open Lightbox&lt;/a&gt;
+									&lt;a href=&quot;image.webp&quot; data-caption=&quot;Caption&quot;&gt;&lt;/a&gt;
 								&lt;/div&gt;
 							</code></pre>
 						</div>
-					</div>
-					<ul class="iconnav">
-						<li>
-							<a href="#!" class="icon-action">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-							</a>
-						</li>
-					</ul>
-				</div>
 
-				
-				<h3>Manual content type</h3>
-				<p>The Lightbox uses the <code>href</code> attribute to figure out the type of the linked content. If no filename extension is defined in the path, just add the <code>data-type</code> attribute to the <code>&lt;a&gt;</code> tag.</p>
-				<p><strong>Hint</strong> YouTube and Vimeo URLs will be handled automatically.</p>
-				<div class="overflow-auto">
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Option</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>data-type="image"</code></td>
-								<td>The content type is an image.</td>
-							</tr>
-							<tr>
-								<td><code>data-type="video"</code></td>
-								<td>The content type is a video.</td>
-							</tr>
-							<tr>
-								<td><code>data-type="iframe"</code></td>
-								<td>The content type is a regular website.</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div lightbox>
+										<a class="button" href="/assets/images/photos/image2.webp" data-caption="Caption">Open Lightbox</a>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div lightbox&gt;
+											&lt;a class=&quot;button&quot; href=&quot;/assets/images/photos/image2.webp&quot; data-caption=&quot;Caption&quot;&gt;Open Lightbox&lt;/a&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
 
+					
+						<h3>Manual content type</h3>
+						<p>The Lightbox uses the <code>href</code> attribute to figure out the type of the linked content. If no filename extension is defined in the path, just add the <code>data-type</code> attribute to the <code>&lt;a&gt;</code> tag.</p>
+						<p><strong>Hint</strong> YouTube and Vimeo URLs will be handled automatically.</p>
+						
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Option</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>data-type="image"</code></td>
+										<td>The content type is an image.</td>
+									</tr>
+									<tr>
+										<td><code>data-type="video"</code></td>
+										<td>The content type is a video.</td>
+									</tr>
+									<tr>
+										<td><code>data-type="iframe"</code></td>
+										<td>The content type is a regular website.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</article>
+				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

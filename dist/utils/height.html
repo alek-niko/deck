@@ -308,254 +308,258 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
 
-					<h1>Height</h1>
-					<p class="text-lead">Utility classes for managing element height, min-height, and max-height with semantic values, tokens, and viewport-relative units.</p>
-					<p>Height utilities provide a consistent way to apply vertical sizing across your application using theme tokens or raw values like <code>100%</code>, <code>auto</code>, and <code>fit-content</code>. They support responsive variants and are ideal for layout containers, cards, modals, and sections that require dynamic or fixed height control.</p>
+						<h1>Height</h1>
+						<p class="text-lead">Utility classes for managing element height, min-height, and max-height with semantic values, tokens, and viewport-relative units.</p>
+						<p>Height utilities provide a consistent way to apply vertical sizing across your application using theme tokens or raw values like <code>100%</code>, <code>auto</code>, and <code>fit-content</code>. They support responsive variants and are ideal for layout containers, cards, modals, and sections that require dynamic or fixed height control.</p>
 
-					<hr>
-					
-					<h2>Usage</h2>
-					<p>Deck provides a number of useful classes to alter an element's height.</p>
-					
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.height-1-1</code></td>
-									<td>Sets height to 100% of the parent element.</td>
-								</tr>
-								<tr>
-									<td><code>.height-sm</code></td>
-									<td>Applies <code>--height-sm</code> from theme tokens.</td>
-								</tr>
-								<tr>
-									<td><code>.height-md</code></td>
-									<td>Applies <code>--height-md</code> from theme tokens.</td>
-								</tr>
-								<tr>
-									<td><code>height-lg</code></td>
-									<td>Applies <code>--height-large</code> from theme tokens.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+						<hr>
+						
+						<h2>Usage</h2>
+						<p>Deck provides a number of useful classes to alter an element's height.</p>
+						
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.height-1-1</code></td>
+										<td>Sets height to 100% of the parent element.</td>
+									</tr>
+									<tr>
+										<td><code>.height-sm</code></td>
+										<td>Applies <code>--height-sm</code> from theme tokens.</td>
+									</tr>
+									<tr>
+										<td><code>.height-md</code></td>
+										<td>Applies <code>--height-md</code> from theme tokens.</td>
+									</tr>
+									<tr>
+										<td><code>.height-lg</code></td>
+										<td>Applies <code>--height-lg</code> from theme tokens.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="grid col-3">
-									<div class="first-column">
-										<div class="height-sm card card-default card-body flex flex-center flex-middle">Small</div>
-									</div>
-									<div>
-										<div class="height-md card card-default card-body flex flex-center flex-middle">Medium</div>
-									</div>
-									<div>
-										<div class="height-large card card-default card-body flex flex-center flex-middle">Large</div>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="grid col-3">
+										<div class="first-column">
+											<div class="height-sm card card-default card-body flex flex-center flex-middle">Small</div>
+										</div>
+										<div>
+											<div class="height-md card card-default card-body flex flex-center flex-middle">Medium</div>
+										</div>
+										<div>
+											<div class="height-lg card card-default card-body flex flex-center flex-middle">Large</div>
+										</div>
 									</div>
 								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;grid col-3&quot;&gt;
+											&lt;div&gt;
+												&lt;div class=&quot;height-sm card card-default card-body flex flex-center flex-middle&quot;&gt;Small&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div&gt;
+												&lt;div class=&quot;height-md card card-default card-body flex flex-center flex-middle&quot;&gt;Medium&lt;/div&gt;
+											&lt;/div&gt;
+											&lt;div&gt;
+												&lt;div class=&quot;height-lg card card-default card-body flex flex-center flex-middle&quot;&gt;Large&lt;/div&gt;
+											&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;grid col-3&quot;&gt;
-										&lt;div&gt;
-											&lt;div class=&quot;height-sm card card-default card-body flex flex-center flex-middle&quot;&gt;Small&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div&gt;
-											&lt;div class=&quot;height-md card card-default card-body flex flex-center flex-middle&quot;&gt;Medium&lt;/div&gt;
-										&lt;/div&gt;
-										&lt;div&gt;
-											&lt;div class=&quot;height-large card card-default card-body flex flex-center flex-middle&quot;&gt;Large&lt;/div&gt;
-										&lt;/div&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Absolute & Semantic Heights</h2>
-					
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.height-1-1</code></td>
-									<td>Sets height to 100% of the parent element.</td>
-								</tr>
-								<tr>
-									<td><code>.height-auto</code></td>
-									<td>Automatically adjusts height based on content.</td>
-								</tr>
-								<tr>
-									<td><code>.height-inherit</code></td>
-									<td>Inherits height from the parent element.</td>
-								</tr>
-								<tr>
-									<td><code>.height-fit</code></td>
-									<td>Sets height to fit the content (<code>fit-content</code>).</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+						<h2>Absolute & Semantic Heights</h2>
+						
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.height-1-1</code></td>
+										<td>Sets height to 100% of the parent element.</td>
+									</tr>
+									<tr>
+										<td><code>.height-auto</code></td>
+										<td>Automatically adjusts height based on content.</td>
+									</tr>
+									<tr>
+										<td><code>.height-inherit</code></td>
+										<td>Inherits height from the parent element.</td>
+									</tr>
+									<tr>
+										<td><code>.height-fit</code></td>
+										<td>Sets height to fit the content (<code>fit-content</code>).</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-					<h2>Viewport Heights</h2>
+						<h2>Viewport Heights</h2>
 
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.height-viewport</code></td>
-									<td>Minimum height of 100vh (full viewport height).</td>
-								</tr>
-								<tr>
-									<td><code>.height-viewport-2</code></td>
-									<td>Minimum height of 200vh.</td>
-								</tr>
-								<tr>
-									<td><code>.height-viewport-3</code></td>
-									<td>Minimum height of 300vh.</td>
-								</tr>
-								<tr>
-									<td><code>.height-viewport-4</code></td>
-									<td>Minimum height of 400vh.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.height-viewport</code></td>
+										<td>Minimum height of 100vh (full viewport height).</td>
+									</tr>
+									<tr>
+										<td><code>.height-viewport-2</code></td>
+										<td>Minimum height of 200vh.</td>
+									</tr>
+									<tr>
+										<td><code>.height-viewport-3</code></td>
+										<td>Minimum height of 300vh.</td>
+									</tr>
+									<tr>
+										<td><code>.height-viewport-4</code></td>
+										<td>Minimum height of 400vh.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-					<h2>Max Heights</h2>
+						<h2>Max Heights</h2>
 
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.height-max-none</code></td>
-									<td>Removes any maximum height constraint.</td>
-								</tr>
-								<tr>
-									<td><code>.height-max-small</code></td>
-									<td>Sets max-height to <code>--height-sm</code>.</td>
-								</tr>
-								<tr>
-									<td><code>.height-max-medium</code></td>
-									<td>Sets max-height to <code>--height-md</code>.</td>
-								</tr>
-								<tr>
-									<td><code>.height-max-large</code></td>
-									<td>Sets max-height to <code>--height-large</code>.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.height-max-none</code></td>
+										<td>Removes any maximum height constraint.</td>
+									</tr>
+									<tr>
+										<td><code>.height-max-small</code></td>
+										<td>Sets max-height to <code>--height-sm</code>.</td>
+									</tr>
+									<tr>
+										<td><code>.height-max-medium</code></td>
+										<td>Sets max-height to <code>--height-md</code>.</td>
+									</tr>
+									<tr>
+										<td><code>.height-max-large</code></td>
+										<td>Sets max-height to <code>--height-lg</code>.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-					<h2>Min Heights</h2>
+						<h2>Min Heights</h2>
 
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.height-min-0</code></td>
-									<td>Minimum height of <code>0</code>.</td>
-								</tr>
-								<tr>
-									<td><code>.height-min-small</code></td>
-									<td>Sets min-height to <code>--height-sm</code>.</td>
-								</tr>
-								<tr>
-									<td><code>.height-min-medium</code></td>
-									<td>Sets min-height to <code>--height-md</code>.</td>
-								</tr>
-								<tr>
-									<td><code>.height-min-large</code></td>
-									<td>Sets min-height to <code>--height-large</code>.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.height-min-0</code></td>
+										<td>Minimum height of <code>0</code>.</td>
+									</tr>
+									<tr>
+										<td><code>.height-min-small</code></td>
+										<td>Sets min-height to <code>--height-sm</code>.</td>
+									</tr>
+									<tr>
+										<td><code>.height-min-medium</code></td>
+										<td>Sets min-height to <code>--height-md</code>.</td>
+									</tr>
+									<tr>
+										<td><code>.height-min-large</code></td>
+										<td>Sets min-height to <code>--height-lg</code>.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-					<h2>Responsive (sm) variants</h2>
+						<h2>Responsive (sm) variants</h2>
 
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.height-sm-sm</code></td>
-									<td>Applies small height below <code>md</code> breakpoint.</td>
-								</tr>
-								<tr>
-									<td><code>.height-auto-sm</code></td>
-									<td>Applies auto height below <code>md</code> breakpoint.</td>
-								</tr>
-								<tr>
-									<td><code>.height-fit-sm</code></td>
-									<td>Applies fit-content height below <code>md</code> breakpoint.</td>
-								</tr>
-								<tr>
-									<td><code>.height-max-medium-sm</code></td>
-									<td>Sets max-height to medium token on small screens.</td>
-								</tr>
-								<tr>
-									<td><code>.height-min-large-sm</code></td>
-									<td>Sets min-height to large token on small screens.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.height-sm-sm</code></td>
+										<td>Applies small height below <code>md</code> breakpoint.</td>
+									</tr>
+									<tr>
+										<td><code>.height-auto-sm</code></td>
+										<td>Applies auto height below <code>md</code> breakpoint.</td>
+									</tr>
+									<tr>
+										<td><code>.height-fit-sm</code></td>
+										<td>Applies fit-content height below <code>md</code> breakpoint.</td>
+									</tr>
+									<tr>
+										<td><code>.height-max-medium-sm</code></td>
+										<td>Sets max-height to medium token on small screens.</td>
+									</tr>
+									<tr>
+										<td><code>.height-min-large-sm</code></td>
+										<td>Sets min-height to large token on small screens.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

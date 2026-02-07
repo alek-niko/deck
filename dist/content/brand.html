@@ -308,281 +308,285 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
+				<div class="container-flow container-flow-md">
+					<article class="prose">
 
-					<h1>Brand Component</h1>
-					<p class="text-lead">Combines logo and site name or tagline with customizable layouts, responsive sizing, and optional animation utilities for a polished brand presentation.</p>
+						<h1>Brand Component</h1>
+						<p class="text-lead">Combines logo and site name or tagline with customizable layouts, responsive sizing, and optional animation utilities for a polished brand presentation.</p>
 
-					<hr>
+						<hr>
 
-					<h2>Usage</h2>
-					<p>The <code>.brand</code> component arranges a logo image or SVG alongside the brand name and an optional tagline. It uses scoped CSS custom properties for easy theming and sizing adjustments. Supports horizontal or stacked vertical layouts and allows styling of the logo with border-radius and filters.</p>
+						<h2>Usage</h2>
+						<p>The <code>.brand</code> component arranges a logo image or SVG alongside the brand name and an optional tagline. It uses scoped CSS custom properties for easy theming and sizing adjustments. Supports horizontal or stacked vertical layouts and allows styling of the logo with border-radius and filters.</p>
 
-					<pre><code>
-						&lt;a href=&quot;/&quot; class=&quot;brand&quot;&gt;
-							&lt;span class=&quot;logo&quot;&gt;
-								&lt;img src=&quot;/assets/images/logo.svg&quot; alt=&quot;Logo&quot;&gt;
-							&lt;/span&gt;
-							&lt;span class=&quot;brand-name&quot;&gt;Deck&lt;/span&gt;
-						&lt;/a&gt;
-					</code></pre>
-					
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<a href="/" class="brand">
-									<span class="logo">
-										<img src="/assets/images/logo.svg" alt="Logo">
-									</span>
-									<span class="brand-name">Deck</span>
-								</a>
-							</div>
-							<div>
-								<pre><code>
-									&lt;a href=&quot;/&quot; class=&quot;brand&quot;&gt;
-										&lt;span class=&quot;logo&quot;&gt;
-											&lt;img src=&quot;/assets/images/logo.svg&quot; alt=&quot;Logo&quot;&gt;
-										&lt;/span&gt;
-										&lt;span class=&quot;brand-name&quot;&gt;Deck&lt;/span&gt;
-									&lt;/a&gt;
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<a href="/" class="brand brand-fade-in" aria-label="Home">
-									<span class="logo">
-										<img src="/assets/images/logo.svg" alt="Site Logo" />
-									</span>
-									<span class="brand-name">Cyberpunk Deck</span>
-									<span class="brand-tagline">Modern-Only Lean Material Web Framework</span>
-								</a>
-							</div>
-							<div>
-								<pre><code>
-
-								</code></pre>
-							</div>
-						</div>
-					</div>
-
-					<h2>Stacked</h2>
-					<p>Add <code>.brand-stacked</code> to vertically align the logo and text.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<a href="/" class="brand brand-stacked" aria-label="Home">
-									<span class="logo">
-										<img src="/assets/images/logo.svg" alt="Site Logo" />
-									</span>
-									<span class="brand-name">Cyberpunk Deck</span>
-									<span class="brand-tagline">Modern-Only Lean Material Web Framework</span>
-								</a>
-							</div>
-							<div>
-								<pre><code>
-
-								</code></pre>
-							</div>
-						</div>
-					</div>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<a href="/" class="brand brand-stacked">
-									<span class="logo">
-										<img src="/assets/images/logo.svg" alt="Logo">
-									</span>
-									<div>
+						<pre><code>
+							&lt;a href=&quot;/&quot; class=&quot;brand&quot;&gt;
+								&lt;span class=&quot;logo&quot;&gt;
+									&lt;img src=&quot;/assets/images/logo.svg&quot; alt=&quot;Logo&quot;&gt;
+								&lt;/span&gt;
+								&lt;span class=&quot;brand-name&quot;&gt;Deck&lt;/span&gt;
+							&lt;/a&gt;
+						</code></pre>
+						
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<a href="/" class="brand">
+										<span class="logo">
+											<img src="/assets/images/logo.svg" alt="Logo">
+										</span>
 										<span class="brand-name">Deck</span>
-										<span class="brand-tagline">Private social cloud</span>
-									</div>
-								</a>
-							</div>
-							<div>
-								<pre><code>
-									&lt;a href=&quot;/&quot; class=&quot;brand brand-stacked&quot;&gt;
-										&lt;span class=&quot;logo&quot;&gt;
-											&lt;img src=&quot;/assets/images/logo.svg&quot; alt=&quot;Logo&quot;&gt;
-										&lt;/span&gt;
-										&lt;div&gt;
+									</a>
+								</div>
+								<div>
+									<pre><code>
+										&lt;a href=&quot;/&quot; class=&quot;brand&quot;&gt;
+											&lt;span class=&quot;logo&quot;&gt;
+												&lt;img src=&quot;/assets/images/logo.svg&quot; alt=&quot;Logo&quot;&gt;
+											&lt;/span&gt;
 											&lt;span class=&quot;brand-name&quot;&gt;Deck&lt;/span&gt;
-											&lt;span class=&quot;brand-tagline&quot;&gt;Private social cloud&lt;/span&gt;
-										&lt;/div&gt;
-									&lt;/a&gt;
-								</code></pre>
+										&lt;/a&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<a href="/" class="brand brand-fade-in" aria-label="Home">
+										<span class="logo">
+											<img src="/assets/images/logo.svg" alt="Site Logo" />
+										</span>
+										<span class="brand-name">Cyberpunk Deck</span>
+										<span class="brand-tagline">Modern-Only Lean Material Web Framework</span>
+									</a>
+								</div>
+								<div>
+									<pre><code>
+
+									</code></pre>
+								</div>
 							</div>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Fade-in</h2>
-					<p>Use <code>.brand-fade-in</code> to animate the brand element with a subtle upward fade effect.</p>
+						<h2>Stacked</h2>
+						<p>Add <code>.brand-stacked</code> to vertically align the logo and text.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<a href="/" class="brand brand-fade-in ">
-									<span class="logo"><img src="/assets/images/logo.svg" alt="Logo"></span>
-									<span class="brand-name">Deck</span>
-								</a>
-							</div>
-							<div>
-								<pre><code>
-									&lt;a href=&quot;/&quot; class=&quot;brand brand-fade-in &quot;&gt;
-										&lt;span class=&quot;logo&quot;&gt;&lt;img src=&quot;/assets/images/logo.svg&quot; alt=&quot;Logo&quot;&gt;&lt;/span&gt;
-										&lt;span class=&quot;brand-name&quot;&gt;Deck&lt;/span&gt;
-									&lt;/a&gt;		
-								</code></pre>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<a href="/" class="brand brand-stacked" aria-label="Home">
+										<span class="logo">
+											<img src="/assets/images/logo.svg" alt="Site Logo" />
+										</span>
+										<span class="brand-name">Cyberpunk Deck</span>
+										<span class="brand-tagline">Modern-Only Lean Material Web Framework</span>
+									</a>
+								</div>
+								<div>
+									<pre><code>
+
+									</code></pre>
+								</div>
 							</div>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Slide-in Left</h2>
-					<p>Apply <code>.brand-slide-in-left</code> to animate the brand from left to right.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<a href="/" class="brand brand-slide-in-left ">
-									<span class="logo"><img src="/assets/images/logo.svg" alt="Logo"></span>
-									<span class="brand-name">Deck</span>
-								</a>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<a href="/" class="brand brand-stacked">
+										<span class="logo">
+											<img src="/assets/images/logo.svg" alt="Logo">
+										</span>
+										<div>
+											<span class="brand-name">Deck</span>
+											<span class="brand-tagline">Private social cloud</span>
+										</div>
+									</a>
+								</div>
+								<div>
+									<pre><code>
+										&lt;a href=&quot;/&quot; class=&quot;brand brand-stacked&quot;&gt;
+											&lt;span class=&quot;logo&quot;&gt;
+												&lt;img src=&quot;/assets/images/logo.svg&quot; alt=&quot;Logo&quot;&gt;
+											&lt;/span&gt;
+											&lt;div&gt;
+												&lt;span class=&quot;brand-name&quot;&gt;Deck&lt;/span&gt;
+												&lt;span class=&quot;brand-tagline&quot;&gt;Private social cloud&lt;/span&gt;
+											&lt;/div&gt;
+										&lt;/a&gt;
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;a href=&quot;/&quot; class=&quot;brand brand-slide-in-left &quot;&gt;
-										&lt;span class=&quot;logo&quot;&gt;&lt;img src=&quot;/assets/images/logo.svg&quot; alt=&quot;Logo&quot;&gt;&lt;/span&gt;
-										&lt;span class=&quot;brand-name&quot;&gt;Deck&lt;/span&gt;
-									&lt;/a&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
 
-					<h2>Available Tokens:</h2>
+						<h2>Fade-in</h2>
+						<p>Use <code>.brand-fade-in</code> to animate the brand element with a subtle upward fade effect.</p>
 
-					<pre><code>
-						--brand-gap
-						--brand-color
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<a href="/" class="brand brand-fade-in ">
+										<span class="logo"><img src="/assets/images/logo.svg" alt="Logo"></span>
+										<span class="brand-name">Deck</span>
+									</a>
+								</div>
+								<div>
+									<pre><code>
+										&lt;a href=&quot;/&quot; class=&quot;brand brand-fade-in &quot;&gt;
+											&lt;span class=&quot;logo&quot;&gt;&lt;img src=&quot;/assets/images/logo.svg&quot; alt=&quot;Logo&quot;&gt;&lt;/span&gt;
+											&lt;span class=&quot;brand-name&quot;&gt;Deck&lt;/span&gt;
+										&lt;/a&gt;		
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
 
-						--brand-name-size
-						--brand-name-weight
-						--brand-name-color
+						<h2>Slide-in Left</h2>
+						<p>Apply <code>.brand-slide-in-left</code> to animate the brand from left to right.</p>
 
-						--brand-tagline-size
-						--brand-tagline-color
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<a href="/" class="brand brand-slide-in-left ">
+										<span class="logo"><img src="/assets/images/logo.svg" alt="Logo"></span>
+										<span class="brand-name">Deck</span>
+									</a>
+								</div>
+								<div>
+									<pre><code>
+										&lt;a href=&quot;/&quot; class=&quot;brand brand-slide-in-left &quot;&gt;
+											&lt;span class=&quot;logo&quot;&gt;&lt;img src=&quot;/assets/images/logo.svg&quot; alt=&quot;Logo&quot;&gt;&lt;/span&gt;
+											&lt;span class=&quot;brand-name&quot;&gt;Deck&lt;/span&gt;
+										&lt;/a&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
 
-						--brand-logo-max-height
-						--brand-logo-max-width
-						--brand-logo-radius
-						--brand-logo-filter
-					</code></pre>
+						<h2>Available Tokens:</h2>
+
+						<pre><code>
+							--brand-gap
+							--brand-color
+
+							--brand-name-size
+							--brand-name-weight
+							--brand-name-color
+
+							--brand-tagline-size
+							--brand-tagline-color
+
+							--brand-logo-max-height
+							--brand-logo-max-width
+							--brand-logo-radius
+							--brand-logo-filter
+						</code></pre>
 
 
-					<h2>Classes and Elements</h2>
-					<p>Key classes and elements in the Brand component:</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th>Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.brand</code></td>
-								<td>Main container for brand logo and text with scoped tokens for spacing and colors.</td>
-							</tr>
-							<tr>
-								<td><code>.brand-stacked</code></td>
-								<td>Modifier to switch layout from horizontal to vertical stacked layout.</td>
-							</tr>
-							<tr>
-								<td><code>.brand-name</code></td>
-								<td>Brand or site name text styled with font size, weight, and color tokens.</td>
-							</tr>
-							<tr>
-								<td><code>.brand-tagline</code></td>
-								<td>Optional tagline or slogan text with smaller size and muted color.</td>
-							</tr>
-							<tr>
-								<td><code>.logo</code></td>
-								<td>Logo container supporting images or SVGs with size limits and optional rounding or filters.</td>
-							</tr>
-							<tr>
-								<td><code>.brand-fade-in</code></td>
-								<td>Utility class to animate brand elements fading in with upward motion.</td>
-							</tr>
-							<tr>
-								<td><code>.brand-slide-in-left</code></td>
-								<td>Utility class to animate brand elements sliding in from the left with fade effect.</td>
-							</tr>
-						</tbody>
-					</table>
+						<h2>Classes and Elements</h2>
+						<p>Key classes and elements in the Brand component:</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th>Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.brand</code></td>
+									<td>Main container for brand logo and text with scoped tokens for spacing and colors.</td>
+								</tr>
+								<tr>
+									<td><code>.brand-stacked</code></td>
+									<td>Modifier to switch layout from horizontal to vertical stacked layout.</td>
+								</tr>
+								<tr>
+									<td><code>.brand-name</code></td>
+									<td>Brand or site name text styled with font size, weight, and color tokens.</td>
+								</tr>
+								<tr>
+									<td><code>.brand-tagline</code></td>
+									<td>Optional tagline or slogan text with smaller size and muted color.</td>
+								</tr>
+								<tr>
+									<td><code>.logo</code></td>
+									<td>Logo container supporting images or SVGs with size limits and optional rounding or filters.</td>
+								</tr>
+								<tr>
+									<td><code>.brand-fade-in</code></td>
+									<td>Utility class to animate brand elements fading in with upward motion.</td>
+								</tr>
+								<tr>
+									<td><code>.brand-slide-in-left</code></td>
+									<td>Utility class to animate brand elements sliding in from the left with fade effect.</td>
+								</tr>
+							</tbody>
+						</table>
 
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

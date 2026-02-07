@@ -308,211 +308,215 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Heading</h1>
-					<p class="text-lead">Define different styles for headings.</p>
-					<p>Combine this component with the <a href="component-text.html">Text component</a> to style your headings.</p>
-					<hr>
-					<h2>Size modifiers</h2>
-					<p>Add one of the following classes to modify the size and style of headings. Usually, these classes would be used on heading elements, but they work also with any other element like a <code>div</code> element. Note that these classes extend the heading classes from the <a href="component-base.html">Base component</a> upward, and the smallest modifier picks up the size after <code>h1</code> element.</p>
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Class</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>.heading-small</code></td>
-									<td>Add this class to apply a small-sized heading.</td>
-								</tr>
-								<tr>
-									<td><code>.heading-medium</code></td>
-									<td>Add this class to apply a medium-sized heading.</td>
-								</tr>
-								<tr>
-									<td><code>.heading-large</code></td>
-									<td>Add this class to apply a large-sized heading.</td>
-								</tr>
-								<tr>
-									<td><code>.heading-xlarge</code></td>
-									<td>Add this class to apply a xlarge-sized heading.</td>
-								</tr>
-								<tr>
-									<td><code>.heading-2xlarge</code></td>
-									<td>Add this class to apply a 2xlarge-sized heading.</td>
-								</tr>
-								<tr>
-									<td><code>.heading-3xlarge</code></td>
-									<td>Add this class to apply a 3xlarge-sized heading.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Heading</h1>
+						<p class="text-lead">Define different styles for headings.</p>
+						<p>Combine this component with the <a href="component-text.html">Text component</a> to style your headings.</p>
+						<hr>
+						<h2>Size modifiers</h2>
+						<p>Add one of the following classes to modify the size and style of headings. Usually, these classes would be used on heading elements, but they work also with any other element like a <code>div</code> element. Note that these classes extend the heading classes from the <a href="component-base.html">Base component</a> upward, and the smallest modifier picks up the size after <code>h1</code> element.</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>.heading-small</code></td>
+										<td>Add this class to apply a small-sized heading.</td>
+									</tr>
+									<tr>
+										<td><code>.heading-medium</code></td>
+										<td>Add this class to apply a medium-sized heading.</td>
+									</tr>
+									<tr>
+										<td><code>.heading-large</code></td>
+										<td>Add this class to apply a large-sized heading.</td>
+									</tr>
+									<tr>
+										<td><code>.heading-xlarge</code></td>
+										<td>Add this class to apply a xlarge-sized heading.</td>
+									</tr>
+									<tr>
+										<td><code>.heading-2xlarge</code></td>
+										<td>Add this class to apply a 2xlarge-sized heading.</td>
+									</tr>
+									<tr>
+										<td><code>.heading-3xlarge</code></td>
+										<td>Add this class to apply a 3xlarge-sized heading.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="position-relative margin-medium flex flex-col gap-md">
-									<h1 class="heading-small">Small</h1>
-									<h1 class="heading-medium">Medium</h1>
-									<h1 class="heading-large">Large</h1>
-									<h1 class="heading-xlarge">X-Large</h1>
-									<h1 class="heading-2xlarge">2X-Large</h1>
-									<h1 class="heading-3xlarge">3X-Large</h1>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="position-relative margin-medium flex flex-col gap-md">
+										<h1 class="heading-small">Small</h1>
+										<h1 class="heading-medium">Medium</h1>
+										<h1 class="heading-large">Large</h1>
+										<h1 class="heading-xlarge">X-Large</h1>
+										<h1 class="heading-2xlarge">2X-Large</h1>
+										<h1 class="heading-3xlarge">3X-Large</h1>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;position-relative margin-medium&quot;&gt;
+											&lt;h1 class=&quot;heading-small&quot;&gt;Small&lt;/h1&gt;
+											&lt;h1 class=&quot;heading-medium&quot;&gt;Medium&lt;/h1&gt;
+											&lt;h1 class=&quot;heading-large&quot;&gt;Large&lt;/h1&gt;
+											&lt;h1 class=&quot;heading-xlarge&quot;&gt;X-Large&lt;/h1&gt;
+											&lt;h1 class=&quot;heading-2xlarge&quot;&gt;2X-Large&lt;/h1&gt;
+											&lt;h1 class=&quot;heading-3xlarge&quot;&gt;3X-Large&lt;/h1&gt;
+										&lt;/div&gt;
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;position-relative margin-medium&quot;&gt;
-										&lt;h1 class=&quot;heading-small&quot;&gt;Small&lt;/h1&gt;
-										&lt;h1 class=&quot;heading-medium&quot;&gt;Medium&lt;/h1&gt;
-										&lt;h1 class=&quot;heading-large&quot;&gt;Large&lt;/h1&gt;
-										&lt;h1 class=&quot;heading-xlarge&quot;&gt;X-Large&lt;/h1&gt;
-										&lt;h1 class=&quot;heading-2xlarge&quot;&gt;2X-Large&lt;/h1&gt;
-										&lt;h1 class=&quot;heading-3xlarge&quot;&gt;3X-Large&lt;/h1&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>	
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>	
-					</div>
 
-					<h2>Divider modifier</h2>
-					<p>To apply a divider to a heading, add the <code>.heading-divider</code> class. You can combine it with any size modifier.</p>
+						<h2>Divider modifier</h2>
+						<p>To apply a divider to a heading, add the <code>.heading-divider</code> class. You can combine it with any size modifier.</p>
 
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<h3 class="heading-divider">Heading Divider</h3>  
-							</div>
-							<div>
-								<pre><code>
-									&lt;h3 class=&quot;heading-divider&quot;&gt;Heading Divider&lt;/h3&gt;  
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-										
-					<h2>Bullet modifier</h2>
-					<p>To apply a bullet to a heading, add the <code>.heading-bullet</code> class. You can combine it with any size modifier, and it works well with text alignment.</p>
-					
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<h3 class="heading-bullet">Heading Bullet</h3>  
-							</div>
-							<div>
-								<pre><code>
-									&lt;h3 class=&quot;heading-bullet&quot;&gt;Heading Bullet&lt;/h3&gt;  
-								</code></pre>
-							</div>
-						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h2>Line modifier</h2>
-					<p>To apply a vertically centered line to a heading, add the <code>.heading-line</code> class and place a <code>&lt;span&gt;</code> element inside the heading element. You can combine it with any size modifier, and it works well with text alignment.</p>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="position-relative margin-medium">
-									<h3 class="heading-line margin-top"><span>Heading Line</span></h3>
-									<h3 class="heading-line text-center margin-top"><span>Heading Line</span></h3>
-									<h3 class="heading-line text-right margin-top"><span>Heading Line</span></h3>
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<h3 class="heading-divider">Heading Divider</h3>  
+								</div>
+								<div>
+									<pre><code>
+										&lt;h3 class=&quot;heading-divider&quot;&gt;Heading Divider&lt;/h3&gt;  
+									</code></pre>
 								</div>
 							</div>
-							<div>
-								<pre><code>
-									&lt;div class=&quot;position-relative margin-medium&quot;&gt;
-										&lt;h1 class=&quot;heading-line&quot;&gt;&lt;span&gt;Heading Line&lt;/span&gt;&lt;/h1&gt;
-										&lt;h1 class=&quot;heading-line text-center&quot;&gt;&lt;span&gt;Heading Line&lt;/span&gt;&lt;/h1&gt;
-										&lt;h1 class=&quot;heading-line text-right&quot;&gt;&lt;span&gt;Heading Line&lt;/span&gt;&lt;/h1&gt;
-									&lt;/div&gt;
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-					<h2>Heading With Subtext</h2>
-
-					<div class="code-tab">
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="heading-with-subtext">
-									<h3>Heading</h3> 
-									<p class="subtext">Subtext</p>
-								</div>  
+											
+						<h2>Bullet modifier</h2>
+						<p>To apply a bullet to a heading, add the <code>.heading-bullet</code> class. You can combine it with any size modifier, and it works well with text alignment.</p>
+						
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<h3 class="heading-bullet">Heading Bullet</h3>  
+								</div>
+								<div>
+									<pre><code>
+										&lt;h3 class=&quot;heading-bullet&quot;&gt;Heading Bullet&lt;/h3&gt;  
+									</code></pre>
+								</div>
 							</div>
-							<div>
-								<pre><code>
-
-								</code></pre>
-							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
 						</div>
-						<ul class="iconnav">
-							<li>
-								<a href="#!" class="icon-action">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
-								</a>
-							</li>
-						</ul>
-					</div>
-					
+						
+						<h2>Line modifier</h2>
+						<p>To apply a vertically centered line to a heading, add the <code>.heading-line</code> class and place a <code>&lt;span&gt;</code> element inside the heading element. You can combine it with any size modifier, and it works well with text alignment.</p>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="position-relative margin-medium">
+										<h3 class="heading-line margin-top"><span>Heading Line</span></h3>
+										<h3 class="heading-line text-center margin-top"><span>Heading Line</span></h3>
+										<h3 class="heading-line text-right margin-top"><span>Heading Line</span></h3>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;position-relative margin-medium&quot;&gt;
+											&lt;h1 class=&quot;heading-line&quot;&gt;&lt;span&gt;Heading Line&lt;/span&gt;&lt;/h1&gt;
+											&lt;h1 class=&quot;heading-line text-center&quot;&gt;&lt;span&gt;Heading Line&lt;/span&gt;&lt;/h1&gt;
+											&lt;h1 class=&quot;heading-line text-right&quot;&gt;&lt;span&gt;Heading Line&lt;/span&gt;&lt;/h1&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<h2>Heading With Subtext</h2>
+
+						<div class="code-tab">
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="heading-with-subtext">
+										<h3>Heading</h3> 
+										<p class="subtext">Subtext</p>
+									</div>  
+								</div>
+								<div>
+									<pre><code>
+
+									</code></pre>
+								</div>
+							</div>
+							<ul class="iconnav">
+								<li>
+									<a href="#!" class="icon-action">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M318.46-230.77q-23.53 0-40.61-17.08t-17.08-40.61v-513.85q0-23.53 17.08-40.61T318.46-860h393.85q23.52 0 40.61 17.08Q770-825.84 770-802.31v513.85q0 23.53-17.08 40.61-17.09 17.08-40.61 17.08H318.46Zm0-45.39h393.85q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46v-513.85q0-4.61-3.84-8.46-3.85-3.84-8.46-3.84H318.46q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v513.85q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM207.69-120q-23.52 0-40.61-17.08Q150-154.17 150-177.7v-559.22h45.39v559.22q0 4.62 3.84 8.47 3.85 3.84 8.46 3.84h439.23V-120H207.69Zm98.46-156.16v-538.45 538.45Z"/></svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

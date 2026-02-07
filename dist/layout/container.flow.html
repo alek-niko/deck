@@ -308,155 +308,159 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Container Flow</h1>
-					<p class="text-lead">A flow-based container for content-first layouts with responsive spacing, vertical rhythm, and width control.</p>
-					
-					<hr>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Container Flow</h1>
+						<p class="text-lead">A flow-based container for content-first layouts with responsive spacing, vertical rhythm, and width control.</p>
+						
+						<hr>
 
-					<h2>Usage</h2>
-					<p>Add the <code>.container-flow</code> class to a block element to create a layout container with centered content, responsive padding, and margin containment using <code>flow-root</code>.</p>
-					<p><span class="label">Note</span> The component uses spacing tokens for inline padding and vertical stack spacing.</p>
-					
-					<pre><code>
-						&lt;<span>div</span> <span>class</span>=<span>"container-flow"</span>&gt;
-							&lt;<span>p</span>&gt;Your content here.&lt;/<span>p</span>&gt;
-						&lt;/<span>div</span>&gt;
-					</code></pre>
-
-					<h2>Size modifiers</h2>
-					<p>Use one of the following modifiers to adjust the container’s maximum width.</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th class="table-large">Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.container-flow-xs</code></td>
-								<td>Sets max-width to <code>600px</code>.</td>
-							</tr>
-							<tr>
-								<td><code>.container-flow-sm</code></td>
-								<td>Sets max-width to <code>750px</code>.</td>
-							</tr>
-							<tr>
-								<td><code>.container-flow-md</code></td>
-								<td>Sets max-width to <code>960px</code>.</td>
-							</tr>
-							<tr>
-								<td><code>.container-flow-lg</code></td>
-								<td>Sets max-width to <code>1140px</code>.</td>
-							</tr>
-							<tr>
-								<td><code>.container-flow-xl</code></td>
-								<td>Sets max-width to <code>1320px</code>.</td>
-							</tr>
-							<tr>
-								<td><code>.container-flow-expand</code></td>
-								<td>Removes max-width restriction (full-width layout).</td>
-							</tr>
-						</tbody>
-					</table>
-					<div>
+						<h2>Usage</h2>
+						<p>Add the <code>.container-flow</code> class to a block element to create a layout container with centered content, responsive padding, and margin containment using <code>flow-root</code>.</p>
+						<p><span class="label">Note</span> The component uses spacing tokens for inline padding and vertical stack spacing.</p>
+						
 						<pre><code>
-							&lt;<span>div</span> <span>class</span>=<span>"container-flow container-flow-xs"</span>&gt;&lt;/<span>div</span>&gt;
-							&lt;<span>div</span> <span>class</span>=<span>"container-flow container-flow-md"</span>&gt;&lt;/<span>div</span>&gt;
-							&lt;<span>div</span> <span>class</span>=<span>"container-flow container-flow-expand"</span>&gt;&lt;/<span>div</span>&gt;
-						</code></pre>
-					</div>
-
-					<h2>Expand edge modifiers</h2>
-					<p>Use these classes to remove one side of the horizontal margin for edge-aligned layouts.</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th class="table-large">Class</th>
-								<th>Description</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.container-flow-expand-left</code></td>
-								<td>Removes the left margin.</td>
-							</tr>
-							<tr>
-								<td><code>.container-flow-expand-right</code></td>
-								<td>Removes the right margin.</td>
-							</tr>
-						</tbody>
-					</table>
-					<div>
-						<pre><code>
-							&lt;<span>div</span> <span>class</span>=<span>"container-flow container-flow-expand container-flow-expand-left"</span>&gt;&lt;/<span>div</span>&gt;
-							&lt;<span>div</span> <span>class</span>=<span>"container-flow container-flow-expand container-flow-expand-right"</span>&gt;&lt;/<span>div</span>&gt;
-						</code></pre>
-					</div>
-
-					<h2>Stack helpers</h2>
-					<p>Apply vertical spacing between children using stack helper classes.</p>
-					
-					<table class="table table-divider">
-						<thead>
-							<tr>
-								<th class="table-large">Class</th>
-								<th>Spacing</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>.container-flow-stack</code></td>
-								<td>Default vertical spacing</td>
-							</tr>
-							<tr>
-								<td><code>.container-flow-stack-sm</code></td>
-								<td>Small vertical spacing</td>
-							</tr>
-							<tr>
-								<td><code>.container-flow-stack-md</code></td>
-								<td>Medium vertical spacing</td>
-							</tr>
-							<tr>
-								<td><code>.container-flow-stack-lg</code></td>
-								<td>Large vertical spacing</td>
-							</tr>
-						</tbody>
-					</table>
-					<div>
-						<pre><code>
-							&lt;<span>div</span> <span>class</span>=<span>"container-flow container-flow-stack"</span>&gt;
-								&lt;<span>p</span>&gt;Paragraph 1&lt;/<span>p</span>&gt;
-								&lt;<span>p</span>&gt;Paragraph 2&lt;/<span>p</span>&gt;
-								&lt;<span>p</span>&gt;Paragraph 3&lt;/<span>p</span>&gt;
+							&lt;<span>div</span> <span>class</span>=<span>"container-flow"</span>&gt;
+								&lt;<span>p</span>&gt;Your content here.&lt;/<span>p</span>&gt;
 							&lt;/<span>div</span>&gt;
 						</code></pre>
-					</div>
 
-					<h2>Advanced layout options</h2>
-					<p>You can use additional layout helpers for alignment and nesting control:</p>
-					<ul>
-						<li><code>.container-flow-full</code> — full-width wrapper for nested <code>.container-flow</code></li>
-						<li><code>.container-flow-nested</code> — removes horizontal padding</li>
-						<li><code>.container-flow-left</code> / <code>.container-flow-center</code> / <code>.container-flow-right</code> — horizontal alignment helpers</li>
-					</ul>
-					<div>
-						<pre><code>
-							&lt;<span>div</span> <span>class</span>=<span>"container-flow-full"</span>&gt;
-								&lt;<span>div</span> <span>class</span>=<span>"container-flow container-flow-md"</span>&gt;
-									&lt;<span>p</span>&gt;Centered content with max-width&lt;/<span>p</span>&gt;
+						<h2>Size modifiers</h2>
+						<p>Use one of the following modifiers to adjust the container’s maximum width.</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th class="table-large">Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.container-flow-xs</code></td>
+									<td>Sets max-width to <code>600px</code>.</td>
+								</tr>
+								<tr>
+									<td><code>.container-flow-sm</code></td>
+									<td>Sets max-width to <code>750px</code>.</td>
+								</tr>
+								<tr>
+									<td><code>.container-flow-md</code></td>
+									<td>Sets max-width to <code>960px</code>.</td>
+								</tr>
+								<tr>
+									<td><code>.container-flow-lg</code></td>
+									<td>Sets max-width to <code>1140px</code>.</td>
+								</tr>
+								<tr>
+									<td><code>.container-flow-xl</code></td>
+									<td>Sets max-width to <code>1320px</code>.</td>
+								</tr>
+								<tr>
+									<td><code>.container-flow-expand</code></td>
+									<td>Removes max-width restriction (full-width layout).</td>
+								</tr>
+							</tbody>
+						</table>
+						<div>
+							<pre><code>
+								&lt;<span>div</span> <span>class</span>=<span>"container-flow container-flow-xs"</span>&gt;&lt;/<span>div</span>&gt;
+								&lt;<span>div</span> <span>class</span>=<span>"container-flow container-flow-md"</span>&gt;&lt;/<span>div</span>&gt;
+								&lt;<span>div</span> <span>class</span>=<span>"container-flow container-flow-expand"</span>&gt;&lt;/<span>div</span>&gt;
+							</code></pre>
+						</div>
+
+						<h2>Expand edge modifiers</h2>
+						<p>Use these classes to remove one side of the horizontal margin for edge-aligned layouts.</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th class="table-large">Class</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.container-flow-expand-left</code></td>
+									<td>Removes the left margin.</td>
+								</tr>
+								<tr>
+									<td><code>.container-flow-expand-right</code></td>
+									<td>Removes the right margin.</td>
+								</tr>
+							</tbody>
+						</table>
+						<div>
+							<pre><code>
+								&lt;<span>div</span> <span>class</span>=<span>"container-flow container-flow-expand container-flow-expand-left"</span>&gt;&lt;/<span>div</span>&gt;
+								&lt;<span>div</span> <span>class</span>=<span>"container-flow container-flow-expand container-flow-expand-right"</span>&gt;&lt;/<span>div</span>&gt;
+							</code></pre>
+						</div>
+
+						<h2>Stack helpers</h2>
+						<p>Apply vertical spacing between children using stack helper classes.</p>
+						
+						<table class="table table-divider">
+							<thead>
+								<tr>
+									<th class="table-large">Class</th>
+									<th>Spacing</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>.container-flow-stack</code></td>
+									<td>Default vertical spacing</td>
+								</tr>
+								<tr>
+									<td><code>.container-flow-stack-sm</code></td>
+									<td>Small vertical spacing</td>
+								</tr>
+								<tr>
+									<td><code>.container-flow-stack-md</code></td>
+									<td>Medium vertical spacing</td>
+								</tr>
+								<tr>
+									<td><code>.container-flow-stack-lg</code></td>
+									<td>Large vertical spacing</td>
+								</tr>
+							</tbody>
+						</table>
+						<div>
+							<pre><code>
+								&lt;<span>div</span> <span>class</span>=<span>"container-flow container-flow-stack"</span>&gt;
+									&lt;<span>p</span>&gt;Paragraph 1&lt;/<span>p</span>&gt;
+									&lt;<span>p</span>&gt;Paragraph 2&lt;/<span>p</span>&gt;
+									&lt;<span>p</span>&gt;Paragraph 3&lt;/<span>p</span>&gt;
 								&lt;/<span>div</span>&gt;
-							&lt;/<span>div</span>&gt;
-						</code></pre>
-					</div>
+							</code></pre>
+						</div>
+
+						<h2>Advanced layout options</h2>
+						<p>You can use additional layout helpers for alignment and nesting control:</p>
+						<ul>
+							<li><code>.container-flow-full</code> — full-width wrapper for nested <code>.container-flow</code></li>
+							<li><code>.container-flow-nested</code> — removes horizontal padding</li>
+							<li><code>.container-flow-left</code> / <code>.container-flow-center</code> / <code>.container-flow-right</code> — horizontal alignment helpers</li>
+						</ul>
+						<div>
+							<pre><code>
+								&lt;<span>div</span> <span>class</span>=<span>"container-flow-full"</span>&gt;
+									&lt;<span>div</span> <span>class</span>=<span>"container-flow container-flow-md"</span>&gt;
+										&lt;<span>p</span>&gt;Centered content with max-width&lt;/<span>p</span>&gt;
+									&lt;/<span>div</span>&gt;
+								&lt;/<span>div</span>&gt;
+							</code></pre>
+						</div>
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>

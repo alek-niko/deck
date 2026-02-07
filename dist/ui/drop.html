@@ -308,408 +308,412 @@
 				version: 0.9
 			</div>
 		</aside>
+
 		<main id="main">
 			<div id="content">
-				<div class="container-flow container-flow-md prose">
-					<h1>Drop</h1>
-					<p class="text-lead">Position any element in relation to another element.</p>
-					<p>The Drop component is aim-aware. This means the drop stays open as long as the mouse pointer moves towards the drop. An additional delay ensures that the drop stays open even if the mouse pointer shortly moves in another direction. A drop closes immediately if another menu item is hovered.</p>
-					<hr>
-					<h2>Usage</h2>
-					<p>Any content, like a button, can toggle the drop component. Just add the <code>drop</code> attribute to a block element following the toggle.</p>
-					<div>
-						<pre><code>
-&lt;button type=&quot;button&quot;&gt;&lt;/button&gt;
-&lt;div drop&gt;&lt;/div&gt;
-						</code></pre>
-					</div>
-					<p>To group the toggle and the dropdown, just wrap them with a container element and add the <code>.inline</code> class from the <a href="component-util.html">Utility component</a>.</p>
-					<div>
-						<pre><code>
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button type=&quot;button&quot;&gt;&lt;/button&gt;
-	&lt;div drop&gt;&lt;/div&gt;
-&lt;/div&gt;
-						</code></pre>
-					</div>
-					<p><span class="label">Note</span> The Drop component has no default styling. In this example, we've used a card from the <a href="component-card.html">Card component</a> for visualization.</p>
+				<div class="container-flow container-flow-md">
+					<article class="prose">
+						<h1>Drop</h1>
+						<p class="text-lead">Position any element in relation to another element.</p>
+						<p>The Drop component is aim-aware. This means the drop stays open as long as the mouse pointer moves towards the drop. An additional delay ensures that the drop stays open even if the mouse pointer shortly moves in another direction. A drop closes immediately if another menu item is hovered.</p>
+						<hr>
+						<h2>Usage</h2>
+						<p>Any content, like a button, can toggle the drop component. Just add the <code>drop</code> attribute to a block element following the toggle.</p>
+						<div>
+							<pre><code>
+								&lt;button type=&quot;button&quot;&gt;&lt;/button&gt;
+								&lt;div drop&gt;&lt;/div&gt;
+							</code></pre>
+						</div>
+						<p>To group the toggle and the dropdown, just wrap them with a container element and add the <code>.inline</code> class from the <a href="component-util.html">Utility component</a>.</p>
+						<div>
+							<pre><code>
+								&lt;div class=&quot;inline&quot;&gt;
+									&lt;button type=&quot;button&quot;&gt;&lt;/button&gt;
+									&lt;div drop&gt;&lt;/div&gt;
+								&lt;/div&gt;
+							</code></pre>
+						</div>
+						<p><span class="label">Note</span> The Drop component has no default styling. In this example, we've used a card from the <a href="component-card.html">Card component</a> for visualization.</p>
 
-					<div>
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline ">
-									<button class="button" type="button">Click</button>
-									<div class="card card-body drop">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;inline &quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Click&lt;/button&gt;
-	&lt;div class=&quot;card card-body drop&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
-					<h2>Mode</h2>
-					<p>By default, the drop is toggled on click. Set the <code>drop="mode:hover"</code> attribute to change the toggle behavior.</p>
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Mode</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>click</code></td>
-									<td>Toggle drop on click only.</td>
-								</tr>
-								<tr>
-									<td><code>hover</code></td>
-									<td>Toggle drop on hover only.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="margin-medium">
-						<pre><code>
-&lt;div data-mode=&quot;hover&quot;&gt;&lt;/div&gt;
-						</code></pre>
-					</div>
-					<div>
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline">
-									<button class="button" type="button">Hover</button>
-									<div class="card card-body drop" drop="mode: hover">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-								</div>
-								
-								<div class="inline">
-									<button class="button" type="button">Click</button>
-									<div class="card card-body drop">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Hover&lt;/button&gt;
-	&lt;div class=&quot;card card-body drop&quot; data-mode=&quot;hover&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Click&lt;/button&gt;
-	&lt;div class=&quot;card card-body drop&quot; drop=&quot;mode: click&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
-
-					<h2>Width</h2>
-					<p>By default drop is 300px wide. You can use <code>drop="width: 600px"</code> attribute to set custom size in pixels. Additionaly <code>drop="width: match"</code> attribute accepts a <code>match</code> string value to match toggle width.</p>
-					<p>Avilable token: <code>--drop-width</code> </p>
-					<p>You can place a grid from the <a href="component-grid.html">Grid component</a> inside a drop. Just wrap the content with a <code>&lt;div&gt;</code> element and add the <code>grid</code> attribute. If the grid should stack automatically whenever the drop no longer fits its container, just add the <code>.drop-grid</code> class.</p>
-					<p>This needs more work</p>
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Mode</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>match</code></td>
-									<td>Drop matches toggle width.</td>
-								</tr>
-								<tr>
-									<td><code>800px</code></td>
-									<td>Pixel width value.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div>
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline">
-									<button class="button" type="button">Toggle Width</button>
-									<div class="card card-body drop" drop="width: match">Toggle Width.</div>
-								</div>
-								<div class="inline">
-									<button class="button" type="button">Custom Width</button>
-									<div class="card card-body drop" drop="width: 600px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Toggle Width&lt;/button&gt;
-	&lt;div class=&quot;card card-body drop&quot; drop=&quot;width: match&quot;&gt;Toggle Width.&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Custom Width&lt;/button&gt;
-	&lt;div class=&quot;card card-body drop&quot; drop=&quot;width: 600px&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
-
-					
-					<h3>Stretch</h3>
-					<p>When <code>drop="stretch: true"</code> is used drop will try to stretch its width to match the width of its closest ancestor</p>
-					<div>
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline">
-									<button class="button" type="button">Stretch</button>
-									<div class="card card-body drop" drop="stretch: true">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Stretch&lt;/button&gt;
-	&lt;div class=&quot;card card-body drop&quot; drop=&quot;stretch: true&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
-
-
-					
-					<h2>Height</h2>
-					<p>By default drop inherits height. You can use <code>drop="height: 200px"</code> attribute to set custom height in pixels.</p>
-					<p>Avilable token: <code>--drop-height</code> </p>
-					<div>
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline">
-									<button class="button" type="button">Custom height</button>
-									<div class="card card-body drop" drop="height: 200px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Custom height&lt;/button&gt;
-	&lt;div class=&quot;card card-body drop&quot; drop=&quot;height: 200px&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
-
-
-					
-					<h2>Position</h2>
-					<p>By default, the drop is positioned below the toggle. To change its position, set the <code>drop="position: bottom-right"</code> attribute.</p>
-					<p>This needs more work</p>
-					<div class="overflow-auto">
-						<table class="table table-divider">
-							<thead>
-								<tr>
-									<th>Position</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><code>top-left</code></td>
-									<td>Positions the drop above the toggle and aligns it to the left.</td>
-								</tr>
-								<tr>
-									<td><code>top-center</code></td>
-									<td>Positions the drop above the toggle and aligns it to the center.</td>
-								</tr>
-								<tr>
-									<td><code>top-right</code></td>
-									<td>Positions the drop above the toggle and aligns it to the right.</td>
-								</tr>
-								<tr>
-									<td><code>bottom-left</code></td>
-									<td>Positions the drop below the toggle and aligns it to the left.</td>
-								</tr>
-								<tr>
-									<td><code>bottom-center</code></td>
-									<td>Positions the drop below the toggle and aligns it to the center.</td>
-								</tr>
-								<tr>
-									<td><code>bottom-right</code></td>
-									<td>Positions the drop below the toggle and aligns it to the right.</td>
-								</tr>
-								<tr>
-									<td><code>left-top</code></td>
-									<td>Positions the drop to the left of the toggle and aligns it to the top.</td>
-								</tr>
-								<tr>
-									<td><code>left-center</code></td>
-									<td>Positions the drop to the left of the toggle and aligns it to the center.</td>
-								</tr>
-								<tr>
-									<td><code>left-bottom</code></td>
-									<td>Positions the drop to the left of the toggle and aligns it to the bottom.</td>
-								</tr>
-								<tr>
-									<td><code>right-top</code></td>
-									<td>Positions the drop to the right of the toggle and aligns it to the top.</td>
-								</tr>
-								<tr>
-									<td><code>right-center</code></td>
-									<td>Positions the drop to the right of the toggle and aligns it to the center.</td>
-								</tr>
-								<tr>
-									<td><code>right-bottom</code></td>
-									<td>Positions the drop to the right of the toggle and aligns it to the bottom.</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div>
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline">
-									<button class="button" type="button">Bottom Right</button>
-									<div class="card card-body drop" drop="position: bottom-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-								</div>		
-								<div class="inline">
-									<button class="button" type="button">Bottom Center</button>
-									<div class="card card-body drop" drop="position: bottom-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-								</div>
-								<div class="inline">
-									<button class="button" type="button">Bottom Left</button>
-									<div class="card card-body drop" drop="position: bottom-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Bottom Right&lt;/button&gt;
-	&lt;div class=&quot;card card-body drop&quot; drop=&quot;position: bottom-right&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;		
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Bottom Center&lt;/button&gt;
-	&lt;div class=&quot;card card-body drop&quot; drop=&quot;position: bottom-center&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Bottom Left&lt;/button&gt;
-	&lt;div class=&quot;card card-body drop&quot; drop=&quot;position: bottom-left&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
-
-					
-					<h2>Offset</h2>
-					<p>To define a custom offset between the drop and its toggle, add the <code>drop="offset: 80"</code> option with a value in pixels.</p>
-					<pre><code>
-&lt;div data-offset=&quot;80&quot;&gt;&lt;/div&gt;
-					</code></pre>
-					<div>
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="inline">
-									<button class="button" type="button">Hover</button>
-									<div class="card card-body drop" drop="mode: hover; offset: 80">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Hover&lt;/button&gt;
-	&lt;div class=&quot;card card-body drop&quot; drop=&quot;mode: hover; offset: 80&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
-
-					
-					<h2>Animation</h2>
-					<p>Apply any animation to the dropdown from the <a href="component-animation.html">Animation component</a>. Additionally you can use transforms from <a href="component-util.html">Utility component</a>.</p>
-
-					<div>
-						<ul class="tab">
-							<li class="active">Preview</li>
-							<li>Markup</li>
-						</ul>
-						<div class="tab-content">
-							<div class="active">
-								<div class="">
-									<div class="inline">
-										<button class="button" type="button">Slide Top</button>
-										<div class="card card-body drop animation-slide-top-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+						<div>
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline ">
+										<button class="button" type="button">Click</button>
+										<div class="card card-body drop">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
 									</div>
-								
-									<div class="inline">
-										<button class="button" type="button">Scale & Transform</button>
-										<div class="card card-body drop animation-scale-up transform-origin-top-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-									</div>
-								
-									<div class="inline">
-										<button class="button" type="button">Slide Left</button>
-										<div class="card card-body drop animation-slide-left-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-									</div>								
 								</div>
-							</div>
-							<div>
-								<pre><code>
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Slide Top&lt;/button&gt;
-	&lt;div class=&quot;card card-body drop animation-slide-top-small&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline &quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Click&lt;/button&gt;
+											&lt;div class=&quot;card card-body drop&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
+						<h2>Mode</h2>
+						<p>By default, the drop is toggled on click. Set the <code>drop="mode:hover"</code> attribute to change the toggle behavior.</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Mode</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>click</code></td>
+										<td>Toggle drop on click only.</td>
+									</tr>
+									<tr>
+										<td><code>hover</code></td>
+										<td>Toggle drop on hover only.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="margin-medium">
+							<pre><code>
+								&lt;div data-mode=&quot;hover&quot;&gt;&lt;/div&gt;
+							</code></pre>
+						</div>
+						<div>
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline">
+										<button class="button" type="button">Hover</button>
+										<div class="card card-body drop" drop="mode: hover">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+									</div>
+									
+									<div class="inline">
+										<button class="button" type="button">Click</button>
+										<div class="card card-body drop">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Hover&lt;/button&gt;
+											&lt;div class=&quot;card card-body drop&quot; data-mode=&quot;hover&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
 
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Scale &amp; Transform&lt;/button&gt;
-	&lt;div class=&quot;card card-body drop animation-scale-up transform-origin-top-center&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Click&lt;/button&gt;
+											&lt;div class=&quot;card card-body drop&quot; drop=&quot;mode: click&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
 
-&lt;div class=&quot;inline&quot;&gt;
-	&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Slide Left&lt;/button&gt;
-	&lt;div class=&quot;card card-body drop animation-slide-left-small&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
-&lt;/div&gt;
-								</code></pre>
-							</div>
-						</div>		
-					</div>
+						<h2>Width</h2>
+						<p>By default drop is 300px wide. You can use <code>drop="width: 600px"</code> attribute to set custom size in pixels. Additionaly <code>drop="width: match"</code> attribute accepts a <code>match</code> string value to match toggle width.</p>
+						<p>Avilable token: <code>--drop-width</code> </p>
+						<p>You can place a grid from the <a href="component-grid.html">Grid component</a> inside a drop. Just wrap the content with a <code>&lt;div&gt;</code> element and add the <code>grid</code> attribute. If the grid should stack automatically whenever the drop no longer fits its container, just add the <code>.drop-grid</code> class.</p>
+						<p>This needs more work</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Mode</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>match</code></td>
+										<td>Drop matches toggle width.</td>
+									</tr>
+									<tr>
+										<td><code>800px</code></td>
+										<td>Pixel width value.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div>
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline">
+										<button class="button" type="button">Toggle Width</button>
+										<div class="card card-body drop" drop="width: match">Toggle Width.</div>
+									</div>
+									<div class="inline">
+										<button class="button" type="button">Custom Width</button>
+										<div class="card card-body drop" drop="width: 600px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Toggle Width&lt;/button&gt;
+											&lt;div class=&quot;card card-body drop&quot; drop=&quot;width: match&quot;&gt;Toggle Width.&lt;/div&gt;
+										&lt;/div&gt;
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Custom Width&lt;/button&gt;
+											&lt;div class=&quot;card card-body drop&quot; drop=&quot;width: 600px&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
+
+						
+						<h3>Stretch</h3>
+						<p>When <code>drop="stretch: true"</code> is used drop will try to stretch its width to match the width of its closest ancestor</p>
+						<div>
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline">
+										<button class="button" type="button">Stretch</button>
+										<div class="card card-body drop" drop="stretch: true">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Stretch&lt;/button&gt;
+											&lt;div class=&quot;card card-body drop&quot; drop=&quot;stretch: true&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
+
+
+						
+						<h2>Height</h2>
+						<p>By default drop inherits height. You can use <code>drop="height: 200px"</code> attribute to set custom height in pixels.</p>
+						<p>Avilable token: <code>--drop-height</code> </p>
+						<div>
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline">
+										<button class="button" type="button">Custom height</button>
+										<div class="card card-body drop" drop="height: 200px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Custom height&lt;/button&gt;
+											&lt;div class=&quot;card card-body drop&quot; drop=&quot;height: 200px&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
+
+
+						
+						<h2>Position</h2>
+						<p>By default, the drop is positioned below the toggle. To change its position, set the <code>drop="position: bottom-right"</code> attribute.</p>
+						<p>This needs more work</p>
+						<div class="overflow-auto">
+							<table class="table table-divider">
+								<thead>
+									<tr>
+										<th>Position</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><code>top-left</code></td>
+										<td>Positions the drop above the toggle and aligns it to the left.</td>
+									</tr>
+									<tr>
+										<td><code>top-center</code></td>
+										<td>Positions the drop above the toggle and aligns it to the center.</td>
+									</tr>
+									<tr>
+										<td><code>top-right</code></td>
+										<td>Positions the drop above the toggle and aligns it to the right.</td>
+									</tr>
+									<tr>
+										<td><code>bottom-left</code></td>
+										<td>Positions the drop below the toggle and aligns it to the left.</td>
+									</tr>
+									<tr>
+										<td><code>bottom-center</code></td>
+										<td>Positions the drop below the toggle and aligns it to the center.</td>
+									</tr>
+									<tr>
+										<td><code>bottom-right</code></td>
+										<td>Positions the drop below the toggle and aligns it to the right.</td>
+									</tr>
+									<tr>
+										<td><code>left-top</code></td>
+										<td>Positions the drop to the left of the toggle and aligns it to the top.</td>
+									</tr>
+									<tr>
+										<td><code>left-center</code></td>
+										<td>Positions the drop to the left of the toggle and aligns it to the center.</td>
+									</tr>
+									<tr>
+										<td><code>left-bottom</code></td>
+										<td>Positions the drop to the left of the toggle and aligns it to the bottom.</td>
+									</tr>
+									<tr>
+										<td><code>right-top</code></td>
+										<td>Positions the drop to the right of the toggle and aligns it to the top.</td>
+									</tr>
+									<tr>
+										<td><code>right-center</code></td>
+										<td>Positions the drop to the right of the toggle and aligns it to the center.</td>
+									</tr>
+									<tr>
+										<td><code>right-bottom</code></td>
+										<td>Positions the drop to the right of the toggle and aligns it to the bottom.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div>
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline">
+										<button class="button" type="button">Bottom Right</button>
+										<div class="card card-body drop" drop="position: bottom-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+									</div>		
+									<div class="inline">
+										<button class="button" type="button">Bottom Center</button>
+										<div class="card card-body drop" drop="position: bottom-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+									</div>
+									<div class="inline">
+										<button class="button" type="button">Bottom Left</button>
+										<div class="card card-body drop" drop="position: bottom-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Bottom Right&lt;/button&gt;
+											&lt;div class=&quot;card card-body drop&quot; drop=&quot;position: bottom-right&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;		
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Bottom Center&lt;/button&gt;
+											&lt;div class=&quot;card card-body drop&quot; drop=&quot;position: bottom-center&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Bottom Left&lt;/button&gt;
+											&lt;div class=&quot;card card-body drop&quot; drop=&quot;position: bottom-left&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
+
+						
+						<h2>Offset</h2>
+						<p>To define a custom offset between the drop and its toggle, add the <code>drop="offset: 80"</code> option with a value in pixels.</p>
+						<pre><code>
+							&lt;div data-offset=&quot;80&quot;&gt;&lt;/div&gt;
+						</code></pre>
+						<div>
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="inline">
+										<button class="button" type="button">Hover</button>
+										<div class="card card-body drop" drop="mode: hover; offset: 80">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Hover&lt;/button&gt;
+											&lt;div class=&quot;card card-body drop&quot; drop=&quot;mode: hover; offset: 80&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
+
+						
+						<h2>Animation</h2>
+						<p>Apply any animation to the dropdown from the <a href="component-animation.html">Animation component</a>. Additionally you can use transforms from <a href="component-util.html">Utility component</a>.</p>
+
+						<div>
+							<ul class="tab">
+								<li class="active">Preview</li>
+								<li>Markup</li>
+							</ul>
+							<div class="tab-content">
+								<div class="active">
+									<div class="">
+										<div class="inline">
+											<button class="button" type="button">Slide Top</button>
+											<div class="card card-body drop animation-slide-top-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+										</div>
+									
+										<div class="inline">
+											<button class="button" type="button">Scale & Transform</button>
+											<div class="card card-body drop animation-scale-up transform-origin-top-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+										</div>
+									
+										<div class="inline">
+											<button class="button" type="button">Slide Left</button>
+											<div class="card card-body drop animation-slide-left-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+										</div>								
+									</div>
+								</div>
+								<div>
+									<pre><code>
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Slide Top&lt;/button&gt;
+											&lt;div class=&quot;card card-body drop animation-slide-top-small&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Scale &amp; Transform&lt;/button&gt;
+											&lt;div class=&quot;card card-body drop animation-scale-up transform-origin-top-center&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+
+										&lt;div class=&quot;inline&quot;&gt;
+											&lt;button class=&quot;button&quot; type=&quot;button&quot;&gt;Slide Left&lt;/button&gt;
+											&lt;div class=&quot;card card-body drop animation-slide-left-small&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.&lt;/div&gt;
+										&lt;/div&gt;
+									</code></pre>
+								</div>
+							</div>		
+						</div>
+					</article>
 				</div>
 			</div>
 		</main>
+
 		<script src='/assets/js/deck.min.js'></script>
 	</body>
 </html>
