@@ -42,7 +42,8 @@
 	width: 100%;
 	max-width: map.get($container-sizes, large);
 	margin-inline: auto;
-	padding-inline: $spacing-default;
+	//padding-inline: clamp($spacing-sm, 4vw, $spacing-xl);
+	padding-inline: var(--space-fluid-default);
 
 	// Remove margin from last child
 	> :last-child {
@@ -66,17 +67,17 @@
 // Responsive padding
 // -----------------------------------------------------------------------------
 
-@media (min-width: $breakpoint-sm) {
-	.container-flow {
-		padding-inline: $spacing-lg;
-	}
-}
+// @media (min-width: $breakpoint-sm) {
+// 	.container-flow {
+// 		padding-inline: $spacing-lg;
+// 	}
+// }
 
-@media (min-width: $breakpoint-md) {
-	.container-flow {
-		padding-inline: $spacing-xl;
-	}
-}
+// @media (min-width: $breakpoint-md) {
+// 	.container-flow {
+// 		padding-inline: $spacing-xl;
+// 	}
+// }
 
 // -----------------------------------------------------------------------------
 // Full-width flow wrapper
