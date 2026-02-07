@@ -1,0 +1,66 @@
+//-----------------------------------------------------------------------------
+//  DATETIME VARIANTS
+//  components/form/_datetime.scss
+//-----------------------------------------------------------------------------
+//  Global styles for date and time input elements.
+//  - Token-driven appearance
+//  - Consistent surface, border, and shadow behavior
+//  - Accessible focus and disabled states
+//-----------------------------------------------------------------------------
+
+input[type="datetime-local"],
+input[type="date"],
+input[type="time"] {
+	appearance: none;
+	-webkit-appearance: none;
+	
+	width: 100%;
+	min-width: 0;
+
+	padding: 0.55rem 0.65rem;
+	font-size: inherit;
+	line-height: 1.25;
+
+	color: var(--color-text);
+	background-color: var(--color-surface);
+
+	border: 1px solid var(--color-border);
+	border-radius: 6px;
+
+	box-shadow: var(--shadow-xs);
+
+	//transition:
+	//	border-color 0.15s ease,
+	//	box-shadow 0.15s ease,
+	//	background-color 0.15s ease;
+}
+
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus {
+	outline: none;
+
+	border-color: var(--color-border);
+	box-shadow: var(--shadow-sm);
+}
+
+input[type="datetime-local"]:disabled,
+input[type="date"]:disabled,
+input[type="time"]:disabled,
+input[type="datetime-local"][readonly],
+input[type="date"][readonly],
+input[type="time"][readonly] {
+	background-color: var(--color-surface-muted);
+	color: var(--color-text-muted);
+
+	border-color: var(--color-border-muted);
+	box-shadow: none;
+}
+
+input::-webkit-calendar-picker-indicator {
+	opacity: 0.6;
+}
+
+input:hover::-webkit-calendar-picker-indicator {
+	opacity: 0.9;
+}
