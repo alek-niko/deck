@@ -23,12 +23,14 @@
 	// Design Tokens (CSS Custom Properties)
 	// Used throughout card styles for colors, spacing, font, etc.
 	// -------------------------------------------------------------------------
-	--card-bg: var(--color-surface);
-	--card-text: var(--color-text);
+	//--card-bg: var(--color-surface);
+	--card-bg: var(--color-surface, var(--color-surface));
+	//--card-text: var(--color-text);
+	--card-text: var(--color-text, var(--color-text));
 	--card-muted-text: var(--color-text-muted);
 	--card-border-radius: var(--radius-xl);
 	--card-border: var(--color-border);
-	--card-padding: var(--spacing-md) var(--spacing-default);
+	--card-padding: var(--spacing-default);
 	--card-title-size: 1.125rem;
 	--card-title-weight: 500;
 	--card-title-line: 1.4;
@@ -240,8 +242,8 @@
 		//align-items: var(--card-header-align, center);
 		padding: var(--card-header-padding, var(--card-padding));
 
-		background: var(--card-header-bg, var(--card-bg));
-		color: var(--card-header-text, var(--card-text));
+		background-color: var(--card-header-bg, var(--color-surface));
+ 		color: var(--card-header-text, var(--color-text));
 
 		>.avatar {
 			display: inline-flex;
@@ -308,8 +310,9 @@
 		flex-direction: column;
 		gap: var(--spacing-sm);
 
-		background: var(--card-body-bg, var(--card-bg));
-		color: var(--card-body-text, var(--card-text));		
+		background-color: var(--card-body-bg, var(--color-surface));
+		color: var(--card-body-text, var(--color-text));
+		
 
 		[data-slot='poll'],
 		.card-poll {
@@ -350,8 +353,8 @@
 		padding: var(--card-footer-padding, var(--card-padding));
 		gap: var(--spacing-md);
 
-		background: var(--card-footer-bg, var(--card-bg));
-		color: var(--card-footer-text, var(--card-text));		
+		background: var(--card-footer-bg, var(--color-surface));
+		color: var(--card-footer-text, var(--color-text));		
 
 		&.left 		{ justify-content: flex-start; }
 		&.center	{ justify-content: center; }
