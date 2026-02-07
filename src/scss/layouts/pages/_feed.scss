@@ -112,7 +112,7 @@
 		.content-section {
 			--content-max-width: 600px;
 			flex: 1;
-			margin-left: 0; /* was 30px; */ 
+			margin-left: 15px; /* was 30px; */ 
 			max-width: var(--content-max-width);
 			transition: all 0.3s ease;
 
