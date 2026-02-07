@@ -102,22 +102,6 @@ $breakpoint-media: (
 }
 
 // -----------------------------------------------------------------------------
-// SPECIAL WIDTH CLASSES (non-standard behavior)
-// -----------------------------------------------------------------------------
-
-// Auto: let content define the width (no flex growth)
-.width-auto {
-	flex-basis: auto;
-	width: auto;
-}
-
-// Expand: take up remaining space (grow + shrink allowed)
-.width-expand {
-	flex: 1 1 0;
-	min-width: 1px;
-}
-
-// -----------------------------------------------------------------------------
 // RESPONSIVE WIDTH VARIANTS
 // -----------------------------------------------------------------------------
 // Loop through breakpoints to generate responsive variants
@@ -156,3 +140,101 @@ $breakpoint-media: (
 		}
 	}
 }
+
+// -----------------------------------------------------------------------------
+// SPECIAL WIDTH CLASSES (non-standard behavior)
+// -----------------------------------------------------------------------------
+
+// Auto: let content define the width (no flex growth)
+.width-auto {
+	flex-basis: auto;
+	width: auto;
+}
+
+// Expand: take up remaining space (grow + shrink allowed)
+.width-expand {
+	flex: 1 1 0;
+	min-width: 1px;
+}
+
+// -----------------------------------------------------------------------------
+// DYNAMIC VARIABLE WIDTH
+// -----------------------------------------------------------------------------
+// Allows for one-off widths using an inline CSS variable:
+// Example: <div class="width-var" style="--width: 420px;">
+.width-var {
+    flex-basis: calc(var(--width, auto) - var(--gap, 0px));
+    width: calc(var(--width, auto) - var(--gap, 0px));
+}
+
+// -----------------------------------------------------------------------------
+// CONTENT-BASED WIDTHS
+// -----------------------------------------------------------------------------
+// Hugs the content inside. Essential for buttons or dynamic tabs.
+
+.width-fit {
+    flex-basis: fit-content;
+    width: fit-content;
+}
+
+.width-min {
+    flex-basis: min-content;
+    width: min-content;
+}
+
+.width-max {
+    flex-basis: max-content;
+    width: max-content;
+}
+
+// -----------------------------------------------------------------------------
+// VIEWPORT-RELATIVE WIDTHS (VW)
+// -----------------------------------------------------------------------------
+// Useful for Hero components or "Bleed" layouts.
+
+.width-screen-full {
+    width: 100vw;
+    flex-basis: 100vw;
+}
+
+.width-screen-75 {
+    width: 75vw;
+    flex-basis: 75vw;
+}
+
+.width-screen-50 {
+    width: 50vw;
+    flex-basis: 50vw;
+}
+
+
+// -----------------------------------------------------------------------------
+// MAX-WIDTH UTILITY CLASSES
+// -----------------------------------------------------------------------------
+// Constraints for elements to prevent overly long lines of text or 
+// oversized UI components on ultra-wide screens.
+// 
+
+// Fixed Pixel Constraints (Matching  Width scale)
+// -----------------------------------------------------------------------------
+.max-width-sm  { max-width: 160px; }
+.max-width-md  { max-width: 320px; }
+.max-width-lg  { max-width: 480px; }
+.max-width-xl  { max-width: 640px; } // Optimal for readable text (approx 60-75ch)
+.max-width-xxl { max-width: 800px; }
+
+// Percentage and Viewport Constraints
+// -----------------------------------------------------------------------------
+.max-width-full { max-width: 100%; }
+.max-width-none { max-width: none; }
+
+// Dynamic Variable Max-Width
+// -----------------------------------------------------------------------------
+// Usage: <div class="max-width-var" style="--max-width: 550px;">
+.max-width-var {
+    max-width: var(--max-width, none);
+}
+
+// Content-Based Constraints
+// -----------------------------------------------------------------------------
+.max-width-fit { max-width: fit-content; }
