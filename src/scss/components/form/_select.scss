@@ -22,7 +22,7 @@
 	text-transform: none;
 	margin: 0;
 	//padding: var(--spacing-sm, $spacing-sm) var(--spacing-sm, $spacing-sm) calc(var(--spacing-sm, $spacing-sm) - 1px);
-	padding: var(--spacing-sm) var(--spacing-md);
+	padding: var(--spacing-sm) var(--spacing-sm);
 
 	color: var(--color-text);
 	background-color: var(--color-surface);
@@ -43,6 +43,11 @@
 	background-position: right 0.5em center;
 	background-size: 1em;
 	background-image: svg-load('icon-chevron-down.svg', fill=var(--color-text-muted)); // Requires svg-load or similar loader setup
+
+
+	&.underline {
+		border-width: 0 0 1px 0 !important;
+	}
 
     // ----------------------------------------
     // States
