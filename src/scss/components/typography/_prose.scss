@@ -17,6 +17,7 @@
 .prose {
 
 	font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+	// font-size: clamp(1rem, 0.95rem + 0.1vw, 1.0625rem); // next test
 	line-height: var(--line-height-base);
 	max-width: 70ch;
 
