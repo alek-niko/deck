@@ -44,6 +44,29 @@
 	}
 
 	//--------------------------------------------
+    // Edit Mode Visibility Logic
+    //--------------------------------------------
+    .edit-mode-only {
+        display: none !important;
+    }
+
+    &.is-editing {
+        .edit-mode-only {
+            display: flex !important;
+            &.textarea, &.input { display: block !important; }
+        }
+        .view-mode-only {
+            display: none !important;
+        }
+        
+        // Ensure buttons on images are fully visible during edit
+        .edit-overlay-btn {
+            opacity: 1;
+            background: rgba(0, 0, 0, 0.6);
+        }
+    }
+
+	//--------------------------------------------
 	// Profile Cover
 	//--------------------------------------------
 	.profile-cover {
@@ -51,6 +74,12 @@
 		background-color: var(--color-surface-muted);
 		transition: height 0.3s ease;
 		overflow: hidden;
+		position: relative; // Required for edit-overlay-btn
+
+		.cover-edit {
+			top: 15px;
+			right: 15px;
+		}
 
 		img {
 			width: 100%;
@@ -81,6 +110,11 @@
 		
 		transform: scale(0.95) translateY(10px);
 		transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease, top 0.3s ease, height 0.3s ease;
+
+		.avatar-edit {
+			bottom: 10px;
+			right: 10px;
+		}
 
 		img {
 			width: 100%;
@@ -114,6 +148,8 @@
 			}
 		}
 	}
+
+
 
 	//--------------------------------------------
 	// Profile Actions (Outside of Info)
@@ -208,6 +244,57 @@
 			border-radius: 50%;
 		}
 	}
+
+	//--------------------------------------------
+	// Edit Overlays & Progress Rings
+	//--------------------------------------------
+	.edit-overlay-btn {
+		position: absolute;
+		background: rgba(0, 0, 0, 0.5);
+		border: none;
+		border-radius: 50%;
+		width: 36px;
+		height: 36px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		transition: background 0.2s, opacity 0.2s;
+		opacity: 0; // Hidden by default unless in .is-editing or hovered
+		z-index: 15;
+
+		&:hover {
+			background: rgba(0, 0, 0, 0.8);
+			transform: scale(1.1);
+		}
+
+		svg {
+			width: 20px;
+			height: 20px;
+			fill: #fff;
+		}
+	}
+
+	.deck-upload-ring-container {
+		position: absolute;
+		top: 0; left: 0; right: 0; bottom: 0;
+		background: rgba(0, 0, 0, 0.4);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 20;
+		border-radius: inherit;
+
+		svg {
+			width: 48px;
+			height: 48px;
+			.ring-track { fill: none; stroke: rgba(255, 255, 255, 0.2); stroke-width: 3; }
+			.ring-bar { 
+				fill: none; stroke: #fff; stroke-width: 3; 
+				stroke-linecap: round; transition: stroke-dasharray 0.3s ease; 
+			}
+		}
+	}
 	
 
 	//--------------------------------------------
@@ -249,6 +336,33 @@
 			margin: 10px 0;
 			strong { color: var(--profile-dark); }
 		}
+
+		.edit-mode-actions {
+			display: flex;
+			gap: 10px;
+			justify-content: flex-end;
+		}
+
+		input.input, 
+		textarea.textarea {
+			width: 100%;
+			margin-top: 8px;
+			background: var(--color-surface-muted);
+			padding: 10px;
+			color: var(--color-text);
+			font-family: inherit;
+			font-size: 15px;
+
+			&:focus {
+				outline: none;
+				border-color: var(--profile-blue);
+			}
+		}
+
+		textarea.textarea {
+			min-height: 100px;
+			resize: vertical;
+		}
 	}
 
 	//--------------------------------------------
@@ -262,6 +376,12 @@
 	@include max-sm {
 		--cover-height: 120px;
 		--avatar-size: 90px;
+
+		.edit-overlay-btn {
+			width: 32px;
+			height: 32px;
+			svg { width: 16px; height: 16px; }
+		}
 		
 		.profile-actions {
 			top: calc(var(--cover-height) + 10px);
@@ -280,6 +400,12 @@
 			margin-top: calc(var(--current-avatar-height) / 2 + 10px);
 
 			.profile-name { font-size: 18px; }
+
+			.edit-mode-actions {
+                width: 100%;
+                margin-top: 15px;
+                button { flex: 1; } // Make save/cancel full width on small screens
+            }
 		}
 	}
 }
