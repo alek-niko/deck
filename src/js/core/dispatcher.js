@@ -5,21 +5,14 @@
 
 /**
  * @class DispatcherEvent
- *
- * Encapsulates a single event and manages its registered callbacks. Provides
- * methods to add, remove, and invoke callbacks when the event is triggered.
+ * @classdesc Encapsulates a single event and manages its registered callbacks. Provides
+ * 			  methods to add, remove, and invoke callbacks when the event is triggered.
  */
 class DispatcherEvent {
-	/**
-     * @constructor
-     * @param {string} eventName - The name of the event.
-     */
-	constructor(eventName) {
-		/** @property {string} eventName - The name of the event. */
-		this.eventName = eventName;
 
-		/** @property {Function[]} callbacks - List of registered callbacks. */
-		this.callbacks = [];
+	constructor(eventName) {
+		this.eventName = eventName;		// The name of the event.				{string}
+		this.callbacks = [];			// List of registered callbacks.		{Function[]}
 	}
 
 	/**
@@ -46,6 +39,7 @@ class DispatcherEvent {
      * @param {*} data - Data to pass to each callback.
      */
 	fire(data) {
+		// Use a shallow copy to prevent issues if a callback unregisters itself during execution
 		const callbacks = this.callbacks.slice(0);
 		callbacks.forEach((callback) => {
 			callback(data);
@@ -94,7 +88,8 @@ class Dispatcher {
 					}
 		
 				} catch {
-					this.say('Unknown signal', 'danger');
+					//this.say('Unknown signal', 'danger');
+					// console.error('Unknown signal');
 				}
 			} else {
 				// Placeholder for future binary message handling
@@ -102,18 +97,28 @@ class Dispatcher {
 		};
 
 		this.wss.onopen = () => {
-			document.dispatchEvent(new CustomEvent('deck.wss.open'));
+			// Reset delay on successful connection
+   			this.state.reconnectionDelay = 1000; 
+			// Sync to global state so ANY component can check this.deck.state.wssOnline
+    		this.setState('wssOnline', true);
+
 			this.emit('wssConnect')
 		  };
 
 		this.wss.onclose = e => {
-			document.dispatchEvent(new CustomEvent('deck.wss.close'));
+			this.setState('wssOnline', false);
 			this.emit('wssDisconnect')
-			if (this.state.reconnection && 
-				((this.wss === null) || (this.wss.readyState == 3))) {
-					setTimeout(() => {
-						this.connect();
-					}, this.reconnectionDelay);
+
+		    if (this.state.reconnection && (!this.wss || this.wss.readyState === 3)) {
+				// Exponential backoff logic: 1s, 2s, 4s, 8s... up to 30s
+				const delay = Math.min(this.state.reconnectionDelay, 30000);
+				
+				setTimeout(() => {
+					console.log(`Attempting reconnection in ${delay}ms...`);
+					this.connect();
+					// Increase delay for next attempt
+					this.state.reconnectionDelay *= 2; 
+				}, delay);
 			}
 		};
 
@@ -122,16 +127,17 @@ class Dispatcher {
 			this.emit('wssDisconnect')
 			this.wss.close();
 		};
+
 	}
 
 	/**
      * Disconnects the WebSocket connection and prevents automatic reconnection.
      */
 	disconnect() {
-		if (this.wss?.readyState === this.wss?.OPEN) {
-			this.state.reconnection = false
-			this.wss.close()
-		}
+		if (this.wss?.readyState === 1) { // 1 = OPEN
+            this.state.reconnection = false;
+            this.wss.close();
+        }
 	}
 
 	/**
@@ -140,7 +146,7 @@ class Dispatcher {
      */
 
 	isConnected(){
-		return this.wss.readyState !== this.wss.OPEN
+		return this.wss && this.wss.readyState === 1;
 	}
 
 	/**
@@ -148,7 +154,7 @@ class Dispatcher {
      * @returns {number} The WebSocket readyState.
      */
 	wssState() {
-		return this.wss.readyState
+		return this.wss ? this.wss.readyState : 3;
 	}
 
 	/**
@@ -156,9 +162,9 @@ class Dispatcher {
      * @param {*} data - The data to send. It will be stringified before sending.
      */
 	send(data) {
-		if (this.wss && this.wss.readyState === this.wss.OPEN) {
-			this.wss.send(JSON.stringify(data))
-		}
+		if (this.wss && this.wss.readyState === 1) {
+            this.wss.send(JSON.stringify(data));
+        }
 	}
 
 	/**
@@ -170,21 +176,21 @@ class Dispatcher {
      */
 	emit(eventName, data) {
 
-		//direct
-		const event = this.events[eventName];
+		// Direct match
+        const event = this.events[eventName];
+        if (event) { event.fire(data); }
 
-		if (event) { event.fire(data) }
+        // Wildcard match [*] - e.g., 'channel:*'
+        const escaped = str => str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
 
-		//wildcard [*] - 'channel:*'
-		const escaped = eventName => eventName.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
-		
-		Object.entries(this.events).forEach(
-			([name, e]) => {
-				if ( name.includes("*") && 
-					new RegExp("^" + name.split("*").map(escaped).join(".*") + "$").test(eventName) )
-						{ e.fire(data) }
-			}
-		);
+        Object.entries(this.events).forEach(([name, e]) => {
+            if (name.includes("*")) {
+                const pattern = new RegExp("^" + name.split("*").map(escaped).join(".*") + "$");
+                if (pattern.test(eventName)) {
+                    e.fire(data);
+                }
+            }
+        });
 	}
 
 	/**
@@ -194,12 +200,16 @@ class Dispatcher {
      * @param {Function} callback - The callback function to invoke when the event is emitted.
      */
 	on(eventName, callback) {
+
 		let event = this.events[eventName];
-		if (!event) {
-			event = new DispatcherEvent(eventName);
-			this.events[eventName] = event;
-		}
-		event.registerCallback(callback);
+        if (!event) {
+            event = new DispatcherEvent(eventName);
+            this.events[eventName] = event;
+        }
+        event.registerCallback(callback);
+
+        // Return the cleanup function so components can auto-clean
+        return () => this.off(eventName, callback);
 	}
 
 	/**
@@ -211,12 +221,13 @@ class Dispatcher {
      */
 	off(eventName, callback) {
 		const event = this.events[eventName];
-		if (event && event.callbacks.indexOf(callback) > -1) {
-			event.unregisterCallback(callback);
-			if (event.callbacks.length === 0) {
-				delete this.events[eventName];
-			}
-		}
+
+        if (event) {
+            event.unregisterCallback(callback);
+            if (event.callbacks.length === 0) {
+                delete this.events[eventName];
+            }
+        }
 	}
 
 	/**
