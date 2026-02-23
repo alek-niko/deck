@@ -5,6 +5,9 @@
  * Supports single or multiple file uploads with customizable file type and size limits.
  */
 
+// Import the base Component class from the Component.js file
+import Component from './component.js';
+
 /**
  * @class FileValidator
  * Handles file validation logic, including size, type, and stream-based checks.
@@ -15,17 +18,30 @@ class FileValidator {
 	/**
 	 * List of accepted image, video, and audio file formats.
 	 */
-	static imageFormats = ['png', 'jpg', 'jpeg', 'webp', 'gif'];
-	static videoFormats = ['mp4', 'm4v', 'webm'];
-	static audioFormats = ['aac', 'mp3', 'weba'];
+	static WHITELIST = {
+        IMAGE: ['jpg', 'jpeg', 'png', 'webp', 'gif', 'heic', 'heif'],
+        VIDEO: ['mp4', 'mov', 'webm', 'mkv'],
+        AUDIO: ['mp3', 'wav', 'm4a', 'ogg'],
+        DOC: ['pdf', 'txt', 'zip', 'docx']
+    };
+
+	static SPECS = {
+        feed: { maxSize: 15 * 1024 * 1024, type: 'IMAGE' },
+        avatar: { width: 400, height: 400, maxSize: 5 * 1024 * 1024, type: 'IMAGE' },
+        cover: { width: 1500, height: 500, maxSize: 15 * 1024 * 1024, type: 'IMAGE' },
+        thumb: { width: 200, height: 200, maxSize: 2 * 1024 * 1024, type: 'IMAGE' },
+        preview: { width: 1200, height: 630, maxSize: 8 * 1024 * 1024, type: 'IMAGE' },
+        shorts: { maxSize: 100 * 1024 * 1024, type: 'VIDEO' },
+        videos: { maxSize: 5 * 1024 * 1024 * 1024, type: 'VIDEO' }
+    };
 
 	/**
 	 * Creates an instance of the FileValidator.
 	 * @param {number} maxSize - The maximum allowed file size in bytes.
 	 */
-	constructor(maxSize = 10485760, acceptedTypes = []) {
-		this.maxSize = maxSize; // Maximum allowed file size (default: 10MB)
-		this.acceptedTypes = acceptedTypes; // Accepted file types (future use, override defaults)
+	constructor(target = 'feed') {
+		this.target = target;
+		this.spec = FileValidator.SPECS[target] || FileValidator.SPECS.feed;
 	}
 
 	/**
@@ -34,7 +50,7 @@ class FileValidator {
 	 * @returns {boolean} True if the file size is within the limit, otherwise false.
 	 */
 	isValidSize(file) {
-		return file.size <= this.maxSize; // Compare file size against the maximum limit
+		return file.size <= this.spec.maxSize; // Compare file size against the maximum limit
 	}
 
 	/**
@@ -43,12 +59,9 @@ class FileValidator {
 	 * @returns {boolean} True if the file type is accepted, otherwise false.
 	 */
 	isValidType(file) {
-		const extension = file.name.split('.').pop().toLowerCase();
-		return (
-			FileValidator.imageFormats.includes(extension) ||
-			FileValidator.videoFormats.includes(extension) ||
-			FileValidator.audioFormats.includes(extension)
-		);
+		const ext = file.name.split('.').pop().toLowerCase();
+        const allowed = FileValidator.WHITELIST[this.spec.type] || [];
+        return allowed.includes(ext);
 	}
 
 	/**
@@ -58,16 +71,13 @@ class FileValidator {
 	 * @private
 	 */
 	getFileType(fileName) {
-		const extension = fileName.split('.').pop().toLowerCase(); // Get the file extension
-		if (FileValidator.imageFormats.includes(extension)) return 'image'; // Return image type if file format matches 
-		if (FileValidator.videoFormats.includes(extension)) return 'video'; // Return video type if file format matches
-		if (FileValidator.audioFormats.includes(extension)) return 'audio'; // Return audio type if file format matches
-		return 'file'; // Return file type for other formats
+		const ext = fileName.split('.').pop().toLowerCase();
+        for (const [category, extensions] of Object.entries(FileValidator.WHITELIST)) {
+            if (extensions.includes(ext)) return category.toLowerCase();
+        }
+        return 'file';
 	}
 }
-
-// Import the base Component class from the Component.js file
-import Component from './component.js';
 
 /**
  * @class Uploader
@@ -106,11 +116,11 @@ class Uploader extends Component {
 			acceptedTypes: [],					// {Array<string>}  - Accepted file types for upload.
 			userId: 'anonymous',				// {string}			- User ID for streaming uploads.
 			withCredentials: false, 			// {boolean}		- Whether to include credentials in the upload request.
-			usePresigned: true, 				// {boolean}		- Whether to use presigned URLs for uploading.
+			presign: true, 						// {boolean}		- Whether to use presigned URLs for uploading.
 			url: '/api/upload/multipart',		// {string} 		- The server URL to which the files will be uploaded.
 			presignUrl: '/api/upload/presign', 	// {string}			- URL to request presigned URLs for upload.
 			streamUrl: '/api/upload/stream',	// {string}			- URL for streaming uploads.
-			target: '',							// {string}			- Holds the upload type and context, like 'user/avatar'
+			target: 'feed',						// {string}			- Default target query param, defaults to 'feed'
 		};
 
 		// Merge user-provided options with the default options
@@ -131,7 +141,7 @@ class Uploader extends Component {
 		this.uploadFiles = [];
 
 		// File validator instance
-		this.fileValidator = new FileValidator(this.maxSize, this.acceptedTypes);
+		this.fileValidator = new FileValidator(this.target);
 
 		// Initialize the uploader
 		this.#setup();
@@ -308,22 +318,16 @@ class Uploader extends Component {
 
 		try {
 
-			const { presignUrl, data, headers, withCredentials, usePresigned } = this;
+			const { presignUrl, data, headers, withCredentials, presign, target } = this;
 
-			//let uploadUrl = this.url;
-			var uploadUrl = `${this.url}${uploadTarget ? `/${uploadTarget}` : ''}`;
-
+			let uploadUrl = this.url;
 			let formData = new FormData();
 
-			if (usePresigned) {
+			if (presign) {
 
 				// Get presigned POST data for file upload
-				//const response = await fetch(`${presignUrl}?filename=${file.fileName}`);
-				const response = await fetch(
-					`${presignUrl}${uploadTarget ? `/${uploadTarget}` : ''}${file?.fileName ? `?filename=${encodeURIComponent(file.fileName)}` : ''}`
-				);
-
-
+				const response = await fetch(`${presignUrl}?target=${target}&filename=${encodeURIComponent(file.fileName)}`);
+				
 				if (!response.ok) throw new Error('Failed to get presigned URL');
 
 				const presigned = await response.json();
@@ -333,18 +337,14 @@ class Uploader extends Component {
 				uploadUrl = presigned.data.url;
 
 				// Append presigned fields to form data
-				Object.entries(presigned.data.fields).forEach(([key, value]) => {
-					formData.append(key, value);
-				});
+				Object.entries(presigned.data.fields).forEach(([k, v]) => formData.append(k, v));
 			}
 
 			// Append file to form data
 			formData.append('file', file.rawFile);
 
 			// Append extra data
-			Object.entries(data).forEach(([key, value]) => {
-				formData.append(key, value);
-			});
+			Object.entries(data).forEach(([k, v]) => formData.append(k, v));
 
 			// Start uploading via POST method
 			const uploadResponse = await fetch(uploadUrl, {
@@ -368,246 +368,371 @@ class Uploader extends Component {
 	}
 
 	/**
-	 * Posts a file to the server using a PUT method and a presigned URL.
-	 * @param {Object} file - The file to upload.
-	 * @private
-	 */
+     * Posts a file to the server using a PUT method and a presigned URL.
+     * @param {Object} file - The file to upload.
+     * @private
+     */
 	async put(file) {
 
 		try {
-			const { presignUrl, data, headers, withCredentials, usePresigned } = this;
+            const { presignUrl, headers, withCredentials, presign, target } = this;
 
-			//var uploadUrl = this.url;
-			var uploadUrl = `${this.url}${uploadTarget ? `/${uploadTarget}` : ''}`;
-			
-			if (usePresigned) {
+            // Start with our internal API URL
+            let uploadUrl = this.url;
+            
+            if (presign) {
+                /**
+                 * Request the Presigned URL from our backend.
+                 * Backend expects: ?target=xxx&filename=yyy
+                 * Note: Size is usually optional for PUT presigns unless we 
+                 * enforce Content-Length headers in S3.
+                 */
+                const response = await fetch(
+                    `${presignUrl}?target=${target}&filename=${encodeURIComponent(file.fileName)}`
+                );
 
-				// Get presigned URL for file upload
-				//const response = await fetch(`${presignUrl}?filename=${file.fileName}`);
-				const response = await fetch(
-					`${presignUrl}${uploadTarget ? `/${uploadTarget}` : ''}${file?.fileName ? `?filename=${encodeURIComponent(file.fileName)}` : ''}`
-				);
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({}));
+                    throw new Error(errorData.message || 'Failed to get presigned URL');
+                }
 
-				if (!response.ok) throw new Error('Failed to get presigned URL');
+                const presigned = await response.json();
+                
+                // Update file metadata from server response
+                file.type = this.fileValidator.getFileType(file.fileName);
+                file.fileName = presigned.data.filename;
+                
+                // The 'url' returned here is the direct AWS S3 PUT URL
+                uploadUrl = presigned.data.url;
+            }
 
-				const presigned = await response.json();
-				
-				file.type = this.fileValidator.getFileType(file.fileName);
-				file.fileName = presigned.data.filename;
-				uploadUrl = presigned.data.url;
-			}
+            /**
+             * Perform the actual PUT upload.
+             * For PUT, we send the raw File/Blob as the body.
+             * We DO NOT use FormData here.
+             */
+            const uploadResponse = await fetch(uploadUrl, {
+                method: 'PUT',
+                body: file.rawFile, // Binary body
+                headers: {
+                    ...headers,
+                    // S3 often requires the Content-Type to match what was 
+                    // used to generate the presigned URL.
+                    'Content-Type': file.rawFile.type || 'application/octet-stream'
+                },
+                // Credentials are usually NOT sent to S3 direct URLs, 
+                // but kept for 'same-origin' if usePresigned is false.
+                credentials: usePresigned ? 'omit' : (withCredentials ? 'include' : 'same-origin'),
+            });
 
-			// Prepare the file for upload
-			const fileBlob = file.rawFile;
+            if (!uploadResponse.ok) {
+                throw new Error(`Upload to S3 failed with status: ${uploadResponse.status}`);
+            }
 
-			// Start uploading the file via PUT
-			const uploadResponse = await fetch(uploadUrl, {
-				method: 'PUT',
-				body: fileBlob,
-				headers,
-				credentials: withCredentials ? 'include' : 'same-origin',
-			});
+            // Mark as successful
+            file.status = 'done';
+            this.dispatchEvent('done', { file }, true);
 
-			if (!uploadResponse.ok) {
-				throw new Error('Upload failed');
-			}
-
-			file.status = 'done'; // Mark as uploaded successfully
-			this.dispatchEvent('done', { file }, true);
-
-		} catch (error) {
-			file.status = 'error'; // Set error status on failure
-			this.dispatchEvent('error', { message: error.message, file }, true);
-		}
+        } catch (error) {
+            console.error('[Uploader] PUT Error:', error);
+            file.status = 'error';
+            this.dispatchEvent('error', { message: error.message, file }, true);
+        }
 	}
 
 	/**
-	 * Streams a file to the server using the POST method with Server-Sent Events for progress tracking.
-	 * @param {Object} file - The file to upload.
-	 * @private
+	 * Streams a file to the server using POST with a duplex stream.
+	 * Includes built-in Retry logic, Abort (Cancel) capability, and SSE parsing.
+	 * * @param {Object} file - The file object (must contain file.rawFile as a Blob/File).
+	 * @param {number} attempt - Current retry attempt (internal use).
+	 * @returns {Promise<void>}
 	 */
-	async stream(file) {
+	async stream(file, attempt = 0) {
+
+		const MAX_RETRIES = 3;
+		const RETRY_DELAY = 2000;
+
+		// Initialize AbortController for this specific file
+		// This allows us to cancel the fetch request and the server-side stream.
+		file.abortController = new AbortController();
+		const { signal } = file.abortController;
 
 		try {
-			const { streamUrl, headers, withCredentials, userId } = this;
-			const fileType = this.fileValidator.getFileType(file.fileName);
+			const { streamUrl, headers, withCredentials, target } = this;
 			const contentType = file.rawFile.type || 'application/octet-stream';
-
-			// Construct query parameters
+			
+			// Prepare Metadata (Matching Backend req.query)
 			const queryParams = new URLSearchParams({
-				filename: file.fileName,
-				type: contentType,
-				userId,
-				totalSize: file.size.toString()
-			}).toString();
+                filename: file.fileName,
+                target: target, 
+                totalSize: file.size.toString(),
+                type: contentType
+            }).toString();
 
-			//const uploadUrl = `${streamUrl}?${queryParams}`;
-			const uploadUrl = `${streamUrl}${uploadTarget ? `/${uploadTarget}` : ''}?${queryParams}`;
+			const uploadUrl = `${streamUrl}?${queryParams}`;
 
-			// Create a ReadableStream from the File
-			const stream = file.rawFile.stream();
-			const reader = stream.getReader();
-
-			// Initialize EventSource for SSE
-			const eventSource = new EventSource(uploadUrl);
-			let uploadStarted = false;
-
-			eventSource.onopen = () => {
-				uploadStarted = true;
+			// Initial UI state change
+			if (attempt === 0) {
 				file.status = 'uploading';
 				this.dispatchEvent('start', { file }, true);
-			};
+			}
 
-			eventSource.addEventListener('s3progress', (event) => {
-				const progress = JSON.parse(event.data);
-				this.dispatchEvent('progress', {
-					file,
-					loaded: progress.loaded,
-					total: progress.total,
-					percentage: progress.total ? Math.round((progress.loaded / progress.total) * 100) : 0
-				}, true);
-			});
+			const response = await fetch(uploadUrl, {
+                method: 'POST',
+                body: file.rawFile.stream(),
+                headers: { ...headers, 'Content-Type': contentType },
+                credentials: withCredentials ? 'include' : 'same-origin',
+                duplex: 'half',
+                signal: signal
+            });
 
-			eventSource.addEventListener('done', (event) => {
-				const result = JSON.parse(event.data);
-				file.status = 'done';
-				file.key = result.key;
-				file.location = result.location;
-				this.dispatchEvent('done', { file, result }, true);
-				eventSource.close();
-			});
+			if (!response.ok) {
+				const errorData = await response.json().catch(() => ({}));
+				throw new Error(errorData.message || `Server responded with ${response.status}`);
+			}
 
-			eventSource.addEventListener('error', (event) => {
-				const errorData = JSON.parse(event.data || '{}');
-				file.status = 'error';
-				this.dispatchEvent('error', { message: errorData.message || 'Streaming upload failed', file }, true);
-				eventSource.close();
-			});
+			// Read the Response Stream (SSE Parser)
+			const reader = response.body.getReader();
+			const decoder = new TextDecoder();
+			let buffer = '';
 
-			eventSource.onerror = () => {
-				if (!uploadStarted) {
-					file.status = 'error';
-					this.dispatchEvent('error', { message: 'Failed to establish streaming connection', file }, true);
-					eventSource.close();
+			while (true) {
+				// Check if user clicked cancel during the read loop
+				if (signal.aborted) throw new Error('AbortError');
+
+				const { done, value } = await reader.read();
+				if (done) break;
+
+				buffer += decoder.decode(value, { stream: true });
+				
+				// SSE blocks are separated by double newlines
+				const parts = buffer.split('\n\n');
+				buffer = parts.pop(); // Keep partial data for the next read
+
+				for (const part of parts) {
+					const isFatal = this.#processSseEvent(part, file);
+					// If the backend sent a fatal error (like spoofing), stop retrying.
+					if (isFatal) return; 
 				}
-			};
-
-			// Stream the file data
-			const sendStream = async () => {
-				try {
-					const response = await fetch(uploadUrl, {
-						method: 'POST',
-						body: stream,
-						headers: {
-							...headers,
-							'Content-Type': contentType
-						},
-						credentials: withCredentials ? 'include' : 'same-origin',
-						duplex: 'half'
-					});
-
-					if (!response.ok) {
-						throw new Error('Streaming upload failed');
-					}
-				} catch (error) {
-					file.status = 'error';
-					this.dispatchEvent('error', { message: error.message, file }, true);
-					eventSource.close();
-				} finally {
-					reader.cancel();
-				}
-			};
-
-			sendStream();
+			}
 
 		} catch (error) {
+			// Handle User Cancellation
+			if (error.name === 'AbortError' || signal.aborted) {
+				console.warn(`[Stream] Upload cancelled by user: ${file.fileName}`);
+				file.status = 'cancelled';
+				this.dispatchEvent('cancelled', { file }, true);
+				return;
+			}
+
+			// Handle Retries for network/server hiccups
+			if (attempt < MAX_RETRIES) {
+				console.warn(`[Stream] Upload error, retrying (${attempt + 1}/${MAX_RETRIES})...`, error);
+				
+				setTimeout(() => {
+					// Ensure we don't retry if the user cancelled while waiting for the timeout
+					if (!signal.aborted) {
+						this.stream(file, attempt + 1);
+					}
+				}, RETRY_DELAY * (attempt + 1));
+				return;
+			}
+
+			// Final Failure
+			console.error('[Stream] Final failure after retries:', error);
 			file.status = 'error';
-			this.dispatchEvent('error', { message: error.message, file }, true);
+
+			this.dispatchEvent('error', { 
+				message: error.message || 'Streaming upload failed', 
+				file 
+			}, true);
 		}
 	}
 
 	/**
-	 * Streams a file to the server and simulates progress tracking on the client-side.
-	 * This method uses a TransformStream to monitor the number of bytes being sent
-	 * and dispatches progress events accordingly. It simplifies the backend, which no longer
-	 * needs to support Server-Sent Events (SSE) for progress.
-	 *
-	 * @param {Object} file - The file to upload.
+	 * Unified SSE processor that handles both single-file streams and multi-file multipart uploads.
+	 * * @param {string} eventBlock - The raw text block from the server (event: x\ndata: y)
+	 * @param {Object|Array} fileContext - The file object or array of file objects being uploaded.
+	 * @returns {boolean} - Returns true if a fatal error occurred (used to stop retries).
 	 * @private
 	 */
-	// async stream(file) {
-	// 	try {
-	// 		const { streamUrl, headers, withCredentials, target, userId } = this;
-	// 		const contentType = file.rawFile.type || 'application/octet-stream';
+	#processSseEvent(eventBlock, fileContext) {
+		const lines = eventBlock.split('\n');
+		let eventName = '';
+		let data = null;
 
-	// 		// Construct the upload URL with necessary parameters
-	// 		const queryParams = new URLSearchParams({
-	// 			filename: file.fileName,
-	// 			contentType: contentType,
-	// 			userId: userId,
-	// 		}).toString();
+		// Parse the SSE format
+		for (const line of lines) {
+			if (line.startsWith('event:')) {
+				eventName = line.replace('event:', '').trim();
+			} else if (line.startsWith('data:')) {
+				try {
+					data = JSON.parse(line.replace('data:', '').trim());
+				} catch (e) {
+					console.error('[SSE] JSON Parse Error:', e);
+				}
+			}
+		}
 
-	// 		const uploadUrl = `${streamUrl}${target ? `/${target}` : ''}?${queryParams}`;
+		if (!eventName || !data) return false;
 
-	// 		let bytesSent = 0;
+		/**
+		 * Helper to find the correct file object.
+		 * If fileContext is an array (Multipart), we match by filename.
+		 * If fileContext is a single object (Stream), we return it directly.
+		 */
+		const getTargetFile = (incomingName) => {
+			if (Array.isArray(fileContext)) {
+				// Find file in the batch by name (matches backend data.filename)
+				return fileContext.find(f => f.fileName === incomingName || f.name === incomingName);
+			}
+			return fileContext;
+		};
 
-	// 		// Create a TransformStream to intercept and count the data chunks.
-	// 		const progressStream = new TransformStream({
-	// 			transform: (chunk, controller) => {
-	// 				// Increment the count of bytes sent
-	// 				bytesSent += chunk.length;
+		// Handle Events
+		switch (eventName) {
+			case 's3progress': {
+				const file = getTargetFile(data.filename);
+				if (file) {
+					this.dispatchEvent('progress', {
+						file,
+						loaded: data.loaded,
+						total: data.total,
+						percentage: data.total ? Math.round((data.loaded / data.total) * 100) : 0
+					}, true);
+				}
+				break;
+			}
 
-	// 				// Calculate the percentage of the upload completed
-	// 				const percentage = file.size > 0 ? Math.round((bytesSent / file.size) * 100) : 0;
+			case 'done': {
+				// Multipart sends an array of results; Stream sends a single object
+				if (data.results && Array.isArray(data.results)) {
+					data.results.forEach(res => {
+						const file = getTargetFile(res.originalName || res.filename);
+						if (file) {
+							file.status = 'done';
+							file.key = res.key;
+							file.location = res.location;
+						}
+					});
+				} else {
+					// Single stream fallback
+					fileContext.status = 'done';
+					fileContext.key = data.key;
+					fileContext.location = data.location;
+				}
+				this.dispatchEvent('done', { result: data, file: fileContext }, true);
+				break;
+			}
 
-	// 				// Dispatch a 'progress' event with the current status
-	// 				this.dispatchEvent('progress', {
-	// 					file,
-	// 					loaded: bytesSent,
-	// 					total: file.size,
-	// 					percentage: percentage
-	// 				}, true);
+			case 'error': {
+				const file = getTargetFile(data.file); // Backend sends { message, file } on error
+				if (file) {
+					file.status = 'error';
+				}
+				this.dispatchEvent('error', { 
+					message: data.message || 'Server error during upload', 
+					file 
+				}, true);
+				
+				// Return true to signal the calling function to stop retrying (Fatal)
+				return true; 
+			}
+		}
 
-	// 				// Pass the chunk along to be sent in the request
-	// 				controller.enqueue(chunk);
-	// 			}
-	// 		});
+		return false;
+	}
 
-	// 		file.status = 'uploading';
-	// 		this.dispatchEvent('start', { file }, true);
+	/**
+	 * Public method to cancel an ongoing upload
+	 * @param {Object} file 
+	 */
+	cancelUpload(file) {
+		if (file.abortController) {
+			file.abortController.abort();
+		}
+	}
 
-	// 		// Start the upload using fetch
-	// 		const response = await fetch(uploadUrl, {
-	// 			method: 'POST',
-	// 			headers: {
-	// 				'Content-Type': contentType,
-	// 				...headers,
-	// 			},
-	// 			// The file stream is piped through our progress-tracking stream
-	// 			body: file.rawFile.stream().pipeThrough(progressStream),
-	// 			credentials: withCredentials ? 'include' : 'same-origin',
-	// 			// 'duplex: half' is required for streaming request bodies
-	// 			duplex: 'half',
-	// 		});
+	/**
+	 * Uploads one or more files using multipart/form-data.
+	 * Works with the Busboy-based backend controller and parses SSE progress.
+	 * @param {Array|Object} files - A single file object or an array of file objects.
+	 */
+	async multipart(files) {
+		// Standardize input to an array
+		const fileList = Array.isArray(files) ? files : [files];
+		
+		// Use an AbortController so we can cancel the whole batch
+		const controller = new AbortController();
+		const { signal } = controller;
 
-	// 		// Handle the server's final response
-	// 		if (!response.ok) {
-	// 			// Try to get a detailed error message from the server's response body
-	// 			const errorData = await response.json().catch(() => ({ message: 'Streaming upload failed' }));
-	// 			throw new Error(errorData.message || 'Upload failed with status ' + response.status);
-	// 		}
+		try {
+			const { url, headers, withCredentials, target } = this;
 
-	// 		const result = await response.json();
+			// Prepare Multipart Form Data
+			const formData = new FormData();
 
-	// 		// Mark the upload as complete
-	// 		file.status = 'done';
-	// 		this.dispatchEvent('done', { file, result }, true);
+			fileList.forEach(file => {
+				formData.append('files', file.rawFile, file.fileName);
+				file.status = 'uploading';
+				file.abortController = controller; // Attach controller to each file for UI access
+			});
 
-	// 	} catch (error) {
-	// 		file.status = 'error';
-	// 		this.dispatchEvent('error', { message: error.message, file }, true);
-	// 	}
-	// }
+			// Prepare Query Params (Matches backend req.query.target)
+			const queryParams = new URLSearchParams({
+                target: target
+            }).toString();
+
+			const uploadUrl = `${url}/multipart?${queryParams}`;
+
+			this.dispatchEvent('start', { files: fileList }, true);
+
+			// Execute Fetch
+			const response = await fetch(uploadUrl, {
+                method: 'POST',
+                body: formData,
+                headers,	// Note: Do NOT set Content-Type here.
+                credentials: withCredentials ? 'include' : 'same-origin',
+                signal: signal
+            });
+
+			if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.message || `Multipart upload failed`);
+            }
+
+			// Read the SSE Response Stream
+			const reader = response.body.getReader();
+			const decoder = new TextDecoder();
+			let buffer = '';
+
+			while (true) {
+				const { done, value } = await reader.read();
+				if (done) break;
+
+				buffer += decoder.decode(value, { stream: true });
+				const parts = buffer.split('\n\n');
+				buffer = parts.pop();
+
+				for (const part of parts) {
+					// Reuse your existing SSE processor
+					const isFatal = this.#processSseEvent(part, fileList); 
+					if (isFatal) return;
+				}
+			}
+
+		} catch (error) {
+			if (error.name === 'AbortError') {
+				fileList.forEach(f => f.status = 'cancelled');
+				this.dispatchEvent('cancelled', { files: fileList }, true);
+				return;
+			}
+
+			fileList.forEach(f => f.status = 'error');
+            this.dispatchEvent('error', { message: error.message, files: fileList }, true);
+		}
+	}
+
 }
 
 export default Uploader;
