@@ -5,31 +5,6 @@ node_modules/
 package-lock.json
 
 # =============================================================================
-# ARTIFACTS TO EXCLUDE
-# =============================================================================
-demo/
-
-src/js/page
-src/js/plugin
-src/js/utility
-src/js/wip
-
-dist/assets/js/page
-dist/assets/js/plugin
-dist/assets/js/utility
-
-src/scss/page
-src/scss/plugin
-
-dist/assets/css/page
-dist/assets/css/plugin
-
-dist/assets/world
-dist/assets/images/meta
-
-dist/views
-
-# =============================================================================
 # LOGS & RUNTIME DATA
 # =============================================================================
 #logs/
@@ -67,3 +42,47 @@ Thumbs.db
 *.v[0-9]*.js
 *.old.js
 *.wip.js
+
+# =============================================================================
+# SRC DIRECTORY MANAGEMENT
+# =============================================================================
+# Ignore specific source sub-folders as requested
+src/js/page/
+src/js/plugin/
+src/js/utility/
+src/js/wip/
+src/scss/page/
+src/scss/plugin/
+
+# Handle JS Modules exceptions
+src/js/modules/*.js
+!src/js/modules/index.js.example
+!src/js/modules/starter.js.example
+!src/js/modules/README.md
+
+# =============================================================================
+# DIST & ASSETS
+# =============================================================================
+# Ignore all HTML files in the dist root (cleans up documentation pages)
+dist/*.html
+
+# Ignore the views directory
+dist/views/
+
+# Explicitly ignore these specific asset sub-directories
+dist/js/page/
+dist/js/plugin/
+dist/js/utility/
+dist/css/page/
+dist/css/plugin/
+dist/world/
+dist/images/meta/
+
+# Note: Any other files in dist/css or dist/js (like main bundles) 
+# will remain tracked because they aren't explicitly ignored here.
+
+# =============================================================================
+# DEMO
+# =============================================================================
+# Ignore online documentation
+demo/
