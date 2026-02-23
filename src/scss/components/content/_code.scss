@@ -30,9 +30,33 @@ pre {
 	text-rendering: optimizeLegibility;
 
 	code {
-		font-family: inherit;
-		color: inherit;
-		word-wrap: break-word;
+        background-color: transparent;
+        padding: 0;
+        font-size: inherit;
+        color: inherit;
+        white-space: pre;
+    }
+}
+
+.code-block-wrapper {
+
+	margin-block-start: var(--spacing-lg);
+	
+	header {
+		background-color: var(--color-surface-muted);
+		padding: var(--spacing-xs) var(--spacing-md);
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		border-radius: var(--radius-md) var(--radius-md) 0 0;
+		border: 1px solid var(--color-border);
+	}
+	
+	pre {
+		margin-top: 0; // Snap to the header
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
 	}
 }
 
@@ -42,16 +66,29 @@ pre {
 	// Inline Code Snippets
 	//----------------------------------
 
+	// Color and Surface
     color: var(--color-text);
-	background-color: var(--color-surface-muted); /* var(--color-surface) */
-	font: 0.875rem/1.5 "Source Code Pro", Consolas, monospace;
-	padding: 0.2em 0.4em;
-	border-radius: var(--radius-small);
-	white-space: pre-wrap;
-	word-wrap: break-word;
+    background-color: var(--color-surface-muted); /* var(--color-surface) */
 
-	// Font smoothing
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-rendering: optimizeLegibility;
+	// Typography
+    // We use 'em' so it scales perfectly if the <p> or <li> changes size.
+    // We use font-family separately to avoid resetting inheritances.
+    font-family: "Source Code Pro", Consolas, monospace;
+    font-size: 0.875em; 
+    line-height: inherit; // Ensure it doesn't disrupt the line-height of the paragraph
+
+	// Spacing & Shape
+    // Using 'em' for padding ensures the "bubble" grows with the text
+    padding: 0.15em 0.3em; 
+    border-radius: var(--radius-small);
+
+	// Wrapping & Layout
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    display: inline; // Ensures it doesn't accidentally behave like a block
+
+    // Font smoothing
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
