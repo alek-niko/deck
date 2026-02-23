@@ -1,11 +1,8 @@
 /**
- * @module Component
+ * @module js.components.component
  * @description Base component infrastructure providing storage, state
  * 				management, event handling, and transitions.
- * 
- * @file src.js.components.component.js
  */
-
 
 /**
  * @class Component
@@ -23,32 +20,33 @@ class Component {
 		this.name				= null;								// Component name
 		this.type				= null;								// Component type (optional)
 		this.element			= null;								// DOM element associated with the component
+		this.deck				= null;								// Deck reference
 		this.debug				= false;							// Debug mode flag
-		this.storage			= false;							// Storage feature flag
-		this.stateKey			= `${context.name}-${this.dci}`;		// Unique key for state persistence
+		this.storage			= false;							// Storage feature flag | 'local' or 'session'
+        this.storageExpiry		= null;								// ms (e.g., 86400000)
+        this.persistKeys		= null;								// Array of keys to save
+		this.stateKey			= `${context.name}-${this.dci}`;	// Unique key for state persistence
 		this.state				= {};								// Component state object
 		this.timeout			= undefined;						// Timeout property for delayed actions
 		this.isTransitioning	= false;							// Flag indicating if a transition is active
 		this.transitions		= { enter: false, leave: false	};	// Transition states for enter/leave animations
 		this.maxMobileWidth		= '640px';							// Default maximum width for mobile devices
- 
+
+		this.watchers			= [];								// Active watchers
+		this.listeners          = []; 								// Tracked event listeners
+
 		// Merge the context object into the instance, overriding defaults
 		Object.assign(this, context);
 
 		// Merge configuration with data attributes, overriding context properties if necessary
+		// highest priority for per-page overrides
 		Object.assign(this, this.#getConfigAttribute());
+
+		// Set storage key - deterministic identifier
+		this.stateKey = `${this.name}-${this.element?.id || 'global'}`;
 
 		// Initialize storage-related functionality if enabled
 		this.#initStorage()
-
-		// Assign a state change callback, defaulting to a no-op if not provided
-		this.onStateChange = this.onStateChange || function () {};
-
-		// Alternative binding logic for onStateChange (commented out):
-		// this.onStateChange = this.config.onStateChange || this.onStateChange.bind(this);
-
-		// Optional render callback, defaulting to a no-op if not provided
-		this.render = this.render || function () { };
 
 		// Ensure the component's name is applied as a CSS class on the associated element
 		if (this.element && !this.element.classList.contains(`${this.name}`)){
@@ -58,54 +56,65 @@ class Component {
 
 	/**
 	 * @method #getConfigAttribute
-	 * @description Retrieves configuration from the element's data attributes and merges it with the instance.
+	 * @description Look for config in data-ui-config, data-[name], or [name]
 	 * 
 	 * @returns {Object} The configuration object parsed from the element's data attributes.
 	 * @private
 	 */
 	#getConfigAttribute() {
 
-		if (!this.element) return;
+		// Safety check: if no element exists, return empty object
+		if (!this.element) return {};
 
-		// Check if the element has either `this.name` or `data-this.name` attribute and return the first match
-		const attribute = [this.name, `data-${this.name}`].find(attr => this.element.hasAttribute(attr));
-		if (!attribute) return false;
+		// Define priority of attributes to check
+        // Add 'data-config' as a generic fallback for any component
+        const attribute = [
+            `data-${this.name}-config`, 
+            `data-${this.name}`, 
+            this.name, 
+            'data-config' 
+        ].find(attr => this.element.hasAttribute(attr));
+
+		// If no matching attribute found, return empty object (not false)
+        if (!attribute) return {};
 
 		// Retrieve the attribute value, trim whitespace, and ensure it's not empty
 		const value = this.element.getAttribute(attribute)?.trim();
-		if (!value) return;
-	
-		// Parse the configuration string into an object
-		const keyValuePairs = value.split(';').map(pair => pair.trim()).filter(Boolean);
-	
-		// Convert an array of key-value string pairs into a JavaScript object
-		const jsObject = keyValuePairs.reduce((acc, pair) => {
+        if (!value) return {};
+
+		return value.split(';').map(pair => pair.trim()).filter(Boolean).reduce((acc, pair) => {
 
 			// Split each pair at the first ':' and trim whitespace
-			const [key, value] = pair.split(':').map(item => item.trim());
+            const [key, val] = pair.split(':').map(item => item.trim());
+            
+            // Ensure we have both a key and a value before processing
+            if (!key || val === undefined) return acc;
 
+            // Handle Arrays
 			// Check if the value contains multiple comma-separated values
-			if (value.includes(',')) {
-				acc[key] = value.split(',').map(item => item.trim()); // Convert to an array of trimmed strings
-			}
+            if (val.includes(',')) {
+                acc[key] = val.split(',').map(item => item.trim());
+            }
 
+            // Handle Booleans
 			// Convert "true" and "false" (case-insensitive) to boolean values
-			else if (value.toLowerCase() === 'true') { acc[key] = true; }
-			else if (value.toLowerCase() === 'false') { acc[key] = false; } 
+            else if (val.toLowerCase() === 'true') acc[key] = true;
+            else if (val.toLowerCase() === 'false') acc[key] = false;
 
+            // Handle Numbers (ensuring empty strings aren't treated as 0)
 			// Convert numeric strings to numbers
-			else if (!isNaN(value)) {acc[key] = parseFloat(value);}
+            else if (!isNaN(val) && val !== '') {
+                acc[key] = parseFloat(val);
+            }
+            // Default to String
+            else {
+                acc[key] = val;
+            }
 
-			// Otherwise, store the value as a string
-			else { acc[key] = value; }
+            return acc;
 
-			return acc;
+        }, {});
 
-		}, {});
-
-		Object.assign(this, jsObject);
-
-		return jsObject;
 	}
 	
 	/**
@@ -131,15 +140,37 @@ class Component {
 	initState() {
 
 		if (this.deck) {
-			const initialState = this.deck.getState(this.stateKey) || {};
 
+			// Hydration with Expiry check
+			let saved = {};
+			if (this.storage) {
+				try {
+					const raw = this.storage.get('envelope');
+					if (raw) {
+						const env = JSON.parse(raw);
+						if (env.expires && Date.now() > env.expires) {
+							this.storage.remove('envelope');
+						} else {
+							saved = env.data;
+						}
+					}
+				} catch (e) { console.warn('Storage corrupt'); }
+			}
+
+			const deckState = this.deck.getState(this.stateKey) || {};
+      		this.state = { ...this.state, ...deckState, ...saved };
+
+			const initialState = this.deck.getState(this.stateKey) || {};
 			this.state = { ...initialState };
-	
-			this.deck.on('stateChange', (newState) => {
-			  if (newState[this.stateKey] !== undefined) {
-				this.state = { ...this.state, ...newState[this.stateKey] };
-				this.handleStateChange();
-			  }
+			
+			// Persistence Watcher
+			this.watch('stateChange', (combinedState) => {
+				const myState = combinedState[this.stateKey];
+				if (myState !== undefined) {
+					this.state = { ...this.state, ...myState };
+					if (this.storage) this.#syncToStorage();
+					this.onStateChange(this.state);
+				}
 			});
 		}
 	}
@@ -147,25 +178,56 @@ class Component {
 	/**
 	 * Initializes storage for the component (localStorage or sessionStorage).
 	 * @private
+	 * @note Two same components will share the storage [fix this?]
 	 */
 	#initStorage() {
 
-		if (!['local','session'].includes(this.storage)) return;
+        if (!['local','session'].includes(this.storage)) return;
 
-		this.storage = {
-			set: (key, value) => {
-					key = `${this.name}_${key}`;
-					window[`${this.storage}Storage`].setItem(key, value);
-				 },
-			get: (key) => {
-					key = `${this.name}_${key}`;
-					return window[`${this.storage}Storage`].getItem(key);
-				 },
-			remove: (key) => {
-					key = `${this.name}_${key}`;
-					window[`${this.storage}Storage`].removeItem(key);
-				 },
-		};
+        const storageType = `${this.storage}Storage`;
+		const prefix = `${this.name}_${this.element?.id || 'default'}`;
+        
+       this.storage = {
+            set: (k, v) => window[type].setItem(`${prefix}_${k}`, v),
+            get: (k)	=> window[type].getItem(`${prefix}_${k}`),
+            remove: (k) => window[type].removeItem(`${prefix}_${k}`)
+        };
+    }
+
+
+	#syncToStorage() {
+        const data = this.persistKeys 
+            ? Object.keys(this.state).filter(k => this.persistKeys.includes(k)).reduce((o, k) => { o[k] = this.state[k]; return o; }, {})
+            : this.state;
+
+        this.storage.set('envelope', JSON.stringify({
+            data,
+            expires: this.storageExpiry ? Date.now() + this.storageExpiry : null
+        }));
+    }
+
+	/**
+	 * @method reset
+	 * @description Resets the component to its default state and clears storage.
+	 */
+	reset() {
+		this.log(`Resetting component: ${this.name}`, 'log');
+		
+		// Clear internal state
+		this.state = {};
+		
+		// Clear its specific storage envelope
+		if (this.storage) {
+			this.storage.remove('ui_state_envelope');
+		}
+
+		// 3. Re-run initialization to restore defaults and re-render
+		if (typeof this.init === 'function') {
+			this.init();
+		}
+		
+		// 4. Trigger state change for UI updates
+		this.handleStateChange();
 	}
 
 	/**
@@ -191,13 +253,9 @@ class Component {
 
 	/**
 	 * Default state change callback that can be overridden by subclasses or options.
-	 * 
 	 * @param {Object} state - The current state of the component.
 	 */
-	onStateChange(state) {
-		// Default implementation (can be overridden by subclasses or options)
-		//console.log('Default onStateChange:', state);
-	}
+	onStateChange(state) {}
 
 	/**
 	 * Checks if the device is in mobile viewport.
@@ -214,7 +272,7 @@ class Component {
 	 * @param {string} message - The message to log.
 	 * @param {string} [type='error'] - The log type (e.g., 'error', 'log', 'warn').
 	 */
-	debug(message, type = 'error') {
+	log(message, type = 'error') {
 		if (!this.debug) return;
 
 		console[type](message);
@@ -232,6 +290,95 @@ class Component {
 	};
 
 	/**
+	 * @method initWssAwareness
+	 * @description Optional helper to auto-bind connection hooks.
+	 */
+	initWssAwareness() {
+		if (!this.deck) return;
+
+		// Listen for global signals and trigger local hooks if they exist
+		this.listen('wssConnect', () => {
+			if (typeof this.onConnect === 'function') this.onConnect();
+		});
+
+		this.listen('wssDisconnect', () => {
+			if (typeof this.onDisconnect === 'function') this.onDisconnect();
+		});
+
+		// Immediate check for current state
+		if (this.deck.isConnected()) {
+			if (typeof this.onConnect === 'function') this.onConnect();
+		}
+	}
+
+	/**
+	 * @method watch
+	 * @description Component-level watch that tracks itself for automatic cleanup.
+	 */
+	watch(key, callback) {
+		if (!this.deck) return;
+		
+		// Bind the callback to 'this' so the component context is preserved
+		const boundCallback = callback.bind(this);
+		
+		// Subscribe via Deck
+		const unwatchFn = this.deck.watch(key, boundCallback);
+		
+		// Store the cleanup function
+		this.watchers.push({ key, unwatchFn });
+		
+		return unwatchFn;
+	}
+
+	/**
+	 * @method unwatchAll
+	 * @description Clears all state watchers for this component.
+	 */
+	unwatchAll() {
+		this.watchers.forEach(watcher => watcher.unwatchFn());
+		this.watchers = [];
+	}
+
+	/**
+     * @method listen
+     * @description Subscribes to a Deck/Dispatcher event and tracks it for auto-cleanup.
+	 * 
+     * @param {string} eventName - The name of the event to listen for.
+     * @param {Function} callback - The function to execute.
+     * @returns {Function} The unsubscribe function.
+     */
+    listen(eventName, callback) {
+        if (!this.deck) return;
+
+        // Bind the callback to the component instance
+        const boundCallback = callback.bind(this);
+
+        // Subscribe to the dispatcher (Deck inherits from Dispatcher)
+        // This relies on the .on() method returning the unregister function
+        const unlistenFn = this.deck.on(eventName, boundCallback);
+
+        // Store in watchers for automatic cleanup in destroy()
+        this.watchers.push({ key: eventName, unwatchFn: unlistenFn });
+
+        return unlistenFn;
+    }
+
+	/**
+     * @method unlisten
+     * @description Unsubscribes to a Deck/Dispatcher event and tracks it for auto-cleanup.
+	 */
+	unlisten(eventName) {
+		// Find the watcher and execute its cleanup
+		this.watchers = this.watchers.filter(w => {
+			if (w.key === eventName) {
+				w.unwatchFn();
+				return false; // Remove from array
+			}
+			return true;
+		});
+	}
+
+	/**
 	 * Adds an event listener to the component's element.
 	 * 
 	 * @param {string} eventName - The name of the event.
@@ -239,9 +386,10 @@ class Component {
 	 * @param {boolean|Object} [options=false] - Optional event listener options.
 	 */
 	on(eventName, handler, options = false) {
-		if (!this.element) return;
-		this.element.addEventListener(eventName, handler, options);
-	}
+        if (!this.element) return;
+        this.element.addEventListener(eventName, handler, options);
+        this.listeners.push({ eventName, handler, options });
+    }
 
 	/**
 	 * Removes an event listener from the component's element.
@@ -252,7 +400,10 @@ class Component {
 	 */
 	off(eventName, handler, options = false) {
 		if (!this.element) return;
-		this.element.removeEventListener(eventName, handler, options);
+        this.element.removeEventListener(eventName, handler, options);
+        this.listeners = this.listeners.filter(l => 
+            !(l.eventName === eventName && l.handler === handler)
+        );
 	}
 
 	/**
@@ -263,7 +414,10 @@ class Component {
 	 */
 	one(eventName, handler) {
 		if (!this.element) return;
-		this.element.addEventListener(eventName, handler, { once: true });
+        // Tracking 'once' is tricky because it self-removes; 
+        // but we track it anyway so destroy() can kill it if it hasn't fired yet.
+        this.element.addEventListener(eventName, handler, { once: true });
+        this.listeners.push({ eventName, handler, options: { once: true } });
 	}
 
 	/**
@@ -300,122 +454,116 @@ class Component {
     	}
 
 		return true;
+
 	};
-
-	// [STATUS: DELAYED]
-	// #initTransition() { 
-
-	// 	if (this.transitions.enter) {
-	// 		this.transitions = Object.assign(
-	// 			{
-	// 				transitionEnter: null,
-	// 				transitionEnterStart: null,
-	// 				transitionEnterEnd: null,
-	// 			},
-	// 			this.transitions
-	// 		);
-	// 	}
-
-	// 	if (this.transitions.leave) {
-	// 		this.transitions = Object.assign(
-	// 			{
-	// 				transitionLeave: null,
-	// 				transitionLeaveStart: null,
-	// 				transitionLeaveEnd: null,
-	// 			},
-	// 			this.transitions
-	// 		);
-	// 	}
-
-	// 	this.hasTransition =
-	// 		this.transitions.transitionEnter ||
-	// 		this.transitions.transitionLeave
-	// 			? true
-	// 			: false;
-	// }
-
+	
 	/**
-	 * Run a transition/animation.
+     * @method transition
+     * @description Executes a CSS transition using the Active/Start/End class pattern.
 	 * 
-	 * @param {string} type transitionEnter/transitionLeave
-	 * @param {HTMLElement} element 
-	 * @param {function} callback
-	 * @returns 
-	 */
-	// transition = (type, element, callback) => {
-	// 	let transitionEvent = 'transitionend';
-	// 	callback = typeof callback === 'function' ? callback : () => void 0;
+     * @param {string} type - 'enter' or 'leave'
+     * @param {HTMLElement} [element=this.element] - Target element
+     * @returns {Promise} Resolves when the transition completes
+     */
+    async transition(type, element = this.element) {
+        if (!element || !this.transitions[type]) return;
 
-	// 	if (!this.transitions[`${type}`]) {
-	// 		return false;
-	// 	}
+        const baseClass = this.transitions[`transition${type.charAt(0).toUpperCase() + type.slice(1)}`]; // e.g., transitionEnter
+        const startClass = this.transitions[`transition${type.charAt(0).toUpperCase() + type.slice(1)}Start`];
+        const endClass = this.transitions[`transition${type.charAt(0).toUpperCase() + type.slice(1)}End`];
 
-	// 	const transitionCleanup = (element) => {
-	// 		const transitions = ['transitionEnter', 'transitionLeave'];
+        if (!baseClass) return;
 
-	// 		for (const transition of transitions) {
-	// 			element.classList.remove(this.transitions[`${transition}`]);
-	// 			element.classList.remove(this.transitions[`${transition}Start`]);
-	// 			element.classList.remove(tthis.transitions[`${transition}End`]);
-	// 		}
-	// 	};
+        this.isTransitioning = true;
 
-	// 	transitionCleanup(element);
-	// 	element.classList.add(this.transitions[`${type}`]);
-	// 	element.classList.add(this.transitions[`${type}Start`]);
+        // Cleanup previous states and add Start + Active classes
+        element.classList.remove(startClass, endClass); // Clean slate
+        element.classList.add(baseClass);
+        element.classList.add(startClass);
 
-	// 	let animationDuration = parseFloat(window.getComputedStyle(element).animationDuration);
+        // Force a "reflow" to ensure the browser registers the 'Start' state
+        // Without this, the browser skips the animation and jumps to the end.
+        void element.offsetHeight;
 
-	// 	transitionEvent = isNaN(animationDuration) || animationDuration <= 0
-	// 		? transitionEvent
-	// 		: 'animationend';
+        return new Promise((resolve) => {
+            const duration = this.#getTransitionDuration(element);
 
-	// 	const _handler = (e) => {
-	// 		this.isTransitioning = false;
-	// 		callback(e);
-	// 		element.classList.remove(this.transitions[`${type}`]);
-	// 		element.classList.remove(this.transitions[`${type}End`]);
-	// 	};
+            const done = (e) => {
+                // Ensure we only trigger for the main element, not bubbling children
+                if (e && e.target !== element) return;
 
-	// 	element.addEventListener(
-	// 		transitionEvent.replace('end', 'start'),
-	// 		() => this.isTransitioning = true,
-	// 		{ once: true }
-	// 	);
+                element.classList.remove(baseClass, endClass);
+                this.isTransitioning = false;
+                resolve();
+            };
 
-	// 	element.addEventListener(transitionEvent, _handler, { once: true });
+            // Set a fallback timer in case transitionend fails to fire (e.g., element hidden)
+            this.setTimeout(done, duration + 50);
 
-	// 	window.requestAnimationFrame(() => {
-	// 		element.classList.remove(this.transitions[`${type}Start`]);
-	// 		element.classList.add(this.transitions[`${type}End`]);
-	// 	});
+            // Start the transition by swapping classes
+            window.requestAnimationFrame(() => {
+                element.classList.remove(startClass);
+                element.classList.add(endClass);
+            });
 
-	// 	return true;
-	// };
+            // Listen for the native event for precision
+            element.addEventListener('transitionend', done, { once: true });
+            element.addEventListener('animationend', done, { once: true });
+        });
+    }
+
+    /**
+     * Helper to calculate the total duration (delay + duration) of an element's CSS.
+     */
+    #getTransitionDuration(element) {
+        const style = window.getComputedStyle(element);
+        const duration = parseFloat(style.transitionDuration) || parseFloat(style.animationDuration) || 0;
+        const delay = parseFloat(style.transitionDelay) || parseFloat(style.animationDelay) || 0;
+        return (duration + delay) * 1000;
+    }
 
 	/**
-	 * Destroys the component and removes its instance from the element.
-	 */
+     * @method destroy
+     * @description Cleanly removes the component, listeners, and watchers.
+     */
 	destroy() {
+
 		if (!this.element) return;
-		this.#removeInstance(this.element, this.component.name);
+
+        // Remove all state watchers automatically
+        this.unwatchAll();
+
+		// Auto-remove all tracked event listeners
+        this.listeners.forEach(({ eventName, handler, options }) => {
+            this.element.removeEventListener(eventName, handler, options);
+        });
+
+        this.listeners = [];
+
+        // Remove event listeners (if logic exists in subclass)
+        if (typeof this.removeEvents === 'function') {
+            this.removeEvents();
+        }
+
+        // Cleanup Deck references
+        if (this.element.uiInstances) {
+            delete this.element.uiInstances[this.name];
+        }
+        
+        // Remove from global Deck instances
+        if (this.deck && this.deck.instances[this.dci]) {
+            delete this.deck.instances[this.dci];
+        }
+
+        console.log(`Component ${this.name} [${this.dci}] destroyed.`);
+
 	}
 
 	/**
-	 * Removes the component's instance from the element.
-	 * @note Fix This
-	 * 
-	 * @param {HTMLElement} element - The element to remove the instance from.
-	 * @param {string} component - The name of the component.
-	 * @private
+	 * Default component renderer.
 	 */
-	#removeInstance = (element, component) => {
-		if (!element) return;
+	render() {} 
 
-		if (element[Deck.config.elementPropName]) {
-			delete element[Deck.config.elementPropName][component];
-		}
-	}
 }
 
 export default Component;
