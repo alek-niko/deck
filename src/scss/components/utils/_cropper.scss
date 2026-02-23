@@ -1,0 +1,176 @@
+// =============================================================================
+// IMAGE CROPPER UTILITIES
+// components/utils/_cropper.scss
+// -----------------------------------------------------------------------------
+// Full-screen semi-transparent overlay with centered cropper modal.
+// Used for image cropping functionality in the application.
+// Features:
+// - Fixed full-screen backdrop
+// - Centered modal with dark theme
+// - Square crop area with grab cursor
+// - Controls section below canvas
+// 
+// @last-updated 170226
+// =============================================================================
+
+// Fade‑in animation -----------------------------------------------------------
+@keyframes avatarFadeIn {
+	from { opacity: 0; transform: scale(.96); }
+	to   { opacity: 1; transform: scale(1); }
+}
+
+// Progress ring animation -----------------------------------------------------
+@keyframes ringRotate {
+	to { transform: rotate(360deg); }
+}
+
+.avatar-button {
+	position: relative;
+	display: inline-block;
+	border-radius: 50%;
+	overflow: hidden;
+	cursor: pointer;
+
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		animation: avatarFadeIn .25s ease;
+	}
+}
+
+// Circular progress ring ------------------------------------------------------
+.avatar-ring {
+	position: absolute;
+	inset: 0;
+	border-radius: 50%;
+	pointer-events: none;
+	border: 2px solid rgba(255,255,255,.25);
+	border-top-color: #fff;
+	opacity: 0;
+	transform: rotate(0deg);
+	transition: opacity .2s ease;
+}
+
+.avatar-button.uploading .avatar-ring {
+	opacity: 1;
+	animation: ringRotate 1s linear infinite;
+}
+
+// =============================================================================
+// CROPPER MODAL
+// =============================================================================
+
+.cropper-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0,0,0,.6);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9999;
+	backdrop-filter: blur(4px);
+}
+
+.cropper-modal {
+	background: #111;
+	padding: 16px;
+	border-radius: 16px;
+	width: min(92vw, 520px);
+	box-shadow: 0 20px 60px rgba(0,0,0,.5);
+	animation: avatarFadeIn .18s ease;
+}
+
+.cropper-canvas-wrap {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	overflow: hidden;
+	background: #000;
+	cursor: grab;
+	border-radius: 12px;
+}
+
+.cropper-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	user-select: none;
+	pointer-events: none;
+	transform-origin: top left;
+}
+
+.cropper-controls {
+	display: flex;
+	gap: 10px;
+	margin-top: 14px;
+
+	button {
+		flex: 1;
+	}
+}
+
+.deck-cropper-wrap {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1000; display: flex; align-items: center; justify-content: center;
+}
+.deck-cropper-backdrop {
+    position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.8);
+}
+.deck-cropper-dialog {
+    position: relative; background: #fff; border-radius: 8px; width: 90%; max-width: 600px; overflow: hidden;
+}
+.deck-cropper-body { padding: 20px; background: #f0f0f0; }
+.deck-cropper-body canvas { width: 100%; display: block; cursor: move; }
+
+.deck-upload-ring-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center;
+    border-radius: inherit;
+}
+.circular-chart { width: 50px; height: 50px; }
+.circle-bg { fill: none; stroke: #eee; stroke-width: 3.8; }
+.circle { fill: none; stroke-width: 2.8; stroke-linecap: round; stroke: #007bff; transition: stroke-dasharray 0.3s ease; }
+
+
+.deck-cropper-body {
+    position: relative;
+    padding: 0;
+    background: #1a1a1a; /* Dark background pops the image */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+#cropper-canvas {
+    cursor: grab;
+    touch-action: none; /* Prevents mobile scrolling while cropping */
+}
+
+#cropper-canvas:active {
+    cursor: grabbing;
+}
+
+.cropper-hint {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    pointer-events: none;
+}
+
+/* Progress Ring Styling */
+.deck-progress-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;
+    border-radius: inherit; z-index: 10;
+}
+.ring-svg { width: 60%; height: 60%; }
+.ring-bg { fill: none; stroke: rgba(255,255,255,0.2); stroke-width: 3; }
+.ring-fill { fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; transition: stroke-dasharray 0.3s; }
