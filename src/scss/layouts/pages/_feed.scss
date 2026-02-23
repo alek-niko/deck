@@ -107,12 +107,13 @@
 		margin: 0 auto;
 		padding: 0 10px;
 		transition: all 0.3s ease;
+		gap: 24px;
 
 		// Scrollable main content section
 		.content-section {
 			--content-max-width: 600px;
 			flex: 1;
-			margin-left: 15px; /* was 30px; */ 
+			//margin-left: 15px; /* was 30px; */ 
 			max-width: var(--content-max-width);
 			transition: all 0.3s ease;
 
@@ -250,7 +251,7 @@
 	// Large breakpoint
 	@include max-lg {
 		.content-section {
-			margin-left: 295px;
+			//margin-left: 295px;
 		}
 	}
 
