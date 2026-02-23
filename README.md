@@ -1,11 +1,12 @@
 # Deck
-A modern, lean, and open-source front-end framework.
 
-**Deck** is a modern-only, lean, open-source front-end framework designed for developers who value minimalism, performance, and efficiency. Built entirely with **Vanilla JavaScript** and **Sass**, Deck eliminates unnecessary complexity and delivers a finely tuned environment for building modern web applications.
+A modern, lean, event-driven front-end framework.
+
+**Deck** is a modern-only, open-source JavaScript framework built for developers who value minimalism, architectural clarity, and performance. Built entirely with **Vanilla JavaScript (ESM)** and **Sass**, Deck eliminates unnecessary abstractions and delivers a high-performance reactive architecture — without heavy dependencies.
 
 ---
 
-## 🚀 Why Deck?
+## 🤔 Why Deck?
 
 - **Minimal & Modern:** Focused on minimalism; clean, efficient, and lightweight.  
 - **Peak Performance:** Ultra-fast loading speeds and compact bundle size. 
@@ -14,15 +15,46 @@ A modern, lean, and open-source front-end framework.
 - **Streamlined Build Process:** Uses **esbuild** to generate optimized `deck.js` and `deck.css` files.  
 ---
 
-## 🌟 Core Features
+## ⭐ Philosophy
+
+Deck automates the “boring parts” of frontend development:
+
+- Component discovery
+- State hydration
+- Persistence
+- Lifecycle cleanup
+- Event communication
+- Optional real-time connectivity
+
+This allows you to focus purely on building features.
+
+---
+
+## 🏗 Core Architecture
+
+Deck is built on three hierarchical layers:
+
+| Layer        | Class        | Responsibility |
+|--------------|-------------|----------------|
+| Event Bus    | `Dispatcher` | Pub/Sub system + WebSocket engine |
+| Controller   | `Deck`       | Global state proxy, instance registry, DOM scanner |
+| UI Logic     | `Component`  | Reactive, persistent, lifecycle-managed UI modules |
+
+Each layer extends the one beneath it, forming a scalable and decoupled system.
+
+---
+
+
+## 🛡 Core Features
 - **Component-Based JS:** A modular, class-based architecture with a global Deck instance for easy component management (register() and autoload()).
 - **Tokenized SCSS:** A robust Sass system built on design tokens for effortless theming, dark mode, and responsive design. Includes a library of utility classes, animations, and transform mixins.
 - **Pub/Sub System:** A built-in event bus for seamless communication between different components.
 - **Real-Time Ready:** Includes optional WebSocket integration for building dynamic, real-time user experiences.
 - **Optimized Tooling:** Uses [esbuild](https://esbuild.github.io/) and [esbuild-sass-plugin](https://github.com/glromeo/esbuild-sass-plugin)  for an incredibly fast and simple build process.
+
 ---
 
-## 🏗 Core Architecture
+## 📁 Project Structure
 The project structure is organized for clarity and scalability.
 
 ```text
@@ -51,7 +83,7 @@ deck/
 
 ## 📦 Getting Started
 
-### 1. Installation
+### Installation
 
 Clone the repository and install the development dependencies.
 
@@ -112,26 +144,24 @@ window.Deck.register({
     'lightbox': Lightbox
 });
 
-// Automatically initialize components on DOM ready
-window.addEventListener('DOMContentLoaded', () => {
-    window.Deck.autoload();
-});
-
 ```
 ---
 
-## 🎬 Demo
+## 📚 Documentation
 
-Try Deck in action with our live demo:
+Explore Deck through the official documentation portal and full component preview.
+This documentation acts as the authoritative technical reference and a complete showcase of the framework’s UI system.
 
-[Explore the CyberDeck Demo](https://cyberpunk.xyz/deck)
+#### Included in the Documentation
 
-The demo showcases:
+- Complete reference for core architecture (Dispatcher, Deck engine, Component layer)
+- Full UI component showcase (Modals, Tabs, Lightbox, Accordions, and more)
+- Responsive grid system and utility class reference
+- Theming system with dark mode implementation
+- Practical JavaScript integration examples using `Deck.register()` and `Deck.autoload()`
+- Real-world layout compositions and structural patterns
 
-- Core UI components like Modals, Tabs, Lightbox, and Accordions  
-- Responsive layouts and utility classes  
-- Dark mode support and theming  
-- Interactive JS features with `Deck.register()` and `Deck.autoload()`
+This is not a simple demo environment — it is the living specification of the framework and the canonical implementation reference.
 
 ---
 
