@@ -1,6 +1,6 @@
 {
 	"name": "deck",
-	"version": "0.9.3",
+	"version": "0.9.4",
 	"description": "Cyberdeck: Modern-Only Lean Web Framework",
 	"author": "Alek Niko",
 	"type": "module",
