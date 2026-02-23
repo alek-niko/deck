@@ -233,6 +233,16 @@
 						background-color: var(--color-hover-surface);
 					}
 				}
+
+				.separator {
+					height: 1px;
+					width: 70%;                      // Makes the line shorter than the menu
+					background-color: var(--color-border-muted);
+					margin: 12px auto;               // Centered horizontally with vertical spacing
+					padding: 0;                      // Reset padding to ensure it doesn't skew width
+					list-style: none;                // Removes bullet points if any
+				}
+				
 			}
 
 			// State: Open submenu
