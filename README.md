@@ -152,6 +152,8 @@ window.Deck.register({
 Explore Deck through the official documentation portal and full component preview.
 This documentation acts as the authoritative technical reference and a complete showcase of the framework’s UI system.
 
+[ View Documentation ](https://cyberpunk.xyz/deck)
+
 #### Included in the Documentation
 
 - Complete reference for core architecture (Dispatcher, Deck engine, Component layer)
