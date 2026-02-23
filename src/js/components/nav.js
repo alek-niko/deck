@@ -48,7 +48,7 @@ class Nav extends Component {
 		// Initialize the component
 		this.#setup()
 
-		this.element.addEventListener('click', this.onClick);
+		this.on('click', this.onClick);
 	}
 
 	/**

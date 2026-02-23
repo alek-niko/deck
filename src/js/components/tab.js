@@ -51,7 +51,7 @@ class Tab extends Component {
 		// Initialize the offcanvas state and events
 		this.#setup() 
 		
-		this.element.addEventListener('click', this.onClick);
+		this.on('click', this.onClick);
 	}
 
 	/**

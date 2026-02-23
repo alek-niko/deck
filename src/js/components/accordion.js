@@ -47,7 +47,7 @@ class Accordion extends Component {
 		super(context);
 
 		// Add a click event listener to the element, binding it to the onClick handler
-		this.element.addEventListener('click', this.onClick);
+		this.on('click', this.onClick);
 
 		this.#setup();
 	}
