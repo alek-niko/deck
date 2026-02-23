@@ -33,6 +33,6 @@ await build({
 	format: 'esm',
 
 	// Output from the build
-	outfile: 'dist/assets/css/palette.min.css',
+	outfile: 'dist/css/palette.min.css',
 
 });

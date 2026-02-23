@@ -42,7 +42,7 @@ try {
 		format: 'esm',
 
 		// Output from the build
-		outfile: 'dist/assets/js/deck.min.js',
+		outfile: 'dist/js/deck.min.js',
 
 	});
 

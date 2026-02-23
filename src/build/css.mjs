@@ -39,7 +39,7 @@ try {
 		external: ['/assets/images/*'],
 
 		// Output from the build
-		outfile: 'dist/assets/css/deck.min.css',
+		outfile: 'dist/css/deck.min.css',
 	});
 
 	console.log('SCSS build completed: deck.min.css\n');

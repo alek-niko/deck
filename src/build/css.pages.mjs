@@ -41,7 +41,7 @@ try {
 		external: ['/assets/images/*'],
 
 		// Output Directory: Path where the bundled and minified files will be saved
-		outdir: 'dist/assets/css/page', // <-- CHANGE: Specifies the output folder
+		outdir: 'dist/css/page', // <-- CHANGE: Specifies the output folder
 
 		// Output Naming: This tells ESBuild how to name the files:
 		// [dir] preserves the folder structure from 'src/css/pages/'

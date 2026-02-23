@@ -37,7 +37,7 @@ await build({
     format: 'esm',
 
     // Output dir: Path where the bundled and minified file(s) will be saved
-    outdir: 'dist/assets/js/page',
+    outdir: 'dist/js/page',
 
     entryNames: '[dir]/[name].min',
 });
