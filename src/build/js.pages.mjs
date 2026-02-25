@@ -1,12 +1,11 @@
 /**
  * @module src.build.js.pages
- * @description This file contains the configuration for building Page Auth JS using ESBuild.
+ * @description Builds and minifies separate JS files using ESBuild.
  * 
  * @see /src/js/page for input.
- * @see /dist/assets/js/page for output.
+ * @see /dist/js/page for output.
  * 
- * @example
- * To run this script, execute the following command in your terminal:
+ * @example <caption>To run this script via npm:</caption>
  * npm run build-js-pages
  */
 

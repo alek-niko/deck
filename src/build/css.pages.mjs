@@ -3,10 +3,9 @@
  * @description: Builds and minifies separate CSS files from SCSS files in a directory.
  * 
  * @see /src/css/pages for input.
- * @see /dist/assets/css/page for output.
+ * @see /dist/css/page for output.
  * 
- * @example
- * To run this script, execute the following command in your terminal:
+ * @example <caption>To run this script via npm:</caption>
  * npm run build-css-pages
  */
 

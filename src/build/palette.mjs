@@ -3,10 +3,9 @@
  * @description: This file contains the configuration for building Deck Palette using ESBuild.
  * 
  * @see /src/scss/colors/_palette.scss for input.
- * @see /dist/assets/css/palette.min.css for output.
+ * @see /dist/css/palette.min.css for output.
  * 
- * @example
- * To run this script, execute the following command in your terminal:
+ * @example <caption>To run this script via npm:</caption>
  * npm run build-palette
  */
 

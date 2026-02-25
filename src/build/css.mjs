@@ -4,7 +4,10 @@
  * It defines the entry point, output settings, and various plugins used during the build process.
  * 
  * @see /src/scss/main.scss for input.
- * @see /dist/assets/css/deck.min.css for output.
+ * @see /dist/css/deck.min.css for output.
+ * 
+ * @example <caption>To run this script via npm:</caption>
+ * npm run build-css
  */
 
 // Update: Added try..catch block and logLevel: 'silent'

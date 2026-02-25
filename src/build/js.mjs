@@ -4,10 +4,9 @@
  * It defines the entry point, output settings, and various plugins used during the build process.
  * 
  * @see /src/js/main.js for input.
- * @see /dist/assets/js/deck.min.js for output.
+ * @see /dist/js/deck.min.js for output.
  * 
- * @example
- * To run this script, execute the following command in your terminal:
+ * @example <caption>To run this script via npm:</caption>
  * npm run build-js
  */
 
