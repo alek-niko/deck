@@ -54,6 +54,12 @@ src/js/wip/
 src/scss/page/
 src/scss/plugin/
 
+# Handle JS Modules exceptions
+src/js/modules/*.js
+!src/js/modules/index.js.example
+!src/js/modules/starter.js.example
+!src/js/modules/README.md
+
 # =============================================================================
 # DIST & ASSETS
 # =============================================================================
