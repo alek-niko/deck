@@ -63,26 +63,5 @@ src/js/modules/*.js
 # =============================================================================
 # DIST & ASSETS
 # =============================================================================
-# Ignore all HTML files in the dist root (cleans up documentation pages)
-dist/*.html
-
-# Ignore the views directory
-dist/views/
-
-# Explicitly ignore these specific asset sub-directories
-dist/js/page/
-dist/js/plugin/
-dist/js/utility/
-dist/css/page/
-dist/css/plugin/
-dist/world/
-dist/images/meta/
-
-# Note: Any other files in dist/css or dist/js (like main bundles) 
-# will remain tracked because they aren't explicitly ignored here.
-
-# =============================================================================
-# DEMO
-# =============================================================================
-# Ignore online documentation
+dist/
 demo/
