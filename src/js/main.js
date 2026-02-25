@@ -33,7 +33,7 @@ window.Deck = new Deck()
 async function initialize() {
 
 	// Define standard UI components
-    const registry = {
+	const registry = {
 		'accordion': Accordion,
 		'modal': Modal,
 		'tab': Tab,
@@ -48,53 +48,53 @@ async function initialize() {
 	}
 
 	// Attempt to load optional modules (Private or Custom)
-    try {
-        // We look for index.js inside the modules folder
-        const moduleManifest = await import('./modules/index.js');
-        
-        if (moduleManifest.default) {
-            Object.assign(registry, moduleManifest.default);
-            //console.info("Deck: Modules loaded successfully.");
-        }
+	try {
+		// We look for index.js inside the modules folder
+		const moduleManifest = await import('./modules/index.js');
+		
+		if (moduleManifest.default) {
+			Object.assign(registry, moduleManifest.default);
+			//console.info("Deck: Modules loaded successfully.");
+		}
 
-    } catch (e) {
-        // If modules/index.js doesn't exist, we just carry on
-        //console.info("Deck: No additional modules found.");
+	} catch (e) {
+		// If modules/index.js doesn't exist, we just carry on
+		//console.info("Deck: No additional modules found.");
 
-        if (e.code !== 'ERR_MODULE_NOT_FOUND') {
-            console.warn("Deck: Optional modules failed.", e);
-        }
-    }
+		if (e.code !== 'ERR_MODULE_NOT_FOUND') {
+			console.warn("Deck: Optional modules failed.", e);
+		}
+	}
 
 	// Register everything
-    window.Deck.register(registry);
+	window.Deck.register(registry);
 
 	/**
-     * BOOT LOGIC: Fail-proof execution
-     * We check if DOM is already interactive or complete.
-     */
-    const boot = () => {
-        // Prevent double-initialization if needed
-        if (window.Deck.isLoaded) return;
-        
-        window.Deck.autoload();
-        window.Deck.isLoaded = true; // Set a flag on the instance
-        
-        // Dispatch a global event so other scripts know Deck is ready
-        document.dispatchEvent(new CustomEvent('deck:ready', { detail: window.Deck }));
-    };
+	 * BOOT LOGIC: Fail-proof execution
+	 * We check if DOM is already interactive or complete.
+	 */
+	const boot = () => {
+		// Prevent double-initialization if needed
+		if (window.Deck.isLoaded) return;
+		
+		window.Deck.autoload();
+		window.Deck.isLoaded = true; // Set a flag on the instance
+		
+		// Dispatch a global event so other scripts know Deck is ready
+		document.dispatchEvent(new CustomEvent('deck:ready', { detail: window.Deck }));
+	};
 
-    if (document.readyState !== 'loading') {
-        // DOM is already ready (interactive or complete)
-        boot();
-    } else {
-        // DOM is still loading
-        document.addEventListener('DOMContentLoaded', boot);
-    }
+	if (document.readyState !== 'loading') {
+		// DOM is already ready (interactive or complete)
+		boot();
+	} else {
+		// DOM is still loading
+		document.addEventListener('DOMContentLoaded', boot);
+	}
 
 }
 
 // Kick off the async initialization
 initialize().catch(err => {
-    console.error("Deck: Critical failure during initialization:", err);
+	console.error("Deck: Critical failure during initialization:", err);
 });
