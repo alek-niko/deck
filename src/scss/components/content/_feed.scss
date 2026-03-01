@@ -209,3 +209,40 @@
 		width: 100%;
 	}
 }
+
+
+// --------------------------------------------
+// Skeleton Screen
+// --------------------------------------------
+
+/* The Placeholder Shell */
+.skeleton-status {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color, #eee);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* The Shimmer Animation */
+@keyframes shimmer {
+    0% { background-position: -468px 0; }
+    100% { background-position: 468px 0; }
+}
+
+.skeleton-status .line {
+    height: 12px;
+    width: 100%;
+    background: #f6f7f8;
+    background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+    background-repeat: no-repeat;
+    background-size: 800px 104px;
+    display: inline-block;
+    position: relative;
+    animation: shimmer 1.5s linear infinite forwards;
+    border-radius: 4px;
+}
+
+/* Varying widths for a natural look */
+.skeleton-status .line.short { width: 40%; }
+.skeleton-status .line.medium { width: 70%; }
