@@ -60,6 +60,8 @@ src/js/modules/*.js
 !src/js/modules/starter.js.example
 !src/js/modules/README.md
 
+src/js/plugins
+
 # =============================================================================
 # DIST & ASSETS
 # =============================================================================
