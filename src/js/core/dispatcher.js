@@ -80,10 +80,23 @@ class Dispatcher {
 			if (typeof e.data === 'string') {
 				try {
 					const datum = JSON.parse(e.data);
-		
+
+					// 1ROUTING BY CHANNEL
+					// Used for: "A new post just arrived in the Wire feed"
 					if (datum.channel) {
-						this.emit(datum.channel, datum);
-					} else {
+						this.emit(datum.channel, datum); 
+						// e.g. emits 'feed:wire:trending', caught by the Wire Feed
+					} 
+					
+					// ROUTING BY ENTITY (The Sync Layer)
+					// Used for: "Someone just liked post #505"
+					if (datum.entity && datum.id) {
+						// Update the store. This triggers the Status.js reactivity.
+						this.store.set(this.#mapEntity(datum.entity), datum.data || datum);
+					}
+
+					// FALLBACK: Direct Event
+					if (datum.event) {
 						this.emit(datum.event, datum.data);
 					}
 		
@@ -248,6 +261,12 @@ class Dispatcher {
      */
 	destroyEvent(eventName) {
 		delete this.events[eventName]
+	}
+
+	// Helper to ensure 'status' or 'post' both map to the 'statuses' store
+	#mapEntity(type) {
+		const map = { post: 'statuses', news: 'statuses', comment: 'comments' };
+		return map[type] || type;
 	}
 }
 
