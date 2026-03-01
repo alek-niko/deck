@@ -184,7 +184,7 @@ class Deck extends Dispatcher {
 		return this; // chainable
 	}
 
-	// Optional: convenience aliases people love
+	// Optional: convenience aliases
 	plugin(p) { return this.use(p); }
 	extend(p) { return this.use(p); }
 
