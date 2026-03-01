@@ -33,6 +33,7 @@ window.Deck = new Deck()
 async function initialize() {
 
 	// Define standard UI components
+	// ──────────────────────────────
 	const registry = {
 		'accordion': Accordion,
 		'modal': Modal,
@@ -47,7 +48,8 @@ async function initialize() {
 		'uploader': Uploader,
 	}
 
-	// Attempt to load optional modules (Private or Custom)
+	// Optional Components / Modules (Private or Custom)
+	// ────────────────────────────────────────────────
 	try {
 		// We look for index.js inside the modules folder
 		const moduleManifest = await import('./modules/index.js');
@@ -64,6 +66,33 @@ async function initialize() {
 		if (e.code !== 'ERR_MODULE_NOT_FOUND') {
 			console.warn("Deck: Optional modules failed.", e);
 		}
+	}
+	
+	// Optional Plugins / Services
+	// ────────────────────────────────────────────────
+	try {
+		const pluginsManifest = await import('./plugins/index.js');
+		const plugins = pluginsManifest.default ?? [];
+
+		// Handle both array and object exports gracefully
+		const pluginList = Array.isArray(plugins)
+			? plugins
+			: (typeof plugins === 'object' && plugins !== null ? Object.values(plugins) : []);
+
+		pluginList.forEach(plugin => {
+			window.Deck.use(plugin);
+			// Optional: log if you want visibility during dev
+			// console.info(`Deck: Plugin loaded → ${plugin.name || plugin.constructor?.name || 'anonymous'}`);
+		});
+
+		if (pluginList.length > 0) {
+			// console.info(`Deck: ${pluginList.length} plugin(s) initialized.`);
+		}
+	} catch (e) {
+		if (e.code !== 'ERR_MODULE_NOT_FOUND') {
+			console.warn("Deck: Optional plugins failed to load.", e);
+		}
+		// else: no plugins folder/file → silent, expected
 	}
 
 	// Register everything
