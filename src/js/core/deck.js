@@ -136,6 +136,60 @@ class Deck extends Dispatcher {
 	}
 
 	/**
+	 * @method use
+	 * @description Registers a plugin/service/module that can:
+	 *   - receive the deck instance
+	 *   - attach properties/methods to deck
+	 *   - register components
+	 *   - add global state
+	 *   - attach utilities / singletons
+	 *   - run initialization logic
+	 */
+	use(plugin, options = {}) {
+
+		let instance;
+
+		if (typeof plugin === 'function') {
+			// Is it a class constructor?
+			if (plugin.prototype && typeof plugin.prototype.constructor === 'function') {
+				// Treat as class → instantiate with deck + options
+				instance = new plugin(this, options);
+			} else {
+				// Plain factory function
+				instance = plugin(this, options);
+			}
+		} else {
+			// Plain object or already-instantiated thing
+			instance = plugin;
+		}
+
+		if (!instance) return this;
+
+		// Classic Vue-style plugin with .install method
+		if (typeof instance.install === 'function') {
+			instance.install(this);
+		}
+
+		// Auto-attach by .name (very convenient)
+		const name = instance.name || (instance.constructor && instance.constructor.name);
+		if (name && name !== 'Object' && !this[name.toLowerCase()]) {
+			this[name.toLowerCase()] = instance;   // e.g. deck.analytics = instance
+		}
+
+		// Optional: let plugin register components directly
+		if (typeof instance.registerComponents === 'function') {
+			this.register(instance.registerComponents());
+		}
+
+		return this; // chainable
+	}
+
+	// Optional: convenience aliases people love
+	plugin(p) { return this.use(p); }
+	extend(p) { return this.use(p); }
+
+
+	/**
 	 * @method reinit
 	 * @description Re-scans a specific DOM branch for new components.
 	 * 				Useful for AJAX/HTMX content updates.
@@ -322,6 +376,21 @@ class Deck extends Dispatcher {
 		if (reboot) {
 			Object.values(this.instances).forEach(inst => inst.reset());
 		}
+	}
+
+	#initSocketInterceptors() {
+		// We listen to ALL wss messages using a wildcard
+		// sends a consistent prefix, or we handle it in the onmessage.
+		
+		this.on('*', (payload) => {
+			// If the payload contains entity data (e.g., from a 'update' or 'sync' event)
+			// we push it to the store. 
+			if (payload.entity_type && payload.data) {
+				// This line is the key: it updates the Store Map.
+				// Any Status.js instance watching this ID will now auto-update its UI.
+				this.store.set(payload.entity_type, payload.data);
+			}
+		});
 	}
 
 	/**
