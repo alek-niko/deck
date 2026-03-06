@@ -180,4 +180,4 @@ For inquiries about alternative licensing, please reach out via the [contact for
 
 ![Build](https://img.shields.io/badge/build-passing-brightgreen)
 ![License](https://img.shields.io/badge/license-GPLv3-blue)
-![Version](https://img.shields.io/badge/version-0.9.4-yellow)
+![Version](https://img.shields.io/badge/version-0.9.5-yellow)
