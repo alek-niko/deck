@@ -179,6 +179,9 @@
 			a {
 				display: flex;
 				align-items: center;
+				
+				gap: 12px;
+
 				padding: 8px 24px;
 				border-radius: 0 20px 20px 0;
 				font-size: 0.875rem;
@@ -192,23 +195,38 @@
 				}
 
 				.item-icon {
-					width: 40px;
-					color: var(--color-text-muted);
+					// width: 40px;
+					// color: var(--color-text);
 
-					i::before {
-						width: 20px;
-						height: 20px;
-						transition: color 140ms cubic-bezier(0.55, 0, 0.1, 1);
-					}
+					// Fixed width for alignment: ensures all text starts at the same vertical line
+					flex-shrink: 0; 
+					width: 24px; 
+					display: flex;
+					justify-content: center;
+					color: var(--color-text);
 				}
 
 				.item-title {
+					// overflow: hidden;
+					// display: block;
+
+					// The "Spring": This forces the chevron to the far right
+					flex-grow: 1;
+					
 					overflow: hidden;
 					display: block;
+					white-space: nowrap;
+					text-overflow: ellipsis;
 				}
 
 				.item-chevron {
-					margin-left: auto;
+					// margin-left: auto;
+					// transition: transform 0.3s ease-out;
+
+					// Ensure it doesn't shrink if the text is too long
+					flex-shrink: 0;
+					display: flex;
+					align-items: center;
 					transition: transform 0.3s ease-out;
 				}
 			}
@@ -219,7 +237,7 @@
 				padding: 4px 0;
 
 				li {
-					margin-right: -24px;
+					//margin-right: -24px;
 				}
 
 				.menu-heading {
@@ -261,7 +279,8 @@
 				background-color: var(--color-hover-surface-strong); 
 				color: var(--color-danger);
 				font-weight: 500;
-				border-left: 3px solid var(--color-danger);
+				//border-left: 3px solid var(--color-danger);
+				box-shadow: inset 3px 0 0 0 var(--color-danger);
 			}
 		}
 	}

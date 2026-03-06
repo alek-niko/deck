@@ -90,8 +90,9 @@
 
 			svg,
 			i {
-				font-size: 1.25rem;
-				margin: auto;
+				width: 100%;                    // now defers to parent's --icon-size
+				height: 100%;
+				margin: 0;
 			}
 
 			&:hover {

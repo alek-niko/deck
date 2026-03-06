@@ -33,7 +33,7 @@
 	--sidebar-hover: var(--color-accent, rgba(0, 0, 0, 0.06));
 
 	--menu-bg: var(--color-background-elevated, #fff);
-    --menu-shadow: 0 4px 24px rgba(0,0,0,0.15);
+	--menu-shadow: 0 4px 24px rgba(0,0,0,0.15);
 
 	width: 260px; // was 275px;
 	position: sticky;
@@ -134,7 +134,7 @@
 			}
 
 
-			// 1. The Small Icon (Hidden by default on Desktop)
+			// The Small Icon (Hidden by default on Desktop)
 			.logo-icon {
 				display: none; 
 				width: 32px;
@@ -143,7 +143,7 @@
 				flex-shrink: 0;
 			}
 	
-			// 2. The Full Wordmark (Visible by default)
+			// The Full Wordmark (Visible by default)
 			.logo-svg {
 				height: 20px; // primary control
 				width: auto;
@@ -175,58 +175,75 @@
 
 		.nav-item,
 		a.nav-item {
-			display: inline-flex;
+			// Layout Base
+			display: flex;
 			align-items: center;
 			justify-content: flex-start;
-			padding: 10px 20px;
+
+			// Sizing & Spacing
+			/*width: fit-content;*/ // Let the pill only be as wide as its content
 			max-width: 260px;
 			margin: 4px 0;
-			border-radius: 9999px;
-			font-size: 19px;
-			color: var(--sidebar-text);
-			cursor: pointer;
-			//transition: background-color 0.2s ease;
-			transition: background-color 0.2s ease, color 0.2s ease;
-			text-decoration: none;
+			padding: 10px 20px;
 			gap: 20px;
 
-			svg,
-			i {
-				width: 28px;
-				height: 28px;
-				font-size: 24px;
-				flex-shrink: 0;
+			// Aesthetics
+			border-radius: 9999px; 
+			font-size: 19px;
+			text-decoration: none;
+			cursor: pointer;
+
+			// Colors & State
+			color: var(--sidebar-text);
+			transition: background-color 0.2s ease, color 0.2s ease;
+
+			svg {
+				// Prevent icon from squishing when text is long
+				flex-shrink: 0; 
+				
+				width: 32px; // var(--icon-size);
+				height: 32px; // var(--icon-size);
+				fill: currentColor;
+				stroke-width: var(--icon-stroke-width);
+
+				transition:
+					transform var(--transition-duration) ease,
+					filter var(--transition-duration) ease;
 			}
+
 
 			span {
-				color: inherit !important;
+				// Inherit color from the parent's hover/active state
+				color: inherit; 
 
-       			max-width: 170px;
-
-        		flex-shrink: 1;
-     			overflow: hidden;
-
+				// Text handling
+				flex-grow: 1;
+				flex-shrink: 1;
+				max-width: 170px;
+				
+				overflow: hidden;
 				white-space: nowrap;
 				text-overflow: ellipsis;
-
 				display: block; 
-
 			}
 
+			// Interactions
 			&:hover {
 				background-color: rgba(29, 161, 242, 0.1);
 				color: var(--sidebar-accent);
 
 				svg {
+					transform: scale(var(--icon-hover-scale));
 					color: var(--sidebar-accent);
 				}
 			}
 
 			&.active {
 				color: var(--sidebar-accent);
-				font-weight: bold;
+				font-weight: 700;
 
 				svg {
+					// If icons are still outline, we might want to switch to solid here via CSS if supported
 					color: var(--sidebar-accent);
 				}
 			}
@@ -330,106 +347,106 @@
 
 	.sidebar-profile {
 		//all: unset;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        box-sizing: border-box;
-        cursor: pointer;
-        
-        /* Layout & Spacing */
-        width: calc(100% - 16px);
-        padding: 8px 12px;
-        margin: 0 8px 12px;
-        
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		box-sizing: border-box;
+		cursor: pointer;
+		
+		/* Layout & Spacing */
+		width: calc(100% - 16px);
+		padding: 8px 12px;
+		margin: 0 8px 12px;
+		
 		background-color: transparent; // was  var(--color-surface-muted);
-        border: 1px solid var(--color-border);
-        border-radius: 9999px;
-        transition: background-color 0.2s ease, transform 0.1s ease;
+		border: 1px solid var(--color-border);
+		border-radius: 9999px;
+		transition: background-color 0.2s ease, transform 0.1s ease;
 
-        // Anchor logic
-        anchor-name: --profile-anchor; 
-        position: relative;
+		// Anchor logic
+		anchor-name: --profile-anchor; 
+		position: relative;
 
-        &::before {
-            content: '';
-            position: absolute;
-            top: -8px;
-            left: 16px;
-            right: 16px;
-            height: 1px;
-            background: var(--color-border);
-            opacity: 0.5;
-        }
+		&::before {
+			content: '';
+			position: absolute;
+			top: -8px;
+			left: 16px;
+			right: 16px;
+			height: 1px;
+			background: var(--color-border);
+			opacity: 0.5;
+		}
 
 		// &:hover {
-        //     background-color: var(--sidebar-hover);
-        // }
+		//     background-color: var(--sidebar-hover);
+		// }
 
 		&:hover {
 			background-color: var(--color-surface-muted);
 			border-color: ar(--color-border);
 		}
 
-        // State when the popover is open
-        &:popover-open {
-            background-color: var(--sidebar-hover);
-        }
+		// State when the popover is open
+		&:popover-open {
+			background-color: var(--sidebar-hover);
+		}
 
 		.profile-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex: 1;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			flex: 1;
 
-            .profile-avatar {
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                overflow: hidden;
-                flex-shrink: 0;
+			.profile-avatar {
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				overflow: hidden;
+				flex-shrink: 0;
 				//background: var(--color-surface-muted)
 
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
 
 			.profile-details {
-                display: flex;
-                flex-direction: column;
-                line-height: 1.15;
+				display: flex;
+				flex-direction: column;
+				line-height: 1.15;
 				align-items: flex-start;
 
-                .profile-name {
-                    font-size: 15px;
-                    font-weight: 700;
-                    color: var(--sidebar-text);
-                }
+				.profile-name {
+					font-size: 15px;
+					font-weight: 700;
+					color: var(--sidebar-text);
+				}
 
-                .profile-handle {
-                    font-size: 13px;
-                    font-weight: 400;
-                    color: var(--sidebar-muted);
-                }
-            }
-        }
+				.profile-handle {
+					font-size: 13px;
+					font-weight: 400;
+					color: var(--sidebar-muted);
+				}
+			}
+		}
 
 		.profile-settings {
-            color: var(--sidebar-text);
-            padding: 6px;
-            border-radius: 50%;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
+			color: var(--sidebar-text);
+			padding: 6px;
+			border-radius: 50%;
+			transition: all 0.2s ease;
+			display: flex;
+			align-items: center;
 
-            .chevron {
-                width: 18px;
-                height: 18px;
-                opacity: 0.6;
-            }
-        }
+			.chevron {
+				width: 18px;
+				height: 18px;
+				opacity: 0.6;
+			}
+		}
 	}
 }
 
@@ -440,91 +457,91 @@
 // top layer, but it uses the anchor defined inside the sidebar.
 
 .sidebar-profile-menu {
-    position-anchor: --profile-anchor;
-    position: fixed;
-    inset: auto;
-    bottom: anchor(top);
-    left: anchor(left);
-    margin-bottom: 12px;
+	position-anchor: --profile-anchor;
+	position: fixed;
+	inset: auto;
+	bottom: anchor(top);
+	left: anchor(left);
+	margin-bottom: 12px;
 
 	/* Visuals */
 	color: var(--color-text);
-    border: none;
-    background-color: var(--color-surface-muted); // Used your requested variable
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
-    min-width: 260px;
-    padding: 0;
-    
-    /* Ensure the menu matches the width of the profile trigger or has a min-width */
-    // min-width: 260px;
-    // width: anchor-size(width); 
+	border: none;
+	background-color: var(--color-surface-muted); // Used your requested variable
+	border-radius: 16px;
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+	min-width: 260px;
+	padding: 0;
+	
+	/* Ensure the menu matches the width of the profile trigger or has a min-width */
+	// min-width: 260px;
+	// width: anchor-size(width); 
 
-    // border: none;
-    // background: var(--color-background-elevated, #fff);
-    // border-radius: 16px;
-    // box-shadow: 0 4px 24px rgba(0,0,0,0.15);
-    // padding: 12px 0;
-    
-    /* Reset Popover defaults */
-    &:popover-open {
-        display: flex;
-        flex-direction: column;
-    }
+	// border: none;
+	// background: var(--color-background-elevated, #fff);
+	// border-radius: 16px;
+	// box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+	// padding: 12px 0;
+	
+	/* Reset Popover defaults */
+	&:popover-open {
+		display: flex;
+		flex-direction: column;
+	}
 
-    &::backdrop {
-        background: transparent;
-    }
+	&::backdrop {
+		background: transparent;
+	}
 
-    .sidebar-profile-menu-header {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 12px 16px;
+	.sidebar-profile-menu-header {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		padding: 12px 16px;
 
-        .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
+		.avatar {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+		}
 
-        strong {
-            display: block;
-            font-size: 15px;
-            color: var(--sidebar-text);
-        }
+		strong {
+			display: block;
+			font-size: 15px;
+			color: var(--sidebar-text);
+		}
 
-        span {
-            font-size: 13px;
-            color: var(--sidebar-muted);
-        }
-    }
+		span {
+			font-size: 13px;
+			color: var(--sidebar-muted);
+		}
+	}
 
-    .menu-divider {
-        border: 0;
-        border-top: 1px solid var(--color-border);
-        margin: 8px 0;
-        opacity: 0.5;
-    }
+	.menu-divider {
+		border: 0;
+		border-top: 1px solid var(--color-border);
+		margin: 8px 0;
+		opacity: 0.5;
+	}
 
-    .menu-item {
-        all: unset;
-        display: block;
-        cursor: pointer;
-        padding: 12px 16px;
-        font-size: 15px;
-        font-weight: 700;
-        color: var(--sidebar-text);
-        transition: background 0.2s;
+	.menu-item {
+		all: unset;
+		display: block;
+		cursor: pointer;
+		padding: 12px 16px;
+		font-size: 15px;
+		font-weight: 700;
+		color: var(--sidebar-text);
+		transition: background 0.2s;
 
-        &:hover {
-            background-color: var(--color-hover-bg, rgba(0,0,0,0.03));
-        }
+		&:hover {
+			background-color: var(--color-hover-bg, rgba(0,0,0,0.03));
+		}
 
-        &.danger {
-            color: #f4212e;
-        }
-    }
+		&.danger {
+			color: #f4212e;
+		}
+	}
 }
 
 // -----------------------------------------------------------------------------
@@ -558,23 +575,23 @@
 // -----------------------------------------------------------------------------
 
 @media (max-width: $breakpoint-lg-max) {	
-    .sidebar-main {
-        width: 72px;
+	.sidebar-main {
+		width: 72px;
 
 		 .logo {
 			justify-content: center;
 			padding: 12px 0;
 
 			// Hide the full logo and text
-            .logo-svg,
-            .logo-text {
-                display: none !important;
-            }
+			.logo-svg,
+			.logo-text {
+				display: none !important;
+			}
 
-            // Show the compact icon
-            .logo-icon {
-                display: block !important;;
-            }
+			// Show the compact icon
+			.logo-icon {
+				display: block !important;;
+			}
 		}
 
 		.sidebar-content {
@@ -609,36 +626,36 @@
 			}
 		}
 
-       .sidebar-profile {
-            /* Transform into a circle to match collapsed buttons */
-            width: 52px;
-            height: 52px;
-            padding: 0;
-            margin: 12px auto;
-            justify-content: center;
+	   .sidebar-profile {
+			/* Transform into a circle to match collapsed buttons */
+			width: 52px;
+			height: 52px;
+			padding: 0;
+			margin: 12px auto;
+			justify-content: center;
 
-            .profile-info {
-                gap: 0;
+			.profile-info {
+				gap: 0;
 				justify-content: center;
 				
-                /* Hide the text details */
-                .profile-details {
-                    display: none;
-                }
-            }
+				/* Hide the text details */
+				.profile-details {
+					display: none;
+				}
+			}
 
-            /* Hide the chevron icon */
-            .profile-settings {
-                display: none;
-            }
-        }
-    }
+			/* Hide the chevron icon */
+			.profile-settings {
+				display: none;
+			}
+		}
+	}
 
 	.sidebar-profile-menu {
-        /* Align the menu to the center of the collapsed circle */
-        left: anchor(center);
-        transform: translateX(-15%); 
-    }
+		/* Align the menu to the center of the collapsed circle */
+		left: anchor(center);
+		transform: translateX(-15%); 
+	}
 }
 
 // -----------------------------------------------------------------------------
@@ -647,26 +664,26 @@
 // -----------------------------------------------------------------------------
 
 @media (max-width: $breakpoint-sm-max) {
-    .sidebar-main {
-        position: fixed;
-        height: 100%;
-        transform: translateX(-100%);
-        box-shadow: none; // Hide shadow when off-screen
-        z-index: 1500;
-        
-        // --- Drawer is Visible State ---
-        // This class will be toggled with JavaScript to show the sidebar
-        &.is-visible {
-            transform: translateX(0);
-            // Add an overlay to the rest of the page
-            box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.4);
+	.sidebar-main {
+		position: fixed;
+		height: 100%;
+		transform: translateX(-100%);
+		box-shadow: none; // Hide shadow when off-screen
+		z-index: 1500;
+		
+		// --- Drawer is Visible State ---
+		// This class will be toggled with JavaScript to show the sidebar
+		&.is-visible {
+			transform: translateX(0);
+			// Add an overlay to the rest of the page
+			box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.4);
 
-            // --- IMPORTANT: Revert to full-width styles when drawer is open ---
-            // When the drawer is visible on mobile, it should look like the full
-            // desktop sidebar, not the collapsed tablet one.
-            width: 275px;
+			// --- IMPORTANT: Revert to full-width styles when drawer is open ---
+			// When the drawer is visible on mobile, it should look like the full
+			// desktop sidebar, not the collapsed tablet one.
+			width: 275px;
 
-            .sidebar-content {
+			.sidebar-content {
 
 				.logo {
 					justify-content: flex-start;
@@ -685,17 +702,17 @@
 					}
 				}
 
-                a.nav-item {
-                    justify-content: flex-start;
-                    span {
-                        opacity: 1;
-                        visibility: visible;
-                        width: auto;
-                        margin-left: 20px;
+				a.nav-item {
+					justify-content: flex-start;
+					span {
+						opacity: 1;
+						visibility: visible;
+						width: auto;
+						margin-left: 20px;
 						display: inline-block;
-                    }
-                }
-                
+					}
+				}
+				
 				.sidebar-post-btn {
 					width: calc(100% - 40px);
 					min-height: 52px;
@@ -715,17 +732,17 @@
 					}
 				}
 
-            }
-            
-            .sidebar-profile {
-                justify-content: space-between;
-                margin: 0 8px 12px;
+			}
+			
+			.sidebar-profile {
+				justify-content: space-between;
+				margin: 0 8px 12px;
 
-                .profile-details,
-                .profile-settings {
-                    display: flex; // or block, as needed
-                }
-            }
-        }
-    }
+				.profile-details,
+				.profile-settings {
+					display: flex; // or block, as needed
+				}
+			}
+		}
+	}
 }
