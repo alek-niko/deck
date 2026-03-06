@@ -1,4 +1,9 @@
 /**
+ * @module js.util.video.helper
+ * @description Get video thumbnail.
+ */
+
+/**
  * @class VideoHelper
  * @classdesc Extracts a frame from a video file to use as a preview.
  */

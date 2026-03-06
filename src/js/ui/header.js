@@ -1,24 +1,23 @@
 /**
- * @module header
+ * @module js.ui.header
  * @description Manages the website header, including mobile menu toggling, mega menu interactions,
- * and responsive adjustments for different viewports.
+ * 				and responsive adjustments for different viewports.
  */
 
 /**
  * @class Header
- *
- * Handles the header section of the site, including the mega menu (`mega-menu`) and
- * toggle button (`mega-menu-toggle`). Provides functionality to open and close the
- * mega menu by toggling classes and updating the toggle icon. Designed for responsive
- * headers that adapt to mobile views and user interactions.
+ * @classdesc Handles the header section of the site, including the mega menu (`mega-menu`) and
+ * 			  toggle button (`mega-menu-toggle`). Provides functionality to open and close the
+ * 			  mega menu by toggling classes and updating the toggle icon. Designed for responsive
+ * 			  headers that adapt to mobile views and user interactions.
  */
 class Header {
-    /**
-     * Creates an instance of the Header component.
-     * 
-     * Initializes references to the DOM elements: the header, mega menu, and toggle button.
-     * Also calls the `#initialize` method to set up the menu toggle functionality if applicable.
-     */
+	/**
+	 * Creates an instance of the Header component.
+	 * 
+	 * Initializes references to the DOM elements: the header, mega menu, and toggle button.
+	 * Also calls the `#initialize` method to set up the menu toggle functionality if applicable.
+	 */
 	constructor($header) {
 		// Try to get the header element by ID
 		//const header = document.getElementById("header");
@@ -49,8 +48,8 @@ class Header {
 	}
 
 	/**
-     * Initializes the component by setting up the mega menu toggle if the menu exists.
-     */
+	 * Initializes the component by setting up the mega menu toggle if the menu exists.
+	 */
 	#initialize() {
 
 		// Setup the toggle button if mega menu exists
@@ -65,9 +64,9 @@ class Header {
 	}
 
 	/**
-     * Sets up the click event listener on the menu toggle button.
-     * Toggles the mega menu open/close and updates the toggle icon accordingly.
-     */
+	 * Sets up the click event listener on the menu toggle button.
+	 * Toggles the mega menu open/close and updates the toggle icon accordingly.
+	 */
 	#setupToggle() {
 
 		// Exit if no toggle button is found
@@ -92,10 +91,10 @@ class Header {
 	}
 
 	/**
-     * Sets the toggle icon based on the current state (open or close).
-     * 
-     * @param {string} state - The state of the menu ('open' or 'close').
-     */
+	 * Sets the toggle icon based on the current state (open or close).
+	 * 
+	 * @param {string} state - The state of the menu ('open' or 'close').
+	 */
 	#setToggleIcon(state) {
 		// Define the SVG icons for open and close states
 		const icons = {

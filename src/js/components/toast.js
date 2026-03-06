@@ -1,24 +1,25 @@
 /**
- * @module toast
+ * @module js.components.toast
  * @description Manages toast notifications with customizable messages, types, timeouts,
- * and screen positions. Handles display, appearance, and positioning of notifications.
+ * 				and screen positions. Handles display, appearance, and positioning of notifications.
  */
 
 /**
  * @class ToastManager
- *
+ * @extends Component
+ * 
  * Provides an interface for displaying toast notifications, handling different input
  * formats, managing appearance, and ensuring proper positioning on the screen.
  */
 class ToastManager {
-    /**
-     * Creates an instance of ToastManager.
-     * 
-     * @param {Object} [options={}] - Configuration options.
-     * @param {string} [options.type=null] - Default toast type (e.g., "success", "error").
-     * @param {number} [options.timeout=4000] - Default timeout before the toast disappears.
-     * @param {string} [options.position="top-right"] - Default position of the toast.
-     */
+	/**
+	 * Creates an instance of ToastManager.
+	 * 
+	 * @param {Object} [options={}] - Configuration options.
+	 * @param {string} [options.type=null] - Default toast type (e.g., "success", "error").
+	 * @param {number} [options.timeout=4000] - Default timeout before the toast disappears.
+	 * @param {string} [options.position="top-right"] - Default position of the toast.
+	 */
 	constructor( options = {} ) {
 
 		this.type = options.type || null;
@@ -28,17 +29,17 @@ class ToastManager {
 	}
 
 	/**
-     * Displays a toast notification with various formats.
-     * 
-     * Supports multiple input formats:
-     *  - notify("My message");
-     *  - notify("My message", "success");
-     *  - notify("My message", { type: "error", timeout: 5000 });
-     *  - notify({ message: "My message", type: "info" });
-     * 
-     * @param {string|Object} messageOrOptions - Message string or an options object.
-     * @param {string|Object} [typeOrOptions={}] - Optional type string or additional options.
-     */
+	 * Displays a toast notification with various formats.
+	 * 
+	 * Supports multiple input formats:
+	 *  - notify("My message");
+	 *  - notify("My message", "success");
+	 *  - notify("My message", { type: "error", timeout: 5000 });
+	 *  - notify({ message: "My message", type: "info" });
+	 * 
+	 * @param {string|Object} messageOrOptions - Message string or an options object.
+	 * @param {string|Object} [typeOrOptions={}] - Optional type string or additional options.
+	 */
 	notification(messageOrOptions, typeOrOptions = {}) {
 		let options = {};
 
@@ -63,13 +64,13 @@ class ToastManager {
 	}
 
 	/**
-     * Creates and displays a toast notification.
-     * 
-     * @param {string} message - The message content of the toast.
-     * @param {string} [type=this.type] - The toast type (affects styling).
-     * @param {number} [timeout=this.timeout] - Duration before the toast disappears.
-     * @param {string} [position=this.position] - The position where the toast appears.
-     */
+	 * Creates and displays a toast notification.
+	 * 
+	 * @param {string} message - The message content of the toast.
+	 * @param {string} [type=this.type] - The toast type (affects styling).
+	 * @param {number} [timeout=this.timeout] - Duration before the toast disappears.
+	 * @param {string} [position=this.position] - The position where the toast appears.
+	 */
 	makeToast(message, type = this.type, timeout = this.timeout, position = this.position) {
 
 		const toast = document.createElement("div");
@@ -129,10 +130,10 @@ class ToastManager {
 	}
 
 	/**
-     * Adjusts the position of toast notifications to prevent overlap.
-     * 
-     * @param {string} pos - The position of the toasts (e.g., "top-right", "bottom-left").
-     */
+	 * Adjusts the position of toast notifications to prevent overlap.
+	 * 
+	 * @param {string} pos - The position of the toasts (e.g., "top-right", "bottom-left").
+	 */
 	moveToasts(pos) {
 		const position = pos.match(/\b(top|bottom)\b/)?.[0] || null;
 

@@ -1,5 +1,5 @@
 /**
- * @module accordion
+ * @module js.components.accordion
  * @description Accordion UI component built on top of the base Component.
  */
 

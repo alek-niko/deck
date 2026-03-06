@@ -1,5 +1,5 @@
 /**
- * @module src.build.css.pages
+ * @module build.css.pages
  * @description: Builds and minifies separate CSS files from SCSS files in a directory.
  * 
  * @see /src/css/pages for input.
@@ -8,7 +8,6 @@
  * @example <caption>To run this script via npm:</caption>
  * npm run build-css-pages
  */
-
 
 import { build } from 'esbuild';
 import { sassPlugin } from 'esbuild-sass-plugin';

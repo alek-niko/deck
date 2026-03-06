@@ -1,7 +1,7 @@
 /**
- * @module offcanvas
+ * @module js.components.offcanvas
  * @description Provides an interactive offcanvas element with support for toggling,
- * overlays, flipping, background closing, and event-driven interactions.
+ * 				overlays, flipping, background closing, and event-driven interactions.
  */
 
 // Import the base Component class

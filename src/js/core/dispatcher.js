@@ -1,6 +1,7 @@
 /**
- * @module DispatcherEvent
- * @description Represents a single event with a list of registered callbacks.
+ * @module js.core.dispatcher
+ * @description Provides a centralized event-driven system supporting both 
+ * 				internal pub-sub patterns and external WebSocket communication.
  */
 
 /**
@@ -16,17 +17,17 @@ class DispatcherEvent {
 	}
 
 	/**
-     * Registers a callback for this event.
-     * @param {Function} callback - The callback function to register.
-     */
+	 * Registers a callback for this event.
+	 * @param {Function} callback - The callback function to register.
+	 */
 	registerCallback(callback) {
 		this.callbacks.push(callback);
 	}
 
 	/**
-     * Unregisters a callback for this event.
-     * @param {Function} callback - The callback function to unregister.
-     */
+	 * Unregisters a callback for this event.
+	 * @param {Function} callback - The callback function to unregister.
+	 */
 	unregisterCallback(callback) {
 		const index = this.callbacks.indexOf(callback);
 		if (index > -1) {
@@ -35,9 +36,9 @@ class DispatcherEvent {
 	}
 
 	/**
-     * Fires the event, invoking all registered callbacks with the provided data.
-     * @param {*} data - Data to pass to each callback.
-     */
+	 * Fires the event, invoking all registered callbacks with the provided data.
+	 * @param {*} data - Data to pass to each callback.
+	 */
 	fire(data) {
 		// Use a shallow copy to prevent issues if a callback unregisters itself during execution
 		const callbacks = this.callbacks.slice(0);
@@ -49,10 +50,9 @@ class DispatcherEvent {
 
 /**
  * @class Dispatcher
- *
- * Provides an event-driven system with support for publishing and subscribing
- * to events, as well as handling WebSocket-based communication. Designed for
- * managing application-wide messaging and state changes.
+ * @classdesc Provides an event-driven system with support for publishing and subscribing
+ * 			  to events, as well as handling WebSocket-based communication. Designed for
+ * 			  managing application-wide messaging and state changes.
  */
 class Dispatcher {
 
@@ -62,7 +62,7 @@ class Dispatcher {
 		this.wss = null						// The WebSocket instance.
 		this.state = {						// Internal state properties for the dispatcher.
 			reconnection: true,
-            reconnectionDelay: 1000, 		///(Math.floor(Math.random() * 10) + 1) * 1000)
+			reconnectionDelay: 1000, 		///(Math.floor(Math.random() * 10) + 1) * 1000)
 		}
 
 		//this.connect()
@@ -71,8 +71,8 @@ class Dispatcher {
 	}
 	
 	/**
-     * Establishes a WebSocket connection.
-     */
+	 * Establishes a WebSocket connection.
+	 */
 	connect() {
 		this.wss = new WebSocket(`wss://${this.host}`)
 
@@ -113,7 +113,7 @@ class Dispatcher {
 			// Reset delay on successful connection
    			this.state.reconnectionDelay = 1000; 
 			// Sync to global state so ANY component can check this.deck.state.wssOnline
-    		this.setState('wssOnline', true);
+			this.setState('wssOnline', true);
 
 			this.emit('wssConnect')
 		  };
@@ -122,7 +122,7 @@ class Dispatcher {
 			this.setState('wssOnline', false);
 			this.emit('wssDisconnect')
 
-		    if (this.state.reconnection && (!this.wss || this.wss.readyState === 3)) {
+			if (this.state.reconnection && (!this.wss || this.wss.readyState === 3)) {
 				// Exponential backoff logic: 1s, 2s, 4s, 8s... up to 30s
 				const delay = Math.min(this.state.reconnectionDelay, 30000);
 				
@@ -144,121 +144,121 @@ class Dispatcher {
 	}
 
 	/**
-     * Disconnects the WebSocket connection and prevents automatic reconnection.
-     */
+	 * Disconnects the WebSocket connection and prevents automatic reconnection.
+	 */
 	disconnect() {
 		if (this.wss?.readyState === 1) { // 1 = OPEN
-            this.state.reconnection = false;
-            this.wss.close();
-        }
+			this.state.reconnection = false;
+			this.wss.close();
+		}
 	}
 
 	/**
-     * Checks if the WebSocket is connected.
-     * @returns {boolean} `true` if the WebSocket is not open, `false` otherwise.
-     */
+	 * Checks if the WebSocket is connected.
+	 * @returns {boolean} `true` if the WebSocket is not open, `false` otherwise.
+	 */
 
 	isConnected(){
 		return this.wss && this.wss.readyState === 1;
 	}
 
 	/**
-     * Gets the current state of the WebSocket connection.
-     * @returns {number} The WebSocket readyState.
-     */
+	 * Gets the current state of the WebSocket connection.
+	 * @returns {number} The WebSocket readyState.
+	 */
 	wssState() {
 		return this.wss ? this.wss.readyState : 3;
 	}
 
 	/**
-     * Sends data over the WebSocket connection.
-     * @param {*} data - The data to send. It will be stringified before sending.
-     */
+	 * Sends data over the WebSocket connection.
+	 * @param {*} data - The data to send. It will be stringified before sending.
+	 */
 	send(data) {
 		if (this.wss && this.wss.readyState === 1) {
-            this.wss.send(JSON.stringify(data));
-        }
+			this.wss.send(JSON.stringify(data));
+		}
 	}
 
 	/**
-     * Emits an event, invoking all registered callbacks for the event.
-     * Supports wildcard patterns (e.g., `channel:*`).
-     * 
-     * @param {string} eventName - The name of the event to emit.
-     * @param {*} data - Data to pass to the event callbacks.
-     */
+	 * Emits an event, invoking all registered callbacks for the event.
+	 * Supports wildcard patterns (e.g., `channel:*`).
+	 * 
+	 * @param {string} eventName - The name of the event to emit.
+	 * @param {*} data - Data to pass to the event callbacks.
+	 */
 	emit(eventName, data) {
 
 		// Direct match
-        const event = this.events[eventName];
-        if (event) { event.fire(data); }
+		const event = this.events[eventName];
+		if (event) { event.fire(data); }
 
-        // Wildcard match [*] - e.g., 'channel:*'
-        const escaped = str => str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+		// Wildcard match [*] - e.g., 'channel:*'
+		const escaped = str => str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
 
-        Object.entries(this.events).forEach(([name, e]) => {
-            if (name.includes("*")) {
-                const pattern = new RegExp("^" + name.split("*").map(escaped).join(".*") + "$");
-                if (pattern.test(eventName)) {
-                    e.fire(data);
-                }
-            }
-        });
+		Object.entries(this.events).forEach(([name, e]) => {
+			if (name.includes("*")) {
+				const pattern = new RegExp("^" + name.split("*").map(escaped).join(".*") + "$");
+				if (pattern.test(eventName)) {
+					e.fire(data);
+				}
+			}
+		});
 	}
 
 	/**
-     * Registers a callback for a specific event.
-     * 
-     * @param {string} eventName - The name of the event to listen for.
-     * @param {Function} callback - The callback function to invoke when the event is emitted.
-     */
+	 * Registers a callback for a specific event.
+	 * 
+	 * @param {string} eventName - The name of the event to listen for.
+	 * @param {Function} callback - The callback function to invoke when the event is emitted.
+	 */
 	on(eventName, callback) {
 
 		let event = this.events[eventName];
-        if (!event) {
-            event = new DispatcherEvent(eventName);
-            this.events[eventName] = event;
-        }
-        event.registerCallback(callback);
+		if (!event) {
+			event = new DispatcherEvent(eventName);
+			this.events[eventName] = event;
+		}
+		event.registerCallback(callback);
 
-        // Return the cleanup function so components can auto-clean
-        return () => this.off(eventName, callback);
+		// Return the cleanup function so components can auto-clean
+		return () => this.off(eventName, callback);
 	}
 
 	/**
-     * Unregisters a callback for a specific event.
-     * If no callbacks remain for the event, the event is removed.
-     * 
-     * @param {string} eventName - The name of the event.
-     * @param {Function} callback - The callback function to unregister.
-     */
+	 * Unregisters a callback for a specific event.
+	 * If no callbacks remain for the event, the event is removed.
+	 * 
+	 * @param {string} eventName - The name of the event.
+	 * @param {Function} callback - The callback function to unregister.
+	 */
 	off(eventName, callback) {
 		const event = this.events[eventName];
 
-        if (event) {
-            event.unregisterCallback(callback);
-            if (event.callbacks.length === 0) {
-                delete this.events[eventName];
-            }
-        }
+		if (event) {
+			event.unregisterCallback(callback);
+			if (event.callbacks.length === 0) {
+				delete this.events[eventName];
+			}
+		}
 	}
 
 	/**
-     * Checks if an event is registered.
-     * 
-     * @param {string} eventName - The name of the event to check.
-     * @returns {boolean} `true` if the event is registered, `false` otherwise.
-     */
+	 * Checks if an event is registered.
+	 * 
+	 * @param {string} eventName - The name of the event to check.
+	 * @returns {boolean} `true` if the event is registered, `false` otherwise.
+	 */
 	hasEvent(eventName) {
 		//return this.events.hasOwnProperty(eventName)
 		return eventName in this.events
 	}
 
 	/**
-     * Removes an event and all its callbacks.
-     * 
-     * @param {string} eventName - The name of the event to remove.
-     */
+	 * Removes an event and all its callbacks.
+	 * 
+	 * @param {string} eventName - The name of the event to remove.
+	 */
 	destroyEvent(eventName) {
 		delete this.events[eventName]
 	}

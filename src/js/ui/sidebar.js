@@ -1,155 +1,156 @@
 /**
- * @module sidebar
+ * @module js.ui.sidebar
  * @description Manages sidebar functionality, including toggling, menu interactions,
- * active item highlighting, and placeholder methods for future enhancements.
+ * 				active item highlighting, and placeholder methods for future enhancements.
  */
 
 /**
  * @class Sidebar
- *
- * Handles sidebar behavior such as opening/closing, interacting with menu items
- * (expanding/collapsing submenus), highlighting the active menu item, and providing
- * placeholder methods like `show`, `hide`, `open`, and `close` for future functionality.
+ * @classdesc Handles sidebar behavior such as opening/closing, interacting with menu items
+ * 			 (expanding/collapsing submenus), highlighting the active menu item, and providing
+ * 			 placeholder methods like `show`, `hide`, `open`, and `close` for future functionality.
  */
 class Sidebar {
 
-    /**
-     * @param {string} elementSelector - The CSS selector for the sidebar element.
-     * @param {string} toggleSelector - The CSS selector for the toggle button.
-     * @param {object} [options={}] - Configuration options for the sidebar.
-     * @param {string} [options.storageKey='sidebar.open'] - The key for localStorage.
-     * @param {number|null} [options.responsiveBreakpoint=null] - The window width (in px) below which special visibility logic applies.
-     * @param {string} [options.bodyHiddenClass='sidebar-hidden'] - The class applied to the <body> to hide the sidebar.
-     * @param {string} [options.responsiveVisibleClass='is-visible'] - The class applied to the sidebar element for visibility on smaller screens.
-     * @param {string} [options.toggleOpenClass='open'] - The class applied to the toggle button when the sidebar is open.
-     */
+	/**
+	 * @param {string} elementSelector - The CSS selector for the sidebar element.
+	 * @param {string} toggleSelector - The CSS selector for the toggle button.
+	 * @param {object} [options={}] - Configuration options for the sidebar.
+	 * @param {string} [options.storageKey='sidebar.open'] - The key for localStorage.
+	 * @param {number|null} [options.responsiveBreakpoint=null] - The window width (in px) below which special visibility logic applies.
+	 * @param {string} [options.bodyHiddenClass='sidebar-hidden'] - The class applied to the <body> to hide the sidebar.
+	 * @param {string} [options.responsiveVisibleClass='is-visible'] - The class applied to the sidebar element for visibility on smaller screens.
+	 * @param {string} [options.toggleOpenClass='open'] - The class applied to the toggle button when the sidebar is open.
+	 * @param {boolean} [options.multiOpen=true] - Whether multiple submenus can stay open simultaneously.
+	 */
 
 	constructor(elementSelector, toggleSelector, options = {}) {
 
-        this.element = document.querySelector(elementSelector);
-        this.toggle = document.querySelector(toggleSelector);
+		this.element = document.querySelector(elementSelector);
+		this.toggle = document.querySelector(toggleSelector);
 
 		// Merge default options with user-provided ones
-        this.options = {
-            storageKey: 'sidebar.open',
-            responsiveBreakpoint: null,
-            bodyHiddenClass: 'sidebar-hidden',
-            responsiveVisibleClass: 'is-visible',
-            toggleOpenClass: 'open',
-            ...options
-        };
+		this.options = {
+			storageKey: 'sidebar.open',
+			responsiveBreakpoint: null,
+			bodyHiddenClass: 'sidebar-hidden',
+			responsiveVisibleClass: 'is-visible',
+			toggleOpenClass: 'open',
+			multiOpen: true,
+			...options
+		};
 
 		// Prevents initialization if essential elements are missing
 		if (!this.element || !this.toggle) {
-            console.warn(`Sidebar initialization failed for selector "${elementSelector}". Element or toggle not found.`);
-            return;
-        }
+			console.warn(`Sidebar initialization failed for selector "${elementSelector}". Element or toggle not found.`);
+			return;
+		}
 
-        this.init();
+		this.init();
 	}
 
-    /**
-     * Initializes the sidebar by setting its initial state and attaching event listeners.
-     */
-    init() {
-        this.#setInitialState();
-        this.#attachEventListeners();
+	/**
+	 * Initializes the sidebar by setting its initial state and attaching event listeners.
+	 */
+	init() {
+		this.#setInitialState();
+		this.#attachEventListeners();
 		this.#highlightActiveItem();
-        this.#setupMenuInteraction();
-    }	
+		this.#setupMenuInteraction();
+	}	
 
-    /**
-     * Reads the state from localStorage and applies the initial classes.
-     */
-    #setInitialState() {
-        // localStorage stores strings, 'true' indicates it was previously open.
-        const isVisible = localStorage.getItem(this.options.storageKey) === 'true';
-        this.#applyState(isVisible);
-    }
+	/**
+	 * Reads the state from localStorage and applies the initial classes.
+	 */
+	#setInitialState() {
+		// localStorage stores strings, 'true' indicates it was previously open.
+		const isVisible = localStorage.getItem(this.options.storageKey) === 'true';
+		this.#applyState(isVisible);
+	}
 	
-    /**
-     * Attaches the click event listener to the toggle button.
-     */
-    #attachEventListeners() {
+	/**
+	 * Attaches the click event listener to the toggle button.
+	 */
+	#attachEventListeners() {
 		this.toggle.addEventListener('click', () => this.#handleToggle());
 				
 		// Add listener for clicks outside the sidebar
-        document.addEventListener('click', (event) => this.#handleClickOutside(event));
-    }
+		document.addEventListener('click', (event) => this.#handleClickOutside(event));
+	}
 	
-    /**
-     * Handles the logic when the toggle button is clicked.
-     */
-    #handleToggle() {
-        // Check visibility by seeing if the hidden class is NOT on the body
-        const isNowVisible = document.body.classList.toggle(this.options.bodyHiddenClass);
-        this.#applyState(!isNowVisible);
-    }
+	/**
+	 * Handles the logic when the toggle button is clicked.
+	 */
+	#handleToggle() {
+		// Check visibility by seeing if the hidden class is NOT on the body
+		const isNowVisible = document.body.classList.toggle(this.options.bodyHiddenClass);
+		this.#applyState(!isNowVisible);
+	}
 
-    /**
-     * Handles clicks on the document to close the sidebar when clicking outside of it.
-     * This functionality is only active on screen sizes below the responsive breakpoint.
-     * @param {MouseEvent} event - The click event object.
-     */
-    #handleClickOutside(event) {
+	/**
+	 * Handles clicks on the document to close the sidebar when clicking outside of it.
+	 * This functionality is only active on screen sizes below the responsive breakpoint.
+	 * @param {MouseEvent} event - The click event object.
+	 */
+	#handleClickOutside(event) {
 
-        // Only run this logic on smaller screens
-        if (!this.options.responsiveBreakpoint || window.innerWidth >= this.options.responsiveBreakpoint) {
-            return;
-        }
-        
-        // Check if the sidebar is currently visible/open
-        const isHidden = document.body.classList.contains(this.options.bodyHiddenClass);
-        if (isHidden) {
-            return;
-        }
+		// Only run this logic on smaller screens
+		if (!this.options.responsiveBreakpoint || window.innerWidth >= this.options.responsiveBreakpoint) {
+			return;
+		}
+		
+		// Check if the sidebar is currently visible/open
+		const isHidden = document.body.classList.contains(this.options.bodyHiddenClass);
+		if (isHidden) {
+			return;
+		}
 
-        // Check if the click was inside the sidebar or on the toggle button itself
-        const clickedInsideSidebar = this.element.contains(event.target);
-        const clickedOnToggle = this.toggle.contains(event.target) ;
+		// Check if the click was inside the sidebar or on the toggle button itself
+		const clickedInsideSidebar = this.element.contains(event.target);
+		const clickedOnToggle = this.toggle.contains(event.target) ;
 
-        if (clickedInsideSidebar || clickedOnToggle) {
-            return;
-        }
+		if (clickedInsideSidebar || clickedOnToggle) {
+			return;
+		}
 
-        // If all checks pass, it was a click outside, so hide the sidebar
-        this.hide();
-    }	
+		// If all checks pass, it was a click outside, so hide the sidebar
+		this.hide();
+	}	
 
-    /**
-     * Applies all visual and state changes based on sidebar visibility.
-     * @param {boolean} isVisible - Whether the sidebar should be visible.
-     */
-    #applyState(isVisible) {
-        document.body.classList.toggle(this.options.bodyHiddenClass, !isVisible);
+	/**
+	 * Applies all visual and state changes based on sidebar visibility.
+	 * @param {boolean} isVisible - Whether the sidebar should be visible.
+	 */
+	#applyState(isVisible) {
+		document.body.classList.toggle(this.options.bodyHiddenClass, !isVisible);
 		this.toggle.classList.toggle(this.options.toggleOpenClass, isVisible);
 
-        this.#updatePersistentState(isVisible);
-        this.#handleResponsiveBehavior(isVisible);
-    }
+		this.#updatePersistentState(isVisible);
+		this.#handleResponsiveBehavior(isVisible);
+	}
 
-    /**
-     * Updates the state in localStorage.
-     * @param {boolean} isVisible - The current visibility state.
-     */
-    #updatePersistentState(isVisible) {
-        if (isVisible) {
-            localStorage.setItem(this.options.storageKey, 'true');
-        } else {
-            localStorage.removeItem(this.options.storageKey);
-        }
-    }
+	/**
+	 * Updates the state in localStorage.
+	 * @param {boolean} isVisible - The current visibility state.
+	 */
+	#updatePersistentState(isVisible) {
+		if (isVisible) {
+			localStorage.setItem(this.options.storageKey, 'true');
+		} else {
+			localStorage.removeItem(this.options.storageKey);
+		}
+	}
 	
    /**
-     * Toggles a responsive-specific visibility class if the screen
-     * is below the configured breakpoint.
-     * @param {boolean} isVisible - The current visibility state.
-     */
-    #handleResponsiveBehavior(isVisible) {
-        if (this.options.responsiveBreakpoint && window.innerWidth < this.options.responsiveBreakpoint) {
-            this.element.classList.toggle(this.options.responsiveVisibleClass, isVisible);
-        }
-    }	
+	 * Toggles a responsive-specific visibility class if the screen
+	 * is below the configured breakpoint.
+	 * @param {boolean} isVisible - The current visibility state.
+	 */
+	#handleResponsiveBehavior(isVisible) {
+		if (this.options.responsiveBreakpoint && window.innerWidth < this.options.responsiveBreakpoint) {
+			this.element.classList.toggle(this.options.responsiveVisibleClass, isVisible);
+		}
+	}	
 
 	/**
 	 * Sets up interaction for the menu, allowing submenus to be toggled.
@@ -170,9 +171,17 @@ class Sidebar {
 			const currentlyOpenItem = this.element.querySelector('li.open');
 
 			// If another item is open, close it
-			if (currentlyOpenItem && currentlyOpenItem !== clickedItem) {
-				currentlyOpenItem.classList.remove('open');
-			}
+			// if (currentlyOpenItem && currentlyOpenItem !== clickedItem) {
+			// 	currentlyOpenItem.classList.remove('open');
+			// }
+
+			// Logic for "Accordion" style (only one open)
+			if (!this.options.multiOpen) {
+				const currentlyOpenItem = this.element.querySelector('li.open');
+				if (currentlyOpenItem && currentlyOpenItem !== clickedItem) {
+					currentlyOpenItem.classList.remove('open');
+				}
+			} 
 
 			// Toggle the clicked item's state
 			clickedItem.classList.toggle('open');
@@ -219,57 +228,64 @@ class Sidebar {
 		});
 	}	
 
-    /**
-     * Makes the sidebar visible.
-     */
-    show() {
-        this.#applyState(true);
-    }
+	/**
+	 * Makes the sidebar visible.
+	 */
+	show() {
+		this.#applyState(true);
+	}
 
-    /**
-     * Hides the sidebar.
-     */
-    hide() {
-        this.#applyState(false);
-    }
+	/**
+	 * Hides the sidebar.
+	 */
+	hide() {
+		this.#applyState(false);
+	}
 
-    /**
-     * Opens a specific submenu by its index.
-     * @param {number} index - The zero-based index of the submenu item to open.
-     */
-    open(index) {
-        // Check if the index is valid
-        if (index < 0 || index >= this.submenuItems.length) {
-            console.warn(`Submenu index ${index} is out of bounds.`);
-            return;
+	/**
+	 * Opens a specific submenu by its index.
+	 * @param {number} index - The zero-based index of the submenu item to open.
+	 */
+	open(index) {
+		// Check if the index is valid
+		if (index < 0 || index >= this.submenuItems.length) {
+			console.warn(`Submenu index ${index} is out of bounds.`);
+			return;
+		}
+
+		const itemToOpen = this.submenuItems[index];
+		// const currentlyOpenItem = this.element.querySelector('li.open');
+
+		// // Close any other open item first
+		// if (currentlyOpenItem && currentlyOpenItem !== itemToOpen) {
+		// 	currentlyOpenItem.classList.remove('open');
+		// }
+
+		if (!this.options.multiOpen) {
+            const currentlyOpenItem = this.element.querySelector('li.open');
+            if (currentlyOpenItem && currentlyOpenItem !== itemToOpen) {
+                currentlyOpenItem.classList.remove('open');
+            }
         }
 
-        const itemToOpen = this.submenuItems[index];
-        const currentlyOpenItem = this.element.querySelector('li.open');
+		// Open the target item
+		itemToOpen.classList.add('open');
+	}
 
-        // Close any other open item first
-        if (currentlyOpenItem && currentlyOpenItem !== itemToOpen) {
-            currentlyOpenItem.classList.remove('open');
-        }
-
-        // Open the target item
-        itemToOpen.classList.add('open');
-    }
-
-    /**
-     * Closes a specific submenu by its index.
-     * @param {number} index - The zero-based index of the submenu item to close.
-     */
-    close(index) {
-        // Check if the index is valid
-        if (index < 0 || index >= this.submenuItems.length) {
-            console.warn(`Submenu index ${index} is out of bounds.`);
-            return;
-        }
-        
-        const itemToClose = this.submenuItems[index];
-        itemToClose.classList.remove('open');
-    }
+	/**
+	 * Closes a specific submenu by its index.
+	 * @param {number} index - The zero-based index of the submenu item to close.
+	 */
+	close(index) {
+		// Check if the index is valid
+		if (index < 0 || index >= this.submenuItems.length) {
+			console.warn(`Submenu index ${index} is out of bounds.`);
+			return;
+		}
+		
+		const itemToClose = this.submenuItems[index];
+		itemToClose.classList.remove('open');
+	}
 }
 
 export default Sidebar;

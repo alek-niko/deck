@@ -1,8 +1,8 @@
 /**
- * @module tab
+ * @module js.components.tab
  * @description Manages tabbed navigation and content display, including dynamic content
- * switching, active state management, and support for multiple types of tab navigation
- * such as horizontal and vertical layouts.
+ * 				switching, active state management, and support for multiple types of tab navigation
+ * 				such as horizontal and vertical layouts.
  */
 
 // Import the base Component class
@@ -138,39 +138,6 @@ class Tab extends Component {
 	
 		return activeIndex;
 	}
-
-	/**
-	 * @method open
-	 * @description Activates the tab and its corresponding content at the specified index.
-	 * 
-	 * @param {number} [index=0] - The index of the tab to activate.
-	 */
-	// open(index = 0) {
-	// 	var tabs = Array.from(this.element.children)
-	
-	// 	// Remove "active" class from all list items
-	// 	tabs.forEach( li => {
-	// 		li.classList.remove('active');
-	// 	});
-
-	// 	// Remove the "active" class from all content sections
-	// 	if (this.content) {
-	// 		var content = Array.from(this.content.children)
-	// 		content.forEach( div => {
-	// 			div.classList.remove('active');
-	// 		});
-	// 	}
-
-	// 	// Activate the specified tab and its corresponding content
-	// 	if (index >= 0 && index < tabs.length) {
-	// 		tabs[index].classList.add('active');
-	// 		if (this.content) {
-	// 			content[index].classList.add('active');
-	// 		}       
-	// 	} else {
-	// 		console.error('Index out of range');
-	// 	}
-	// }
 
 	/**
      * @method open

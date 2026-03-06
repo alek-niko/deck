@@ -1,5 +1,5 @@
 /**
- * @module drilldown
+ * @module js.components.drilldown
  * @description Drilldown UI component for creating hierarchical menus with toggleable submenus.
  */
 

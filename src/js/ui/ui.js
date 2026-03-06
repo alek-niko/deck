@@ -1,8 +1,8 @@
 /**
- * @module ui
+ * @module js.ui
  * @description Provides a centralized interface for managing UI components such as sidebars,
- * headers, and theme settings. Facilitates initialization, interaction, and coordination
- * of UI elements across the application.
+ * 				headers, and theme settings. Facilitates initialization, interaction, and coordination
+ * 				of UI elements across the application.
  */
 
 // Import dependent UI modules
@@ -12,10 +12,9 @@ import ThemeManager from './theme.manager.js';
 
 /**
  * @class UI
- *
- * Acts as a container and manager for core UI elements. Handles initialization
- * and coordination of components like Sidebar, Header, and ThemeManager,
- * ensuring consistent behavior and integration within the application.
+ * @classdesc Acts as a container and manager for core UI elements. Handles initialization
+ * 			  and coordination of components like Sidebar, Header, and ThemeManager,
+ * 			  ensuring consistent behavior and integration within the application.
  */
 class UI {
 

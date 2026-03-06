@@ -1,8 +1,8 @@
 /**
- * @module uploader
+ * @module js.components.uploader
  * @description Handles file uploads with support for multiple methods (POST, PUT, STREAM),
- * progress tracking, validation, error handling, and integration with UI elements or forms.
- * Supports single or multiple file uploads with customizable file type and size limits.
+ * 				progress tracking, validation, error handling, and integration with UI elements or forms.
+ * 				Supports single or multiple file uploads with customizable file type and size limits.
  */
 
 // Import the base Component class from the Component.js file
@@ -10,8 +10,9 @@ import Component from './component.js';
 
 /**
  * @class FileValidator
+ * @extends Component
+ * 
  * Handles file validation logic, including size, type, and stream-based checks.
- *
  * @note v2 includes streams. [ Test ]
  */
 class FileValidator {
@@ -19,21 +20,21 @@ class FileValidator {
 	 * List of accepted image, video, and audio file formats.
 	 */
 	static WHITELIST = {
-        IMAGE: ['jpg', 'jpeg', 'png', 'webp', 'gif', 'heic', 'heif'],
-        VIDEO: ['mp4', 'mov', 'webm', 'mkv'],
-        AUDIO: ['mp3', 'wav', 'm4a', 'ogg'],
-        DOC: ['pdf', 'txt', 'zip', 'docx']
-    };
+		IMAGE: ['jpg', 'jpeg', 'png', 'webp', 'gif', 'heic', 'heif'],
+		VIDEO: ['mp4', 'mov', 'webm', 'mkv'],
+		AUDIO: ['mp3', 'wav', 'm4a', 'ogg'],
+		DOC: ['pdf', 'txt', 'zip', 'docx']
+	};
 
 	static SPECS = {
-        feed: { maxSize: 15 * 1024 * 1024, type: 'IMAGE' },
-        avatar: { width: 400, height: 400, maxSize: 5 * 1024 * 1024, type: 'IMAGE' },
-        cover: { width: 1500, height: 500, maxSize: 15 * 1024 * 1024, type: 'IMAGE' },
-        thumb: { width: 200, height: 200, maxSize: 2 * 1024 * 1024, type: 'IMAGE' },
-        preview: { width: 1200, height: 630, maxSize: 8 * 1024 * 1024, type: 'IMAGE' },
-        shorts: { maxSize: 100 * 1024 * 1024, type: 'VIDEO' },
-        videos: { maxSize: 5 * 1024 * 1024 * 1024, type: 'VIDEO' }
-    };
+		feed: { maxSize: 15 * 1024 * 1024, type: 'IMAGE' },
+		avatar: { width: 400, height: 400, maxSize: 5 * 1024 * 1024, type: 'IMAGE' },
+		cover: { width: 1500, height: 500, maxSize: 15 * 1024 * 1024, type: 'IMAGE' },
+		thumb: { width: 200, height: 200, maxSize: 2 * 1024 * 1024, type: 'IMAGE' },
+		preview: { width: 1200, height: 630, maxSize: 8 * 1024 * 1024, type: 'IMAGE' },
+		shorts: { maxSize: 100 * 1024 * 1024, type: 'VIDEO' },
+		videos: { maxSize: 5 * 1024 * 1024 * 1024, type: 'VIDEO' }
+	};
 
 	/**
 	 * Creates an instance of the FileValidator.
@@ -60,8 +61,8 @@ class FileValidator {
 	 */
 	isValidType(file) {
 		const ext = file.name.split('.').pop().toLowerCase();
-        const allowed = FileValidator.WHITELIST[this.spec.type] || [];
-        return allowed.includes(ext);
+		const allowed = FileValidator.WHITELIST[this.spec.type] || [];
+		return allowed.includes(ext);
 	}
 
 	/**
@@ -72,10 +73,10 @@ class FileValidator {
 	 */
 	getFileType(fileName) {
 		const ext = fileName.split('.').pop().toLowerCase();
-        for (const [category, extensions] of Object.entries(FileValidator.WHITELIST)) {
-            if (extensions.includes(ext)) return category.toLowerCase();
-        }
-        return 'file';
+		for (const [category, extensions] of Object.entries(FileValidator.WHITELIST)) {
+			if (extensions.includes(ext)) return category.toLowerCase();
+		}
+		return 'file';
 	}
 }
 
@@ -368,76 +369,76 @@ class Uploader extends Component {
 	}
 
 	/**
-     * Posts a file to the server using a PUT method and a presigned URL.
-     * @param {Object} file - The file to upload.
-     * @private
-     */
+	 * Posts a file to the server using a PUT method and a presigned URL.
+	 * @param {Object} file - The file to upload.
+	 * @private
+	 */
 	async put(file) {
 
 		try {
-            const { presignUrl, headers, withCredentials, presign, target } = this;
+			const { presignUrl, headers, withCredentials, presign, target } = this;
 
-            // Start with our internal API URL
-            let uploadUrl = this.url;
-            
-            if (presign) {
-                /**
-                 * Request the Presigned URL from our backend.
-                 * Backend expects: ?target=xxx&filename=yyy
-                 * Note: Size is usually optional for PUT presigns unless we 
-                 * enforce Content-Length headers in S3.
-                 */
-                const response = await fetch(
-                    `${presignUrl}?target=${target}&filename=${encodeURIComponent(file.fileName)}`
-                );
+			// Start with our internal API URL
+			let uploadUrl = this.url;
+			
+			if (presign) {
+				/**
+				 * Request the Presigned URL from our backend.
+				 * Backend expects: ?target=xxx&filename=yyy
+				 * Note: Size is usually optional for PUT presigns unless we 
+				 * enforce Content-Length headers in S3.
+				 */
+				const response = await fetch(
+					`${presignUrl}?target=${target}&filename=${encodeURIComponent(file.fileName)}`
+				);
 
-                if (!response.ok) {
-                    const errorData = await response.json().catch(() => ({}));
-                    throw new Error(errorData.message || 'Failed to get presigned URL');
-                }
+				if (!response.ok) {
+					const errorData = await response.json().catch(() => ({}));
+					throw new Error(errorData.message || 'Failed to get presigned URL');
+				}
 
-                const presigned = await response.json();
-                
-                // Update file metadata from server response
-                file.type = this.fileValidator.getFileType(file.fileName);
-                file.fileName = presigned.data.filename;
-                
-                // The 'url' returned here is the direct AWS S3 PUT URL
-                uploadUrl = presigned.data.url;
-            }
+				const presigned = await response.json();
+				
+				// Update file metadata from server response
+				file.type = this.fileValidator.getFileType(file.fileName);
+				file.fileName = presigned.data.filename;
+				
+				// The 'url' returned here is the direct AWS S3 PUT URL
+				uploadUrl = presigned.data.url;
+			}
 
-            /**
-             * Perform the actual PUT upload.
-             * For PUT, we send the raw File/Blob as the body.
-             * We DO NOT use FormData here.
-             */
-            const uploadResponse = await fetch(uploadUrl, {
-                method: 'PUT',
-                body: file.rawFile, // Binary body
-                headers: {
-                    ...headers,
-                    // S3 often requires the Content-Type to match what was 
-                    // used to generate the presigned URL.
-                    'Content-Type': file.rawFile.type || 'application/octet-stream'
-                },
-                // Credentials are usually NOT sent to S3 direct URLs, 
-                // but kept for 'same-origin' if usePresigned is false.
-                credentials: usePresigned ? 'omit' : (withCredentials ? 'include' : 'same-origin'),
-            });
+			/**
+			 * Perform the actual PUT upload.
+			 * For PUT, we send the raw File/Blob as the body.
+			 * We DO NOT use FormData here.
+			 */
+			const uploadResponse = await fetch(uploadUrl, {
+				method: 'PUT',
+				body: file.rawFile, // Binary body
+				headers: {
+					...headers,
+					// S3 often requires the Content-Type to match what was 
+					// used to generate the presigned URL.
+					'Content-Type': file.rawFile.type || 'application/octet-stream'
+				},
+				// Credentials are usually NOT sent to S3 direct URLs, 
+				// but kept for 'same-origin' if usePresigned is false.
+				credentials: usePresigned ? 'omit' : (withCredentials ? 'include' : 'same-origin'),
+			});
 
-            if (!uploadResponse.ok) {
-                throw new Error(`Upload to S3 failed with status: ${uploadResponse.status}`);
-            }
+			if (!uploadResponse.ok) {
+				throw new Error(`Upload to S3 failed with status: ${uploadResponse.status}`);
+			}
 
-            // Mark as successful
-            file.status = 'done';
-            this.dispatchEvent('done', { file }, true);
+			// Mark as successful
+			file.status = 'done';
+			this.dispatchEvent('done', { file }, true);
 
-        } catch (error) {
-            console.error('[Uploader] PUT Error:', error);
-            file.status = 'error';
-            this.dispatchEvent('error', { message: error.message, file }, true);
-        }
+		} catch (error) {
+			console.error('[Uploader] PUT Error:', error);
+			file.status = 'error';
+			this.dispatchEvent('error', { message: error.message, file }, true);
+		}
 	}
 
 	/**
@@ -463,11 +464,11 @@ class Uploader extends Component {
 			
 			// Prepare Metadata (Matching Backend req.query)
 			const queryParams = new URLSearchParams({
-                filename: file.fileName,
-                target: target, 
-                totalSize: file.size.toString(),
-                type: contentType
-            }).toString();
+				filename: file.fileName,
+				target: target, 
+				totalSize: file.size.toString(),
+				type: contentType
+			}).toString();
 
 			const uploadUrl = `${streamUrl}?${queryParams}`;
 
@@ -478,13 +479,13 @@ class Uploader extends Component {
 			}
 
 			const response = await fetch(uploadUrl, {
-                method: 'POST',
-                body: file.rawFile.stream(),
-                headers: { ...headers, 'Content-Type': contentType },
-                credentials: withCredentials ? 'include' : 'same-origin',
-                duplex: 'half',
-                signal: signal
-            });
+				method: 'POST',
+				body: file.rawFile.stream(),
+				headers: { ...headers, 'Content-Type': contentType },
+				credentials: withCredentials ? 'include' : 'same-origin',
+				duplex: 'half',
+				signal: signal
+			});
 
 			if (!response.ok) {
 				const errorData = await response.json().catch(() => ({}));
@@ -680,8 +681,8 @@ class Uploader extends Component {
 
 			// Prepare Query Params (Matches backend req.query.target)
 			const queryParams = new URLSearchParams({
-                target: target
-            }).toString();
+				target: target
+			}).toString();
 
 			const uploadUrl = `${url}/multipart?${queryParams}`;
 
@@ -689,17 +690,17 @@ class Uploader extends Component {
 
 			// Execute Fetch
 			const response = await fetch(uploadUrl, {
-                method: 'POST',
-                body: formData,
-                headers,	// Note: Do NOT set Content-Type here.
-                credentials: withCredentials ? 'include' : 'same-origin',
-                signal: signal
-            });
+				method: 'POST',
+				body: formData,
+				headers,	// Note: Do NOT set Content-Type here.
+				credentials: withCredentials ? 'include' : 'same-origin',
+				signal: signal
+			});
 
 			if (!response.ok) {
-                const errorData = await response.json().catch(() => ({}));
-                throw new Error(errorData.message || `Multipart upload failed`);
-            }
+				const errorData = await response.json().catch(() => ({}));
+				throw new Error(errorData.message || `Multipart upload failed`);
+			}
 
 			// Read the SSE Response Stream
 			const reader = response.body.getReader();
@@ -729,7 +730,7 @@ class Uploader extends Component {
 			}
 
 			fileList.forEach(f => f.status = 'error');
-            this.dispatchEvent('error', { message: error.message, files: fileList }, true);
+			this.dispatchEvent('error', { message: error.message, files: fileList }, true);
 		}
 	}
 

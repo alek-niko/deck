@@ -1,8 +1,8 @@
 /**
- * @module toggle
+ * @module js.components.toggle
  * @description Provides interactive toggle switches or checkboxes with customizable labels,
- * styles, and behaviors. Supports state change events for integration with forms, settings,
- * and other UI elements.
+ * 				styles, and behaviors. Supports state change events for integration with forms,
+ * 				settings, and other UI elements.
  */
 
 // Import the base Component class

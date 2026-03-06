@@ -1,8 +1,8 @@
 /**
- * @module modal
+ * @module js.components.modal
  * @description Provides a full-screen or centered overlay for displaying content such as alerts,
- * confirmations, or user input forms. Supports customizable content, styling, and animations,
- * as well as visibility control and user interactions.
+ * 				confirmations, or user input forms. Supports customizable content, styling, and animations,
+ * 				as well as visibility control and user interactions.
  */
 
 // Import the base Component class
@@ -18,12 +18,12 @@ import Component from './component.js';
  */
 class Modal extends Component {
 	/**
-     * Creates an instance of the Modal component.
-     *
-     * @param {HTMLElement} element 	- The DOM element to which the Modal component will be applied.
-     * @param {Object} [options={}]		- Configuration options for the Modal component. Defaults to an empty object.
-     * @param {Deck} [deck=null]		- An instance of the Deck class (optional). Defaults to null.
-     */
+	 * Creates an instance of the Modal component.
+	 *
+	 * @param {HTMLElement} element 	- The DOM element to which the Modal component will be applied.
+	 * @param {Object} [options={}]		- Configuration options for the Modal component. Defaults to an empty object.
+	 * @param {Deck} [deck=null]		- An instance of the Deck class (optional). Defaults to null.
+	 */
 	constructor(element, options = {}, deck = null) {
 
 		if (!(element instanceof HTMLDialogElement)) {

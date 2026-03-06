@@ -1,5 +1,5 @@
 /**
- * @module src.build.js.pages
+ * @module build.js.pages
  * @description Builds and minifies separate JS files using ESBuild.
  * 
  * @see /src/js/page for input.
@@ -10,7 +10,6 @@
  */
 
 import { build } from 'esbuild';
-
 
 await build({
     // Entry Points: The main file(s) that ESBuild will process

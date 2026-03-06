@@ -1,5 +1,5 @@
 /**
- * @module src.build.palette
+ * @module build.palette
  * @description: This file contains the configuration for building Deck Palette using ESBuild.
  * 
  * @see /src/scss/colors/_palette.scss for input.
@@ -11,7 +11,6 @@
 
 import { build } from 'esbuild';
 import { sassPlugin } from 'esbuild-sass-plugin';
-
 
 await build({
 

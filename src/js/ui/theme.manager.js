@@ -1,14 +1,13 @@
 /**
- * @module theme.manager
+ * @module js.ui.theme.manager
  * @description Manages application theme settings, including switching between themes,
- * persisting user preferences, and applying styles across UI components.
+ * 				persisting user preferences, and applying styles across UI components.
  */
 
 /**
  * @class ThemeManager
- *
- * Provides methods to initialize, update, and apply theme settings consistently
- * across the application. Handles user preferences and integrates with the UI.
+ *@classdesc Provides methods to initialize, update, and apply theme settings consistently
+ * 			 across the application. Handles user preferences and integrates with the UI.
  */
 class ThemeManager {
 	/**

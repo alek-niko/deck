@@ -10,8 +10,6 @@
  * npm run build-css
  */
 
-// Update: Added try..catch block and logLevel: 'silent'
-
 import { build } from 'esbuild';
 import { sassPlugin } from 'esbuild-sass-plugin';
 

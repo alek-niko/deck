@@ -1,51 +1,26 @@
 /**
- * @module queue
+ * @module js.util.queue
  * @description Implements a queue with optional auto-processing using callbacks or events.
- *
- * Supports setting a maximum queue size, processing items via a callback function
- * or custom event, and configuring the interval for automatic processing.
+ * 				Supports setting a maximum queue size, processing items via a callback function
+ * 				or custom event, and configuring the interval for automatic processing.
  */
 
 /**
  * @class Queue
  *
- * @param {number} [queue_size=100] - Maximum size of the queue. Defaults to 100.
- * @param {Function|null} [callback=null] - Callback function to process queue items. Defaults to null.
- * @param {string|null} [event=null] - Name of a custom event dispatched to process items. Defaults to null.
- * @param {number} [time=1000] - Interval in milliseconds between automatic processing attempts. Defaults to 1000 ms.
+ * @param {number} [queue_size=100]			- Maximum size of the queue. Defaults to 100.
+ * @param {Function|null} [callback=null]	- Callback function to process queue items. Defaults to null.
+ * @param {string|null} [event=null]		- Name of a custom event dispatched to process items. Defaults to null.
+ * @param {number} [time=1000]				- Interval in milliseconds between automatic processing attempts. Defaults to 1000 ms.
  */
-export default class Queue {
+class Queue {
 	constructor(queue_size = 100, callback = null, event = null, time = 1000) {
 
-		/** 
-		 * @type {Array} 
-		 * @description Internal queue storage.
-		 */
-		this.queue = [];
-		
-		/** 
-		 * @type {number} 
-		 * @description The maximum size of the queue. 
-		 */
-		this.queue_size = queue_size;
-
-		/** 
-		 * @type {boolean} 
-		 * @description Whether auto-processing (callback or event-based) is enabled.
-		 */
-		this.auto = Boolean(callback || event);
-
-		/** 
-		 * @type {boolean} 
-		 * @description Tracks if a callback-based processing is running.
-		 */
-		this.callback = false;
-
-		/** 
-		* @type {boolean} 
-		* @description Tracks if an event-based processing is running.
-		*/
-		this.event = false;
+		this.queue = [];							// Internal queue storage.
+		this.queue_size = queue_size;				// The maximum size of the queue. 
+		this.auto = Boolean(callback || event);		// Whether auto-processing (callback or event-based) is enabled.
+		this.callback = false;						// Tracks if a callback-based processing is running.
+		this.event = false;							// Tracks if an event-based processing is running.
 		
 		// Start automatic queue processing if a callback is provided.
 		if (callback) {
@@ -146,3 +121,6 @@ export default class Queue {
 		return this.size > 0 && (visible || hiddenAndOverflowing);
 	}
 }
+
+
+export default Queue

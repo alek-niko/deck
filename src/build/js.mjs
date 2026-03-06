@@ -1,5 +1,5 @@
 /**
- * @module src.build.js
+ * @module build.js
  * @description: This file contains the configuration for building Deck JS using ESBuild.
  * It defines the entry point, output settings, and various plugins used during the build process.
  * 

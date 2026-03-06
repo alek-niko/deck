@@ -1,7 +1,7 @@
 /**
- * @module nav
+ * @module js.components.nav
  * @description Provides responsive, interactive navigation menus with support for dropdowns,
- * mobile responsiveness, dynamic content rendering, and configurable menu types.
+ * 				mobile responsiveness, dynamic content rendering, and configurable menu types.
  */
 
 // Import the base Component class
