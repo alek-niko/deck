@@ -46,24 +46,21 @@ Thumbs.db
 # =============================================================================
 # SRC DIRECTORY MANAGEMENT
 # =============================================================================
-# Ignore specific source sub-folders as requested
+# Modules & Plugins
+src/js/modules
+src/js/plugins
+
+# Page & Utils
 src/js/page/
-src/js/plugin/
 src/js/utility/
 src/js/wip/
+
+# SCSS 
 src/scss/page/
 src/scss/plugin/
-
-# Handle JS Modules exceptions
-src/js/modules/*.js
-!src/js/modules/index.js.example
-!src/js/modules/starter.js.example
-!src/js/modules/README.md
-
-src/js/plugins
 
 # =============================================================================
 # DIST & ASSETS
 # =============================================================================
-dist/
-demo/
+dist
+demo
