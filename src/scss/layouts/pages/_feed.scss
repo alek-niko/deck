@@ -258,8 +258,8 @@
 	// Medium breakpoint
 	@include max-md {
 		.content-section {
-			margin-left: 108px;
-			max-width: calc(100% - 108px);
+			//margin-left: 108px;
+			//max-width: calc(100% - 108px);
 		}
 	}
 
