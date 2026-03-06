@@ -1,14 +1,11 @@
 /**
- * @module deck
+ * @module js.core.deck
  * @description Core application controller that manages components, state,
- * utility instances, and orchestrates the main application logic.
- * @description Core application controller that manages components, state,
- *				utility instances, and orchestrates the main application logic.
+ * 				utility instances, and orchestrates the main application logic.
  */
 
 import Dispatcher from './dispatcher.js';
 import UI from '../ui/ui.js';
-import Util from '../util/util.js';
 import Toast from '../components/toast.js';
 import tooltip from '../components/tooltip.js';
 
@@ -30,7 +27,6 @@ class Deck extends Dispatcher {
 		this.components = {};				// Registered components
 		this.instances = {};				// Instances of initialized components (keyed by DCI)
 		this.ui = new UI()					// UI utility instance
-		this.util = new Util()				// General-purpose utility instance
 		this.notifier = new Toast()			// Manages toast notifications
 		this.tooltip = tooltip;
 		
@@ -42,6 +38,7 @@ class Deck extends Dispatcher {
 			set: (state, key, value) => {
 				// Only trigger if value actually changed to prevent infinite loops
 				if (state[key] !== value) {
+					
 					state[key] = value;
 
 					// Emit the generic global state change
@@ -52,6 +49,8 @@ class Deck extends Dispatcher {
 						this.watchers[key].forEach(callback => callback(value));
 					}
 				}
+
+				return true;
 			},
 		});
 
