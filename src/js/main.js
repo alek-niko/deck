@@ -25,7 +25,7 @@ import Uploader from './components/uploader.js';
  * @global
  * @description Creates a new instance of the Deck class and attaches it to the global `window` object.
  */
-window.Deck = new Deck()
+window.deck = new Deck()
 
 /**
  * Initializes the component registry and optional modules.
@@ -80,7 +80,7 @@ async function initialize() {
 			: (typeof plugins === 'object' && plugins !== null ? Object.values(plugins) : []);
 
 		pluginList.forEach(plugin => {
-			window.Deck.use(plugin);
+			window.deck.use(plugin);
 			// Optional: log if you want visibility during dev
 			// console.info(`Deck: Plugin loaded → ${plugin.name || plugin.constructor?.name || 'anonymous'}`);
 		});
@@ -96,7 +96,7 @@ async function initialize() {
 	}
 
 	// Register everything
-	window.Deck.register(registry);
+	window.deck.register(registry);
 
 	/**
 	 * BOOT LOGIC: Fail-proof execution
@@ -104,13 +104,13 @@ async function initialize() {
 	 */
 	const boot = () => {
 		// Prevent double-initialization if needed
-		if (window.Deck.isLoaded) return;
+		if (window.deck.isLoaded) return;
 		
-		window.Deck.autoload();
-		window.Deck.isLoaded = true; // Set a flag on the instance
+		window.deck.autoload();
+		window.deck.isLoaded = true; // Set a flag on the instance
 		
 		// Dispatch a global event so other scripts know Deck is ready
-		document.dispatchEvent(new CustomEvent('deck:ready', { detail: window.Deck }));
+		document.dispatchEvent(new CustomEvent('deck:ready', { detail: window.deck }));
 	};
 
 	if (document.readyState !== 'loading') {

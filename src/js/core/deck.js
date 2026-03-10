@@ -38,7 +38,7 @@ class Deck extends Dispatcher {
 			set: (state, key, value) => {
 				// Only trigger if value actually changed to prevent infinite loops
 				if (state[key] !== value) {
-					
+
 					state[key] = value;
 
 					// Emit the generic global state change

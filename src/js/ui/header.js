@@ -187,12 +187,12 @@ class Header {
 			} else {
 				// Handle any error in the logout process
 				// console.error('Logout failed');
-				Deck.say('Logout failed', 'danger')
+				window.deck.say('Logout failed', 'danger')
 			}
 		} catch (error) {
 			// Catch and log any error during the fetch request
 			//console.error('Error during logout request:', error);
-			Deck.say('Logout failed', 'danger')
+			window.deck.say('Logout failed', 'danger')
 		}
 	}
 }
