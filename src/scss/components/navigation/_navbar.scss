@@ -82,17 +82,28 @@
 		list-style: none;
 
 		>li {
-			position: relative;
+			//position: relative;
+
+			display: flex;
+			align-items: center;
+			min-height: 48px;
 
 			&.active>a {
 				color: var(--color-text);
 			}
 
 			>a {
-				display: inline-block;
-				margin: 0 12px;
+
+				display: flex;
+				align-items: center;
+				height: 100%;
+				padding: 0 8px;
+				margin: 0;
+
+				//display: inline-block;
+				//margin: 0 12px;
 				text-align: center;
-				color: var(--color-text);
+				color: var(--color-text-muted);
 				text-decoration: none;
 				cursor: pointer;
 				font-size: 16px;
