@@ -7,7 +7,7 @@
  * 				- Overlay dimming (modal-like background)
  */
 
-import { DomUtils } from './dom.js';
+import { DomUtils } from './helpers.js';
 
 export default class ComponentManager {
 
