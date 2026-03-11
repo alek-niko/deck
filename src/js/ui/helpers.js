@@ -1,5 +1,5 @@
 /**
- * @module js.ui.dom
+ * @module js.ui.helpers
  * @description Pure, stateless DOM manipulation helpers.
  * 				Focused on smooth animations and common DOM normalizations.
  *
