@@ -1,6 +1,6 @@
 // ===================================================================
 // DESIGN TOKENS
-// abstracts/_design-tokens.scss
+// abstracts/_tokens.scss
 // -------------------------------------------------------------------
 // Defines the application's core CSS custom properties (:root variables)
 // These represent the default (light) theme and use SCSS variables
@@ -124,6 +124,7 @@
 	--color-success:			#{$success-color};			// Success messages
 	--color-warning:			#{$warning-color};			// Warning alerts
 	--color-danger:				#{$danger-color};			// Error states
+	--color-muted:				#{$muted-color};			// 
 	--color-link:				#{$link-color};				// Hyperlink color
 	--color-accent:				#{$blue};					// Accent color
 	--color-disabled:			#{$disabled-color};
