@@ -44,22 +44,59 @@
 	display: inline-flex;
 }
 
+// // Flex-grid wrapper for equal-width children
+// .flex-grid {
+//     display: flex;
+//     flex-wrap: wrap;
+// 	flex-direction: row; /* Default: row layout */
+//     gap: var(--gap, 0px);
+
+// 	// Child widths auto-calc based on --columns
+// 	> * {
+// 		flex: 1 1 calc((100% / var(--columns, 1)) - (var(--gap, 0px) * (var(--columns, 1) - 1) / var(--columns, 1)));
+// 		max-width: calc((100% / var(--columns, 1)) - (var(--gap, 0px) * (var(--columns, 1) - 1) / var(--columns, 1)));
+// 	}
+
+// 	// Optional responsive override
+//  	// @media (max-width: $breakpoint-md) { flex-direction: column; }
+
+// }
+
 // Flex-grid wrapper for equal-width children
 .flex-grid {
     display: flex;
     flex-wrap: wrap;
-	flex-direction: row; /* Default: row layout */
+    flex-direction: row;
+    // Align items to start to prevent vertical "distortion" (stretching)
+    align-items: flex-start; 
     gap: var(--gap, 0px);
+    
+    // Ensure padding doesn't add to width calculations
+    box-sizing: border-box;
 
-	// Child widths auto-calc based on --columns
-	> * {
-		flex: 1 1 calc((100% / var(--columns, 1)) - (var(--gap, 0px) * (var(--columns, 1) - 1) / var(--columns, 1)));
-		max-width: calc((100% / var(--columns, 1)) - (var(--gap, 0px) * (var(--columns, 1) - 1) / var(--columns, 1)));
-	}
+    > * {
+        box-sizing: border-box;
+        
+        // Use flex-basis for the width calculation. 
+        // This formula accounts for the gaps correctly.
+        $gap-offset: calc(var(--gap, 0px) * (var(--columns, 1) - 1) / var(--columns, 1));
+        flex: 0 0 calc((100% / var(--columns, 1)) - #{$gap-offset});
+        
+        // Prevents items from growing/shrinking unexpectedly
+        max-width: calc((100% / var(--columns, 1)) - #{$gap-offset});
+        
+        // Internal styling to ensure sub-divs behave
+        min-width: 0; // Prevents long text from breaking the grid
+    }
 
-	// Optional responsive override
- 	// @media (max-width: $breakpoint-md) { flex-direction: column; }
-
+    // Responsive: Stack on mobile
+    @media (max-width: 768px) {
+        flex-direction: column;
+        > * {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+    }
 }
 
 // -----------------------------------------------------------------------------
