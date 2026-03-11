@@ -302,6 +302,9 @@ class Component {
             this.deck.setState(this.stateKey, this.state);
         }
 
+		// This ensures the local UI reacts immediately without waiting for the Deck's loop.
+    	this.onStateChange(this.state);
+
         // storage is either a helper object or the boolean 'false'
         if (this.storage && typeof this.#syncToStorage === 'function') {
             this.#syncToStorage();
