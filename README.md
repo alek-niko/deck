@@ -76,7 +76,7 @@ deck/
 └─ main.scss      # Entry point for SCSS
 ```
 - **SCSS:** Fully tokenized, responsive, and dark-mode ready  
-- **JS:** Component-based, modular, with `Deck.register()` and `Deck.autoload()`  
+- **JS:** Component-based, modular, with `deck.register()` and `deck.autoload()`  
 - **Build:** Uses esbuild to generate optimized `deck.js` and `deck.css` files 
 
 ---
@@ -131,15 +131,15 @@ Initialize the Deck core and register your components. The autoload() method wil
 
 
 ```js
-import Deck from './core/Deck.js';
-import Modal from './components/Modal.js';
-import Lightbox from './components/Lightbox.js';
+import Deck from './core/deck.js';
+import Modal from './components/modal.js';
+import Lightbox from './components/lightbox.js';
 
 // Create global instance
-window.Deck = new Deck();
+window.deck = new Deck();
 
 // Register components
-window.Deck.register({
+window.deck.register({
     'modal': Modal,
     'lightbox': Lightbox
 });
@@ -160,7 +160,7 @@ This documentation acts as the authoritative technical reference and a complete 
 - Full UI component showcase (Modals, Tabs, Lightbox, Accordions, and more)
 - Responsive grid system and utility class reference
 - Theming system with dark mode implementation
-- Practical JavaScript integration examples using `Deck.register()` and `Deck.autoload()`
+- Practical JavaScript integration examples using `deck.register()` and deck.autoload()`
 - Real-world layout compositions and structural patterns
 
 This is not a simple demo environment — it is the living specification of the framework and the canonical implementation reference.
@@ -180,4 +180,4 @@ For inquiries about alternative licensing, please reach out via the [contact for
 
 ![Build](https://img.shields.io/badge/build-passing-brightgreen)
 ![License](https://img.shields.io/badge/license-GPLv3-blue)
-![Version](https://img.shields.io/badge/version-0.9.5-yellow)
+![Version](https://img.shields.io/badge/version-0.9.6-yellow)
