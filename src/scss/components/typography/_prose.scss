@@ -15,12 +15,17 @@
 @use '../../abstracts/variables/spacing' as *;
 
 .prose {
-	// Base Type & Measure
-	font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
-	// font-size: clamp(1rem, 0.95rem + 0.1vw, 1.0625rem); // next test
-	line-height: var(--line-height-base, 1.6);
-	max-width: 70ch;
 
+	// Core Typography & Measure
+    // Using fluid type scales and 'pretty' text wrapping
+    font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+    line-height: var(--line-height-base, 1.6);
+    max-width: 70ch;
+    color: var(--color-text);
+    text-wrap: pretty;
+
+
+	// Responsive measure using Container Queries where supported
 	@media (min-width: 1200px) {
 		max-width: 75ch;
 	}
@@ -29,226 +34,201 @@
 	&-wide { max-width: 85ch; }
 	&-full { max-width: none; }
 
-	// ----------------------------------------
-	// Vertical rhythm
-	// ----------------------------------------
-
-	// Standard spacing between all sibling elements
-	> * + * {
-		margin-block-start: var(--spacing-default);
+	// -------------------------------------------------------------------------
+    // The Global Reset (Zero Specificity)
+    // Using :where to ensure these styles are easily overridable
+    // -------------------------------------------------------------------------
+	> :where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, figure, hr, table, pre) {
+		margin-block-start: 0;
+		margin-block-end: 0;
 	}
-	
-	// Headings: We use larger top margins to group content visually.
-    // The margin-bottom is effectively the 'spacing-default' from the owl selector above.
-    
+
+	// -------------------------------------------------------------------------
+    // The "Base Rhythm" (The Gap between standard elements)
+    // -------------------------------------------------------------------------
+    > * + * {
+        margin-block-start: var(--spacing-default);
+    }
+
+	// -------------------------------------------------------------------------
+    // The "Section Break" (Pushing headings away from previous content)
+    // -------------------------------------------------------------------------
+    // > * + h1 { margin-block-start: var(--spacing-2xl); }
+    // > * + h2 { margin-block-start: var(--spacing-xl); }
+    // > * + h3 { margin-block-start: var(--spacing-lg); }
+    // > * + h4 { margin-block-start: var(--spacing-default); }
+
+	> * + h1 { margin-block-start: var(--spacing-3xl); } // Increased for 2026 high-res displays
+    > * + h2 { margin-block-start: var(--spacing-2xl); }
+    > * + h3 { margin-block-start: var(--spacing-xl); }
+    > * + h4 { margin-block-start: var(--spacing-lg); }
+
+    // -------------------------------------------------------------------------
+    // The "Proximity" Adjustment (Headings following headings)
+    // -------------------------------------------------------------------------
+    > h1 + h2, 
+    > h2 + h3, 
+    > h3 + h4 {
+        margin-block-start: var(--spacing-xs); 
+    }
+
+	// -------------------------------------------------------------------------
+    // Element Specifics (Internal Styles only)
+    // -------------------------------------------------------------------------
+
+	> h1, > h2, > h3, > h4, > h5, > h6 {
+        color: var(--color-text);
+        //font-family: var(--font-primary);
+        text-wrap: balance; // Prevents single-word orphans in headings
+    }
+
     > h1 {
         font-weight: 700;
         line-height: 1.1;
         letter-spacing: -0.02em;
-        margin-block-start: var(--spacing-2xl); 
+        margin-block-end: var(--spacing-sm); 
     }
 
     > h2 {
         font-weight: 600;
         line-height: 1.2;
-        margin-block-start: var(--spacing-xl);
+		letter-spacing: -0.01em;
+        margin-block-end: var(--spacing-xs);
     }
 
-    > h3 {
-        font-weight: 600;
-        line-height: 1.3;
-        margin-block-start: var(--spacing-lg);
-    }
-
-    > h4, > h5, > h6 {
-        font-weight: 600;
-        line-height: 1.4;
-        margin-block-start: var(--spacing-default); 
-    }
-
-    // Reset top margin for the very first element in the prose block
-    > :first-child {
-        margin-block-start: 0 !important;
-    }
-
-    // Adjust flow after headings (Optional: headings closer to text)
-    // > h1 + *, > h2 + *, > h3 + * {
-    //    margin-block-start: var(--spacing-xs);
+    // > h3, > h4, > h5, > h6 {
+    //     font-weight: 600;
+    //     line-height: 1.3;
     // }
 
 
-	// ----------------------------------------
-	// Paragraphs
-	// ----------------------------------------
+	// -------------------------------------------------------------------------
+    // Lists & Nested Content
+    // -------------------------------------------------------------------------
+    > :where(ul, ol) {
+        padding-inline-start: 1.75rem;
 
-	> p {
-		line-height: 1.65;
-		// Optimization: prevent orphans/widows if supported
-        text-wrap: pretty;
-	}
-
-	// ----------------------------------------
-	// Lists
-	// ----------------------------------------
-
-	> ul,
-    > ol {
-        // padding-inline-start: 1.5rem;
-        
-        // // Nested lists shouldn't have top margin if they are the only child
-        // li > ul,
-        // li > ol {
-        //     margin-block-start: var(--spacing-xs);
-        // }
-
-		// Give the list itself the standard prose flow margin
-        margin-block-start: var(--spacing-default);
-        margin-block-end: var(--spacing-default);
-        padding-inline-start: 1.75rem; // Slightly wider for better bullet alignment
-
-        // Vertical spacing between list items
-        // Using 'sm' or 'default' instead of 'xs' makes multi-line items readable
         li + li {
-            margin-block-start: var(--spacing-sm); 
+            margin-block-start: var(--spacing-xs); 
         }
 
-        // Handling nested lists
-        // We reduce the top margin here so the nested list stays "attached" to its parent item
-        li > ul,
-        li > ol {
-            margin-block-start: var(--spacing-xs);
-            margin-block-end: 0;
+        // Nested lists logic
+        li > :where(ul, ol) {
+            margin-block-start: var(--spacing-sm);
+            margin-block-end: var(--spacing-sm);
         }
-        
-        // Tighten lists that contain only short items (Optional)
-        // If you have a specific class for simple lists, you can override here
-        &.is-tight li + li {
-            margin-block-start: var(--spacing-xs);
-        }
+
+        // Handling CMS-generated paragraphs inside LI
+        li p { margin-block: 0; }
+        li p + p { margin-block-start: var(--spacing-xs); }
     }
 
-    // > li + li {
-    //     margin-block-start: var(--spacing-xs);
-    // }
 
+	// Feature List Extension
+    .is-features {
+        list-style: none;
+        padding-inline-start: 0;
 
-	// Paragraphs inside list items
-    // Sometimes CMS editors wrap list content in <p> tags. 
-    // We need to ensure they don't double-up the spacing.
-    li p {
-        margin-block: 0;
-    }
-
-    li p + p {
-        margin-block-start: var(--spacing-xs);
-    }
-
-	// .is-features: Turns a standard list into a "Feature" list where the first 
-	// <b> tag acts as a block-level heading.
-	ul.is-features, 
-    ol.is-features {
         li {
-            // Target only the first <b> tag
+            display: grid;
+            gap: var(--spacing-xs);
+            
+            & + li { margin-block-start: var(--spacing-lg); }
+
             > b:first-child {
-                display: block;
-                font-size: 1.1em; // Slightly larger for emphasis
-                color: var(--color-heading);
-                margin-block-end: var(--spacing-xs);
+                font-size: 1.125rem;
+                color: var(--color-text-heading);
                 line-height: 1.2;
             }
-
-            // Add extra spacing between feature items
-            & + li {
-                margin-block-start: var(--spacing-lg);
-            }
-
-            // Allow standard <b> tags later in the text to remain inline
-            b:not(:first-child) {
-                display: inline;
-                color: inherit;
-                font-weight: 700;
-            }
         }
     }
 
-	// ----------------------------------------
-	// Blockquote
-	// ----------------------------------------
-
-	> blockquote {
-		padding-inline-start: var(--spacing-md);
-        border-inline-start: 4px solid var(--color-border-muted);
+	// -------------------------------------------------------------------------
+    // Components (Blockquotes, Figures, Tables)
+    // -------------------------------------------------------------------------
+    > blockquote {
+        padding-inline-start: var(--spacing-lg);
+        border-inline-start: 3px solid var(--color-accent);
         font-style: italic;
         color: var(--color-text-muted);
-        // Ensure the blockquote itself has a slightly larger gap if it's long
-        margin-block: var(--spacing-lg);
-	}
-
-	// ----------------------------------------
-	// Media
-	// ----------------------------------------
-
-	> figure {
         margin-block: var(--spacing-xl);
+        
+        p { font-size: 1.25rem; }
+    }
+
+    > figure {
+        margin-block: var(--spacing-2xl);
         
         img {
             display: block;
-            max-width: 100%;
+            width: 100%;
             height: auto;
-            border-radius: var(--radius-md, 4px);
+            border-radius: var(--radius-lg);
+        }
+
+        figcaption {
+            margin-block-start: var(--spacing-sm);
+            font-size: var(--text-xs, 0.875rem);
+            color: var(--color-text-muted);
+            text-align: center;
         }
     }
 
-    > figcaption {
-        font-size: 0.875rem;
-        line-height: 1.4;
-        color: var(--color-text-muted);
-        margin-block-start: var(--spacing-sm);
-        text-align: center;
-    }
-
-	// ----------------------------------------
-	// HR
-	// ----------------------------------------
-
-	> hr {
-        margin-block: var(--spacing-xl);
-        border: none;
-        border-top: 1px solid var(--color-border-muted);
-    }
-
-
-	// ----------------------------------------
-	// Tables
-	// ----------------------------------------
-
-	> table {
+    > table {
         width: 100%;
         border-collapse: collapse;
-        font-size: 0.95em;
-        margin-block: var(--spacing-lg);
+        font-size: var(--text-sm, 0.9375rem);
+        margin-block: var(--spacing-xl);
+
+        th {
+            font-weight: 600;
+            border-bottom: 2px solid var(--color-border);
+        }
 
         th, td {
             padding: var(--spacing-sm);
             border-bottom: 1px solid var(--color-border-muted);
-            text-align: left;
+            text-align: start; // Logical property
         }
     }
 
+	// 3. The Section Breaks (Including HR)
+	// We use a larger "push" for the HR to make it a distinct divider
+	> * + hr { 
+		margin-block-start: var(--spacing-2xl); 
+	}
+
+	// 4. Restore the HR visual styling
+	> hr {
+		border: none;
+		border-top: 1px solid var(--color-border-muted);
+		
+		// We ADD a small margin-block-end here because an HR is a "separator,"
+		// not a content block. This ensures the NEXT element feels balanced.
+		margin-block-end: var(--spacing-lg); 
+	}
+
+    // -------------------------------------------------------------------------
+    // Modern Utilities
+    // -------------------------------------------------------------------------
+    .media-full-bleed {
+        width: 100vw;
+        margin-inline: calc(50% - 50vw);
+    }
 
 	// ----------------------------------------
 	// Media utility
 	// ----------------------------------------
 
 	// Utility for wide media within constrained prose
-    .media-wide {
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-inline-start: -50vw;
-        margin-inline-end: -50vw;
-        max-width: var(--container-max-width, 1200px); // if you have a container var
-    }
+	.media-wide {
+		width: 100vw;
+		position: relative;
+		left: 50%;
+		right: 50%;
+		margin-inline-start: -50vw;
+		margin-inline-end: -50vw;
+		max-width: var(--container-max-width, 1200px); // if you have a container var
+	}
 
 }
