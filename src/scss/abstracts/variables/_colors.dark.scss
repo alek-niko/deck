@@ -12,105 +12,104 @@
 @use './elevation' as *;
 
 /// --------------------------------------------
+/// BASE PALETTE (Sync with Light Mode Hue)
+/// --------------------------------------------
+$hue-blue:					250; 
+$hue-gray:					250;
+
+/// --------------------------------------------
 /// BODY & TEXT
 /// --------------------------------------------
 
-$body-color:				rgba(255,255,255,0.87) !default;
-$body-bg:					#121212 !default;
+$text-color-primary:		oklch(90% 0.01 #{$hue-gray}) !default;   
+$text-color-secondary:		oklch(70% 0.01 #{$hue-gray}) !default;   
+$text-color-on-inverted:	oklch(15% 0.02 #{$hue-gray}) !default; // Dark text on light button in dark theme
 
-$text-color-primary:		rgba(255,255,255,0.87) !default;
-$text-color-secondary:		rgba(255,255,255,0.54) !default;
-$text-color-on-inverted:    rgba(0, 0, 0, 0.9) !default;
-
-$muted-color:				rgba(255,255,255,0.6) !default;
-$muted-color-hex:			#ccc !default;
+$muted-color:				oklch(60% 0.01 #{$hue-gray}) !default;   
+$body-bg:					oklch(18% 0.02 #{$hue-gray}) !default; // #121212 equivalent
 
 
 /// --------------------------------------------
 /// SURFACE COLORS
 /// --------------------------------------------
 
-$surface:					#1c1e21 !default;
-$surface-muted:				#2a2d31 !default;
-$surface-contrast:			#fff !default;
-$surface-disabled:			#2f3236 !default; 
+$surface:                   oklch(22% 0.02 #{$hue-gray}) !default; // #1c1e21
+$surface-muted:             oklch(26% 0.02 #{$hue-gray}) !default; // #2a2d31
+$surface-contrast:          oklch(98% 0 0) !default;
+$surface-disabled:          oklch(24% 0.02 #{$hue-gray}) !default;
 
 
 /// --------------------------------------------
 /// SEMANTIC & UI COLORS
 /// --------------------------------------------
+/// Dark mode colors usually need slightly LOWER chroma and HIGHER lightness 
+/// than light mode to avoid "neon" vibration.
 
-$primary-color:				#4dabf7 !default;
-$secondary-color:			#e2e8f0 !default;
-$success-color:				#66bb6a !default;
-$warning-color:				#ffa726 !default;
-$danger-color:				#ef5350 !default;
+$primary-color:				oklch(75% 0.12 #{$hue-blue}) !default; // Softened blue
+$secondary-color:			oklch(85% 0.02 #{$hue-gray}) !default;  
+$success-color:				oklch(75% 0.12 145) !default;           
+$warning-color:				oklch(80% 0.14 65) !default;            
+$danger-color:				oklch(70% 0.15 25) !default;
 
-$success-bg-color:			rgba(102, 187, 106, 0.15) !default;
-$warning-bg-color:			rgba(255, 167, 38, 0.15) !default;
-$danger-bg-color:			rgba(239, 83, 80, 0.15) !default;
+$success-bg-color:			oklch(75% 0.12 145 / 0.15) !default;
+$warning-bg-color:			oklch(80% 0.14 65 / 0.15) !default;
+$danger-bg-color:			oklch(70% 0.15 25 / 0.15) !default;
 
-$link-color:				#4dabf7 !default;
-$link-color-hover:			#90caf9 !default;
+$link-color:				$primary-color !default;
+$link-color-hover:			oklch(85% 0.10 #{$hue-blue}) !default;
 
-$disabled-color:			#6e757d !default;
+$disabled-color:			oklch(50% 0.01 #{$hue-gray}) !default;
 
 
 /// --------------------------------------------
 /// BORDERS
 /// --------------------------------------------
 
-// Base border colors for dark UI
-$border-color:				rgba(255, 255, 255, 0.12) !default;	// Default border
-$border-color-hover:		rgba(255, 255, 255, 0.24) !default;	// On hover
-$border-color-focus:		rgba(255, 255, 255, 0.36) !default;	// For focus/keyboard rings
+$border-color:				oklch(100% 0 0 / 0.12) !default; 
+$border-color-hover:		oklch(100% 0 0 / 0.24) !default; 
+$border-color-focus:		oklch(100% 0 0 / 0.36) !default; 
 
-// Thematic use cases
-$border-color-dark:			rgba(255, 255, 255, 0.36) !default;	// Strong for dark backgrounds
-$border-color-light:		rgba(255, 255, 255, 0.08) !default;	// Subtle outlines
-$border-color-muted:		rgba(255, 255, 255, 0.12) !default;	// Softer than light
-$border-color-subtle:		rgba(255, 255, 255, 0.04) !default;	// Barely visible separators
-
-// Aliases (optional)
-$border-color-soft:			rgba(255, 255, 255, 0.06) !default;
-$border-color-strong:		rgba(255, 255, 255, 0.24) !default;
+$border-color-light:		oklch(100% 0 0 / 0.08) !default;
+$border-color-muted:		oklch(100% 0 0 / 0.12) !default;
+$border-color-soft:			oklch(100% 0 0 / 0.06) !default;
+$border-color-strong:		oklch(100% 0 0 / 0.24) !default;
 
 
 /// --------------------------------------------
 /// HOVER COLORS
 /// --------------------------------------------
 
-$hover-color:				rgba(255,255,255,0.08) !default;
-$hover-color-dark:			rgba(255,255,255,0.08) !default;
-$hover-color-light:			rgba(0,0,0,0.36) !default;
-$hover-color-surface:		rgba(255,255,255,0.06) !default;
-$hover-color-surface-strong:rgba(255,255,255,0.1) !default;
+$hover-color:				oklch(100% 0 0 / 0.08) !default;
+$hover-color-surface:		oklch(100% 0 0 / 0.06) !default;
+$hover-color-surface-strong:oklch(100% 0 0 / 0.1) !default;
 
 
 /// --------------------------------------------
 /// EFFECTS & UI STATES
 /// --------------------------------------------
 
-$overlay-background:		rgba(0, 0, 0, 0.6) !default;
+$overlay-background:		oklch(0% 0 0 / 0.6) !default;
 $backdrop-blur:				blur(8px) !default;
-$shadow-elevation:			0 2px 8px rgba(0, 0, 0, 0.6) !default;
+$shadow-elevation:			0 4px 12px oklch(0% 0 0 / 0.6) !default; // Denser shadow for dark mode
 
 
 /// --------------------------------------------
 /// ICON THEME OVERRIDES
 /// --------------------------------------------
 
-$icon-color:				rgba(255, 255, 255, 0.92) !default; //was 0.84
-$icon-color-inactive:		rgba(255,255,255,0.38) !default;
-$icon-color-hover:			rgba(255, 255, 255, 1) !default;
-$icon-shadow-color:			rgba(255, 255, 255, 0.4) !default;
-$icon-action-bg:			rgba(255, 255, 255, 0.08) !default;
-$icon-circle-bg:			transparent !default;
+$icon-color:				oklch(95% 0.01 #{$hue-gray}) !default; 
+$icon-color-inactive:		oklch(100% 0 0 / 0.38) !default;
+$icon-color-hover:			oklch(100% 0 0) !default;
+$icon-shadow-color:         oklch(100% 0 0 / 0.15) !default;
+$icon-action-bg:			oklch(100% 0 0 / 0.08) !default;
+$icon-circle-bg:            oklch(100% 0 0 / 0.05) !default;
+
+$icon-color-active:         var(--color-primary) !default; 
+$icon-action-bg-active:     oklch(from var(--color-primary) l c h / 0.12) !default;
 
 /// --------------------------------------------
-/// SHADOWS
+/// SHADOWS (dynamic)
 /// --------------------------------------------
-/// Predefined elevation shadows using the `elevation-shadow()` mixin.
 
 $shadow-xs:					elevation-shadow(1, 'dark') !default;
 $shadow-sm:					elevation-shadow(2, 'dark') !default;
@@ -118,10 +117,3 @@ $shadow-md:					elevation-shadow(4, 'dark') !default;
 $shadow-lg:					elevation-shadow(8, 'dark') !default;
 $shadow-xl:					elevation-shadow(12, 'dark') !default;
 $shadow-2xl:				elevation-shadow(24, 'dark') !default;
-
-// Legacy examples (commented):
-// $shadow-xs:					0 1px 2px rgba(255, 255, 255, 0.06) !default;  // xs  shadow
-// $shadow-sm:					0 2px 4px rgba(255, 255, 255, 0.08) !default;  // sm  shadow
-// $shadow-md:					0 4px 6px rgba(255, 255, 255, 0.10) !default;  // md  shadow
-// $shadow-lg:					0 6px 12px rgba(255, 255, 255, 0.12) !default; // lg  shadow
-// $shadow-xl:					0 12px 24px rgba(255, 255, 255, 0.15) !default; // xl  shadow
