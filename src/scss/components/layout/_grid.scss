@@ -61,7 +61,8 @@
 	// ---------------------------------------------------------------------------
 	@for $i from 1 through $grid-columns {
 		&.col-#{$i} {
-			grid-template-columns: repeat(#{$i}, 1fr);
+			//grid-template-columns: repeat(#{$i}, 1fr);
+			grid-template-columns: repeat(#{$i}, minmax(0, 1fr)); 
 		}
 	}
 
@@ -95,7 +96,8 @@
 			// .col-2-sm
 			@for $j from 1 through $grid-columns {
 				&.col-#{$j}-#{$size} {
-					grid-template-columns: repeat(#{$j}, 1fr);
+					//grid-template-columns: repeat(#{$j}, 1fr);
+					grid-template-columns: repeat(#{$j}, minmax(0, 1fr)); 
 				}
 			}
 		}
