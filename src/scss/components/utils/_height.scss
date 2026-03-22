@@ -37,11 +37,11 @@
 // Fixed Token-Based Heights
 // -----------------------------------------------------------------------------
 
-.height-xm				{ height: var(--height-xm); }
-.height-sm				{ height: var(--height-sm); }
-.height-md				{ height: var(--height-md); }
-.height-lg				{ height: var(--height-lg); }
-.height-xl				{ height: var(--height-xl); }
+.height-xs				{ height: var(--section-height-xs); }
+.height-sm				{ height: var(--section-height-sm); }
+.height-md				{ height: var(--section-height-md); }
+.height-lg				{ height: var(--section-height-lg); }
+.height-xl				{ height: var(--section-height-xl); }
 
 // -----------------------------------------------------------------------------
 // Viewport Heights
@@ -58,20 +58,20 @@
 // -----------------------------------------------------------------------------
 
 .height-max-none		{ max-height: none; }
-.height-max-sm   		{ max-height: var(--height-sm); }
-.height-max-md  		{ max-height: var(--height-md); }
-.height-max-lg   		{ max-height: var(--height-lg); }
-.height-max-xl   		{ max-height: var(--height-xl); }
+.height-max-sm   		{ max-height: var(--section-height-sm); }
+.height-max-md  		{ max-height: var(--section-height-md); }
+.height-max-lg   		{ max-height: var(--section-height-lg); }
+.height-max-xl   		{ max-height: var(--section-height-xl); }
 
 // -----------------------------------------------------------------------------
 // Min Heights
 // -----------------------------------------------------------------------------
 
 .height-min-0			{ min-height: 0; }
-.height-min-sm		   	{ min-height: var(--height-sm); }
-.height-min-md			{ min-height: var(--height-md); }
-.height-min-lg			{ min-height: var(--height-lg); }
-.height-min-xl			{ max-height: var(--height-xl); }
+.height-min-sm		   	{ min-height: var(--section-height-sm); }
+.height-min-md			{ min-height: var(--section-height-md); }
+.height-min-lg			{ min-height: var(--section-height-lg); }
+.height-min-xl			{ max-height: var(--section-height-xl); }
 
 // -----------------------------------------------------------------------------
 // Responsive Modifiers
@@ -81,18 +81,18 @@
 
 // @include respond-below('md') {
 
-// 	.height-sm-sm			{ height: var(--height-sm); }
-// 	.height-md-sm			{ height: var(--height-md); }
-// 	height-lg-sm			{ height: var(--height-lg); }
+// 	.height-sm-sm			{ height: var(--section-height-sm); }
+// 	.height-md-sm			{ height: var(--section-height-md); }
+// 	height-lg-sm			{ height: var(--section-height-lg); }
 
 // 	.height-auto-sm			{ height: auto; }
 // 	.height-fit-sm			{ height: fit-content; }
 
-// 	.height-max-small-sm	{ max-height: var(--height-sm); }
-// 	.height-max-medium-sm	{ max-height: var(--height-md); }
-// 	.height-max-large-sm	{ max-height: var(--height-lg); }
+// 	.height-max-small-sm	{ max-height: var(--section-height-sm); }
+// 	.height-max-medium-sm	{ max-height: var(--section-height-md); }
+// 	.height-max-large-sm	{ max-height: var(--section-height-lg); }
 
-// 	.height-min-small-sm	{ min-height: var(--height-sm); }
-// 	.height-min-medium-sm	{ min-height: var(--height-md); }
-// 	.height-min-large-sm	{ min-height: var(--height-lg); }
+// 	.height-min-small-sm	{ min-height: var(--section-height-sm); }
+// 	.height-min-medium-sm	{ min-height: var(--section-height-md); }
+// 	.height-min-large-sm	{ min-height: var(--section-height-lg); }
 // }

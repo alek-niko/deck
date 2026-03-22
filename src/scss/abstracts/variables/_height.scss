@@ -2,11 +2,62 @@
 // HEIGHT TOKENS
 // abstracts/variables/_height.scss
 // ----------------------------------------------------------------------------
-// Defines a consistent height scale for components and utilities.
-// - Uses `px` units since heights are often fixed
-// - Provides semantic sizes from extra-small to extra-large
-// - Mapped to CSS custom properties in `themes/_default.scss`
+// Height tokens used across the design system.
+// Separated by usage:
+//
+// section-height  → layout blocks, cards, sections
+// row-height      → lists, tables, menus
+// control-height  → inputs, buttons, selects
+// touch-target    → accessibility / touch UI
 // ============================================================================
+
+
+// ---------------------------------------------------------------------------
+// Section / layout heights
+// ---------------------------------------------------------------------------
+
+$section-height-xs:			100px		!default;
+$section-height-sm:			150px		!default;
+$section-height-md:			300px		!default;
+$section-height-lg:			450px		!default;
+$section-height-xl:			600px		!default;
+
+
+
+// ---------------------------------------------------------------------------
+// Row heights (lists, menus, tables, nav items)
+// ---------------------------------------------------------------------------
+
+$row-height-xs:				2rem		!default;	// 32
+$row-height-sm:				2.5rem 		!default;	// 40
+$row-height-md:				2.75rem		!default;	// 44
+$row-height-lg:				3rem		!default;	// 48
+$row-height-xl:				3.5rem		!default;	// 56
+
+
+
+// ---------------------------------------------------------------------------
+// Control heights (inputs, buttons, selects)
+// ---------------------------------------------------------------------------
+
+$control-height-xs:			1.75rem		!default;	// 28
+$control-height-sm:			2.25rem		!default;	// 36
+$control-height-md:			2.5rem 		!default;	// 40
+$control-height-lg:			2.75rem 	!default;	// 44
+$control-height-xl:			3rem		!default;	// 48
+
+
+
+// ---------------------------------------------------------------------------
+// Touch targets (accessibility)
+// ---------------------------------------------------------------------------
+
+$touch-target-min: 44px !default;
+$touch-target-comfortable:	48px		!default;
+$touch-target-large:		56px		!default;
+
+
+
 
 
 /// ---------------------------------------------------------------------------
@@ -22,3 +73,35 @@ $height-sm:			150px !default;		// Small height (e.g., small cards, compact secti
 $height-md:			300px !default;		// Medium height (e.g., standard cards, sections)
 $height-lg:			450px !default;		// Large height (e.g., hero blocks, feature sections)
 $height-xl:			600px !default;		// Extra large height (e.g., banners, modals)
+
+
+// --------------------------------------------
+// Row heights (UI elements)
+// --------------------------------------------
+// Used for lists, menus, table rows, dropdowns, nav items
+
+$row-height-xs:		2rem	!default;	// 32px compact
+$row-height-sm:		2.5rem 	!default;	// 40px default
+$row-height-md:		2.75rem !default;	// 44px modern UI
+$row-height-lg:		3rem 	!default;	// 48px touch
+$row-height-xl:		3.5rem 	!default;	// 56px large touch
+
+
+// --------------------------------------------
+// Control heights (buttons, inputs, selects)
+// --------------------------------------------
+
+$control-height-xs:	1.75rem !default;	// 28px
+$control-height-sm:	2.25rem !default;	// 36px
+$control-height-md:	2.5rem	!default;	// 40px
+$control-height-lg: 2.75rem !default;	// 44px
+$control-height-xl:	3rem 	!default;	// 48px
+
+
+// --------------------------------------------
+// Touch target sizes
+// --------------------------------------------
+
+$touch-target-min:			44px !default;
+$touch-target-comfortable:	48px !default;
+$touch-target-large:		56px !default;
