@@ -29,15 +29,26 @@
 ///
 
 @mixin list-item-base-styles {
-	display: list-item; // Ensures native bullets are rendered.
+
+	display: list-item;
 	box-sizing: border-box;
-	padding: var(--spacing-sm) 0;
-	font-size: 14px;
+
+	padding-block: var(--spacing-xs);
+	padding-inline: 0;
+
+	font-size: var(--text-md);
+	line-height: var(--line-height-base);
+
 	border-radius: 0;
 
 	a {
 		text-decoration: none;
 		color: var(--color-text);
+		transition: color 140ms fx.$ease-snappy;
+
+		&:hover {
+            color: var(--color-link);
+        }
 	}
 }
 
@@ -71,14 +82,14 @@
 	display: flex;
 	align-items: center;
 	padding: var(--spacing-sm) 0;
-	font-size: 14px;
+	font-size: var(--text-sm);
 
 	.list-addon,
 	.list-body {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		min-height: 32px;
+		min-height: 2.75rem;
 	}
 
 	.list-addon {
@@ -87,7 +98,7 @@
 
 	.list-body {
 		flex: 1;
-		line-height: 1.4;
+		line-height: var(--line-height-base);
 		min-width: 0; // Prevents flex item from overflowing its container.
 
 		> * {
@@ -125,14 +136,14 @@
 		}
 
 		>ul {
-			margin-top: var(--spacing-sm);
+			margin-top: var(--spacing-md);
 		}
 	}
 
 	// Apply vertical spacing between items using the "lobotomized owl" technique.
 	>li+li,
 	>.list-group+.list-group {
-		margin-top: var(--spacing-sm);
+		margin-top: var(--spacing-md);
 	}
 
 	// ---------------------------------------------------------------------
@@ -149,8 +160,9 @@
 		}
 
 		&::marker {
-			color: var(--color-text);
-			font-size: 1em;
+			font-size: 0.9em;
+			opacity: .9;
+			color: var(--color-text-muted);
 		}
 	}
 
@@ -198,7 +210,7 @@
 
 	&.list-divider {
 		> li + li {
-			border-top: 1px solid var(--color-border);
+			border-top: 1px solid var(--color-border-muted);
 			padding-top: var(--spacing-sm);
 		}
 
@@ -217,7 +229,7 @@
 					top: calc(var(--spacing-sm) * -1);
 					left: 0;
 					width: 100%;
-					border-top: 1px solid var(--color-border);
+					border-top: 1px solid var(--color-border-muted);
 				}
 			}
 		}
@@ -231,7 +243,7 @@
 		}
 
 		> :nth-of-type(odd) {
-			background-color: var(--color-surface);
+			background-color: var(--color-surface-muted);
 		}
 
 		// Override the default margin when using stripes for a seamless look.
@@ -251,6 +263,7 @@
 		> li:hover,
 		> .list-group:hover {
 			background-color: var(--color-hover-surface);
+			box-shadow: inset 0 0 0 1px var(--color-border-muted);
 		}
 
 		// When a divider list is hoverable, hide the adjacent borders for a clean effect.
@@ -266,6 +279,7 @@
 	}
 
 	&.list-no-bullets {
+		padding-left: 0;
 		// Target the list items within the modified list
 		> li {
 			// 1. Hide the native browser bullet
@@ -286,6 +300,8 @@
 	// ---------------------------------------------------------------------
 
 	&.list-large {
+		font-size: var(--text-lg);
+		line-height: var(--line-height-lg);
 		> li + li,
 		> .list-group + .list-group,
 		> * > ul {
@@ -305,6 +321,12 @@
 			> .list-group + .list-group {
 				padding-top: var(--spacing-lg);
 			}
+		}
+	}
+
+	&.list-small {
+		li {
+			font-size: 0.875rem;
 		}
 	}
 
@@ -331,6 +353,26 @@
 		&.list-divider > .list-group + .list-group {
 			padding-top: 0;
 		}
+	}
+
+	&.list-comfortable {
+
+		> li,
+		> .list-group {
+			padding-top: var(--spacing-md);
+			padding-bottom: var(--spacing-md);
+		}
+
+	}
+
+	&.list-relaxed {
+
+		> li,
+		> .list-group {
+			padding-top: var(--spacing-lg);
+			padding-bottom: var(--spacing-lg);
+		}
+
 	}
 
 	// ---------------------------------------------------------------------
@@ -361,8 +403,9 @@
 	// ---------------------------------------------------------------------
 
 	.list-secondary-text {
-		font-size: 14px;
-		color: var(--color-text-secondary);
+		font-size: var(--text-sm);
+		color: var(--color-text-muted);
+		opacity: .8;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		//white-space: nowrap;
@@ -455,13 +498,16 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			width: 24px;
-			height: 24px;
+			width: 1.75rem;
+			height: 1.75rem;
+			font-size: var(--text-sm);
+
 			margin-right: var(--spacing-sm);
 			border-radius: 50%;
-			background: var(--list-marker-bg, #e6c74c);
-			color: var(--list-marker-color, #1b1b1b);
-			font-size: 16px;
+
+			background: var(--list-marker-bg,  var(--color-primary, #e6c74c));
+			color: var(--list-marker-color, var(--color-text-inverse, #1b1b1b));
+
 			font-weight: 600;
 			line-height: 1;
 		}
@@ -471,7 +517,7 @@
 	&.split {
 		display: grid; // switch from flex to grid
 		grid-template-columns: repeat(2, 1fr);
-		gap: var(--list-gap, var(--spacing-md));
+		gap: var(--list-gap, var(--spacing-lg));
 	}
 }
 
@@ -507,15 +553,18 @@
 			align-items: center;
 			justify-content: center;
 
-			width: 26px;
-			height: 26px;
+			width: 1.75rem;
+            height: 1.75rem;
+
 			margin-top: 2px;
 
 			border-radius: 50%;
+
 			background-color: var(--marker-bg, transparent);
 			color: var(--marker-color, #fff);
 
-			font-size: 16px;
+			//font-size: 16px;
+			font-size: var(--text-sm);
 			font-weight: 700;
 		}
 	}
@@ -527,7 +576,9 @@
 	}
 
 	.header {
+		font-size: var(--text-md);
 		font-weight: 700;
 		margin-bottom: 4px;
+		color: var(--color-text);
 	}
 }
