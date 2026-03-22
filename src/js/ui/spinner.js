@@ -115,7 +115,7 @@ class Spinner {
 		const span = document.createElement('span');
 		span.className = 'spinner';
 		span.setAttribute('role', 'status');
-		spinner.setAttribute('aria-live', 'polite');
+		span.setAttribute('aria-live', 'polite');
 		
 		// Attributes based on our SCSS tokens
 		if (cfg.size) span.setAttribute('data-size', cfg.size);
