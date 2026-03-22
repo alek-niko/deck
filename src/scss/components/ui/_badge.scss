@@ -25,13 +25,14 @@
 $badge-vars: (
 	bg-color: #757575,
 	color: #fff,
-	height: 1rem,
-	font-size: 11px,
+	height: max-content, // 1rem | auto
+	width: max-content,
+	font-size: var(--text-xs),
 	font-weight: 500,
 	line-height: 1,
 	border-radius: 4px,
-	padding-x: 0.6em,
-	padding-y: 0.28em) !default;
+	padding-x: 0.75em,
+	padding-y: 0.25rem) !default;
 
 
 // =============================================================================
@@ -110,8 +111,7 @@ $badge-vars: (
 	&.danger	{ --badge-bg-color: var(--theme-danger, #e53935); }
 	&.info		{ --badge-bg-color: var(--theme-info, #0288d1); }
 	&.light		{ --badge-bg-color: var(--theme-light, #f5f5f5); --badge-color: #333; }
- 	&.dark		 { --badge-bg-color: var(--theme-dark, #333); }
-
+ 	&.dark		{ --badge-bg-color: var(--theme-dark, #333); }
 
 	// -------------------------------------------------------------------------
 	// Sizes: sm, md, lg
@@ -161,5 +161,19 @@ $badge-vars: (
 			width: 70%;
 			height: 70%;
 		}
+	}
+
+	&.outline	{
+		//padding: 4px 12px;
+		//border: 1px solid var(--color-border);
+		//border-radius: 20px;
+		//font-size: var(--text-xs);
+		//font-weight: bold;
+		//text-transform: uppercase;
+
+		--badge-color: var(--color-text-muted);
+		
+		background-color: transparent;
+  		border: 1.5px solid currentColor;
 	}
 }
