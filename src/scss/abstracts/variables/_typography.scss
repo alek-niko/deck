@@ -12,7 +12,7 @@
 /// System font stack with emoji support.
 /// @type Font Family
 
-$primaryFont: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+$primary-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 			  Helvetica, Arial, sans-serif, "Apple Color Emoji",
 			  "Segoe UI Emoji", "Segoe UI Symbol" !default;
 
@@ -29,27 +29,25 @@ $body-font-line-height: 	1.5		!default;	// Default leading
 
 
 /// --------------------------------------------
-/// Type scale ratio
+/// Type scale ratio (depricated)
 /// --------------------------------------------
 /// Modular scale for headings (h1–h6)
-
-$scale-ratio:				1.333	!default;	// "Perfect Fourth"
+/// 
+//$scale-ratio:				1.333	!default;	// "Perfect Fourth"
+//$scale-ratio:				1.25	!default;	// Modern Major Third Scale
 
 
 /// --------------------------------------------
-/// Font sizes
+/// Font sizes - Fluid Scale Tokens
 /// --------------------------------------------
-/// Core size tokens (SCSS fallback)
+/// We anchor 'md' at 1rem (16px) but allow it to grow to 1.125rem (18px)
 
-$font-size-xs:				0.75rem		!default;	// 12px
-$font-size-sm:				0.875rem	!default;	// 14px
-$font-size-md:				1rem		!default;	// 16px (base)
-$font-size-lg:				1.125rem	!default;	// 18px
-$font-size-xl:				1.25rem		!default;	// 20px
-$font-size-2xl:				1.5rem		!default;	// 24px
-$font-size-3xl:				1.875rem	!default;	// 30px
-$font-size-4xl:				2.25rem		!default;	// 36px
-$font-size-5xl:				3rem		!default;	// 48px
+$font-size-xs:				clamp(0.75rem, 0.72rem + 0.15vw, 0.8rem);			// ~12px -> 13px
+$font-size-sm:				clamp(0.875rem, 0.85rem + 0.15vw, 0.9375rem);		// ~14px -> 15px
+$font-size-md:				clamp(1rem, 0.95rem + 0.25vw, 1.125rem);			// ~16px -> 18px
+$font-size-lg:				clamp(1.25rem, 1.2rem + 0.5vw, 1.5rem);				// ~20px -> 24px
+$font-size-xl:				clamp(1.56rem, 1.4rem + 1vw, 2rem);					// ~25px -> 32px
+$font-size-2xl:				clamp(1.95rem, 1.7rem + 1.5vw, 2.75rem);			// ~31px -> 44px
 
 
 /// --------------------------------------------
