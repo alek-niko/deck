@@ -58,7 +58,7 @@
 	// ---------------------------------------------------------------------------
 	// HEADER
 	// ---------------------------------------------------------------------------
-	header {
+	> header {
 		// Sticky positioning commented out; can enable if needed:
 		// position: sticky;
 		// top: 0;
@@ -83,7 +83,7 @@
 	// ---------------------------------------------------------------------------
 	// MAIN CONTENT
 	// ---------------------------------------------------------------------------
-	main {
+	>main {
 		padding: 1rem 1.5rem; // Default padding
 
 		// Remove side padding on small screens
@@ -96,7 +96,7 @@
 	// ---------------------------------------------------------------------------
 	// FOOTER
 	// ---------------------------------------------------------------------------
-	footer {
+	>footer {
 		padding: 1rem 1.5rem; // Default padding
 		border-top: 1px solid var(--color-border); // Top border for separation
 		font-size: 0.9rem; // Slightly smaller text

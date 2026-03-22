@@ -140,11 +140,11 @@
 
 		grid-template-columns: 1fr;
 
-		#options {
+		>#options {
 			display: none;
 		}
 
-		aside {
+		>aside {
 			border-top: 1px solid var(--color-border-muted);
 			overflow-y: visible;
 			min-height: auto;

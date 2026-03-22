@@ -115,7 +115,7 @@
 		grid-template-columns: 0 1fr;
 		column-gap: 0;
 
-		aside {
+		>aside {
 			width: 0;
 			visibility: hidden; // Hide visually but keep in accessibility tree
 			pointer-events: none; // Disable interaction
@@ -147,7 +147,7 @@
 		row-gap: var(--lrg, var(--layout-row-gap));
 		column-gap: 0;
 
-		aside {
+		>aside {
 			border-top: 1px solid var(--color-border-muted);
 			overflow-y: visible;
 			min-height: auto;

@@ -86,7 +86,7 @@
 	// -----------------------------------------------------------------
 	// Main Content Block
 	// -----------------------------------------------------------------
-	main {
+	>main {
 		grid-area: main;
 		overflow-y: auto;
 		min-height: 0;
@@ -98,7 +98,7 @@
 	// -----------------------------------------------------------------
 	// Options Panel
 	// -----------------------------------------------------------------
-	#options {
+	>#options {
 		grid-area: options;
 		background-color: var(--color-background);
 		overflow-y: auto;
@@ -155,11 +155,11 @@
 
 		grid-template-columns: 1fr;
 
-		#options {
+		>#options {
 			display: none;
 		}
 
-		aside {
+		>aside {
 			border-top: 1px solid var(--color-border-muted);
 			min-height: auto;
 			overflow-y: visible;

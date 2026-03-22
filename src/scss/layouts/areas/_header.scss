@@ -22,7 +22,7 @@
 // Component: <header>
 // -----------------------------------------------------------------------------
 
-header {
+body > header {
 
 	// -------------------------------------------------------------------------
 	// Base Styles
@@ -79,6 +79,42 @@ header {
 		&:hover {
 			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 		}
+	}
+
+	// -----------------------------------------------------------------------------
+	// Utility Classes
+	// -----------------------------------------------------------------------------
+	// Optional utility helpers for quick header variations.
+	// Can be used when component modifiers (above) are not appropriate.
+
+	&.header-shadow {
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+	}
+
+	&.header-white {
+		background-color: #fff;
+		color: var(--color-text);
+	}
+
+	&.header-sticky {
+		position: sticky;
+		top: 0;
+		z-index: 1000;
+	}
+
+	&.header-fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1000;
+	}
+
+	&.header-absolute {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
 	}
 
 // -------------------------------------------------------------------------
@@ -160,40 +196,4 @@ header {
 			}
 		}
 	}
-}
-
-// -----------------------------------------------------------------------------
-// Utility Classes
-// -----------------------------------------------------------------------------
-// Optional utility helpers for quick header variations.
-// Can be used when component modifiers (above) are not appropriate.
-
-.header-shadow {
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-}
-
-.header-white {
-	background-color: #fff;
-	color: var(--color-text);
-}
-
-.header-sticky {
-	position: sticky;
-	top: 0;
-	z-index: 1000;
-}
-
-.header-fixed {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 1000;
-}
-
-.header-absolute {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
 }
