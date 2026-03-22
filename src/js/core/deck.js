@@ -68,7 +68,10 @@ class Deck extends Dispatcher {
 	 */
 
 	register(components) {
-		for (const name in components) {
+		for (const rawName in components) {
+
+			// Normalize: 'user-settings' -> 'userSettings'
+			const name = rawName.replace(/-([a-z0-9])/g, (g) => g[1].toUpperCase());
 
 			this.components[name] = (...args) => {
 
@@ -109,18 +112,22 @@ class Deck extends Dispatcher {
 
 		components.forEach((component) => {
 
+			// Generate the DOM-friendly name: userSettings -> user-settings
+			const kebab = component.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+
 			// Supports multi-selector logic + data-ui standard
-			const selector = `.${component}, [${component}], [data-${component}], [data-component="${component}"], [data-ui~="${component}"]`;
+			const selector = `.${kebab}, [${kebab}], [data-${kebab}], [data-component="${kebab}"], [data-ui~="${kebab}"]`;
 			const elements = context.querySelectorAll(selector);
 
 			elements.forEach((element) => {
 
 				 // Fail-proof: Check if this specific component type is already initialized on this element
 				if (this.#hasInstanceOnElement(element, component)) {
-					return;
+					return;	
 				}
 
 				try {
+					// Initialize
 					const instance = this.components[component](element);
 
 					// The Component constructor handles its own dci generation.
@@ -203,11 +210,12 @@ class Deck extends Dispatcher {
 	 * Stores instances in the global this.instances map and maps them to the element.
 	 */
 	#registerInstance(element, componentName, dci, instance) {
-		// Store in the global registry
+		// Store in the global registry (No DOM impact)
 		this.instances[dci] = instance;
 
-		// Update the element's tracking attributes
-		element.dataset.dci = dci; // Primary DCI
+		// Attach DCI directly to the JS object representation of the element
+		// This is 10x faster than dataset because it doesn't trigger a DOM mutation
+		element._dci = dci;
 
 		// Keep a internal reference for multi-component support on one element
 		if (!element.uiInstances) {
@@ -232,7 +240,8 @@ class Deck extends Dispatcher {
 	 * @returns {Object|null} The component instance, or null if not found.
 	 */
 	getInstance(input) {
-		let dci = (input instanceof HTMLElement) ? input.dataset.dci : input;
+		// Look for the internal property _dci instead of dataset.dci
+		let dci = (input instanceof HTMLElement) ? input._dci : input;
 		return dci ? this.instances[dci] || null : null;
 	}
 
@@ -299,24 +308,41 @@ class Deck extends Dispatcher {
 
 					// RE-PARENTING CHECK:
 					// Wait one "tick" (microtask) to see if the node was 
-					// re-inserted elsewhere in the DOM.
+					// re-inserted elsewhere in the DOM. (moved to another part of the DOM)
 					queueMicrotask(() => {
 
 						 if (node.isConnected) return; // It was just moved!
 
-						// Find the element itself or any children that have components
-						const elementsWithComponents = [
-							...(node.dataset.dci ? [node] : []),
-							...node.querySelectorAll('[data-dci]')
-						];
+						// // Find the element itself or any children that have components
+						// const elementsWithComponents = [
+						// 	...(node.dataset.dci ? [node] : []),
+						// 	...node.querySelectorAll('[data-dci]')
+						// ];
 
-						elementsWithComponents.forEach((el) => {
-							const dci = el.dataset.dci;
+						// elementsWithComponents.forEach((el) => {
+						// 	const dci = el.dataset.dci;
+						// 	if (dci && this.instances[dci]) {
+						// 		// Trigger the component's internal cleanup
+						// 		this.instances[dci].destroy();
+						// 	}
+						// });
+
+						const destroyLogic = (el) => {
+							// Look for the high-performance internal reference
+							const dci = el._dci;
 							if (dci && this.instances[dci]) {
-								// Trigger the component's internal cleanup
 								this.instances[dci].destroy();
 							}
-						});
+						};
+
+						// Check the root node being removed
+						destroyLogic(node);
+
+						// Efficiently walk through all children to find nested components
+						const walker = document.createTreeWalker(node, NodeFilter.SHOW_ELEMENT);
+						while (walker.nextNode()) {
+							destroyLogic(walker.currentNode);
+						}
 
 					});
 				});

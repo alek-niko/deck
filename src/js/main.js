@@ -48,16 +48,33 @@ async function initialize() {
 		'uploader': Uploader,
 	}
 
+	// Helper to normalize keys (kebab-case -> camelCase)
+    const normalize = (key) => key.replace(/-([a-z0-9])/g, (g) => g[1].toUpperCase());
+
 	// Optional Components / Modules (Private or Custom)
 	// ────────────────────────────────────────────────
 	try {
 		// We look for index.js inside the modules folder
-		const moduleManifest = await import('./modules/index.js');
-		
-		if (moduleManifest.default) {
-			Object.assign(registry, moduleManifest.default);
+		const { default: modules } = await import('./modules/index.js');
+
+        if (modules) {
+
+			// Instead of Object.assign, we now map and normalize
+            for (const [key, value] of Object.entries(modules)) {
+
+                const cleanKey = normalize(key);
+
+				// PRODUCTION GUARD: Don't let modules overwrite Core UI
+                if (!registry[cleanKey]) {
+                    registry[cleanKey] = value;
+
+                } else {
+                    console.error(`Deck Conflict: "${key}" is a reserved Core name.`);
+                }
+            }
+
 			//console.info("Deck: Modules loaded successfully.");
-		}
+        }
 
 	} catch (e) {
 		// If modules/index.js doesn't exist, we just carry on

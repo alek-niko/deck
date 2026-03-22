@@ -45,9 +45,9 @@ class Component {
          * - If element has an ID: Use it (allows persistent targeted state)
          * - No ID: Use DCI (Instance isolation, volatile)
          */
-        this.stateKey = this.element?.id 
-            ? `${this.name}-${this.element.id}` 
-            : `${this.name}-${this.dci}`;
+		this.stateKey = this.element?.id 
+			? `${this.name}-${this.element.id}` 
+			: `${this.name}-${this.dci}`;
 
 		// Initialize storage-related functionality if enabled
 		this.#initStorage()
@@ -482,11 +482,31 @@ class Component {
 	 * @param {function} handler - The function to handle the event.
 	 */
 	one(eventName, handler) {
+
 		if (!this.element) return;
+
+		// Merge provided options with once: true
+		const combinedOptions = {
+			...((typeof options === 'object') ? options : {}),
+			once: true
+		};
+
+		// Create the wrapper
+		const internalHandler = (event) => {
+			// Clean up internal array so destroy() doesn't try to double-remove it
+			this.listeners = this.listeners.filter(l => l.handler !== internalHandler);
+			// Execute the actual logic
+			handler.call(this, event);
+		};
+		
+		
 		// Tracking 'once' is tricky because it self-removes; 
 		// but we track it anyway so destroy() can kill it if it hasn't fired yet.
-		this.element.addEventListener(eventName, handler, { once: true });
-		this.listeners.push({ eventName, handler, options: { once: true } });
+
+		this.element.addEventListener(eventName, internalHandler, combinedOptions);
+
+		// Track the internalHandler, not the original handler
+		this.listeners.push({ eventName, handler: internalHandler, options: combinedOptions });
 	}
 
 	/**
@@ -514,7 +534,7 @@ class Component {
 
 		// Check if any listener explicitly returned false
 		if (!dispatched || event.defaultPrevented) {
-			return false; // Event was canceled
+			return dispatched; // Event was canceled
 		}
 
 		// Optional external deck emitter
@@ -522,7 +542,7 @@ class Component {
 			this.deck.emit(eventName, detail);
 		}
 
-		return true;
+		return dispatched;
 
 	};
 	
@@ -609,22 +629,31 @@ class Component {
 
 		this.listeners = [];
 
+		// Run subclass-specific cleanup (if any)
 		// Remove event listeners (if logic exists in subclass)
 		if (typeof this.removeEvents === 'function') {
 			this.removeEvents();
 		}
 
-		// Cleanup Deck references
+		// Cleanup Deck references on the Element
 		if (this.element.uiInstances) {
 			delete this.element.uiInstances[this.name];
+
+			// If no more components are active on this element, remove the map
+			if (Object.keys(this.element.uiInstances).length === 0) {
+				delete this.element.uiInstances;
+			}
 		}
+
+		// Remove the high-performance internal reference
+		delete this.element._dci;
 		
 		// Remove from global Deck instances
 		if (this.deck && this.deck.instances[this.dci]) {
 			delete this.deck.instances[this.dci];
 		}
 
-		console.log(`Component ${this.name} [${this.dci}] destroyed.`);
+		// console.log(`Component ${this.name} [${this.dci}] destroyed.`);
 
 	}
 
