@@ -67,17 +67,18 @@ $label-padding-x:       0.8em !default;
 
 .label-success-subtle {
 	color: $success-color;
-	background-color: rgba($success-color, 0.1);
+	background-color: var(--color-success-bg);
 }
 
 .label-warning-subtle {
 	color: $warning-color;
-	background-color: rgba($warning-color, 0.1);
+	background-color: var(--color-warning-bg);
+	
 }
 
 .label-danger-subtle {
 	color: $danger-color;
-	background-color: rgba($danger-color, 0.1);
+	background-color: var(--color-danger-bg);
 }
 
 

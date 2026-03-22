@@ -13,11 +13,11 @@
 /// ----------------------------------------------
 /// Applies the primary font family as defined by the theme.
 ///
-/// Requires: $primaryFont variable.
+/// Requires: $primary-font variable.
 /// ----------------------------------------------
 
 @mixin font-primary() {
-	font-family: $primaryFont;
+	font-family: $primary-font;
 }
 
 /// ----------------------------------------------

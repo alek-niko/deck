@@ -58,7 +58,7 @@
 // Used for featured placeholders (e.g., pinned, focused items).
 
 .placeholder-highlight {
-	background-color: rgba($primary-color, 0.08);
+	background-color: oklch(from #{$primary-color} l c h / 0.08);
 	border-left: 3px solid var(--color-primary);
 	color: var(--color-text);
 }
