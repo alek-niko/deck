@@ -1,18 +1,23 @@
 # Deck
 
-A modern, lean, event-driven front-end framework.
+**The High-Performance Micro-Kernel Framework for Modern Web Architects.**
 
-**Deck** is a modern-only, open-source JavaScript framework built for developers who value minimalism, architectural clarity, and performance. Built entirely with **Vanilla JavaScript (ESM)** and **Sass**, Deck eliminates unnecessary abstractions and delivers a high-performance reactive architecture — without heavy dependencies.
+Deck is a "modern-only," lean, zero-dependency JavaScript framework designed for developers who value minimalism, raw performance, and architectural elegance. Built with **Vanilla JS (ESM)** and **Sass**, it provides a reactive, event-driven core without the overhead of heavy abstractions.
 
 ---
 
 ## 🤔 Why Deck?
 
 - **Minimal & Modern:** Focused on minimalism; clean, efficient, and lightweight.  
-- **Peak Performance:** Ultra-fast loading speeds and compact bundle size. 
+- **Micro-Kernel Architecture:** A tiny core engine extended by global Plugins and lazy-loaded Modules.
+- **Peak Performance:** Ultra-fast loading speeds and compact bundle size.
+- **Hybrid Code-Splitting:** Automatically split heavy features into independent chunks-only load what the current page needs.
+- **Memory-Safe by Design:** Automated lifecycle management and tracked event listeners prevent memory leaks. 
 - **No External Dependencies:** Uses system fonts (System UI) and SVG icons to minimize network requests.
+- **Zero Third-Party Bloat:** No jQuery, no Axios, no Underscore. Just optimized native browser APIs.
 - **Customizable with Sass:** Seamless theming and style consistency across components.
-- **Streamlined Build Process:** Uses **esbuild** to generate optimized `deck.js` and `deck.css` files.  
+- **Unified Build Engine:** Powered by **esbuild**, merging JS and SCSS into a synchronized, high-speed pipeline.
+
 ---
 
 ## ⭐ Philosophy
@@ -32,13 +37,14 @@ This allows you to focus purely on building features.
 
 ## 🏗 Core Architecture
 
-Deck is built on three hierarchical layers:
+Deck operates on a hierarchical layered system:
 
-| Layer        | Class        | Responsibility |
-|--------------|-------------|----------------|
-| Event Bus    | `Dispatcher` | Pub/Sub system + WebSocket engine |
-| Controller   | `Deck`       | Global state proxy, instance registry, DOM scanner |
-| UI Logic     | `Component`  | Reactive, persistent, lifecycle-managed UI modules |
+| Layer | Class / Concept | Responsibility |
+| :--- | :--- | :--- |
+| **Event Bus** | `Dispatcher` | Global Pub/Sub, Signal broadcasting, and WSS hooks. |
+| **The Kernel** | `Deck` | Global state Proxy, Plugin orchestrator, and DOM observer. |
+| **Plugins** | `Service` | Global singletons (Analytics, Toasts, Auth) attached to the instance. |
+| **UI Logic** | `Component` | Reactive, persistent, and lifecycle-managed UI modules. |
 
 Each layer extends the one beneath it, forming a scalable and decoupled system.
 
@@ -47,10 +53,15 @@ Each layer extends the one beneath it, forming a scalable and decoupled system.
 
 ## 🛡 Core Features
 - **Component-Based JS:** A modular, class-based architecture with a global Deck instance for easy component management (register() and autoload()).
+- **Reactive Global State:** Proxy-based state management with high-performance "Watchers."
+- **Smart Hydration:** Automatic discovery of UI components via `data-ui` attributes.
+- **Persistent Logic:** Built-in `localStorage` synchronization for components with a single flag.
+- **Unified Transitions:** A Promise-based CSS transition engine for seamless `async/await` UI flows.
 - **Tokenized SCSS:** A robust Sass system built on design tokens for effortless theming, dark mode, and responsive design. Includes a library of utility classes, animations, and transform mixins.
 - **Pub/Sub System:** A built-in event bus for seamless communication between different components.
 - **Real-Time Ready:** Includes optional WebSocket integration for building dynamic, real-time user experiences.
 - **Optimized Tooling:** Uses [esbuild](https://esbuild.github.io/) and [esbuild-sass-plugin](https://github.com/glromeo/esbuild-sass-plugin)  for an incredibly fast and simple build process.
+
 
 ---
 
@@ -64,6 +75,8 @@ deck/
 ├─ js/            # JavaScript source files
 │  ├─ core/       # Deck core classes and utilities
 │  ├─ components/ # UI components (Accordion, Modal, Tab, Lightbox, etc.)
+│  ├─ modules/    # Deck modules
+│  ├─ plugins/    # Custom system plugins
 │  ├─ pages/      # Page-specific scripts
 │  ├─ ui/         # Layout and UI helpers
 │  └─ util/       # Utility functions
@@ -103,11 +116,20 @@ Deck has only 3 dependencies:
 Run the build commands to compile the source files into the build/ directory.
 
 ```bash
-# Compile all JavaScript components
-npm run build-js
+# The Unified Build Engine
+npm run build
+npm run build:split
 
-# Compile all SCSS components
-npm run build-css
+# Granular Builds
+npm run build:core
+npm run build:pages
+
+# Combined Split + Pages (The "Full" Production Build)
+npm run build:prod
+
+# Development / Watch Mode 
+npm run dev
+
 ```
 ---
 
@@ -131,19 +153,16 @@ Initialize the Deck core and register your components. The autoload() method wil
 
 
 ```js
-import Deck from './core/deck.js';
-import Modal from './components/modal.js';
-import Lightbox from './components/lightbox.js';
+import { Deck, Accordion } from './core/deck.js';
 
-// Create global instance
-window.deck = new Deck();
+const app = new Deck();
 
-// Register components
-window.deck.register({
-    'modal': Modal,
-    'lightbox': Lightbox
+app.register({
+    'accordion': Accordion,                             // Always bundled
+    'uploader': () => import('./modules/Uploader.js')   // Fetched only when needed
 });
 
+app.boot();
 ```
 ---
 
