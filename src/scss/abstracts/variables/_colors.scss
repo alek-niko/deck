@@ -22,28 +22,28 @@ $hue-gray:					250;
 $white:						oklch(100% 0 0);
 $black:						oklch(0% 0 0);
 
-$blue:						oklch(60% 0.17 #{$hue-blue}) !default;
-$dark:						oklch(20% 0.04 #{$hue-blue}) !default;
+$blue:						oklch(60% 0.17 $hue-blue) !default;
+$dark:						oklch(20% 0.04 $hue-blue) !default;
 
 /// --------------------------------------------
 /// BODY & TEXT
 /// --------------------------------------------
 
-$text-color-primary:		oklch(25% 0.02 #{$hue-gray}) !default;
-$text-color-secondary:		oklch(45% 0.02 #{$hue-gray}) !default;
+$text-color-primary:		oklch(25% 0.02 $hue-gray) !default;
+$text-color-secondary:		oklch(45% 0.02 $hue-gray) !default;
 $text-color-on-inverted:	oklch(98% 0 0) !default;
 
-$muted-color:				oklch(60% 0.01 #{$hue-gray}) !default;   
-$body-bg:					oklch(97% 0.005 #{$hue-gray}) !default;
+$muted-color:				oklch(60% 0.01 $hue-gray) !default;   
+$body-bg:					oklch(97% 0.005 $hue-gray) !default;
 
 /// --------------------------------------------
 /// SURFACE COLORS
 /// --------------------------------------------
 
 $surface:					$white !default;
-$surface-muted:				oklch(98% 0.005 #{$hue-gray}) !default; 
+$surface-muted:				oklch(98% 0.005 $hue-gray) !default; 
 $surface-contrast:			$dark !default;  
-$surface-disabled:			oklch(95% 0.01 #{$hue-gray}) !default;
+$surface-disabled:			oklch(95% 0.01 $hue-gray) !default;
 
 
 /// --------------------------------------------
@@ -52,7 +52,7 @@ $surface-disabled:			oklch(95% 0.01 #{$hue-gray}) !default;
 /// 
 
 $primary-color:				$blue !default;
-$secondary-color:			oklch(92% 0.02 #{$hue-gray}) !default;  
+$secondary-color:			oklch(92% 0.02 $hue-gray) !default;  
 $success-color:				oklch(55% 0.15 145) !default;           
 $warning-color:				oklch(65% 0.18 65) !default;            
 $danger-color:				oklch(50% 0.20 25) !default;            
@@ -61,9 +61,9 @@ $success-bg-color:			oklch(55% 0.15 145 / 0.1) !default;
 $warning-bg-color:			oklch(65% 0.18 65 / 0.12) !default;
 $danger-bg-color:			oklch(50% 0.20 25 / 0.12) !default;
 
-$link-color:				oklch(55% 0.18 #{$hue-blue}) !default;
-$link-color-hover:			oklch(45% 0.22 #{$hue-blue}) !default;
-$disabled-color:			oklch(70% 0.01 #{$hue-gray}) !default;
+$link-color:				oklch(55% 0.18 $hue-blue) !default;
+$link-color-hover:			oklch(45% 0.22 $hue-blue) !default;
+$disabled-color:			oklch(70% 0.01 $hue-gray) !default;
 
 
 /// --------------------------------------------
@@ -118,7 +118,7 @@ $icon-action-bg-active:     oklch(from var(--color-primary) l c h / 0.12) !defau
 /// PLACEHOLDER
 /// --------------------------------------------
 
-$placeholder-color:			oklch(60% 0.01 #{$hue-gray}) !default;
+$placeholder-color:			oklch(60% 0.01 $hue-gray) !default;
 
 /// --------------------------------------------
 /// SHADOWS
