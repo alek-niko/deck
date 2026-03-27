@@ -1,41 +1,50 @@
 /**
  * @module build.js.pages
- * @description Builds and minifies separate JS files using ESBuild.
- * 
- * @see /src/js/page for input.
- * @see /dist/js/page for output.
- * 
- * @example <caption>To run this script via npm:</caption>
- * npm run build-js-pages
+ * @description Builds and minifies CyberDeck Page-specific JS.
  */
 
 import { build } from 'esbuild';
+import pkg from '../../package.json' with { type: 'json' };
 
-await build({
-    // Entry Points: The main file(s) that ESBuild will process
-    entryPoints: ['src/js/page/**/*.js'],
+const VERSION = pkg.version || '1.0.0';
 
-    // Bundle: Combine all dependencies into a single output file
-    bundle: true,
+try {
 
-    // Minify: Remove whitespace, comments, and shortens variable names to reduce file size
-    minify: true,
+	await build({
 
-    // Tree Shaking: This will automatically remove dead code (unreachable code)
-    // treeShaking: true, // Uncomment this line if tree shaking is desired
+		entryPoints: ['src/js/page/**/*.js'],
 
-    // Plugins: Used for additional transformations like compression, uncomment to use
-    // plugins: [
-    //   gzipPlugin({
-    //     gzip: true, // Enables gzip compression (if plugin is active)
-    //   }),
-    // ],
+		bundle: true,
+		minify: true,
+		format: 'esm',
+		platform: 'browser',
+		target: ['es2024'],
 
-    // Output format: ECMAScript module format for compatibility with other ESM-based projects
-    format: 'esm',
+		// Tree Shaking: This will
+		// automatically remove dead code (unreachable code)
+		// treeShaking: true, 
 
-    // Output dir: Path where the bundled and minified file(s) will be saved
-    outdir: 'dist/js/page',
+		// Plugins: Used for additional transformations like compression, uncomment to use
+		// plugins: [
+		//   gzipPlugin({
+		//     gzip: true, // Enables gzip compression (if plugin is active)
+		//   }),
+		// ],
 
-    entryNames: '[dir]/[name].min',
-});
+		outbase: 'src/js/page', 
+		outdir: 'dist/js/page',
+
+		entryNames: '[dir]/[name].min',
+		
+		banner: {
+			js: `/** CyberDeck Page Asset v${VERSION} **/`
+		},
+		
+		logLevel: 'info'
+	});
+
+	console.log('JS Pages built successfully.');
+
+} catch (e) {
+	process.exit(1);
+}
