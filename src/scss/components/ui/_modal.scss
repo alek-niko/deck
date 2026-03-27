@@ -181,7 +181,7 @@ body:has(dialog[open]) {
 		padding: 1rem 1.5rem;
 	}
 
-	> &-title {
+	&-title {
 		font-size: 1.25rem;
 		font-weight: 600;
 		color: var(--color-text);
