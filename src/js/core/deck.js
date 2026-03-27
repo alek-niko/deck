@@ -63,82 +63,106 @@ class Deck extends Dispatcher {
 
 	/**
 	 * @method register
-	 * @description Registers component constructors and creates factory methods.
-	 * * @param {Object} components - A dictionary of component constructors.
+	 * @description Registers component Classes. 
+     * 				Supports standard Classes or a Function that returns a dynamic import.
 	 */
 
 	register(components) {
+
 		for (const rawName in components) {
+            // Normalize: 'user-settings' -> 'userSettings'
+            const name = rawName.replace(/-([a-z0-9])/g, (g) => g[1].toUpperCase());
+            
+            // Store the Reference (Class or Import Function) directly.
+            // No more arrow-function factory wrapping.
+            this.components[name] = components[rawName];
+        }
 
-			// Normalize: 'user-settings' -> 'userSettings'
-			const name = rawName.replace(/-([a-z0-9])/g, (g) => g[1].toUpperCase());
+		// Depricating...
+		// for (const rawName in components) {
 
-			this.components[name] = (...args) => {
+		// 	// Normalize: 'user-settings' -> 'userSettings'
+		// 	const name = rawName.replace(/-([a-z0-9])/g, (g) => g[1].toUpperCase());
 
-				// ELEMENT
-				const element = args[0] instanceof HTMLElement
-									? args[0]
-									: typeof args[0] === 'string' 
-										? document.querySelector(args[0]) 
-										: null;
-				// OPTIONS
-				const options = args[1] instanceof Object && !(args[1] instanceof HTMLElement) 
-									? args[1] 
-									: args.length === 1 && 
-									  args[0] instanceof Object && 
-									  !(args[0] instanceof HTMLElement) 
-											? args[0] 
-											: {}; // was: undefined;
+		// 	this.components[name] = (...args) => {
+
+		// 		// ELEMENT
+		// 		const element = args[0] instanceof HTMLElement
+		// 							? args[0]
+		// 							: typeof args[0] === 'string' 
+		// 								? document.querySelector(args[0]) 
+		// 								: null;
+		// 		// OPTIONS
+		// 		const options = args[1] instanceof Object && !(args[1] instanceof HTMLElement) 
+		// 							? args[1] 
+		// 							: args.length === 1 && 
+		// 							  args[0] instanceof Object && 
+		// 							  !(args[0] instanceof HTMLElement) 
+		// 									? args[0] 
+		// 									: {}; // was: undefined;
 				
-				// Construct the instance
-				return new components[name](element, options, this);		
-			};
-		}
+		// 		// Construct the instance
+		// 		return new components[name](element, options, this);		
+		// 	};
+		// }
 	}
 
 	/**
-	 * @method autoload
-	 * @description Automatically initializes components based on their presence in the DOM.
-	 * 				Prevents double-initialization by checking for existing DCIs.
-	 * 
-	 * @param {string[]|string} [filter] - Specific components to load.
-	 * @param {HTMLElement} [context=document] - The DOM context to search.
-	 */
-	autoload(filter, context = document) {
+     * @method autoload
+     * @description Initializes components. Now supports Async/Lazy Loading.
+     */
+	async autoload(filter, context = document) {
 
-		const components = filter instanceof Array
+		const keys = filter instanceof Array
 							? filter
 							: (typeof filter === 'string' ? [filter] : Object.keys(this.components));
 
-		components.forEach((component) => {
+		// Use Promise.all to handle potential async imports in parallel
+		await Promise.all(keys.map(async (key) => {
 
 			// Generate the DOM-friendly name: userSettings -> user-settings
-			const kebab = component.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+			const kebab = key.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
 
 			// Supports multi-selector logic + data-ui standard
 			const selector = `.${kebab}, [${kebab}], [data-${kebab}], [data-component="${kebab}"], [data-ui~="${kebab}"]`;
 			const elements = context.querySelectorAll(selector);
 
+			if (elements.length === 0) return;
+
+			// --- MID-UPGRADE STEP: Lazy Load Check ---
+			let ComponentSource = this.components[key];
+
+			// If the source is a function but NOT a class, it's a dynamic import loader
+			// Example registration: 'video-player': () => import('./video.js')
+			if (typeof ComponentSource === 'function' && !ComponentSource.prototype?.constructor) {
+				try {
+					const module = await ComponentSource();
+					ComponentSource = module.default || module;
+					this.components[key] = ComponentSource; // Swap loader with actual Class for next time
+				} catch (e) {
+					console.error(`Deck: Failed to lazy-load component "${key}"`, e);
+					return;
+				}
+			}
+
 			elements.forEach((element) => {
 
 				 // Fail-proof: Check if this specific component type is already initialized on this element
-				if (this.#hasInstanceOnElement(element, component)) {
-					return;	
-				}
+				if (this.#hasInstanceOnElement(element, key)) return;
 
 				try {
-					// Initialize
-					const instance = this.components[component](element);
+					// Initialize using the 'new' keyword on the Class
+					const instance = new ComponentSource(element, {}, this);
 
 					// The Component constructor handles its own dci generation.
 					// We simply register what the instance provides.
-					this.#registerInstance(element, component, instance.dci, instance);
+					this.#registerInstance(element, key, instance.dci, instance);
 
 				} catch (error) {
-					console.error(`Deck: Failed to initialize component "${component}"`, error);
+					console.error(`Deck: Failed to initialize component "${key}"`, error);
 				}
 			});
-		});
+		}));
 	}
 
 	/**
@@ -157,17 +181,13 @@ class Deck extends Dispatcher {
 
 		if (typeof plugin === 'function') {
 			// Is it a class constructor?
-			if (plugin.prototype && typeof plugin.prototype.constructor === 'function') {
-				// Treat as class → instantiate with deck + options
-				instance = new plugin(this, options);
-			} else {
-				// Plain factory function
-				instance = plugin(this, options);
-			}
-		} else {
+            instance = (plugin.prototype && plugin.prototype.constructor) 
+                ? new plugin(this, options) 		// Treat as class → instantiate with deck + options
+                : plugin(this, options);			// Plain factory function
+        } else {
 			// Plain object or already-instantiated thing
-			instance = plugin;
-		}
+            instance = plugin;
+        }
 
 		if (!instance) return this;
 
