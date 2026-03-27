@@ -1,6 +1,6 @@
 {
 	"name": "deck",
-	"version": "0.9.7",
+	"version": "0.9.8",
 	"description": "Cyberdeck: Modern-Only Lean Web Framework",
 	"author": "Alek Niko",
 	"type": "module",
@@ -12,15 +12,20 @@
 		"esbuild"
 	],
 	"dependencies": {
-		"@material-symbols/svg-300": "^latest",
+		"@material-symbols/svg-300": "latest",
 		"esbuild": "latest",
-		"esbuild-sass-plugin": "latest"
+		"esbuild-sass-plugin": "latest",
+		"glob": "latest"
 	},
 	"scripts": {
-		"build-js": "node src/build/js.mjs",
-		"build-css": "node src/build/css.mjs",
-		"build-js-pages": "node src/build/js.pages.mjs",
-		"build-css-pages": "node src/build/css.pages.mjs",
-		"build-palette": "node src/build/palette.mjs"
+
+		"build": "node src/build/engine.mjs",
+		"build:split": "node src/build/engine.mjs --split",
+		"build:core": "node src/build/engine.mjs --core",
+
+		"build:pages": "node src/build/engine.mjs --pages",
+		"build:prod": "node src/build/engine.mjs --pages --split",
+
+		"dev": "node ssrc/build/engine.mjs --watch --split"
 	}
 }
