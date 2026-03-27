@@ -11,6 +11,7 @@
 // - Fully tokenized colors, spacing, and typography with CSS variable support
 // =============================================================================
 
+@use "sass:map";
 
 // =============================================================================
 // Badge Token Map
@@ -48,7 +49,7 @@ $badge-vars: (
 // =============================================================================
 
 @function badge-var($key) {
-	@return map-get($badge-vars, $key);
+	@return map.get($badge-vars, $key);
 }
 
 

@@ -11,6 +11,8 @@
 // -------------------------------------------------------------------------
 // Main search wrapper, relative positioning and display inline-block
 
+@use "sass:color";
+
 .search {
 	display: inline-block;
 	position: relative;
@@ -86,7 +88,7 @@
 			background: #f8f8f8;
 
 			&:focus {
-				background-color: darken(#f8f8f8, 5%);
+				background-color: color.scale(#f8f8f8, $lightness: -5%);
 			}
 		}
 

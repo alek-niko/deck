@@ -2,6 +2,10 @@
 // Animation Mixins
 // --------------------------------------------
 
+@use "sass:meta";
+@use "sass:list";
+@use "sass:string";
+
 /// Apply a single animation with full control over name, duration, easing, delay, and direction.
 ///
 /// @param {String} $name        Animation name (required)
@@ -52,24 +56,26 @@
 ///   @include animation-multiple("fade, slide-right", 0.6s, ease-in-out, 0.2s);
 ///
 
-@mixin animation-multiple(
-	$names,
+@mixin animation-multiple($names,
 	$duration: 0.5s,
 	$ease: ease-out,
 	$delay: 0s,
-	$direction: normal
-) {
+	$direction: normal) {
 	$name-str: null;
 
-	@if type-of($names) == 'list' {
-		$name-str: join($names, comma);
-	} @else if type-of($names) == 'string' {
-		$name-str: unquote($names);
-	} @else {
-		@warn "Animation-multiple expects a string or list, but got #{type-of($names)}.";
+	@if meta.type-of($names)=='list' {
+		$name-str: list.join($names, ', ');
 	}
 
-	@if $name-str != null {
+	@else if meta.type-of($names)=='string' {
+		$name-str: string.unquote($names);
+	}
+
+	@else {
+		@warn "Animation-multiple expects a string or list, but got #{meta.type-of($names)}.";
+	}
+
+	@if $name-str !=null {
 		@include animation($name-str, $duration, $ease, $delay, $direction);
 	}
 }

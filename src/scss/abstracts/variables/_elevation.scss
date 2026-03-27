@@ -7,6 +7,9 @@
 // - Apply via mixin or utility, e.g., `@include elevation(2);`
 // ============================================================================
 
+@use "sass:map";
+@use "sass:string";
+
 /// ---------------------------------------------------------------------------
 /// 1. Simple Shadows (Strings)
 /// ---------------------------------------------------------------------------
@@ -84,11 +87,11 @@ $elevation-shadows-string-dark: (
 @function elevation-shadow($level, $theme: 'light') {
 	
 	@if $theme =='dark' {
-		@return unquote(map-get($elevation-shadows-string-dark, $level));
+		@return string.unquote(map.get($elevation-shadows-string-dark, $level));
 	}
 
 	@else {
-		@return unquote(map-get($elevation-shadows-string, $level));
+		@return string.unquote(map.get($elevation-shadows-string, $level));
 	}
 }
 

@@ -21,6 +21,7 @@
 @use '../../abstracts/variables/layout' as *;
 @use '../../abstracts/variables/grid' as *;
 
+@use "sass:map";
 
 // -----------------------------------------------------------------------------
 // Base .grid container
@@ -82,7 +83,7 @@
 	// ---------------------------------------------------------------------------
 	@each $size in $grid-sizes {
 
-		$break: map-get($breakpoints, $size);
+		$break: map.get($breakpoints, $size);
 
 		@media (min-width: #{$break}) {
 

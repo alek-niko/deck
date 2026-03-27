@@ -6,7 +6,8 @@
 // - Uses $elevation-shadows-string and $elevation-shadows-list maps
 // ============================================
 
-
+@use "sass:map";
+@use "sass:string";
 @use '../variables/elevation' as *;
 
 /// --------------------------------------------
@@ -31,8 +32,8 @@
 
 	@if $theme =='dark' {
 
-			@if map-has-key($elevation-shadows-string-dark, $level) {
-				box-shadow: unquote(map-get($elevation-shadows-string-dark, $level));
+			@if map.has-key($elevation-shadows-string-dark, $level) {
+				box-shadow: string.unquote(map.get($elevation-shadows-string-dark, $level));
 			}
 
 			@else {
@@ -48,8 +49,8 @@
 
 	@else {
 
-		@if map-has-key($elevation-shadows-string, $level) {
-			box-shadow: unquote(map-get($elevation-shadows-string, $level));
+		@if map.has-key($elevation-shadows-string, $level) {
+			box-shadow: string.unquote(map.get($elevation-shadows-string, $level));
 		}
 
 		@else {
@@ -78,9 +79,9 @@
 
 @mixin elevation-list($level) {
 
-	@if map-has-key($elevation-shadows-list, $level) {
+	@if map.has-key($elevation-shadows-list, $level) {
 		// Join the list of shadows into a comma-separated string
-		$shadows: map-get($elevation-shadows-list, $level);
+		$shadows: map.get($elevation-shadows-list, $level);
 		box-shadow: join($shadows, ", ");
 	}
 

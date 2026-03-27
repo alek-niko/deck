@@ -8,6 +8,8 @@
 // - Fully customizable via CSS variables with fallback
 // =============================================================================
 
+@use "sass:meta";
+
 // -----------------------------------------------------------------------------
 // Padding Size Tokens
 // -----------------------------------------------------------------------------
@@ -51,28 +53,43 @@ $padding-directions: (
 .padding {
 
 	@each $size, $value in $padding-sizes {
+	
+		// Generate size suffix (e.g. '-lg' or nothing for 'default')
+		$size-suffix: '';
 
-		// Generate the first part of the class, e.g., '.padding-lg'
-		&#{if($size != 'default', '-' + $size, '')} {
+		@if $size !='default' {
+			$size-suffix: '-' + $size;
+		}
+
+		// Base class: .padding, .padding-lg, .padding-sm, etc.
+		&#{$size-suffix} {
 
 			// Loop through all possible directions
 			@each $dir, $suffix in $padding-directions {
 
-				// Generate the final selector for this specific direction
-				// e.g., for 'vertical', this creates '&-vertical'
-				// which combines with the parent to make '.padding-lg-vertical'
-				&#{if($dir != '', '-' + $dir, '')} {
-					
-					@if type-of($suffix) == 'list' {
-						// If the suffix is a list (like for 'vertical'),
-						// loop through it and print the padding PROPERTIES
+				// Generate direction suffix (e.g. '-vertical', '-horizontal', or nothing)
+				$dir-suffix: '';
+
+				@if $dir !='' {
+					$dir-suffix: '-' + $dir;
+				}
+
+				// Final selector: .padding-lg, .padding-lg-vertical, etc.
+				&#{$dir-suffix} {
+
+					@if meta.type-of($suffix)=='list' {
+
+						// If suffix is a list (e.g. for 'vertical' → top + bottom)
 						@each $part in $suffix {
 							padding#{$part}: #{$value} !important;
 						}
-					} @else {
-						// Otherwise, print the single padding PROPERTY
+					}
+
+					@else {
+						// Single property (e.g. padding, padding-left, etc.)
 						padding#{$suffix}: #{$value} !important;
 					}
+
 				}
 			}
 		}

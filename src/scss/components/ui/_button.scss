@@ -12,6 +12,7 @@
 // - All hover/active states generated at runtime with `color-mix()`
 // =============================================================================
 
+@use "sass:map";
 
 // =============================================================================
 // Variants Map
@@ -107,9 +108,9 @@ $variants: (
 
 @each $name, $colors in $variants {
 	.button[data-variant="#{$name}"] {
-		--button-bg: #{map-get($colors, "bg")};
-		--button-text: #{map-get($colors, "text")};
-		--button-border-color: #{map-get($colors, "bg")};
+		--button-bg: #{map.get($colors, "bg")};
+		--button-text: #{map.get($colors, "text")};
+		--button-border-color: #{map.get($colors, "bg")};
 
 		/* Hover/active generated at runtime — no Sass color math */
 		--button-hover-bg: color-mix(in srgb, var(--button-bg) 90%, black);

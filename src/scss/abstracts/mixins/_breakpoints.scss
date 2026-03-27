@@ -7,6 +7,7 @@
 // - Automatically adapts if variables are swapped
 // ============================================
 
+@use "sass:map";
 @use "../variables/breakpoints" as *;
 
 // --------------------------------------------
@@ -50,18 +51,21 @@
 // Example: @include respond-to(sm, max) { ... }
 
 @mixin respond-to($size, $type: min) {
-	$value: map-get($breakpoints, $size);
+	$value: map.get($breakpoints, $size);
 
-	@if $type == min {
-		@media (min-width: $value) { @content; }
-	} @else if $type == max {
-		$max: if($size == xs, $breakpoint-xs-max,
-			if($size == sm, $breakpoint-sm-max,
-			if($size == md, $breakpoint-md-max,
-			if($size == lg, $breakpoint-lg-max,
-			if($size == xl, $breakpoint-xl-max, null)))));
+	@if $type ==min and $value !=null {
+		@media (min-width: $value) {
+			@content;
+		}
+	}
+
+	@else if $type ==max {
+		$max: map.get($breakpoint-max-values, $size);
+
 		@if $max {
-			@media (max-width: $max) { @content; }
+			@media (max-width: $max) {
+				@content;
+			}
 		}
 	}
 }

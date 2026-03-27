@@ -9,6 +9,8 @@
 // - Circular thumb with smooth transitions
 // ============================================
 
+@use "sass:meta";
+
 .range {
 	
 	// Base reset
@@ -96,7 +98,7 @@
 			background-color: var(--color-primary);
 		}
 
-		@if (mixin-exists(hook-form-range-thumb)) {
+		@if (meta.mixin-exists(hook-form-range-thumb)) {
 			@include hook-form-range-thumb();
 		}
 	}

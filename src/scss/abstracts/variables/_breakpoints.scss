@@ -66,3 +66,11 @@ $breakpoint-sm-max: 		($breakpoint-md - 1) !default;
 $breakpoint-md-max: 		($breakpoint-lg - 1) !default;
 $breakpoint-lg-max: 		($breakpoint-xl - 1) !default;
 $breakpoint-xl-max: 		($breakpoint-xxl - 1) !default;
+
+$breakpoint-max-values: (
+	xs: $breakpoint-xs-max,
+	sm: $breakpoint-sm-max,
+	md: $breakpoint-md-max,
+	lg: $breakpoint-lg-max,
+	xl: $breakpoint-xl-max,
+);

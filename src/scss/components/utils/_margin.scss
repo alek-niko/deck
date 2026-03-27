@@ -19,7 +19,7 @@
 /// </div>
 
 @use '../../abstracts/variables' as *;
-
+@use "sass:meta";
 
 /// -----------------------------------------------------------------------------
 /// Margin Size Tokens
@@ -65,27 +65,43 @@ $margin-directions: (
 .margin {
 
 	@each $size, $value in $margin-sizes {
+	
+		// Generate size suffix (e.g. '-md' or nothing for 'default')
+		$size-suffix: '';
 
-		// Generate the first part of the class, e.g., '.margin-md'
-		&#{if($size != 'default', '-' + $size, '')} {
+		@if $size !='default' {
+			$size-suffix: '-' + $size;
+		}
+
+		// Base class: .margin, .margin-md, .margin-lg, etc.
+		&#{$size-suffix} {
 
 			// Loop through all possible directions
 			@each $dir, $suffix in $margin-directions {
 
-				// Generate the final selector for this specific direction,
-				// resulting in a class like '.margin-md-horizontal'
-				&#{if($dir != '', '-' + $dir, '')} {
+				// Generate direction suffix (e.g. '-horizontal', '-vertical', or nothing)
+				$dir-suffix: '';
 
-					@if type-of($suffix) == 'list' {
-						// If the suffix is a list, loop through it
-						// and print the margin PROPERTIES inside the rule
+				@if $dir !='' {
+					$dir-suffix: '-' + $dir;
+				}
+
+				// Final selector: .margin-md, .margin-md-horizontal, .margin-sm-vertical, etc.
+				&#{$dir-suffix} {
+
+					@if meta.type-of($suffix)=='list' {
+
+						// If suffix is a list (e.g. top + bottom), apply multiple properties
 						@each $part in $suffix {
 							margin#{$part}: #{$value} !important;
 						}
-					} @else {
-						// Otherwise, print the single margin PROPERTY
+					}
+
+					@else {
+						// Single property (e.g. margin, margin-left, etc.)
 						margin#{$suffix}: #{$value} !important;
 					}
+
 				}
 			}
 		}

@@ -18,11 +18,11 @@
 //   </div>
 // =============================================================================
 
-
 @use '../../abstracts/variables/spacing' as *;
 @use '../../abstracts/variables/breakpoints' as *;
 @use '../../abstracts/variables/grid' as *;
 
+@use "sass:map";
 
 // -----------------------------------------------------------------------------
 // Core vertical grid layout
@@ -86,7 +86,7 @@
 // -----------------------------------------------------------------------------
 
 @each $size in $grid-sizes {
-	$break: map-get($breakpoints, $size);
+	$break: map.get($breakpoints, $size);
 
 	@media (min-width: #{$break}) {
 		.grid-vertical-#{$size} {
