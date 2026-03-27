@@ -21,6 +21,10 @@ import Toggle from './components/toggle.js';
 import Drilldown from './components/drilldown.js';
 import Uploader from './components/uploader.js';
 
+// Static imports; due to esbuild plitting
+import modules from './modules/index.js';
+import plugins from './plugins/index.js';
+
 /**
  * @global
  * @description Creates a new instance of the Deck class and attaches it to the global `window` object.
@@ -48,68 +52,62 @@ async function initialize() {
 		'uploader': Uploader,
 	}
 
-	// Helper to normalize keys (kebab-case -> camelCase)
-    const normalize = (key) => key.replace(/-([a-z0-9])/g, (g) => g[1].toUpperCase());
+	/**
+	 * Optional Components / Modules (Private or Custom)
+	 * Merges external modules into the core component registry.
+	 * Normalizes kebab-case keys and prevents overwriting protected core UI.
+	 */
+	if (modules && typeof modules === 'object') {
+		Object.entries(modules).forEach(([key, value]) => {
+			try {
+				// Helper to normalize keys (kebab-case -> camelCase)
+				const cleanKey = key.replace(/-([a-z0-9])/g, (_, char) => char.toUpperCase());
 
-	// Optional Components / Modules (Private or Custom)
-	// ────────────────────────────────────────────────
-	try {
-		// We look for index.js inside the modules folder
-		const { default: modules } = await import('./modules/index.js');
+				// Validate Module: Ensure it's either a Class or a Lazy-Load Function
+				if (typeof value !== 'function') {
+					console.warn(`Deck: Module "${key}" skipped. Expected a Class or dynamic import function.`);
+					return;
+				}
 
-        if (modules) {
-
-			// Instead of Object.assign, we now map and normalize
-            for (const [key, value] of Object.entries(modules)) {
-
-                const cleanKey = normalize(key);
-
-				// PRODUCTION GUARD: Don't let modules overwrite Core UI
-                if (!registry[cleanKey]) {
-                    registry[cleanKey] = value;
-
-                } else {
-                    console.error(`Deck Conflict: "${key}" is a reserved Core name.`);
-                }
-            }
-
-			//console.info("Deck: Modules loaded successfully.");
-        }
-
-	} catch (e) {
-		// If modules/index.js doesn't exist, we just carry on
-		//console.info("Deck: No additional modules found.");
-
-		if (e.code !== 'ERR_MODULE_NOT_FOUND') {
-			console.warn("Deck: Optional modules failed.", e);
-		}
-	}
-	
-	// Optional Plugins / Services
-	// ────────────────────────────────────────────────
-	try {
-		const pluginsManifest = await import('./plugins/index.js');
-		const plugins = pluginsManifest.default ?? [];
-
-		// Handle both array and object exports gracefully
-		const pluginList = Array.isArray(plugins)
-			? plugins
-			: (typeof plugins === 'object' && plugins !== null ? Object.values(plugins) : []);
-
-		pluginList.forEach(plugin => {
-			window.deck.use(plugin);
-			// Optional: log if you want visibility during dev
-			// console.info(`Deck: Plugin loaded → ${plugin.name || plugin.constructor?.name || 'anonymous'}`);
+				// Collision Guard: Prevent third-party modules from hijacking Core UI (Modal, Nav, etc.)
+				if (!registry[cleanKey]) {
+					registry[cleanKey] = value;
+				} else {
+					console.error(`Deck Conflict: "${cleanKey}" is a reserved Core name and cannot be overwritten.`);
+				}
+			} catch (error) {
+				console.error(`Deck: Failed to process module "${key}":`, error);
+			}
 		});
+	}
 
-		if (pluginList.length > 0) {
-			// console.info(`Deck: ${pluginList.length} plugin(s) initialized.`);
-		}
-	} catch (e) {
-		if (e.code !== 'ERR_MODULE_NOT_FOUND') {
-			console.warn("Deck: Optional plugins failed to load.", e);
-		}
-		// else: no plugins folder/file → silent, expected
+	/**
+	 * Optional Plugins / Services
+	 * Initializes global services, state stores, and middleware.
+	 * Supports both Array and Object exports from the plugins manifest.
+	 */
+	if (plugins && (Array.isArray(plugins) || typeof plugins === 'object')) {
+		// Standardize input into an iterable array
+		const pluginList = Array.isArray(plugins) ? plugins : Object.values(plugins);
+
+		pluginList.forEach((plugin, index) => {
+			try {
+				// Null check for sparse arrays or undefined exports
+				if (!plugin) return;
+
+				// Execute the internal Deck .use() method
+				window.deck.use(plugin);
+
+				// Developer Trace (Optional: remove in strict production)
+				// const name = plugin.name || plugin.constructor?.name || `Plugin[${index}]`;
+				// console.debug(`Deck: Plugin "${name}" initialized.`);
+
+			} catch (error) {
+				// Critical: One failing plugin must not stop the entire framework boot
+				const name = plugin?.name || `Plugin[${index}]`;
+				console.error(`Deck: Critical failure in plugin "${name}":`, error);
+			}
+		});
 	}
 
 	// Register everything
