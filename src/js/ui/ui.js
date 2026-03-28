@@ -63,6 +63,9 @@ class UI {
 		// Fix <pre><code> formatting issues
 		DomUtils.fixPreCode();
 
+		// Enhanced Input Detection
+        this.#initInputDetection();
+
 		// Global event listeners
 		this.#initGlobalEvents();
 
@@ -71,28 +74,26 @@ class UI {
 	}
 
 	/**
-	 * Initializes layout-related components.
-	 * Detects header / sidebar automatically.
 	 * @private
+	 * @method #initInputDetection
+	 * @description Distinguishes between touch and mouse for hybrid hardware.
 	 */
-	#initLayout() {
-
-		// Initialize header if present
-		if (document.getElementById("header")) this.header = new Header();
-		
-		const sidebarEl = document.querySelector("aside");
-
-		// Initialize sidebar if present
-		if (sidebarEl) {
-
-			// Detect secondary sidebar
-			const isSec = sidebarEl.classList.contains("sidebar-secondary");
-			this.sidebar = new Sidebar(
-				isSec ? '.sidebar-secondary' : '.sidebar-main',
-				'#sidebar-toggle',
-				{ responsiveBreakpoint: isSec ? 1280 : 992 }
-			);
+	#initInputDetection() {
+		// Initial detection via modern Media Query
+		const canHover = window.matchMedia('(hover: hover)').matches;
+		if (!canHover) {
+			this.$el.body.classList.add('is-touch-primary');
 		}
+
+		// Dynamic switch: If they actually touch the screen, lock in touch mode
+		const setTouchMode = () => {
+			this.$el.body.classList.add('touch-device');
+			window.TOUCH_DETECTED = true;
+			// Use passive: true for scroll performance
+			window.removeEventListener('touchstart', setTouchMode, { passive: true });
+		};
+
+		window.addEventListener('touchstart', setTouchMode, { passive: true });
 	}
 
 	/**
@@ -101,33 +102,31 @@ class UI {
 	 */
 	#initGlobalEvents() {
 
-		// Detect first touch to enable touch-specific styles
-		window.addEventListener('touchstart', function onFirstTouch() {
-
-			document.body.classList.add('touch-device');
-			window.TOUCH_DETECTED = true;
-
-			window.removeEventListener(
-				'touchstart',
-				onFirstTouch,
-				false
-			);
-
-		}, false);
-
-		// Global click delegation
 		this.$el.body.addEventListener('click', event => {
+			const { target } = event;
 
-			// Close dropdown when clicking .dropdown-close
-			if (event.target.classList.contains('dropdown-close')) {
-
-				const dropdown = event.target.closest('.dropdown');
-				
+			// Dropdown close delegation
+			const closeBtn = target.closest('.dropdown-close');
+			if (closeBtn) {
+				const dropdown = closeBtn.closest('.dropdown');
+				// You can call your component manager here to close it properly
+				if (dropdown && this.components.dropdown) {
+					const instance = this.deck.getInstance(dropdown);
+					instance?.close();
+				}
 			}
 
-			// Prevent anchor jump for href="#"
-			if (event.target.matches('a[href="#"]')) {
+			// Prevent anchor jump for empty hashes
+			if (target.matches('a[href="#"]')) {
 				event.preventDefault();
+			}
+
+			// Generic "Dismiss" pattern (Common for Modals/Alerts)
+			const dismissTrigger = target.closest('[data-dismiss]');
+			if (dismissTrigger) {
+				const targetSelector = dismissTrigger.getAttribute('data-dismiss');
+				const targetEl = targetSelector ? document.querySelector(targetSelector) : dismissTrigger.parentElement;
+				targetEl?.remove();
 			}
 		});
 	}
@@ -138,30 +137,58 @@ class UI {
 	 * @private
 	 */
 	#initClipboardUtility() {
-
-		// Skip if no code tabs present
+		// Optimized: Only attach one listener to the body if the container exists
 		if (!document.querySelector('.code-tab')) return;
 
 		this.$el.body.addEventListener('click', (event) => {
+			const copyBtn = event.target.closest('.code-tab .iconnav a');
+			if (!copyBtn) return;
 
-			// Detect click on copy icon
-			const link = event.target.closest('.code-tab > .iconnav > li > a');
-			if (!link) return;
+			event.preventDefault();
 
-			const codeTab = link.closest('.code-tab');
-			const firstTabContent = codeTab?.querySelector('.tab-content > div:first-child');
+			const codeTab = copyBtn.closest('.code-tab');
+			// Support both <code> blocks and standard divs
+			const contentSource = codeTab?.querySelector('.tab-content .active, .tab-content div:first-child');
 
-			if (firstTabContent) {
-				const contentToCopy = firstTabContent.innerHTML.trim();
-				navigator.clipboard.writeText(contentToCopy)
+			if (contentSource) {
+				// Get innerText to avoid copying HTML tags if it's a code block
+				const textToCopy = contentSource.innerText || contentSource.textContent;
+				
+				navigator.clipboard.writeText(textToCopy.trim())
 					.then(() => {
-						//
-						if (window.deck) window.deck.say('HTML content copied to clipboard.', 'primary');
+						if (window.deck) {
+							window.deck.say('Code copied to clipboard.', 'success');
+						}
 					})
-					.catch(err => console.error('Clipboard error:', err));
+					.catch(err => console.error('UI Clipboard Error:', err));
 			}
 		});
 	}
+
+	/**
+	 * Initializes layout-related components.
+	 * Detects header / sidebar automatically.
+	 * @private
+	 */
+	#initLayout() {
+
+		// Initialize header if present
+        if (document.getElementById("header")) this.header = new Header();
+        
+        const sidebarEl = this.$el.aside;
+
+		// Initialize sidebar if present
+        if (sidebarEl) {
+
+			// Detect secondary sidebar
+            const isSec = sidebarEl.classList.contains("sidebar-secondary");
+            this.sidebar = new Sidebar(
+                isSec ? '.sidebar-secondary' : '.sidebar-main',
+                '#sidebar-toggle',
+                { responsiveBreakpoint: isSec ? 1280 : 992 }
+            );
+        }
+    }
 
 	// Public API Proxies (Allows calling deck.ui.dim() directly)
     dim(parent, animate) { return this.components.dim(parent, animate); }
