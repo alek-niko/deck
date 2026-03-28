@@ -260,12 +260,18 @@ class Uploader extends Component {
 	 * @param {Object} [file] - An optional file to upload; if not provided, all ready files will be uploaded.
 	 */
 	async upload(file) {
-		const filesToUpload = file ? [file] : this.uploadFiles.filter(f => f.status === 'ready'); // Get files to upload
+		// Only get files that are strictly 'ready'
+		const filesToUpload = file ? [file] : this.uploadFiles.filter(f => f.status === 'ready');
 		for (const f of filesToUpload) {
+			// IMMEDIATELY change status to prevent concurrent loops from picking it up
+            f.status = 'uploading';
+
 			if (this.method === 'stream') {
 				await this.stream(f);
+
 			} else if (this.method === 'put') {
 				await this.put(f);
+				
 			} else {
 				await this.post(f);
 			}
@@ -333,19 +339,32 @@ class Uploader extends Component {
 
 				const presigned = await response.json();
 
-				file.type = this.fileValidator.getFileType(file.fileName);
-				file.fileName = presigned.data.filename;
-				uploadUrl = presigned.data.url;
+				// The API returns the fields in 'data.fields' or just 'fields'
+				const s3Fields = presigned.data?.fields || presigned.fields;
+				const s3Url = presigned.data?.url || presigned.url;
 
-				// Append presigned fields to form data
-				Object.entries(presigned.data.fields).forEach(([k, v]) => formData.append(k, v));
+				file.type = this.fileValidator.getFileType(file.fileName);
+				file.fileName = presigned.data?.filename || presigned.filename;
+				uploadUrl = s3Url;
+
+				/**
+				 * CRITICAL S3 ORDERING:
+				 * All policy fields MUST come before the 'file' field.
+				 * Append presigned fields to form data
+				 */
+				Object.entries(s3Fields).forEach(([k, v]) => {
+					formData.append(k, v);
+				});
+				
 			}
 
 			// Append file to form data
 			formData.append('file', file.rawFile);
 
-			// Append extra data
-			Object.entries(data).forEach(([k, v]) => formData.append(k, v));
+			// Append any extra developer data (only if not using S3, or if policy allows)
+			if (!presign) {
+				Object.entries(data).forEach(([k, v]) => formData.append(k, v));
+			}
 
 			// Start uploading via POST method
 			const uploadResponse = await fetch(uploadUrl, {
@@ -355,8 +374,14 @@ class Uploader extends Component {
 				credentials: withCredentials ? 'include' : 'same-origin',
 			});
 
+			// if (!uploadResponse.ok) {
+			// 	throw new Error('Upload failed');
+			// }
+
 			if (!uploadResponse.ok) {
-				throw new Error('Upload failed');
+				const errorText = await uploadResponse.text();
+				console.error('[S3 Error Response]', errorText);
+				throw new Error(`Upload failed with status ${uploadResponse.status}`);
 			}
 
 			file.status = 'done'; // Mark as uploaded successfully
