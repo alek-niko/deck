@@ -114,7 +114,7 @@ class Modal extends Component {
 		}
 
 		// Trap focus while open
-		el.addEventListener('keydown', this.#trapFocus);
+		this.element.addEventListener('keydown', this.#trapFocus);
 	}
 
 	/**
