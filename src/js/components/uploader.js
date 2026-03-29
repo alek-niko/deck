@@ -322,7 +322,6 @@ class Uploader extends Component {
 	 * @private
 	 */
 	async post(file) {
-
 		try {
 
 			const { presignUrl, data, headers, withCredentials, presign, target } = this;
@@ -342,6 +341,10 @@ class Uploader extends Component {
 				// The API returns the fields in 'data.fields' or just 'fields'
 				const s3Fields = presigned.data?.fields || presigned.fields;
 				const s3Url = presigned.data?.url || presigned.url;
+
+				// Grab the S3 key directly from your backend's response
+				// This is exactly what UserSettings needs to save to the DB.
+				file.location = s3Fields.key;
 
 				file.type = this.fileValidator.getFileType(file.fileName);
 				file.fileName = presigned.data?.filename || presigned.filename;
@@ -373,10 +376,6 @@ class Uploader extends Component {
 				headers,
 				credentials: withCredentials ? 'include' : 'same-origin',
 			});
-
-			// if (!uploadResponse.ok) {
-			// 	throw new Error('Upload failed');
-			// }
 
 			if (!uploadResponse.ok) {
 				const errorText = await uploadResponse.text();
@@ -427,6 +426,8 @@ class Uploader extends Component {
 				// Update file metadata from server response
 				file.type = this.fileValidator.getFileType(file.fileName);
 				file.fileName = presigned.data.filename;
+
+				file.location = presigned.data?.fields?.key || presigned.data?.key;
 				
 				// The 'url' returned here is the direct AWS S3 PUT URL
 				uploadUrl = presigned.data.url;
