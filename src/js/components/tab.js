@@ -32,7 +32,10 @@ class Tab extends Component {
 	constructor(element, options = {}, deck = null) {
 
 		// Define default options for the component
-		const defaultOptions = {};
+		const defaultOptions = {
+			target: null, // Selector for the content container
+			activeClass: 'active'
+		};
 
 		// Merge user-provided options with the default options
 		const mergedOptions = { ...defaultOptions, ...options };
@@ -49,8 +52,8 @@ class Tab extends Component {
 		super(context);
 
 		// Initialize the offcanvas state and events
-		this.#setup() 
-		
+		this.#setup()
+
 		this.on('click', this.onClick);
 	}
 
@@ -59,41 +62,55 @@ class Tab extends Component {
 	 * @description Initializes the tabs and their corresponding content sections.
 	 */
 	#setup() {
+
+		// Resolve Content Container
+		this.contentContainer = this.#resolveContentContainer();
+
+		if (!this.contentContainer) {
+			console.warn('Tab: Content container not found for', this.element);
+			return;
+		}
+
+		// Ensure container allows shrinking
+		this.#ensureCorrectFlexAlignment();
+
 		// Get the total number of tabs
 		this.length = this.element.querySelectorAll('li').length;
 
-		// Find the associated content container
-		this.content = null;
+		// Initialize State
+		const activeIndex = this.getActiveIndex();
+		this.open(activeIndex !== -1 ? activeIndex : 0);
 
+	}
+
+	#resolveContentContainer() {
+		// If target is explicitly provided in options/attributes
 		if (this.target) {
-			this.content = document.querySelector(this.target);
-		} else {
-			this.content = this.element.nextElementSibling;
-			if (this.content && !this.content.classList.contains('tab-content')) {
-				this.content = null;
-			}
+			return document.querySelector(this.target);
 		}
 
-		// Apply critical flex alignment to the parent if vertical
-        this.#ensureCorrectFlexAlignment();
+		// Fallback: Check for next sibling with .tab-content
+		let sibling = this.element.nextElementSibling;
 
-		 // Determine the active tab index or default to the first tab
-		var index = this.getActiveIndex() !== -1 ? index : 0
-		this.open(index)
+		while (sibling) {
+			if (sibling.classList.contains('tab-content')) return sibling;
+			sibling = sibling.nextElementSibling;
+		}
+
+		return null;
 	}
 
 	/**
-     * Ensures the parent flex container doesn't force a 'stretch' height.
-     * This fixes the "huge height" issue when switching from long to short content.
-     */
-    #ensureCorrectFlexAlignment() {
-        const parent = this.element.parentElement;
-        if (parent && parent.classList.contains('flex')) {
-            // Force items-start to allow the container to shrink to content height
-            parent.classList.add('items-start');
-            parent.classList.remove('items-stretch');
-        }
-    }
+	 * Ensures the parent flex container doesn't force a 'stretch' height.
+	 * This fixes the "huge height" issue when switching from long to short content.
+	 */
+	#ensureCorrectFlexAlignment() {
+		const parent = this.element.parentElement;
+		if (parent && (parent.classList.contains('tab-container') || parent.classList.contains('flex'))) {
+			// Use variables to avoid class bloat
+			parent.style.setProperty('--items', 'flex-start');
+		}
+	}
 
 	/**
 	 * @method onClick
@@ -101,22 +118,15 @@ class Tab extends Component {
 	 * 
 	 * @param {MouseEvent} event - The click event object.
 	 */
-	onClick = event => {
+	onClick = (event) => {
+		const tabItem = event.target.closest('.tab > li');
 
-		const target = event.target;
-		const tab = target.closest('.tab > li'); // Find the closest tab list item
+		// Ensure the clicked tab belongs to THIS specific component instance
+		if (tabItem && tabItem.parentElement === this.element) {
+			if (tabItem.classList.contains('disabled')) return;
 
-		if (tab &&
-			!tab.classList.contains('disabled') &&
-			tab.parentElement.classList.contains('tab')
-		){
-			// Get all tabs within the tab container
-			const tabs = Array.from(tab.parentElement.children);
-			const clickedTabIndex = tabs.indexOf(tab);
-
-			if (clickedTabIndex !== -1) {
-				this.open(clickedTabIndex)
-			}
+			const index = Array.from(this.element.children).indexOf(tabItem);
+			this.open(index);
 		}
 	}
 
@@ -127,60 +137,52 @@ class Tab extends Component {
 	 * @returns {number} The index of the active tab, or -1 if no tab is active.
 	 */
 	getActiveIndex() {
-		var tabs = Array.from(this.element.children)
-		var activeIndex = -1; // Default to -1 if no active tab is found
-
-		tabs.forEach( (li, index) => {
-			if (li.classList.contains('active')) {
-				activeIndex = index;
-			}
-		});
-	
-		return activeIndex;
+		return Array.from(this.element.children).findIndex(li =>
+			li.classList.contains(this.activeClass)
+		);
 	}
 
 	/**
-     * @method open
-     * @description Activates the tab and recalculates container height.
-     */
-    open(index = 0) {
+	 * @method open
+	 * @description Activates the tab and recalculates container height.
+	 */
+	open(index) {
+		const tabs = Array.from(this.element.children);
+		const panes = this.contentContainer ? Array.from(this.contentContainer.children) : [];
 
-        const tabs = Array.from(this.element.children);
-    
-        // 1. Update Tab Navigation State
-        tabs.forEach(li => li.classList.remove('active'));
+		if (index < 0 || index >= tabs.length) return;
 
-        // 2. Update Content Sections State
-        if (this.content) {
-            const panes = Array.from(this.content.children);
-            
-            panes.forEach(div => {
-                div.classList.remove('active');
-                // Ensure inactive panes don't contribute to height
-                div.style.display = 'none'; 
-            });
+		// 1. Toggle Tab Navigation
+		tabs.forEach((tab, i) => {
+			tab.classList.toggle(this.activeClass, i === index);
+		});
 
-            // 3. Activate the chosen index
-            if (index >= 0 && index < tabs.length) {
-                tabs[index].classList.add('active');
-                
-                const activePane = panes[index];
-                activePane.classList.add('active');
-                
-                // Set to 'block' so it takes up space and defines the parent height
-                activePane.style.display = 'block';
+		// 2. Toggle Content Panes
+		panes.forEach((pane, i) => {
+			const isActive = i === index;
+			pane.classList.toggle(this.activeClass, isActive);
 
-                // Trigger a tiny delay if using animations to ensure browser 
-                // calculates the new height from 'block' state
-                requestAnimationFrame(() => {
-                    this.content.style.height = 'auto';
-                });
+			if (isActive) {
+				pane.style.display = 'block';
+				// Force reflow
+				void pane.offsetWidth;
+			} else {
+				pane.style.display = 'none';
+			}
+		});
 
-            } else {
-                console.error('Tab index out of range');
-            }
-        }
-    }
+		// 3. CORRECTED: Native Event Dispatch
+		// This replaces the non-existent this.trigger()
+		const event = new CustomEvent('tab:change', {
+			detail: {
+				index,
+				tab: tabs[index],
+				pane: panes[index]
+			},
+			bubbles: true
+		});
+		this.element.dispatchEvent(event);
+	}
 }
 
 export default Tab;
