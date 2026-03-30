@@ -20,18 +20,19 @@ class Deck extends Dispatcher {
 	constructor(options = {}) {
 
 		super();
+		
+        this.settings = this.defaultSettings();			// Initialize with Hardcoded Defaults
+        this.updateSettings(options);					// Merge Local Overrides (passed from main.js or global window)	
+		//this.options = options instanceof Object ? options : {};		// Configuration options for the Deck instance. // depricating...
 
-		// Configuration options for the Deck instance.
-		this.options = options instanceof Object ? options : {};
-
-		this.components = {};				// Registered components
-		this.instances = {};				// Instances of initialized components (keyed by DCI)
-		this.ui = new UI()					// UI utility instance
-		this.notifier = new Toast()			// Manages toast notifications
+		this.components = {};							// Registered components
+		this.instances = {};							// Instances of initialized components (keyed by DCI)
+		this.ui = new UI()								// UI utility instance
+		this.notifier = new Toast()						// Manages toast notifications
 		this.tooltip = tooltip;
 		
-		this.isLoaded = false;              // Flag to track initial autoload
-		this.watchers = {};					// Internal storage for watch callbacks
+		this.isLoaded = false;              			// Flag to track initial autoload
+		this.watchers = {};								// Internal storage for watch callbacks
 
 		// Application state object wrapped in a Proxy; emits events on state changes
 		this.state = new Proxy(options.state || {}, {
@@ -77,34 +78,6 @@ class Deck extends Dispatcher {
             // No more arrow-function factory wrapping.
             this.components[name] = components[rawName];
         }
-
-		// Depricating...
-		// for (const rawName in components) {
-
-		// 	// Normalize: 'user-settings' -> 'userSettings'
-		// 	const name = rawName.replace(/-([a-z0-9])/g, (g) => g[1].toUpperCase());
-
-		// 	this.components[name] = (...args) => {
-
-		// 		// ELEMENT
-		// 		const element = args[0] instanceof HTMLElement
-		// 							? args[0]
-		// 							: typeof args[0] === 'string' 
-		// 								? document.querySelector(args[0]) 
-		// 								: null;
-		// 		// OPTIONS
-		// 		const options = args[1] instanceof Object && !(args[1] instanceof HTMLElement) 
-		// 							? args[1] 
-		// 							: args.length === 1 && 
-		// 							  args[0] instanceof Object && 
-		// 							  !(args[0] instanceof HTMLElement) 
-		// 									? args[0] 
-		// 									: {}; // was: undefined;
-				
-		// 		// Construct the instance
-		// 		return new components[name](element, options, this);		
-		// 	};
-		// }
 	}
 
 	/**
@@ -448,6 +421,60 @@ class Deck extends Dispatcher {
 	say(...message) {
 		this.notifier.notification(...message);
 	}
+
+	// More industry-standard 
+	notify(...message) { this.say(...message) }
+	toast(...message) { this.say(...message) }
+
+	/**
+	 * The "Safety Net" settings.
+	 */
+	defaultSettings() {
+		return {
+			env: 'production',
+			debug: false,
+			apiBase: null,
+			settingsUrl: null, // If set, Deck will try to fetch remote config
+			components: {
+				lazy: true,
+				threshold: 0.1
+			}
+		};
+	}
+
+	/**
+	 * Deep merge utility to update settings without losing nested defaults.
+	 */
+	updateSettings(newOptions) {
+		if (!newOptions || typeof newOptions !== 'object') return;
+		
+		// Simple merge for top-level, could be replaced with a deep-merge utility
+		this.settings = { ...this.settings, ...newOptions };
+	}
+
+	/**
+	 * Remote Hydration: Contact the server for settings.
+	 * Use this to avoid putting sensitive config in the HTML.
+	 */
+	async hydrate() {
+		if (!this.settings.settingsUrl) return;
+
+		try {
+			const response = await fetch(this.settings.settingsUrl, {
+				headers: { 'X-Requested-With': 'DeckFramework' }
+			});
+			
+			if (!response.ok) throw new Error(`Settings fetch failed: ${response.status}`);
+			
+			const remoteConfig = await response.json();
+			this.updateSettings(remoteConfig);
+			
+			// console.debug("Deck: Remote settings applied successfully.");
+		} catch (error) {
+			console.error("Deck: Failed to load remote settings:", error);
+		}
+	}
+
 }
 
 export default Deck
