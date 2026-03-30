@@ -242,7 +242,9 @@
 
 	.card-header {
 		display: flex;
-		
+		flex-direction: var(--flex-dir, row);
+		gap: var(--gap, 0);
+
 		//align-items: var(--card-header-align, center);
 		padding: var(--card-header-padding, var(--card-padding));
 
@@ -363,6 +365,7 @@
 
 	.card-footer {
 		display: flex;
+		flex-direction: var(--flex-dir, row);
 		flex-wrap: var(--flex-wrap, wrap);
 		align-items: var(--items, center);
 		justify-content: var(--justify, space-between);
