@@ -47,7 +47,7 @@
 	// -------------------------------------------------------------------------
 
 	display: flex;
-	flex-direction: column;
+	flex-direction: var(--flex-dir, column);
 	position: relative;
 	box-sizing: border-box;
 	gap: 0;
@@ -251,8 +251,8 @@
 
 		>.avatar {
 			display: inline-flex;
-			align-items: center;
-			justify-content: center;
+			align-items: var(--items, center);
+			justify-content: var(--justify, center);
 			background: var(--color-surface-muted);
 			border-radius: 50%;
 			width: 40px;
@@ -280,13 +280,13 @@
 		.content {
 			flex: 1;
 			display: flex;
-			flex-direction: column;
+			flex-direction: var(--flex-dir, column);
 			padding: 0 var(--spacing-sm);
 
 			.user-info {
 				display: flex;
-				align-items: center;
-				flex-wrap: wrap;
+				align-items: var(--items, center);
+				flex-wrap: var(--flex-wrap, wrap);
 				gap: 4px;
 				font-size: 0.9375rem;
 
@@ -299,7 +299,7 @@
 
 		.actions {
 			display: flex;
-			align-items: center;
+			align-items: var(--items, center);
 			gap: 5px;
 
 			a,
@@ -324,22 +324,21 @@
 		flex: 1 1 auto;
 		padding: var(--card-body-padding, var(--card-padding));
 		display: flex;
-		flex-direction: column;
-		gap: var(--spacing-sm);
+		flex-direction: var(--flex-dir, column);
+		gap: var(--gap, var(--spacing-sm));
 
 		background-color: var(--card-body-bg, var(--color-surface));
 		color: var(--card-body-text, var(--color-text));
-		
 
 		[data-slot='poll'],
 		.card-poll {
 			display: flex;
-			flex-direction: column;
-			gap: var(--spacing-xs);
+			flex-direction: var(--flex-dir, column);
+			gap: var(--gap, var(--spacing-xs));
 
 			.poll-option {
 				display: flex;
-				align-items: center;
+				align-items: var(--items, center);
 				padding: var(--spacing-xs) var(--spacing-sm);
 				border: 1px solid var(--color-border);
 				border-radius: var(--radius-md);
@@ -364,11 +363,12 @@
 
 	.card-footer {
 		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-between;
+		flex-wrap: var(--flex-wrap, wrap);
+		align-items: var(--items, center);
+		justify-content: var(--justify, space-between);
+		gap: var(--gap, var(--spacing-md));
+
 		padding: var(--card-footer-padding, var(--card-padding));
-		gap: var(--spacing-md);
 
 		background: var(--card-footer-bg, var(--color-surface));
 		color: var(--card-footer-text, var(--color-text));		
@@ -381,7 +381,7 @@
 
 		.actions {
 			display: flex;
-			gap: var(--spacing-sm);
+			gap: var(--gap, var(--spacing-sm));
 
 			// .action {
 			// 	display: inline-flex;
@@ -407,7 +407,7 @@
 
 		.buttons {
 			display: flex;
-			gap: var(--spacing-sm);
+			gap: var(--gap, var(--spacing-sm));
 		}
 	}
 
@@ -422,8 +422,8 @@
 		right: 15px;
 		z-index: 1;
 		display: flex;
-		align-items: center;
-		justify-content: center;
+		align-items: var(--items, center);
+		justify-content: var(--justify, center);
 		height: 22px;
 		padding: 0 10px;
 		background: var(--card-badge-bg);
@@ -465,9 +465,9 @@
 	&.card-horizontal,
 	&[data-layout='horizontal'] {
 		display: flex;
-		flex-direction: row;
-		align-items: stretch;
-		gap: var(--spacing-default);
+		flex-direction: var(--flex-dir, row);
+		align-items: var(--items, stretch);
+		gap: var(--gap, var(--spacing-default));
 
 		.card-media {
 			width: 33.333%;
@@ -487,8 +487,8 @@
 			flex: 1;
 			padding: var(--spacing-md);
 			display: flex;
-			flex-direction: column;
-			justify-content: center;
+			flex-direction: var(--flex-dir, column);
+			justify-content: var(--justify, column);
 			overflow: hidden;
 		}
 	}
@@ -500,7 +500,7 @@
 
 	&.card-horizontal.reverse,
 	&[data-layout='horizontal'][data-image='right'] {
-		flex-direction: row-reverse;
+		flex-direction: var(--flex-dir, row-reverse);
 
 		.card-media img {
 			border-top-right-radius: inherit;
@@ -650,9 +650,10 @@
 
 	.card-preview {
 		display: flex;
-		flex-direction: row;
-		align-items: flex-start;
-		gap: var(--spacing-sm);
+		flex-direction: var(--flex-dir, row);
+		align-items: var(--items, flex-start);
+		gap: var(--gap, var(--spacing-sm));
+
 		background: var(--color-surface-alt);
 		border: 1px solid var(--color-border);
 		border-radius: var(--radius-md);
@@ -691,7 +692,7 @@
 
 		.content {
 			display: flex;
-			flex-direction: column;
+			flex-direction: var(--flex-dir, column);
 			background-color: var(--color-surface-alt);
 			border: 1px solid var(--color-border);
 			border-radius: var(--card-border-radius);
@@ -752,8 +753,8 @@
         cursor: pointer;
         background: #000;
         display: flex;
-        align-items: center;
-        justify-content: center;
+		align-items: var(--items, center);
+		justify-content: var(--justify, center);
 
         img {
             width: 100%;
@@ -793,15 +794,15 @@
 
 	.card-poll {
 		display: flex;
-		flex-direction: column;
-		gap: var(--spacing-xs);
+		flex-direction: var(--flex-dir, column);
+		gap: var(--gap, var(--spacing-xs));
 		margin-top: var(--spacing-sm);
 
 		.poll-option {
 			position: relative;
 			display: flex;
-			align-items: center;
-			justify-content: space-between;
+			align-items: var(--items, center);
+			justify-content: var(--justify, space-between);
 			padding: var(--spacing-sm) var(--spacing-md);
 			border: 1px solid var(--color-border);
 			border-radius: var(--radius-md);
@@ -880,8 +881,8 @@
 	.reshare-container {
 		.reshare-label {
 			display: flex;
-			align-items: center;
-			gap: 8px;
+			align-items: var(--items, center);
+			gap: var(--gap, 8px);
 			padding: var(--spacing-xs) var(--card-padding); // Aligns with card content
 			font-size: 0.8125rem;
 			font-weight: 600;
