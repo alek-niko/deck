@@ -37,76 +37,78 @@
 //--------------------------------------
 
 .tab-container {
-    display: flex;
-    flex-direction: row; 
-    align-items: flex-start;
-    gap: var(--spacing-md, 20px);
 
-    @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: stretch;
+	display: flex;
+    // Use the new variables with default fallbacks
+    flex-direction: var(--flex-dir, row); 
+    align-items: var(--items, flex-start);
+    gap: var(--gap, var(--tab-gap, 20px));
 
-        // Target both left and right variants
-        .tab.tab-left, 
-        .tab.tab-right {
-            flex-direction: row;
+	@media (max-width: 768px) {
+		--flex-dir: column;
+		--items: stretch;
+
+		// Target both left and right variants
+		.tab.tab-left, 
+		.tab.tab-right {
+			--flex-dir: row; // Force horizontal on mobile
+            --flex-wrap: nowrap;
             min-width: 100% !important; 
             overflow-x: auto;
-            flex-wrap: nowrap;
             padding: 0;
-            
-            // Reset borders
-            border-inline-end: none !important;
-            border-inline-start: none !important;
-            border-bottom: 1px solid var(--color-border, rgba(0,0,0,.1));
+			
+			// Reset borders
+			border-inline-end: none !important;
+			border-inline-start: none !important;
+			border-bottom: 1px solid var(--color-border, rgba(0,0,0,.1));
 
-            // Optional: Hide scrollbars
-            &::-webkit-scrollbar { display: none; }
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+			// Optional: Hide scrollbars
+			&::-webkit-scrollbar { display: none; }
+			-ms-overflow-style: none;
+			scrollbar-width: none;
 
-            // Optional: Visual hint that more tabs exist (Fade effect)
-            mask-image: linear-gradient(to right, black 85%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+			// Optional: Visual hint that more tabs exist (Fade effect)
+			mask-image: linear-gradient(to right, black 85%, transparent 100%);
+			-webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
 
-            > li {
-                border-radius: 8px 8px 0 0 !important; // Normalize corners
-                justify-content: center;
-                white-space: nowrap;
-                flex: 0 0 auto;
-                padding: 12px 18px;
+			> li {
+				border-radius: 8px 8px 0 0 !important; // Normalize corners
+				justify-content: center;
+				white-space: nowrap;
+				flex: 0 0 auto;
+				padding: 12px 18px;
 
-                // Reset vertical spacing/margins
-                + li {
-                    margin-top: 0 !important;
-                    margin-left: 5px;
-                }
+				// Reset vertical spacing/margins
+				+ li {
+					margin-top: 0 !important;
+					margin-left: 5px;
+				}
 
-                // UNIFIED INDICATOR: Forces left/right indicators to become bottom bars
-                &::after {
-                    top: auto !important;
-                    bottom: 0 !important;
-                    left: 0 !important;
-                    right: auto !important;
-                    width: 100% !important;
-                    height: 3px !important;
-                    border-radius: 6px 6px 0 0 !important;
-                    @include transform(scaleX(0) !important);
-                    @include transition(transform 280ms ease-in-out);
-                }
+				// UNIFIED INDICATOR: Forces left/right indicators to become bottom bars
+				&::after {
+					top: auto !important;
+					bottom: 0 !important;
+					left: 0 !important;
+					right: auto !important;
+					width: 100% !important;
+					height: 3px !important;
+					border-radius: 6px 6px 0 0 !important;
+					@include transform(scaleX(0) !important);
+					@include transition(transform 280ms ease-in-out);
+				}
 
-                &.active::after {
-                    @include transform(scaleX(1) !important);
-                }
-            }
-        }
+				&.active::after {
+					@include transform(scaleX(1) !important);
+				}
+			}
+		}
 
-        // Adjust content spacing since navigation is now on top
-        .tab-content {
-            padding-top: 20px;
-            width: 100%;
-        }
-    }
+		// Adjust content spacing since navigation is now on top
+		.tab-content {
+			padding-top: 20px;
+			width: 100%;
+		}
+	}
 }
 
 //--------------------------------------
@@ -116,17 +118,20 @@
 .tab {
 
 	--tab-color: var(--color-text-muted);
-	--tab-color-active: var(--color-text);
-	--tab-accent: var(--color-primary);
-	--tab-hover-bg: rgba(0, 0, 0, 0.06);
-	--tab-disabled: rgba(0, 0, 0, 0.4);
-	--tab-indicator-color: var(--color-primary);
+    --tab-color-active: var(--color-text);
+    --tab-accent: var(--color-primary);
+    --tab-indicator-color: var(--color-primary);
 
 	display: flex;
-	flex-wrap: wrap;
 	padding: 0;
 	list-style: none;
 	box-sizing: border-box;
+	
+	flex-direction: var(--flex-dir, row);
+	flex-wrap: var(--flex-wrap, nowrap);
+	justify-content: var(--justify, flex-start);
+	align-items: var(--items, stretch);
+	gap: var(--gap, 0);
 
 	//--------------------------------------
 	// Tab Items
@@ -148,17 +153,12 @@
 
 		@include transition(color 150ms ease);
 
-		&:hover {
-			color: var(--tab-color-active);
-		}
+		&:hover { color: var(--tab-color-active); }
+		&.active { color: var(--tab-color-active); }
 
-		&.active {
-			color: var(--tab-color-active);
-		}
-
-        //--------------------------------------
-        // Animated Indicator
-        //--------------------------------------
+		//--------------------------------------
+		// Animated Indicator
+		//--------------------------------------
 
 		&::after {
 			content: "";
@@ -179,18 +179,18 @@
 		}
 	}
 
-    //--------------------------------------
-    // Disabled Tabs
-    //--------------------------------------
+	//--------------------------------------
+	// Disabled Tabs
+	//--------------------------------------
 
 	>.disabled {
 		color: rgba(0, 0, 0, 0.4);
 		pointer-events: none;
 	}
 
-    //--------------------------------------
-    // Bottom Tabs
-    //--------------------------------------
+	//--------------------------------------
+	// Bottom Tabs
+	//--------------------------------------
 
 	&.tab-bottom > li {
 		border-radius: 0 0 15px 15px;
@@ -202,12 +202,12 @@
 		}
 	}
 
-    //--------------------------------------
-    // Vertical Tabs (Left / Right)
-    //--------------------------------------
+	//--------------------------------------
+	// Vertical Tabs (Left / Right)
+	//--------------------------------------
 
 	&.tab-left {
-		flex-direction: column;
+		--flex-dir: column;
 
 		// OPTIONAL divider
 		&.tab-divided {
@@ -232,7 +232,7 @@
 				@include transition(transform 280ms ease-in-out);
 			}
 
-			&.active::after {
+			&.active::after { 
 				@include transform(scaleY(1));
 			}
 
@@ -243,7 +243,7 @@
 	}
 
 	&.tab-right {
-		flex-direction: column;
+		--flex-dir: column;
 
 		// OPTIONAL divider
 		&.tab-divided {
