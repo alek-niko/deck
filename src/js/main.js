@@ -33,8 +33,17 @@ async function initialize() {
 	// Check for "Developer-Mode" HTML settings (Optional)
 	const localOptions = window.DECK_CONFIG || {};
 
-	// Instantiate Deck
-	window.deck = new Deck(localOptions);
+	// Define hardcoded defaults (Optional)
+	const defaultOptions = {};
+
+	// Merge localOptions with the default options (Right-most objects override left-most)
+	const mergedOptions = { 
+		...defaultOptions, 
+		...localOptions
+	};
+
+    // Instantiate Deck
+    window.deck = new Deck(mergedOptions);
 
 	// Remote Hydration
 	if (window.deck.settings.settingsUrl) {
@@ -148,7 +157,7 @@ if (window.deck) {
 	console.warn("Deck already initialized. Skipping...");
 	
 } else {
-	
+
 	initialize().catch(err => {
 		console.error("Deck: Critical failure during initialization:", err);
 	});
