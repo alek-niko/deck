@@ -55,20 +55,22 @@ body:has(dialog[open]) {
 // pointer events, and transitions for open/close states.
 
 .modal {
+
 	position: fixed;
 	inset: 0;
 	z-index: 1500;
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	//padding: var(--spacing-default);
+	flex-direction: var(--flex-dir, column);
+	align-items: var(--items, center);
+	justify-content: var(--justify, center);
+	
 	border: none;
 	background: transparent;
 	color: var(--color-text);
 	opacity: 0;
 	transform: scale(0.96);
 	pointer-events: none;
-	visibility: hidden; // Ensures no accidental click-through
+	visibility: hidden; 
 	transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
 
 	&::backdrop {
@@ -94,32 +96,26 @@ body:has(dialog[open]) {
 	&-dialog {
 
 		display: flex;
-		flex-direction: column;
-		height: 100%;
-		gap: var(--gap, 0);  // or whatever spacing token you prefer
-		padding: var(--modal-pading, 0);
+		flex-direction: var(--flex-dir,column);
 
+		// Ensure the dialog never exceeds the viewport
+		max-height: calc(100vh - 40px); 
+		margin: 20px;
+
+		align-items: var(--items, stretch);
+		gap: var(--gap, 15px);
+		
 		width: 100%;
 		max-width: 600px;
+
 		background-color: var(--color-surface);
 		border-radius: var(--modal-radius, 0);
 		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 		transition: transform 0.3s ease;
-
 		position: relative;
-
-		// -------------------------------------------------------------------------
-		// Overflow Control
-		// -------------------------------------------------------------------------
 		overflow: var(--modal-overflow, visible);
 
-		// -------------------------------------------------------------------------
-		// The "Utility Hook" Selector
-		// This triggers whenever your .rounded-xs, .rounded-lg, etc. are used.
-		// -------------------------------------------------------------------------
 		&[class*="rounded"] {
-			// We default to hidden because if a user applies a rounded utility,
-			// they almost always want the content to follow that shape.
 			--modal-overflow: hidden;
 		}
 	}
@@ -138,17 +134,25 @@ body:has(dialog[open]) {
 	// Makes modal occupy the full viewport with no radius or margin.
 
 	&-full {
+		--items: stretch;
+		--justify: stretch;
+
 		padding: 0;
-		height: 100vh; // Forces dialog container to fill viewport
 
 		.modal-dialog {
-	   		margin: 0;
-			border-radius: var(--modal-radius, 0);
+			// margin: 0;
+			// border-radius: var(--modal-radius, 0);
+			// width: 100%;
+			// height: 100%;
+			// max-width: none;
+			// display: flex;
+			// flex-direction: column;
+
+			margin: 0;
 			width: 100%;
-			height: 100%;
+			height: 100vh;
 			max-width: none;
-			display: flex;
-			flex-direction: column;
+			border-radius: 0;
 		}
 	}
 
@@ -157,9 +161,17 @@ body:has(dialog[open]) {
 	// ---------------------------------------------------------------------
 	// Allows modal-body content to scroll without exceeding viewport.
 
-	&-scrollable .modal-dialog {
-		max-height: 90vh;
-		overflow-y: auto;
+	&-scrollable {
+		.modal-dialog {
+			// Force the dialog to take up space so internal scroll works
+			height: 100%; 
+		}
+
+		.modal-body {
+			overflow-y: auto;
+			flex: 1; // This pushes header/footer to the edges
+			-webkit-overflow-scrolling: touch;
+		}
 	}
 
 	// ---------------------------------------------------------------------
@@ -177,8 +189,17 @@ body:has(dialog[open]) {
 	// ---------------------------------------------------------------------
 	&-header,
 	&-footer {
+
+		display: flex;
+		flex-shrink: 0;
+		flex-direction: var(--flex-dir, row);
+		align-items: var(--items, center);
+		justify-content: var(--justify, space-between);
+		gap: var(--gap, 1rem);
+		z-index: 2;
 		padding: 1.2rem 1.5rem;
 		background-color: var(--color-surface);
+		flex-shrink: 0; // Prevent header/footer from squishing
 	}
 
 	&-header {
@@ -189,17 +210,25 @@ body:has(dialog[open]) {
 	&-footer {
 		//padding-top: 0.5rem;
 		padding-top: 0;
+		--justify: flex-end; // Standard footer alignment
 	}
 
 	&-body {
 		padding: 1rem 1.5rem;
+		flex: 1; // Take up remaining space
+		
+		// Body can also be a flex container if needed via utility
+		display: flex;
+		flex-direction: var(--flex-dir, column);
+		gap: var(--gap, 0);
 	}
 
 	&-title {
 		font-size: 1.25rem;
 		font-weight: 600;
 		color: var(--color-text);
-		margin-bottom: 20px;
+		//margin-bottom: 20px;
+		margin: 0; // Margin handled by gap/padding now
 	}
 
 	// ---------------------------------------------------------------------
@@ -209,29 +238,27 @@ body:has(dialog[open]) {
 	&-close {
 		position: absolute;
 		top: 1rem;
-		right: 1.2rem; //1rem;
+		right: 1.2rem;
 		background: transparent;
 		border: none;
 		cursor: pointer;
 		font-size: 1.25rem;
 		color: var(--color-text);
 		z-index: 10;
+		line-height: 1;
 
 		&-outside {
-			top: 0;
-			right: -5px;
-			transform: translateX(20px) translateY(-80%);
-			color: var(--color-surface);
-			z-index: 20;
-
 			position: absolute;
-			overflow: visible;
-
-			padding: 0.5rem;
-
-			&:hover {
-				color: var(--color-surface);
-				opacity: 0.85;
+			top: 0;
+			right: 0;
+			transform: translateX(calc(100% + 10px)) translateY(0);
+			
+			@media (max-width: 768px) {
+				// On mobile, "outside" usually doesn't work well; move it inside
+				transform: none;
+				right: 1rem;
+				top: 1rem;
+				color: var(--color-text);
 			}
 		}
 	}
