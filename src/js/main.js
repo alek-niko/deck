@@ -2,7 +2,7 @@
  * @module main
  * @description Entry point for prototyping and development builds. 
  *				Imports core components and initializes a global `Deck` instance,
- 				automatically register and load UI components
+ *				automatically register and load UI components
  * 				and checks for an optional modules manifest.
  */
 
@@ -26,15 +26,20 @@ import modules from './modules/index.js';
 import plugins from './plugins/index.js';
 
 /**
- * @global
- * @description Creates a new instance of the Deck class and attaches it to the global `window` object.
- */
-window.deck = new Deck()
-
-/**
  * Initializes the component registry and optional modules.
  */
 async function initialize() {
+
+	// Check for "Developer-Mode" HTML settings (Optional)
+	const localOptions = window.DECK_CONFIG || {};
+
+	// Instantiate Deck
+	window.deck = new Deck(localOptions);
+
+	// Remote Hydration
+	if (window.deck.settings.settingsUrl) {
+		await window.deck.hydrate();
+	}
 
 	// Define standard UI components
 	// ──────────────────────────────
@@ -139,6 +144,12 @@ async function initialize() {
 }
 
 // Kick off the async initialization
-initialize().catch(err => {
-	console.error("Deck: Critical failure during initialization:", err);
-});
+if (window.deck) {
+	console.warn("Deck already initialized. Skipping...");
+	
+} else {
+	
+	initialize().catch(err => {
+		console.error("Deck: Critical failure during initialization:", err);
+	});
+}
