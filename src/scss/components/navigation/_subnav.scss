@@ -24,10 +24,14 @@
 
 
 .subnav {
+
 	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	margin-left: -20px;
+	flex-direction: var(--flex-dir, row);
+	flex-wrap: var(--flex-wrap, wrap);
+	justify-content: var(--justify, flex-start);
+	align-items: var(--items, center);
+	gap: var(--gap, 20px);
+
 	padding: 0;
 	list-style: none;
 	overflow-x: auto;
@@ -37,9 +41,8 @@
 	// Subnav items
 	//--------------------------------------
 
-	>* {
+	> * {
 		flex: none;
-		padding-left: 20px;
 		position: relative;
 
 		> :first-child {
@@ -49,7 +52,7 @@
 			color: var(--color-text-muted, #999);
 		}
 
-		>a {
+		> a {
 			text-decoration: none;
 			color: inherit;
 
@@ -69,12 +72,12 @@
 	// Active & Disabled States
 	//--------------------------------------
 
-	>.active>a {
+	> .active > a {
 		color: var(--color-text, #333);
 		font-weight: 500;
 	}
 
-	>.disabled>a {
+	> .disabled > a {
 		color: var(--color-text-disabled, var(--color-text-muted, #999));
 		pointer-events: none;
 		opacity: 0.6;
@@ -85,24 +88,22 @@
 	//--------------------------------------
 
 	&-divider {
-		margin-left: -41px;
+		// Double the gap to account for the divider space
+        --gap: 40px;
 
-		>* {
+		> * {
 			display: flex;
 			align-items: center;
 		}
 
-		> ::before {
-			content: "";
-			height: 1.5em;
-			margin-left: 0;
-			margin-right: 20px;
-			border-left: 1px solid transparent;
-		}
-
-		> :nth-child(n+2):not(.first-column)::before {
-			border-left-color: var(--color-border, rgba(0, 0, 0, 0.06));
-		}
+		// Target every item except the first to add a line
+        > *:not(:first-child)::before {
+            content: "";
+            height: 1.5em;
+            margin-right: var(--gap); // Pulls the divider into the middle of the gap
+            margin-left: calc(var(--gap) / -2); 
+            border-left: 1px solid var(--color-border, rgba(0, 0, 0, 0.06));
+        }
 	}
 
 	//--------------------------------------
@@ -110,22 +111,24 @@
 	//--------------------------------------
 
 	&-pill {
-		>*> :first-child {
-			padding: 5px 10px;
-			border-radius: var(--radius-pill, 16px);
+		--gap: 10px; // Pills usually sit closer together
+
+		> * > :first-child {
+			padding: 5px 12px;
+			border-radius: var(--radius-pill, 50px);
 			background-color: transparent;
 			color: var(--color-text-muted, #999);
 			transition: background-color 0.2s ease, color 0.2s ease;
 		}
 
-		>*>a:hover,
-		>*>a:focus,
-		>*>a:active {
+		//> * > a:active,
+		> * > a:hover,
+		> * > a:focus {
 			background-color: var(--color-hover-surface, #f8f8f8);
 			color: var(--color-text, #666);
 		}
 
-		>.active>a {
+		> .active > a {
 			background-color: var(--color-primary, #1e87f0);
 			color: var(--color-text-inverse, #fff);
 		}
@@ -136,15 +139,14 @@
 	//--------------------------------------
 
 	@include respond-below('md') {
-		& {
-			flex-wrap: nowrap;
-			overflow-x: auto;
-			white-space: nowrap;
-			padding-bottom: 0.5rem;
-
-			>* {
-				flex: none;
-			}
-		}
+		--flex-wrap: nowrap; // Force scrollable row on mobile
+        padding-bottom: 8px; // Space for scrollbar if visible
+        
+        // Optional: ensure it stays a row even if utility classes tried to change it
+        flex-direction: row;
+		// Hide scrollbars but keep functionality
+        &::-webkit-scrollbar { display: none; }
+        -ms-overflow-style: none;
+        scrollbar-width: none;
 	}
 }
