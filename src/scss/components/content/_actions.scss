@@ -10,7 +10,8 @@
 
 .actions {
 	display: flex;
-	gap: var(--spacing-lg);
+	gap: var(--gap, var(--spacing-lg, 0));
+
 
 	// Local fallback color vars (scoped to .actions)
 	--reply-active-fallback:   #005bb5;
@@ -24,8 +25,8 @@
 	// --------------------------------------------
 	.action {
 		display: inline-flex;
-		align-items: center;
-		gap: 0.4rem;
+		align-items: var(--items, center);
+		gap: var(--gap, 0,4rem);
 		color: var(--action-color, var(--color-text-muted));
 		font-size: 0.875rem;
 		cursor: pointer;
@@ -41,7 +42,7 @@
 		svg {
 			width: 1.50rem;
 			height: 1.50rem;
-			flex-shrink: 0;
+			flex-shrink: var(--flex-shrink, 0);
             color: inherit;
 		}
 
@@ -94,7 +95,7 @@
 
 .post .actions,
 .actions.post-actions {
-	justify-content: space-between;
+	justify-content: var(--justify, space-between);
 	margin-top: var(--spacing-sm);
 	max-width: 425px;
 
