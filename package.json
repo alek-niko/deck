@@ -22,10 +22,11 @@
 		"build": "node src/build/engine.mjs",
 		"build:split": "node src/build/engine.mjs --split",
 		"build:core": "node src/build/engine.mjs --core",
-
 		"build:pages": "node src/build/engine.mjs --pages",
 		"build:prod": "node src/build/engine.mjs --pages --split",
 
-		"dev": "node ssrc/build/engine.mjs --watch --split"
+		"dev": "node src/build/engine.mjs --watch --split",
+
+		"sync": "git pull origin main --rebase --autostash"
 	}
 }
