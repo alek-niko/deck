@@ -26,14 +26,17 @@ class FileValidator {
 		DOC: ['pdf', 'txt', 'zip', 'docx']
 	};
 
+	// todo: Consider image instead of feed. 
 	static SPECS = {
-		feed: { maxSize: 15 * 1024 * 1024, type: 'IMAGE' },
-		avatar: { width: 400, height: 400, maxSize: 5 * 1024 * 1024, type: 'IMAGE' },
-		cover: { width: 1500, height: 500, maxSize: 15 * 1024 * 1024, type: 'IMAGE' },
-		thumb: { width: 200, height: 200, maxSize: 2 * 1024 * 1024, type: 'IMAGE' },
-		preview: { width: 1200, height: 630, maxSize: 8 * 1024 * 1024, type: 'IMAGE' },
-		shorts: { maxSize: 100 * 1024 * 1024, type: 'VIDEO' },
-		videos: { maxSize: 5 * 1024 * 1024 * 1024, type: 'VIDEO' }
+		feed:		{ width: 1200, maxSize: 15 * 1024 * 1024, type: 'IMAGE' },
+		avatar:		{ width: 400, height: 400, maxSize: 5 * 1024 * 1024, type: 'IMAGE' },
+		cover:		{ width: 1500, height: 500, maxSize: 15 * 1024 * 1024, type: 'IMAGE' },
+		thumb:		{ width: 200, height: 200, maxSize: 2 * 1024 * 1024, type: 'IMAGE' },
+		preview:	{ width: 1200, height: 630, maxSize: 8 * 1024 * 1024, type: 'IMAGE' },
+		shorts:		{ maxSize: 100 * 1024 * 1024, maxDuration: 60, type: 'VIDEO' }, // 60s limit
+		videos:		{ maxSize: 5 * 1024 * 1024 * 1024, type: 'VIDEO' },
+		audio:		{ maxSize: 10 * 1024 * 1024, maxDuration: 300, type: 'AUDIO' }, // 5m limit
+		documents:	{ maxSize: 25 * 1024 * 1024, type: 'DOC' }
 	};
 
 	/**
@@ -78,6 +81,88 @@ class FileValidator {
 		}
 		return 'file';
 	}
+
+	async getMediaMetadata(file) {
+		// Check if the current spec type even supports dimensions
+		const specType = this.spec.type; // e.g., 'IMAGE', 'VIDEO', 'AUDIO', 'DOC'
+		
+		// If it's a DOC or AUDIO, dimensions don't exist. Resolve early.
+		if (specType === 'DOC' || specType === 'AUDIO') {
+			return { width: 0, height: 0, size: file.size };
+		}
+
+		return new Promise((resolve) => {
+			const url = URL.createObjectURL(file);
+			const isVideo = specType === 'VIDEO';
+			const media = isVideo ? document.createElement('video') : new Image();
+
+			if (isVideo) {
+				media.preload = 'metadata';
+				// Important for some browsers to trigger metadata load
+				media.muted = true; 
+				media.playsInline = true;
+
+				media.onloadedmetadata = () => {
+					const meta = { 
+						width: media.videoWidth, 
+						height: media.videoHeight, 
+						duration: media.duration 
+					};
+					URL.revokeObjectURL(url);
+					resolve(meta);
+				};
+			} else {
+				media.onload = () => {
+					const meta = { 
+						width: media.naturalWidth, 
+						height: media.naturalHeight 
+					};
+					URL.revokeObjectURL(url);
+					resolve(meta);
+				};
+			}
+
+			media.onerror = () => {
+				URL.revokeObjectURL(url);
+				resolve(null);
+			};
+			
+			media.src = url;
+		});
+	}
+
+	async validate(file) {
+		const spec = this.spec;
+
+		// Basic Type/Size Checks
+		if (!this.isValidType(file)) {
+			throw new Error(`Invalid file type. Allowed: ${FileValidator.WHITELIST[spec.type].join(', ')}`);
+		}
+		
+		if (!this.isValidSize(file)) {
+			throw new Error(`File is too large. Max: ${spec.maxSize / (1024 * 1024)}MB`);
+		}
+
+		// Only check dimensions if the spec defines them
+		if (spec.width || spec.height) {
+			const meta = await this.getMediaMetadata(file);
+			
+			if (!meta) throw new Error('Could not read media metadata.');
+
+			// For Avatar/Cover, we usually check for "Exactly" or "Minimum"
+			// Let's assume these are Minimum requirements
+			if (spec.width && meta.width < spec.width) {
+				throw new Error(`Width too small. Required: ${spec.width}px, Found: ${meta.width}px`);
+			}
+			if (spec.height && meta.height < spec.height) {
+				throw new Error(`Height too small. Required: ${spec.height}px, Found: ${meta.height}px`);
+			}
+			
+			file.dimensions = meta;
+		}
+
+		return true;
+	}
 }
 
 /**
@@ -121,6 +206,7 @@ class Uploader extends Component {
 			url: '/api/upload/multipart',		// {string} 		- The server URL to which the files will be uploaded.
 			presignUrl: '/api/upload/presign', 	// {string}			- URL to request presigned URLs for upload.
 			streamUrl: '/api/upload/stream',	// {string}			- URL for streaming uploads.
+			approveUrl: '/api/media/approve',	// {string}			- URL for upload confirmation.
 			target: 'feed',						// {string}			- Default target query param, defaults to 'feed'
 		};
 
@@ -316,6 +402,38 @@ class Uploader extends Component {
 	}
 
 	/**
+	 * Extracts dimensions from a File or Blob object.
+	 * @param {File|Blob} file 
+	 * @returns {Promise<{width: number, height: number}>}
+	 */
+	async getImageDimensions(file) {
+		return new Promise((resolve, reject) => {
+			if (!file.type.startsWith('image/')) {
+				return resolve({ width: 0, height: 0 });
+			}
+
+			const img = new Image();
+			const url = URL.createObjectURL(file);
+
+			img.onload = () => {
+				const dimensions = {
+					width: img.naturalWidth,
+					height: img.naturalHeight
+				};
+				URL.revokeObjectURL(url); // Clean up memory immediately
+				resolve(dimensions);
+			};
+
+			img.onerror = () => {
+				URL.revokeObjectURL(url);
+				reject(new Error("Failed to load image for dimension check."));
+			};
+
+			img.src = url;
+		});
+	}
+
+	/**
 	 * Posts a file to the server using the POST method and a presigned POST URL.
 	 * This method supports multipart form uploads.
 	 * @param {Object} file - The file to upload.
@@ -323,53 +441,84 @@ class Uploader extends Component {
 	 */
 	async post(file) {
 		try {
+			
+			// Collect Metadata (Universal Sensor)
+            // We use the unified helper to handle Image, Video, and Audio.
+			const meta = await this.fileValidator.getMediaMetadata(file.rawFile);
 
-			const { presignUrl, data, headers, withCredentials, presign, target } = this;
+			// Attach stats to the file object
+            file.width = meta?.width || 0;
+            file.height = meta?.height || 0;
+            file.duration = meta?.duration || 0;
+            file.sizeFormatted = (file.size / 1024).toFixed(2) + ' KB';
+
+			console.log(`[Uploader] Preparing ${file.fileName}: ${file.width}x${file.height} (${file.sizeFormatted})`);
+
+			const { presignUrl, approveUrl, data, headers, withCredentials, presign, target } = this;
 
 			let uploadUrl = this.url;
 			let formData = new FormData();
 
+			// Get Presigned URL and Reserver record
 			if (presign) {
 
+				// We send filename, target, and size so the backend 'guard' can validate the specs.
+                const urlParams = new URLSearchParams({
+                    target: target,
+                    filename: file.fileName,
+                    size: file.size,
+					width: file.width,
+					height: file.height,
+					duration: file.duration,
+                    mimeType: file.rawFile.type
+                }).toString();
+
 				// Get presigned POST data for file upload
-				const response = await fetch(`${presignUrl}?target=${target}&filename=${encodeURIComponent(file.fileName)}`);
-				
-				if (!response.ok) throw new Error('Failed to get presigned URL');
+				const response = await fetch(`${presignUrl}?${urlParams}`, {
+                   //headers: headers // Pass auth headers if needed for the presign request
+                });
+
+				if (!response.ok) {
+                    const errData = await response.json().catch(() => ({}));
+                    throw new Error(errData.message || 'Failed to get presigned URL');
+                }
 
 				const presigned = await response.json();
 
-				// The API returns the fields in 'data.fields' or just 'fields'
-				const s3Fields = presigned.data?.fields || presigned.fields;
-				const s3Url = presigned.data?.url || presigned.url;
+				// Extract S3 payload and internal Tracking IDs
+                const s3Fields = presigned.data?.fields || presigned.fields;
+                const s3Url = presigned.data?.url || presigned.url;
+                const mediaId = presigned.data?.media_id; // Reserved ID from DB
+                const serverName = presigned.data?.filename || presigned.filename; // Sanitized name
 
-				// Grab the S3 key directly from your backend's response
-				// This is exactly what UserSettings needs to save to the DB.
-				file.location = s3Fields.key;
+				// Update file identity based on server-side sanitization
+                file.id = mediaId;
+                file.location = s3Fields.key; // The full S3 path (folder/sanitized_name)
+                file.fileName = serverName;
+                file.type = this.fileValidator.getFileType(serverName);
 
-				file.type = this.fileValidator.getFileType(file.fileName);
-				file.fileName = presigned.data?.filename || presigned.filename;
 				uploadUrl = s3Url;
 
 				/**
-				 * CRITICAL S3 ORDERING:
-				 * All policy fields MUST come before the 'file' field.
-				 * Append presigned fields to form data
-				 */
+                 * CRITICAL S3 ORDERING:
+                 * S3 requires all policy fields (X-Amz-Signature, etc.) to appear 
+                 * in the FormData BEFORE the 'file' field.
+                 */
 				Object.entries(s3Fields).forEach(([k, v]) => {
 					formData.append(k, v);
-				});
-				
+				});				
 			}
 
-			// Append file to form data
+			// Append binary file to form data
 			formData.append('file', file.rawFile);
 
-			// Append any extra developer data (only if not using S3, or if policy allows)
+			// Append developer-provided data (Only used if NOT uploading to S3)
 			if (!presign) {
 				Object.entries(data).forEach(([k, v]) => formData.append(k, v));
 			}
 
-			// Start uploading via POST method
+			// Upload to S3
+            // Note: We use 'omit' for credentials when hitting S3 directly.
 			const uploadResponse = await fetch(uploadUrl, {
 				method: 'POST',
 				body: formData,
@@ -383,12 +532,32 @@ class Uploader extends Component {
 				throw new Error(`Upload failed with status ${uploadResponse.status}`);
 			}
 
-			file.status = 'done'; // Mark as uploaded successfully
+			// Backend approval/confirmation
+            // This transitions the record from 'pending' to 'approved' in DB.
+            if (presign && file.id) {
+                const approveResponse = await fetch(`${approveUrl}/${file.id}`, {
+                    method: 'PATCH',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        ...headers 
+                    }
+                });
+
+                if (!approveResponse.ok) {
+                    throw new Error('Upload succeeded, but backend approval failed.');
+                }
+            }
+
+			// Finalize status and mark as uploaded successfully
+			file.status = 'done';
+
+			// Dispatch event with the fully enriched file object
 			this.dispatchEvent('done', { file }, true);
 
 		} catch (error) {
-			file.status = 'error'; // Set error status on failure
-			this.dispatchEvent('error', { message: error.message, file }, true);
+			console.error('[Uploader] Post Error:', error);
+            file.status = 'error';
+            this.dispatchEvent('error', { message: error.message, file }, true);
 		}
 	}
 
@@ -400,21 +569,43 @@ class Uploader extends Component {
 	async put(file) {
 
 		try {
-			const { presignUrl, headers, withCredentials, presign, target } = this;
+
+			// Collect Metadata (Universal Sensor)
+            // Using the validator's helper to ensure cross-type compatibility (Image/Video/Audio)
+            const meta = await this.fileValidator.getMediaMetadata(file.rawFile);
+
+			// Attach to the file object
+			file.width = meta?.width || 0;
+			file.height = meta?.height || 0;
+			file.duration = meta?.duration || 0;
+			file.sizeFormatted = (file.size / 1024).toFixed(2) + ' KB';
+
+			console.log(`[Uploader] Preparing ${file.fileName} (PUT): ${file.width}x${file.height} (${file.sizeFormatted})`);
+
+			const { presignUrl, approveUrl, headers, withCredentials, presign, target } = this;
 
 			// Start with our internal API URL
 			let uploadUrl = this.url;
 			
 			if (presign) {
+				// We send filename, target, and size so the backend 'guard' can validate the specs.
+				const urlParams = new URLSearchParams({
+                    target: target,
+                    filename: file.fileName,
+                    size: file.size,
+					width: file.width,
+					height: file.height,
+					duration: file.duration,
+                    mimeType: file.rawFile.type
+                }).toString();
+
 				/**
 				 * Request the Presigned URL from our backend.
 				 * Backend expects: ?target=xxx&filename=yyy
 				 * Note: Size is usually optional for PUT presigns unless we 
 				 * enforce Content-Length headers in S3.
 				 */
-				const response = await fetch(
-					`${presignUrl}?target=${target}&filename=${encodeURIComponent(file.fileName)}`
-				);
+				const response = await fetch(`${presignUrl}?${urlParams}`, { headers });
 
 				if (!response.ok) {
 					const errorData = await response.json().catch(() => ({}));
@@ -422,13 +613,22 @@ class Uploader extends Component {
 				}
 
 				const presigned = await response.json();
-				
-				// Update file metadata from server response
-				file.type = this.fileValidator.getFileType(file.fileName);
-				file.fileName = presigned.data.filename;
 
-				file.location = presigned.data?.fields?.key || presigned.data?.key;
-				
+				// Extract IDs and Sanitized Filename from backend
+                const mediaId = presigned.data?.media_id;
+                const serverName = presigned.data?.filename || presigned.filename;
+                
+				// Update file metadata from server response
+                file.id = mediaId;
+                file.fileName = serverName;
+                file.type = this.fileValidator.getFileType(serverName);
+
+				/**
+                 * S3 PUT logic: The location is the S3 Key.
+                 * Unlike POST, PUT presigns usually return the key directly in the data object.
+                 */
+                file.location = presigned.data?.key || (presigned.data?.fields && presigned.data.fields.key);
+
 				// The 'url' returned here is the direct AWS S3 PUT URL
 				uploadUrl = presigned.data.url;
 			}
@@ -453,12 +653,30 @@ class Uploader extends Component {
 			});
 
 			if (!uploadResponse.ok) {
+				const errorText = await uploadResponse.text();
+				console.error('[S3 PUT Error Response]', errorText);
 				throw new Error(`Upload to S3 failed with status: ${uploadResponse.status}`);
 			}
 
-			// Mark as successful
-			file.status = 'done';
-			this.dispatchEvent('done', { file }, true);
+			// Backend approval
+            // Finalize the 'pending' record in the database
+            if (presign && file.id) {
+                const approveResponse = await fetch(`${approveUrl}/${file.id}`, {
+                    method: 'PATCH',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        ...headers 
+                    }
+                });
+
+                if (!approveResponse.ok) {
+                    throw new Error('Upload succeeded, but backend approval failed.');
+                }
+            }
+
+			// Mark as successful and dispatch
+            file.status = 'done';
+            this.dispatchEvent('done', { file }, true);
 
 		} catch (error) {
 			console.error('[Uploader] PUT Error:', error);
@@ -485,16 +703,30 @@ class Uploader extends Component {
 		const { signal } = file.abortController;
 
 		try {
+
+			// Collect Metadata (Universal Sensor)
+            const meta = await this.fileValidator.getMediaMetadata(file.rawFile);
+
+			// Attach immediate local stats
+            file.width = meta?.width || 0;
+            file.height = meta?.height || 0;
+            file.duration = meta?.duration || 0;
+            file.sizeFormatted = (file.size / 1024).toFixed(2) + ' KB';
+
 			const { streamUrl, headers, withCredentials, target } = this;
 			const contentType = file.rawFile.type || 'application/octet-stream';
-			
-			// Prepare Metadata (Matching Backend req.query)
-			const queryParams = new URLSearchParams({
-				filename: file.fileName,
-				target: target, 
-				totalSize: file.size.toString(),
-				type: contentType
-			}).toString();
+
+			// Prepare request
+            // We pass metadata via query so the backend can use it for the immediate DB 'approved' record
+            const queryParams = new URLSearchParams({
+                filename: file.fileName,
+                target: target, 
+                totalSize: file.size.toString(),
+                type: contentType,
+                width: file.width,
+                height: file.height,
+                duration: file.duration
+            }).toString();
 
 			const uploadUrl = `${streamUrl}?${queryParams}`;
 
@@ -537,6 +769,11 @@ class Uploader extends Component {
 				buffer = parts.pop(); // Keep partial data for the next read
 
 				for (const part of parts) {
+
+					/**
+                     * processSseEvent should update the 'file' object with 
+                     * the final 'location' and 'fileName' once the 'done' event arrives.
+                     */
 					const isFatal = this.#processSseEvent(part, file);
 					// If the backend sent a fatal error (like spoofing), stop retrying.
 					if (isFatal) return; 
@@ -699,16 +936,32 @@ class Uploader extends Component {
 			// Prepare Multipart Form Data
 			const formData = new FormData();
 
-			fileList.forEach(file => {
-				formData.append('files', file.rawFile, file.fileName);
-				file.status = 'uploading';
-				file.abortController = controller; // Attach controller to each file for UI access
-			});
+			// Metadata collection and preparation
+            // We map through the list to gather all metadata concurrently before appending
+            await Promise.all(fileList.map(async (file) => {
+                const meta = await this.fileValidator.getMediaMetadata(file.rawFile);
+                
+                // Append metadata to the local file object
+                file.width = meta?.width || 0;
+                file.height = meta?.height || 0;
+                file.duration = meta?.duration || 0;
+                file.sizeFormatted = (file.size / 1024).toFixed(2) + ' KB';
+                file.status = 'uploading';
+                file.abortController = controller;
 
-			// Prepare Query Params (Matches backend req.query.target)
-			const queryParams = new URLSearchParams({
-				target: target
-			}).toString();
+                /**
+                 * Append to Form Data
+                 * We append the binary file. Note: If your backend expects 
+                 * specific metadata fields per file (like width/height), 
+                 * you would append them here as well.
+                 */
+                formData.append('files', file.rawFile, file.fileName);
+            }));
+
+			// Prepare request
+            const queryParams = new URLSearchParams({
+                target: target // Backend uses this to determine S3 folder and specs
+            }).toString();
 
 			const uploadUrl = `${url}/multipart?${queryParams}`;
 
@@ -718,7 +971,7 @@ class Uploader extends Component {
 			const response = await fetch(uploadUrl, {
 				method: 'POST',
 				body: formData,
-				headers,	// Note: Do NOT set Content-Type here.
+				headers,	// IMPORTANT: Do NOT manually set Content-Type for FormData
 				credentials: withCredentials ? 'include' : 'same-origin',
 				signal: signal
 			});
@@ -734,6 +987,9 @@ class Uploader extends Component {
 			let buffer = '';
 
 			while (true) {
+
+				if (signal.aborted) throw new Error('AbortError');
+
 				const { done, value } = await reader.read();
 				if (done) break;
 
@@ -742,7 +998,10 @@ class Uploader extends Component {
 				buffer = parts.pop();
 
 				for (const part of parts) {
-					// Reuse your existing SSE processor
+					/**
+                     * #processSseEvent is critical here. It must match 
+                     * the 'done' event data to the specific file in the fileList array.
+                     */
 					const isFatal = this.#processSseEvent(part, fileList); 
 					if (isFatal) return;
 				}
@@ -755,8 +1014,12 @@ class Uploader extends Component {
 				return;
 			}
 
+			console.error('[Uploader] Multipart Error:', error);
 			fileList.forEach(f => f.status = 'error');
-			this.dispatchEvent('error', { message: error.message, files: fileList }, true);
+			this.dispatchEvent('error', {
+				message: error.message,
+				files: fileList
+			}, true);
 		}
 	}
 
