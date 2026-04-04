@@ -197,7 +197,7 @@ body:has(dialog[open]) {
 		justify-content: var(--justify, space-between);
 		gap: var(--gap, 0);
 		z-index: 2;
-		padding: 1 rem 1.25rem;
+		padding: 1rem 1.25rem;
 		background-color: var(--color-surface);
 		flex-shrink: 0; // Prevent header/footer from squishing
 	}
