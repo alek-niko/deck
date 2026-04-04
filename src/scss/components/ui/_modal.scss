@@ -103,7 +103,7 @@ body:has(dialog[open]) {
 		margin: 20px;
 
 		align-items: var(--items, stretch);
-		gap: var(--gap, 15px);
+		gap: var(--gap, 0);
 		
 		width: 100%;
 		max-width: 600px;
@@ -195,26 +195,26 @@ body:has(dialog[open]) {
 		flex-direction: var(--flex-dir, row);
 		align-items: var(--items, center);
 		justify-content: var(--justify, space-between);
-		gap: var(--gap, 1rem);
+		gap: var(--gap, 0);
 		z-index: 2;
-		padding: 1.2rem 1.5rem;
+		padding: 1 rem 1.25rem;
 		background-color: var(--color-surface);
 		flex-shrink: 0; // Prevent header/footer from squishing
 	}
 
-	&-header {
-		//padding-bottom: 0.5rem;
-		padding-bottom: 0;
-	}
+	// &-header {
+	// 	//padding-bottom: 0.5rem;
+	// 	padding-bottom: 0;
+	// }
 
-	&-footer {
-		//padding-top: 0.5rem;
-		padding-top: 0;
-		--justify: flex-end; // Standard footer alignment
-	}
+	// &-footer {
+	// 	//padding-top: 0.5rem;
+	// 	padding-top: 0;
+	// 	--justify: flex-end; // Standard footer alignment
+	// }
 
 	&-body {
-		padding: 1rem 1.5rem;
+		padding: 1.25rem;
 		flex: 1; // Take up remaining space
 		
 		// Body can also be a flex container if needed via utility
