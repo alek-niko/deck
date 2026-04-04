@@ -95,7 +95,7 @@ $post-avatar-size-sm: 32px;
 			.action-icons {
 				display: flex;
 				flex-wrap: var(--flex-wrap, wrap);
-				gap: var(--gap, var(--spacing-sm, 0));
+				gap: var(--gap, var(--spacing-md, 0));
 
 				> a {
 					color: inherit !important;
@@ -106,7 +106,7 @@ $post-avatar-size-sm: 32px;
 			.action-right {
 				display: flex;
 				align-items: var(--items, center);
-				gap: var(--gap, var(--spacing-sm, 0));
+				gap: var(--gap, var(--spacing-md, 0));
 
 				.char-count {
 					font-size: 0.875rem;
