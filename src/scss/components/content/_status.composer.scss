@@ -6,6 +6,20 @@
 // ============================================
 
 .status-composer {
+
+	.textarea {
+		&.composer {
+			width: 100%;
+			min-height: 2.5rem;
+			padding: var(--spacing-sm) 0;
+			font-size: clamp(1rem,.95rem + .2vw,1.125rem);
+			color: var(--color-text, #111827);
+			background: transparent;
+			border: none;
+			resize: vertical;
+			outline: none;
+		}
+	}
 	
 	//--------------------------------------------
 	// Poll Creator UI
