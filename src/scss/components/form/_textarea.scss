@@ -90,6 +90,7 @@
 
 	&.autosize {
 		overflow-y: hidden;
-		resize: none;
+		/*resize: none;*/
+		resize: var(--autoresize, vertical);
 	}
 }
