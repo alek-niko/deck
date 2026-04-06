@@ -35,8 +35,11 @@ $avatar-radius-square:			8px					!default;
 
 .avatar {
 	display: inline-flex;
-	align-items: center;
-	justify-content: center;
+	--avatar-size: 40px;
+
+	align-items: var(--items, center);
+	justify-content: var(--justify, center);
+	flex-shrink: var(--flex-shrink, 0);
 	overflow: hidden;
 
 	// CSS variable defaults
