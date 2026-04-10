@@ -10,8 +10,15 @@
 	
 	display: flex;
 	overflow: hidden; // Ensures content respects the border-radius.
-	max-width: 500px; // Consider tokenizing
-	margin: var(--spacing-default) 0;
+
+	// Ensure it never overflows its parent
+    width: 100%;
+	max-width: 600px; // Consider tokenizing
+	//margin: var(--spacing-default) 0;
+
+	// Centers the preview if the composer is wider than 600px
+    margin-left: 0; 
+    margin-right: auto;
 
 	font-family: var(--font-primary);
 	background-color: var(--color-surface);
@@ -53,7 +60,8 @@
 		flex-direction: column;
 		padding: var(--spacing-md);
 		flex-grow: 1;
-		min-width: 0;
+		// Prevents text from being too long to read comfortably
+        max-width: 100%;
 	}
 
 	// =========================================================================
@@ -105,7 +113,7 @@
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		text-transform: uppercase;
+		text-transform: none; /*uppercase;*/
 	}
 
 	// =========================================================================
