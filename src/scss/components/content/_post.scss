@@ -61,6 +61,10 @@ $post-avatar-size-sm: 32px;
 		flex-direction: var(--flex-dir, column); 
 		gap: var(--gap, var(--spacing-sm, 0));
 
+		min-width: 0;
+		max-width: 100%;
+		overflow: hidden;
+
 		//----------------------------------------
 		// Textarea Input
 		//----------------------------------------
