@@ -7,8 +7,23 @@
 
 .status-composer {
 
-	.textarea {
-		&.composer {
+	.avatar {--avatar-size: 40px;}
+
+	.content {
+		flex: 1 1 0%;
+		
+		/* The "Safety" trio */
+		min-width: 0;           
+		max-width: 100%;        
+		overflow: hidden;
+
+		/* Any div inside content that might have long text */
+		div {
+			max-width: 100%;
+			word-wrap: break-word;  /* Force long strings to wrap */
+		}
+		
+		.textarea {
 			width: 100%;
 			min-height: 2.5rem;
 			padding: var(--spacing-sm) 0;
