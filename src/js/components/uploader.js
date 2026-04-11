@@ -70,12 +70,12 @@ class FileValidator {
 
 	/**
 	 * Determines the file type based on the file extension.
-	 * @param {string} fileName - The name of the file to determine the type.
+	 * @param {string} filename - The name of the file to determine the type.
 	 * @returns {string} The file type.
 	 * @private
 	 */
-	getFileType(fileName) {
-		const ext = fileName.split('.').pop().toLowerCase();
+	getFileType(filename) {
+		const ext = filename.split('.').pop().toLowerCase();
 		for (const [category, extensions] of Object.entries(FileValidator.WHITELIST)) {
 			if (extensions.includes(ext)) return category.toLowerCase();
 		}
@@ -325,7 +325,7 @@ class Uploader extends Component {
 			this.uploadFiles.push({
 				uid: Math.random().toString(36).substr(2, 10), // Generate a unique ID for the file
 				rawFile: file, // Store the raw file
-				fileName: file.name, // Store the file name
+				filename: file.name, // Store the file name
 				size: file.size, // Store the file size
 				status: 'ready' // Set initial file status to 'ready'
 			});
@@ -455,7 +455,7 @@ class Uploader extends Component {
             file.duration = meta?.duration || 0;
             file.sizeFormatted = (file.size / 1024).toFixed(2) + ' KB';
 
-			console.log(`[Uploader] Preparing ${file.fileName}: ${file.width}x${file.height} (${file.sizeFormatted})`);
+			console.log(`[Uploader] Preparing ${file.filename}: ${file.width}x${file.height} (${file.sizeFormatted})`);
 
 			const { presignUrl, approveUrl, data, headers, withCredentials, presign, target } = this;
 
@@ -468,7 +468,7 @@ class Uploader extends Component {
 				// We send filename, target, and size so the backend 'guard' can validate the specs.
                 const urlParams = new URLSearchParams({
                     target: target,
-                    filename: file.fileName,
+                    filename: file.filename,
                     size: file.size,
 					width: file.width,
 					height: file.height,
@@ -497,7 +497,7 @@ class Uploader extends Component {
 				// Update file identity based on server-side sanitization
                 file.id = mediaId;
                 file.location = s3Fields.key; // The full S3 path (folder/sanitized_name)
-                file.fileName = serverName;
+                file.filename = serverName;
                 file.type = this.fileValidator.getFileType(serverName);
 
 				uploadUrl = s3Url;
@@ -583,7 +583,7 @@ class Uploader extends Component {
 			file.duration = meta?.duration || 0;
 			file.sizeFormatted = (file.size / 1024).toFixed(2) + ' KB';
 
-			console.log(`[Uploader] Preparing ${file.fileName} (PUT): ${file.width}x${file.height} (${file.sizeFormatted})`);
+			console.log(`[Uploader] Preparing ${file.filename} (PUT): ${file.width}x${file.height} (${file.sizeFormatted})`);
 
 			const { presignUrl, approveUrl, headers, withCredentials, presign, target } = this;
 
@@ -594,7 +594,7 @@ class Uploader extends Component {
 				// We send filename, target, and size so the backend 'guard' can validate the specs.
 				const urlParams = new URLSearchParams({
                     target: target,
-                    filename: file.fileName,
+                    filename: file.filename,
                     size: file.size,
 					width: file.width,
 					height: file.height,
@@ -623,7 +623,7 @@ class Uploader extends Component {
                 
 				// Update file metadata from server response
                 file.id = mediaId;
-                file.fileName = serverName;
+                file.filename = serverName;
                 file.type = this.fileValidator.getFileType(serverName);
 
 				/**
@@ -722,7 +722,7 @@ class Uploader extends Component {
 			// Prepare request
             // We pass metadata via query so the backend can use it for the immediate DB 'approved' record
             const queryParams = new URLSearchParams({
-                filename: file.fileName,
+                filename: file.filename,
                 target: target, 
                 totalSize: file.size.toString(),
                 type: contentType,
@@ -775,7 +775,7 @@ class Uploader extends Component {
 
 					/**
                      * processSseEvent should update the 'file' object with 
-                     * the final 'location' and 'fileName' once the 'done' event arrives.
+                     * the final 'location' and 'filename' once the 'done' event arrives.
                      */
 					const isFatal = this.#processSseEvent(part, file);
 					// If the backend sent a fatal error (like spoofing), stop retrying.
@@ -786,7 +786,7 @@ class Uploader extends Component {
 		} catch (error) {
 			// Handle User Cancellation
 			if (error.name === 'AbortError' || signal.aborted) {
-				console.warn(`[Stream] Upload cancelled by user: ${file.fileName}`);
+				console.warn(`[Stream] Upload cancelled by user: ${file.filename}`);
 				file.status = 'cancelled';
 				this.dispatchEvent('cancelled', { file }, true);
 				return;
@@ -851,7 +851,7 @@ class Uploader extends Component {
 		const getTargetFile = (incomingName) => {
 			if (Array.isArray(fileContext)) {
 				// Find file in the batch by name (matches backend data.filename)
-				return fileContext.find(f => f.fileName === incomingName || f.name === incomingName);
+				return fileContext.find(f => f.filename === incomingName || f.name === incomingName);
 			}
 			return fileContext;
 		};
@@ -958,7 +958,7 @@ class Uploader extends Component {
                  * specific metadata fields per file (like width/height), 
                  * you would append them here as well.
                  */
-                formData.append('files', file.rawFile, file.fileName);
+                formData.append('files', file.rawFile, file.filename);
             }));
 
 			// Prepare request
