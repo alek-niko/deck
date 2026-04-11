@@ -145,17 +145,20 @@ class FileValidator {
 
 		// Only check dimensions if the spec defines them
 		if (spec.width || spec.height) {
+
 			const meta = await this.getMediaMetadata(file);
-			
 			if (!meta) throw new Error('Could not read media metadata.');
 
 			// For Avatar/Cover, we usually check for "Exactly" or "Minimum"
-			// Let's assume these are Minimum requirements
-			if (spec.width && meta.width < spec.width) {
-				throw new Error(`Width too small. Required: ${spec.width}px, Found: ${meta.width}px`);
-			}
-			if (spec.height && meta.height < spec.height) {
-				throw new Error(`Height too small. Required: ${spec.height}px, Found: ${meta.height}px`);
+			const isStrict = spec.requirementType === 'STRICT' || ['avatar', 'cover'].includes(spec.target);
+
+			if (isStrict) {
+				if (spec.width && meta.width < spec.width) {
+					throw new Error(`Width too small. Required: ${spec.width}px, Found: ${meta.width}px`);
+				}
+				if (spec.height && meta.height < spec.height) {
+					throw new Error(`Height too small. Required: ${spec.height}px, Found: ${meta.height}px`);
+				}
 			}
 			
 			file.dimensions = meta;
