@@ -5,6 +5,41 @@
 // Styles for the interactive slots within the status-composer.
 // ============================================
 
+// Shared style for all composer "Removers"
+%composer-remove-btn {
+	position: absolute;
+	top: var(--spacing-xs, 8px);
+	right: var(--spacing-xs, 8px);
+	z-index: 10;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 26px; // Slightly larger for better tap target
+	height: 26px;
+	padding: 0;
+
+	// Glassmorphism effect: works on both dark and light media
+	background-color: rgba(15, 20, 25, 0.75);
+	backdrop-filter: blur(4px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 50%;
+	color: #fff;
+
+	cursor: pointer;
+	transition: all 0.2s ease;
+
+	&:hover {
+		background-color: var(--color-danger, #f4212e);
+		color: #fff;
+		transform: scale(1.1);
+	}
+
+	// Support for both text & times; and SVG icons
+	font-size: 18px;
+	line-height: 1;
+}
+
 .status-composer {
 
 	.avatar {--avatar-size: 40px;}
@@ -214,7 +249,7 @@
 			img, video {
 				width: 100%;
 				height: 100%;
-				object-fit: cover; // Keeps the UI "full" and professional
+				object-fit: cover;
 			}
 
 			// 16:9 for standard videos
@@ -230,18 +265,22 @@
 				aspect-ratio: 9 / 16;
 			}
 
-			// DYNAMIC IMAGE LOGIC
+			// Dynamic image
 			&[data-type="image"] {
 				display: block;
 				width: 100%;
 				min-height: 200px;   // Prevents tiny slivers
-				max-height: 520px;   // The "Industry" limit for portrait previews
-				aspect-ratio: auto;  // Crucial: Let the image dictate the height
+				max-height: 520px;   // The limit for portrait previews
+				aspect-ratio: auto;  // Let the image dictate the height
 				
 				img {
 					height: auto; 
 					max-height: 520px;
 				}
+			}
+			
+			.media-close {
+				@extend %composer-remove-btn;
 			}
 
 			.video-badge {
