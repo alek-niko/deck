@@ -52,44 +52,48 @@ $padding-directions: (
 
 .padding {
 
-	@each $size, $value in $padding-sizes {
-	
-		// Generate size suffix (e.g. '-lg' or nothing for 'default')
-		$size-suffix: '';
+	@each $dir, $suffix in $padding-directions {
 
-		@if $size !='default' {
-			$size-suffix: '-' + $size;
+		// Generate direction suffix (e.g. '-top', '-horizontal', or nothing)
+		$dir-suffix: '';
+
+		@if $dir != '' {
+			$dir-suffix: '-' + $dir;
 		}
 
-		// Base class: .padding, .padding-lg, .padding-sm, etc.
-		&#{$size-suffix} {
+		// Base class: .padding-top, .padding-horizontal, .padding, etc.
+		&#{$dir-suffix} {
 
-			// Loop through all possible directions
-			@each $dir, $suffix in $padding-directions {
+			// Loop through all possible sizes
+			@each $size, $value in $padding-sizes {
 
-				// Generate direction suffix (e.g. '-vertical', '-horizontal', or nothing)
-				$dir-suffix: '';
+				// Generate size suffix (e.g. '-md' or nothing for 'default')
+				$size-suffix: '';
 
-				@if $dir !='' {
-					$dir-suffix: '-' + $dir;
+				@if $size != 'default' {
+					$size-suffix: '-' + $size;
 				}
 
-				// Final selector: .padding-lg, .padding-lg-vertical, etc.
-				&#{$dir-suffix} {
+				// Final selector examples:
+				// - .padding-top-md
+				// - .padding-horizontal-lg
+				// - .padding-remove-left
+				&#{$size-suffix} {
 
-					@if meta.type-of($suffix)=='list' {
+					@if meta.type-of($suffix) == 'list' {
 
-						// If suffix is a list (e.g. for 'vertical' → top + bottom)
+						// If suffix is a list (e.g. 'horizontal' → left + right),
+						// apply padding to multiple sides
 						@each $part in $suffix {
 							padding#{$part}: #{$value} !important;
 						}
-					}
 
-					@else {
-						// Single property (e.g. padding, padding-left, etc.)
+					} @else {
+
+						// Single property (e.g. padding, padding-top, etc.)
 						padding#{$suffix}: #{$value} !important;
-					}
 
+					}
 				}
 			}
 		}
