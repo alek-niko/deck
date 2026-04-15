@@ -64,34 +64,34 @@ $margin-directions: (
 
 .margin {
 
-	@each $size, $value in $margin-sizes {
-	
-		// Generate size suffix (e.g. '-md' or nothing for 'default')
-		$size-suffix: '';
+	@each $dir, $suffix in $margin-directions {
 
-		@if $size !='default' {
-			$size-suffix: '-' + $size;
+		// Generate direction suffix (e.g. '-horizontal', '-vertical', or nothing)
+		$dir-suffix: '';
+
+		@if $dir !='' {
+			$dir-suffix: '-' + $dir;
 		}
 
-		// Base class: .margin, .margin-md, .margin-lg, etc.
-		&#{$size-suffix} {
+		// Base class: .margin-horizontal, .margin-vertical, .margin-left, etc.
+		&#{$dir-suffix} {
 
-			// Loop through all possible directions
-			@each $dir, $suffix in $margin-directions {
+			// Loop through all possible sizes
+			@each $size, $value in $margin-sizes {
 
-				// Generate direction suffix (e.g. '-horizontal', '-vertical', or nothing)
-				$dir-suffix: '';
+				// Generate size suffix (e.g. '-md' or nothing for 'default')
+				$size-suffix: '';
 
-				@if $dir !='' {
-					$dir-suffix: '-' + $dir;
+				@if $size !='default' {
+					$size-suffix: '-' + $size;
 				}
 
-				// Final selector: .margin-md, .margin-md-horizontal, .margin-sm-vertical, etc.
-				&#{$dir-suffix} {
+				// Final selector: .margin-horizontal-md, .margin-vertical-sm, etc.
+				&#{$size-suffix} {
 
 					@if meta.type-of($suffix)=='list' {
 
-						// If suffix is a list (e.g. top + bottom), apply multiple properties
+						// If suffix is a list (e.g. left + right), apply multiple properties
 						@each $part in $suffix {
 							margin#{$part}: #{$value} !important;
 						}
@@ -101,7 +101,6 @@ $margin-directions: (
 						// Single property (e.g. margin, margin-left, etc.)
 						margin#{$suffix}: #{$value} !important;
 					}
-
 				}
 			}
 		}
@@ -113,21 +112,11 @@ $margin-directions: (
 		margin-right: auto !important;
 	}
 
-	// Full removal utility
+	// =============================================================================
+	// Full removal utility (your original structure, but in new order)
+	// =============================================================================
 	&-remove {
 		margin: 0 !important;
-		&-top { margin-top: 0 !important; }
-		&-bottom { margin-bottom: 0 !important; }
-		&-left { margin-left: 0 !important; }
-		&-right { margin-right: 0 !important; }
-		&-vertical {
-			margin-top: 0 !important;
-			margin-bottom: 0 !important;
-		}
-		&-horizontal {
-			margin-left: 0 !important;
-			margin-right: 0 !important;
-		}
 	}
 }
 
