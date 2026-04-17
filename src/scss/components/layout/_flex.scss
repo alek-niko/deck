@@ -23,24 +23,29 @@
 // Core flex containers
 // -----------------------------------------------------------------------------
 
-.flex {
-	display: flex;
+%flex-base {
+    // Localize variables to prevent unwanted inheritance
+    --flex-dir: row;
+    --flex-wrap: nowrap;
+    --justify: flex-start;
+    --items: stretch;
+    --gap: 0;
 
-	// Core properties driven by variables for easy overrides
-	flex-direction: var(--flex-dir, row);
-	flex-wrap: var(--flex-wrap, nowrap);
-	justify-content: var(--justify, flex-start);
-	align-items: var(--items, stretch);
-	gap: var(--gap, 0);
+    flex-direction: var(--flex-dir);
+    flex-wrap: var(--flex-wrap);
+    justify-content: var(--justify);
+    align-items: var(--items);
+    gap: var(--gap);
+}
+
+.flex {
+	@extend %flex-base;
+    display: flex;
 }
 
 .flex-inline {
-	display: inline-flex;
-	flex-direction: var(--flex-dir, row);
-	flex-wrap: var(--flex-wrap, nowrap);
-	justify-content: var(--justify, flex-start);
-	align-items: var(--items, stretch);
-	gap: var(--gap, 0);
+	@extend %flex-base;
+    display: inline-flex;
 }
 
 // -----------------------------------------------------------------------------
