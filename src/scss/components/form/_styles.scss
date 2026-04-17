@@ -328,6 +328,12 @@ select.form-width-xsmall {
 //  Semantic states for form inputs: success, error, and blank.
 //-----------------------------------------------------------------------------
 
+form[data-loading="true"] {
+    pointer-events: none; 
+    opacity: 0.7;         
+    transition: opacity 0.3s ease;
+}
+
 .form-success {
 	color: var(--color-success);
 	border-color: var(--color-success);
