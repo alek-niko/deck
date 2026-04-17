@@ -18,6 +18,7 @@ export default class FormManager {
 		this.initAutosizeTextareas();
 		this.initCharCounters();
 		this.#bindEvents();
+		this.#initAjaxForms();
 	}
 
 	/**
@@ -181,4 +182,84 @@ export default class FormManager {
 			}
 		}, true);
 	}
+
+	/**
+	 * Intercepts submissions for forms with .deck-form
+     * @private
+     */
+	#initAjaxForms() {
+        document.addEventListener('submit', async (event) => {
+
+            const form = event.target.closest('.deck-form');
+            if (!form) return;
+
+            event.preventDefault();
+
+            // Show spinner specifically on THIS form
+            // 'overlay' ensures it covers the form and respects its border-radius
+            if (this.ui.spinner) {
+                this.ui.spinner.show(form, { 
+                    mode: 'overlay', 
+                    variant: 'primary',
+                    text: 'Processing...' 
+                });
+            }
+            
+            const submitBtn = form.querySelector('[type="submit"]');
+            const originalContent = submitBtn?.innerHTML;
+
+            try {
+                if (submitBtn) submitBtn.disabled = true;
+
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+
+                const response = await fetch(form.action, {
+                    method: form.method || 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    if (window.deck?.say) {
+                        window.deck.say(result.message || 'Success!', 'success');
+                    }
+					// Dispatch Custom Event
+					// We dispatch on the form so listeners know EXACTLY which form sent data
+					const successEvent = new CustomEvent('form:success', {
+						bubbles: true,		// Allows parent elements to hear it
+						detail: { 
+							data: result,	// The actual JSON from the server
+							form: form		// Reference to the form element
+						}
+					});
+					form.dispatchEvent(successEvent);
+                    form.reset();
+                    form.querySelectorAll('.autosize').forEach(el => el.dispatchEvent(new Event('input')));
+
+                } else {
+                    const errorMsg = result.error || 'Submission failed.';
+                    if (window.deck?.say) window.deck.say(errorMsg, 'danger');
+                }
+
+            } catch (err) {
+                console.error('Form Submission Error:', err);
+                if (window.deck?.say) window.deck.say('Network error.', 'danger');
+
+            } finally {
+                // Hide spinner from THIS specific form
+                if (this.ui.spinner) this.ui.spinner.hide(form);
+                
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalContent;
+                }
+            }
+        });
+    }
 }
