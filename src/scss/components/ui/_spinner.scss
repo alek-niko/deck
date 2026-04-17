@@ -173,22 +173,28 @@
 
 // -----------------------------------------------------------------------------
 // Overlay Container
-// -----------------------------------------------------------------------------
 .spinner-overlay {
-	--overlay-padding: 12px;
-	position: absolute;
-	inset: 0;
-	display: grid;
-	place-items: center;
-	background:
-		color-mix(
-			in srgb,
-			var(--color-surface) 92%,
-			transparent
-		);
-	opacity: 0;
-	pointer-events: none;
-	transition: opacity 200ms ease;
+    --overlay-padding: 12px;
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+    
+    // Accessibility & Animation
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+    z-index: 10;
+    
+    // Inherit the border-radius of the form
+    border-radius: inherit;
+
+    // The Active State (triggered by your JS show() method)
+    &[data-state="visible"] {
+        opacity: 1;
+        pointer-events: auto; /* Block interactions with form fields below */
+    }
 }
 
 /* overlay active */
