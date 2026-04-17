@@ -57,7 +57,7 @@
 	fieldset {
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-md);
+		gap: var(--gap, var(--spacing-md));
 		border: none;
 		padding: 0;
 		margin: 0;
@@ -76,7 +76,7 @@
 	display: flex;				// Default to a horizontal layout.
 	flex-wrap: wrap;			// Allow wrapping on smaller screens.
 	align-items: flex-start;
-	gap: var(--spacing-sm);
+	gap: var(--gap, var(--spacing-md));
 
 	min-width: 0; // 
 
@@ -90,7 +90,7 @@
 		min-width: 0;			// Prevent overflow
 		display: flex;			// Stack input + helper/error text
 		flex-direction: column;
-		gap: var(--spacing-xs);
+		gap: var(--gap, var(--spacing-xs));
 	}
 }
 
@@ -107,13 +107,12 @@
 	.form-group {
 		flex-direction: column;	// Override the default horizontal layout to a vertical one.
 		align-items: stretch;	// Ensure children take up the full width.
-		gap: var(--spacing-xs); // Reduce gap for a tighter stacked look.
+		gap: var(--gap, var(--spacing-sm)); // Reduce gap for a tighter stacked look.
 	}
 
 	.form-label {
 		flex: 1 1 auto;			// Reset the flex property to allow the label to be full-width.
 		padding-top: 0;			// Remove padding needed for horizontal alignment.
-		//margin-bottom: var(--spacing-xs);
 	}
 }
 
