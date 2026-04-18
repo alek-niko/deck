@@ -212,18 +212,29 @@ class Component {
             return;
         }
 
+		// A component is considered "Headless" if it has no element but has a name.
+        const isHeadless = !this.element && this.name;
+
 		// SAFETY CHECK: Prevents Garbage/Pollution
         // If the element has no ID, we cannot guarantee a stable key across refreshes.
         // We disable storage for this instance to prevent "junk" keys.
-        if (!this.element?.id) {
+
+		// Safety Check: Require a stable key via element ID or a designated headless name.
+        if (!this.element?.id && !isHeadless) {
             console.warn(`Component [${this.name}]: Storage enabled but element has no ID. Persistence disabled to prevent garbage.`);
             this.storage = false;
             return;
         }
 
 		const type = `${this.storage}Storage`;
-        const prefix = this.stateKey;
-        const engine = window[type];
+		const engine = window[type];
+
+		/**
+         * Logic: 
+         * - If headless: use "deck-[name]" (e.g., deck-me)
+         * - If element: use stateKey (e.g., user-profile-123)
+         */
+        const prefix = isHeadless ? `deck-${this.name}` : this.stateKey;
         
         this.storage = {
             set: (k, v) => engine.setItem(`${prefix}_${k}`, v),
