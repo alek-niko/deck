@@ -1,6 +1,6 @@
 // ============================================
 // COMPONENT: COMMENT SYSTEM
-// path: components/content/_comment.scss
+// components/content/_comment.scss
 // --------------------------------------------
 // Threaded discussion engine with CSS-driven 
 // nesting limits and variable-based spacing.
@@ -172,14 +172,17 @@
 	// Elements: Composer & Editor
 	// ----------------------------------------
 	&-composer {
+
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-sm, 12px);
+		/*
 		padding: var(--spacing-default, 24px);
 		background-color: var(--color-surface-raised, #fff);
 		border: 1px solid var(--color-border, #eee);
 		border-radius: var(--radius-lg, 12px);
 		box-shadow: var(--shadow-sm);
+		*/
 
 		textarea {
 			width: 100%;
