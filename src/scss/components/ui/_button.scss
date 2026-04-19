@@ -180,9 +180,9 @@ $variants: (
 	//height: auto;
 	padding: 0.5rem;
 
-	// &:not([data-variant]) {
-	// 	--button-bg: var(--color-text);
-	// }
+	&:not([data-variant]) {
+		--button-bg: var(--color-text);
+	}
 
 	&:hover {
 		background-color: color-mix(in srgb, var(--button-bg) 15%, transparent);
