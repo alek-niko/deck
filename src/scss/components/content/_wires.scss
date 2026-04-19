@@ -6,46 +6,48 @@
 @use '../../abstracts/variables/breakpoints' as *;
 
 .wire {
-    //--------------------------------------------
-    // Tokens
-    //--------------------------------------------
-    --wire-title-size: 1.125rem;
-    --wire-vote-width: 34px;
-    --wire-bg-hover: color-mix(in srgb, var(--color-text) 2%, transparent);
-    --wire-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+	//--------------------------------------------
+	// Tokens
+	//--------------------------------------------
+	--wire-title-size: 1.125rem;
+	--wire-vote-width: 34px;
+	--wire-bg-hover: color-mix(in srgb, var(--color-text) 2%, transparent);
+	--wire-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
 
-    list-style: none;
-    padding: 4px 0;
-    margin: 0;
-    overflow: hidden;
+	list-style: none;
+	padding: 4px 0;
+	margin: 0;
+	overflow: hidden;
 
-    //--------------------------------------------
-    // Base Item Row
-    //--------------------------------------------
-    .news {
-        display: flex;
-        align-items: flex-start;
-        min-height: 68px;
-        background-color: transparent;
-        transition: background-color 0.2s ease, transform 0.2s ease;
-        position: relative;
+	//--------------------------------------------
+	// Base Item Row
+	//--------------------------------------------
+	.news {
+		display: flex;
+		align-items: flex-start;
+		min-height: 68px;
+		background-color: transparent;
+		transition: background-color 0.2s ease, transform 0.2s ease;
+		position: relative;
 
-        .voting {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: var(--wire-vote-width);
-            padding-top: 12px; 
-            flex-shrink: 0;
+		.voting {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: var(--wire-vote-width);
+			padding: 10px 0; 
+			flex-shrink: 0;
+			min-height: 68px;
 
-            .vote-btn {
-                background: none;
-                border: none;
-                cursor: pointer;
-                padding: 4px;
-                color: var(--color-text-muted);
-                transition: color 0.15s ease, transform 0.1s ease;
-                font-size: 1rem;
+			.vote-btn {
+				background: none;
+				border: none;
+				cursor: pointer;
+				padding: 4px;
+				color: var(--color-text-muted);
+				transition: color 0.15s ease, transform 0.1s ease;
+				font-size: 1rem;
 
 				&.is-active {
 					// Upvote active (Green/Primary)
@@ -61,112 +63,112 @@
 					}
 				}
 
-                &:hover { color: var(--color-primary); }
-                &:active { transform: scale(0.9); }
-                
-                &.is-active {
-                    &[data-direction="up"] { color: var(--color-success); }
-                    &[data-direction="down"] { color: var(--color-danger); }
-                }
-            }
-        }
+				&:hover { color: var(--color-primary); }
+				&:active { transform: scale(0.9); }
+				
+				&.is-active {
+					&[data-direction="up"] { color: var(--color-success); }
+					&[data-direction="down"] { color: var(--color-danger); }
+				}
+			}
+		}
 
-        .content {
-            flex: 1;
-            padding: 12px 12px 12px 0;
-            min-width: 0;
+		.content {
+			flex: 1;
+			padding: 12px 12px 12px 0;
+			min-width: 0;
 
-            .title {
-                margin: 0;
-                font-size: var(--wire-title-size);
-                font-weight: 500;
-                line-height: 1.4;
-                color: var(--color-text);
-                
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
+			.title {
+				margin: 0;
+				font-size: var(--wire-title-size);
+				font-weight: 500;
+				line-height: 1.4;
+				color: var(--color-text);
+				
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
 
-                a { color: inherit; text-decoration: none; }
-            }
+				a { color: inherit; text-decoration: none; }
+			}
 
-            .meta {
-                display: block;
-                margin-top: 4px;
-                font-size: 0.75rem;
-                color: var(--color-text-muted);
-            }
-        }
+			.meta {
+				display: block;
+				margin-top: 4px;
+				font-size: 0.75rem;
+				color: var(--color-text-muted);
+			}
+		}
 
-        & + .news {
-            border-top: 1px solid var(--color-border-muted);
-        }
-    }
+		& + .news {
+			border-top: 1px solid var(--color-border-muted);
+		}
+	}
 
-    //--------------------------------------------
-    // Hover Variant
-    //--------------------------------------------
-    &.wire-hover {
-        .news:hover {
-            background-color: var(--wire-bg-hover);
-            z-index: 1;
-            transform: translateY(-1px); 
+	//--------------------------------------------
+	// Hover Variant
+	//--------------------------------------------
+	&.wire-hover {
+		.news:hover {
+			background-color: var(--wire-bg-hover);
+			z-index: 1;
+			transform: translateY(-1px); 
 
-            .content {
-                // Only apply shadow if the background isn't transparent
-                // background-color: var(--color-surface); 
-                // box-shadow: var(--wire-shadow);
+			.content {
+				// Only apply shadow if the background isn't transparent
+				// background-color: var(--color-surface); 
+				// box-shadow: var(--wire-shadow);
 
-                @media (max-width: $breakpoint-md-max) {
-                    box-shadow: none;
-                    transform: none;
-                }
-            }
-        }
-    }
+				@media (max-width: $breakpoint-md-max) {
+					box-shadow: none;
+					transform: none;
+				}
+			}
+		}
+	}
 
-    //--------------------------------------------
-    // Size & Density Variants
-    //--------------------------------------------
-    
-    // Small (.wire-sm)
-    &.wire-sm {
-        .news {
-            min-height: 56px;
-            .voting { padding-top: 10px; }
-            .content {
-                padding: 8px 10px 8px 0;
-                .title { font-size: 1rem; }
-                .meta { font-size: 0.6875rem; }
-            }
-        }
-    }
+	//--------------------------------------------
+	// Size & Density Variants
+	//--------------------------------------------
+	
+	// Small (.wire-sm)
+	&.wire-sm {
+		.news {
+			min-height: 56px;
+			.voting { padding-top: 10px; }
+			.content {
+				padding: 8px 10px 8px 0;
+				.title { font-size: 1rem; }
+				.meta { font-size: 0.6875rem; }
+			}
+		}
+	}
 
-    // Compact (.wire-compact)
-    &.wire-compact {
-        padding: 2px 0;
-        .news {
-            min-height: auto;
-            .voting { padding-top: 6px; --wire-vote-width: 28px; }
-            .content {
-                padding: 6px 10px 6px 0;
-                .title { font-size: 0.95rem; line-height: 1.3; }
-                .meta { font-size: 0.6875rem; }
-            }
-        }
-    }
+	// Compact (.wire-compact)
+	&.wire-compact {
+		padding: 2px 0;
+		.news {
+			min-height: auto;
+			.voting { padding-top: 6px; --wire-vote-width: 28px; }
+			.content {
+				padding: 6px 10px 6px 0;
+				.title { font-size: 0.95rem; line-height: 1.3; }
+				.meta { font-size: 0.6875rem; }
+			}
+		}
+	}
 
-    //--------------------------------------------
-    // Responsive (Mobile)
-    //--------------------------------------------
-    @media (max-width: $breakpoint-sm-max) {
-        .news {
-            .voting { --wire-vote-width: 30px; }
-            .content {
-                padding: 10px 8px 10px 0;
-                .title { font-size: 1rem; }
-            }
-        }
-    }
+	//--------------------------------------------
+	// Responsive (Mobile)
+	//--------------------------------------------
+	@media (max-width: $breakpoint-sm-max) {
+		.news {
+			.voting { --wire-vote-width: 30px; }
+			.content {
+				padding: 10px 8px 10px 0;
+				.title { font-size: 1rem; }
+			}
+		}
+	}
 }
