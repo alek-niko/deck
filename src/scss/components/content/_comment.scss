@@ -1,58 +1,90 @@
 // ============================================
-// COMMENT COMPONENT
-// components/content/_comment.scss
+// COMPONENT: COMMENT SYSTEM
+// path: components/content/_comment.scss
 // --------------------------------------------
-// Styles for threaded comment components.
-// Uses Flexbox layout, responsive spacing, scoped tokens,
-// theme-aware variables, and supports variants (compact, highlighted).
+// Threaded discussion engine with CSS-driven 
+// nesting limits and variable-based spacing.
 // ============================================
-
 
 @use '../../abstracts/variables' as *;
 @use '../../abstracts/mixins/breakpoints' as *;
 
 // --------------------------------------------
-// Component-Specific Tokens (Scoped Locally)
+// Block: Comment List (Container)
 // --------------------------------------------
 
-$comment-title-font-size:    1.25rem !default;
-$comment-title-line-height:  1.4 !default;
-$comment-meta-font-size:     0.875rem !default;
-$comment-meta-line-height:   1.4 !default;
-$comment-meta-color:         var(--color-text-muted, rgba(153, 153, 153, 1)) !default;
+.comment-list {
+	--comment-indent: 12px; // Mobile default
+	--comment-thread-line: 2px solid var(--color-border-subtle, #f0f0f0);
+	
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-sm, 12px);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	// Responsive Indentation
+	@include min-md {
+		--comment-indent: 40px;
+	}
+
+	// ----------------------------------------
+	// Nested Logic (.comment ~ ul)
+	// ----------------------------------------
+	.comment ~ ul {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-sm, 12px);
+		margin-top: var(--spacing-xs, 4px);
+		padding-inline-start: var(--comment-indent);
+		border-inline-start: var(--comment-thread-line);
+		list-style: none;
+		
+
+		// Visual "Clamp": Flatten nesting after 3 levels
+		// ul ul ul (Root -> Reply -> Sub-Reply -> [Clamp])
+		ul ul {
+			padding-inline-start: 0;
+			border-inline-start: none;
+
+			.comment {
+				padding-inline-start: var(--spacing-md, 16px);
+				border-inline-start: 3px solid var(--color-primary-subtle, #e1f5fe);
+			}
+		}
+	}
+}
+
+// --------------------------------------------
+// Block: Comment (Item)
+// --------------------------------------------
 
 .comment {
-
-	// ----------------------------------------
-	// Scoped CSS Custom Properties
-	// ----------------------------------------
-	--comment-title-font-size:    #{$comment-title-font-size};
-	--comment-title-line-height:  #{$comment-title-line-height};
-	--comment-meta-font-size:     #{$comment-meta-font-size};
-	--comment-meta-line-height:   #{$comment-meta-line-height};
-	--comment-meta-color:         #{$comment-meta-color};
+	--comment-padding: var(--spacing-default, 24px);
+	--comment-avatar-size: 40px;
 
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-md, 16px);
-	padding: var(--spacing-default, 24px) 0;
-	border-bottom: 1px solid var(--color-border, rgba(0, 0, 0, 0.1));
+	gap: var(--spacing-sm, 12px);
+	padding: var(--comment-padding) 0;
+	border-bottom: 1px solid var(--color-border, rgba(0, 0, 0, 0.08));
+	background-color: transparent;
+	transition: background-color 0.3s ease;
 
-	// ----------------------------------------
-	// Header & Avatar
-	// ----------------------------------------
-
+	// Header Structure
 	&-header {
 		display: flex;
-		align-items: center;
-		gap: var(--spacing-sm, 8px);
+		align-items: flex-start;
+		gap: var(--spacing-sm, 12px);
 	}
 
 	&-avatar {
-		width: 48px;
-		height: 48px;
+		width: var(--comment-avatar-size);
+		height: var(--comment-avatar-size);
 		flex-shrink: 0;
 		border-radius: 50%;
+		background-color: var(--color-surface-muted, #eee);
 		overflow: hidden;
 
 		img {
@@ -63,93 +95,142 @@ $comment-meta-color:         var(--color-text-muted, rgba(153, 153, 153, 1)) !de
 		}
 	}
 
-	// ----------------------------------------
-	// Content & Text
-	// ----------------------------------------
-
 	&-content {
 		flex: 1;
-		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
+		min-width: 0; // Prevent flexbox overflow from long text
 	}
 
 	&-title {
-		font-size: var(--comment-title-font-size);
-		line-height: var(--comment-title-line-height);
-		font-weight: 600;
-		color: var(--color-text, rgba(0, 0, 0, 0.87));
 		margin: 0;
+		font-size: 1rem;
+		font-weight: 600;
+		line-height: 1.2;
+		color: var(--color-text, #111);
 	}
 
 	&-meta {
-		font-size: var(--comment-meta-font-size);
-		line-height: var(--comment-meta-line-height);
-		color: var(--comment-meta-color);
 		margin: 0;
+		font-size: 0.85rem;
+		color: var(--color-text-muted, #666);
 	}
 
+	// Body & Formatting
 	&-body {
-		color: var(--color-text, rgba(0, 0, 0, 0.87));
+		font-size: 1rem;
 		line-height: 1.6;
-		animation: fade-in 0.3s ease-in-out;
+		color: var(--color-text-body, #333);
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+
+		p { margin-bottom: 0.75rem; &:last-child { margin-bottom: 0; } }
+	}
+
+	// Footer Actions
+	&-footer {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: var(--spacing-md, 16px);
+		margin-top: var(--spacing-xs, 4px);
+
+		.btn-action {
+			display: inline-flex;
+			align-items: center;
+			gap: 6px;
+			padding: 6px 0;
+			background: none;
+			border: none;
+			font-family: inherit;
+			font-size: 0.875rem;
+			font-weight: 500;
+			color: var(--color-text-muted, #666);
+			cursor: pointer;
+			transition: color 0.2s ease;
+
+			svg {
+				width: 18px;
+				height: 18px;
+				fill: none;
+				stroke: currentColor;
+				stroke-width: 2;
+				stroke-linecap: round;
+				stroke-linejoin: round;
+			}
+
+			&:hover {
+				color: var(--color-primary, #007bff);
+			}
+
+			&.is-active {
+				color: var(--color-danger, #e0245e);
+				svg { fill: currentColor; }
+			}
+		}
 	}
 
 	// ----------------------------------------
-	// Threaded / Nested Comments
+	// Elements: Composer & Editor
 	// ----------------------------------------
-
-	&-list {
+	&-composer {
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-default, 24px);
-		padding: 0;
-		list-style: none;
+		gap: var(--spacing-sm, 12px);
+		padding: var(--spacing-default, 24px);
+		background-color: var(--color-surface-raised, #fff);
+		border: 1px solid var(--color-border, #eee);
+		border-radius: var(--radius-lg, 12px);
+		box-shadow: var(--shadow-sm);
 
-		.comment ~ ul {
-			display: flex;
-			flex-direction: column;
-			gap: var(--spacing-default, 24px);
-			margin-top: var(--spacing-default, 24px);
-			padding-left: 30px;
-			list-style: none;
-		}
-	}
-
-	// ----------------------------------------
-	// Variants
-	// ----------------------------------------
-
-	&.compact {
-		.comment-title {
+		textarea {
+			width: 100%;
+			min-height: 100px;
+			padding: var(--spacing-md, 16px);
+			border: 1px solid var(--color-border, #ccc);
+			border-radius: var(--radius-md, 8px);
+			background-color: var(--color-input-bg, #fff);
+			font-family: inherit;
 			font-size: 1rem;
+			resize: vertical;
+			transition: border-color 0.2s, box-shadow 0.2s;
+
+			&:focus {
+				outline: none;
+				border-color: var(--color-primary);
+				box-shadow: 0 0 0 3px var(--color-primary-alpha, rgba(0, 123, 255, 0.1));
+			}
 		}
-		.comment-meta {
-			font-size: 0.75rem;
-		}
-		.comment-avatar {
-			width: 36px;
-			height: 36px;
+
+		.composer-actions {
+			display: flex;
+			justify-content: flex-end;
+			gap: var(--spacing-sm, 8px);
 		}
 	}
+
+	// ----------------------------------------
+	// Modifiers & Variants
+	// ----------------------------------------
 
 	&.highlighted {
-		background-color: var(--color-surface-muted, #f7f9fa);
-		border-left: 3px solid var(--color-primary, #0d8ddb);
-		padding: 0.75rem;
-		border-radius: var(--radius-default, 6px);
-		animation: slide-in 0.4s ease-out;
+		background-color: var(--color-primary-light, #f0f8ff);
+		border-radius: var(--radius-md, 8px);
+		padding-inline: var(--spacing-md, 16px);
+		border-bottom-color: transparent;
+		animation: comment-highlight 2s ease-out;
 	}
-}
 
-// --------------------------------------------
-// Responsive Nesting Adjustments
-// --------------------------------------------
-
-@include min-md {
-	.comment-list .comment ~ ul {
-		padding-left: 40px;
+	&.compact {
+		--comment-avatar-size: 32px;
+		--comment-padding: var(--spacing-sm, 12px);
+		
+		.comment-title { font-size: 0.9rem; }
+		.comment-body { font-size: 0.9rem; }
 	}
+
+	// Optional Animation Helper Classes
+	&.animate-fade   { animation: fade-in 0.4s ease-out forwards; }
+    &.animate-slide  { animation: slide-in 0.4s ease-out forwards; }
+    &.animate-fade-out { animation: fade-out 0.4s ease-in forwards; }
 }
 
 // --------------------------------------------
@@ -157,11 +238,21 @@ $comment-meta-color:         var(--color-text-muted, rgba(153, 153, 153, 1)) !de
 // --------------------------------------------
 
 @keyframes fade-in {
-	from { opacity: 0; transform: translateY(4px); }
-	to   { opacity: 1; transform: none; }
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-out {
+    from { opacity: 1; transform: scale(1); }
+    to   { opacity: 0; transform: scale(0.95); }
 }
 
 @keyframes slide-in {
-	from { opacity: 0; transform: translateX(-10px); }
-	to   { opacity: 1; transform: none; }
+    from { opacity: 0; transform: translateX(-16px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes comment-highlight {
+    0% { background-color: var(--color-primary-faded, rgba(0, 123, 255, 0.2)); }
+    100% { background-color: var(--color-primary-light, #f0f8ff); }
 }
