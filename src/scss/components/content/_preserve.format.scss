@@ -19,46 +19,35 @@
 @mixin preserve-format-styles {
 
 	//----------------------------------------
-	// Behavior
+	// Core Functional Styles
 	//----------------------------------------
 	white-space: pre-wrap; 			// Preserve spacing, newlines, and wrap text
 	overflow-wrap: break-word;		// Break long words to prevent overflow
+	word-wrap: break-word;			// Legacy support
 	tab-size: var(--tab-size, 4);	// Respect tab characters with fallback
 
 	//----------------------------------------
-	// Typography & Theming
+	// Minimal Structural Styles
 	//----------------------------------------
-	font-family: var(--font-primary);
-	font-size: var(--font-size-base);
-	line-height: var(--line-height-base);
-	color: var(--color-text);
+    // Minimal Structural Styles
+    // We keep line-height because preserving format 
+    // depends heavily on predictable line spacing.
+    line-height: var(--line-height-base, 1.5);
 }
 
 //--------------------------------------------
 // DISPLAY CONTAINER
 //--------------------------------------------
 // Static content such as post previews or comments
-//
 
 .preserve-format {
-
 	@include preserve-format-styles; 	// Apply base styles
-
-	//----------------------------------------
-	// Container Styling
-	//----------------------------------------
-	background-color: var(--color-surface);
-	padding: var(--spacing-default);
-	border-radius: var(--radius-default);
 }
-
 
 //--------------------------------------------
 // TEXTAREA COMPOSITION
 //--------------------------------------------
-//
 // User input area for composing posts or comments
-//
 
 textarea.preserve-format {
 
@@ -69,16 +58,24 @@ textarea.preserve-format {
 	//----------------------------------------
 	width: 100%; // Textareas should typically span the full width.
 	resize: vertical;
-	background-color: var(--color-surface-muted);
-	box-shadow: inset 0 0 0 1px var(--color-border);
-	transition: box-shadow 0.2s ease-in-out;
 
 	//----------------------------------------
 	// Accessible Focus State
 	//----------------------------------------
-
 	&:focus-visible {
 		outline: none;
 		box-shadow: inset 0 0 0 2px var(--color-primary);
+	}
+}
+
+.composition-group {
+	position: relative;
+	
+	.textarea.autosize,
+	.format-preview {
+		@include preserve-format-styles;
+		padding: var(--spacing-sm); // Must be identical
+		font-family: inherit;       // Must be identical
+		font-size: inherit;         // Must be identical
 	}
 }
