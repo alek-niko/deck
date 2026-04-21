@@ -71,19 +71,66 @@ export default class FormManager {
 	}
 
 	/**
-	 * Makes textareas with .autosize class grow/shrink according to content.
-	 * Uses scrollHeight trick → very reliable cross-browser.
+     * Initializes autosizing for textareas.
+     * @param {HTMLElement|null} [target=null] - Optional specific textarea to initialize
+     */
+    initAutosizeTextareas(target = null) {
+        // Decide if we are initializing one element or scanning the document
+        const areas = target ? [target] : document.querySelectorAll("textarea.autosize");
+
+        areas.forEach(area => {
+            // Prevent double-initialization
+            if (area.dataset.autosizeInited === "true") return;
+
+            // Feature Detection
+            // If browser supports 'field-sizing', we skip JS logic to save resources.
+            if (CSS.supports('field-sizing', 'content')) {
+                area.dataset.autosizeInited = "true";
+                return; 
+            }
+
+            //  Fallback Logic: The "Scroll-Anchor" Resize
+            const resize = () => {
+                // Store current window scroll position to prevent jumping
+                const scrollPos = window.scrollY || document.documentElement.scrollTop;
+
+                // Reset height to 'auto' to correctly calculate scrollHeight.
+                // This allows the textarea to shrink when text is deleted.
+                area.style.height = "auto";
+
+                // Set new height based on content. 
+                // This respects the 'rows' attribute naturally.
+                area.style.height = `${area.scrollHeight}px`;
+
+                // Restore scroll position immediately
+                window.scrollTo(window.scrollX, scrollPos);
+            };
+
+            // Event Binnding
+            area.addEventListener("input", resize);
+            
+            // Mark as initialized
+            area.dataset.autosizeInited = "true";
+
+            // Initial trigger
+            // Handles pre-filled content (e.g., database values) on page load.
+            window.requestAnimationFrame(resize);
+        });
+    }
+
+	/**
+	 * Example method for adding a textarea dynamically
 	 */
-	initAutosizeTextareas() {
-		document.querySelectorAll("textarea.autosize").forEach(area => {
-			const resize = () => {
-				area.style.height = "auto";						// reset so scrollHeight is correct
-				area.style.height = `${area.scrollHeight}px`;
-			};
-			area.addEventListener("input", resize);
-			// Initial sizing (important for pre-filled textareas)
-			resize();
-		});
+	addDynamicTextarea(container) {
+		
+		const newTextarea = document.createElement('textarea');
+		newTextarea.className = 'textarea autosize';
+		newTextarea.rows = 4;
+		
+		container.appendChild(newTextarea);
+		
+		// Initialize ONLY the new element
+		this.initAutosizeTextareas(newTextarea);
 	}
 
 	/**
