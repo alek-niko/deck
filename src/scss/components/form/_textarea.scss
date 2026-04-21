@@ -10,11 +10,15 @@
 
 .textarea {
 
+	display: block;
+
 	-webkit-appearance: none;
 	box-sizing: border-box;
 	overflow: auto;
 
 	font: inherit;
+	font-family: inherit;
+    font-size: inherit;
 
 	max-width: 100%;
 	width: 100%;
@@ -89,8 +93,20 @@
     // -----------------------------
 
 	&.autosize {
-		overflow-y: hidden;
-		/*resize: none;*/
-		resize: var(--autoresize, vertical);
+		// Modern CSS Autosizing (Chrome 123+, Safari 17.4+)
+        field-sizing: content;
+
+		// Disable scrollbar to prevent "flicker" during resize
+        overflow-y: hidden;
+
+		// Constraint: Vertical only to prevent horizontal layout break
+       resize: var(--autoresize, vertical);
+
+		// Crucial: Disable height transitions. 
+        // If the height animates, the JS scroll calculation will be wrong.
+        transition: height 0s !important;
+
+		// Ensure it doesn't shrink below a reasonable baseline if rows is missing
+        min-height: 1lh;
 	}
 }
