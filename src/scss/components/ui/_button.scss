@@ -182,6 +182,7 @@ $variants: (
 
 	&:not([data-variant]) {
 		--button-bg: var(--color-text);
+		--button-text: var(--color-text);
 	}
 
 	&:hover {
