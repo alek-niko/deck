@@ -177,8 +177,9 @@ $variants: (
 	background-color: transparent;
 	border-color: transparent;
 	color: var(--button-bg);
-	//height: auto;
 	padding: 0.5rem;
+	cursor: pointer;
+	transition: background-color 0.2s ease, outline 0.1s ease;
 
 	&:not([data-variant]) {
 		--button-bg: var(--color-text);
@@ -192,6 +193,19 @@ $variants: (
 	&:active {
 		background-color: color-mix(in srgb, var(--button-bg) 25%, transparent);
 	}
+
+	/* Accessibility: Focus Ring */
+    &:focus-visible {
+        outline: 2px solid var(--button-bg);
+        outline-offset: 2px;
+    }
+
+	/*  Override for disabled hover effects */
+    &[data-hover="off"] {
+        &:hover, &:active {
+            background-color: transparent;
+        }
+    }
 }
 
 
