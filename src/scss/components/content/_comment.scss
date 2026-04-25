@@ -14,33 +14,35 @@
 // --------------------------------------------
 
 .comment-list {
-	--comment-indent: 12px; // Mobile default
-	--comment-thread-line: 2px solid var(--color-border-subtle, #f0f0f0);
+
+	--c-indent: var(--spacing-md);
+	--c-thread-line: 2px solid var(--color-border-muted);
+	--c-list-gap: var(--spacing-lg);
+	--c-reply-gap: var(--spacing-md);
 	
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-sm, 12px);
+	gap: var(--c-list-gap); 
 	margin: 0;
 	padding: 0;
 	list-style: none;
 
-	// Responsive Indentation
 	@include min-md {
-		--comment-indent: 40px;
+		--c-indent: var(--spacing-2xl);
 	}
 
 	// ----------------------------------------
 	// Nested Logic (.comment ~ ul)
 	// ----------------------------------------
 	.comment ~ ul {
+
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-sm, 12px);
-		margin-top: var(--spacing-xs, 4px);
-		padding-inline-start: var(--comment-indent);
-		border-inline-start: var(--comment-thread-line);
+		gap: var(--c-reply-gap);
+		padding-block-start: var(--spacing-sm); 
+		padding-inline-start: var(--c-indent);
+		border-inline-start: var(--c-thread-line);
 		list-style: none;
-		
 
 		// Visual "Clamp": Flatten nesting after 3 levels
 		// ul ul ul (Root -> Reply -> Sub-Reply -> [Clamp])
@@ -49,8 +51,8 @@
 			border-inline-start: none;
 
 			.comment {
-				padding-inline-start: var(--spacing-md, 16px);
-				border-inline-start: 3px solid var(--color-primary-subtle, #e1f5fe);
+				padding-inline-start: var(--spacing-md);
+				border-inline-start: 3px solid var(--color-primary);
 			}
 		}
 	}
@@ -61,30 +63,35 @@
 // --------------------------------------------
 
 .comment {
-	--comment-padding: var(--spacing-default, 24px);
-	--comment-avatar-size: 40px;
+
+	--c-padding-v: var(--space-fluid-sm);
+	--c-gap: var(--spacing-lg);
+	--c-avatar-size: var(--touch-target-comfortable);
+	--c-font-body: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+	--c-font-title: clamp(1.1rem, 1rem + 0.3vw, 1.25rem);		/* 1rem; */ 
+	--c-font-meta: clamp(0.875rem, 0.85rem + 0.1vw, 0.95rem);	/* 0.85rem; */ 
 
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-sm, 12px);
-	padding: var(--comment-padding) 0;
-	border-bottom: 1px solid var(--color-border, rgba(0, 0, 0, 0.08));
+	gap: var(--c-gap);	// Vertical rhythm between Header, Body, Footer
+	padding-block: var(--c-padding-v);
+	border-bottom: 1px solid var(--color-border);
 	background-color: transparent;
 	transition: background-color 0.3s ease;
 
 	// Header Structure
 	&-header {
 		display: flex;
-		align-items: flex-start;
-		gap: var(--spacing-sm, 12px);
+		align-items: center; 
+		gap: var(--gap-md);
 	}
 
 	&-avatar {
-		width: var(--comment-avatar-size);
-		height: var(--comment-avatar-size);
+		width: var(--c-avatar-size);
+		height: var(--c-avatar-size);
 		flex-shrink: 0;
-		border-radius: 50%;
-		background-color: var(--color-surface-muted, #eee);
+		border-radius: var(--radius-circle);
+		background-color: var(--color-surface-muted);
 		overflow: hidden;
 
 		img {
@@ -94,35 +101,48 @@
 			object-fit: cover;
 		}
 	}
-
-	&-content {
-		flex: 1;
-		min-width: 0; // Prevent flexbox overflow from long text
-	}
+	
+	// Renamed from -content
+    &-heading {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        //gap: 2px; 
+		//gap: var(--spacing-xs);
+    }
 
 	&-title {
 		margin: 0;
-		font-size: 1rem;
+		font-size: var(--c-font-title);
 		font-weight: 600;
 		line-height: 1.2;
-		color: var(--color-text, #111);
+		color: var(--color-text);
 	}
 
 	&-meta {
 		margin: 0;
-		font-size: 0.85rem;
-		color: var(--color-text-muted, #666);
+		font-size: var(--c-font-meta);
+		color: var(--color-text-muted);
 	}
 
 	// Body & Formatting
 	&-body {
-		font-size: 1rem;
-		line-height: 1.6;
-		color: var(--color-text-body, #333);
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-sm);
+
+		// Optional: extra internal breathing room
+        // padding-block: var(--spacing-xs);
+		
+		font-size: var(--c-font-body);
+		line-height: var(--line-height-base);
+		color: var(--color-text);
+
 		word-wrap: break-word;
 		overflow-wrap: break-word;
 
-		p { margin-bottom: 0.75rem; &:last-child { margin-bottom: 0; } }
+		p { margin: 0; }
 	}
 
 	// Footer Actions
@@ -130,41 +150,14 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		gap: var(--spacing-md, 16px);
-		margin-top: var(--spacing-xs, 4px);
-
-		.btn-action {
-			display: inline-flex;
-			align-items: center;
-			gap: 6px;
-			padding: 6px 0;
-			background: none;
-			border: none;
-			font-family: inherit;
-			font-size: 0.875rem;
-			font-weight: 500;
-			color: var(--color-text-muted, #666);
-			cursor: pointer;
-			transition: color 0.2s ease;
-
-			svg {
-				width: 18px;
-				height: 18px;
-				fill: none;
-				stroke: currentColor;
-				stroke-width: 2;
-				stroke-linecap: round;
-				stroke-linejoin: round;
-			}
-
-			&:hover {
-				color: var(--color-primary, #007bff);
-			}
-
-			&.is-active {
-				color: var(--color-danger, #e0245e);
-				svg { fill: currentColor; }
-			}
+		gap: var(--spacing-md); 
+		
+		// This ensures icons inside button component 
+		// match the intended comment-action look
+		.button .button-icon {
+			margin: 0;
+			width: 18px;
+			height: 18px;
 		}
 	}
 
@@ -172,43 +165,14 @@
 	// Elements: Composer & Editor
 	// ----------------------------------------
 	&-composer {
-
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-sm, 12px);
-		/*
-		padding: var(--spacing-default, 24px);
-		background-color: var(--color-surface-raised, #fff);
-		border: 1px solid var(--color-border, #eee);
-		border-radius: var(--radius-lg, 12px);
-		box-shadow: var(--shadow-sm);
-		*/
-
-		/*
-		textarea {
-			width: 100%;
-			min-height: 100px;
-			padding: var(--spacing-md, 16px);
-			border: 1px solid var(--color-border, #ccc);
-			border-radius: var(--radius-md, 8px);
-			background-color: var(--color-input-bg, #fff);
-			font-family: inherit;
-			font-size: 1rem;
-			resize: vertical;
-			transition: border-color 0.2s, box-shadow 0.2s;
-
-			&:focus {
-				outline: none;
-				border-color: var(--color-primary);
-				box-shadow: 0 0 0 3px var(--color-primary-alpha, rgba(0, 123, 255, 0.1));
-			}
-		}
-		*/
-
+		gap: var(--spacing-sm);
+		
 		.composer-actions {
 			display: flex;
 			justify-content: flex-end;
-			gap: var(--spacing-sm, 8px);
+			gap: var(--spacing-sm);
 		}
 	}
 
@@ -218,15 +182,15 @@
 
 	&.highlighted {
 		background-color: var(--color-primary-light, #f0f8ff);
-		border-radius: var(--radius-md, 8px);
-		padding-inline: var(--spacing-md, 16px);
+		border-radius: var(--radius-md);
+		padding-inline: var(--spacing-md);
 		border-bottom-color: transparent;
 		animation: comment-highlight 2s ease-out;
 	}
 
 	&.compact {
-		--comment-avatar-size: 32px;
-		--comment-padding: var(--spacing-sm, 12px);
+		--c-avatar-size: var(--touch-target-min);
+		--c-padding-v: var(--spacing-sm);
 		
 		.comment-title { font-size: 0.9rem; }
 		.comment-body { font-size: 0.9rem; }
@@ -234,8 +198,8 @@
 
 	// Optional Animation Helper Classes
 	&.animate-fade   { animation: fade-in 0.4s ease-out forwards; }
-    &.animate-slide  { animation: slide-in 0.4s ease-out forwards; }
-    &.animate-fade-out { animation: fade-out 0.4s ease-in forwards; }
+	&.animate-slide  { animation: slide-in 0.4s ease-out forwards; }
+	&.animate-fade-out { animation: fade-out 0.4s ease-in forwards; }
 }
 
 // --------------------------------------------
@@ -243,21 +207,21 @@
 // --------------------------------------------
 
 @keyframes fade-in {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
+	from { opacity: 0; transform: translateY(8px); }
+	to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fade-out {
-    from { opacity: 1; transform: scale(1); }
-    to   { opacity: 0; transform: scale(0.95); }
+	from { opacity: 1; transform: scale(1); }
+	to   { opacity: 0; transform: scale(0.95); }
 }
 
 @keyframes slide-in {
-    from { opacity: 0; transform: translateX(-16px); }
-    to   { opacity: 1; transform: translateX(0); }
+	from { opacity: 0; transform: translateX(-16px); }
+	to   { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes comment-highlight {
-    0% { background-color: var(--color-primary-faded, rgba(0, 123, 255, 0.2)); }
-    100% { background-color: var(--color-primary-light, #f0f8ff); }
+	0% { background-color: var(--color-primary-faded, rgba(0, 123, 255, 0.2)); }
+	100% { background-color: var(--color-primary-light, #f0f8ff); }
 }
