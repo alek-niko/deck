@@ -30,6 +30,21 @@ class ToastManager {
     }
 
 	/**
+     * Helper to map common aliases to your SCSS variants
+     */
+    getType(type) {
+
+        const map = {
+            'error': 'danger',
+            'info': 'primary',
+            'success': 'success',
+            'warning': 'warning'
+        };
+
+        return map[type] || type || this.type;
+    }
+
+	/**
 	 * Displays a toast notification with various formats.
 	 * 
 	 * Supports multiple input formats:
@@ -63,14 +78,13 @@ class ToastManager {
             }
         }
 
-        return this.makeToast(
-            options.message, 
-            options.type || this.type, 
-            options.timeout !== undefined ? options.timeout : this.timeout, 
-            options.position || this.position
-        );
-    }
+		// Ensure we resolve the type here before passing it
+        const finalType = this.getType(options.type);
+        const finalTimeout = options.timeout !== undefined ? options.timeout : this.timeout;
+        const finalPosition = options.position || this.position;
 
+        return this.makeToast(options.message, finalType, finalTimeout, finalPosition);
+    }
 
 	/**
 	 * Creates and displays a toast notification.
@@ -80,14 +94,18 @@ class ToastManager {
 	 * @param {number} [timeout=this.timeout] - Duration before the toast disappears.
 	 * @param {string} [position=this.position] - The position where the toast appears.
 	 */
-	makeToast(message, type = this.type, timeout = this.timeout, position = this.position) {
+	makeToast(message, type, timeout, position) {
 
 		const toast = document.createElement("div");
 
 		// 2026 A11y Standards
         toast.setAttribute("popover", "manual");  // Ensure popover attribute is set before appending to use the Top Layer API
-        toast.setAttribute("role", type === 'danger' ? 'alert' : 'status');
-        toast.setAttribute("aria-live", type === 'danger' ? 'assertive' : 'polite');
+		
+		// Ensure we use 'danger' for the a11y role if 'error' was passed
+        const isAlert = type === 'danger' || type === 'error';
+
+		toast.setAttribute("role", isAlert ? 'alert' : 'status');
+        toast.setAttribute("aria-live", isAlert ? 'assertive' : 'polite');
         
         toast.classList.add("toast", "popover", 'newest', `toast-${position}`, `toast-${type}`);
 
@@ -172,7 +190,7 @@ class ToastManager {
      * Adjusts the position of toast notifications using viewport-fixed coordinates.
      */
 	moveToasts(pos) {
-		
+
         const isTop = pos.startsWith('top');
         const side = isTop ? 'top' : 'bottom';
         const toasts = Array.from(document.querySelectorAll(`.toast.toast-${pos}`));
