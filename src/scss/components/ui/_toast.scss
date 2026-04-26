@@ -26,14 +26,14 @@
 	--toast-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
 	--toast-radius: 12px;
 
-	position: relative;
+	position: fixed; 
 	display: flex;
 	align-items: center;
 	box-sizing: border-box;
 
-	inset: unset;
-	height: unset;
-
+	// Reset Popover API defaults
+	inset: auto; 
+	height: auto;
 	width: 350px;
 	padding: 20px;
 	margin: 0;
@@ -42,50 +42,117 @@
 	background: var(--toast-bg);
 	color: var(--toast-fg);
 	box-shadow: var(--toast-shadow);
-	transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+
+	// Top-layer promotion fallback
 	z-index: $z-index + 200;
 	overflow: hidden;
 
+	// State & Transitions
+	opacity: 1;
+	transform: translateZ(0) scale(1); 
+	transition: 
+		opacity 0.4s ease, 
+		transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), 
+		top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+		bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+		right 0.4s ease,
+		left 0.4s ease;
+
 	// -----------------------------------------------------------------
-	// Toast Inner Elements
+	// Entrance Animations
+	// -----------------------------------------------------------------
+	@starting-style {
+		opacity: 0;
+		&.toast-top-right, &.toast-bottom-right { transform: translateX(100px) scale(0.9); }
+		&.toast-top-left, &.toast-bottom-left { transform: translateX(-100px) scale(0.9); }
+		&.toast-top-center { transform: translate(-50%, -50px) scale(0.9); }
+		&.toast-bottom-center { transform: translate(-50%, 50px) scale(0.9); }
+	}
+
+	// Exit state
+	&.toast-hide {
+		opacity: 0;
+		transform: scale(0.85);
+		pointer-events: none; // Prevent clicks during fade out
+	}
+
+	// -----------------------------------------------------------------
+	// Responsive Positioning
+	// -----------------------------------------------------------------
+
+	@media (max-width: $breakpoint-sm) {
+		width: calc(100% - 32px);
+		left: 16px;
+		right: 16px;
+
+		&[class*="toast-top-"] {
+			top: 16px;
+			bottom: auto;
+		}
+
+		&[class*="toast-bottom-"] {
+			bottom: 16px;
+			top: auto;
+		}
+	}
+
+	@media (min-width: $breakpoint-sm) {
+		&.toast-top-center,
+		&.toast-bottom-center {
+			left: 50%;
+			transform: translateX(-50%); // Maintain centering
+		}
+
+		&.toast-top-left,
+		&.toast-bottom-left {
+			left: 24px;
+			right: auto;
+		}
+
+		&.toast-top-right,
+		&.toast-bottom-right {
+			right: 24px;
+			left: auto;
+		}
+
+		&[class*="toast-top-"] {
+			bottom: auto; // Explicitly kill bottom anchor
+		}
+
+		&[class*="toast-bottom-"] {
+			top: auto; // Explicitly kill top anchor
+		}
+	}
+
+	// -----------------------------------------------------------------
+	// Components & States
 	// -----------------------------------------------------------------
 
 	.toast-icon {
-		margin-right: 10px;
-		font-size: 20px;
+		flex-shrink: 0; // Prevent icon compression
+		margin-right: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.toast-message {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: space-between;
-		cursor: pointer;
+		flex-grow: 1;
+		font-size: 0.95rem;
+		line-height: 1.4;
+		padding-right: 24px; // Space for close button
 	}
 
 	.toast-close {
 		position: absolute;
-		right: 10px;
-		min-width: 24px;
-		min-height: 24px;
-		cursor: pointer;
+		top: 50%;
+		right: 12px;
+		transform: translateY(-50%);
+		opacity: 0.6;
+		transition: opacity 0.2s;
+
+		&:hover { opacity: 1; }
 	}
-
-	// -----------------------------------------------------------------
-	// Animations
-	// -----------------------------------------------------------------
-	// Slide-out hide effect
-
-	&.toast-hide {
-		opacity: 0;
-		transform: translateY(-20px);
-		transition: opacity 0.3s ease, transform 0.3s ease;
-	}
-
-	// -----------------------------------------------------------------
-	// Left Accent Bar
-	// -----------------------------------------------------------------
-	// Colored vertical indicator for toast type
 
 	&::before {
 		content: '';
@@ -94,56 +161,8 @@
 		left: 0;
 		width: 4px;
 		height: 100%;
-		border-radius: 4px 0 0 4px;
 		background-color: var(--toast-accent, var(--color-primary));
 	}
-
-	// -----------------------------------------------------------------
-	// Positioning
-	// -----------------------------------------------------------------
-	// Adjust toast placement and responsive width.
-
-	@media (max-width: $breakpoint-sm) {
-		width: auto;
-		left: 0;
-		right: 0;
-
-		&.toast-bottom-left,
-		&.toast-bottom-right,
-		&.toast-bottom-center {
-			bottom: 0;
-		}
-	}
-
-	@media (min-width: $breakpoint-sm) {
-		&.toast-top-center,
-		&.toast-bottom-center {
-			left: 50%;
-			transform: translateX(-50%);
-		}
-
-		&.toast-top-left,
-		&.toast-bottom-left {
-			left: 24px;
-		}
-
-		&.toast-top-right,
-		&.toast-bottom-right {
-			right: 24px;
-		}
-
-		&.toast-bottom-left,
-		&.toast-bottom-right,
-		&.toast-bottom-center {
-			bottom: 24px;
-			top: auto;
-		}
-	}
-
-	// -----------------------------------------------------------------
-	// State Variants (Color + Accent)
-	// -----------------------------------------------------------------
-	// Primary, success, warning, danger with accent and optional background.
 
 	$toast-colors: (
 		primary: #1e87f0,
@@ -155,19 +174,6 @@
 	@each $name, $color in $toast-colors {
 		&.toast-#{$name} {
 			--toast-accent: #{$color};
-
-			.toast-icon {
-				background-color: var(--toast-accent);
-			}
-
-			&:before {
-				background-color: var(--toast-accent);
-			}
-		}
-
-		&.toast-#{$name}-bg {
-			background-color: #{$color};
-			color: #FFF;
 		}
 	}
 }
