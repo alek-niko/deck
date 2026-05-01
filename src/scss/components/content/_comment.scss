@@ -67,9 +67,10 @@
 	--c-padding-v: var(--space-fluid-sm);
 	--c-gap: var(--spacing-lg);
 	--c-avatar-size: var(--touch-target-comfortable);
-	--c-font-body: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
-	--c-font-title: clamp(1.1rem, 1rem + 0.3vw, 1.25rem);		/* 1rem; */ 
-	--c-font-meta: clamp(0.875rem, 0.85rem + 0.1vw, 0.95rem);	/* 0.85rem; */ 
+
+	--c-font-body:  clamp(0.95rem, 0.92rem + 0.13vw, 1.0625rem);   /* ~15.2–17px */
+	--c-font-title: clamp(1.025rem, 0.98rem + 0.18vw, 1.125rem);   /* ~16.4–18px */
+	--c-font-meta:  clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);   /* ~13–14px */
 
 	display: flex;
 	flex-direction: column;
