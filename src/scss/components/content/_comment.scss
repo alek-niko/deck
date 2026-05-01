@@ -41,7 +41,7 @@
 		gap: var(--c-reply-gap);
 		padding-block-start: var(--spacing-sm); 
 		padding-inline-start: var(--c-indent);
-		border-inline-start: var(--c-thread-line);
+		//border-inline-start: var(--c-thread-line);
 		list-style: none;
 
 		// Visual "Clamp": Flatten nesting after 3 levels
@@ -52,7 +52,7 @@
 
 			.comment {
 				padding-inline-start: var(--spacing-md);
-				border-inline-start: 3px solid var(--color-primary);
+				//border-inline-start: 3px solid var(--color-primary);
 			}
 		}
 	}
