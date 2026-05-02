@@ -41,13 +41,14 @@
 	--card-badge-color: #fff;
 	--card-elevation: var(--shadow-sm);
 	--card-hover-shadow: var(--shadow-lg);
+	--flex-dir: column;
 
 	// -------------------------------------------------------------------------
 	// Base Layout & Appearance
 	// -------------------------------------------------------------------------
 
 	display: flex;
-	flex-direction: var(--flex-dir, column);
+	flex-direction: var(--flex-dir);
 	position: relative;
 	box-sizing: border-box;
 	gap: 0;
