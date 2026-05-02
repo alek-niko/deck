@@ -124,6 +124,10 @@ $placeholder-color:			oklch(60% 0.01 $hue-gray) !default;
 /// SHADOWS
 /// --------------------------------------------
 
+// Define the base color as RGB channels (no alpha)
+$shadow-base-rgb:			0, 0, 0 !default;
+
+// Map the elevation levels to Sass variables
 $shadow-xs:					elevation-shadow(1) !default;
 $shadow-sm:					elevation-shadow(2) !default;
 $shadow-md:					elevation-shadow(4) !default;

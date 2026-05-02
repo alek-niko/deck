@@ -111,9 +111,13 @@ $icon-action-bg-active:     oklch(from var(--color-primary) l c h / 0.12) !defau
 /// SHADOWS (dynamic)
 /// --------------------------------------------
 
-$shadow-xs:					elevation-shadow(1, 'dark') !default;
-$shadow-sm:					elevation-shadow(2, 'dark') !default;
-$shadow-md:					elevation-shadow(4, 'dark') !default;
-$shadow-lg:					elevation-shadow(8, 'dark') !default;
-$shadow-xl:					elevation-shadow(12, 'dark') !default;
-$shadow-2xl:				elevation-shadow(24, 'dark') !default;
+// Note: Some systems use a deep navy like "15, 23, 42" for a "cooler" dark mode.
+$shadow-base-rgb:			0, 0, 0 !default;
+
+// The geometry remains identical to ensure UI consistency
+$shadow-xs:					elevation-shadow(1) !default;
+$shadow-sm:					elevation-shadow(2) !default;
+$shadow-md:					elevation-shadow(4) !default;
+$shadow-lg:					elevation-shadow(8) !default;
+$shadow-xl:					elevation-shadow(12) !default;
+$shadow-2xl:				elevation-shadow(24) !default;

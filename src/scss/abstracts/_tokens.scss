@@ -213,16 +213,16 @@
 	// Shadows
 	// --------------------------------------------
 
-	--shadow-color-lch:			0% 0 0; // Neutral black base
-	--shadow-opacity-umbra:		0.20;
-	--shadow-opacity-penumbra:	0.14;
-	--shadow-opacity-ambient:	0.12;
+	// The Color Bridge
+    // This allows the rgba() in _elevation.scss to function
+    --shadow-rgb:				#{$shadow-base-rgb};
 
 	--shadow-xs:				#{$shadow-xs};
-	--shadow-sm:				#{$shadow-sm};
-	--shadow-md:				#{$shadow-md};
-	--shadow-lg:				#{$shadow-lg};
-	--shadow-xl:				#{$shadow-xl};
+    --shadow-sm:				#{$shadow-sm};
+    --shadow-md:				#{$shadow-md};
+    --shadow-lg:				#{$shadow-lg};
+    --shadow-xl:				#{$shadow-xl};
+    --shadow-2xl:				#{$shadow-2xl};
 
 	// --------------------------------------------
 	// Icon Tokens
