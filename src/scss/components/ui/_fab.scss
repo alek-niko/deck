@@ -95,7 +95,7 @@ $warning-color: #ffb300 !default;
 
 	// THEME VARIABLES - link to global tokens defined elsewhere (in :root and .dark)
 	--fab-bg: var(--color-surface);
-	--fab-color: var(--color-text);
+	--fab-color: var(--icon-color);
 	--fab-bg-primary: var(--color-primary);
 	--fab-bg-secondary: var(--color-danger); // example fallback
 	--fab-bg-success: var(--color-success);
@@ -126,11 +126,18 @@ $warning-color: #ffb300 !default;
 		box-shadow: var(--shadow-xl);
 	}
 
-	>i,
-	>svg {
-		color: inherit;
-		font-size: 28px;
-	}
+	> i,
+    > svg {
+        width: var(--icon-size, 24px);
+        height: var(--icon-size, 24px);
+        fill: currentColor;
+        stroke: currentColor;
+        color: inherit;
+        font-size: 28px;
+        transition: transform var(--transition-duration) ease, 
+                    color var(--transition-duration) ease,
+                    fill var(--transition-duration) ease;
+    }
 
 	// -------------------------------------------------------------------------
 	// Color Variants
