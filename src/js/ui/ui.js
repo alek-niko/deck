@@ -10,6 +10,7 @@ import Header from './header.js';
 import ThemeManager from './theme.manager.js';
 import FormManager from './form.manager.js';
 import ComponentManager from './component.manager.js';
+import FabManager from './fab.manager.js';
 import Spinner from './spinner.js';
 import Progress from './progress.js';
 import { DomUtils } from './helpers.js';
@@ -39,6 +40,7 @@ class UI {
 		this.theme		= new ThemeManager();
 		this.forms		= new FormManager(this);
 		this.components = new ComponentManager(this);
+		this.fabs       = new FabManager(this);
 
 		// Global Plugins
         this.spinner	= new Spinner(this);
@@ -59,6 +61,7 @@ class UI {
 		// Initialize managers
 		this.forms.init();
 		this.components.init();
+		this.fabs.init();
 		
 		// Fix <pre><code> formatting issues
 		DomUtils.fixPreCode();

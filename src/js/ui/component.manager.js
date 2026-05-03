@@ -21,8 +21,8 @@ export default class ComponentManager {
 	 * Should be called once after DOM is ready
 	 */
 	init() {
-		this.initFabSpeedDials();
-		this.initFabSheets();
+		//this.initFabSpeedDials();
+		//this.initFabSheets();
 		this.initAvatars();
 		this.#bindCardEvents();
 	}
