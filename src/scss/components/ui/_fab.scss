@@ -20,8 +20,8 @@
 @use '../../abstracts/variables/z-index' as *; 
 @use '../../abstracts/variables/effects' as *; 
 @use '../../abstracts/variables/layout' as *; 
-
-@use '../../abstracts/mixins/responsive' as *; 
+@use '../../abstracts/mixins/elevation' as *; 
+@use '../../abstracts/mixins/responsive' as *;
 
 // -----------------------------------------------------------------------------
 // Sizing & Config Tokens
