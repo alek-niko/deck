@@ -33,7 +33,7 @@ $hover-elevation: (
 	sm: 1,
 	md: 4,
 	lg: 8,
-	xl: 16
+	xl: 12
 );
 
 @each $name, $level in $hover-elevation {
