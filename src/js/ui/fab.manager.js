@@ -1,8 +1,10 @@
 /**
- * Production-grade FAB Controller
- * Handles Speed Dials (Staggered) and Sheets (Dynamic Expansion)
+ * @class FabManager
+ * @description Manages Floating Action Buttons, Speed Dials, and Action Sheets.
  */
-class FabController {
+
+class FabManager {
+
     constructor() {
         this.animDuration = 40; // Base staggering unit
         this.init();
@@ -137,4 +139,4 @@ class FabController {
 }
 
 // Export for framework use
-export default new FabController();
+export default new FabManager();
