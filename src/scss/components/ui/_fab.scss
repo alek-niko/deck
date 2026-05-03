@@ -109,7 +109,7 @@ $warning-color: #ffb300 !default;
 	align-items: center;
 	justify-content: center;
 	box-shadow: var(--shadow-md);
-	//@include elevation(6);
+	//@include elevation(8);
 	transition: all $fab-transition-duration $ease-snappy;
 	border: none;
 	position: relative;
@@ -302,7 +302,7 @@ $warning-color: #ffb300 !default;
 		align-items: center;
 		justify-content: center;
 		box-shadow: var(--shadow-md);
-		//@include elevation(6);
+		//@include elevation(4);
 		cursor: pointer;
 
 		&:not(.is-primary):not(.is-secondary):not(.is-dark):not(.is-danger):not(.is-success):not(.is-warning) {
