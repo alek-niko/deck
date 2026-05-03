@@ -12,6 +12,7 @@
 // ============================================================================
 
 @use "sass:map";
+@use "sass:string";
 
 /**
  * @section 1. Smooth Elevation Geometry
@@ -51,5 +52,5 @@ $elevation-geometry: (
         @error "Elevation level [#{$level}] not found. Use: 1, 2, 4, 8, 12, 24.";
     }
 
-    @return unquote(map.get($elevation-geometry, $level));
+    @return string.unquote(map.get($elevation-geometry, $level));
 }
