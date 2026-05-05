@@ -65,22 +65,23 @@
 			-o-transition: .8s ease;
 		}
 	}
+}
 
-	// -------------------------------------------------------------------------
-	// Tooltip
-	// -------------------------------------------------------------------------
-	// Optional floating tooltip for showing labels, names, or details
-	// Appears near cursor or active region
+// -------------------------------------------------------------------------
+// Tooltip
+// -------------------------------------------------------------------------
+// Optional floating tooltip for showing labels, names, or details
+// Appears near cursor or active region
 
-	.tooltip {
-		position: absolute;
-		background: rgba(0, 0, 0, 0.8);
-		color: white;
-		padding: 5px 10px;
-		border-radius: 5px;
-		font-size: 12px;
-		pointer-events: none;	// Prevent blocking interactions
-		display: none;			// Hidden by default
-		z-index: 1000;			// Ensure visibility above map
-	}
+#tooltip {
+    position: fixed !important;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 99999; // Ensure it's on top of everything
+    display: none;
+    transition: opacity 0.1s ease; // Optional: smoother appearance
 }
