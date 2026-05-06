@@ -26,18 +26,18 @@ $text-color-secondary:		oklch(70% 0.01 $hue-gray) !default;
 $text-color-on-inverted:	oklch(15% 0.02 $hue-gray) !default; // Dark text on light button in dark theme
 
 $muted-color:				oklch(60% 0.01 $hue-gray) !default;   
-$body-bg:					oklch(18% 0.02 $hue-gray) !default; // #121212 equivalent
+// $body-bg:					oklch(18% 0.02 $hue-gray) !default; // #121212 equivalent
+$body-bg:					oklch(14% 0.01 $hue-gray) !default; // Deeper black/gray (#0f0f0f equivalent)
 
 
 /// --------------------------------------------
 /// SURFACE COLORS
 /// --------------------------------------------
 
-$surface:                   oklch(22% 0.02 $hue-gray) !default; // #1c1e21
-$surface-muted:             oklch(26% 0.02 $hue-gray) !default; // #2a2d31
-$surface-contrast:          oklch(98% 0 0) !default;
-$surface-disabled:          oklch(24% 0.02 $hue-gray) !default;
-
+$surface:					oklch(18% 0.015 $hue-gray) !default;
+$surface-muted:				oklch(16% 0.01 $hue-gray) !default;
+$surface-contrast:			oklch(98% 0 0) !default;
+$surface-disabled:			oklch(15% 0.01 $hue-gray) !default;
 
 /// --------------------------------------------
 /// SEMANTIC & UI COLORS
@@ -45,11 +45,11 @@ $surface-disabled:          oklch(24% 0.02 $hue-gray) !default;
 /// Dark mode colors usually need slightly LOWER chroma and HIGHER lightness 
 /// than light mode to avoid "neon" vibration.
 
-$primary-color:				oklch(75% 0.12 $hue-blue) !default; // Softened blue
-$secondary-color:			oklch(85% 0.02 $hue-gray) !default;  
-$success-color:				oklch(75% 0.12 145) !default;           
-$warning-color:				oklch(80% 0.14 65) !default;            
-$danger-color:				oklch(70% 0.15 25) !default;
+$primary-color:				oklch(75% 0.12 $hue-blue) !default;
+$secondary-color:			oklch(28% 0.02 $hue-gray) !default;
+$success-color:				oklch(72% 0.09 145) !default;          
+$warning-color:				oklch(78% 0.10 85) !default;            
+$danger-color:				oklch(62% 0.12 25) !default;
 
 $success-bg-color:			oklch(75% 0.12 145 / 0.15) !default;
 $warning-bg-color:			oklch(80% 0.14 65 / 0.15) !default;
@@ -65,7 +65,7 @@ $disabled-color:			oklch(50% 0.01 $hue-gray) !default;
 /// BORDERS
 /// --------------------------------------------
 
-$border-color:				oklch(100% 0 0 / 0.12) !default; 
+$border-color:				oklch(25% 0.02 $hue-gray) !default;
 $border-color-hover:		oklch(100% 0 0 / 0.24) !default; 
 $border-color-focus:		oklch(100% 0 0 / 0.36) !default; 
 
@@ -79,9 +79,25 @@ $border-color-strong:		oklch(100% 0 0 / 0.24) !default;
 /// HOVER COLORS
 /// --------------------------------------------
 
-$hover-color:				oklch(100% 0 0 / 0.08) !default;
+$hover-color:				oklch(32% 0.02 $hue-gray) !default;
 $hover-color-surface:		oklch(100% 0 0 / 0.06) !default;
 $hover-color-surface-strong:oklch(100% 0 0 / 0.1) !default;
+
+
+/// --------------------------------------------
+/// ALERT COLORS
+/// --------------------------------------------
+
+$advisory-level-1:			oklch(75% 0.12 250) !default; // Lighter, softer blue
+$advisory-level-2:          oklch(82% 0.12 90) !default; // Muted yellow
+$advisory-level-3:			oklch(70% 0.15 45) !default; // Soft orange
+$advisory-level-4:			oklch(65% 0.18 25) !default; // Brightened red
+
+// Alt variants (Dark mode usually uses deep tints or semi-transparent surfaces)
+$advisory-level-1-alt:		oklch(25% 0.04 250) !default;
+$advisory-level-2-alt:		oklch(25% 0.04 85) !default;
+$advisory-level-3-alt:		oklch(25% 0.04 45) !default;
+$advisory-level-4-alt:		oklch(25% 0.04 25) !default;
 
 
 /// --------------------------------------------
