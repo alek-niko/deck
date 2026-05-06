@@ -15,12 +15,13 @@
 
 .map-svg {
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;					// Full width of parent
-	height: 100%;					// Full height (can be 100vh if needed)
-	background-color: #f0f0f0;		// Optional: light background for visibility
-	overflow: hidden;				// Prevent overflow of oversized maps
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-surface-muted); 
+    overflow: hidden;
+
 
 	// -------------------------------------------------------------------------
 	// SVG / Image Reset
@@ -29,15 +30,15 @@
 	// any unwanted inherited or default browser styles
 
 	> svg, img {
-		all: unset;					// Reset all inherited styles
-		width: 100%;				// Scale to container width
-		height: 100%;				// Scale to container height
-		max-width: 100%;			// Prevent horizontal overflow
-		max-height: 100%;			// Prevent vertical overflow
-		display: block;				// Remove inline spacing
-		margin: 0;					// Reset margin
-		padding: 0;					// Reset padding
-		box-sizing: border-box;		// Consistent sizing
+		all: unset;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
 
 		// ---------------------------------------------------------------------
 		// Hover State
@@ -55,15 +56,19 @@
 		// Adds highlight colors and transitions for user feedback
 
 		.active {
-			cursor: pointer;
-			stroke: #0098ff;
-			fill: #525252;
-			stroke-dashoffset: 0%;
-			-webkit-transition: .8s ease;
-			-moz-transition: .8s ease;
-			-ms-transition: .8s ease;
-			-o-transition: .8s ease;
-		}
+            cursor: pointer;
+            stroke: var(--color-primary); 
+            fill: var(--color-surface-contrast); 
+            stroke-dashoffset: 0%;
+            transition: fill var(--transition-duration) ease, 
+                        stroke var(--transition-duration) ease;
+        }
+
+		// Style for the hovered path (matching the JS highlight color)
+        path.land:hover {
+            fill: var(--color-primary); 
+            transition: fill 0.2s ease;
+        }
 	}
 }
 
@@ -75,13 +80,26 @@
 
 #tooltip {
     position: fixed !important;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 14px;
+    // Uses the oklch text color for the background with transparency
+    background: var(--color-text); 
+    color: var(--color-surface); // Surface color (white/light) for text
+    
+    // Spacing and Radius tokens
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    
+    // Typography tokens
+    font-size: var(--text-sm);
+    font-family: var(--font-primary);
+    
     pointer-events: none;
-    z-index: 99999; // Ensure it's on top of everything
+    z-index: 999999;
     display: none;
-    transition: opacity 0.1s ease; // Optional: smoother appearance
+    
+    // Effects tokens
+    backdrop-filter: var(--backdrop-blur);
+    box-shadow: var(--shadow-md);
+    
+    // Transition tokens
+    transition: opacity var(--transition-duration) ease;
 }
