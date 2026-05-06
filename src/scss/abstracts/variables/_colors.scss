@@ -34,14 +34,15 @@ $text-color-secondary:		oklch(45% 0.02 $hue-gray) !default;
 $text-color-on-inverted:	oklch(98% 0 0) !default;
 
 $muted-color:				oklch(60% 0.01 $hue-gray) !default;   
-$body-bg:					oklch(97% 0.005 $hue-gray) !default;
+$body-bg:					oklch(98.5% 0.002 $hue-gray) !default;
+
 
 /// --------------------------------------------
 /// SURFACE COLORS
 /// --------------------------------------------
 
 $surface:					$white !default;
-$surface-muted:				oklch(98% 0.005 $hue-gray) !default; 
+$surface-muted:				oklch(96% 0.005 $hue-gray) !default;
 $surface-contrast:			$dark !default;  
 $surface-disabled:			oklch(95% 0.01 $hue-gray) !default;
 
@@ -52,7 +53,7 @@ $surface-disabled:			oklch(95% 0.01 $hue-gray) !default;
 /// 
 
 $primary-color:				$blue !default;
-$secondary-color:			oklch(92% 0.02 $hue-gray) !default;  
+$secondary-color:           oklch(94% 0.01 $hue-gray) !default;
 $success-color:				oklch(55% 0.15 145) !default;           
 $warning-color:				oklch(65% 0.18 65) !default;            
 $danger-color:				oklch(50% 0.20 25) !default;            
@@ -88,6 +89,22 @@ $hover-color:				oklch(0% 0 0 / 0.08) !default;
 $hover-color-dark:			oklch(0% 0 0 / 0.16) !default;           
 $hover-color-surface:		oklch(0% 0 0 / 0.04) !default;                
 $hover-color-surface-strong:oklch(0% 0 0 / 0.08) !default;
+
+
+/// --------------------------------------------
+/// ALERT COLORS
+/// --------------------------------------------
+
+$advisory-level-1:			oklch(55% 0.18 250) !default; // Standard Blue
+$advisory-level-2:			oklch(88% 0.16 90) !default; // Warning Yellow
+$advisory-level-3:			oklch(60% 0.22 45) !default; // Danger Orange
+$advisory-level-4:			oklch(45% 0.25 25) !default; // Emergency Red
+
+// Alt variants (subtle backgrounds)
+$advisory-level-1-alt:		oklch(96% 0.02 250) !default;
+$advisory-level-2-alt:		oklch(96% 0.04 85) !default;
+$advisory-level-3-alt:		oklch(96% 0.04 45) !default;
+$advisory-level-4-alt:		oklch(96% 0.04 25) !default;
 
 
 /// --------------------------------------------
