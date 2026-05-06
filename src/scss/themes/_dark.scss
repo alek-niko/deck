@@ -92,15 +92,15 @@
 	// --------------------------------------------
 	// Alert Colors
 	// --------------------------------------------
-	--color-level-1:			#{$advisory-level-1};
-    --color-level-2:			#{$advisory-level-2};
-    --color-level-3:			#{$advisory-level-3};
-    --color-level-4:			#{$advisory-level-4};
+	--color-level-1:				#{$color-level-1};
+    --color-level-2:				#{$color-level-2};
+    --color-level-3:				#{$color-level-3};
+    --color-level-4:				#{$color-level-4};
 
-    --color-level-1-alt:		#{$advisory-level-1-alt};
-    --color-level-2-alt:		#{$advisory-level-2-alt};
-    --color-level-3-alt:		#{$advisory-level-3-alt};
-    --color-level-4-alt:		#{$advisory-level-4-alt};
+    --color-level-1-alt:			#{$color-level-1-alt};
+    --color-level-2-alt:			#{$color-level-2-alt};
+    --color-level-3-alt:			#{$color-level-3-alt};
+    --color-level-4-alt:			#{$color-level-4-alt};
 
 	// --------------------------------------------
 	// Effects
@@ -113,24 +113,24 @@
 	// --------------------------------------------
 	// Shadows
 	// --------------------------------------------
-	--shadow-rgb:				#{$shadow-base-rgb};
+	--shadow-rgb:					#{$shadow-base-rgb};
     
-    --shadow-xs:				#{$shadow-xs};
-    --shadow-sm:				#{$shadow-sm};
-    --shadow-md:				#{$shadow-md};
-    --shadow-lg:				#{$shadow-lg};
-    --shadow-xl:				#{$shadow-xl};
-    --shadow-2xl:				#{$shadow-2xl};
+    --shadow-xs:					#{$shadow-xs};
+    --shadow-sm:					#{$shadow-sm};
+    --shadow-md:					#{$shadow-md};
+    --shadow-lg:					#{$shadow-lg};
+    --shadow-xl:					#{$shadow-xl};
+    --shadow-2xl:					#{$shadow-2xl};
 
 	// --------------------------------------------
 	// Icon Tokens
 	// --------------------------------------------
 
-	--icon-color:				#{$icon-color};               // Primary icon color
-	--icon-color-hover:			#{$icon-color-hover};         // Hover color
-	--icon-shadow-color:		#{$icon-shadow-color};        // Shadow ring
-	--icon-action-bg:			#{$icon-action-bg};           // Hover bg
-	--icon-circle-bg:			#{$icon-circle-bg};           // Circle fill
+	--icon-color:					#{$icon-color};               // Primary icon color
+	--icon-color-hover:				#{$icon-color-hover};         // Hover color
+	--icon-shadow-color:			#{$icon-shadow-color};        // Shadow ring
+	--icon-action-bg:				#{$icon-action-bg};           // Hover bg
+	--icon-circle-bg:				#{$icon-circle-bg};           // Circle fill
 
 }
 

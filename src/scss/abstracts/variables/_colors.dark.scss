@@ -45,7 +45,7 @@ $surface-disabled:			oklch(15% 0.01 $hue-gray) !default;
 /// Dark mode colors usually need slightly LOWER chroma and HIGHER lightness 
 /// than light mode to avoid "neon" vibration.
 
-$primary-color:				oklch(75% 0.12 $hue-blue) !default;
+$primary-color:				oklch(70% 0.12 $hue-blue) !default;
 $secondary-color:			oklch(28% 0.02 $hue-gray) !default;
 $success-color:				oklch(72% 0.09 145) !default;          
 $warning-color:				oklch(78% 0.10 85) !default;            
@@ -88,16 +88,18 @@ $hover-color-surface-strong:oklch(100% 0 0 / 0.1) !default;
 /// ALERT COLORS
 /// --------------------------------------------
 
-$advisory-level-1:			oklch(75% 0.12 250) !default; // Lighter, softer blue
-$advisory-level-2:          oklch(82% 0.12 90) !default; // Muted yellow
-$advisory-level-3:			oklch(70% 0.15 45) !default; // Soft orange
-$advisory-level-4:			oklch(65% 0.18 25) !default; // Brightened red
+// Dark theme advisories should feel like "glowing gems" rather than bright stickers
+$color-level-1:				oklch(72% 0.10 250) !default; 
+$color-level-2:				oklch(82% 0.08 95) !default;  
+$color-level-3:				oklch(72% 0.12 50) !default;  
+$color-level-4:				oklch(65% 0.15 25) !default;  
 
-// Alt variants (Dark mode usually uses deep tints or semi-transparent surfaces)
-$advisory-level-1-alt:		oklch(25% 0.04 250) !default;
-$advisory-level-2-alt:		oklch(25% 0.04 85) !default;
-$advisory-level-3-alt:		oklch(25% 0.04 45) !default;
-$advisory-level-4-alt:		oklch(25% 0.04 25) !default;
+// Alt variants in Dark Mode: These should be "Deep Wells"
+// We use a very low lightness (22-25%) to act as a container.
+$color-level-1-alt:			oklch(25% 0.03 250) !default;
+$color-level-2-alt:			oklch(25% 0.03 95) !default;
+$color-level-3-alt:			oklch(25% 0.04 50) !default;
+$color-level-4-alt:			oklch(25% 0.04 25) !default;
 
 
 /// --------------------------------------------
