@@ -14,47 +14,37 @@
 	// --------------------------------------------
 	// Typography Tokens
 	// --------------------------------------------
-	// Fonts, sizes, weights, and scaling.
-
-	--font-primary:				#{$primary-font};			// Base font family
-	--font-size-base:			#{$body-font-size};			// Root font size
-	--font-weight-base:			#{$body-font-weight};		// Default font weight
-	--line-height-base:			#{$body-font-line-height};	// Line height for body text
+	--font-primary:				#{$primary-font};
+	--font-size-base:			#{$body-font-size};
+	--font-weight-base:			#{$body-font-weight};
+	--line-height-base:			#{$body-font-line-height};
 
 	// --------------------------------------------
 	// Font Sizes
 	// --------------------------------------------
-	//
-	
 	--font-size-base:			#{$body-font-size};
-    --text-xs:					#{$font-size-xs};			// ~12px (Micro)
-    --text-sm:					#{$font-size-sm};			// ~14px (UI/Components)
-    --text-md:					#{$font-size-md};			// ~16px (Body/Base)
-    --text-lg:					#{$font-size-lg};			// ~20px (Lead/H5)
-    --text-xl:					#{$font-size-xl};			// ~25px (H4)
-    --text-2xl:					#{$font-size-2xl};			// ~31px (H3)
-
+    --text-xs:					#{$font-size-xs};
+    --text-sm:					#{$font-size-sm};
+    --text-md:					#{$font-size-md};
+    --text-lg:					#{$font-size-lg};
+    --text-xl:					#{$font-size-xl};
+    --text-2xl:					#{$font-size-2xl};
 
 	// --------------------------------------------
 	// Layout & Grid Tokens
 	// --------------------------------------------
-	// Heights, widths, columns, and spacing.
+	--header-height:			#{$header-height};
+	--header-height-mobile:		#{$header-height-mobile};
+	--footer-height:			#{$footer-height};
+	--footer-height-mobile:		#{$footer-height-mobile};
+	--sidebar-width:			#{$sidebar-width};
 
-	--header-height:			#{$header-height};			// Desktop header height
-	--header-height-mobile:		#{$header-height-mobile};	// Mobile header height
-	--footer-height:			#{$footer-height};			// Footer height (desktop)
-	--footer-height-mobile:		#{$footer-height-mobile};	// Footer height (mobile)
-	--sidebar-width:			#{$sidebar-width};			// Sidebar width
-
-	--grid-columns:				#{$grid-columns};			// Grid column count
-	--grid-gap:					#{$grid-gap};				// Column spacing
-
+	--grid-columns:				#{$grid-columns};
+	--grid-gap:					#{$grid-gap};
 
 	// --------------------------------------------
 	// Spacing & Radius Tokens
 	// --------------------------------------------
-	// Standard spacing unit and corner radius.
-
 	--spacing-xs:				#{$spacing-xs};
 	--spacing-sm:				#{$spacing-sm};
 	--spacing-md:				#{$spacing-md};
@@ -88,31 +78,35 @@
 	--radius-square:			#{$border-radius-square};
 
 	// --------------------------------------------
+    // Touch targets
+    // --------------------------------------------
+	--touch-target-min:         #{$touch-target-min};
+    --touch-target-comfortable: #{$touch-target-comfortable};
+    --touch-target-large:       #{$touch-target-large};
+    
+    --touch-active-scale:       #{$touch-active-scale};
+
+	// --------------------------------------------
 	// Section height tokens
 	// --------------------------------------------
-
 	--section-height-xs:		#{$section-height-xs};
 	--section-height-sm:		#{$section-height-sm};
 	--section-height-md:		#{$section-height-md};
 	--section-height-lg:		#{$section-height-lg};
 	--section-height-xl:		#{$section-height-xl};
 
-
 	// --------------------------------------------
 	// Row height tokens
 	// --------------------------------------------
-
 	--row-height-xs:			#{$row-height-xs};
 	--row-height-sm:			#{$row-height-sm};
 	--row-height-md:			#{$row-height-md};
 	--row-height-lg:			#{$row-height-lg};
 	--row-height-xl:			#{$row-height-xl};
 
-
 	// --------------------------------------------
 	// Control height tokens
 	// --------------------------------------------
-
 	--control-height-xs:		#{$control-height-xs};
 	--control-height-sm:		#{$control-height-sm};
 	--control-height-md:		#{$control-height-md};
@@ -122,7 +116,6 @@
 	// --------------------------------------------
 	// Touch targets
 	// --------------------------------------------
-
 	--touch-target-min:			#{$touch-target-min};
 	--touch-target-comfortable: #{$touch-target-comfortable};
 	--touch-target-large:		#{$touch-target-large};
@@ -130,68 +123,48 @@
 	// --------------------------------------------
 	// Body & Typography
 	// --------------------------------------------
-
-	--color-background:			#{$body-bg};								// App/page background
-
-	// --- Refined Text Logic ---
-	--color-text-l:             25%;
-	--color-text-c:             0.02;
-	--color-text-h:             260;
-
-	--color-text:               oklch(var(--color-text-l) var(--color-text-c) var(--color-text-h));
-	--color-text-muted:         oklch(var(--color-text-l) var(--color-text-c) var(--color-text-h) / 0.6);
-
-	//--color-text:				#{$text-color-primary};						// Primary body text
-	//--color-text-muted:			#{$muted-color};						// Less prominent text
-	--color-text-secondary:		#{$text-color-secondary};					// UI captions, secondary labels
-	--color-text-inverse:		#{$text-color-on-inverted};					// Text on contrasting backgrounds (e.g., overlay)
-
+	--color-background:			#{$body-bg};
+	--color-text:				#{$text-color-primary};
+	--color-text-muted:			#{$muted-color};
+	--color-text-secondary:		#{$text-color-secondary};
+	--color-text-inverse:		#{$text-color-on-inverted};
 
 	// --------------------------------------------
 	// Surface Tokens
 	// --------------------------------------------
-
-	--color-surface:			#{$surface};				// Surface elements (e.g., cards). Old value: #{$white};
-	--color-surface-muted:		#{$surface-muted};			// = #f7f9fa
-	--color-surface-contrast:	#{$surface-contrast};		// for strong contrast
+	--color-surface:			#{$surface};
+	--color-surface-muted:		#{$surface-muted};
+	--color-surface-contrast:	#{$surface-contrast};
 	--color-surface-disabled:	#{$surface-disabled};
 
 	// --------------------------------------------
 	// Hover Surface Tokens
 	// --------------------------------------------
-	// Semantic background colors used for hover states on surfaces such as 
-	// nav items, list groups, dropdowns, and interactive panels.
-
-	--color-hover-surface:			#{$hover-color-surface};			// Default surface hover (light)
-	--color-hover-surface-strong:	#{$hover-color-surface-strong};		// Stronger hover for emphasis
+	--color-hover-surface:			#{$hover-color-surface};
+	--color-hover-surface-strong:	#{$hover-color-surface-strong};
 
 	// --------------------------------------------
 	// Border Colors
 	// --------------------------------------------
-
-	--color-border:				#{$border-color};			// Standard border
-	--color-border-muted:		#{$border-color-muted};		// Subtle separators
-	--color-border-strong:		#{$border-color-strong};	// High contrast dividers
+	--color-border:				#{$border-color};
+	--color-border-muted:		#{$border-color-muted};
+	--color-border-strong:		#{$border-color-strong};
 
 	// --------------------------------------------
 	// UI Semantic States
 	// --------------------------------------------
-	//--color-primary:			#{$primary-color};					// Brand / primary actions
-	--color-primary-l:          65%;
-	--color-primary-c:          0.22;
-	--color-primary-h:          260;
-
-	--color-primary:            oklch(var(--color-primary-l) var(--color-primary-c) var(--color-primary-h));
-	--color-primary-hover:      oklch(calc(var(--color-primary-l) - 8%) var(--color-primary-c) var(--color-primary-h));
-
+	--color-primary:			#{$primary-color};
 	--color-secondary:			#{$secondary-color};
-	--color-success:			#{$success-color};					// Success messages
-	--color-warning:			#{$warning-color};					// Warning alerts
-	--color-danger:				#{$danger-color};					// Error states
-	--color-muted:				#{$muted-color};					 
-	--color-link:				#{$link-color};						// Hyperlink color
-	--color-accent:				#{$blue};							// Accent color
+	--color-success:			#{$success-color};
+	--color-warning:			#{$warning-color};
+	--color-danger:				#{$danger-color};
+	--color-muted:				#{$muted-color};
+	--color-link:				#{$link-color};
+	--color-link-hover:         #{$link-color-hover};
+	--color-accent:				#{$blue};
 	--color-disabled:			#{$disabled-color};
+
+	--color-primary-hover:      #{$primary-color-hover};
 
 	// --------------------------------------------
 	// Semantic Backgrounds
@@ -199,7 +172,6 @@
 	--color-success-bg:			#{$success-bg-color};
 	--color-warning-bg:			#{$warning-bg-color};
 	--color-danger-bg:			#{$danger-bg-color};
-
 
 	// --------------------------------------------
 	// Alert Colors
@@ -217,18 +189,15 @@
 	// --------------------------------------------
 	// Effects
 	// --------------------------------------------
-	--overlay-background:		#{$overlay-background};		// Lighter than dark overlay
-	--backdrop-blur:			#{$backdrop-blur};			// Same in both themes (optional)
-	--shadow-elevation:			#{$shadow-elevation};		// Softer shadow
+	--overlay-background:		#{$overlay-background};
+	--backdrop-blur:			#{$backdrop-blur};
+	--shadow-elevation:			#{$shadow-elevation};
 	--border-color-soft:		#{$border-color-soft};
 	--border-color-strong:		#{$border-color-strong};
 
 	// --------------------------------------------
 	// Shadows
 	// --------------------------------------------
-
-	// The Color Bridge
-    // This allows the rgba() in _elevation.scss to function
     --shadow-rgb:				#{$shadow-base-rgb};
 
 	--shadow-xs:				#{$shadow-xs};
@@ -241,19 +210,18 @@
 	// --------------------------------------------
 	// Icon Tokens
 	// --------------------------------------------
-
 	--icon-size:				#{$icon-size};
 	--icon-stroke-width:		#{$icon-stroke-width};
 	--icon-hover-scale:			#{$icon-hover-scale};
 
-	--icon-color:				#{$icon-color};               // Primary icon color
-	--icon-color-hover:			#{$icon-color-hover};         // Hover color
-	--icon-shadow-color:		#{$icon-shadow-color};        // Shadow ring
-	--icon-action-bg:			#{$icon-action-bg};           // Hover bg
-	--icon-circle-bg:			#{$icon-circle-bg};           // Circle fill
+	--icon-color:				#{$icon-color};
+	--icon-color-hover:			#{$icon-color-hover};
+	--icon-shadow-color:		#{$icon-shadow-color};
+	--icon-action-bg:			#{$icon-action-bg};
+	--icon-circle-bg:			#{$icon-circle-bg};
 
 	// -------------------------------------------------------------------
 	// Transitions
 	// -------------------------------------------------------------------
-	--transition-duration:		#{$transition-duration};       // Shared transition speed
+	--transition-duration:		#{$transition-duration};
 }

@@ -28,34 +28,32 @@ $dark:						oklch(20% 0.04 $hue-blue) !default;
 /// --------------------------------------------
 /// BODY & TEXT
 /// --------------------------------------------
+$body-bg:					oklch(97% 0.005 $hue-gray) !default;
 
 $text-color-primary:		oklch(25% 0.02 $hue-gray) !default;
 $text-color-secondary:		oklch(45% 0.02 $hue-gray) !default;
 $text-color-on-inverted:	oklch(98% 0 0) !default;
 
-$muted-color:				oklch(60% 0.01 $hue-gray) !default;
-$body-bg:					oklch(97% 0.005 $hue-gray) !default;
+$muted-color:               oklch(from $text-color-primary l c h / 0.6) !default; 
 
 /// --------------------------------------------
 /// SURFACE COLORS
 /// --------------------------------------------
-
 $surface:					$white !default;
 $surface-muted:				oklch(98% 0.005 $hue-gray) !default;
 $surface-contrast:			$dark !default;
 $surface-disabled:			oklch(95% 0.01 $hue-gray) !default;
 
-
 /// --------------------------------------------
 /// SEMANTIC & UI COLORS
 /// --------------------------------------------
-///
-
 $primary-color:				$blue !default;
 $secondary-color:			oklch(92% 0.02 $hue-gray) !default;
 $success-color:				oklch(55% 0.15 145) !default;
 $warning-color:				oklch(65% 0.18 65) !default;
 $danger-color:				oklch(50% 0.20 25) !default;
+
+$primary-color-hover:       oklch(from $primary-color calc(l - 0.08) c h) !default;
 
 $success-bg-color:			oklch(55% 0.15 145 / 0.1) !default;
 $warning-bg-color:			oklch(65% 0.18 65 / 0.12) !default;
@@ -65,97 +63,71 @@ $link-color:				oklch(55% 0.18 $hue-blue) !default;
 $link-color-hover:			oklch(45% 0.22 $hue-blue) !default;
 $disabled-color:			oklch(70% 0.01 $hue-gray) !default;
 
-
 /// --------------------------------------------
 /// BORDERS
 /// --------------------------------------------
-
 $border-color:				oklch(0% 0 0 / 0.12) !default;
 $border-color-hover:		oklch(0% 0 0 / 0.24) !default;
 $border-color-focus:		oklch(0% 0 0 / 0.36) !default;
-
 $border-color-light:		oklch(0% 0 0 / 0.08) !default;
 $border-color-muted:		oklch(0% 0 0 / 0.06) !default;
 $border-color-soft:			oklch(0% 0 0 / 0.06) !default;
 $border-color-strong:		oklch(0% 0 0 / 0.24) !default;
 
-
 /// --------------------------------------------
 /// HOVER COLORS
 /// --------------------------------------------
-
 $hover-color:				oklch(0% 0 0 / 0.08) !default;
 $hover-color-dark:			oklch(0% 0 0 / 0.16) !default;
 $hover-color-surface:		oklch(0% 0 0 / 0.04) !default;
 $hover-color-surface-strong:oklch(0% 0 0 / 0.08) !default;
 
-
 /// --------------------------------------------
 /// ALERT COLORS
 /// --------------------------------------------
-
 $color-level-1:				oklch(55% 0.18 250) !default; 
-$color-level-2:				oklch(88% 0.16 95) !default;  // Lifted L and shifted Hue to 95 for a cleaner Gold
+$color-level-2:				oklch(88% 0.16 95) !default;
 $color-level-3:				oklch(60% 0.22 45) !default; 
 $color-level-4:				oklch(45% 0.25 25) !default; 
 
-// Alt variants (Restoring your subtle 96% backgrounds)
 $color-level-1-alt:			oklch(96% 0.02 250) !default;
 $color-level-2-alt:			oklch(96% 0.04 95) !default;
 $color-level-3-alt:			oklch(96% 0.04 45) !default;
 $color-level-4-alt:			oklch(96% 0.04 25) !default;
 
-
 /// --------------------------------------------
 /// EFFECTS & UI STATES
 /// --------------------------------------------
-
 $overlay-background:		oklch(0% 0 0 / 0.3) !default;
 $backdrop-blur:				blur(8px) !default;
 $shadow-elevation:			0 1px 4px oklch(0% 0 0 / 0.1) !default;
 
-
 /// --------------------------------------------
 /// ICONS
 /// --------------------------------------------
-
 $icon-color:				$text-color-secondary !default;
 $icon-color-inactive:		oklch(0% 0 0 / 0.38) !default;
 $icon-color-hover:			$text-color-primary !default;
 $icon-shadow-color:			oklch(0% 0 0 / 0.4) !default;
 $icon-action-bg:			oklch(0% 0 0 / 0.08) !default;
 $icon-circle-bg:			transparent !default;
-
 $icon-color-active:			var(--color-primary) !default;
 $icon-action-bg-active:		oklch(from var(--color-primary) l c h / 0.12) !default;
-
 
 /// --------------------------------------------
 /// PLACEHOLDER
 /// --------------------------------------------
-
 $placeholder-color:			oklch(60% 0.01 $hue-gray) !default;
 
 /// --------------------------------------------
 /// SHADOWS
 /// --------------------------------------------
 
-// Define the base color as RGB channels (no alpha)
 $shadow-base-rgb:			0, 0, 0 !default;
 
-// Map the elevation levels to Sass variables
 $shadow-xs:					elevation-shadow(1) !default;
 $shadow-sm:					elevation-shadow(2) !default;
 $shadow-md:					elevation-shadow(4) !default;
 $shadow-lg:					elevation-shadow(8) !default;
 $shadow-xl:					elevation-shadow(12) !default;
 $shadow-2xl:				elevation-shadow(24) !default;
-
-
-
-
-
-
-
-
-

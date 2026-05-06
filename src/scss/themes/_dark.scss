@@ -28,17 +28,10 @@
 	// Body & Typography
 	// --------------------------------------------
 	--color-background:				#{$body-bg};
-
-	--color-text-l:					90%;
-	--color-text-c:					0.01;
-	--color-text-h:					250;
-    
-	--color-text:					oklch(var(--color-text-l) var(--color-text-c) var(--color-text-h));
-	--color-text-muted:				oklch(var(--color-text-l) var(--color-text-c) var(--color-text-h) / 0.5);
-
+	--color-text:					#{$text-color-primary};
+	--color-text-muted:				#{$muted-color};
 	--color-text-secondary:			#{$text-color-secondary};
 	--color-text-inverse:			#{$text-color-on-inverted};
-
 
 	// --------------------------------------------
 	// Surfaces
@@ -64,23 +57,16 @@
 	// --------------------------------------------
 	// UI Semantic States
 	// --------------------------------------------
-
-	// We update the Lightness/Chroma to pop against dark backgrounds
-	--color-primary-l:				70%;
-	--color-primary-c:				0.18;
-	--color-primary-h:				250;
-
-	--color-primary:				oklch(var(--color-primary-l) var(--color-primary-c) var(--color-primary-h));
-
-	// In Dark Mode, hover makes things LIGHTER (calc + 8%)
-	--color-primary-hover:			oklch(calc(var(--color-primary-l) + 8%) var(--color-primary-c) var(--color-primary-h));
-
+	--color-primary:				#{$primary-color};
 	--color-secondary:				#{$secondary-color};
 	--color-success:				#{$success-color};
 	--color-warning:				#{$warning-color};
 	--color-danger:					#{$danger-color};
 	--color-link:					#{$link-color};
+	--color-link-hover:				#{$link-color-hover};
 	--color-disabled:				#{$disabled-color};
+
+	--color-primary-hover:			#{$primary-color-hover};
 
 	// --------------------------------------------
 	// Semantic Backgrounds (Subtle Tints)
@@ -125,13 +111,11 @@
 	// --------------------------------------------
 	// Icon Tokens
 	// --------------------------------------------
-
-	--icon-color:					#{$icon-color};               // Primary icon color
-	--icon-color-hover:				#{$icon-color-hover};         // Hover color
-	--icon-shadow-color:			#{$icon-shadow-color};        // Shadow ring
-	--icon-action-bg:				#{$icon-action-bg};           // Hover bg
-	--icon-circle-bg:				#{$icon-circle-bg};           // Circle fill
-
+	--icon-color:					#{$icon-color};
+	--icon-color-hover:				#{$icon-color-hover};
+	--icon-shadow-color:			#{$icon-shadow-color};
+	--icon-action-bg:				#{$icon-action-bg};
+	--icon-circle-bg:				#{$icon-circle-bg}; 
 }
 
 // Manual `.dark` mode override
