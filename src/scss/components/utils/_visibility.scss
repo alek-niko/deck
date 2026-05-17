@@ -5,7 +5,7 @@
 // Provides helpers for controlling element visibility, display, and accessibility
 // Supports:
 // - Global hiding/showing
-// - Breakpoint-specific responsive visibility
+// - Breakpoint-specific responsive visibility (Layout Neutral)
 // - Non-layout-breaking hidden elements
 // - A11Y-friendly visually hidden elements
 // - Device-specific (touch vs pointer) visibility
@@ -41,55 +41,21 @@
 // Responsive Showing by Breakpoint
 // -----------------------------------------------------------------------------
 /// Shows element only above the specified breakpoint
-/// Hides it below the breakpoint
-/// Class format: `.visible-sm`, `.visible-md`, etc.
+/// Hides it below the breakpoint using max-width to avoid layout interference.
 
 @each $name, $min in $breakpoints {
-	.visible-#{$name} {
-		display: none !important;
-	}
-
-	@media (min-width: $min) {
+	@media (max-width: ($min - 1px)) {
 		.visible-#{$name} {
-			display: block !important;
+			display: none !important;
 		}
 	}
 }
-
-// --------------------------------------------
-// Show only within breakpoint range (e.g. only sm screens)
-// --------------------------------------------
-
-// @each $name, $min in $breakpoints {
-// 	$max: map-get($breakpoint-max-values, $name);
-
-// 	.visible-#{$name} {
-// 		display: none !important;
-// 	}
-
-// 	@if $max {
-// 		@media (min-width: $min) and (max-width: $max) {
-// 			.visible-#{$name} {
-// 				display: block !important;
-// 			}
-// 		}
-// 	}
-
-// 	@else {
-
-// 		// For largest breakpoint with no max
-// 		@media (min-width: $min) {
-// 			.visible-#{$name} {
-// 				display: block !important;
-// 			}
-// 		}
-// 	}
-// }
 
 // -----------------------------------------------------------------------------
 // Visibility (non-layout-breaking)
 // -----------------------------------------------------------------------------
 /// Makes elements invisible without removing them from layout
+
 .invisible {
 	visibility: hidden !important;
 }
@@ -98,7 +64,7 @@
 // Visually Hidden (A11Y assistive only)
 // -----------------------------------------------------------------------------
 /// Hides elements visually but keeps them accessible to screen readers
-/// Useful for assistive text, skip links, or content toggled with focus-
+/// Restored: support for .visible-toggle parents and hover-reveal children.
 
 .hidden-visually:not(:focus):not(:active):not(:focus-within),
 .visible-toggle:not(:hover):not(:focus) .hidden-hover:not(:focus-within) {
@@ -107,8 +73,9 @@
 	height: 1px !important;
 	padding: 0 !important;
 	border: 0 !important;
-	margin: 0 !important;
+	margin: -1px !important; 
 	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
 	clip-path: inset(50%) !important;
 	white-space: nowrap !important;
 }
@@ -120,6 +87,7 @@
 
 .visible-toggle:not(:hover):not(:focus) .invisible-hover:not(:focus-within) {
 	opacity: 0 !important;
+	pointer-events: none !important;
 }
 
 // -----------------------------------------------------------------------------
@@ -133,7 +101,7 @@
 	}
 }
 
-@media (hover) {
+@media (hover: hover) {
 	.hidden-notouch {
 		display: none !important;
 	}
