@@ -1,302 +1,455 @@
-/* =============================================================================
-   LIGHTBOX COMPONENT (V2)
-   -----------------------------------------------------------------------------
-   Architecture:
-   - .lightbox        → Inline trigger element (no overlay styles)
-   - .lightbox-panel  → Fullscreen overlay (dialog / dynamically generated)
-   - .lightbox-items  → Container for media items (images, video, iframe)
-   - .lightbox-toolbar / nav → UI controls and navigation
-   -----------------------------------------------------------------------------
-   Notes:
-   - Overlay visibility is controlled via the `[open]` attribute
-   - Uses the native dialog / Popover backdrop
-   - Positioning and transitions are handled entirely in CSS
-   ============================================================================= */
+// =============================================================================
+// LIGHTBOX MANAGER
+// components/ui/_lightbox.scss
+// -----------------------------------------------------------------------------
+// Fullscreen image lightbox built on the native <dialog> element.
+// All open/close state is driven by .is-open toggled by JS — same pattern
+// as Modal and Offcanvas. No mixed [open]/class-based state.
+//
+// Supported states (set by JS):
+//   .is-open		- lightbox is open and visible
+//   .is-zoomed		- an image is currently zoomed in
+//
+// Item states:
+//   .is-loading	- image is fetching
+//   .is-loaded		- image has loaded
+//   .is-error		- image failed to load
+//   .is-leaving	- item is animating out (being replaced)
+//   .is-dragging	- user is dragging (disables pointer events on image)
+//
+// Navigation direction:
+//   [data-direction="forward"]		- new item slides in from right
+//   [data-direction="backward"]	- new item slides in from left
+// =============================================================================
 
 
-/* -----------------------------------------------------------------------------
-   TRIGGER ELEMENT
-   -----------------------------------------------------------------------------
-   Inline element used to activate the lightbox.
-   Intentionally unstyled and non-positioned.
------------------------------------------------------------------------------ */
+// -----------------------------------------------------------------------------
+// Tokens
+// -----------------------------------------------------------------------------
 
-.lightbox {
-    display: inline-block;
-    background: none;
-    position: static;
+:root {
+	--lb-duration:		0.3s;
+	--lb-easing:		cubic-bezier(0.4, 0, 0.2, 1);
+	--lb-bg:			rgba(0, 0, 0, 0.92);
+	--lb-toolbar-bg:	rgba(0, 0, 0, 0.5);
+	--lb-color:			rgba(255, 255, 255, 0.85);
+	--lb-color-hover:	#fff;
+	--lb-button-size:	44px;
+	--lb-z:				1200;
+	--lb-zoom-scale:	2.5;
 }
 
 
-/* -----------------------------------------------------------------------------
-   OVERLAY PANEL
-   -----------------------------------------------------------------------------
-   Fullscreen overlay container.
-   Uses CSS custom properties for theming and animation tuning.
------------------------------------------------------------------------------ */
+// -----------------------------------------------------------------------------
+// Scroll Lock
+// -----------------------------------------------------------------------------
 
-.lightbox-panel {
-    /* --- Configuration Tokens --- */
-    --lb-z-index: 1010;
-    --lb-bg: rgba(0, 0, 0, 0.85);
-	--lb-toolbar-bg: rgba(0, 0, 0, 0.35);
-    --lb-text-color: rgba(255, 255, 255, 0.7);
-    --lb-text-hover-color: #fff;
-    --lb-focus-color: rgba(255, 255, 255, 0.7);
-    --lb-transition-speed: 0.3s;
-    --lb-button-size: 50px;
-
-    /* --- Base Overlay Layout --- */
-    position: fixed;
-    inset: 0;
-    width: auto;
-    height: auto;
-    max-width: none;
-    max-height: none;
-    padding: 0;
-    margin: 0;
-    border: none;
-    background: transparent;
-    z-index: var(--lb-z-index);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-
-	/* --- Visibility Control --- */
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.15s linear;
-
-    &[open] {
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-	/* --- Accessibility --- */
-    &:focus-visible {
-        outline-color: var(--lb-focus-color);
-    }
-
-	/* --- Backdrop --- */
-    &::backdrop {
-        background: var(--lb-bg);
-    }
-}
-
-/* Ensure layout consistency when opened */
-.lightbox-panel[open] {
-    display: flex;
+body.lightbox-open {
+	overflow: hidden;
+	padding-right: var(--scrollbar-width, 0px);
 }
 
 
-/* -----------------------------------------------------------------------------
-   ITEMS / CONTENT
-   -----------------------------------------------------------------------------
-   Holds all lightbox items (images, video, iframes).
-   Only the `.active` item is rendered.
------------------------------------------------------------------------------ */
+// -----------------------------------------------------------------------------
+// Trigger Element
+// -----------------------------------------------------------------------------
+// The inline element that activates the lightbox.
+// Unstyled — appearance is entirely up to the surrounding markup.
+
+[data-lightbox] {
+	cursor: zoom-in;
+
+	img {
+		display: block;
+		// Prevent native drag from interfering with our drag gesture
+		user-select:    none;
+		-webkit-user-drag: none;
+	}
+}
+
+
+// -----------------------------------------------------------------------------
+// Dialog — Base Reset + Layout
+// -----------------------------------------------------------------------------
+
+dialog.lightbox-panel {
+
+	// ── Reset UA <dialog> styles ──────────────────────────────────────────────
+	border:      none;
+	padding:     0;
+	margin:      0;
+	background:  transparent;
+	max-width:   none;
+	max-height:  none;
+	outline:     none;
+	overflow:    hidden;
+
+	// ── Full viewport ─────────────────────────────────────────────────────────
+	position: fixed;
+	inset:    0;
+	width:    100%;
+	height:   100dvh;
+	z-index:  var(--lb-z);
+
+	display:         flex;
+	align-items:     center;
+	justify-content: center;
+
+	// ── Entry / leave animation ───────────────────────────────────────────────
+	opacity:    0;
+	visibility: hidden;
+	transition:
+		opacity    var(--lb-duration) var(--lb-easing),
+		visibility 0s linear          var(--lb-duration);
+
+	&.is-open {
+		opacity:    1;
+		visibility: visible;
+		transition:
+			opacity    var(--lb-duration) var(--lb-easing),
+			visibility 0s linear 0s;
+	}
+
+	// ── Backdrop ──────────────────────────────────────────────────────────────
+	&::backdrop {
+		background: var(--lb-bg);
+		opacity:    0;
+		transition: opacity var(--lb-duration) var(--lb-easing);
+	}
+
+	&.is-open::backdrop {
+		opacity: 1;
+	}
+
+	// ── Zoomed state: show crosshair, block navigation ────────────────────────
+	&.is-zoomed {
+		cursor: zoom-out;
+
+		.lightbox-nav,
+		.lightbox-toolbar {
+			opacity:        0;
+			pointer-events: none;
+		}
+	}
+}
+
+
+// -----------------------------------------------------------------------------
+// Items Container
+// -----------------------------------------------------------------------------
+// Fills the dialog. Holds one or two .lightbox-item elements during
+// transitions. The --drag-offset property is set by JS during drag.
 
 .lightbox-items {
-    position: absolute;
-    inset: 0;
+	position: absolute;
+	inset:    0;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display:         flex;
+	align-items:     center;
+	justify-content: center;
 
-    > * {
-        display: none;
-        position: absolute;
-        inset: 0;
+	// Drag rubber-band offset — set via JS style property
+	transform:  translateX(var(--drag-offset, 0));
+	transition: transform 0.08s ease;
 
-        justify-content: center;
-        align-items: center;
-        color: var(--lb-text-color);
+	// During drag: instant response, no transition
+	&.is-dragging {
+		transition: none;
+		cursor:     grabbing;
+	}
 
-        will-change: transform, opacity;
+	// Zoomed: disable swipe gesture
+	&.is-zoomed {
+		transform:  none !important;
+		transition: none;
+	}
 
-		/* Media scaling */
-        > * {
-            max-width: 100vw;
-            max-height: 100vh;
-        }
-
-		/* Preserve natural size for non-iframes */
-        > :not(iframe) {
-            width: auto;
-            height: auto;
-        }
-    }
-
-	/* Active media item */
-    > .active {
-        display: flex;
-    }
+	// touch-action: pan-y tells the browser we handle horizontal,
+	// it can handle vertical scroll normally
+	touch-action: pan-y;
+	user-select:  none;
 }
 
 
-/* -----------------------------------------------------------------------------
-   TOOLBARS
-   -----------------------------------------------------------------------------
-   Top and bottom toolbars for controls, captions, or actions.
-   Animated in/out based on overlay state.
------------------------------------------------------------------------------ */
+// -----------------------------------------------------------------------------
+// Lightbox Item
+// -----------------------------------------------------------------------------
+// Individual media wrapper. Items animate in/out on navigation.
+
+.lightbox-item {
+	position: absolute;
+	inset:    0;
+
+	display:         flex;
+	align-items:     center;
+	justify-content: center;
+
+	// Enter animation — direction set via data-direction on the container
+	animation: lb-fade-in var(--lb-duration) var(--lb-easing) both;
+
+	.lightbox-items[data-direction="forward"]  > &:last-child { animation-name: lb-slide-in-right; }
+	.lightbox-items[data-direction="backward"] > &:last-child { animation-name: lb-slide-in-left;  }
+
+	// Leave animation — applied by JS adding .is-leaving
+	&.is-leaving {
+		animation: lb-fade-out var(--lb-duration) var(--lb-easing) both;
+		pointer-events: none;
+	}
+
+	// ── Loading state ─────────────────────────────────────────────────────────
+	&.is-loading::after {
+		content:  '';
+		position: absolute;
+		width:    36px;
+		height:   36px;
+		border:   3px solid rgba(255, 255, 255, 0.15);
+		border-top-color: #fff;
+		border-radius: 50%;
+		animation: lb-spin 0.7s linear infinite;
+	}
+
+	// ── Error state ───────────────────────────────────────────────────────────
+	&.is-error::before {
+		content:     'Image unavailable';
+		color:       rgba(255, 255, 255, 0.5);
+		font-size:   0.9rem;
+		letter-spacing: 0.02em;
+	}
+
+	// ── Image ─────────────────────────────────────────────────────────────────
+	img {
+		display:    block;
+		max-width:  100dvw;
+		max-height: 100dvh;
+
+		// Safe inset so image clears toolbars
+		padding:    3.5rem 0;
+
+		width:    auto;
+		height:   auto;
+		object-fit: contain;
+
+		cursor:     zoom-in;
+		transition:
+			transform  var(--lb-duration) var(--lb-easing),
+			cursor     0.1s;
+
+		will-change: transform;
+		user-select: none;
+		-webkit-user-drag: none;
+
+		// ── Zoomed ────────────────────────────────────────────────────────────
+		&.is-zoomed {
+			transform: scale(var(--lb-zoom-scale));
+			cursor:    zoom-out;
+		}
+	}
+}
+
+
+// -----------------------------------------------------------------------------
+// Toolbars
+// -----------------------------------------------------------------------------
+// Top: counter + close button
+// Bottom: caption
 
 .lightbox-toolbar {
-    position: absolute;
-    left: 0;
-    right: 0;
+	position: absolute;
+	left:     0;
+	right:    0;
+	z-index:  10;
 
-    padding: 10px;
-    background: var(--lb-toolbar-bg);
-    color: var(--lb-text-color);
-    z-index: 10;
+	display:     flex;
+	align-items: center;
+	padding:     0.625rem 1rem;
 
-    display: flex;
-    align-items: center;
+	background: var(--lb-toolbar-bg);
+	color:      var(--lb-color);
 
-    transition:
-        transform var(--lb-transition-speed) ease,
-        opacity var(--lb-transition-speed) ease;
+	// Animate in after the lightbox fades in
+	opacity:    0;
+	transition:
+		opacity   var(--lb-duration) var(--lb-easing) calc(var(--lb-duration) * 0.5),
+		transform var(--lb-duration) var(--lb-easing) calc(var(--lb-duration) * 0.5);
 
-    opacity: 0;
+	&-top {
+		top:              0;
+		justify-content:  space-between;
+		transform:        translateY(-100%);
+	}
 
-    > * {
-        color: inherit;
-    }
+	&-bottom {
+		bottom:           0;
+		justify-content:  center;
+		transform:        translateY(100%);
+		// Hide when empty
+		&:has(.lightbox-caption:empty) { display: none; }
+	}
 
-    &.position-top {
-        top: 0;
-        justify-content: flex-end;
-        transform: translateY(-100%);
-    }
-
-    &.position-bottom {
-        bottom: 0;
-        justify-content: center;
-        transform: translateY(100%);
-    }
+	// Reveal when lightbox is open
+	dialog.lightbox-panel.is-open & {
+		opacity:   1;
+		transform: translateY(0);
+	}
 }
 
-/* Reveal toolbars when lightbox is open */
-.lightbox-panel[open] .lightbox-toolbar {
-    transform: translateY(0);
-    opacity: 1;
+
+// -----------------------------------------------------------------------------
+// Counter
+// -----------------------------------------------------------------------------
+
+.lightbox-counter {
+	font-size:      0.8125rem;
+	letter-spacing: 0.04em;
+	color:          var(--lb-color);
+	font-variant-numeric: tabular-nums; // Prevents counter width jumping 1→10
 }
 
 
-/* -----------------------------------------------------------------------------
-   ACTION ICONS / BUTTONS
-   -----------------------------------------------------------------------------
-   Shared styles for toolbar actions and UI buttons.
------------------------------------------------------------------------------ */
+// -----------------------------------------------------------------------------
+// Close Button
+// -----------------------------------------------------------------------------
 
-.icon-action {
-    padding: 5px;
-    color: var(--lb-text-color);
+.lightbox-close {
+	display:         inline-flex;
+	align-items:     center;
+	justify-content: center;
+
+	width:    var(--lb-button-size);
+	height:   var(--lb-button-size);
+	padding:  0;
+
+	background:    transparent;
+	border:        none;
 	border-radius: 50%;
-    transition: background-color 0.2s ease, color 0.2s ease;
+	cursor:        pointer;
+	color:         var(--lb-color);
+	transition:
+		color            0.15s ease,
+		background-color 0.15s ease;
 
-     &:hover {
-        background-color: rgba(255, 255, 255, 0.08);
-    }
-}
+	&:hover {
+		color:            var(--lb-color-hover);
+		background-color: rgba(255, 255, 255, 0.1);
+	}
 
-/* Keyboard accessibility */
-.icon-action:focus-visible {
-    outline: 2px solid var(--lb-focus-color);
-    outline-offset: 2px;
-}
-
-.lightbox-button {
-    box-sizing: border-box;
-    width: var(--lb-button-size);
-    height: var(--lb-button-size);
-
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-
-    background: var(--lb-toolbar-bg);
-    color: var(--lb-text-color);
-    transition:
-        color 0.2s ease,
-        background-color 0.2s ease;
-
-    &:hover {
-        color: var(--lb-text-hover-color);
-    }
+	&:focus-visible {
+		outline:        2px solid rgba(255, 255, 255, 0.7);
+		outline-offset: 2px;
+	}
 }
 
 
-/* -----------------------------------------------------------------------------
-   NAVIGATION (PREV / NEXT)
-   -----------------------------------------------------------------------------
-   Floating navigation buttons for cycling through items.
------------------------------------------------------------------------------ */
+// -----------------------------------------------------------------------------
+// Navigation Buttons
+// -----------------------------------------------------------------------------
 
 .lightbox-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 15;
+	position:  absolute;
+	top:       50%;
+	transform: translateY(-50%);
+	z-index:   15;
 
-    width: var(--lb-button-size);
-    height: var(--lb-button-size);
+	display:         inline-flex;
+	align-items:     center;
+	justify-content: center;
 
-    background: var(--lb-toolbar-bg);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
+	width:    var(--lb-button-size);
+	height:   var(--lb-button-size);
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	background:    rgba(0, 0, 0, 0.4);
+	border:        1px solid rgba(255, 255, 255, 0.12);
+	border-radius: 50%;
+	cursor:        pointer;
+	color:         var(--lb-color);
 
-    color: var(--lb-text-color);
-    transition: color 0.2s ease;
+	transition:
+		color            0.15s ease,
+		background-color 0.15s ease,
+		opacity          0.15s ease;
 
-    &:hover {
-        color: var(--lb-text-hover-color);
-    }
+	// Slide in with lightbox
+	opacity: 0;
+	dialog.lightbox-panel.is-open & { opacity: 1; }
 
-    &-prev { left: 20px; }
-    &-next { right: 20px; }
+	&:hover {
+		color:            var(--lb-color-hover);
+		background-color: rgba(0, 0, 0, 0.65);
+	}
 
-    svg {
-        width: 28px;
-        height: 28px;
-        fill: none;
-        stroke: currentColor;
-        stroke-width: 2;
-    }
+	&:focus-visible {
+		outline:        2px solid rgba(255, 255, 255, 0.7);
+		outline-offset: 2px;
+	}
+
+	&-prev { left:  1.25rem; }
+	&-next { right: 1.25rem; }
+
+	// Tuck in on small screens to not overlap image
+	@media (max-width: 480px) {
+		--lb-button-size: 36px;
+		&-prev { left:  0.5rem; }
+		&-next { right: 0.5rem; }
+	}
 }
 
 
-/* -----------------------------------------------------------------------------
-   CAPTION / IFRAME
-   -----------------------------------------------------------------------------
-   Optional caption and iframe handling.
------------------------------------------------------------------------------ */
+// -----------------------------------------------------------------------------
+// Caption
+// -----------------------------------------------------------------------------
 
 .lightbox-caption {
-    &:empty { display: none; }
+	font-size:   0.875rem;
+	line-height: 1.5;
+	color:       var(--lb-color);
+	text-align:  center;
+	max-width:   60ch;
+
+	&:empty { display: none; }
 }
 
-.lightbox-iframe {
-    width: 80vw;
-    height: 80vh;
+
+// -----------------------------------------------------------------------------
+// Keyframe Animations
+// -----------------------------------------------------------------------------
+
+@keyframes lb-fade-in {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+
+@keyframes lb-fade-out {
+	from { opacity: 1; }
+	to   { opacity: 0; }
+}
+
+@keyframes lb-slide-in-right {
+	from { opacity: 0; transform: translateX(60px); }
+	to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes lb-slide-in-left {
+	from { opacity: 0; transform: translateX(-60px); }
+	to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes lb-spin {
+	to { transform: rotate(360deg); }
 }
 
 
-/* -----------------------------------------------------------------------------
-   PAGE SCROLL LOCK
-   -----------------------------------------------------------------------------
-   Applied to the document root while the lightbox is open.
------------------------------------------------------------------------------ */
+// -----------------------------------------------------------------------------
+// Reduced Motion
+// -----------------------------------------------------------------------------
 
-.lightbox-page {
-    overflow: hidden;
+@media (prefers-reduced-motion: reduce) {
+	dialog.lightbox-panel,
+	dialog.lightbox-panel::backdrop,
+	.lightbox-item,
+	.lightbox-toolbar,
+	.lightbox-nav,
+	img {
+		animation:  none !important;
+		transition: none !important;
+	}
 }
