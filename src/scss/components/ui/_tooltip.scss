@@ -1,197 +1,278 @@
-/**
- * =============================================================================
- * TOOLTIP COMPONENT (Singleton)
- * =============================================================================
- *
- * Features:
- * - Fully anchored tooltip using native CSS anchor positioning
- * - Smart flipping and fallback positioning
- * - Dynamic arrow with safe bridge for pointer alignment
- * - Fully customizable via CSS design tokens
- *
- * Design philosophy:
- * - Tooltip is lightweight and non-interactive (pointer-events: none)
- * - Supports top, bottom, left, right positions with dynamic arrow
- * - Transitions smoothly on open/close
- *
- * Usage:
- * <div class="tooltip" data-position="top">Tooltip Text</div>
- *
- * Design Tokens:
- * --tt-bg: Background color
- * --tt-color: Text color
- * --tt-font-size: Font size
- * --tt-padding: Padding inside tooltip
- * --tt-radius: Border radius
- * --tt-arrow-size: Arrow size
- * --tt-offset: Offset from anchor
- * --tt-z-index: Tooltip stacking order
- * =============================================================================
- */
+// =============================================================================
+// TOOLTIP MANAGER
+// components/ui/_tooltip.scss
+// -----------------------------------------------------------------------------
+// Singleton tooltip using native CSS Anchor Positioning and the Popover API.
+// One element, anchored dynamically to whatever [data-tooltip] trigger is active.
+//
+// Positioning is handled entirely by CSS anchor positioning — no JS coordinate
+// calculation needed. The JS sets `anchor-name` on the active trigger and
+// `position-anchor` on the tooltip element.
+//
+// Entrance: @starting-style (fires once when :popover-open is applied)
+// Exit:     transition on opacity + transform when :popover-open is removed,
+//           combined with `overlay allow-discrete` and `display allow-discrete`
+//
+// Positions: top (default) | bottom | left | right
+// Arrow:     CSS clip-path triangle — sharper than border-trick on all screens
+// =============================================================================
+
 
 .tooltip {
-	/* --- Design Tokens --- */
-	--tt-bg: var(--color-surface-900, #1a1a1a); 
-	--tt-color: var(--color-on-surface, #fff);		// Text color
-	--tt-font-size: 0.8125rem;						// Font size (13px)
-	--tt-padding: 6px 12px;							// Internal padding
-	--tt-radius: 4px;								// Rounded corners
-	--tt-arrow-size: 6px;							// Arrow triangle size
-	--tt-offset: 12px;								// Distance from anchor
-	--tt-z-index: 2147483647;						// Max stacking order
 
-	/* --- Core Reset --- */
-	position: absolute !important;					// Anchor positioning
-	inset: auto !important;							// Reset top/right/bottom/left
-	margin: 0 !important;							// Remove default margin
-	border: none;
-	background: var(--tt-bg);
-	color: var(--tt-color);
-	padding: var(--tt-padding);
+	// -------------------------------------------------------------------------
+	// Tokens (scoped — no :root pollution)
+	// -------------------------------------------------------------------------
+
+	--tt-bg:			var(--color-surface-inverse, #1a1a1a);
+	--tt-color:			var(--color-text-inverse,    #fff);
+	--tt-font-size:		0.8125rem;			// 13px
+	--tt-padding:		0.375rem 0.75rem;	// 6px 12px
+	--tt-radius:		0.3125rem;			// 5px
+	--tt-arrow-size:	6px;
+	--tt-offset:		10px;				// Gap between anchor and tooltip
+	--tt-max-width:		260px;
+	--tt-shadow:		0 4px 14px rgba(0, 0, 0, 0.2);
+	--tt-duration:		0.15s;
+	--tt-easing:		ease;
+
+
+	// -------------------------------------------------------------------------
+	// Popover Reset
+	// -------------------------------------------------------------------------
+	// The browser UA stylesheet gives [popover] elements margin, padding,
+	// border, and background. We override all of them.
+	// Using position-area (below) takes precedence over inset — no !important needed.
+
+	position:   absolute;
+	inset:      auto;
+	margin:     0;
+	padding:    var(--tt-padding);
+	border:     none;
+	outline:    none;
+
+	// -------------------------------------------------------------------------
+	// Appearance
+	// -------------------------------------------------------------------------
+
+	background:    var(--tt-bg);
+	color:         var(--tt-color);
+	font-size:     var(--tt-font-size);
+	line-height:   1.4;
 	border-radius: var(--tt-radius);
-	font-size: var(--tt-font-size);
-	white-space: nowrap;
-	width: max-content;
-	z-index: var(--tt-z-index);
+	box-shadow:    var(--tt-shadow);
+
+	width:     max-content;
+	max-width: var(--tt-max-width);
+
+	// Wrap long content, prevent overflow on long words
+	white-space:   normal;
+	word-break:    break-word;
+	overflow-wrap: break-word;
+
+	// Non-interactive — pointer events pass through to the page
 	pointer-events: none;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	overflow: visible; // Arrow pseudo-elements extend outside the box
 
-	overflow: visible !important;	// safe bridge can extend outside
-    max-width: 100vw;				// prevent tooltip from exceeding viewport width
-    max-height: 100vh;				// prevent tooltip from exceeding viewport height
-    box-sizing: border-box;			// include padding in size
-	white-space: normal;			// allow wrapping
-	word-break: break-word;			// prevent overflow on long words
+	// -------------------------------------------------------------------------
+	// CSS Anchor Positioning
+	// -------------------------------------------------------------------------
+	// position-anchor is set inline by JS: style="position-anchor: --tt-anchor"
+	// position-area places the tooltip relative to the anchor.
+	// position-try-fallbacks auto-flips if the preferred position has no room.
+	// position-visibility hides the tooltip if the anchor scrolls off-screen.
 
-	/* --- Anchor Setup --- */
-	position-anchor: --tt-active-anchor;				// Anchor reference variable
-	position-try-fallbacks: flip-block, flip-inline;	// Fallback flip strategies
-	position-visibility: anchor-visible;				// Hide if anchor not visible
+	position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
+	position-visibility:    anchor-visible;
 
-	/* Pseudo-elements for safe bridge and arrow */
-	&::before, &::after { 
-		position: absolute; 
-		position-anchor: --tt-active-anchor; 
-		content: ""; 
-	}
 
-	/* --- Positioning Logic --- */
+	// -------------------------------------------------------------------------
+	// Transitions
+	// -------------------------------------------------------------------------
+	// opacity + transform: smooth fade/scale
+	// display allow-discrete:  lets display participate in the transition
+	// overlay allow-discrete:  lets the top-layer promotion animate out cleanly
 
-	/* TOP POSITION */
-	&[data-position="top"] {
-		position-area: top;
-		justify-self: anchor-center;
-		margin-bottom: var(--tt-offset);
+	opacity:   0;
+	transform: scale(0.94);
 
-		&::before { /* Safe Bridge: extends interaction zone */
-			width: 150%; 
-			height: var(--tt-offset); 
-			bottom: calc(var(--tt-offset) * -1); 
-			left: -25%; 
-			pointer-events: auto;
-		}
+	transition:
+		opacity  var(--tt-duration) var(--tt-easing),
+		transform var(--tt-duration) var(--tt-easing),
+		display  var(--tt-duration) var(--tt-easing) allow-discrete,
+		overlay  var(--tt-duration) var(--tt-easing) allow-discrete;
 
-		&::after { /* Arrow pointing downwards */
-			position-area: bottom; 
-			margin-bottom: calc(var(--tt-offset) * -1); 
-			justify-self: anchor-center; 
-			border-style: solid;
-			border-width: var(--tt-arrow-size) var(--tt-arrow-size) 0 var(--tt-arrow-size); 
-			border-color: var(--tt-bg) transparent transparent transparent; 
-		}
-	}
-
-	/* BOTTOM POSITION */
-	&[data-position="bottom"] {
-		position-area: bottom;
-		justify-self: anchor-center;
-		margin-top: var(--tt-offset);
-
-		&::before { 
-			width: 150%; 
-			height: var(--tt-offset); 
-			top: calc(var(--tt-offset) * -1); 
-			left: -25%; 
-			pointer-events: auto;
-		}
-
-		&::after { /* Arrow pointing upwards */
-			position-area: top; 
-			margin-top: calc(var(--tt-offset) * -1); 
-			justify-self: anchor-center; 
-			border-style: solid;
-			border-width: 0 var(--tt-arrow-size) var(--tt-arrow-size) var(--tt-arrow-size); 
-			border-color: transparent transparent var(--tt-bg) transparent; 
-		}
-	}
-
-	/* LEFT POSITION */
-	&[data-position="left"] {
-		position-area: left;
-		align-self: anchor-center;
-		margin-right: var(--tt-offset);
-
-		&::before { 
-			width: var(--tt-offset); 
-			height: 150%; 
-			right: calc(var(--tt-offset) * -1); 
-			top: -25%; 
-			pointer-events: auto;
-		}
-
-		&::after { /* Arrow pointing right */
-			position-area: right; 
-			margin-right: calc(var(--tt-offset) * -1); 
-			align-self: anchor-center; 
-			border-style: solid;
-			border-width: var(--tt-arrow-size) 0 var(--tt-arrow-size) var(--tt-arrow-size); 
-			border-color: transparent transparent transparent var(--tt-bg); 
-		}
-	}
-
-	/* RIGHT POSITION */
-	&[data-position="right"] {
-		position-area: right;
-		align-self: anchor-center;
-		margin-left: var(--tt-offset);
-
-		&::before { 
-			width: var(--tt-offset); 
-			height: 150%; 
-			left: calc(var(--tt-offset) * -1); 
-			top: -25%; 
-			pointer-events: auto;
-		}
-
-		&::after { /* Arrow pointing left */
-			position-area: left; 
-			margin-left: calc(var(--tt-offset) * -1); 
-			align-self: anchor-center; 
-			border-width: var(--tt-arrow-size) var(--tt-arrow-size) var(--tt-arrow-size) 0; 
-			border-color: transparent var(--tt-bg) transparent transparent; 
-		}
-	}
-
-	/* --- Transitions --- */
-	transition: 
-		opacity 0.15s ease, 
-		transform 0.15s ease, 
-		display 0.15s allow-discrete, 
-		overlay 0.15s allow-discrete;
-
-	opacity: 0;                  // Start hidden
-	transform: scale(0.96);      // Slightly smaller
-
-	/* Open state */
+	// ── Open state ────────────────────────────────────────────────────────────
 	&:popover-open {
-		opacity: 1;
+		opacity:   1;
 		transform: scale(1);
 	}
 
+	// ── Entrance: @starting-style ─────────────────────────────────────────────
+	// Fires once when :popover-open is first applied — gives the browser
+	// the "from" state for the entrance transition.
 	@starting-style {
-		&:popover-open {         // Initial style for smooth transition
-			opacity: 0;
-			transform: scale(0.96);
+		&:popover-open {
+			opacity:   0;
+			transform: scale(0.94);
+		}
+	}
+
+
+	// -------------------------------------------------------------------------
+	// Arrow
+	// -------------------------------------------------------------------------
+	// The ::after pseudo-element renders the directional arrow using clip-path.
+	// clip-path triangles are sharper than border-trick triangles on high-DPI
+	// screens and don't have subpixel rendering artifacts.
+	//
+	// The ::before pseudo-element is the safe bridge — an invisible interaction
+	// zone between the trigger and the tooltip so the tooltip doesn't close
+	// when the user moves the mouse from one to the other.
+	//
+	// Both pseudo-elements use position-anchor so they stay attached to the
+	// same anchor as the tooltip body.
+
+	&::before,
+	&::after {
+		content:         '';
+		position:        absolute;
+		position-anchor: var(--tt-anchor-ref, --tt-anchor);
+		pointer-events:  none;
+	}
+
+
+	// -------------------------------------------------------------------------
+	// Position Variants
+	// -------------------------------------------------------------------------
+
+	// ── Top (default) ─────────────────────────────────────────────────────────
+	&[data-position="top"],
+	&:not([data-position]) {
+		position-area: top;
+		justify-self:  anchor-center;
+		margin-bottom: var(--tt-offset);
+
+		// Safe bridge: invisible zone below the tooltip → above the trigger
+		&::before {
+			position-area: bottom;
+			justify-self:  anchor-center;
+			width:         150%;
+			height:        var(--tt-offset);
+			margin-top:    calc(var(--tt-offset) * -1);
+			pointer-events: auto;
+		}
+
+		// Arrow: pointing down toward the anchor
+		&::after {
+			position-area: bottom;
+			justify-self:  anchor-center;
+			margin-top:    calc(var(--tt-offset) * -1);
+
+			width:          calc(var(--tt-arrow-size) * 2);
+			height:         var(--tt-arrow-size);
+			background:     var(--tt-bg);
+			clip-path:      polygon(0 0, 100% 0, 50% 100%);
+		}
+	}
+
+	// ── Bottom ────────────────────────────────────────────────────────────────
+	&[data-position="bottom"] {
+		position-area: bottom;
+		justify-self:  anchor-center;
+		margin-top:    var(--tt-offset);
+
+		&::before {
+			position-area:  top;
+			justify-self:   anchor-center;
+			width:          150%;
+			height:         var(--tt-offset);
+			margin-bottom:  calc(var(--tt-offset) * -1);
+			pointer-events: auto;
+		}
+
+		// Arrow: pointing up toward the anchor
+		&::after {
+			position-area:  top;
+			justify-self:   anchor-center;
+			margin-bottom:  calc(var(--tt-offset) * -1);
+
+			width:      calc(var(--tt-arrow-size) * 2);
+			height:     var(--tt-arrow-size);
+			background: var(--tt-bg);
+			clip-path:  polygon(50% 0, 100% 100%, 0 100%);
+		}
+	}
+
+	// ── Left ──────────────────────────────────────────────────────────────────
+	&[data-position="left"] {
+		position-area: left;
+		align-self:    anchor-center;
+		margin-right:  var(--tt-offset);
+
+		&::before {
+			position-area:  right;
+			align-self:     anchor-center;
+			width:          var(--tt-offset);
+			height:         150%;
+			margin-left:    calc(var(--tt-offset) * -1);
+			pointer-events: auto;
+		}
+
+		// Arrow: pointing right toward the anchor
+		&::after {
+			position-area: right;
+			align-self:    anchor-center;
+			margin-left:   calc(var(--tt-offset) * -1);
+
+			width:      var(--tt-arrow-size);
+			height:     calc(var(--tt-arrow-size) * 2);
+			background: var(--tt-bg);
+			clip-path:  polygon(0 0, 0 100%, 100% 50%);
+		}
+	}
+
+	// ── Right ─────────────────────────────────────────────────────────────────
+	&[data-position="right"] {
+		position-area: right;
+		align-self:    anchor-center;
+		margin-left:   var(--tt-offset);
+
+		&::before {
+			position-area:  left;
+			align-self:     anchor-center;
+			width:          var(--tt-offset);
+			height:         150%;
+			margin-right:   calc(var(--tt-offset) * -1);
+			pointer-events: auto;
+		}
+
+		// Arrow: pointing left toward the anchor
+		&::after {
+			position-area: left;
+			align-self:    anchor-center;
+			margin-right:  calc(var(--tt-offset) * -1);
+
+			width:      var(--tt-arrow-size);
+			height:     calc(var(--tt-arrow-size) * 2);
+			background: var(--tt-bg);
+			clip-path:  polygon(100% 0, 100% 100%, 0 50%);
+		}
+	}
+
+
+	// -------------------------------------------------------------------------
+	// Reduced Motion
+	// -------------------------------------------------------------------------
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none !important;
+
+		@starting-style {
+			&:popover-open {
+				opacity:   1;
+				transform: scale(1);
+			}
 		}
 	}
 }
