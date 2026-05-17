@@ -10,11 +10,11 @@
 import Deck  from './core/deck.js';
 
 // Core UI Components
-import Accordion from './components/accordion.js';
+import Accordion from './components/accordion.old.js';
 import Modal from './components/modal.js';
 import Tab from './components/tab.js';
-import Nav from './components/nav.js';
 import Drop from './components/drop.js';
+import DropManager from './components/drop.manager.js';
 import Lightbox from './components/lightbox.js';
 import Offcanvas from './components/offcanvas.js';
 import Toggle from './components/toggle.js';
@@ -56,9 +56,9 @@ async function initialize() {
 		'accordion': Accordion,
 		'modal': Modal,
 		'tab': Tab,
-		'nav': Nav,
 		'drop': Drop,
 		'dropdown': Drop,
+		'drop-manager': DropManager,
 		'lightbox': Lightbox,
 		'offcanvas': Offcanvas,
 		'toggle': Toggle,
