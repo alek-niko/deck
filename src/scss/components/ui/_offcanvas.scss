@@ -2,200 +2,299 @@
 // OFFCANVAS COMPONENT
 // components/ui/_offcanvas.scss
 // -----------------------------------------------------------------------------
-// Responsive slide-in drawer panel for navigation or UI tools. Supports
-// left/right placement, reveal, push, and overlay modes. Includes dark mode
-// variant and flexible sizing.
+// Slide-in drawer panel built on the native <dialog> element.
+// All open/close animation is driven by the .is-open class toggled by JS.
 //
-// Features:
-// - Left and right placement (.offcanvas, .offcanvas-right)
-// - Size variants: small, large (.offcanvas-sm, .offcanvas-lg)
-// - Dark theme support (.offcanvas-dark)
-// - Reveal mode for nested panels (.offcanvas-reveal)
-// - Push mode for shifting page content (.offcanvas-page)
-// - Backdrop blur and overlay support
-// - Close button and inner panel bar structure
+// Placement:	left (default) | .offcanvas-right | .offcanvas-top | .offcanvas-bottom
+// Size:		.offcanvas-sm | .offcanvas-lg | .offcanvas-full
+// Mode:		overlay (default) | .offcanvas-push | .offcanvas-reveal
 // =============================================================================
 
 @use '../../abstracts/variables/z-index' as *;
-@use '../../abstracts/variables/colors' as *;
-@use '../../abstracts/variables/layout' as *;
+@use '../../abstracts/variables/colors'  as *;
+@use '../../abstracts/variables/layout'  as *;
 
-$offcanvas-width: 350px !default;
 
-dialog.offcanvas {
-	margin: 0;
-	padding: 0;
-	border: none;
-	height: 100%;
-	max-height: 100vh;
+// -----------------------------------------------------------------------------
+// Scroll Lock
+// -----------------------------------------------------------------------------
+// Applied to <body> by Offcanvas JS when any instance opens.
+// --scrollbar-width is measured and set inline to prevent layout shift.
+
+body.offcanvas-open {
+	overflow: hidden;
+	padding-right: var(--scrollbar-width, 0px);
 }
 
-.offcanvas {
+
+// -----------------------------------------------------------------------------
+// Tokens
+// -----------------------------------------------------------------------------
+// Define at :root so they can be overridden globally or per-instance
+// via inline style="--offcanvas-width: 420px".
+
+:root {
+	--offcanvas-width:		350px;
+	--offcanvas-duration:	0.3s;
+	--offcanvas-easing:		cubic-bezier(0.4, 0, 0.2, 1);
+
+	--offcanvas-bg:			var(--color-surface, #fff);
+	--offcanvas-color:		var(--color-text, #111);
+	--offcanvas-padding:	var(--spacing-default, 1.25rem);
+	--offcanvas-shadow:		0 8px 32px rgba(0, 0, 0, 0.18);
+	--offcanvas-z:			#{$z-index-overlay};
+}
+
+
+// -----------------------------------------------------------------------------
+// Base — <dialog> Reset
+// -----------------------------------------------------------------------------
+// The browser UA gives <dialog> margin, padding, border, and max-height.
+// We reset everything here and take full control.
+
+dialog.offcanvas {
+	// Reset UA dialog styles
+	border:		none;
+	padding:	0;
+	margin:		0;
+	background:	transparent;
+	color:		inherit;
+	max-width:	none;
+	max-height:	none;
+	outline:	none;
+
+	// Fixed panel anchored to the left edge
+	position:	fixed;
+	inset:		0 auto 0 0;
+	z-index:	var(--offcanvas-z);
+
+	width:		var(--offcanvas-width);
+	max-width:	85vw;
+	height:		100dvh; // dvh: correct on mobile with collapsing toolbars
+
+	// Panel content layout
+	display:		flex;
+	flex-direction:	column;
+	overflow-y:		auto;
+	overflow-x:		hidden;
+	overscroll-behavior: contain; // Prevent scroll bleeding to body
+
+	background:	var(--offcanvas-bg);
+	color:		var(--offcanvas-color);
+	box-shadow:	var(--offcanvas-shadow);
+
+	// ── Enter/leave animation ─────────────────────────────────────────────────
+	// Default: slide in from left
+	// transform is the animation property — JS adds .is-open to trigger it.
+	transform:  translateX(-100%);
+	visibility: hidden;         // Keep out of a11y tree while closed
+	transition:
+		transform   var(--offcanvas-duration) var(--offcanvas-easing),
+		visibility  0s linear                 var(--offcanvas-duration); // Delay hide so animation plays
+
+	// ── Open state ───────────────────────────────────────────────────────────
+	// Driven by JS toggling .is-open (not [open]) so the CSS animation
+	// can play before the native dialog closes.
+	&.is-open {
+		transform:  translateX(0);
+		visibility: visible;
+		transition:
+			transform  var(--offcanvas-duration) var(--offcanvas-easing),
+			visibility 0s linear                 0s; // Immediate show
+	}
+
+	// ── Backdrop ─────────────────────────────────────────────────────────────
+	&::backdrop {
+		background-color: rgba(0, 0, 0, 0.3);
+		backdrop-filter:  blur(3px);
+		-webkit-backdrop-filter: blur(3px);
+		opacity:    0;
+		transition: opacity var(--offcanvas-duration) var(--offcanvas-easing);
+	}
+
+	&.is-open::backdrop {
+		opacity: 1;
+	}
+
 
 	// -------------------------------------------------------------------------
-	// Tokens
+	// Placement Variants
 	// -------------------------------------------------------------------------
-	// Core sizing, spacing, color, and shadow tokens for offcanvas panels.	
 
-	--offcanvas-width: #{$offcanvas-width};
-	--offcanvas-bg: var(--color-surface, #fff);
-	--offcanvas-color: var(--color-text, #111);
-	--offcanvas-padding: var(--spacing-default, 1.25rem);
-	--offcanvas-radius: var(--radius-default, 0.5rem);
-	--offcanvas-shadow: 0 2px 24px rgba(0, 0, 0, 0.16);
-
-	// ---------------------------------------------------------------------
-	// Base Offcanvas
-	// ---------------------------------------------------------------------
-	// Core panel positioning, sizing, and visibility states.
-
-	position: fixed;
-	inset: 0 auto 0 0; // Align left
-	margin: 0; // Remove default margin
-	top: 0;
-	left: 0;
-	right: auto;
-	bottom: 0;
-
-	width: var(--offcanvas-width, 350px);
-	max-width: 80%;
-	height: 100%;
-
-	transform: translateX(-100%);
-	//transition: transform 0.3s ease;
-	transition: transform 0.3s ease, opacity 0.3s ease;
-
-	display: flex;
-	flex-direction: column;
-	overflow-y: auto;
-
-	background: var(--offcanvas-bg, #fff);
-	color: var(--offcanvas-color, #111);
-	opacity: 0;
-	visibility: hidden;
-	pointer-events: none;
-
-	// ---------------------------------------------------------------------
-	// Right-side Variant
-	// ---------------------------------------------------------------------
-
+	// ── Right ─────────────────────────────────────────────────────────────────
 	&.offcanvas-right {
-		left: auto;
-		right: 0;
-		transform: translateX(100%);
+		inset:		0 0 0 auto; // Anchor to right edge
+		transform:	translateX(100%);
 
-		&[open] {
+		&.is-open {
 			transform: translateX(0);
 		}
 	}
 
-	// ---------------------------------------------------------------------
+	// ── Top ───────────────────────────────────────────────────────────────────
+	&.offcanvas-top {
+		inset:		0 0 auto 0;
+		width:		100%;
+		max-width:	none;
+		height:		auto;
+		max-height:	85dvh;
+		transform:	translateY(-100%);
+
+		&.is-open {
+			transform: translateY(0);
+		}
+	}
+
+	// ── Bottom ────────────────────────────────────────────────────────────────
+	&.offcanvas-bottom {
+		inset:		auto 0 0 0;
+		width:		100%;
+		max-width:	none;
+		height:		auto;
+		max-height:	85dvh;
+		transform:	translateY(100%);
+		// Bottom sheet: rounded top corners
+		border-radius: var(--radius-lg, 0.75rem) var(--radius-lg, 0.75rem) 0 0;
+
+		&.is-open {
+			transform: translateY(0);
+		}
+	}
+
+
+	// -------------------------------------------------------------------------
 	// Size Variants
-	// ---------------------------------------------------------------------
+	// -------------------------------------------------------------------------
 
-	&.offcanvas-sm { width: 260px; }
-	&.offcanvas-lg { width: 500px; }
+	&.offcanvas-sm { --offcanvas-width: 260px; }
+	&.offcanvas-lg { --offcanvas-width: 500px; }
 
-	// ---------------------------------------------------------------------
+	&.offcanvas-full {
+		--offcanvas-width: 100vw;
+		max-width: none;
+	}
+
+
+	// -------------------------------------------------------------------------
 	// Dark Variant
-	// ---------------------------------------------------------------------
+	// -------------------------------------------------------------------------
 
 	&.offcanvas-dark {
-		--offcanvas-bg: var(--color-surface-dark, #121212);
-		--offcanvas-color: var(--color-text-on-dark, #fff);
+		--offcanvas-bg:		var(--color-surface-dark, #121212);
+		--offcanvas-color:	var(--color-text-on-dark,  #fff);
 	}
 
-	// ---------------------------------------------------------------------
+
+	// -------------------------------------------------------------------------
+	// Push Mode
+	// -------------------------------------------------------------------------
+	// JS sets --offcanvas-offset on the push target element.
+	// The push target consumes it here via transform.
+	// Transition matches offcanvas so they move in sync.
+
+	// ── Push target (applied to sibling/parent element by JS) ─────────────────
+	.offcanvas-pushed,
+	[data-offcanvas-push] {
+		transform:	translateX(var(--offcanvas-offset, 0));
+		transition:	transform var(--offcanvas-duration) var(--offcanvas-easing);
+	}
+
+
+	// -------------------------------------------------------------------------
+	// Reveal Mode
+	// -------------------------------------------------------------------------
+	// The offcanvas is behind the page content. Page content slides to reveal it.
+	// Implemented as a container-level class, not on the dialog itself.
+
+	&.offcanvas-reveal {
+		position:   absolute; // Sits behind page content
+		box-shadow: none;
+
+		&::backdrop {
+			display: none; // No backdrop in reveal mode
+		}
+	}
+
+
+	// -------------------------------------------------------------------------
+	// Inner Structure
+	// -------------------------------------------------------------------------
+
+	&-header {
+		display:			flex;
+		align-items:		center;
+		justify-content:	space-between;
+		gap:				0.75rem;
+		padding:			var(--offcanvas-padding);
+		flex-shrink:		0;
+	}
+
+	&-title {
+		font-size:		1.0625rem;
+		font-weight:	600;
+		margin:			0;
+		line-height:	1.3;
+	}
+
+	&-body {
+		padding:			var(--offcanvas-padding);
+		flex:				1;
+		overflow-y:			auto;
+		overscroll-behavior: contain;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	&-footer {
+		display:			flex;
+		align-items:		center;
+		justify-content:	flex-end;
+		gap:				0.5rem;
+		padding:			var(--offcanvas-padding);
+		flex-shrink:		0;
+	}
+
+
+	// -------------------------------------------------------------------------
 	// Close Button
-	// ---------------------------------------------------------------------
+	// -------------------------------------------------------------------------
 
 	&-close {
-		position: absolute;
-		top: 0.5rem;
-		right: 0.5rem;
-		z-index: $z-index-overlay + 10;
-		background: none;
-		border: none;
-		font-size: 1.25rem;
-		cursor: pointer;
-		color: inherit;
+		display:			inline-flex;
+		align-items:		center;
+		justify-content:	center;
+
+		background:			transparent;
+		border:				none;
+		cursor:				pointer;
+		padding:			0.25rem;
+		border-radius:		var(--radius-sm, 4px);
+		color:				var(--color-text-muted, currentColor);
+		line-height:		1;
+		transition:			color 0.15s ease, background-color 0.15s ease;
 
 		&:hover {
-			opacity: 0.8;
+			color:				var(--color-text);
+			background-color:	var(--color-surface-raised, rgba(0, 0, 0, 0.06));
+		}
+
+		&:focus-visible {
+			outline:			2px solid var(--color-accent);
+			outline-offset:		2px;
 		}
 	}
 
-	// ---------------------------------------------------------------------
-	// Close Button
-	// ---------------------------------------------------------------------
 
-	&-bar {
-		padding: var(--offcanvas-padding);
-		width: 100%;
-		box-sizing: border-box;
-		flex: 1;
-	}
+	// -------------------------------------------------------------------------
+	// Reduced Motion
+	// -------------------------------------------------------------------------
 
-	// ---------------------------------------------------------------------
-	// Reveal Mode
-	// ---------------------------------------------------------------------
-
-	&-reveal {
-		position: absolute;
-		left: 0;
-		top: 0;
-		bottom: 0;
-		width: 0;
-		overflow: hidden;
-		transition: width 0.3s ease;
-
-		&[open] {
-			width: var(--offcanvas-width);
+	@media (prefers-reduced-motion: reduce) {
+		&,
+		&::backdrop,
+		& ~ .offcanvas-pushed,
+		& ~ [data-offcanvas-push] {
+			transition: none !important;
+			animation:  none !important;
 		}
-	}
-
-	// ---------------------------------------------------------------------
-	// Push Page Container
-	// ---------------------------------------------------------------------
-
-	&-page {
-		overflow-x: clip;
-		transition: transform 0.3s ease;
-	}
-
-	&-container-animation {
-		transform: translateX(var(--offcanvas-width));
-	}
-
-	.offcanvas-right + &-container-animation {
-		transform: translateX(calc(var(--offcanvas-width) * -1));
-	}
-
-	// ---------------------------------------------------------------------
-	// Backdrop Blur
-	// ---------------------------------------------------------------------
-
-	&::backdrop {
-		backdrop-filter: blur(3px);
-		background-color: rgba(0, 0, 0, 0.25);
-	}
-
-	// ---------------------------------------------------------------------
-	// Animation Classes
-	// ---------------------------------------------------------------------
-
-	&[open],
-	&.enter,
-	&.visible {
-		transform: translateX(0);
-		opacity: 1;
-		visibility: visible;
-		pointer-events: auto;
-	}
-
-	&.leave,
-	&.closing {
-		transform: translateX(-100%);
-		opacity: 0;
 	}
 }
