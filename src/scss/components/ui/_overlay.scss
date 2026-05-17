@@ -12,20 +12,6 @@
 @use '../../abstracts/variables/colors' as *;
 @use '../../abstracts/variables/spacing' as *;
 
-// Container to provide positioning context for absolute overlays
-.inline {
-    position: relative;
-    display: inline-block;
-    line-height: 0;
-    overflow: hidden;
-    vertical-align: middle;
-
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-}
-
 // -------------------------------------------------------------------------
 // Base Overlay
 // -------------------------------------------------------------------------
