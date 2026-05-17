@@ -1,202 +1,348 @@
 /**
+ * =============================================================================
+ * UI
  * @module js.ui
- * @description Provides a centralized interface for managing UI components such as sidebars,
- * 				headers, and theme settings. Facilitates initialization, interaction, and coordination
- * 				of UI elements across the application.
+ * -----------------------------------------------------------------------------
+ * Visual/DOM subsystem. Owns and initializes every manager that touches the
+ * page - notifications, toggles, tooltips, lightbox, navigation, sidebars,
+ * header, spinners, and progress indicators.
+ *
+ * Instantiated by Deck as this.ui = new UI(this).
+ * All managers receive the deck reference for state and event access where needed.
+ *
+ * Architecture note:
+ *   UI owns visual managers.  Deck owns application concerns (state, components,
+ *   plugins, WebSocket). This separation keeps each class focused and testable.
+ *
+ *   deck.ui.toast.show(...)	- toast notifications
+ *   deck.ui.tooltip.show(...)	- tooltip control
+ *   deck.ui.toggles			- toggle manager
+ *   deck.ui.lightbox			- lightbox manager
+ *   deck.ui.sidebarMain		- primary sidebar (if present)
+ *   deck.ui.sidebarSecondary	- secondary sidebar (if present)
+ *   deck.ui.header				- header (if present)
+ * =============================================================================
  */
 
-import Sidebar from './sidebar.js';
-import Header from './header.js';
-import ThemeManager from './theme.manager.js';
-import FormManager from './form.manager.js';
-import ComponentManager from './component.manager.js';
-import FabManager from './fab.manager.js';
-import Spinner from './spinner.js';
-import Progress from './progress.js';
-import { DomUtils } from './helpers.js';
-
-/**
- * @class UI
- * @classdesc Acts as a container and manager for core UI elements. Handles initialization
- * 			  and coordination of components like Sidebar, Header, and ThemeManager,
- * 			  ensuring consistent behavior and integration within the application.
- */
+import Header				from './header.js';
+import SidebarMain			from './sidebar.main.js';
+import SidebarSecondary		from './sidebar.secondary.js';
+import ThemeManager			from './theme.manager.js';
+import FormManager			from './form.manager.js';
+import NavManager			from './nav.manager.js';
+import FabManager			from './fab.manager.js';
+import ToggleManager		from './toggle.manager.js';
+import LightboxManager		from './lightbox.manager.js';
+import ToastManager			from './toast.manager.js';
+import TooltipManager		from './tooltip.manager.js';
+import Spinner				from './spinner.js';
+import Progress				from './progress.js';
+import { DomUtils }			from './helpers.js';
 
 class UI {
 
-	constructor() {
+	/**
+	 * @param {Deck} deck - The Deck instance. Passed down to managers that need it.
+	 */
+	constructor(deck) {
 
-		// Cached Element References
-        this.$el = {
-            html:		document.documentElement,
-            body:		document.body,
-            main:		document.querySelector("main"),
-            header:		document.querySelector("header"),
-            aside:		document.querySelector("aside"),
-            loading:	document.querySelector('.loading')
-        };
+		// Store deck reference — managers that need state/events use this
+		this.deck = deck;
 
-		// Core Managers
-		this.theme		= new ThemeManager();
-		this.forms		= new FormManager(this);
-		this.components = new ComponentManager(this);
-		this.fabs       = new FabManager(this);
+		// ── Cached element references ─────────────────────────────────────────
+		this.$el = {
+			html:				document.documentElement,
+			body:				document.body,
+			main:				document.querySelector('main'),
+			header:				document.querySelector('header'),
+			aside:				document.querySelector('aside'),
+			loading:			document.querySelector('.loading'),
+		};
 
-		// Global Plugins
-        this.spinner	= new Spinner(this);
-        this.progress	= new Progress(this);
+		// ── Visual managers ───────────────────────────────────────────────────
+		this.theme				= new ThemeManager();
+		this.forms				= new FormManager(this);
+		this.fabs				= new FabManager(this);
+		this.navs				= new NavManager(this);
+		this.toggles			= new ToggleManager(this);
+		this.lightbox			= new LightboxManager(this);
+		this.toast				= new ToastManager(this);
+		this.tooltip			= new TooltipManager(this);
+
+		// ── Global utilities ──────────────────────────────────────────────────
+		this.spinner			= new Spinner(this);
+		this.progress			= new Progress(this);
+
+		// ── Layout and sidebar/header references (set by #initLayout) ─────────
+		this.header				= null;
+		this.sidebarMain		= null;
+		this.sidebarSecondary	= null;
 
 		this.#init();
 	}
 
-	/**
-	 * Initializes all UI systems.
-	 * @private
-	 */
+	// =========================================================================
+	// PRIVATE — INIT
+	// =========================================================================
+
 	#init() {
-
-		// Setup layout components
 		this.#initLayout();
-
-		// Initialize managers
 		this.forms.init();
-		this.components.init();
 		this.fabs.init();
-		
-		// Fix <pre><code> formatting issues
+		this.#initCards();
+		this.#initAvatars();
 		DomUtils.fixPreCode();
-
-		// Enhanced Input Detection
-        this.#initInputDetection();
-
-		// Global event listeners
+		this.#initInputDetection();
 		this.#initGlobalEvents();
-
-		// Clipboard utility for framework preview
 		this.#initClipboardUtility();
 	}
 
 	/**
+	 * Initializes layout components — header and sidebars.
+	 * Each is detected by presence in the DOM. Safe to call on pages
+	 * where none of them exist.
 	 * @private
-	 * @method #initInputDetection
-	 * @description Distinguishes between touch and mouse for hybrid hardware.
 	 */
-	#initInputDetection() {
-		// Initial detection via modern Media Query
-		const canHover = window.matchMedia('(hover: hover)').matches;
-		if (!canHover) {
-			this.$el.body.classList.add('is-touch-primary');
+	#initLayout() {
+
+		// ── Header ────────────────────────────────────────────────────────────
+		const headerEl = document.getElementById('header');
+		if (headerEl) {
+			this.header = new Header(headerEl);
 		}
 
-		// Dynamic switch: If they actually touch the screen, lock in touch mode
-		const setTouchMode = () => {
-			this.$el.body.classList.add('touch-device');
-			window.TOUCH_DETECTED = true;
-			// Use passive: true for scroll performance
-			window.removeEventListener('touchstart', setTouchMode, { passive: true });
-		};
+		// ── Sidebar Main ──────────────────────────────────────────────────────
+		// Deck fixed navigation. Collapsed/drawer behavior.
+		if (document.querySelector('.sidebar-main')) {
+			this.sidebarMain = new SidebarMain('.sidebar-main', '#sidebar-main-toggle');
+		}
 
-		window.addEventListener('touchstart', setTouchMode, { passive: true });
+		// ── Sidebar Secondary ─────────────────────────────────────────────────
+		// Flexible nav sidebar with submenus. Drawer on mobile.
+		const sidebarSecEl = document.querySelector('.sidebar-secondary');
+		if (sidebarSecEl) {
+			this.sidebarSecondary = new SidebarSecondary(
+				'.sidebar-secondary',
+				'#sidebar-toggle',
+				{ responsiveBreakpoint: 1280 }
+			);
+		}
+
+		// ── Sidebar Right ─────────────────────────────────────────────────────
+		// CSS-only sticky column. Driven by ToggleManager — no class needed.
 	}
 
 	/**
-	 * Initializes global UI event listeners.
+	 * Delegated card minimize/close behavior.
+	 *	.js-card-toggle → minimize/expand .card-content via slideUp/slideDown
+	 *	.js-card-close  → animate then remove the card
+	 * @private
+	 */
+	#initCards() {
+		this.$el.body.addEventListener('click', event => {
+
+			const toggle = event.target.closest('.js-card-toggle');
+			if (toggle) {
+				const card		= toggle.closest('.card');
+				const content	= card?.querySelector('.card-content');
+				if (!card || !content) return;
+
+				const isMin = card.classList.toggle('card-minimized');
+				toggle.classList.toggle('window-minimize', !isMin);
+				toggle.classList.toggle('window-maximize',  isMin);
+
+				isMin
+					? DomUtils.slideUp(content)
+					: DomUtils.slideDown(content);
+			}
+
+			const close = event.target.closest('.js-card-close');
+			if (close) {
+				const card = close.closest('.card');
+				if (!card) return;
+				card.classList.add('animation-scale-up', 'animation-reverse');
+				card.addEventListener('animationend', () => card.remove(), { once: true });
+			}
+		});
+	}
+
+	/**
+	 * Avatar image-to-initials fallback.
+	 * If .avatar-image fails to load, it hides and shows .avatar-initials.
+	 * Uses data-avatar-init to prevent re-processing on reinit calls.
+	 * @param {Document|HTMLElement} [root=document]
+	 * @private
+	 */
+	#initAvatars(root = document) {
+		root.querySelectorAll('.avatar:not([data-avatar-init])').forEach(avatar => {
+			avatar.setAttribute('data-avatar-init', '');
+
+			const img      = avatar.querySelector('.avatar-image');
+			const initials = avatar.querySelector('.avatar-initials');
+			if (!img || !initials) return;
+
+			img.addEventListener('error', () => {
+				img.style.display      = 'none';
+				initials.style.display = 'flex';
+			}, { once: true });
+		});
+	}
+
+	/**
+	 * Distinguishes between touch and mouse input for hybrid devices.
+	 * Adds .is-touch-primary on load for touch-primary devices,
+	 * and .touch-device on first actual touchstart event.
+	 * @private
+	 */
+	#initInputDetection() {
+		if (!window.matchMedia('(hover: hover)').matches) {
+			this.$el.body.classList.add('is-touch-primary');
+		}
+
+		const onFirstTouch = () => {
+			this.$el.body.classList.add('touch-device');
+			window.TOUCH_DETECTED = true;
+			window.removeEventListener('touchstart', onFirstTouch, { passive: true });
+		};
+
+		window.addEventListener('touchstart', onFirstTouch, { passive: true });
+	}
+
+	/**
+	 * Global delegated event listeners for patterns used across the app.
 	 * @private
 	 */
 	#initGlobalEvents() {
-
 		this.$el.body.addEventListener('click', event => {
 			const { target } = event;
 
-			// Dropdown close delegation
+			// ── Dropdown close button ─────────────────────────────────────────
 			const closeBtn = target.closest('.dropdown-close');
 			if (closeBtn) {
 				const dropdown = closeBtn.closest('.dropdown');
-				// You can call your component manager here to close it properly
-				if (dropdown && this.components.dropdown) {
-					const instance = this.deck.getInstance(dropdown);
+				if (dropdown) {
+					const instance = this.deck?.getInstance(dropdown);
 					instance?.close();
 				}
 			}
 
-			// Prevent anchor jump for empty hashes
+			// ── Prevent empty hash jumps ──────────────────────────────────────
 			if (target.matches('a[href="#"]')) {
 				event.preventDefault();
 			}
 
-			// Generic "Dismiss" pattern (Common for Modals/Alerts)
+			// ── Generic dismiss pattern ───────────────────────────────────────
+			// data-dismiss="#selector" removes the target element.
+			// data-dismiss (no value) removes the trigger's parent.
 			const dismissTrigger = target.closest('[data-dismiss]');
 			if (dismissTrigger) {
-				const targetSelector = dismissTrigger.getAttribute('data-dismiss');
-				const targetEl = targetSelector ? document.querySelector(targetSelector) : dismissTrigger.parentElement;
+				const selector = dismissTrigger.getAttribute('data-dismiss');
+				const targetEl = selector
+					? document.querySelector(selector)
+					: dismissTrigger.parentElement;
 				targetEl?.remove();
 			}
 		});
 	}
 
 	/**
-	 * Clipboard utility for framework preview.
-	 * Copies code from `.code-tab` components to clipboard.
+	 * Clipboard utility for framework documentation preview.
+	 * Copies code content from .code-tab components.
+	 * Only activates if any .code-tab exists on the page.
 	 * @private
 	 */
 	#initClipboardUtility() {
-		// Optimized: Only attach one listener to the body if the container exists
 		if (!document.querySelector('.code-tab')) return;
 
-		this.$el.body.addEventListener('click', (event) => {
+		this.$el.body.addEventListener('click', event => {
 			const copyBtn = event.target.closest('.code-tab .iconnav a');
 			if (!copyBtn) return;
 
 			event.preventDefault();
 
 			const codeTab = copyBtn.closest('.code-tab');
-			// Support both <code> blocks and standard divs
-			const contentSource = codeTab?.querySelector('.tab-content .active, .tab-content div:first-child');
+			const source  = codeTab?.querySelector('.tab-content .active, .tab-content div:first-child');
+			if (!source) return;
 
-			if (contentSource) {
-				// Get innerText to avoid copying HTML tags if it's a code block
-				const textToCopy = contentSource.innerText || contentSource.textContent;
-				
-				navigator.clipboard.writeText(textToCopy.trim())
-					.then(() => {
-						if (window.deck) {
-							window.deck.say('Code copied to clipboard.', 'success');
-						}
-					})
-					.catch(err => console.error('UI Clipboard Error:', err));
-			}
+			const text = source.innerText || source.textContent;
+
+			navigator.clipboard.writeText(text.trim())
+				.then(() => {
+					this.deck?.notify('Code copied to clipboard.', 'success');
+				})
+				.catch(err => console.error('[UI] Clipboard error:', err));
 		});
 	}
 
+	// =========================================================================
+	// PUBLIC API PROXIES
+	// =========================================================================
+	// Convenience methods that delegate to ComponentManager.
+	// Allows deck.ui.dim() to work directly.
+
 	/**
-	 * Initializes layout-related components.
-	 * Detects header / sidebar automatically.
-	 * @private
+	 * @method dim
+	 * @description Creates a dimming overlay on a parent element.
+	 *				Prevents stacking — safe to call repeatedly.
+	 *
+	 * @param {HTMLElement}	[parent=this.$el.body]
+	 * @param {boolean}		[animate=true]
+	 * @returns {HTMLElement|undefined} Overlay element, or undefined if already present.
 	 */
-	#initLayout() {
+	dim(parent = this.$el.body, animate = true) {
+		if (parent.querySelector(':scope > .overlay.js-dimmer')) return;
 
-		// Initialize header if present
-        if (document.getElementById("header")) this.header = new Header();
-        
-        const sidebarEl = this.$el.aside;
+		const overlay		= document.createElement('div');
+		overlay.className	= 'overlay js-dimmer overlay-primary';
+		parent.appendChild(overlay);
 
-		// Initialize sidebar if present
-        if (sidebarEl) {
+		void overlay.offsetHeight; // Force reflow for transition start
 
-			// Detect secondary sidebar
-            const isSec = sidebarEl.classList.contains("sidebar-secondary");
-            this.sidebar = new Sidebar(
-                isSec ? '.sidebar-secondary' : '.sidebar-main',
-                '#sidebar-toggle',
-                { responsiveBreakpoint: isSec ? 1280 : 992 }
-            );
-        }
-    }
+		if (!animate) overlay.style.transition = 'none';
+		overlay.classList.add('dimmed');
 
-	// Public API Proxies (Allows calling deck.ui.dim() directly)
-    dim(parent, animate) { return this.components.dim(parent, animate); }
-    undim(parent, animate) { return this.components.undim(parent, animate); }
+		this.#overlays.add(overlay);
+		return overlay;
+	}
 
+	/**
+	 * @method undim
+	 * @description Removes the dimming overlay from a parent element.
+	 *				Waits for CSS transition to complete before removal.
+	 *
+	 * @param {HTMLElement} [parent=this.$el.body]
+	 */
+	undim(parent = this.$el.body) {
+		const overlay = parent.querySelector(':scope > .overlay.js-dimmer');
+		if (!overlay) return;
+
+		overlay.classList.remove('dimmed');
+
+		const cleanup = () => {
+			overlay.remove();
+			this.#overlays.delete(overlay);
+		};
+
+		const duration = window.getComputedStyle(overlay).transitionDuration;
+		if (!duration || duration === '0s') {
+			cleanup();
+		} else {
+			overlay.addEventListener('transitionend', cleanup, { once: true });
+		}
+	}
+
+	// =========================================================================
+	// PUBLIC — REINIT HELPERS
+	// =========================================================================
+
+	/**
+	 * @method initAvatars
+	 * @description Re-runs avatar fallback for newly injected content.
+	 * @param {Document|HTMLElement} [root=document]
+	 */
+	initAvatars(root = document) {
+		this.#initAvatars(root);
+	}
 }
 
 export default UI;
