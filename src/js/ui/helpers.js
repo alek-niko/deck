@@ -28,7 +28,7 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
  * @param {HTMLElement} el
  * @param {number}		[duration=300] - ms
  */
-function slideUp(el, duration = 300) {
+export function slideUp(el, duration = 300) {
 	if (!el) return;
 
 	const style = window.getComputedStyle(el);
@@ -76,7 +76,7 @@ function slideUp(el, duration = 300) {
  * @param {HTMLElement} el
  * @param {number}      [duration=300] - ms
  */
-function slideDown(el, duration = 300) {
+export function slideDown(el, duration = 300) {
 	if (!el) return;
 
 	// Reduced motion: show immediately
@@ -128,7 +128,7 @@ function slideDown(el, duration = 300) {
  *
  * @param {Document|HTMLElement} [root=document]
  */
-function fixPreCode(root = document) {
+export function fixPreCode(root = document) {
 	root.querySelectorAll('pre > code').forEach(code => {
 		let lines = code.textContent.split('\n');
 
@@ -157,7 +157,7 @@ function fixPreCode(root = document) {
  * @param {string|HTMLElement|null} target
  * @returns {HTMLElement|null}
  */
-function resolveEl(target) {
+export function resolveEl(target) {
 	if (!target) return null;
 	if (target instanceof HTMLElement) return target;
 	if (typeof target === 'string') return document.querySelector(target);
