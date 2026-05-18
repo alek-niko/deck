@@ -1,148 +1,176 @@
 /**
+ * =============================================================================
+ * DOM UTILITIES
  * @module js.ui.helpers
- * @description Pure, stateless DOM manipulation helpers.
- * 				Focused on smooth animations and common DOM normalizations.
+ * -----------------------------------------------------------------------------
+ * Pure, stateless DOM manipulation helpers. No external dependencies,
+ * no side effects beyond the elements passed in.
  *
- * All functions are side-effect free regarding external state —
- * they only modify the passed element(s).
+ * Exports:
+ *	slideUp(el, duration?)		- animate element height to 0 then hide
+ *	slideDown(el, duration?)	- reveal element and animate to natural height
+ *	fixPreCode()				- normalize <pre><code> indentation
+ *	resolveEl(target)			- resolve string selector or element to HTMLElement
+ *	DomUtils					- named export object (all of the above)
+ * =============================================================================
  */
+
+// ─── Reduced motion check ─────────────────────────────────────────────────────
+// Read once at module load — avoids a matchMedia call on every animation.
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ─────────────────────────────────────────────────────────────────────────────
 
 /**
- * Collapses an element by smoothly reducing its height to 0.
+ * Collapses an element by animating its height to 0, then hides it.
+ * Respects prefers-reduced-motion — hides instantly when enabled.
  *
- * @param {HTMLElement} el - The element to slide up (collapse)
- * @param {number} [duration=300] - Animation duration in milliseconds
+ * @param {HTMLElement} el
+ * @param {number}		[duration=300] - ms
  */
-export function slideUp(el, duration = 300) {
+function slideUp(el, duration = 300) {
+	if (!el) return;
 
-	// Bail out early if element is already hidden or doesn't exist
-	if (!el || getComputedStyle(el).display === 'none') return;
+	const style = window.getComputedStyle(el);
+	if (style.display === 'none') return;
 
-	// Force current computed height so transition has a starting point
-	el.style.height = el.offsetHeight + 'px';
+	// Reduced motion: skip animation, hide immediately
+	if (prefersReducedMotion) {
+		el.style.display = 'none';
+		return;
+	}
 
-	// Prepare properties that will animate
-	el.style.transitionProperty = 'height, margin, padding';
+	// Lock to current height so transition has a start point
+	el.style.height        = `${el.offsetHeight}px`;
+	el.style.overflow      = 'hidden';
+	el.style.boxSizing     = 'border-box';
+	el.style.transitionProperty = 'height, padding, margin';
 	el.style.transitionDuration = `${duration}ms`;
-	el.style.boxSizing = 'border-box';
-	el.style.overflow = 'hidden';
 
-	// Trigger reflow so browser applies the height before we change it
-	el.offsetHeight; // Reflow
-	
-	// Collapse
-	el.style.height = '0';
-	el.style.paddingTop = '0';
+	// Force reflow so browser registers the start state
+	void el.offsetHeight;
+
+	// Animate to collapsed
+	el.style.height        = '0';
+	el.style.paddingTop    = '0';
 	el.style.paddingBottom = '0';
-	el.style.marginTop = '0';
-	el.style.marginBottom = '0';
+	el.style.marginTop     = '0';
+	el.style.marginBottom  = '0';
 
-	// Clean up after animation completes
 	setTimeout(() => {
 		el.style.display = 'none';
 
 		[
-			'height',
-			'padding-top',
-			'padding-bottom',
-			'margin-top',
-			'margin-bottom',
-			'overflow',
-			'transition-duration',
-			'transition-property'
+			'height', 'overflow', 'box-sizing',
+			'padding-top', 'padding-bottom',
+			'margin-top', 'margin-bottom',
+			'transition-property', 'transition-duration',
 		].forEach(p => el.style.removeProperty(p));
-		
 	}, duration);
 }
 
 /**
- * Expands a previously collapsed or hidden element with a smooth height animation.
+ * Reveals a hidden element and animates its height to its natural size.
+ * Respects prefers-reduced-motion — shows instantly when enabled.
  *
- * @param {HTMLElement} el - The element to slide down (expand)
- * @param {number} [duration=300] - Animation duration in milliseconds
+ * @param {HTMLElement} el
+ * @param {number}      [duration=300] - ms
  */
-export function	slideDown(el, duration = 300) {
-
+function slideDown(el, duration = 300) {
 	if (!el) return;
 
-	// Make sure element is visible so we can measure natural height
+	// Reduced motion: show immediately
+	if (prefersReducedMotion) {
+		el.style.removeProperty('display');
+		if (window.getComputedStyle(el).display === 'none') {
+			el.style.display = 'block';
+		}
+		return;
+	}
+
+	// Restore display so we can measure natural height
 	el.style.removeProperty('display');
-	let display = window.getComputedStyle(el).display;
+	const display = window.getComputedStyle(el).display;
+	if (display === 'none') el.style.display = 'block';
 
-	// Most elements should fallback to block if display:none was set
-	if (display === 'none') display = 'block';
+	const targetHeight = el.offsetHeight;
 
-	el.style.display = display;
-	
-	// Measure natural height **after** display is restored
-	const height = el.offsetHeight;
-
-	// Prepare for animation from 0
-	el.style.overflow = 'hidden';
-	el.style.height = '0';
-	el.style.paddingTop = '0';
+	// Start from collapsed state
+	el.style.height        = '0';
+	el.style.overflow      = 'hidden';
+	el.style.paddingTop    = '0';
 	el.style.paddingBottom = '0';
+	el.style.boxSizing     = 'border-box';
 
-	// Trigger reflow
-	el.offsetHeight; // Reflow
-
-	// Set up transition
-	el.style.transitionProperty = 'height, margin, padding';
-	el.style.transitionDuration = `${duration}ms`;
+	// Force reflow
+	void el.offsetHeight;
 
 	// Animate to natural height
-	el.style.height = `${height}px`;
+	el.style.transitionProperty = 'height, padding';
+	el.style.transitionDuration = `${duration}ms`;
+	el.style.height             = `${targetHeight}px`;
 
-	// Clean up transition-related properties after animation
+	el.style.removeProperty('padding-top');
+	el.style.removeProperty('padding-bottom');
+
 	setTimeout(() => {
-		[
-			'height',
-			'overflow',
-			'transition-duration',
-			'transition-property'
-		].forEach(p => el.style.removeProperty(p));
+		['height', 'overflow', 'box-sizing',
+		 'transition-property', 'transition-duration'].forEach(p => {
+			el.style.removeProperty(p);
+		});
 	}, duration);
 }
 
 /**
- * Normalizes `<pre><code>` blocks by removing leading/trailing empty lines
- * and de-indenting the content based on the smallest common indent.
+ * Normalizes indentation in <pre><code> blocks.
+ * Removes leading/trailing empty lines and de-indents by the minimum
+ * common indent level. Safe to call on every page load.
  *
- * Useful when code is coming from markdown renderers, CMS, or user input
- * that often adds inconsistent indentation.
+ * @param {Document|HTMLElement} [root=document]
  */
-export function fixPreCode() {
-	document.querySelectorAll('pre > code').forEach(codeEl => {
-		let lines = codeEl.textContent.split('\n');
+function fixPreCode(root = document) {
+	root.querySelectorAll('pre > code').forEach(code => {
+		let lines = code.textContent.split('\n');
 
-		// Remove completely empty lines from start and end
-		while (lines.length && lines[0].trim() === '') lines.shift();
+		// Strip leading and trailing blank lines
+		while (lines.length && lines[0].trim() === '')             lines.shift();
 		while (lines.length && lines[lines.length - 1].trim() === '') lines.pop();
 
-		// Find the smallest indent level among non-empty lines
-		let minIndent = lines.reduce((min, line) => {
+		// Find minimum indent among non-empty lines
+		const minIndent = lines.reduce((min, line) => {
 			if (line.trim() === '') return min;
-			let match = line.match(/^(\s*)/);
-			let indent = match ? match[1].length : 0;
+			const indent = line.match(/^(\s*)/)[1].length;
 			return min === null ? indent : Math.min(min, indent);
 		}, null);
 
-		// De-indent everything by the common minimum
-		if (minIndent) lines = lines.map(line => line.slice(minIndent));
+		// De-indent
+		if (minIndent) lines = lines.map(l => l.slice(minIndent));
 
-		// Write cleaned content back
-		codeEl.textContent = lines.join('\n');
+		code.textContent = lines.join('\n');
 	});
 }
 
 /**
- * @typedef {Object} DomUtils
- * @property {function(HTMLElement, number=): void} slideUp
- * @property {function(HTMLElement, number=): void} slideDown
- * @property {function(): void} fixPreCode
+ * Resolves a CSS selector string or HTMLElement to an HTMLElement.
+ * Returns null if nothing matches.
+ *
+ * @param {string|HTMLElement|null} target
+ * @returns {HTMLElement|null}
+ */
+function resolveEl(target) {
+	if (!target) return null;
+	if (target instanceof HTMLElement) return target;
+	if (typeof target === 'string') return document.querySelector(target);
+	return null;
+}
+
+/**
+ * Named export object — same API, object style.
+ * Useful for: import { DomUtils } from './helpers.js'
  */
 export const DomUtils = {
 	slideUp,
 	slideDown,
 	fixPreCode,
+	resolveEl,
 };
