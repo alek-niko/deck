@@ -41,6 +41,9 @@ import { DomUtils }			from './helpers.js';
 
 class UI {
 
+	// ── Private Fields ───────────────────────────────────────────────────────
+    #overlays = new Set();
+
 	/**
 	 * @param {Deck} deck - The Deck instance. Passed down to managers that need it.
 	 */
@@ -80,6 +83,13 @@ class UI {
 
 		this.#init();
 	}
+
+	// =========================================================================
+	// PRIVATE FIELDS
+	// =========================================================================
+
+	/** Active overlay elements — prevents stacking multiple dimmers. */
+	#overlays = new Set();
 
 	// =========================================================================
 	// PRIVATE — INIT
