@@ -1,154 +1,174 @@
 /**
+ * =============================================================================
+ * SPINNER
  * @module js.ui.spinner
- * @description Manages loading spinners — lightweight, accessible, and stylable via data attributes.
+ * -----------------------------------------------------------------------------
+ * Per-element loading spinner manager. Tracks one spinner per target element
+ * and prevents stacking. Supports inline, centered, block, and overlay modes.
  *
- * Features:
- * - Multiple spinners tracked independently per target element
- * - Supports overlay mode (full container coverage + dimming potential)
- * - Inline / centered / block positioning modes
- * - Size, color variant, glow, delay animation control
- * - Screen-reader friendly hidden text
- * - `data-loading` attribute for styling disabled states / buttons
+ * Usage:
+ *	deck.ui.spinner.show('#my-form');
+ *	deck.ui.spinner.show(buttonEl, { size: 'sm', variant: 'light', mode: 'inline' });
+ *	deck.ui.spinner.hide('#my-form');
+ *
+ * Modes:
+ *	center	- centered inside the target (default)
+ *	inline	- flows inline with content (icon replacement)
+ *	block	- full-width block
+ *	overlay	- absolute overlay covering the target, with dimming potential
+ *
+ * Variants:
+ *   primary | secondary | success | danger | warning | info | light | dark | dots
+ *
+ * Sizes: sm | md (default) | lg
+ * =============================================================================
  */
+
+import { resolveEl } from './helpers.js';
+
 class Spinner {
-	
-	constructor(deckInstance) {
-		this.deck = deckInstance;
-		this.activeSpinners = new Map(); // Track spinners per element
-	}
+
+	// =========================================================================
+	// PRIVATE FIELDS
+	// =========================================================================
+
+	/** Map<HTMLElement, HTMLElement> — tracks the spinner/overlay per target. */
+	#active = new Map();
+
+	// =========================================================================
+	// CONSTRUCTOR
+	// =========================================================================
 
 	/**
-	 * Displays a spinner on the target element (defaults to body).
-	 * Prevents duplicate spinners on the same target.
+	 * @param {Object} ui - Shared UI/system reference.
+	 */
+	constructor(ui) {
+		this.ui = ui;
+	}
+
+	// =========================================================================
+	// PUBLIC API
+	// =========================================================================
+
+	/**
+	 * @method show
+	 * @description Shows a spinner on the target element.
+	 *              Prevents stacking — calling show() on an element that already
+	 *              has a spinner is a no-op.
 	 *
-	 * @param {HTMLElement|string} [target='body'] - Element or CSS selector
-	 * @param {Object} [options={}] Configuration
-	 * @param {'sm'|'md'|'lg'} [options.size='md']
-	 * @param {'primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark'|'dots'} [options.variant='primary']
+	 * @param {HTMLElement|string}	[target='body']
+	 * @param {Object}				[options={}]
+	 * @param {'sm'|'md'|'lg'}		[options.size='md']
+	 * @param {string}				[options.variant='primary']
 	 * @param {'center'|'inline'|'block'|'overlay'} [options.mode='center']
-	 * @param {string} [options.text='Loading...'] - Screen-reader announcement
-	 * @param {boolean} [options.glow=false] - Extra glow effect
-	 * @param {boolean} [options.delay=false] - Delayed appearance animation
-	 * @returns {HTMLElement|undefined} The created spinner (or overlay) element
+	 * @param {string}				[options.text='Loading...'] - Screen reader text.
+	 * @param {boolean}				[options.glow=false]
+	 * @param {boolean}				[options.delay=false]       - Delayed appearance.
+	 * @returns {HTMLElement|null} The spinner element, or null if target not found.
 	 */
 	show(target = 'body', options = {}) {
-		const el = typeof target === 'string' ? document.querySelector(target) : target;
-		if (!el) return;
+		const el = resolveEl(target);
+		if (!el) return null;
 
-		// Prevent stacking multiple spinners on same target
-		if (this.activeSpinners.has(el)) return;
+		// Already showing — no-op
+		if (this.#active.has(el)) return this.#active.get(el);
 
 		const config = {
-			size: 'md',
-			variant: 'primary',
-			mode: 'center', // 'center', 'inline', 'block', 'overlay'
-			text: 'Loading...',
-			glow: false,
-			delay: false,
-			...options
+			size:		'md',
+			variant:	'primary',
+			mode:		'center',
+			text:		'Loading...',
+			glow:		false,
+			delay:		false,
+			...options,
 		};
 
-		const spinner = this._createSpinner(config);
-		
-		// Handle Overlay vs Direct Injection
+		const spinner = this.#build(config);
+		let mounted   = spinner;
+
 		if (config.mode === 'overlay') {
 			const overlay = document.createElement('div');
 			overlay.className = 'spinner-overlay';
 			overlay.setAttribute('data-state', 'visible');
 			overlay.appendChild(spinner);
 
-			// Make sure container can position the absolute overlay
-			// const currentPosition = window.getComputedStyle(el).position;
-			// if (currentPosition === 'static') {
-			// 	el.style.setProperty('position', 'relative', 'important');
-			// }
-
-			el.appendChild(overlay);
-			this.activeSpinners.set(el, overlay);
-			
-			// Ensure container is relative for absolute overlay
+			// Ensure the container can position the absolute overlay
 			if (window.getComputedStyle(el).position === 'static') {
 				el.style.setProperty('position', 'relative', 'important');
 			}
+
+			el.appendChild(overlay);
+			mounted = overlay;
 		} else {
 			el.appendChild(spinner);
-			this.activeSpinners.set(el, spinner);
 		}
 
-		// Signal loading state
+		// Signal loading state to CSS (disables pointer events, dims buttons, etc.)
 		el.setAttribute('data-loading', 'true');
-		
+
+		this.#active.set(el, mounted);
 		return spinner;
 	}
 
 	/**
-	 * Removes the spinner (and overlay if used) from the target.
+	 * @method hide
+	 * @description Removes the spinner from the target element.
 	 *
 	 * @param {HTMLElement|string} [target='body']
 	 */
 	hide(target = 'body') {
-		const el = typeof target === 'string' ? document.querySelector(target) : target;
-		if (!el || !this.activeSpinners.has(el)) return;
+		const el = resolveEl(target);
+		if (!el || !this.#active.has(el)) return;
 
-		const spinner = this.activeSpinners.get(el);
-		spinner.remove();
-
-		// Clean up loading indicator
+		this.#active.get(el).remove();
+		this.#active.delete(el);
 		el.removeAttribute('data-loading');
-
-		// If we forced position: relative, we could optionally revert it here,
-		// but usually it's safer to leave it (many containers should be relative anyway)
-		// el.style.removeProperty('position');
-
-		this.activeSpinners.delete(el);
 	}
 
 	/**
-	 * Internal: Creates the spinner DOM structure using data attributes
-	 * for styling (matches common SCSS/CSS variable-based theming).
-	 *
-	 * @private
-	 * @param {Object} cfg Normalized configuration
-	 * @returns {HTMLElement} The spinner <span> element
+	 * @method destroy
+	 * @description Removes all active spinners. Called on page teardown or reset.
 	 */
-	_createSpinner(cfg) {
+	destroy() {
+		this.#active.forEach(spinner => spinner.remove());
+		this.#active.clear();
+	}
+
+	// =========================================================================
+	// PRIVATE — BUILD
+	// =========================================================================
+
+	/**
+	 * Builds the spinner DOM element from config.
+	 * Uses data attributes for styling — matches CSS token-based theming.
+	 *
+	 * @param {Object} cfg
+	 * @returns {HTMLElement}
+	 */
+	#build(cfg) {
 		const span = document.createElement('span');
 		span.className = 'spinner';
-		span.setAttribute('role', 'status');
+		span.setAttribute('role',      'status');
 		span.setAttribute('aria-live', 'polite');
-		
-		// Attributes based on our SCSS tokens
-		if (cfg.size) span.setAttribute('data-size', cfg.size);
-		if (cfg.variant) span.setAttribute('data-variant', cfg.variant);
+
+		if (cfg.size)					span.setAttribute('data-size',    cfg.size);
+		if (cfg.variant)				span.setAttribute('data-variant', cfg.variant);
 		if (cfg.mode && cfg.mode !== 'overlay') span.setAttribute('data-mode', cfg.mode);
+		if (cfg.glow)					span.setAttribute('data-glow',    'true');
+		if (cfg.delay)					span.setAttribute('data-delay',   'true');
 
-		if (cfg.glow) span.setAttribute('data-glow', 'true');
-		if (cfg.delay) span.setAttribute('data-delay', 'true');
+		// Screen-reader text — visually hidden
+		const sr = document.createElement('span');
+		sr.className   = 'spinner-sr';
+		sr.textContent = cfg.text;
+		span.appendChild(sr);
 
-		// Accessible loading message (hidden visually)
-		const srText = document.createElement('span');
-		srText.className = 'spinner-sr';
-		srText.textContent = cfg.text;
-		span.appendChild(srText);
-
-		// Special handling for dots variant (common bouncing dots animation)
+		// Dots variant: needs an extra child element for the animation
 		if (cfg.variant === 'dots') {
-			const dot = document.createElement('span');
-			span.appendChild(dot);
+			span.appendChild(document.createElement('span'));
 		}
 
 		return span;
-	}
-
-	/**
-	 * Removes **all** active spinners.
-	 * Useful during navigation, page reset, or component cleanup.
-	 */
-	destroy() {
-		for (const spinnerOrOverlay of this.activeSpinners.values()) {
-		spinnerOrOverlay.remove();
-		}
-		this.activeSpinners.clear();
 	}
 }
 
