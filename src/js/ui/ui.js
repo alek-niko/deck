@@ -41,9 +41,6 @@ import { DomUtils }			from './helpers.js';
 
 class UI {
 
-	// ── Private Fields ───────────────────────────────────────────────────────
-    #overlays = new Set();
-
 	/**
 	 * @param {Deck} deck - The Deck instance. Passed down to managers that need it.
 	 */
