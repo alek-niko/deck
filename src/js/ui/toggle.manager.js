@@ -35,26 +35,35 @@
  */
 class ToggleManager {
 
-	/**
-	 * -------------------------------------------------------------------------
-	 * Create Toggle Manager
-	 * -------------------------------------------------------------------------
-	 * @param {Object} ui - Shared UI/system reference.
-	 */
+	// =========================================================================
+	// PRIVATE FIELDS
+	// =========================================================================
+
+	/** Tracks which triggers are already initialized. WeakSet — no memory leaks. */
+	#initialized = new WeakSet();
+
+	/** Currently open targets per group. Map<groupName, Set<HTMLElement>> */
+	#groups = new Map();
+
+	/** Whether the outside-click document listener is active. */
+	#outsideListenerActive = false;
+
+	/** Bound handler references for clean removeEventListener. */
+	#onBodyClick	= null;
+	#onOutsideClick	= null;
+
+
+	// =========================================================================
+    // CONSTRUCTOR
+    // =========================================================================
+	// @param {Object} ui - Shared UI/system reference.
+
 	constructor(ui) {
 		this.ui = ui;
 
-		// Tracks which triggers are already initialized.
-		// WeakMap: no memory leaks when elements are removed from DOM.
-		this._initialized = new WeakSet();
-
-		// Tracks currently open toggles per group.
-		// Map<groupName, Set<HTMLElement>> — the open *targets* per group.
-		this._groups = new Map();
-
 		// Bound handler references — required for proper removeEventListener.
-		this._onBodyClick		= this._onBodyClick.bind(this);
-		this._onOutsideClick	= this._onOutsideClick.bind(this);
+		this.#onBodyClick		= this.#handleBodyClick.bind(this);
+        this.#onOutsideClick	= this.#handleOutsideClick.bind(this);
 
 		this.init();
 	}
@@ -72,11 +81,11 @@ class ToggleManager {
 	 * -------------------------------------------------------------------------
 	 */
 	init() {
-		this._setup();
+        this.#setup();
 
 		// Single delegated listener on body — handles all current and future toggles.
-		document.body.addEventListener('click', this._onBodyClick);
-	}
+        document.body.addEventListener('click', this.#onBodyClick);
+    }
 
 	/**
 	 * -------------------------------------------------------------------------
@@ -89,8 +98,8 @@ class ToggleManager {
 	 * -------------------------------------------------------------------------
 	 */
 	reinit(container = document) {
-		this._setup(container);
-	}
+        this.#setup(container);
+    }
 
 	/**
 	 * -------------------------------------------------------------------------
@@ -103,17 +112,16 @@ class ToggleManager {
 	 * -------------------------------------------------------------------------
 	 */
 	open(target, cls) {
-		if (target instanceof HTMLDialogElement) {
-			target.showModal();
-			return;
-		}
-
-		if (cls) {
-			target.classList.add(cls);
-		} else {
-			target.hidden = false;
-		}
-	}
+        if (target instanceof HTMLDialogElement) {
+            target.showModal();
+            return;
+        }
+        if (cls) {
+            target.classList.add(cls);
+        } else {
+            target.hidden = false;
+        }
+    }
 
 	/**
 	 * -------------------------------------------------------------------------
@@ -126,17 +134,16 @@ class ToggleManager {
 	 * -------------------------------------------------------------------------
 	 */
 	close(target, cls) {
-		if (target instanceof HTMLDialogElement) {
-			target.close();
-			return;
-		}
-
-		if (cls) {
-			target.classList.remove(cls);
-		} else {
-			target.hidden = true;
-		}
-	}
+        if (target instanceof HTMLDialogElement) {
+            target.close();
+            return;
+        }
+        if (cls) {
+            target.classList.remove(cls);
+        } else {
+            target.hidden = true;
+        }
+    }
 
 	/**
 	 * -------------------------------------------------------------------------
@@ -151,15 +158,15 @@ class ToggleManager {
 	 * -------------------------------------------------------------------------
 	 */
 	toggle(target, cls, group) {
-		const isOpen = this._isOpen(target, cls);
+        const isOpen = this.#isOpen(target, cls);
+ 
+        if (group) {
+            this.#handleGroup(target, cls, group, !isOpen);
 
-		if (group) {
-			this._handleGroup(target, cls, group, !isOpen);
-			
-		} else {
-			isOpen ? this.close(target, cls) : this.open(target, cls);
-		}
-	}
+        } else {
+            isOpen ? this.close(target, cls) : this.open(target, cls);
+        }
+    }
 
 	/**
 	 * -------------------------------------------------------------------------
@@ -169,10 +176,11 @@ class ToggleManager {
 	 * -------------------------------------------------------------------------
 	 */
 	destroy() {
-		document.body.removeEventListener('click', this._onBodyClick);
-		document.removeEventListener('click', this._onOutsideClick);
-		this._groups.clear();
-	}
+        document.body.removeEventListener('click', this.#onBodyClick);
+        document.removeEventListener('click', this.#onOutsideClick);
+        this.#groups.clear();
+        this.#outsideListenerActive = false;
+    }
 
 	// =========================================================================
 	// PRIVATE METHODS
@@ -189,23 +197,23 @@ class ToggleManager {
 	 * @param {HTMLElement|Document} [container=document]
 	 * -------------------------------------------------------------------------
 	 */
-	_setup(container = document) {
+	#setup(container = document) {
 		const triggers = container.querySelectorAll('[data-toggle]');
 
 		triggers.forEach(trigger => {
-			if (this._initialized.has(trigger)) return;
-			this._initialized.add(trigger);
+			if (this.#initialized.has(trigger)) return;
+			this.#initialized.add(trigger);
 
 			// Wire outside-click dismissal if requested.
 			if (trigger.dataset.toggleOutside === 'true') {
 				// Lazily attach one document-level outside-click listener.
 				if (!this._outsideListenerActive) {
-					document.addEventListener('click', this._onOutsideClick);
-					this._outsideListenerActive = true;
+					document.addEventListener('click', this.#onOutsideClick);
+					this.#outsideListenerActive = true;
 				}
 			}
 		});
-	}
+    }
 
 	/**
 	 * -------------------------------------------------------------------------
@@ -217,28 +225,25 @@ class ToggleManager {
 	 * @param {MouseEvent} event
 	 * -------------------------------------------------------------------------
 	 */
-	_onBodyClick(event) {
-		const trigger = event.target.closest('[data-toggle]');
-		if (!trigger) return;
-
+	#handleBodyClick(event) {
+        const trigger = event.target.closest('[data-toggle]');
+        if (!trigger) return;
+ 
 		// Prevent default for anchor triggers.
-		if (trigger.tagName === 'A') event.preventDefault();
-
-		event.stopPropagation();
-
-		const selector = trigger.dataset.toggle
-			|| trigger.getAttribute('href');     // Anchor fallback
-
-		if (!selector) return;
-
-		const cls	= trigger.dataset.toggleCls		|| null;
-		const group	= trigger.dataset.toggleGroup	|| null;
-
-		const targets = document.querySelectorAll(selector);
-		if (!targets.length) return;
-
-		targets.forEach(target => this.toggle(target, cls, group));
-	}
+        if (trigger.tagName === 'A') event.preventDefault();
+        event.stopPropagation();
+ 
+        const selector = trigger.dataset.toggle || trigger.getAttribute('href');
+        if (!selector) return;
+ 
+        const cls	= trigger.dataset.toggleCls		|| null;
+        const group	= trigger.dataset.toggleGroup	|| null;
+ 
+        const targets = document.querySelectorAll(selector);
+        if (!targets.length) return;
+ 
+        targets.forEach(target => this.toggle(target, cls, group));
+    }
 
 	/**
 	 * -------------------------------------------------------------------------
@@ -250,7 +255,7 @@ class ToggleManager {
 	 * @param {MouseEvent} event
 	 * -------------------------------------------------------------------------
 	 */
-	_onOutsideClick(event) {
+	#handleOutsideClick(event) {
 		const outsideTriggers = document.querySelectorAll(
 			'[data-toggle][data-toggle-outside="true"]'
 		);
@@ -291,29 +296,27 @@ class ToggleManager {
 	 * @param {boolean} opening   - true = we want to open, false = closing
 	 * -------------------------------------------------------------------------
 	 */
-	_handleGroup(target, cls, group, opening) {
-		if (!this._groups.has(group)) {
-			this._groups.set(group, new Set());
-		}
-
-		const openTargets = this._groups.get(group);
-
-		if (opening) {
-			// Close every other open target in the group.
-			openTargets.forEach(openTarget => {
-				if (openTarget !== target) {
-					this.close(openTarget, cls);
-					openTargets.delete(openTarget);
-				}
-			});
-			this.open(target, cls);
-			openTargets.add(target);
-			
-		} else {
-			this.close(target, cls);
-			openTargets.delete(target);
-		}
-	}
+	#handleGroup(target, cls, group, opening) {
+        if (!this.#groups.has(group)) {
+            this.#groups.set(group, new Set());
+        }
+ 
+        const openTargets = this.#groups.get(group);
+ 
+        if (opening) {
+            openTargets.forEach(openTarget => {
+                if (openTarget !== target) {
+                    this.close(openTarget, cls);
+                    openTargets.delete(openTarget);
+                }
+            });
+            this.open(target, cls);
+            openTargets.add(target);
+        } else {
+            this.close(target, cls);
+            openTargets.delete(target);
+        }
+    }
 
 	/**
 	 * -------------------------------------------------------------------------
@@ -326,11 +329,11 @@ class ToggleManager {
 	 * @returns {boolean}
 	 * -------------------------------------------------------------------------
 	 */
-	_isOpen(target, cls) {
-		if (target instanceof HTMLDialogElement) return target.open;
-		if (cls) return target.classList.contains(cls);
-		return !target.hidden;
-	}
+	#isOpen(target, cls) {
+        if (target instanceof HTMLDialogElement) return target.open;
+        if (cls) return target.classList.contains(cls);
+        return !target.hidden;
+    }
 }
 
 export default ToggleManager;
