@@ -117,6 +117,8 @@
 		border: none;
 		padding: 0;
 		align-self: flex-start; // Optional: aligns to top if alert-body is tall
+		width: var(--icon-size);
+		height: var(--icon-size);
 	}
 
 	// -------------------------------------------------------------------------
