@@ -184,9 +184,10 @@ class Offcanvas extends Component {
 		// Stored as a bound reference — added/removed on open/close only.
 		this.#onKeyDown = this.#handleKeyDown.bind(this);
 
-		// ── Setup toggle event ────────────────────────────────────–––––––––––─
-		document.querySelectorAll(`[data-toggle="#${this.element.id}"]`)
-    		.forEach(btn => btn.addEventListener('click', () => this.toggle()));
+		// ── External toggle triggers ──────────────────────────────────────────────
+		const triggers = document.querySelectorAll(`[data-toggle="#${this.element.id}"]`);
+		triggers.forEach(btn => btn.addEventListener('click', () => this.toggle()));
+		//console.log('Offcanvas triggers found:', triggers.length, 'for id:', this.element.id);
 	}
 
 	// ─────────────────────────────────────────────────────────────────────────
