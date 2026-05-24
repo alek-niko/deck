@@ -291,6 +291,9 @@ class Accordion extends Component {
 		const item = this.items.find(i => i.contains(title));
 		if (!item) return;
 
+		// In details mode, browser handles open/close natively — don't interfere
+    	if (this.#mode === 'details') return;
+
 		const index = this.items.indexOf(item);
 		this.toggle(index);
 	}
