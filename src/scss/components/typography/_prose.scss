@@ -2,233 +2,412 @@
 // PROSE TYPOGRAPHY
 // components/typography/_prose.scss
 // -----------------------------------------------------------------------------
-// Scoped typography and spacing overrides for `.prose` blocks.
-// - Maintains clear vertical rhythm within content areas
-// - Prevents style leakage into nested components
-// - Supports headings, paragraphs, lists, blockquotes, images, figures, tables, forms
 //
-// Notes:
-// - All spacing uses `$spacing-*` variables from `abstracts/variables/spacing`
-// - Colors and borders use theme tokens where applicable
+// SINGLE RESPONSIBILITY:
+//   Vertical rhythm and typographic measure for long-form reading contexts.
+//   This file owns spacing *between* elements. It does not own the internal
+//   styles of any component (pre, table, blockquote, details, etc.).
+//
+// WHAT THIS FILE DOES:
+//   1. Sets prose measure (max-width, font-size, line-height)
+//   2. Resets browser default margins on direct children (:where = 0 specificity)
+//   3. Establishes base rhythm via the owl selector (> * + *)
+//   4. Overrides rhythm for headings (section breaks) and consecutive headings
+//      (proximity collapse)
+//   5. Provides contextual margin-block-start overrides for "heavy" blocks
+//      (pre, table, blockquote, figure) that need extra breathing room in a
+//      reading context — this is prose's responsibility, not the component's
+//   6. Exposes a --prose-gap-* token set so density modifiers can shift the
+//      entire rhythm scale without touching selectors
+//
+// WHAT THIS FILE DOES NOT DO:
+//   - Redefine font, background, border, border-radius, padding, or any other
+//     internal style of pre, code, table, blockquote, figure, details, etc.
+//     Those live in their own component files and are intentionally not repeated.
+//
+// ─────────────────────────────────────────────────────────────────────────────
+// SPACING ARCHITECTURE
+//   Runtime spacing uses CSS custom properties exclusively (--spacing-*, --prose-gap-*).
+//   Sass $spacing-* variables are mapped to CSS custom properties in
+//   themes/_default.scss and are NOT needed at Sass compile time here.
+//   No @use import — intentional.
+//
+// MARGIN RULE (enforced throughout):
+//   The owl (> * + *) is the single source of vertical rhythm truth.
+//   No element below sets margin-block-end. Doing so creates double-margins
+//   that do not collapse inside flex / grid / scroll containers.
+//   Exception: > hr sets margin-block-end because it is a two-sided separator,
+//   not a content block. This exception is explicitly documented where it appears.
+//
+// ─────────────────────────────────────────────────────────────────────────────
+// CONTAINER QUERY REQUIREMENT:
+//   The responsive max-width inside .prose uses @container. This requires the
+//   nearest ancestor to declare a container context, e.g.:
+//
+//     .layout-content { container-type: inline-size; }
+//
+//   If no container context exists the @container rule silently does nothing.
+//   A @supports not fallback using @media is included for full coverage.
+//
+// ─────────────────────────────────────────────────────────────────────────────
+// OVERFLOW NOTE FOR FULL-BLEED UTILITIES:
+//   .media-full-bleed and .media-wide use negative margin-inline math to break
+//   out of the prose measure. The nearest scroll ancestor must use
+//   overflow-x: clip (NOT overflow-x: hidden — hidden creates an unwanted
+//   scroll container and breaks position: sticky children).
+//
+// ─────────────────────────────────────────────────────────────────────────────
+// USAGE — DENSITY MODIFIERS:
+//   <div class="prose">                    default  — body copy
+//   <div class="prose prose--condense">    tighter  — cards, sidebars, UI
+//   <div class="prose prose--loose">       generous — editorial, docs, blog
+//   <div class="prose prose--normal">      explicit reset (for nested contexts)
+//
 // =============================================================================
 
-@use '../../abstracts/variables/spacing' as *;
+
+// ---------------------------------------------------------------------------
+// .prose — base
+// ---------------------------------------------------------------------------
 
 .prose {
 
-	// Core Typography & Measure
-    // Using fluid type scales and 'pretty' text wrapping
-    font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
-    line-height: var(--line-height-base, 1.6);
-    max-width: 70ch;
-    color: var(--color-text);
-    text-wrap: pretty;
+	// -------------------------------------------------------------------------
+	// Measure & Core Typography
+	// -------------------------------------------------------------------------
 
+	// Fluid type: 16px → 18px across the viewport range.
+	// rem ensures it respects the user's browser font-size preference.
+	font-size:		clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+	line-height:	var(--line-height-base, 1.6);
+	max-width:		70ch;
+	color:			var(--color-text);
 
-	// Responsive measure using Container Queries where supported
+	// text-wrap: pretty — multi-line orphan prevention (Chrome 117+, FF 126+)
+	// Falls back gracefully in unsupported browsers (ignored, no breakage).
+	text-wrap: pretty;
+
+	// Orphan / widow control for print and advanced rendering engines.
+	// text-wrap: pretty handles screen; these cover print and fallback engines.
+	orphans: 2;
+	widows:  2;
+
+	// Responsive measure via container query (preferred — component-aware).
+	// Requires nearest ancestor to declare: container-type: inline-size
+	@container (min-width: 900px) {
+	max-width: 75ch;
+	}
+
+	// Fallback for layouts without a container context, and for browsers
+	// that do not support container queries at all.
+	@supports not (container-type: inline-size) {
 	@media (min-width: 1200px) {
 		max-width: 75ch;
 	}
+	}
 
-	// Width Modifiers
+	// Measure modifiers
 	&-wide { max-width: 85ch; }
 	&-full { max-width: none; }
 
+
 	// -------------------------------------------------------------------------
-    // The Global Reset (Zero Specificity)
-    // Using :where to ensure these styles are easily overridable
-    // -------------------------------------------------------------------------
-	> :where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, figure, hr, table, pre) {
-		margin-block-start: 0;
-		margin-block-end: 0;
+	// STEP 1 — Browser Default Margin Reset
+	//
+	// :where() carries zero specificity — any downstream rule overrides this
+	// without needing to increase specificity or use !important.
+	// -------------------------------------------------------------------------
+	> :where(
+		h1, h2, h3, h4, h5, h6,
+		p, ul, ol, dl,
+		blockquote, figure, hr,
+		table, pre, details, address
+	) {
+		margin-block: 0;
 	}
 
-	// -------------------------------------------------------------------------
-    // The "Base Rhythm" (The Gap between standard elements)
-    // -------------------------------------------------------------------------
-    > * + * {
-        margin-block-start: var(--spacing-default);
-    }
 
 	// -------------------------------------------------------------------------
-    // The "Section Break" (Pushing headings away from previous content)
-    // -------------------------------------------------------------------------
-    // > * + h1 { margin-block-start: var(--spacing-2xl); }
-    // > * + h2 { margin-block-start: var(--spacing-xl); }
-    // > * + h3 { margin-block-start: var(--spacing-lg); }
-    // > * + h4 { margin-block-start: var(--spacing-default); }
-
-	> * + h1 { margin-block-start: var(--spacing-3xl); } // Increased for 2026 high-res displays
-    > * + h2 { margin-block-start: var(--spacing-2xl); }
-    > * + h3 { margin-block-start: var(--spacing-xl); }
-    > * + h4 { margin-block-start: var(--spacing-lg); }
-
-    // -------------------------------------------------------------------------
-    // The "Proximity" Adjustment (Headings following headings)
-    // -------------------------------------------------------------------------
-    > h1 + h2, 
-    > h2 + h3, 
-    > h3 + h4 {
-        margin-block-start: var(--spacing-xs); 
-    }
-
+	// STEP 2 — Base Rhythm (the owl selector)
+	//
+	// Every direct child after the first receives margin-block-start.
+	// This is the ONLY place vertical spacing is set. All overrides below
+	// use the same property (margin-block-start) at higher specificity.
+	//
+	// --prose-gap resolves via: modifier token → spacing token → hard fallback.
+	// Three-level chain ensures the system works even if tokens are missing.
 	// -------------------------------------------------------------------------
-    // Element Specifics (Internal Styles only)
-    // -------------------------------------------------------------------------
-
-	> h1, > h2, > h3, > h4, > h5, > h6 {
-        color: var(--color-text);
-        //font-family: var(--font-primary);
-        text-wrap: balance; // Prevents single-word orphans in headings
-    }
-
-    > h1 {
-        font-weight: 700;
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-        margin-block-end: var(--spacing-sm); 
-    }
-
-    > h2 {
-        font-weight: 600;
-        line-height: 1.2;
-		letter-spacing: -0.01em;
-        margin-block-end: var(--spacing-xs);
-    }
-
-    // > h3, > h4, > h5, > h6 {
-    //     font-weight: 600;
-    //     line-height: 1.3;
-    // }
-
-
-	// -------------------------------------------------------------------------
-    // Lists & Nested Content
-    // -------------------------------------------------------------------------
-    > :where(ul, ol) {
-        padding-inline-start: 1.75rem;
-
-        li + li {
-            margin-block-start: var(--spacing-xs); 
-        }
-
-        // Nested lists logic
-        li > :where(ul, ol) {
-            margin-block-start: var(--spacing-sm);
-            margin-block-end: var(--spacing-sm);
-        }
-
-        // Handling CMS-generated paragraphs inside LI
-        li p { margin-block: 0; }
-        li p + p { margin-block-start: var(--spacing-xs); }
-    }
-
-
-	// Feature List Extension
-    .is-features {
-        list-style: none;
-        padding-inline-start: 0;
-
-        li {
-            display: grid;
-            gap: var(--spacing-xs);
-            
-            & + li { margin-block-start: var(--spacing-lg); }
-
-            > b:first-child {
-                font-size: 1.125rem;
-                color: var(--color-text-heading);
-                line-height: 1.2;
-            }
-        }
-    }
-
-	// -------------------------------------------------------------------------
-    // Components (Blockquotes, Figures, Tables)
-    // -------------------------------------------------------------------------
-    > blockquote {
-        padding-inline-start: var(--spacing-lg);
-        border-inline-start: 3px solid var(--color-accent);
-        font-style: italic;
-        color: var(--color-text-muted);
-        margin-block: var(--spacing-xl);
-        
-        p { font-size: 1.25rem; }
-    }
-
-    > figure {
-        margin-block: var(--spacing-2xl);
-        
-        img {
-            display: block;
-            width: 100%;
-            height: auto;
-            border-radius: var(--radius-lg);
-        }
-
-        figcaption {
-            margin-block-start: var(--spacing-sm);
-            font-size: var(--text-xs, 0.875rem);
-            color: var(--color-text-muted);
-            text-align: center;
-        }
-    }
-
-    > table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: var(--text-sm, 0.9375rem);
-        margin-block: var(--spacing-xl);
-
-        th {
-            font-weight: 600;
-            border-bottom: 2px solid var(--color-border);
-        }
-
-        th, td {
-            padding: var(--spacing-sm);
-            border-bottom: 1px solid var(--color-border-muted);
-            text-align: start; // Logical property
-        }
-    }
-
-	// 3. The Section Breaks (Including HR)
-	// We use a larger "push" for the HR to make it a distinct divider
-	> * + hr { 
-		margin-block-start: var(--spacing-2xl); 
+	> * + * {
+		margin-block-start: var(--prose-gap, var(--spacing-default, 1rem));
 	}
 
-	// 4. Restore the HR visual styling
+
+	// -------------------------------------------------------------------------
+	// STEP 3 — Section Breaks
+	//
+	// Headings pull away from preceding content to signal a new section.
+	// Tune via --prose-gap-h* tokens or density modifiers.
+	// -------------------------------------------------------------------------
+	> * + h1 { margin-block-start: var(--prose-gap-h1, var(--spacing-3xl,     3rem)); }
+	> * + h2 { margin-block-start: var(--prose-gap-h2, var(--spacing-2xl,   2.5rem)); }
+	> * + h3 { margin-block-start: var(--prose-gap-h3, var(--spacing-xl,      2rem)); }
+	> * + h4 { margin-block-start: var(--prose-gap-h4, var(--spacing-lg,    1.5rem)); }
+	> * + h5,
+	> * + h6 { margin-block-start: var(--prose-gap-h5, var(--spacing-default, 1rem)); }
+
+
+	// -------------------------------------------------------------------------
+	// STEP 4 — Proximity Collapse
+	//
+	// Consecutive headings collapse to a tight gap — handles subtitle patterns
+	// (h1 → h2) and structured document outlines (h2 → h3 → h4).
+	// -------------------------------------------------------------------------
+	> h1 + h2,
+	> h2 + h3,
+	> h3 + h4,
+	> h4 + h5,
+	> h5 + h6 {
+		margin-block-start: var(--prose-gap-sub, var(--spacing-xs, 0.25rem));
+	}
+
+
+	// -------------------------------------------------------------------------
+	// Heading Visual Styles
+	//
+	// Visual treatment only — no margin-block-end (see MARGIN RULE in header).
+	// text-wrap: balance prevents single-word orphans in headings.
+	// -------------------------------------------------------------------------
+	> h1, > h2, > h3,
+	> h4, > h5, > h6 {
+		color: var(--color-text-heading, var(--color-text));
+		text-wrap: balance;
+	}
+
+	> h1 { font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+	> h2 { font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+	> h3,
+	> h4 { font-weight: 600; line-height: 1.3; }
+	> h5,
+	> h6 { font-weight: 500; line-height: 1.4; }
+
+
+	// -------------------------------------------------------------------------
+	// Lists
+	//
+	// Indentation and internal spacing only. Outer margin-block-start
+	// comes from the owl. No component redefinition.
+	// -------------------------------------------------------------------------
+	> :where(ul, ol) {
+		padding-inline-start: 1.75rem;
+
+		li + li {
+			margin-block-start: var(--prose-gap-li, var(--spacing-xs, 0.25rem));
+		}
+
+		// Nested lists
+		li > :where(ul, ol) {
+			margin-block-start: var(--spacing-sm, 0.5rem);
+			margin-block-end:   var(--spacing-sm, 0.5rem);
+		}
+
+		// CMS / Markdown processors often wrap list item text in <p>.
+		// Strip those margins to prevent double-spacing inside li.
+		li p     { margin-block: 0; }
+		li p + p { margin-block-start: var(--spacing-xs, 0.25rem); }
+	}
+
+	// Feature / icon list — layout variant, no dedicated component file.
+	.is-features {
+		list-style: none;
+		padding-inline-start: 0;
+
+		li {
+			display: grid;
+			gap: var(--spacing-xs, 0.25rem);
+			& + li { margin-block-start: var(--spacing-lg, 1.5rem); }
+
+			> b:first-child {
+				font-size: 1.125rem;
+				color: var(--color-text-heading, var(--color-text));
+				line-height: 1.2;
+			}
+		}
+  	}
+
+
+	// -------------------------------------------------------------------------
+	// Contextual Spacing Overrides for "Heavy" Blocks
+	//
+	// These rules answer: "how much space does this block type need in a prose
+	// reading context?" That question belongs to prose, not to the component.
+	//
+	// Pattern: override margin-block-start on entry into the block, and also
+	// on the element immediately following it (the "exhale" after a heavy block).
+	//
+	// --prose-gap-block controls all heavy blocks as a group. Split into
+	// --prose-gap-code, --prose-gap-table etc. only if per-block tuning is needed.
+	// -------------------------------------------------------------------------
+
+	> pre,
+	> .code-block-wrapper,
+	> .code-tab {
+		margin-block-start: var(--prose-gap-block, var(--spacing-xl, 2rem));
+	}
+	> pre + *,
+	> .code-block-wrapper + *,
+	> .code-tab + * {
+		margin-block-start: var(--prose-gap-block, var(--spacing-xl, 2rem));
+	}
+
+	> table {
+		margin-block-start: var(--prose-gap-block, var(--spacing-xl, 2rem));
+	}
+	> table + * {
+		margin-block-start: var(--prose-gap-block, var(--spacing-xl, 2rem));
+	}
+
+	> blockquote {
+		margin-block-start: var(--prose-gap-block, var(--spacing-xl, 2rem));
+	}
+	> blockquote + * {
+		margin-block-start: var(--prose-gap-block, var(--spacing-xl, 2rem));
+	}
+
+	> figure {
+		margin-block-start: var(--prose-gap-block, var(--spacing-xl, 2rem));
+	}
+	> figure + * {
+		margin-block-start: var(--prose-gap-block, var(--spacing-xl, 2rem));
+	}
+
+
+	// -------------------------------------------------------------------------
+	// HR — Horizontal Rule
+	//
+	// HR is a two-sided separator, not a content block. It is the ONE
+	// intentional exception to the "no margin-block-end" rule.
+	// The owl provides space above; margin-block-end provides balanced space below.
+	//
+	// Visual style lives here because HR is trivial and has no component file.
+	// If you add _divider.scss, move the visual styles there.
+	// -------------------------------------------------------------------------
+	> * + hr {
+		margin-block-start: var(--spacing-2xl, 2.5rem);
+	}
 	> hr {
 		border: none;
-		border-top: 1px solid var(--color-border-muted);
-		
-		// We ADD a small margin-block-end here because an HR is a "separator,"
-		// not a content block. This ensures the NEXT element feels balanced.
-		margin-block-end: var(--spacing-lg); 
+		border-block-start: 1px solid var(--color-border-muted);
+		margin-block-end: var(--spacing-xl, 2rem); // Exception — see note above
 	}
 
-    // -------------------------------------------------------------------------
-    // Modern Utilities
-    // -------------------------------------------------------------------------
-    .media-full-bleed {
-        width: 100vw;
-        margin-inline: calc(50% - 50vw);
-    }
 
-	// ----------------------------------------
-	// Media utility
-	// ----------------------------------------
+	// -------------------------------------------------------------------------
+	// Full-Bleed & Wide Media Utilities
+	//
+	// Apply to a direct child wrapper (e.g. <figure class="media-wide">).
+	//
+	// IMPORTANT: nearest scrolling ancestor must use overflow-x: clip.
+	// Do NOT use overflow-x: hidden — it creates a new scroll container,
+	// breaking position: sticky children and z-index stacking.
+	// -------------------------------------------------------------------------
 
-	// Utility for wide media within constrained prose
-	.media-wide {
+	.media-full-bleed {
 		width: 100vw;
-		position: relative;
-		left: 50%;
-		right: 50%;
-		margin-inline-start: -50vw;
-		margin-inline-end: -50vw;
-		max-width: var(--container-max-width, 1200px); // if you have a container var
+		margin-inline: calc(50% - 50vw);
 	}
 
+	.media-wide {
+		--_container-max: var(--container-max-width, 1200px);
+		width: min(100vw, var(--_container-max));
+		margin-inline: calc((min(100vw, var(--_container-max)) - 100%) / -2);
+	}
+
+
+	// -------------------------------------------------------------------------
+	// Print Styles
+	//
+	// Long-form content is frequently printed or saved as PDF.
+	// Overrides ensure readable output without relying on screen tokens.
+	// -------------------------------------------------------------------------
+	@media print {
+		max-width: none;
+		color: #000;
+
+		> h1, > h2, > h3,
+		> h4, > h5, > h6 {
+			break-after:  avoid;
+			color: #000;
+		}
+
+		> pre,
+		> .code-block-wrapper,
+		> .code-tab,
+		> blockquote,
+		> figure,
+		> table {
+			break-inside: avoid;
+		}
+
+		.media-full-bleed,
+		.media-wide {
+			width: auto;
+			margin-inline: 0;
+		}
+	}
+
+} // end .prose
+
+
+// =============================================================================
+// DENSITY MODIFIERS
+// -----------------------------------------------------------------------------
+// Shift the entire rhythm scale by overriding the --prose-gap-* token set.
+// No selector changes, no specificity games — just token reassignment.
+// All elements that consume --prose-gap-* tokens automatically recalibrate.
+//
+// USAGE:
+//   <div class="prose prose--condense">   compact: cards, sidebars, UI
+//   <div class="prose">                   default: body copy
+//   <div class="prose prose--normal">     explicit reset (nested contexts)
+//   <div class="prose prose--loose">      generous: editorial, docs, blog
+// =============================================================================
+
+// Condensed — tighter rhythm. Cards, sidebars, tooltips, compact UI panels.
+.prose--condense {
+	--prose-gap:		var(--spacing-sm,		0.5rem);
+	--prose-gap-h1:		var(--spacing-xl,		2rem);
+	--prose-gap-h2:		var(--spacing-lg,		1.5rem);
+	--prose-gap-h3:		var(--spacing-default,	1rem);
+	--prose-gap-h4:		var(--spacing-sm,		0.5rem);
+	--prose-gap-h5:		var(--spacing-sm,		0.5rem);
+	--prose-gap-sub:	0px;  // unit required for calc() compatibility
+	--prose-gap-block:	var(--spacing-lg,		1.5rem);
+	--prose-gap-li:		0px;
+}
+
+// Normal — explicit version of the default. Use to reset density in a nested
+// context where a parent has applied --condense or --loose.
+.prose--normal {
+	--prose-gap:		var(--spacing-default,	1rem);
+	--prose-gap-h1:		var(--spacing-3xl,		3rem);
+	--prose-gap-h2:		var(--spacing-2xl,		2.5rem);
+	--prose-gap-h3:		var(--spacing-xl,		2rem);
+	--prose-gap-h4:		var(--spacing-lg,		1.5rem);
+	--prose-gap-h5:		var(--spacing-default,	1rem);
+	--prose-gap-sub:	var(--spacing-xs,		0.25rem);
+	--prose-gap-block:	var(--spacing-xl,		2rem);
+	--prose-gap-li:		var(--spacing-xs,		0.25rem);
+}
+
+// Loose — generous rhythm. Editorial long-form, documentation, blog posts.
+.prose--loose {
+	--prose-gap:		var(--spacing-lg,		1.5rem);
+	--prose-gap-h1:		var(--spacing-4xl,		4rem);
+	--prose-gap-h2:		var(--spacing-3xl,		3rem);
+	--prose-gap-h3:		var(--spacing-2xl,		2.5rem);
+	--prose-gap-h4:		var(--spacing-xl,		2rem);
+	--prose-gap-h5:		var(--spacing-lg,		1.5rem);
+	--prose-gap-sub:	var(--spacing-sm,		0.5rem);
+	--prose-gap-block:	var(--spacing-2xl,		2.5rem);
+	--prose-gap-li:		var(--spacing-sm,		0.5rem);
 }
