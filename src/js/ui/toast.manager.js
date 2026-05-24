@@ -260,15 +260,22 @@ class ToastManager {
 		}
 
 		// ── Inner: close button ───────────────────────────────────────────────
-		const closeBtn = document.createElement('button');
-		closeBtn.className = 'toast-close';
+		const closeBtn = document.createElement('a');
+		closeBtn.className = 'toast-close icon-action';
+		closeBtn.href = "#";                    // Required for <a> element
+		closeBtn.setAttribute('role', 'button'); // Important for accessibility
 		closeBtn.setAttribute('aria-label', 'Dismiss notification');
 		closeBtn.innerHTML = `
 			<svg viewBox="0 0 24 24" width="16" height="16" fill="none"
 				stroke="currentColor" stroke-width="2" aria-hidden="true">
 				<path d="M18 6 6 18M6 6l12 12"/>
 			</svg>`;
-		closeBtn.addEventListener('click', () => this.#dismiss(toast), { once: true });
+
+		closeBtn.addEventListener('click', (e) => {
+			e.preventDefault();                 // Prevent jumping to top of page
+			this.#dismiss(toast);
+		}, { once: true });
+
 		toast.appendChild(closeBtn);
 
 		// ── Mount ─────────────────────────────────────────────────────────────
