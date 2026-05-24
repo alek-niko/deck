@@ -68,6 +68,15 @@
 	display: block;
 }
 
+// <details>/<summary> resets
+.accordion > details > summary.accordion-title {
+  list-style: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
 
 // -----------------------------------------------------------------------------
 // Title / Trigger
@@ -89,6 +98,7 @@
 	font-size:   1rem;
 	text-align:  left;
 	line-height: 1.4;
+	list-style: none;
 
 	transition:
 		color      var(--accordion-duration) var(--accordion-easing),
@@ -124,6 +134,8 @@
 	&[aria-expanded="true"] svg {
 		transform: rotate(180deg);
 	}
+
+	 &::-webkit-details-marker { display: none; }
 }
 
 
