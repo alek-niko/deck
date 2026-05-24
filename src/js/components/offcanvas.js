@@ -183,6 +183,10 @@ class Offcanvas extends Component {
 		// ── Keyboard: Tab focus trap ──────────────────────────────────────────
 		// Stored as a bound reference — added/removed on open/close only.
 		this.#onKeyDown = this.#handleKeyDown.bind(this);
+
+		// ── Setup toggle event ────────────────────────────────────–––––––––––─
+		document.querySelectorAll(`[data-toggle="#${this.element.id}"]`)
+    		.forEach(btn => btn.addEventListener('click', () => this.toggle()));
 	}
 
 	// ─────────────────────────────────────────────────────────────────────────
