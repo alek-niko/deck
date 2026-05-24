@@ -112,16 +112,16 @@ class ToggleManager {
 	 * -------------------------------------------------------------------------
 	 */
 	open(target, cls) {
-        if (target instanceof HTMLDialogElement) {
-            target.showModal();
-            return;
-        }
-        if (cls) {
-            target.classList.add(cls);
-        } else {
-            target.hidden = false;
-        }
-    }
+		if (cls) {
+			target.classList.add(cls);
+			return;
+		}
+		if (target instanceof HTMLDialogElement) {
+			target.showModal();
+			return;
+		}
+		target.hidden = false;
+	}
 
 	/**
 	 * -------------------------------------------------------------------------
@@ -134,16 +134,16 @@ class ToggleManager {
 	 * -------------------------------------------------------------------------
 	 */
 	close(target, cls) {
-        if (target instanceof HTMLDialogElement) {
-            target.close();
-            return;
-        }
-        if (cls) {
-            target.classList.remove(cls);
-        } else {
-            target.hidden = true;
-        }
-    }
+		if (cls) {
+			target.classList.remove(cls);
+			return;
+		}
+		if (target instanceof HTMLDialogElement) {
+			target.close();
+			return;
+		}
+		target.hidden = true;
+	}
 
 	/**
 	 * -------------------------------------------------------------------------
