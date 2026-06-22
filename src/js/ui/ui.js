@@ -262,22 +262,52 @@ class UI {
 		if (!document.querySelector('.code-tab')) return;
 
 		this.$el.body.addEventListener('click', event => {
+			// Target the anchor tag inside the iconnav wrapper
 			const copyBtn = event.target.closest('.code-tab .iconnav a');
 			if (!copyBtn) return;
 
 			event.preventDefault();
 
+			// Find the parent component wrapper
 			const codeTab = copyBtn.closest('.code-tab');
-			const source  = codeTab?.querySelector('.tab-content .active, .tab-content div:first-child');
+			if (!codeTab) return;
+
+			// Target the active tab content panel explicitly
+			let source = codeTab.querySelector('.tab-content > div.active');
+			
+			// Fallback: If no .active class is found, grab the first panel
+			if (!source) {
+				source = codeTab.querySelector('.tab-content > div');
+			}
+
 			if (!source) return;
 
-			const text = source.innerText || source.textContent;
+			let text = '';
 
-			navigator.clipboard.writeText(text.trim())
+			// If the active tab contains a <pre><code> block (like the Markup tab),
+			// we extract its inner text so the escaped HTML entities become real HTML.
+			const codeBlock = source.querySelector('pre code');
+			if (codeBlock) {
+				text = codeBlock.textContent || codeBlock.innerText;
+			} else {
+				// If it's the Preview tab, we grab the actual structural HTML inside it.
+				text = source.innerHTML;
+			}
+
+			// Clean up unnecessary leading/trailing blank lines caused by layout indentation
+			text = text.trim();
+
+			// Write the raw HTML structure to the clipboard
+			navigator.clipboard.writeText(text)
 				.then(() => {
-					this.deck?.notify('Code copied to clipboard.', 'success');
+					// Safely trigger notification if the deck instance exists
+					if (this.deck && typeof this.deck.notify === 'function') {
+						this.deck.notify('Code copied to clipboard.', 'success');
+					}
 				})
-				.catch(err => console.error('[UI] Clipboard error:', err));
+				.catch(err => {
+					console.error('[UI] Clipboard error:', err);
+				});
 		});
 	}
 
