@@ -380,6 +380,24 @@
 // }
 
 // -----------------------------------------------------------------------------
+// Desktop: collapsible via .is-visible
+// Above $breakpoint-lg-max, sidebar is visible by default.
+// Removing .is-visible fully collapses it.
+// -----------------------------------------------------------------------------
+@media (min-width: $breakpoint-lg-max) {
+    .sidebar-secondary {
+        width: 280px;
+        overflow: hidden;
+        transition: width 0.25s ease, border-color 0.25s ease;
+
+        &:not(.is-visible) {
+            width: 0;
+            border-right-color: transparent;
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
 // Mobile: Hide sidebar and enable drawer behavior
 // On screens smaller than 768px, it becomes an off-canvas drawer.
 // -----------------------------------------------------------------------------
