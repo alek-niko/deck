@@ -1,227 +1,716 @@
+// =============================================================================
+// TABLE COMPONENT
+// components/ui/_table.scss
+// -----------------------------------------------------------------------------
+
 /*------------------------------------*\
-  TABLE COMPONENT (Comprehensive 2026)
-  components/_table.scss
+	1.  Tokens (CSS Custom Properties)
+	2.  Wrapper & Scroll Container
+	3.  Core Table & Base Elements
+		a. Caption
+		b. Header (th)
+		c. Data Cell (td)
+	4.  Column Width Utilities (.col-*)
+	5.  Layout Modifiers (.table-fixed, .table-justify, .table-middle)
+	6.  Style Modifiers (.table-divider, .table-striped, .table-hover,
+						.table-bordered, .table-borderless)
+	7.  Cell & Column Content Helpers (.table-shrink, .table-expand, .table-link)
+	8.  Size Variants (.table-small, .table-large)
+	9.  Sticky Header & Pinned Columns
+	10. Row & Cell State Variants
+	11. Empty State
+	12. Loading Skeleton
+	13. Responsive Stack (Container Query)
+	14. Print Styles
+	15. Accessibility & Focus
 \*------------------------------------*/
 
-@use 'sass:color';
+// ─── 1. Tokens ────────────────────────────────────────────────────────────────
+//
+// Variables are scoped to .table / .table-container rather than :root to
+// avoid polluting the global custom property namespace. Still overridable:
+//
+//   .my-context .table { --table-accent: hotpink; }
+//
+// Design-system tokens like var(--color-primary) must live at :root in your
+// token file — that is not this component's concern.
+// ─────────────────────────────────────────────────────────────────────────────
 
-// 1. Tokens (Scoped CSS Variables)
-:root {
-    --table-bg: var(--color-surface, #fff);
-    --table-border-color: var(--color-border, #e5e7eb);
-    --table-text-main: var(--color-text, #111827);
-    --table-text-muted: var(--color-text-muted, #6b7280);
-    --table-accent: var(--color-primary, #3b82f6);
-    
-    // Spacing & Sizing
-    --table-cell-py: 1rem;
-    --table-cell-px: 0.75rem;
-    --table-font-size: 0.875rem;
-    --table-header-weight: 600;
-    
-    // Interaction States
-    --table-row-hover: color-mix(in srgb, var(--table-text-muted), transparent 94%);
-    --table-row-active: color-mix(in srgb, var(--table-accent), transparent 90%);
-    --table-striped: color-mix(in srgb, var(--table-text-muted), transparent 97%);
-}
-
-// 2. The Wrapper (Scroll Management)
-.table-container {
-    container-type: inline-size; // Enables @container queries
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin-bottom: 1.5rem;
-    border: 1px solid var(--table-border-color);
-    border-radius: 8px;
-    background: var(--table-bg);
-
-    // Remove double borders when table is inside
-    .table {
-        margin-bottom: 0;
-        border: none;
-    }
-}
-
-// 3. The Core Table
+.table-container,
 .table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: var(--table-font-size);
-    color: var(--table-text-main);
-    table-layout: auto; // Allows columns to adjust to content
+	// Colors
+	--table-bg:					var(--color-surface,	#ffffff);
+	--table-border-color:		var(--color-border,		#e5e7eb);
+	--table-text-main:			var(--color-text,		#111827);
+	--table-text-muted:			var(--color-text-muted,	#6b7280);
+	--table-accent:				var(--color-primary,	#3b82f6);
 
-    th {
-        padding: var(--table-cell-py) var(--table-cell-px);
-        text-align: left;
-        vertical-align: bottom;
-        font-weight: var(--table-header-weight);
-        color: var(--table-text-muted);
-        border-bottom: 1px solid var(--table-border-color);
-        white-space: nowrap;
+	// Spacing
+	--table-cell-py:			1rem;
+	--table-cell-px:			0.75rem;
 
-        &.sortable {
-            cursor: pointer;
-            user-select: none;
-            transition: color 0.2s ease;
+	// Typography
+	--table-font-size:			0.875rem;
+	--table-header-weight:		600;
 
-            &:hover { color: var(--table-text-main); }
+	// Interaction
+	--table-row-hover:			color-mix(in srgb, var(--table-text-muted), transparent 94%);
+	--table-row-active:			color-mix(in srgb, var(--table-accent),     transparent 90%);
+	--table-striped-bg:			color-mix(in srgb, var(--table-text-muted), transparent 97%);
 
-            &::after {
-                content: '↓';
-                display: inline-block;
-                margin-left: 0.5rem;
-                opacity: 0.2;
-                transition: transform 0.2s ease, opacity 0.2s ease;
-            }
+	// Row state colors
+	--table-row-selected-bg:	color-mix(in srgb, var(--table-accent), transparent 88%);
+	--table-row-error-bg:		color-mix(in srgb, #ef4444, transparent 88%);
+	--table-row-warning-bg:		color-mix(in srgb, #f59e0b, transparent 88%);
+	--table-row-success-bg:		color-mix(in srgb, #22c55e, transparent 88%);
+	--table-cell-highlight-bg:	color-mix(in srgb, #facc15, transparent 80%);
 
-            &.asc::after { opacity: 1; transform: rotate(180deg); }
-            &.desc::after { opacity: 1; transform: rotate(0deg); }
-        }
-    }
-
-    td {
-        padding: var(--table-cell-py) var(--table-cell-px);
-        vertical-align: middle;
-        border-bottom: 1px solid var(--table-border-color);
-        
-        // FIX: Allow text wrapping so it doesn't push the button off-screen
-        word-break: break-word;
-        overflow-wrap: break-word;
-    }
-
-    //----------------------------------
-    // Layout Modifiers
-    //----------------------------------
-
-    &.table-justify {
-        th:first-child, td:first-child { padding-left: 0; }
-        th:last-child, td:last-child { padding-right: 0; }
-    }
-
-    &.table-fixed { table-layout: fixed; }
-
-    &.table-shrink, .col-shrink {
-        width: 1px;
-        white-space: nowrap; // Keeps buttons/icons on one line
-    }
-
-    //----------------------------------
-    // Style Modifiers
-    //----------------------------------
-
-    &.table-striped tbody tr:nth-of-type(odd) {
-        background-color: var(--table-striped);
-    }
-
-    &.table-hover tbody tr {
-        transition: background-color 0.15s ease;
-        &:hover { background-color: var(--table-row-hover); }
-    }
-
-    &.table-bordered {
-        border: 1px solid var(--table-border-color);
-        th, td { border: 1px solid var(--table-border-color); }
-    }
-
-    // Size Variants
-    &.table-small {
-        --table-cell-py: 0.5rem;
-        --table-cell-px: 0.5rem;
-        font-size: 0.8125rem;
-    }
-
-    &.table-large {
-        --table-cell-py: 1.5rem;
-        --table-cell-px: 1.25rem;
-        font-size: 1rem;
-    }
-
-    // Features
-    thead.sticky {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        background: var(--table-bg);
-        box-shadow: 0 2px 2px -1px rgba(0,0,0,0.05);
-    }
-
-    //----------------------------------
-    // Loading Skeleton
-    //----------------------------------
-    &.is-loading {
-        td {
-            color: transparent !important;
-            pointer-events: none;
-            position: relative;
-            
-            &::after {
-                content: "";
-                position: absolute;
-                left: var(--table-cell-px);
-                right: var(--table-cell-px);
-                top: 50%;
-                transform: translateY(-50%);
-                height: 0.75rem;
-                background: var(--table-border-color);
-                border-radius: 4px;
-                background: linear-gradient(
-                    90deg, 
-                    var(--table-border-color) 25%, 
-                    color-mix(in srgb, var(--table-border-color), #fff 20%) 50%, 
-                    var(--table-border-color) 75%
-                );
-                background-size: 200% 100%;
-                animation: skeleton-loading 1.5s infinite linear;
-            }
-        }
-    }
+	// Pinned-column shadows
+	--table-pinned-shadow:		4px  0 8px -2px rgba(0, 0, 0, 0.08);
+	--table-pinned-shadow-r:	-4px  0 8px -2px rgba(0, 0, 0, 0.08);
 }
 
-@keyframes skeleton-loading {
-    from { background-position: 200% 0; }
-    to { background-position: -200% 0; }
+
+// ─── 2. Wrapper & Scroll Container ───────────────────────────────────────────
+
+.table-container {
+	container-type: inline-size; // enables @container queries below
+	width: 100%;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	overscroll-behavior-x: contain; // prevents page swipe-back on mobile
+	margin-block-end: 1.5rem;
+	border: 1px solid var(--table-border-color);
+	border-radius: 8px;
+	background: var(--table-bg);
+
+	// Avoid double borders when the table is a direct child
+	> .table {
+		margin-bottom: 0;
+		border: none;
+		border-radius: 0;
+	}
 }
 
-//----------------------------------
-// Responsive: Stackable (Modern Container Query)
-//----------------------------------
+
+// ─── 3. Core Table & Base Elements ───────────────────────────────────────────
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: var(--table-font-size);
+	color: var(--table-text-main);
+	table-layout: auto;
+
+
+	// 3a. Caption
+	// -------------------------------------------------------------------------
+	// <caption> is the accessible way to title a table.
+	// Screen readers announce it before the table content.
+
+	caption {
+		caption-side: top;
+		padding-block: 0.75rem;
+		padding-inline: var(--table-cell-px);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		color: var(--table-text-main);
+		text-align: start;
+
+		&.caption-bottom { caption-side: bottom; }
+
+		.caption-description {
+		display: block;
+		font-size: 0.8125rem;
+		font-weight: 400;
+		color: var(--table-text-muted);
+		margin-block-start: 0.25rem;
+		}
+	}
+
+
+	// 3b. Header
+	// -------------------------------------------------------------------------
+
+	th {
+		padding-block: var(--table-cell-py);
+		padding-inline: var(--table-cell-px);
+		text-align: start;
+		vertical-align: bottom;
+		font-weight: var(--table-header-weight);
+		color: var(--table-text-muted);
+		white-space: nowrap;
+
+		&.sortable {
+			cursor: pointer;
+			user-select: none;
+			transition: color 0.2s ease;
+
+			&:focus-visible {
+				outline: 2px solid var(--table-accent);
+				outline-offset: -2px;
+			}
+
+			&:hover { color: var(--table-text-main); }
+
+			&::after {
+				content: '↓';
+				display: inline-block;
+				margin-inline-start: 0.375rem;
+				opacity: 0.25;
+				transition: transform 0.2s ease, opacity 0.2s ease;
+			}
+
+			// ARIA-driven sort indicators (preferred)
+			&[aria-sort="ascending"]::after  { opacity: 1; transform: rotate(180deg); }
+			&[aria-sort="descending"]::after { opacity: 1; transform: rotate(0deg); }
+
+			// Class-based fallback for non-ARIA implementations
+			&.asc::after  { opacity: 1; transform: rotate(180deg); }
+			&.desc::after { opacity: 1; transform: rotate(0deg); }
+		}
+	}
+
+	// 3c. Data Cell
+	// -------------------------------------------------------------------------
+
+	td {
+		padding-block: var(--table-cell-py);
+		padding-inline: var(--table-cell-px);
+		vertical-align: top; // HTML default; override per-table with .table-middle
+		word-break: break-word;
+		overflow-wrap: break-word;
+	}
+}
+
+
+// ─── 4. Column Width Utilities (.col-*) ──────────────────────────────────────
+//
+// HOW TO USE
+// ─────────────────────────────────────────────────────────────────────────────
+// Apply .col-* to <col> elements in a <colgroup> for width control.
+// Apply .col-* to <th> AND <td> for text-wrapping control — browsers only
+// pass width/border/background through <col> to cells, not white-space.
+//
+// RECOMMENDED PATTERN — declare once in colgroup, mirror on cells:
+//
+//	<colgroup>
+//		<col class="col-shrink">	- width hint for the column
+//		<col>
+//		<col class="col-nowrap">
+//	</colgroup>
+//	<thead>
+//		<tr>
+//			<th class="col-shrink">…</th>   - white-space behaviour on header
+//			<th>…</th>
+//			<th class="col-nowrap">…</th>
+//		</tr>
+//	</thead>
+//	<tbody>
+//		<tr>
+//			<td class="col-shrink">…</td>   ← white-space behaviour on cells
+//			<td>…</td>
+//			<td class="col-nowrap">…</td>
+//		</tr>
+//	</tbody>
+//
+// !important is required: framework resets and the base .table th rule have
+// enough specificity to override cell-level rules without it.
+//
+// word-break: keep-all is intentional — unlike `normal` it also prevents
+// breaks at hyphen characters (e.g. the hyphen in ".col-shrink").
+// ─────────────────────────────────────────────────────────────────────────────
+
+@mixin utility-col-nowrap {
+	width: max-content !important;
+	white-space: nowrap !important;
+	word-break: keep-all !important;
+	overflow-wrap: normal !important;
+	hyphens: none !important;
+}
+
+@mixin utility-col-shrink {
+	width: 1% !important;
+	white-space: nowrap !important;
+	word-break: keep-all !important;
+	overflow-wrap: normal !important;
+	hyphens: none !important;
+}
+
+@mixin utility-col-wrap {
+	white-space: normal !important;
+	word-break: break-word !important;
+	overflow-wrap: break-word !important;
+	hyphens: auto !important;
+}
+
+
+// ── 4a. <col> elements ───────────────────────────────────────────────────────
+// Width is the only property browsers reliably pass from <col> to cells.
+
+col {
+	&.col-shrink	{ width: 1%; }
+	&.col-auto		{ width: auto; }
+	&.col-min		{ width: 0; }
+	&.col-max,
+	&.col-nowrap	{ width: max-content; }
+}
+
+
+// ── 4c. Column propagation engine ────────────────────────────────────────────
+// Place the class on the <th> only — every <td> in that column is styled
+// automatically. Same pattern UIKit uses.
+
+@for $i from 1 through 12 {
+	.table:has(thead tr th.col-nowrap:nth-child(#{$i})),
+	.table:has(thead tr th.col-max:nth-child(#{$i})) {
+		td:nth-child(#{$i}) { @include utility-col-nowrap; }
+	}
+
+	.table:has(thead tr th.col-shrink:nth-child(#{$i})) {
+		td:nth-child(#{$i}) { @include utility-col-shrink; }
+	}
+
+	.table:has(thead tr th.col-wrap:nth-child(#{$i})),
+	.table:has(thead tr th.col-min:nth-child(#{$i})) {
+		td:nth-child(#{$i}) { @include utility-col-wrap; }
+	}
+}
+
+
+.table th,
+.table td {
+
+	&.col-shrink { @include utility-col-shrink; }
+
+	&.col-auto {
+		width: auto !important;
+		white-space: normal !important;
+		word-break: break-word !important;
+		overflow-wrap: break-word !important;
+		hyphens: auto !important;
+	}
+
+	&.col-min {
+		width: 1px !important;
+		white-space: normal !important;
+		word-break: break-word !important;
+		overflow-wrap: break-word !important;
+	}
+
+	&.col-max,
+	&.col-nowrap { @include utility-col-nowrap; }
+
+	&.col-wrap { @include utility-col-wrap; }
+
+	// Requires .table-fixed on the parent <table> — ellipsis only fires when
+	// the browser knows the column width up front.
+	&.col-clip {
+		@include utility-col-nowrap;
+		overflow: hidden !important;
+		text-overflow: ellipsis !important;
+		max-width: 0 !important;
+	}
+}
+
+
+// ── 4c. col-fixed-* — shared across <col>, <th>, <td> ───────────────────────
+// Explicit percentages are honoured everywhere. Only meaningful on .table-fixed.
+
+col,
+.table th,
+.table td {
+	// prettier-ignore
+	&.col-fixed-10	{ width: 10%; }
+	&.col-fixed-15	{ width: 15%; }
+	&.col-fixed-20	{ width: 20%; }
+	&.col-fixed-25	{ width: 25%; }
+	&.col-fixed-30	{ width: 30%; }
+	&.col-fixed-33	{ width: 33.3333%; }
+	&.col-fixed-40	{ width: 40%; }
+	&.col-fixed-50	{ width: 50%; }
+	&.col-fixed-60	{ width: 60%; }
+	&.col-fixed-66	{ width: 66.6666%; }
+	&.col-fixed-75	{ width: 75%; }
+}
+
+
+// ─── 5. Layout Modifiers ─────────────────────────────────────────────────────
+
+.table {
+
+	// Flush first/last cell edges with surrounding content
+	&.table-justify {
+		th:first-child, td:first-child { padding-inline-start: 0; }
+		th:last-child,  td:last-child  { padding-inline-end: 0; }
+	}
+
+	// Fixed layout — required for .col-clip and .col-fixed-* to work correctly.
+	// Pair with a <colgroup> or col-fixed-* on header cells.
+	&.table-fixed {
+		table-layout: fixed;
+	}
+}
+
+// .table-middle — flat selectors to avoid nesting compilation ambiguity
+// Whole table
+.table.table-middle th,
+.table.table-middle td { vertical-align: middle; }
+
+// Single row
+.table tr.table-middle th,
+.table tr.table-middle td { vertical-align: middle; }
+
+// Single cell
+.table th.table-middle,
+.table td.table-middle  { vertical-align: middle; }
+
+
+// ─── 6. Style Modifiers ──────────────────────────────────────────────────────
+
+.table {
+
+	// Horizontal row dividers (opt-in — base table has no row borders)
+	&.table-divider {
+		th, td { border-bottom: 1px solid var(--table-border-color); }
+
+		// Remove border from the last row so it doesn't double against a container
+		// border or look orphaned. Applied to both tbody and tfoot.
+		tbody tr:last-child td,
+		tbody tr:last-child th,
+		tfoot tr:last-child td,
+		tfoot tr:last-child th { border-bottom: none; }
+	}
+
+	// Zebra striping
+	&.table-striped tbody tr:nth-of-type(odd) {
+		background-color: var(--table-striped-bg);
+	}
+
+	// Row hover highlight
+	&.table-hover tbody tr {
+		transition: background-color 0.15s ease;
+		&:hover { background-color: var(--table-row-hover); }
+	}
+
+	// Full cell grid lines
+	&.table-bordered {
+		border: 1px solid var(--table-border-color);
+		th, td { border: 1px solid var(--table-border-color); }
+	}
+
+	// No borders — cleaner inside cards or panels
+	&.table-borderless {
+		th, td { border: none; }
+	}
+}
+
+
+// ─── 7. Cell & Column Content Helpers ────────────────────────────────────────
+//
+// .table-shrink and .table-expand only need to be placed on the <th>.
+// The @for loop below propagates the style to every <td> in that column
+// automatically — matching the original UIkit behaviour.
+
+.table th,
+.table td {
+
+	&.table-shrink { @include utility-col-shrink; }
+
+	&.table-expand {
+		width: 100%;
+		min-width: 10rem;
+	}
+
+	&.table-link {
+		padding: 0;
+
+		> a {
+			display: block;
+			padding-block: var(--table-cell-py);
+			padding-inline: var(--table-cell-px);
+			color: inherit;
+			text-decoration: none;
+
+			&:hover { color: var(--table-accent); }
+
+			&:focus-visible {
+				outline: 2px solid var(--table-accent);
+				outline-offset: -2px;
+			}
+		}
+	}
+}
+
+// Propagate .table-shrink and .table-expand from <th> to all <td> in column.
+// Place the class only on the <th> — every <td> in that column is styled automatically.
+
+@for $i from 1 through 12 {
+	.table:has(thead tr th.table-shrink:nth-child(#{$i})) {
+		td:nth-child(#{$i}) { @include utility-col-shrink; }
+	}
+
+	.table:has(thead tr th.table-expand:nth-child(#{$i})) {
+		td:nth-child(#{$i}) {
+			width: 100%;
+			min-width: 10rem;
+		}
+	}
+}
+
+
+// ─── 8. Size Variants ────────────────────────────────────────────────────────
+
+.table {
+
+	&.table-small {
+		--table-cell-py: 0.4375rem;
+		--table-cell-px: 0.5rem;
+		font-size: 0.8125rem;
+	}
+
+	&.table-large {
+		--table-cell-py: 1.25rem;
+		--table-cell-px: 1rem;
+		font-size: 1rem;
+	}
+}
+
+
+// ─── 9. Sticky Header & Pinned Columns ───────────────────────────────────────
+
+// Sticky header — apply .sticky to <thead>, or .table-sticky-header to <table>
+.table thead.sticky th,
+.table.table-sticky-header thead th {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	background: var(--table-bg);
+	box-shadow: 0 1px 0 var(--table-border-color);
+}
+
+// Pinned left column (z-index 2 = above cells; 11 inside sticky header)
+.table th.col-pinned-left,
+.table td.col-pinned-left {
+	position: sticky;
+	left: 0;
+	z-index: 2;
+	background: var(--table-bg);
+	box-shadow: var(--table-pinned-shadow);
+}
+
+.table thead th.col-pinned-left { z-index: 11; }
+
+// Pinned right column
+.table th.col-pinned-right,
+.table td.col-pinned-right {
+	position: sticky;
+	right: 0;
+	z-index: 2;
+	background: var(--table-bg);
+	box-shadow: var(--table-pinned-shadow-r);
+}
+
+.table thead th.col-pinned-right { z-index: 11; }
+
+
+// ─── 10. Row & Cell State Variants ───────────────────────────────────────────
+//
+// Row states  - apply to <tr>:  .row-selected | .row-error
+//                                .row-warning  | .row-success
+// Cell state  - apply to <td>:  .cell-highlight
+
+.table tbody {
+
+	tr {
+		&.row-selected {
+			background-color: var(--table-row-selected-bg);
+
+			&:hover {
+				background-color: color-mix(
+				in srgb,
+				var(--table-row-selected-bg),
+				var(--table-row-hover) 40%
+				);
+			}
+		}
+
+		&.row-error   { background-color: var(--table-row-error-bg);   }
+		&.row-warning { background-color: var(--table-row-warning-bg); }
+		&.row-success { background-color: var(--table-row-success-bg); }
+	}
+
+	td, th {
+		&.cell-highlight { background-color: var(--table-cell-highlight-bg); }
+	}
+}
+
+
+// ─── 11. Empty State ─────────────────────────────────────────────────────────
+
+.table-empty-row td {
+	text-align: center;
+	padding-block: 3rem;
+	color: var(--table-text-muted);
+	font-size: 0.9375rem;
+}
+
+// Optional structured content block inside the empty-row <td>
+.table-empty-state {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+
+	.table-empty-state__icon		{ font-size: 2rem; opacity: 0.4; }
+	.table-empty-state__title		{ font-weight: 600; color: var(--table-text-main); }
+	.table-empty-state__description	{ font-size: 0.8125rem; color: var(--table-text-muted); }
+}
+
+
+// ─── 12. Loading Skeleton ────────────────────────────────────────────────────
+
+.table.is-loading td {
+	color: transparent !important;
+	pointer-events: none;
+	position: relative;
+
+	&::after {
+		content: "";
+		position: absolute;
+		inset-inline: var(--table-cell-px);
+		top: 50%;
+		transform: translateY(-50%);
+		height: 0.75rem;
+		border-radius: 4px;
+		background: linear-gradient(
+		90deg,
+		var(--table-border-color) 25%,
+		color-mix(in srgb, var(--table-border-color), #fff 20%) 50%,
+		var(--table-border-color) 75%
+		);
+		background-size: 200% 100%;
+		animation: table-skeleton 1.5s infinite linear;
+	}
+}
+
+@keyframes table-skeleton {
+	from { background-position:  200% 0; }
+	to   { background-position: -200% 0; }
+}
+
+
+// ─── 13. Responsive Stack (Container Query) ──────────────────────────────────
+//
+// Apply .table-stack to the <table> inside a .table-container.
+// Add data-label="Column Name" to every <td>.
+//
+//   <td data-label="Status">Active</td>
+//
+// Stacks each row into a label/value list below 640 px of container width.
+// All .col-* width/wrapping constraints are reset — they are meaningless in
+// block layout and would otherwise fight the stacked display.
+
 @container (max-width: 640px) {
-    .table-stack {
-        display: block;
+	.table-stack {
+		display: block;
 
-        thead { display: none; }
+		thead			{ display: none; }
+		tbody, tr		{ display: block; width: 100%; }
 
-        tbody, tr, td {
-            display: block;
-            width: 100%;
-        }
+		tr {
+			padding-block: 1rem;
+			border-bottom: 2px solid var(--table-border-color);
+			&:last-child { border-bottom: none; }
+		}
 
-        tr {
-            padding: 1rem 0;
-            border-bottom: 2px solid var(--table-border-color);
-            
-            &:last-child { border-bottom: none; }
-        }
+		td {
+			// Reset col-* constraints — meaningless in block layout
+			white-space: normal !important;
+			overflow: visible !important;
+			text-overflow: unset !important;
+			max-width: none !important;
+			width: 100% !important;
 
-        td {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5rem var(--table-cell-px);
-            border: none;
-            text-align: right;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0.4375rem var(--table-cell-px);
+			border: none;
+			text-align: end;
 
-            &::before {
-                content: attr(data-label);
-                font-weight: 700;
-                text-transform: uppercase;
-                font-size: 0.7rem;
-                color: var(--table-text-muted);
-                flex-shrink: 0;
-                margin-right: 1rem;
-                text-align: left;
-            }
-        }
-    }
+			&::before {
+				content: attr(data-label);
+				font-weight: 700;
+				text-transform: uppercase;
+				font-size: 0.6875rem;
+				letter-spacing: 0.04em;
+				color: var(--table-text-muted);
+				flex-shrink: 0;
+				margin-inline-end: 1rem;
+				text-align: start;
+			}
+
+			&.cell--highlight { border-radius: 4px; }
+		}
+	}
+}
+
+
+// ─── 14. Print Styles ────────────────────────────────────────────────────────
+
+@media print {
+	.table-container {
+		overflow: visible;
+		border: none;
+		border-radius: 0;
+	}
+
+	.table {
+		width: 100% !important;
+		table-layout: auto !important;
+		font-size: 10pt;
+		color: #000;
+
+		th, td {
+		padding: 6pt 8pt;
+		border: 0.5pt solid #ccc;
+		break-inside: avoid;
+		}
+
+		thead { display: table-header-group; } // repeat headers on every page
+		tbody tr { break-inside: avoid; }
+
+		.col-no-print { display: none !important; } // hide action columns
+
+		&.is-loading td::after { display: none; }
+	}
+}
+
+
+// ─── 15. Accessibility & Focus ───────────────────────────────────────────────
+
+.table {
+
+	// Interactive cells — expandable rows, clickable cells, etc.
+	td[role="button"],
+	td[tabindex] {
+		cursor: pointer;
+
+		&:focus-visible {
+		outline: 2px solid var(--table-accent);
+		outline-offset: -2px;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		th.sortable::after,
+		tbody tr { transition: none; }
+	}
+}
+
+// Skeleton animation — kept outside .table block so the media query
+// doesn't need to fight specificity from the is-loading rule above
+.table.is-loading td::after {
+	@media (prefers-reduced-motion: reduce) { animation: none; }
 }
