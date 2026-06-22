@@ -1,158 +1,148 @@
 /**
  * @module js.components.drilldown
- * @description Hierarchical slide-in menu with infinite nesting depth, full ARIA
- *				support, keyboard navigation, focus management, and lifecycle events.
+ * @description A tiered navigation interface 
  *
- * Lifecycle events (dispatched on this.element, bubbling):
- *		drilldown:open	- { panel, depth, title }	fired after drilling into a panel
- *		drilldown:back	- { panel, depth, title }	fired after going back
- * 		drilldown:reset	-{}							fired after resetting to root
+ * HTML structure (static, rendered by EJS/server):
  *
- * Programmatic API (via deck.getInstance(el)):
- *		instance.drillTo(panel)	— drill into a specific panel element
- *		instance.back()			— go back one level
- *		instance.reset()		— return to root panel
- *		instance.getDepth()		— current depth (0 = root)
- * 
- * @example
- * HTML structure:
  *	<div class="drill" data-drilldown>
  *		<div class="drill-header">
- *			<button class="drill-back" hidden>...</button>
+ *			<button class="drill-back" aria-label="Go back">...</button>
  *			<div class="drill-header-info">
- *				<span class="drill-title">Menu</span>
- *				<span class="drill-desc"></span>
+ *				<div class="drill-title">Menu</div>
+ *				<div class="drill-desc"></div>
  *			</div>
  *		</div>
- *		<ul class="drill-panel is-active" data-drill-title="Menu">
- *			<li class="drill-item">
- *				<a href="/page">Leaf item</a>
- *			</li>
- *			<li class="drill-item">
- *				<a href="#" data-drill-trigger>
- *					<span class="drill-item-body">
- *						<span class="drill-item-title">Section</span>
- *						<span class="drill-item-desc">Optional description</span>
- *					</span>
- *					<svg class="drill-chevron">...</svg>
- *				</a>
- *				<ul class="drill-panel" data-drill-title="Section">
- *					...
- *				</ul>
- *			</li>
- *		</ul>
+ *		<div class="drill-body">
+ *			<ul class="drill-panel" data-drill-title="Menu" data-drill-desc="...">
+ *				<li class="drill-item"><a href="/page">Leaf</a></li>
+ *				<li class="drill-item">
+ *					<a href="#" data-drill-trigger>...</a>
+ *					<ul class="drill-panel" data-drill-title="Section">...</ul>
+ *				</li>
+ *			</ul>
+ *		</div>
  *	</div>
  *
+ * On init, JS:
+ *	1. Reads the static HTML — no elements created
+ *	2. Flattens nested panels into .drill-body as direct siblings
+ *	3. Marks the root panel active
+ *	4. Transitions between panels using the Web Animations API:
+ *		- Both panels go position:absolute during animation
+ *		- .drill-body height is locked to the tallest panel for the duration
+ *		- On finish, inPanel becomes position:relative (is-active) and
+ *		  drives the natural height of .drill-body
+ *
+ * Lifecycle events (dispatched on this.element, bubbling):
+ *	drilldown:beforeopen	{ panel, depth, title }  cancelable
+ *	drilldown:open			{ panel, depth, title }
+ *	drilldown:beforeback	{ depth }                cancelable
+ *	drilldown:back			{ panel, depth, title }
+ *	drilldown:reset			{}
+ *
+ * Public API:
+ *	instance.drillTo(panel, trigger?)	— navigate into a panel
+ *	instance.back()						— navigate to previous panel
+ *	instance.reset()					— return to root instantly
+ *	instance.getDepth()					— current depth (0 = root)
+ *	instance.getActivePanel()			— currently visible panel element
  */
 import Component from './component.js';
 
-/**
- * @class Drilldown
- * @extends Component
- */
 class Drilldown extends Component {
 
-	// ─── Private fields ───────────────────────────────────────────────────────
+	#panels		= [];		// all panels in a flat list, populated by #flatten()
+	#stack		= [];		// navigation history: [{ panel, title, desc, trigger }]
+	#body		= null;		// .drill-body — clips panels and drives natural height
+	#track		= null;		// alias for #body — panels are direct children of .drill-body
+	#header		= {};		// { back, title, desc } — cached header elements
 
-	/**
-	 * Navigation stack. Each entry: { panel, title, desc, triggerEl }
-	 * triggerEl is the <a> that opened this panel — focus is restored to it on back.
-	 */
-	#stack = [];
-
-	/** Cached references to header elements. */
-	#header = {};
-
-	// ─────────────────────────────────────────────────────────────────────────
-	// CONSTRUCTOR
-	// ─────────────────────────────────────────────────────────────────────────
-
-	/**
-	 * @param {HTMLElement}	element		- The .drill container element.
-	 * @param {Object}		options		- Config overrides.
-	 * @param {Deck}		deck		- Framework instance.
-	 */
 	constructor(element, options = {}, deck = null) {
 
 		super({
 			name: 'drilldown',
 			element,
 			deck,
-			...options,
+			...options
 		});
 
 		this.#setup();
 	}
 
-	// ─────────────────────────────────────────────────────────────────────────
-	// PRIVATE — SETUP
-	// ─────────────────────────────────────────────────────────────────────────
-
 	#setup() {
 
-		// ── Cache header elements ─────────────────────────────────────────────
+		// Cache header elements
 		this.#header = {
-			back:  this.element.querySelector('.drill-back'),
-			title: this.element.querySelector('.drill-title'),
-			desc:  this.element.querySelector('.drill-desc'),
+			back:	this.element.querySelector('.drill-back'),
+			title:	this.element.querySelector('.drill-title'),
+			desc:	this.element.querySelector('.drill-desc'),
 		};
 
-		if (!this.#header.back) {
-			this.log('[Drilldown] .drill-back element not found.', 'warn');
+		this.#body	= this.element.querySelector('.drill-body');
+		this.#track	= this.#body; // panels live directly in .drill-body
+
+		const root  = this.#body?.querySelector('.drill-panel');
+
+		if (!this.#body || !root || !this.#header.back) {
+			console.warn('[Drilldown] Invalid structure. Expected .drill-body > .drill-panel inside', this.element);
 			return;
 		}
 
-		// ── Root panel ────────────────────────────────────────────────────────
-		const root = this.element.querySelector('.drill-panel');
-		if (!root) {
-			this.log('[Drilldown] No root .drill-panel found.', 'warn');
-			return;
-		}
+		// Move all nested panels up into .drill-body as direct siblings of root
+		this.#flatten(root);
 
-		// Push root onto the stack as the base state
+		// Seed the navigation stack with the root panel
 		this.#stack = [{
-			panel:     root,
-			title:     root.dataset.drillTitle || '',
-			desc:      root.dataset.drillDesc  || '',
-			triggerEl: null, // Root has no trigger
+			panel:		root,
+			title:		root.dataset.drillTitle || '',
+			desc:		root.dataset.drillDesc  || '',
+			trigger:	null,
 		}];
 
-		// ── ARIA ──────────────────────────────────────────────────────────────
+		// Initial header
+		this.#setHeader(this.#stack[0].title, this.#stack[0].desc, false);
+
+		// ARIA
 		this.#initAria();
 
-		// ── Events (Component's tracked on() for auto-cleanup) ────────────────
-		this.on('click',   this.#onClick.bind(this));
-		this.on('keydown', this.#onKeydown.bind(this));
-
+		// Events
+		this.on('click',	e => this.#onClick(e));
+		this.on('keydown',	e => this.#onKeydown(e));
 		this.#header.back.addEventListener('click', () => this.back());
 
-		// ── Initial header ────────────────────────────────────────────────────
-		this.#updateHeader(
-			this.#stack[0].title,
-			this.#stack[0].desc,
-			false
-		);
+		// Show root panel
+		root.classList.add('is-active');
 	}
 
-	// ─────────────────────────────────────────────────────────────────────────
-	// PRIVATE — ARIA
-	// ─────────────────────────────────────────────────────────────────────────
+	// ── Flatten ───────────────────────────────────────────────────────────────
+	// Recursively walks the nested panel tree and moves each child panel into
+	// .drill-body as a direct sibling. Depth-first preserves logical order.
+	// After flattening, all panels are siblings and none are nested in the DOM.
 
-	/**
-	 * Applies ARIA roles to all panels and items in the tree.
-	 * Called once on setup. Newly-rendered dynamic items would need reinit.
-	 */
+	#flatten(panel) {
+
+		if (!this.#panels.includes(panel)) {
+			this.#panels.push(panel);
+		}
+
+		panel.querySelectorAll(':scope > .drill-item > [data-drill-trigger]').forEach(trigger => {
+			const child = trigger.parentElement.querySelector(':scope > .drill-panel');
+			if (!child) return;
+
+			child._trigger = trigger;		// back-reference so we can find the panel from its trigger
+			this.#track.appendChild(child);	// move to track as sibling
+			this.#flatten(child);
+		});
+	}
+
+	// ── ARIA ──────────────────────────────────────────────────────────────────
+
 	#initAria() {
-		const panels = this.element.querySelectorAll('.drill-panel');
-
-		panels.forEach(panel => {
+		this.#panels.forEach(panel => {
 			panel.setAttribute('role', 'menu');
-
 			panel.querySelectorAll(':scope > .drill-item > a').forEach(link => {
 				link.setAttribute('role', 'menuitem');
-
-				const hasSub = !!link.parentElement.querySelector('.drill-panel');
-				if (hasSub) {
+				if (link.hasAttribute('data-drill-trigger')) {
 					link.setAttribute('aria-haspopup', 'true');
 					link.setAttribute('aria-expanded', 'false');
 				}
@@ -160,349 +150,272 @@ class Drilldown extends Component {
 		});
 	}
 
-	// ─────────────────────────────────────────────────────────────────────────
-	// PRIVATE — HEADER
-	// ─────────────────────────────────────────────────────────────────────────
+	// ── Transition ────────────────────────────────────────────────────────────
+	// Animates between two panels using the Web Animations API.
+	//
+	// Both panels go position:absolute for the duration so neither influences
+	// document flow during the animation — this prevents layout jank and the
+	// buzzing/trembling artefact that occurs when a position:relative element
+	// animates translateX.
+	//
+	// .drill-body height is locked to the tallest of the two panels before
+	// the animation starts, then released on finish so the incoming panel's
+	// natural height takes over.
 
-	/**
-	 * Updates the header title, description, and back button visibility.
-	 * @param {string}  title
-	 * @param {string}  desc
-	 * @param {boolean} showBack
-	 */
-	#updateHeader(title, desc, showBack) {
-		if (this.#header.title) this.#header.title.textContent = title;
-		if (this.#header.desc)  this.#header.desc.textContent  = desc ?? '';
-		if (this.#header.back)  this.#header.back.hidden = !showBack;
+	#transition(outPanel, inPanel, directionIn) {
+		const directionOut = directionIn === 'right' ? 'left' : '-right';
+
+		if (!outPanel) {
+			inPanel.classList.add('is-active');
+			return;
+		}
+
+		[outPanel, inPanel].forEach(p => {
+			p.classList.remove('is-active', 'is-transitioning');
+			p.style.transform = '';
+		});
+
+		const inStart = directionIn  === 'right' ?  '100%' : '-100%';
+		const outEnd  = directionOut === 'right' ?  '100%' : '-100%';
+		const timing  = {
+			duration: 300,
+			easing:   'cubic-bezier(0.4, 0, 0.2, 1)',
+			fill:     'forwards',
+		};
+
+		// inPanel drives height (position:relative via is-active)
+		// outPanel slides out on top (position:absolute via is-transitioning)
+		inPanel.classList.add('is-active');
+		outPanel.classList.add('is-transitioning');
+
+		const inAnim  = inPanel.animate(
+			[{ transform: `translateX(${inStart})` }, { transform: 'translateX(0)' }],
+			timing
+		);
+		const outAnim = outPanel.animate(
+			[{ transform: 'translateX(0)' }, { transform: `translateX(${outEnd})` }],
+			timing
+		);
+
+		inAnim.onfinish = () => {
+			outPanel.classList.remove('is-transitioning');
+			outPanel.style.transform = '';
+			inPanel.style.transform  = '';
+			inAnim.cancel();
+			outAnim.cancel();
+		};
 	}
 
-	// ─────────────────────────────────────────────────────────────────────────
-	// PRIVATE — PANEL TRANSITIONS
-	// ─────────────────────────────────────────────────────────────────────────
+	// ── Transition ────────────────────────────────────────────────────────────
+	// #transition(outPanel, inPanel, directionIn) {
+	// 	if (!outPanel) {
+	// 		inPanel.classList.add('is-active');
+	// 		return;
+	// 	}
 
-	/**
-	 * Activates a panel with a directional CSS class.
-	 * @param {HTMLElement} incoming	- Panel sliding in
-	 * @param {HTMLElement} outgoing	- Panel sliding out
-	 * @param {'forward'|'backward'}	  direction
-	 */
-	#transition(incoming, outgoing, direction) {
-		// Set direction on the container — CSS reads this to pick the right transforms
-		this.element.dataset.drillDirection = direction;
+	// 	[outPanel, inPanel].forEach(p => {
+	// 		p.classList.remove('is-active', 'is-transitioning');
+	// 		p.style.transform = '';
+	// 	});
 
-		outgoing.classList.remove('is-active');
-		outgoing.classList.add('is-exiting');
+	// 	const inStart = directionIn === 'right' ?  '100%' : '-100%';
+	// 	const outEnd  = directionIn === 'right' ? '-100%' :  '100%';
+	// 	const timing  = {
+	// 		duration: 300,
+	// 		easing:   'cubic-bezier(0.4, 0, 0.2, 1)',
+	// 		fill:     'forwards',
+	// 	};
 
-		incoming.classList.add('is-active');
+	// 	// Lock height BEFORE both panels go absolute
+	// 	// Use the taller of the two so nothing clips during transition
+	// 	outPanel.classList.add('is-active');
+	// 	inPanel.classList.add('is-active');
+	// 	const height = Math.max(outPanel.offsetHeight, inPanel.offsetHeight);
+	// 	this.#body.style.height = `${height}px`;
+	// 	outPanel.classList.remove('is-active');
+	// 	inPanel.classList.remove('is-active');
 
-		// Clean up exiting class after transition
-		const duration = this.#getTransitionDuration(outgoing);
-		setTimeout(() => {
-			outgoing.classList.remove('is-exiting');
-			delete this.element.dataset.drillDirection;
-		}, duration);
+	// 	// Both absolute — no layout influence during animation
+	// 	outPanel.classList.add('is-transitioning');
+	// 	inPanel.classList.add('is-transitioning');
+
+	// 	const inAnim = inPanel.animate(
+	// 		[{ transform: `translateX(${inStart})` }, { transform: 'translateX(0)' }],
+	// 		timing
+	// 	);
+	// 	const outAnim = outPanel.animate(
+	// 		[{ transform: 'translateX(0)' }, { transform: `translateX(${outEnd})` }],
+	// 		timing
+	// 	);
+
+	// 	inAnim.onfinish = () => {
+	// 		outPanel.classList.remove('is-transitioning');
+	// 		inPanel.classList.remove('is-transitioning');
+	// 		inPanel.classList.add('is-active');
+	// 		outPanel.style.transform = '';
+	// 		inPanel.style.transform  = '';
+	// 		this.#body.style.height  = '';
+	// 		inAnim.cancel();
+	// 		outAnim.cancel();
+	// 	};
+	// }
+
+	// ── Header ────────────────────────────────────────────────────────────────
+
+	#setHeader(title, desc, showBack) {
+		if (this.#header.title) this.#header.title.textContent  = title;
+		if (this.#header.desc)  this.#header.desc.textContent   = desc || '';
+		if (this.#header.back)  this.#header.back.style.display = showBack ? 'flex' : 'none';
 	}
 
-	/**
-	 * Reads the computed transition duration from an element.
-	 * @param {HTMLElement} el
-	 * @returns {number} ms
-	 */
-	#getTransitionDuration(el) {
-		const style    = window.getComputedStyle(el);
-		const duration = parseFloat(style.transitionDuration) || 0.3;
-		const delay    = parseFloat(style.transitionDelay)    || 0;
-		return (duration + delay) * 1000;
-	}
+	// ── Focus ─────────────────────────────────────────────────────────────────
 
-	// ─────────────────────────────────────────────────────────────────────────
-	// PRIVATE — FOCUS
-	// ─────────────────────────────────────────────────────────────────────────
-
-	/**
-	 * Moves focus to the first interactive item in a panel.
-	 * @param {HTMLElement} panel
-	 */
 	#focusFirst(panel) {
 		requestAnimationFrame(() => {
-			const first = panel.querySelector('.drill-item:not(.disabled) > a');
-			first?.focus();
+			panel.querySelector('.drill-item:not(.disabled) > a')?.focus();
 		});
 	}
 
-	/**
-	 * Returns all focusable menu items within the currently active panel only.
-	 * We scope to direct children to avoid accidentally including nested panel items.
-	 * @returns {HTMLElement[]}
-	 */
 	#getActiveItems() {
 		const active = this.#stack[this.#stack.length - 1]?.panel;
 		if (!active) return [];
+
 		return [...active.querySelectorAll(':scope > .drill-item:not(.disabled) > a')];
 	}
 
-	// ─────────────────────────────────────────────────────────────────────────
-	// PRIVATE — EVENT HANDLERS
-	// ─────────────────────────────────────────────────────────────────────────
+	// ── Events ────────────────────────────────────────────────────────────────
 
-	/**
-	 * Delegated click handler on the root element.
-	 * Finds the nearest [data-drill-trigger] and drills in.
-	 * @param {MouseEvent} event
-	 */
-	#onClick(event) {
-		const trigger = event.target.closest('[data-drill-trigger]');
-
-		// Must be a trigger and must belong to the currently active panel
+	#onClick(e) {
+		const trigger = e.target.closest('[data-drill-trigger]');
 		if (!trigger) return;
 
-		const activePanel = this.#stack[this.#stack.length - 1]?.panel;
-		if (!activePanel?.contains(trigger)) return;
+		const active = this.#stack[this.#stack.length - 1].panel;
+		if (!active.contains(trigger)) return;
 
-		const item			= trigger.closest('.drill-item');
-		const childPanel	= item?.querySelector(':scope > .drill-panel');
+		const child = this.#panels.find(p => p._trigger === trigger);
+		if (!child) return;
 
-		if (!childPanel) return;
-
-		event.preventDefault();
-		event.stopPropagation();
-
-		this.drillTo(childPanel, trigger);
+		e.preventDefault();
+		e.stopPropagation();
+		this.drillTo(child, trigger);
 	}
 
-	/**
-	 * Keyboard handler — arrow key navigation + Escape.
-	 * @param {KeyboardEvent} event
-	 */
-	#onKeydown(event) {
+	#onKeydown(e) {
 		const items = this.#getActiveItems();
 		if (!items.length) return;
 
-		const current = items.indexOf(document.activeElement);
+		const cur = items.indexOf(document.activeElement);
 
-		switch (event.key) {
-
-			case 'ArrowDown': {
-				event.preventDefault();
-				const next = current < items.length - 1 ? current + 1 : 0;
-				items[next].focus();
+		switch (e.key) {
+			case 'ArrowDown':
+				e.preventDefault();
+				items[cur < items.length - 1 ? cur + 1 : 0].focus();
 				break;
-			}
-
-			case 'ArrowUp': {
-				event.preventDefault();
-				const prev = current > 0 ? current - 1 : items.length - 1;
-				items[prev].focus();
+			case 'ArrowUp':
+				e.preventDefault();
+				items[cur > 0 ? cur - 1 : items.length - 1].focus();
 				break;
-			}
-
 			case 'ArrowRight':
-			case 'Enter': {
-				if (current === -1) break;
-				const trigger = items[current];
-				if (trigger.hasAttribute('data-drill-trigger')) {
-					event.preventDefault();
-					const item = trigger.closest('.drill-item');
-					const childPanel = item?.querySelector(':scope > .drill-panel');
-					if (childPanel) this.drillTo(childPanel, trigger);
+			case 'Enter':
+				if (cur === -1) break;
+				if (items[cur].hasAttribute('data-drill-trigger')) {
+					e.preventDefault();
+					const child = this.#panels.find(p => p._trigger === items[cur]);
+					if (child) this.drillTo(child, items[cur]);
 				}
 				break;
-			}
-
 			case 'ArrowLeft':
-			case 'Escape': {
-				if (this.#stack.length > 1) {
-					event.preventDefault();
-					this.back();
-				}
+			case 'Escape':
+				if (this.#stack.length > 1) { e.preventDefault(); this.back(); }
 				break;
-			}
-
-			case 'Home': {
-				event.preventDefault();
-				items[0]?.focus();
-				break;
-			}
-
-			case 'End': {
-				event.preventDefault();
-				items[items.length - 1]?.focus();
-				break;
-			}
+			case 'Home': e.preventDefault(); items[0]?.focus(); break;
+			case 'End':  e.preventDefault(); items[items.length - 1]?.focus(); break;
 		}
 	}
 
-	// ─────────────────────────────────────────────────────────────────────────
-	// PUBLIC API
-	// ─────────────────────────────────────────────────────────────────────────
+	// ── Public API ────────────────────────────────────────────────────────────
 
-	/**
-	 * @method drillTo
-	 * @description Drills into a child panel.
-	 *
-	 * @param {HTMLElement} panel		- The .drill-panel element to navigate into.
-	 * @param {HTMLElement} [triggerEl]	- The trigger link that was activated (for focus restore).
-	 * @returns {Drilldown} this — chainable
-	 */
-	drillTo(panel, triggerEl = null) {
+	drillTo(panel, trigger = null) {
 
-		const current = this.#stack[this.#stack.length - 1];
+		const before = new CustomEvent('drilldown:beforeopen', {
+			bubbles: true, cancelable: true,
+			detail: { panel, depth: this.#stack.length, title: panel.dataset.drillTitle || '' },
+		});
 
-		// Fire beforeopen — cancelable
-		const allowed = this.dispatchEvent('drilldown:beforeopen', {
-			panel,
-			depth: this.#stack.length,
-			title: panel.dataset.drillTitle,
-		}, true);
+		if (!this.element.dispatchEvent(before)) return this;
 
-		if (allowed === false) return this;
+		trigger?.setAttribute('aria-expanded', 'true');
 
-		// Update ARIA on the trigger
-		if (triggerEl) {
-			triggerEl.setAttribute('aria-expanded', 'true');
-		}
-
-		// Push new state onto stack
 		this.#stack.push({
 			panel,
-			title:		panel.dataset.drillTitle || '',
-			desc:		panel.dataset.drillDesc  || '',
-			triggerEl,
+			title:   panel.dataset.drillTitle || '',
+			desc:    panel.dataset.drillDesc  || '',
+			trigger,
 		});
 
-		// Transition panels
-		this.#transition(panel, current.panel, 'forward');
-
-		// Update header
+		const outPanel = this.#stack[this.#stack.length - 2]?.panel;
+		this.#transition(outPanel, panel, 'right');
 		const top = this.#stack[this.#stack.length - 1];
-		this.#updateHeader(top.title, top.desc, true);
-
-		// Focus first item in new panel
+		this.#setHeader(top.title, top.desc, true);
 		this.#focusFirst(panel);
 
-		// Dispatch event
-		this.dispatchEvent('drilldown:open', {
-			panel,
-			depth: this.#stack.length - 1,
-			title: top.title,
-		}, true);
+		this.element.dispatchEvent(new CustomEvent('drilldown:open', {
+			bubbles: true,
+			detail: { panel, depth: this.#stack.length - 1, title: top.title },
+		}));
 
 		return this;
 	}
 
-	/**
-	 * @method back
-	 * @description Goes back one level in the navigation stack.
-	 *
-	 * @returns {Drilldown} this — chainable
-	 */
 	back() {
-		if (this.#stack.length <= 1) return this; // Already at root
+		if (this.#stack.length <= 1) return this;
 
-		// Fire beforeback — cancelable
-		const allowed = this.dispatchEvent('drilldown:beforeback', {
-			depth: this.#stack.length - 1,
-		}, true);
-
-		if (allowed === false) return this;
-
-		// Pop current panel
-		const exiting = this.#stack.pop();
-
-		// Restore aria-expanded on the trigger that opened this panel
-		if (exiting.triggerEl) {
-			exiting.triggerEl.setAttribute('aria-expanded', 'false');
-		}
-
-		// Transition back
-		const returning = this.#stack[this.#stack.length - 1];
-		this.#transition(returning.panel, exiting.panel, 'backward');
-
-		// Update header — back button hidden when we reach root
-		this.#updateHeader(
-			returning.title,
-			returning.desc,
-			this.#stack.length > 1
-		);
-
-		// Restore focus to the trigger that opened the exited panel
-		requestAnimationFrame(() => {
-			exiting.triggerEl?.focus();
+		const before = new CustomEvent('drilldown:beforeback', {
+			bubbles: true, cancelable: true,
+			detail: { depth: this.#stack.length - 1 },
 		});
 
-		// Dispatch event
-		this.dispatchEvent('drilldown:back', {
-			panel:	returning.panel,
-			depth:	this.#stack.length - 1,
-			title:	returning.title,
-		}, true);
+		if (!this.element.dispatchEvent(before)) return this;
+
+		const out = this.#stack.pop();
+		const ret = this.#stack[this.#stack.length - 1];
+
+		out.trigger?.setAttribute('aria-expanded', 'false');
+		this.#transition(out.panel, ret.panel, 'left');
+		this.#setHeader(ret.title, ret.desc, this.#stack.length > 1);
+
+		requestAnimationFrame(() => out.trigger?.focus());
+
+		this.element.dispatchEvent(new CustomEvent('drilldown:back', {
+			bubbles: true,
+			detail: { panel: ret.panel, depth: this.#stack.length - 1, title: ret.title },
+		}));
 
 		return this;
 	}
 
-	/**
-	 * @method reset
-	 * @description Returns to the root panel, clearing the entire navigation stack.
-	 *
-	 * @returns {Drilldown} this — chainable
-	 */
 	reset() {
 		if (this.#stack.length <= 1) return this;
 
-		// Reset all aria-expanded triggers
 		this.element.querySelectorAll('[data-drill-trigger][aria-expanded="true"]')
 			.forEach(t => t.setAttribute('aria-expanded', 'false'));
 
-		// Get root from bottom of stack
+		this.#stack = [this.#stack[0]];
+		this.#panels.forEach(p => p.classList.remove('is-active', 'is-transitioning'));
+		this.#stack[0].panel.classList.add('is-active');
 		const root = this.#stack[0];
 
-		// Deactivate all non-root panels immediately (no transition for reset)
-		this.element.querySelectorAll('.drill-panel.is-active').forEach(p => {
-			if (p !== root.panel) p.classList.remove('is-active', 'is-exiting');
-		});
-
-		// Restore root
-		root.panel.classList.add('is-active');
-		this.#stack = [root];
-
-		// Update header
-		this.#updateHeader(root.title, root.desc, false);
-
-		// Focus first item in root
-		this.#focusFirst(root.panel);
-
-		this.dispatchEvent('drilldown:reset', {}, true);
+		this.#setHeader(root.title, root.desc, false);
+		this.element.dispatchEvent(new CustomEvent('drilldown:reset', { bubbles: true }));
 
 		return this;
 	}
 
-	/**
-	 * @method getDepth
-	 * @description Returns the current navigation depth. 0 = root.
-	 *
-	 * @returns {number}
-	 */
-	getDepth() {
-		return this.#stack.length - 1;
-	}
+	getDepth()			{ return this.#stack.length - 1; }
+	getActivePanel()	{ return this.#stack[this.#stack.length - 1]?.panel ?? null; }
 
-	/**
-	 * @method getActivePanel
-	 * @description Returns the currently visible panel element.
-	 *
-	 * @returns {HTMLElement|null}
-	 */
-	getActivePanel() {
-		return this.#stack[this.#stack.length - 1]?.panel ?? null;
-	}
-
-	/**
-	 * @method destroy
-	 * @description Resets state and delegates cleanup to Component.
-	 */
 	destroy() {
 		this.reset();
-		// Component handles: tracked on() listeners, Deck deregistration
 		super.destroy();
 	}
 }
