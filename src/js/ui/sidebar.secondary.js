@@ -162,6 +162,10 @@ class SidebarSecondary {
 	#applyVisibility(visible) {
 		this.element.classList.toggle(this.options.visibleClass, visible);
 
+		if (!this.#isMobile()) {
+			document.body.classList.toggle('sidebar-hidden', !visible);
+		}
+
 		if (this.toggleEl) {
 			this.toggleEl.classList.toggle(this.options.toggleActiveClass, visible);
 			this.toggleEl.setAttribute('aria-expanded', visible ? 'true' : 'false');
@@ -298,11 +302,23 @@ class SidebarSecondary {
 	/**
 	 * ResizeObserver callback — clean up state on breakpoint crossing.
 	 */
+	// #onResize() {
+	// 	if (!this.#isMobile()) {
+	// 		// Crossed to desktop: remove mobile-specific drawer state
+	// 		// Desktop visibility is handled by CSS, not the is-visible class
+	// 		this.element.classList.remove(this.options.visibleClass);
+	// 	}
+	// }
+
 	#onResize() {
 		if (!this.#isMobile()) {
-			// Crossed to desktop: remove mobile-specific drawer state
-			// Desktop visibility is handled by CSS, not the is-visible class
+			// Crossed to desktop: restore last desktop state, syncing body.sidebar-hidden
+			const wasOpen = localStorage.getItem(this.options.storageKey) !== 'false';
+			this.#applyVisibility(wasOpen);
+		} else {
+			// Crossed to mobile: hide drawer, and clean up desktop-only layout class
 			this.element.classList.remove(this.options.visibleClass);
+			document.body.classList.remove('sidebar-hidden');
 		}
 	}
 
