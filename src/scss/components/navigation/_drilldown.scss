@@ -1,25 +1,15 @@
 // =============================================================================
 // DRILLDOWN COMPONENT
 // components/navigation/_drilldown.scss
-// -----------------------------------------------------------------------------
-// Hierarchical slide-in menu. Navigation depth is driven entirely by
-// JS toggling .is-active and .is-exiting on .drill-panel elements.
-// Direction (forward/backward) is communicated via [data-drill-direction]
-// on the root .drill element.
 //
-// Panel states:
-//	(no class)		- off-screen right: translateX(100%)
-//	.is-active		- visible:          translateX(0)
-//	.is-exiting		- sliding out left: translateX(-30%)  (forward)
-//					  sliding out right: translateX(100%)  (backward)
-//
-// All class names are scoped to .drill-* — no collision risk.
+// HTML structure:
+//   .drill               flex column container
+//   .drill-header        pinned header — never moves
+//   .drill-body          clips panels; height locked during transitions
+//   .drill-panel         one panel per level, direct children of .drill-body
+//                        position:relative when active (drives height)
+//                        position:absolute when transitioning (no layout effect)
 // =============================================================================
-
-
-// -----------------------------------------------------------------------------
-// Tokens
-// -----------------------------------------------------------------------------
 
 .drill {
 	--drill-width:				100%;
@@ -30,56 +20,47 @@
 	--drill-text-muted:			var(--color-text-muted);
 	--drill-hover-bg:			rgba(0, 0, 0, 0.04);
 	--drill-item-min-height:	48px;
-	--drill-item-padding:		0.75rem 1rem;
+	--drill-item-padding:		0.75rem 1.25rem;
 	--drill-duration:			0.3s;
 	--drill-easing:				cubic-bezier(0.4, 0, 0.2, 1);
 	--drill-icon-size:			1.75rem;
+
+	position:		relative;
+	width:			var(--drill-width);
+	max-width:		var(--drill-max-width);
+	display:		flex;
+	flex-direction:	column;
+	background:		var(--drill-bg);
+	overflow: hidden;
 }
 
-
-// -----------------------------------------------------------------------------
-// Root Container
-// -----------------------------------------------------------------------------
-
-.drill {
-	position:			relative;
-	width:				var(--drill-width);
-	max-width:			var(--drill-max-width);
-	overflow:			hidden;
-	display:			flex;
-	flex-direction:		column;
-	background:			var(--drill-bg);
-}
-
-
-// -----------------------------------------------------------------------------
-// Header
-// -----------------------------------------------------------------------------
+// ── Header ────────────────────────────────────────────────────────────────────
 
 .drill-header {
 	display:		flex;
 	align-items:	center;
-	gap:			1rem;
-	padding:		0.625rem 1rem;
-	height:			var(--drill-header-height);
-	flex-shrink:	0;
+	gap:			0.75rem;
+	padding:		0.625rem 1.25rem;
+	min-height:		var(--drill-header-height);
+	flex-shrink:	0;		// Never shrink — always visible
+	background:		var(--drill-bg);
+	position:		relative;
+	z-index:		1;
 }
 
 .drill-back {
-	display:			inline-flex;
+	display:			none;	// JS: style.display = 'flex'
 	align-items:		center;
 	justify-content:	center;
-
+	flex-shrink:		0;
 	width:				2.25rem;
 	height:				2.25rem;
-	flex-shrink:		0;
-
+	padding:			0;
 	background:			transparent;
 	border:				none;
 	border-radius:		50%;
 	cursor:				pointer;
 	color:				var(--drill-text-muted);
-
 	transition:
 		color				var(--drill-duration) var(--drill-easing),
 		background-color	var(--drill-duration) var(--drill-easing);
@@ -88,27 +69,23 @@
 		color:				var(--drill-text);
 		background-color:	var(--drill-hover-bg);
 	}
-
 	&:focus-visible {
-		outline:			2px solid currentColor;
-		outline-offset:		2px;
+		outline:		2px solid currentColor;
+		outline-offset:	2px;
 	}
-
 	svg {
-		width:	1.25rem;
-		height: 1.25rem;
+		width:			1.25rem;
+		height:			1.25rem;
+		display:		block;
+		pointer-events:	none;
 	}
-
-	// Hidden via the HTML `hidden` attribute — JS toggles this
-	&[hidden] { display: none; }
 }
 
 .drill-header-info {
 	display:		flex;
 	flex-direction:	column;
 	flex:			1;
-	min-width:		0; // Prevent flex overflow
-	overflow:		hidden;
+	min-width:		0;
 }
 
 .drill-title {
@@ -118,236 +95,157 @@
 	white-space:	nowrap;
 	overflow:		hidden;
 	text-overflow:	ellipsis;
-
-	// Animate title change
-	transition: opacity 0.15s ease;
+	line-height:	1.3;
 }
 
 .drill-desc {
-	font-size:	0.8125rem;
-	color:		var(--drill-text-muted);
-	margin-top:	0.125rem;
-
+	font-size:		0.8125rem;
+	color:			var(--drill-text-muted);
+	margin-top:		0.125rem;
+	line-height:	1.4;
 	&:empty { display: none; }
 }
 
+// ── Body — the clipping container ─────────────────────────────────────────────
+// overflow:hidden here (not on .drill) so the header is never affected
+// by the track translation and the page scroll context is not disturbed.
 
-// -----------------------------------------------------------------------------
-// Panels
-// -----------------------------------------------------------------------------
-// Each .drill-panel is a full-height layer. All panels are stacked on top
-// of each other via absolute positioning. JS controls which is visible
-// via .is-active and .is-exiting, with direction from [data-drill-direction].
+.drill-body {
+    position:   relative;
+    overflow:   hidden;
+    width:      100%;
+}
+
+
+// ── Panels ────────────────────────────────────────────────────────────────────
+// Width set by JS in px — never % (circular reference against track width).
 
 .drill-panel {
-	position:	absolute;
-	inset:		0;
-	overflow-y:	auto;
-	overflow-x: hidden;
-	overscroll-behavior: contain;
+    position:   relative;
+    padding:    0.5rem 0;
+    margin:     0;
+    list-style: none;
+    background: var(--drill-bg);
+    display:    none;
 
-	padding: 0;
-	margin:  0;
-	list-style: none;
+    &.is-active {
+        display: block;
+    }
 
-	background: var(--drill-bg);
-	color:      var(--drill-text);
-
-	// ── Default state: off-screen to the right ────────────────────────────────
-	transform:  translateX(100%);
-	visibility: hidden;
-	transition:
-		transform  var(--drill-duration) var(--drill-easing),
-		visibility 0s linear             var(--drill-duration);
-
-	// ── Active: visible, in position ──────────────────────────────────────────
-	&.is-active {
-		transform:  translateX(0);
-		visibility: visible;
-		transition:
-			transform  var(--drill-duration) var(--drill-easing),
-			visibility 0s linear 0s;
-	}
-
-	// ── Exiting forward: slide out to left ────────────────────────────────────
-	// The parent gets data-drill-direction="forward" during the transition.
-	.drill[data-drill-direction="forward"] &.is-exiting {
-		transform:  translateX(-30%);
-		visibility: visible;
-		transition:
-			transform  var(--drill-duration) var(--drill-easing),
-			visibility 0s linear 0s;
-	}
-
-	// ── Exiting backward: slide back to right ─────────────────────────────────
-	.drill[data-drill-direction="backward"] &.is-exiting {
-		transform:  translateX(100%);
-		visibility: visible;
-		transition:
-			transform  var(--drill-duration) var(--drill-easing),
-			visibility 0s linear 0s;
-	}
+    &.is-transitioning {
+        display:    block;
+        position:   absolute;
+        top:        0;
+        left:       0;
+        width:      100%;
+    }
 }
-
-// The drill content area — holds the panels, clips overflow
-.drill-body {
-	position: relative;
-	flex:     1;
-	overflow: hidden;
-
-	// Explicit height needed for absolutely-positioned panels to fill correctly
-	// Falls back to min-content if not specified
-	min-height: 0;
-}
-
-
-// -----------------------------------------------------------------------------
-// Menu Items
-// -----------------------------------------------------------------------------
+// ── Items ─────────────────────────────────────────────────────────────────────
 
 .drill-item {
 	display: block;
 
-	// ── Item link ─────────────────────────────────────────────────────────────
 	> a {
-		display:         flex;
-		align-items:     center;
-		justify-content: space-between;
-		gap:             0.5rem;
+		display:			flex;
+		align-items:		center;
+		justify-content:	space-between;
+		gap:				0.5rem;
+		padding:			var(--drill-item-padding);
+		min-height:			var(--drill-item-min-height);
+		color:				var(--drill-text);
+		text-decoration:	none;
+		font-size:			1rem;
+		font-weight:		400;
+		transition:			background-color 0.15s ease;
 
-		padding:      var(--drill-item-padding);
-		min-height:   var(--drill-item-min-height);
-
-		color:           var(--drill-text);
-		text-decoration: none;
-		font-size:       1rem;
-		font-weight:     400;
-
-		transition: background-color 0.15s ease;
-
-		&:hover {
-			background-color: var(--drill-hover-bg);
-		}
-
+		&:hover         { background-color: var(--drill-hover-bg); }
 		&:focus-visible {
-			outline:          2px solid var(--drill-text);
-			outline-offset:   -2px;
-			background-color: var(--drill-hover-bg);
+			outline:			2px solid var(--drill-text);
+			outline-offset:		-2px;
+			background-color:	var(--drill-hover-bg);
 		}
 	}
 
-	// ── Disabled ──────────────────────────────────────────────────────────────
 	&.disabled > a {
-		opacity:        0.4;
-		pointer-events: none;
-		cursor:         not-allowed;
+		opacity:		0.4;
+		pointer-events:	none;
+		cursor:			not-allowed;
 	}
 }
 
-
-// -----------------------------------------------------------------------------
-// Item Body (icon + text block)
-// -----------------------------------------------------------------------------
+// ── Item body ─────────────────────────────────────────────────────────────────
 
 .drill-item-body {
-	display:    flex;
-	align-items: center;
-	gap:        1rem;
-	flex:       1;
-	min-width:  0;
+	display:		flex;
+	align-items:	center;
+	gap:			0.75rem;
+	flex:			1;
+	min-width:		0;
 }
 
 .drill-item-icon {
-	display:         flex;
-	align-items:     center;
-	justify-content: center;
-	flex-shrink:     0;
-	width:           var(--drill-icon-size);
-	height:          var(--drill-icon-size);
-	color:           inherit;
-
-	svg, img {
-		width:  100%;
-		height: 100%;
-	}
+	display:			flex;
+	align-items:		center;
+	justify-content:	center;
+	flex-shrink:		0;
+	width:				var(--drill-icon-size);
+	height:				var(--drill-icon-size);
+	color:				inherit;
+	svg, img { width: 100%; height: 100%; display: block; }
 }
 
 .drill-item-info {
-	display:        flex;
-	flex-direction: column;
-	min-width:      0;
+	display:		flex;
+	flex-direction:	column;
+	min-width:		0;
 }
 
 .drill-item-title {
-	font-size:     0.9375rem;
-	font-weight:   400;
-	color:         var(--drill-text);
-	line-height:   1.3;
-	white-space:   nowrap;
-	overflow:      hidden;
-	text-overflow: ellipsis;
+	font-size:		0.9375rem;
+	font-weight:	400;
+	color:			var(--drill-text);
+	line-height:	1.3;
+	white-space:	nowrap;
+	overflow:		hidden;
+	text-overflow:	ellipsis;
 }
 
 .drill-item-desc {
-	font-size:  0.8125rem;
-	color:      var(--drill-text-muted);
-	line-height: 1.3;
-	margin-top: 0.125rem;
-
+	font-size:		0.8125rem;
+	color:			var(--drill-text-muted);
+	line-height:	1.4;
+	margin-top:		0.125rem;
 	&:empty { display: none; }
 }
 
-
-// -----------------------------------------------------------------------------
-// Chevron (drill-in indicator)
-// -----------------------------------------------------------------------------
+// ── Chevron ───────────────────────────────────────────────────────────────────
 
 .drill-chevron {
-	flex-shrink: 0;
-	width:       1rem;
-	height:      1rem;
-	color:       var(--drill-text-muted);
-	transition:  color 0.15s ease;
+	flex-shrink:	0;
+	width:			1rem;
+	height:			1rem;
+	display:		block;
+	color:			var(--drill-text-muted);
+	pointer-events:	none;
+	transition:		color 0.15s ease;
 
-	[data-drill-trigger]:hover &,
-	[data-drill-trigger]:focus-visible & {
-		color: var(--drill-text);
-	}
+	.drill-item > a:hover &,
+	.drill-item > a:focus-visible & { color: var(--drill-text); }
 }
 
-
-// -----------------------------------------------------------------------------
-// Dividers
-// -----------------------------------------------------------------------------
-// Optional: add .drill-divider as an <li> to visually separate groups.
+// ── Dividers & labels ─────────────────────────────────────────────────────────
 
 .drill-divider {
-	height:     1px;
-	background: var(--color-border, rgba(0, 0, 0, 0.08));
-	margin:     0.25rem 0;
+	height:		1px;
+	background:	var(--color-border, rgba(0, 0, 0, 0.08));
+	margin:		0.25rem 0;
 }
 
-// Optional: section label
 .drill-label {
-	padding:     0.5rem 1rem 0.25rem;
-	font-size:   0.6875rem;
-	font-weight: 600;
-	letter-spacing: 0.06em;
-	text-transform: uppercase;
-	color:       var(--drill-text-muted);
-}
-
-
-// -----------------------------------------------------------------------------
-// Reduced Motion
-// -----------------------------------------------------------------------------
-
-@media (prefers-reduced-motion: reduce) {
-	.drill-panel,
-	.drill-back,
-	.drill-item > a,
-	.drill-chevron {
-		transition: none !important;
-		animation:  none !important;
-	}
+	padding:		0.5rem 1.25rem 0.25rem;
+	font-size:		0.6875rem;
+	font-weight:	600;
+	letter-spacing:	0.06em;
+	text-transform:	uppercase;
+	color:			var(--drill-text-muted);
 }
