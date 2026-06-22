@@ -16,7 +16,8 @@
 // - Optional utility classes for quick modifications
 // =============================================================================
 
-@use '../../abstracts/mixins//responsive' as *;
+@use '../../abstracts/mixins/responsive' as *;
+@use '../../abstracts/variables/spacing' as *;
 
 // -----------------------------------------------------------------------------
 // Component: <header>
@@ -167,7 +168,7 @@ body > header {
 	.navbar-left {
 		display: flex;
 		align-items: center;
-		gap: 1rem;
+		gap: var(--navbar-gap, #{$spacing-md});
 	}
 
 	.navbar-right {
@@ -192,7 +193,7 @@ body > header {
 			margin: 0.25rem 0;
 			img,
 			svg {
-				width: 48px;
+				width: 32px;
 			}
 		}
 	}
