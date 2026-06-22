@@ -1,6 +1,6 @@
 // =============================================================================
 // LAYOUT: FULL LEFT SIDEBAR + HEADER + MAIN + FOOTER
-// components/_grid-shmf.scss
+// components/css.grids/_shmf.scss
 // -----------------------------------------------------------------------------
 // Responsive CSS Grid layout with fixed-width sidebar on the left, header at
 // top-right, main content middle-right, and footer at bottom-right.
@@ -50,9 +50,8 @@
 		var(--fh, var(--footer-height));
 
 	// Columns: fixed sidebar width + flexible main content
-	grid-template-columns:
-		var(--sw, var(--sidebar-width))
-		1fr;
+	--sidebar-col-width: var(--sw, var(--sidebar-width));
+	grid-template-columns: var(--sidebar-col-width) 1fr;
 
 	// Consistent gap handling with fallback
 	row-gap: var(--lrg, var(--layout-row-gap));
@@ -62,66 +61,58 @@
 	margin: var(--m, 0);	// Margin controlled by variable, default 0
 	padding: 0;				// No padding on container
 
-	transition:
-		grid-template-columns 250ms ease-in-out,
-		column-gap 250ms ease-in-out;
+	transition: grid-template-columns 250ms ease-in-out, column-gap 250ms ease-in-out;
+
 
 	// -----------------------------------------------------------------
 	// Sidebar Block
 	// -----------------------------------------------------------------
-	>aside {
+	> aside {
 		grid-area: sidebar;
 		background-color: var(--color-background);
+		overflow: hidden;
 		overflow-y: auto;
 		min-height: 0;
 		transition: width 250ms ease-in-out;
-		//padding: var(--spacing-default);
 	}
 
 	// -----------------------------------------------------------------
 	// Header Block
 	// -----------------------------------------------------------------
-	>header {
+	> header {
 		grid-area: header;
 		background-color: var(--color-background);
-		//padding: var(--spacing-default);
 	}
 
 	// -----------------------------------------------------------------
 	// Main Block
 	// -----------------------------------------------------------------
-	>main {
+	> main {
 		grid-area: main;
 		background-color: var(--color-background);
 		overflow-y: auto;
 		min-height: 0;
 		position: relative;
-		//padding: var(--spacing-default);
 	}
 
 	// -----------------------------------------------------------------
 	// Footer Block
 	// -----------------------------------------------------------------
-	>footer {
+	> footer {
 		grid-area: footer;
 		background-color: var(--color-background);
-		//padding: var(--spacing-default);
 	}
 
 	// -----------------------------------------------------------------
 	// Modifier: Hide Sidebar
 	// -----------------------------------------------------------------
 	&.sidebar-hidden {
-
-		grid-template-columns: 0 1fr;
+		--sidebar-col-width: 0px;
 		column-gap: 0;
 
-		>aside {
-			width: 0;
-			overflow: hidden;
-			clip: rect(0 0 0 0);
-			position: relative;
-			white-space: nowrap;
+		> aside {
+			pointer-events: none;
+			user-select: none;
 		}
 	}
 
@@ -145,13 +136,12 @@
 		grid-template-columns: 1fr;
 		column-gap: 0;
 
-		>aside {
+		> aside {
 			border-top: 1px solid var(--color-border-muted);
 			width: 100% !important;
 			overflow-y: visible;
-			clip: auto;
-			position: static;
-			white-space: normal;
+			pointer-events: auto;
+			user-select: auto;
 		}
 	}
 }

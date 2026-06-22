@@ -1,6 +1,6 @@
 // =============================================================================
 // LAYOUT: SIDEBAR + MAIN + OPTIONS (SINGLE ROW)
-// components/_grid-smo.scss
+// components/css.grids/_smo.scss
 // -----------------------------------------------------------------------------
 // CSS Grid layout with fixed left sidebar, central scrollable main content,
 // and fixed right options panel.
@@ -42,10 +42,13 @@
 	grid-template-rows: var(--hh, var(--header-height)) 1fr;
 
 	// Columns: sidebar fixed width, main flexible, options fixed 20%
+	--sidebar-col-width: var(--sw, var(--sidebar-width));
+	--options-col-width: 20%;
+
 	grid-template-columns:
-		var(--sw, var(--sidebar-width))
+		var(--sidebar-col-width)
 		1fr
-		20%;
+		var(--options-col-width);
 
 	// Gaps for rows and columns, fallback values supported
 	row-gap: var(--lrg, var(--layout-row-gap));
@@ -56,23 +59,27 @@
 	padding: 0;
 	overflow-y: auto;
 
+	transition: grid-template-columns 250ms ease-in-out, column-gap 250ms ease-in-out;
+
 	// -----------------------------------------------------------------
 	// Sidebar Block
 	// -----------------------------------------------------------------
-	>aside {
+	> aside {
 		grid-area: sidebar;
 		position: sticky;
 		top: 0;
 		height: 100vh;
+		overflow: hidden;
 		overflow-y: auto;
 		min-height: 0;
 		background-color: var(--color-background);
+		transition: width 250ms ease-in-out;
 	}
 
 	// -----------------------------------------------------------------
 	// Main Content Block
 	// -----------------------------------------------------------------
-	>main {
+	> main {
 		grid-area: main;
 		height: 100vh;
 		overflow-y: auto;
@@ -86,21 +93,20 @@
 	#options {
 		grid-area: options;
 		background-color: var(--color-background);
+		overflow: hidden;
 		overflow-y: auto;
 		min-height: 0;
+		transition: width 250ms ease-in-out;
 	}
 
 	// -----------------------------------------------------------------
 	// Modifier: Hide Sidebar
 	// -----------------------------------------------------------------
 	&.sidebar-hidden {
-		grid-template-columns: 0 1fr 20%;
+		--sidebar-col-width: 0px;
 		column-gap: 0;
 
 		aside {
-			width: 0;
-			overflow: hidden;
-			visibility: hidden;
 			pointer-events: none;
 			user-select: none;
 		}
@@ -110,14 +116,10 @@
 	// Modifier: Hide Options Panel
 	// -----------------------------------------------------------------
 	&.options-hidden {
-
-		grid-template-columns: var(--sw, var(--sidebar-width)) 1fr 0;
+		--options-col-width: 0px;
 		column-gap: 0;
 
 		#options {
-			width: 0;
-			overflow: hidden;
-			visibility: hidden;
 			pointer-events: none;
 			user-select: none;
 		}
@@ -140,16 +142,16 @@
 
 		grid-template-columns: 1fr;
 
-		>#options {
+		> #options {
 			display: none;
 		}
 
-		>aside {
+		> aside {
 			border-top: 1px solid var(--color-border-muted);
 			overflow-y: visible;
 			min-height: auto;
-			visibility: visible;
 			pointer-events: auto;
+			user-select: auto;
 			width: auto;
 		}
 	}

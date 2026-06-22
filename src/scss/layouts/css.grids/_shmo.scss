@@ -1,6 +1,6 @@
 // =============================================================================
 // LAYOUT: LEFT SIDEBAR + HEADER + MAIN + OPTIONS PANEL
-// components/_grid-shmo.scss
+// components/css.grids/_shmo.scss
 // -----------------------------------------------------------------------------
 // Responsive CSS Grid layout with fixed left sidebar, top-center header,
 // central main content, and fixed right options panel.
@@ -49,74 +49,79 @@
 		var(--hh, var(--header-height))
 		1fr;
 
-	// Define columns: fixed sidebar width, flexible main, fixed options panel width (20%)
+	// Independent column-width variables so each panel can collapse on its own
+	--sidebar-col-width: var(--sw, var(--sidebar-width));
+	--options-col-width: 20%;
+	--layout-col-gap: var(--lcg, var(--layout-column-gap));
+
+	// Define columns
 	grid-template-columns:
-		var(--sw, var(--sidebar-width))
+		var(--sidebar-col-width)
 		1fr
-		20%;
+		var(--options-col-width);
 
 	// Gaps with fallbacks
 	row-gap: var(--lrg, var(--layout-row-gap));
-	column-gap: var(--lcg, var(--layout-column-gap));
+	column-gap: var(--layout-col-gap);
 
-	height: 100vh; // Full viewport height
+	height: 100vh;
 	margin: 0;
 	padding: 0;
+	transition: grid-template-columns 250ms ease, column-gap 250ms ease;
 
 	// -----------------------------------------------------------------
 	// Sidebar Block
 	// -----------------------------------------------------------------
-	>aside {
+	> aside {
 		grid-area: sidebar;
+		overflow: hidden;
 		overflow-y: auto;
 		min-height: 0;
 		background-color: var(--color-background);
-		//padding: var(--spacing-default);
+		transition: width 250ms ease;
 	}
 
 	// -----------------------------------------------------------------
 	// Header Block
 	// -----------------------------------------------------------------
-	>header {
+	> header {
 		grid-area: header;
 		background-color: var(--color-background);
-		//padding: var(--spacing-default);
 	}
 
 	// -----------------------------------------------------------------
 	// Main Content Block
 	// -----------------------------------------------------------------
-	>main {
+	> main {
 		grid-area: main;
 		overflow-y: auto;
 		min-height: 0;
 		background-color: var(--color-background);
 		position: relative;
-		//padding: var(--spacing-default);
 	}
 
 	// -----------------------------------------------------------------
 	// Options Panel
 	// -----------------------------------------------------------------
-	>#options {
+	> #options {
 		grid-area: options;
 		background-color: var(--color-background);
+		overflow: hidden;
 		overflow-y: auto;
 		min-height: 0;
-		//padding: var(--spacing-default);
+		transition: width 250ms ease;
 	}
 
 	// -----------------------------------------------------------------
 	// Modifier: Hide Sidebar (desktop)
 	// -----------------------------------------------------------------
 	&.sidebar-hidden {
-		grid-template-columns: 0 1fr 20%;
-		column-gap: 0;
+		--sidebar-col-width: 0px;
+		// column-gap stays as-is — collapsing the gap too would need to be
+		// conditional per-side, which complicates the transition. Revisit
+		// if a hairline gap next to a 0-width column looks wrong visually.
 
 		aside {
-			width: 0;
-			overflow: hidden;
-			visibility: hidden;
 			pointer-events: none;
 			user-select: none;
 		}
@@ -126,13 +131,9 @@
 	// Modifier: Hide Options Panel (desktop)
 	// -----------------------------------------------------------------
 	&.options-hidden {
-		grid-template-columns: var(--sw, var(--sidebar-width)) 1fr 0;
-		column-gap: 0;
+		--options-col-width: 0px;
 
 		#options {
-			width: 0;
-			overflow: hidden;
-			visibility: hidden;
 			pointer-events: none;
 			user-select: none;
 		}
@@ -155,16 +156,14 @@
 
 		grid-template-columns: 1fr;
 
-		>#options {
+		> #options {
 			display: none;
 		}
 
-		>aside {
+		> aside {
 			border-top: 1px solid var(--color-border-muted);
 			min-height: auto;
 			overflow-y: visible;
-			visibility: visible;
-			pointer-events: auto;
 			width: auto;
 		}
 	}

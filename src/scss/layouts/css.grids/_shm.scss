@@ -1,6 +1,6 @@
 // =============================================================================
 // LAYOUT: FULL LEFT SIDEBAR + HEADER + MAIN
-// components/_grid-shm.scss
+// components/css.grids/_shm.scss
 // -----------------------------------------------------------------------------
 // Responsive CSS Grid layout with fixed-width left sidebar and flexible main
 // content. Suitable for dashboards, admin panels, or content-heavy pages.
@@ -34,7 +34,9 @@
 	// -----------------------------------------------------------------
 	// Grid Template: Columns, Rows & Areas
 	// -----------------------------------------------------------------
-	grid-template-columns: var(--sidebar-width) 1fr;
+	--sidebar-col-width: var(--sidebar-width);
+
+	grid-template-columns: var(--sidebar-col-width) 1fr;
 
 	// Define rows: header height + flexible content area
 	grid-template-rows: var(--header-height) 1fr;
@@ -49,7 +51,7 @@
 	margin: var(--m, 0);
 	padding: 0;
 	position: relative;
-	transition: all 250ms ease-in-out;
+	transition: grid-template-columns 250ms ease-in-out;
 
 	// Overflow is managed by children
 	overflow: hidden;
@@ -57,57 +59,43 @@
 	// -----------------------------------------------------------------
 	// Sidebar Block
 	// -----------------------------------------------------------------
-	>aside {
+	> aside {
 		grid-area: sidebar;
 		height: 100%;
+		overflow: hidden;
 		overflow-y: auto;
 		overscroll-behavior: contain;
 		background-color: var(--color-background);
-		//padding: var(--spacing-default);
-		//border-right: 1px solid var(--color-border-muted);
 		transition: width 250ms ease, transform 250ms ease;
 	}
 
 	// -----------------------------------------------------------------
 	// Header Block
 	// -----------------------------------------------------------------
-	>header {
+	> header {
 		grid-area: header;
 		background-color: var(--color-background);
-		//padding: var(--spacing-default);
-		//border-bottom: 1px solid var(--color-border-muted);
-		// z-index: 2;
 	}
 
 	// -----------------------------------------------------------------
 	// Main Content Block
 	// -----------------------------------------------------------------
-	>main {
+	> main {
 		grid-area: main;
 		height: 100%;
-		min-height: 0; // Enables proper overflow
+		min-height: 0;	// Enables proper overflow
 		overflow-y: auto;
 		overscroll-behavior: contain;
 		background-color: var(--color-background);
 		position: relative;
-		//padding: var(--spacing-default);
-		// z-index: 1;
 	}
 
 	&.sidebar-hidden {
-		grid-template-columns: 1fr;  // Only one column, full width for main
-		grid-template-areas:
-			"header"
-			"main";
-
-		> aside {
-			width: 0;
-			overflow: hidden;
-			transform: translateX(-100%);
-			display: none;  /* optionally hide completely */
-		}
+		--sidebar-col-width: 0px;
+		// grid-template-areas stays the same — only the column width changes,
+		// which is what makes this animatable. No display:none, no transform here;
+		// those were what made it snap instantly on desktop.
 	}
-
 }
 
 // -----------------------------------------------------------------------------
@@ -122,7 +110,7 @@
 			"header"
 			"main";
 
-		>aside {
+		> aside {
 			border-right: none;
 			border-bottom: 1px solid var(--color-border-muted);
 		}

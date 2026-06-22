@@ -1,6 +1,6 @@
 // =============================================================================
 // LAYOUT: LEFT SIDEBAR + MAIN (NO HEADER)
-// components/_grid-sm.scss
+// components/css.grids/_sm.scss
 // -----------------------------------------------------------------------------
 // Responsive CSS Grid layout with a fixed left sidebar and flexible main
 // content. Header is omitted in this variant.
@@ -38,7 +38,8 @@
 	grid-template-areas: "sidebar main";
 
 	// Define columns: fixed sidebar width + flexible main content
-	grid-template-columns: var(--sw, var(--sidebar-width)) 1fr;
+	--sidebar-col-width: var(--sw, var(--sidebar-width));
+	grid-template-columns: var(--sidebar-col-width) 1fr;
 
 	// Define gaps between rows and columns with fallback variables
 	row-gap: var(--lrg, var(--layout-row-gap));
@@ -51,49 +52,46 @@
 	background-color: var(--color-background);
 	color: var(--color-text);
 
+	transition: grid-template-columns 250ms ease-in-out, column-gap 250ms ease-in-out;
+
 	// -----------------------------------------------------------------
 	// Sidebar Block
 	// -----------------------------------------------------------------
-	>aside {
+	> aside {
 		grid-area: sidebar;
+		overflow: hidden;
 		overflow-y: auto;
 		min-height: 0;
 		background-color: var(--color-background);
 		color: var(--color-text);
 		overscroll-behavior: contain;
-
-		// Optional spacing
-		// padding: var(--spacing-default);
+		transition: width 250ms ease-in-out;
 	}
 
 	// -----------------------------------------------------------------
 	// Main Content Block
 	// -----------------------------------------------------------------
-	>main {
+	> main {
 		grid-area: main;
 		overflow-y: auto;
 		min-height: 0;
 		background-color: var(--color-background);
 		color: var(--color-text);
 		overscroll-behavior: contain;
-
-		// Optional spacing
-		// padding: var(--spacing-default);
 	}
 
 	// -----------------------------------------------------------------
 	// Modifier: Hide Sidebar
 	// -----------------------------------------------------------------
-
 	&.sidebar-hidden {
-		grid-template-areas: "main";
-		grid-template-columns: 1fr;
+		// grid-template-areas stays "sidebar main" — only the column width
+		// changes. Swapping to "main" outright is what broke the animation.
+		--sidebar-col-width: 0px;
+		column-gap: 0;
 
 		> aside {
-			width: 0;
-			overflow: hidden;
-			transform: translateX(-100%);
-			visibility: hidden;
+			pointer-events: none;
+			user-select: none;
 		}
 	}
 
@@ -115,10 +113,12 @@
 			grid-template-columns: 1fr;
 
 			// Optional: add subtle separation on mobile for sidebar
-			>aside {
+			> aside {
 				border-top: 1px solid var(--color-border-muted);
+				width: auto;
+				pointer-events: auto;
+				user-select: auto;
 			}
 		}
 	}
 }
-

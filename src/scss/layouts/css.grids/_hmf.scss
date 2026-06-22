@@ -1,6 +1,6 @@
 // =============================================================================
 // LAYOUT: HEADER + MAIN + FOOTER GRID
-// components/_grid-hmf.scss
+// components/css.grids/_hmf.scss
 // -----------------------------------------------------------------------------
 // Responsive CSS Grid layout with full viewport height.
 //
@@ -64,31 +64,28 @@
 	// -----------------------------------------------------------------
 	// Header Block
 	// -----------------------------------------------------------------
-	>header {
+	> header {
 		grid-area: header;
 		background-color: var(--color-background);
-		//padding: var(--spacing-default);
 	}
 
 	// -----------------------------------------------------------------
 	// Main Content Block
 	// -----------------------------------------------------------------
-	>main {
+	> main {
 		grid-area: main;
 		background-color: var(--color-background);
 		overflow-y: auto;
 		min-height: 0;
 		position: relative;
-		//padding: var(--spacing-default);
 	}
 
 	// -----------------------------------------------------------------
 	// Footer Block
 	// -----------------------------------------------------------------
-	>footer {
+	> footer {
 		grid-area: footer;
 		background-color: var(--color-background);
-		//padding: var(--spacing-default);
 	}
 
 	// -----------------------------------------------------------------
