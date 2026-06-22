@@ -14,6 +14,7 @@
 // =============================================================================
 
 @use '../../abstracts/variables/breakpoints' as *;
+@use '../../abstracts/variables/spacing' as *;
 
 //--------------------------------------
 // Core Navbar
@@ -33,9 +34,8 @@
     display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: var(--navbar-gap, 1rem);
-	padding: 0 var(--navbar-padding, 0.5rem); 
-
+	gap: var(--navbar-gap, #{$spacing-md});
+	padding: 0 var(--navbar-padding, 1rem); 
 
 	--navbar-dropbar-behind-color: dark;
 
@@ -76,14 +76,13 @@
 	&-nav {
 		display: flex;
 		flex-wrap: wrap;
-		gap: var(--navbar-nav-gap, 0);
+		gap: var(--navbar-nav-gap, #{$spacing-sm}); // 0.5rem / 8px
 		margin: 0;
 		padding: 0;
 		list-style: none;
 
-		>li {
+		> li {
 			//position: relative;
-
 			display: flex;
 			align-items: center;
 			min-height: 48px;
@@ -92,7 +91,7 @@
 				color: var(--color-text);
 			}
 
-			>a {
+			> a {
 
 				display: flex;
 				align-items: center;
@@ -152,7 +151,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		gap: var(--navbar-gap, 0);
+		gap: var(--navbar-gap, #{$spacing-md});
 	}
 
 	&-right {
@@ -165,6 +164,7 @@
         justify-content: center;
         text-align: center;
         flex: 1 1 auto;
+		gap: var(--navbar-gap, #{$spacing-md});
     }
 
 	//--------------------------------------
