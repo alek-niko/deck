@@ -54,14 +54,15 @@
 		--flex-dir: column;
 		--items:    stretch;
 
-		.tab-left,
-		.tab-right {
+		.tab.tab-left,
+		.tab.tab-right {
 			--flex-dir:  row;
 			--flex-wrap: nowrap;
 
-			min-width:    100%;
-			overflow-x:   auto;
-			padding:      0;
+			min-width:		100%;
+			max-width:		100%; 
+			overflow-x:		auto;
+			padding:		0;
 			border-inline-end:   none;
 			border-inline-start: none;
 			border-bottom: 1px solid var(--color-border, rgba(0, 0, 0, 0.1));
@@ -159,7 +160,7 @@
 			width:			100%;
 			height:			var(--tab-indicator-size);
 			background:		var(--tab-indicator);
-			border-radius:	var(--tab-indicator-radius) var(--tab-indicator-radius) 0 0;
+			border-radius:	0 0 var(--tab-indicator-radius) var(--tab-indicator-radius);
 			transform:		scaleX(0);
 			transition:		transform var(--tab-duration) var(--tab-easing);
 		}
@@ -187,7 +188,7 @@
 			&::after {
 				top:          -1px;
 				bottom:       auto;
-				border-radius: 0 0 var(--tab-indicator-radius) var(--tab-indicator-radius);
+				border-radius: var(--tab-indicator-radius) var(--tab-indicator-radius) 0 0;
 			}
 		}
 	}
@@ -304,6 +305,8 @@
 
 	// ── All panes: hidden state ───────────────────────────────────────────────
 	> * {
+		position:        absolute;
+		inset:           0;
 		display:         block;  // Keep in flow so container height is maintained
 		visibility:      hidden;
 		opacity:         0;
@@ -316,6 +319,7 @@
 
 	// ── Active pane: visible state ────────────────────────────────────────────
 	> *.active {
+		position:       static;
 		visibility:     visible;
 		opacity:        1;
 		pointer-events: auto;
