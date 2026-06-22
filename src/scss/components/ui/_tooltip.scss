@@ -138,10 +138,15 @@
 
 	&::before,
 	&::after {
-		content:         '';
-		position:        absolute;
-		position-anchor: var(--tt-anchor-ref, --tt-anchor);
-		pointer-events:  none;
+		// disabled (browser bug)
+		// position-anchor on ::after pseudo-elements still does not work correctly
+		// Remove this rule to re-enable once browser support catches up.
+		content:			none;
+		// Enable this:
+		// content:			'';
+		position:			absolute;
+		position-anchor:	var(--tt-anchor-ref, --tt-anchor);
+		pointer-events:		none;
 	}
 
 
