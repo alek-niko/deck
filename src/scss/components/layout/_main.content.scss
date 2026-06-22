@@ -42,8 +42,14 @@ main {
 	padding: var(--content-padding, #{$spacing-default});
 	flex: 1;
 
-	// Remove padding on medium screens
+	// Scale down padding on medium screens
 	@media (max-width: $breakpoint-md) {
-		padding: 0;
+		padding: var(--content-padding-mobile, #{$spacing-default});
+	}
+
+	// If a container child handles its own horizontal spacing,
+	// #content backs off on the inline axis to avoid doubling up
+	&:has(> [class*="container-"]) {
+		padding-inline: 0;
 	}
 }
