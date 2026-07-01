@@ -86,7 +86,7 @@
 
 		.logo svg {
 			width: 70px;
-			color: var(--color-primary);
+			/*color: var(--color-primary);*/
 		}
 
 		.profile-avatar-small {
@@ -94,6 +94,8 @@
 			height: 32px;
 			border-radius: 50%;
 			background-color: #999;
+			overflow: hidden;
+			object-fit: cover; 
 		}
 	}
 
@@ -200,7 +202,7 @@
 		&-item {
 			flex: 1;
 			text-align: center;
-			padding: 10px;
+			/*padding: 10px;*/
 			cursor: pointer;
 			color: var(--color-border-muted);
 			transition: color 0.2s ease;
@@ -222,16 +224,20 @@
 	\*----------------------------------*/
 
 	.fab {
+		--fab-icon-size: 30px;
 		display: none;
 		position: fixed;
-		bottom: 80px;
+		bottom: 70px;
 		right: 15px;
+		// width: var(--fab-size, 50px);
+		// height: var(--fab-size, 50px);
 		width: 56px;
-		height: 56px;
-		background-color: var(--color-primary);
-		color: #fff;
-		border-radius: 50%;
-		border: none;
+  		height: 56px;
+		background-color: var(--fab-bg, --color-primary);
+		color: var(--fab-color, #fff);
+		border-radius: var(--fab-radius, 50%);
+		// border: none;
+		border: 1px solid var(--color-border-muted, rgb(0 0 0 / 10%));
 		font-size: 24px;
 		cursor: pointer;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -280,6 +286,8 @@
 				border-left: none;
 				border-right: none;
 
+				//padding: 60px 10px;
+
 				.content-section-header {
 					top: 48px; // below fixed mobile topbar
 					padding: 8px 10px;
@@ -303,6 +311,11 @@
 					}
 				}
 			}
+		}
+
+	    // Only add top clearance padding when the mobile topbar is actually present
+		&:has(.mobile-topbar) .content-section {
+			padding: 60px 10px;
 		}
 
 		.mobile-bottom-nav,
