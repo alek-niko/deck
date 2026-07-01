@@ -26,7 +26,7 @@
 	.action {
 		display: inline-flex;
 		align-items: var(--items, center);
-		gap: var(--gap, 0,4rem);
+		gap: var(--gap, 0.6rem);
 		color: var(--action-color, var(--color-text-muted));
 		font-size: 0.875rem;
 		cursor: pointer;
