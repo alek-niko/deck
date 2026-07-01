@@ -11,6 +11,7 @@
 // =============================================================================
 
 @use '../../abstracts/variables/breakpoints' as *; // If you're using token breakpoints
+@use 'sass:map';
 
 // =============================================================================
 // BASE ALERT
@@ -184,57 +185,32 @@
 // LEVEL → SURFACE PROJECTION (Themed)
 // =============================================================================
 
-.level-1 {
-	--color-surface: var(--color-level-1);
-	--color-text: #fff; // Blue usually takes white text in both themes
-	background-color: var(--color-surface);
-	color: var(--color-text);
+$levels: (
+	1: (color: var(--color-level-1),	text: #fff),
+	2: (color: var(--color-level-2),	text: #1b1b1b),
+	3: (color: var(--color-level-3),	text: #fff),
+	4: (color: var(--color-level-4),	text: #fff),
+);
+
+// .level-*
+@each $level, $props in $levels {
+	.level-#{$level} {
+		--color-surface: #{map.get($props, color)};
+		--color-text: #{map.get($props, text)};
+		background-color: var(--color-surface);
+		color: var(--color-text);
+	}
 }
 
-.level-2 {
-	--color-surface: var(--color-level-2);
-	--color-text: #1b1b1b; // Level 2 yellow usually needs dark text
-	background-color: var(--color-surface);
-	color: var(--color-text);
-}
+$level-alts: (1, 2, 3, 4);
 
-.level-3 {
-	--color-surface: var(--color-level-3);
-	--color-text: #fff;
-	background-color: var(--color-surface);
-	color: var(--color-text);
-}
-
-.level-4 {
-	--color-surface: var(--color-level-4);
-	--color-text: #fff;
-	background-color: var(--color-surface);
-	color: var(--color-text);
-}
-
-/* Alt variants (background only) */
-.level-1-alt {
-	--color-surface: var(--color-level-1-alt);
-	--color-text: var(--color-text);
-	background-color: var(--color-surface);
-}
-
-.level-2-alt {
-	--color-surface: var(--color-level-2-alt);
-	--color-text: var(--color-text);
-	background-color: var(--color-surface);
-}
-
-.level-3-alt {
-	--color-surface: var(--color-level-3-alt);
-	--color-text: var(--color-text);
-	background-color: var(--color-surface);
-}
-
-.level-4-alt {
-	--color-surface: var(--color-level-4-alt);
-	--color-text: var(--color-text);
-	background-color: var(--color-surface);
+// .level-*-alt
+@each $level in $level-alts {
+	.level-#{$level}-alt {
+		--color-surface: var(--color-level-#{$level}-alt);
+		--color-text: var(--color-text);
+		background-color: var(--color-surface);
+	}
 }
 
 /* Level 4: Emergency Pulsing Effect */
