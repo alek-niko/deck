@@ -7,16 +7,25 @@
 // - Maintains small, modular, and easily overridable files
 //
 // Structure:
-// 1. Utilities → Atomic, reusable text utility classes
-// 2. Prose     → Scoped, rich text content styles
+// 1. Elements	- Standard typography element overrides (heading, title, blockquote)
+// 2. Utilities - Atomic, reusable text utility classes
+// 3. Prose		- Scoped, rich text content styles
 // -----------------------------------------------------------------------------
+
+// =============================================================================
+// 1. Elements
+// - Base overrides and structural layout patterns for typographic elements
+// =============================================================================
+@forward 'heading';		// Headings and base font-scale styles
+@forward 'title';		// Composite title layouts and contextual title patterns
+@forward 'blockquote';	// Blockquote and citation styling
 
 // -----------------------------------------------------------------------------
 // Typography Utilities
 // - Global, atomic classes for font size, weight, color, alignment, etc.
 // - Can be applied to any element without side effects
 // -----------------------------------------------------------------------------
-@forward 'utilities'; // formerly text.scss
+@forward 'utilities';	// formerly text.scss
 
 // -----------------------------------------------------------------------------
 // Content Typography
@@ -24,4 +33,4 @@
 // - Handles headings, paragraphs, lists, blockquotes, tables, images, etc.
 // - Prevents typography style leakage outside the container
 // -----------------------------------------------------------------------------
-@forward 'prose'; // formerly content/text.scss or content.scss
+@forward 'prose';	// formerly content/text.scss or content.scss
