@@ -386,7 +386,8 @@
 // -----------------------------------------------------------------------------
 @media (min-width: $breakpoint-lg-max) {
     .sidebar-secondary {
-        width: 280px;
+        // Default to 260px on large screens; consider 280px.
+        //width: 280px;
         overflow: hidden;
         transition: width 0.25s ease, border-color 0.25s ease;
 
