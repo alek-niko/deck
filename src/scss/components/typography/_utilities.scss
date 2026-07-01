@@ -101,13 +101,44 @@
 
 
 // -----------------------------------------------------------------------------
-// Background-Clipped Text
+// Background behind text
+// Creates a colored box/highlight around text
 // -----------------------------------------------------------------------------
 
-.text-background {
+.text-bg {
+	background-color: var(
+		--text-bg-color,
+		var(--color-surface-muted)
+	);
+	
+	color: var(
+		--text-color,
+		var(--color-text-inverse)
+	);
+
+	padding: 0.1em 0.25em;
+
+	box-decoration-break: clone;
+	-webkit-box-decoration-break: clone;
+}
+
+
+// -----------------------------------------------------------------------------
+// Background as text fill
+// Uses a background/gradient inside text itself
+// -----------------------------------------------------------------------------
+
+.text-fill {
 	display: inline-block;
-	color: transparent !important;
-	background-color: var(--color-primary);
+
+	background: var(
+		--text-bg-color,
+		var(--color-surface-muted)
+	);
+
+	color: transparent;
+	-webkit-text-fill-color: transparent;
+
 	-webkit-background-clip: text;
 	background-clip: text;
 }
@@ -205,6 +236,47 @@ td.text-break {
 		}
 	}
 }
+
+
+// -----------------------------------------------------------------------------
+// Label / tag text
+// Small inline badge-like text container
+// -----------------------------------------------------------------------------
+
+.text-label {
+	display: inline-block;
+
+	font-family: var(
+		--text-label-font-family,
+		monospace
+	);
+
+	font-size: var(
+		--text-label-font-size,
+		0.85rem
+	);
+
+	padding: var(
+		--text-label-padding,
+		0.25rem 0.5rem
+	);
+
+	border-radius: var(
+		--text-label-radius,
+		var(--radius-sm, 4px)
+	);
+
+	background-color: var(
+		--text-label-background,
+		var(--color-surface-muted)
+	);
+
+	color: var(
+		--text-label-color,
+		var(--color-text-muted)
+	);
+}
+
 
 // -----------------------------------------------------------------------------
 // Utility Font Class [Test]
