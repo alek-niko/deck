@@ -31,8 +31,10 @@ $muted-color:               oklch(from $text-color-primary l c h / 0.6) !default
 /// --------------------------------------------
 /// SURFACE COLORS
 /// --------------------------------------------
-$surface:					oklch(22% 0.02 $hue-gray) !default; // #1c1e21
-$surface-muted:				oklch(26% 0.02 $hue-gray) !default; // #2a2d31
+// $surface:					oklch(22% 0.02 $hue-gray) !default; // #1c1e21 // old
+// $surface-muted:				oklch(26% 0.02 $hue-gray) !default; // #2a2d31 // old
+$surface:                   oklch(26% 0.022 $hue-gray) !default; // new
+$surface-muted:             oklch(21% 0.02 $hue-gray) !default; // new
 $surface-contrast:			oklch(98% 0 0) !default;
 $surface-disabled:			oklch(24% 0.02 $hue-gray) !default;
 
