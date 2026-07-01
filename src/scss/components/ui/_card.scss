@@ -52,7 +52,7 @@
 	position: relative;
 	box-sizing: border-box;
 	gap: 0;
-	background: var(--card-bg);
+	background-color: var(--card-bg);
 	color: var(--card-text);
 	//border-radius: var(--card-border-radius);
 	box-shadow: var(--card-elevation);
@@ -222,8 +222,8 @@
 		}
 
 		// Removes top padding in card body if it follows title
-		+.card-body {
-			padding-top: 0 !important;
+		:where(&) + .card-body {
+			padding-top: 0;
 		}
 	}
 
@@ -249,8 +249,11 @@
 		//align-items: var(--card-header-align, center);
 		padding: var(--card-header-padding, var(--card-padding));
 
-		background-color: var(--card-header-bg, var(--color-surface));
- 		color: var(--card-header-text, var(--color-text));
+		// background-color: var(--card-header-bg, var(--color-surface));
+ 		// color: var(--card-header-text, var(--color-text));
+
+		background-color: var(--card-header-bg, var(--color-surface, var(--card-bg)));
+		color: var(--card-header-text, var(--color-text));
 
 		>.avatar {
 			display: inline-flex;
@@ -312,8 +315,8 @@
 		}
 
 		// Removes top padding in card body if it follows header
-		+.card-body {
-			padding-top: 0 !important;
+		:where(&) + .card-body {
+			padding-top: 0;
 		}
 
 	}
@@ -330,7 +333,10 @@
 		flex-direction: column;
 		gap: var(--gap, var(--spacing-sm));
 
-		background-color: var(--card-body-bg, var(--color-surface));
+		// background-color: var(--card-body-bg, var(--color-surface));
+		// color: var(--card-body-text, var(--color-text));
+
+		background-color: var(--card-body-bg, var(--color-surface, var(--card-bg)));
 		color: var(--card-body-text, var(--color-text));
 
 		[data-slot='poll'],
@@ -354,8 +360,8 @@
 		}
 
 		// Removes top padding in card footer if it follows body
-		+.card-footer {
-			padding-top: 0 !important;
+		:where(&) + .card-footer {
+			padding-top: 0;
 		}
 	}
 
@@ -374,8 +380,11 @@
 
 		padding: var(--card-footer-padding, var(--card-padding));
 
-		background: var(--card-footer-bg, var(--color-surface));
-		color: var(--card-footer-text, var(--color-text));		
+		// background: var(--card-footer-bg, var(--color-surface));
+		// color: var(--card-footer-text, var(--color-text));
+
+		background-color: var(--card-footer-bg, var(--color-surface, var(--card-bg)));
+		color: var(--card-footer-text, var(--color-text));
 
 		&.left 		{ justify-content: flex-start; }
 		&.center	{ justify-content: center; }
@@ -577,8 +586,8 @@
 	// Fix padding between cover container and card body
 	// -------------------------------------------------------------------------
 
-	.cover-container+.card-body {
-		padding-top: 5px !important;
+	:where(.cover-container) + .card-body {
+		padding-top: 5px;
 	}
 
 	// -------------------------------------------------------------------------
