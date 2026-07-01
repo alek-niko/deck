@@ -1,0 +1,170 @@
+// =============================================================================
+// TYPOGRAPHY ELEMENTS: TITLE PATTERNS
+// components/typography/_title.scss
+// =============================================================================
+// Reusable, composable title layouts and contextual typography patterns.
+//
+// Purpose:
+// - Provides highly extensible title structures beyond simple heading overrides.
+// - Acts as an isolated catalog for multiple design system structural layout 
+//   patterns while using CSS custom properties for effortless theme overrides.
+//
+// Layout Patterns:
+// 	1. Grouped Title (.title-group)		- Responsive inline/block composite title patterns
+// 	2. Title with Subtext (.title-... )	- Stacked heading with fluid description texts
+// 	3. Editorial Kicker (.title-ki... )	- Reverse-stacked category overline headers
+// 	4. Inline Split (.title-inline... )	- Monospace metadata split layouts
+//
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// 1. Grouped Title Pattern
+// Handles inline or block composition of a title, separator, and context meta.
+// Stacks cleanly on mobile devices and aligns text baselines on desktop viewports.
+// -----------------------------------------------------------------------------
+.title-group {
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.25rem;
+
+	// Responsive switch to a unified horizontal layout track
+	@media (min-width: 480px) {
+		flex-direction: row;
+		align-items: baseline; // Aligns primary and metadata text baselines perfectly
+		gap: 0.75rem;
+	}
+
+	.title-main {
+		font-size: var(--title-main-size, 2rem);
+		font-weight: var(--title-main-weight, 800);
+		letter-spacing: var(--title-main-tracking, -0.025em);
+		line-height: 1.2;
+		margin: 0;
+		text-wrap: balance; // Prevents single-word line orphans on narrow spans
+	}
+
+	.title-context {
+		font-size: var(--title-context-size, clamp(1.2rem, 4vw, 2rem));
+		font-weight: var(--title-context-weight, 400);
+		color: var(--title-context-color, var(--color-text-muted, #666666));
+		line-height: 1.2;
+		margin: 0;
+		text-wrap: pretty; // Optimizes line-breaking constraints for paragraphs
+	}
+
+	.title-separator {
+		display: none; // Hidden on mobile layout tracks to prevent dangling characters
+		color: var(--title-separator-color, var(--color-border, #888888));
+		font-size: 1.8rem;
+		font-weight: 300;
+		user-select: none; // Prevents decoration text from disrupting clipboard actions
+
+		@media (min-width: 480px) {
+			display: inline;
+		}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// 2. Heading with Subtext Pattern
+// Flexible layout container managing explicit title structures with fluid,
+// down-scaled explanatory paragraphs safely isolated from global styles.
+// -----------------------------------------------------------------------------
+.title-with-subtext {
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.25rem;
+
+	// Safely limits structural style reset directly to intended children
+	>h1,
+	>h2,
+	>h3,
+	>h4,
+	>h5,
+	>h6,
+	.title-main {
+		margin: 0;
+		font-size: var(--title-subtext-main-size, 2.25rem);
+		font-weight: var(--title-subtext-main-weight, 800);
+		letter-spacing: -0.02em;
+		text-wrap: balance;
+	}
+
+	.subtext {
+		font-size: var(--title-subtext-size, clamp(1.1rem, 2vw, 1.3rem));
+		color: var(--title-subtext-color, var(--color-text-muted, #666666));
+		line-height: 1.4;
+		margin: 0;
+		text-wrap: pretty;
+	}
+
+	@media (max-width: 768px) {
+		gap: 0.125rem;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// 3. Editorial Kicker Pattern
+// Inverts layout order visually via CSS while maintaining strict accessibility
+// and screen-reader hierarchy inside document object engines.
+// -----------------------------------------------------------------------------
+.title-kicker-group {
+
+	display: flex;
+	flex-direction: column-reverse; // Renders kicker overline above semantic header
+	gap: 0.375rem;
+
+	.title-main {
+		font-size: var(--title-kicker-main-size, 2.5rem);
+		font-weight: var(--title-kicker-main-weight, 800);
+		letter-spacing: -0.02em;
+		margin: 0;
+		text-wrap: balance;
+	}
+
+	.title-kicker {
+		font-size: var(--title-kicker-size, 0.75rem);
+		font-weight: var(--title-kicker-weight, 700);
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--title-kicker-color, var(--color-accent, #0066cc));
+		line-height: 1;
+		margin: 0;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// 4. Balanced Inline Split Pattern
+// Maximizes layout space efficiency across applications, system panels, or
+// dashboard tables. Balances headers against technical status counters.
+// -----------------------------------------------------------------------------
+.title-inline-split {
+
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	flex-wrap: wrap; // Gracefully breaks execution layouts onto rows on extreme widths
+	gap: 1rem;
+	border-bottom: 1px solid var(--color-border, #e5e7eb);
+	padding-bottom: 0.5rem;
+	width: 100%;
+
+	.title-main {
+		margin: 0;
+		font-size: var(--title-split-main-size, 1.75rem);
+		font-weight: var(--title-split-main-weight, 700);
+		text-wrap: balance;
+	}
+
+	.title-stats {
+		font-family: var(--font-mono, monospace);
+		font-size: var(--title-split-stats-size, 0.9rem);
+		color: var(--title-split-stats-color, var(--color-text-muted, #666666));
+		line-height: 1.2;
+		white-space: nowrap; // Guarantees critical analytics/numbers do not split apart
+	}
+}
