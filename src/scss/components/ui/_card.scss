@@ -207,7 +207,9 @@
 		font-size: var(--card-title-size);
 		font-weight: var(--card-title-weight);
 		line-height: var(--card-title-line);
-		color: var(--card-text);
+		//color: var(--card-text);
+		background-color: var(--card-title-bg, var(--color-surface, var(--card-bg)));
+		color: var(--card-title-text, var(--color-text));
 		margin: 0;
 		padding: var(--card-padding);
 
@@ -259,11 +261,12 @@
 			display: inline-flex;
 			align-items: var(--items, center);
 			justify-content: var(--justify, center);
-			background: var(--color-surface-muted);
 			border-radius: 50%;
-			width: 40px;
-			height: 40px;
+			width: 48px;
+			height: 48px;
 			overflow: hidden;
+			background-color: var(--color-surface-muted); 
+			border: 1px solid var(--color-border-muted);
 
 			img {
 				width: 100%;
