@@ -18,15 +18,13 @@
 //@use '../../abstracts/variables/shadow' as *;
 
 .card {
+	--justify: normal;
+    --items: stretch;
 
 	// -------------------------------------------------------------------------
 	// Design Tokens (CSS Custom Properties)
 	// Used throughout card styles for colors, spacing, font, etc.
 	// -------------------------------------------------------------------------
-	//--card-bg: var(--color-surface);
-	--card-bg: var(--color-surface, var(--color-surface));
-	//--card-text: var(--color-text);
-	--card-text: var(--color-text, var(--color-text));
 	--card-muted-text: var(--color-text-muted);
 	--card-border-radius: var(--radius-xl);
 	--card-border: var(--color-border);
@@ -49,10 +47,12 @@
 
 	display: flex;
 	flex-direction: column;
+	justify-content: var(--card-justify, normal);
+    align-items: var(--card-items, stretch);
 	position: relative;
 	box-sizing: border-box;
 	gap: 0;
-	background-color: var(--card-bg);
+	background-color: var(--card-bg, var(--color-surface));
 	color: var(--card-text);
 	//border-radius: var(--card-border-radius);
 	box-shadow: var(--card-elevation);
@@ -159,8 +159,7 @@
 	// -------------------------------------------------------------------------
 	
 	&.transparent {
-		--card-bg: transparent;
-		//background: transparent;
+		--color-surface: transparent;
 		box-shadow: none;
 	}
 
@@ -207,8 +206,7 @@
 		font-size: var(--card-title-size);
 		font-weight: var(--card-title-weight);
 		line-height: var(--card-title-line);
-		//color: var(--card-text);
-		background-color: var(--card-title-bg, var(--color-surface, var(--card-bg)));
+		background-color: var(--card-title-bg, var(--color-surface));
 		color: var(--card-title-text, var(--color-text));
 		margin: 0;
 		padding: var(--card-padding);
@@ -247,14 +245,10 @@
 		display: flex;
 		flex-direction: row;
 		gap: var(--gap, 0);
-
-		//align-items: var(--card-header-align, center);
+		justify-content: var(--justify, space-between);
+        align-items: var(--items, center);
 		padding: var(--card-header-padding, var(--card-padding));
-
-		// background-color: var(--card-header-bg, var(--color-surface));
- 		// color: var(--card-header-text, var(--color-text));
-
-		background-color: var(--card-header-bg, var(--color-surface, var(--card-bg)));
+		background-color: var(--card-header-bg, var(--color-surface));
 		color: var(--card-header-text, var(--color-text));
 
 		>.avatar {
@@ -299,7 +293,7 @@
 				gap: 4px;
 				font-size: 0.9375rem;
 
-				.display-name { color: var(--card-text); }
+				.display-name { color: var(--color-text); } 
 				.user-handle, .separator, .timestamp { color: var(--card-muted-text); }
 				
 				.timestamp:hover { text-decoration: underline; cursor: help; }
@@ -335,11 +329,9 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--gap, var(--spacing-sm));
-
-		// background-color: var(--card-body-bg, var(--color-surface));
-		// color: var(--card-body-text, var(--color-text));
-
-		background-color: var(--card-body-bg, var(--color-surface, var(--card-bg)));
+		justify-content: var(--justify, flex-start);
+		align-items: var(--items, stretch);
+		background-color: var(--card-body-bg, var(--color-surface));
 		color: var(--card-body-text, var(--color-text));
 
 		[data-slot='poll'],
@@ -380,13 +372,8 @@
 		align-items: var(--items, center);
 		justify-content: var(--justify, space-between);
 		gap: var(--gap, var(--spacing-md));
-
 		padding: var(--card-footer-padding, var(--card-padding));
-
-		// background: var(--card-footer-bg, var(--color-surface));
-		// color: var(--card-footer-text, var(--color-text));
-
-		background-color: var(--card-footer-bg, var(--color-surface, var(--card-bg)));
+		background-color: var(--card-footer-bg, var(--color-surface));
 		color: var(--card-footer-text, var(--color-text));
 
 		&.left 		{ justify-content: flex-start; }
