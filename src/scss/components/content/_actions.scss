@@ -9,6 +9,9 @@
 // ============================================
 
 .actions {
+	--items: center;
+	--justify: space-between;
+
 	display: flex;
 	gap: var(--gap, var(--spacing-lg, 0));
 
