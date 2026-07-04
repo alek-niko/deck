@@ -27,6 +27,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	//align-items: center;
 	gap: 0.25rem;
 
 	// Responsive switch to a unified horizontal layout track
@@ -42,21 +43,23 @@
 		letter-spacing: var(--title-main-tracking, -0.025em);
 		line-height: 1.2;
 		margin: 0;
-		text-wrap: balance; // Prevents single-word line orphans on narrow spans
+		white-space: nowrap;
+		// text-wrap: balance; // NEW: Prevents single-word line orphans on narrow spans
 	}
-
 	.title-context {
 		font-size: var(--title-context-size, clamp(1.2rem, 4vw, 2rem));
 		font-weight: var(--title-context-weight, 400);
-		color: var(--title-context-color, var(--color-text-muted, #666666));
+		color: var(--title-context-color, #64748b);
 		line-height: 1.2;
 		margin: 0;
-		text-wrap: pretty; // Optimizes line-breaking constraints for paragraphs
+		//text-wrap: pretty; // NEW: Optimizes line-breaking constraints for paragraphs
+		word-break: break-word; 
+        overflow-wrap: break-word;
 	}
 
 	.title-separator {
 		display: none; // Hidden on mobile layout tracks to prevent dangling characters
-		color: var(--title-separator-color, var(--color-border, #888888));
+		color: var(--title-separator-color, var(--color-border));
 		font-size: 1.8rem;
 		font-weight: 300;
 		user-select: none; // Prevents decoration text from disrupting clipboard actions
@@ -65,6 +68,28 @@
 			display: inline;
 		}
 	}
+}
+
+.title-badge {
+	display: inline-block;
+	margin-top: 8px;
+	padding: 4px 8px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	border-radius: 4px;
+}
+
+.route-label {
+	font-family: monospace;
+	//background: #f1f5f9;
+	padding: 4px 8px;
+	border-radius: 4px;
+	font-size: 0.85rem;
+	color: #475569;
+	//margin-bottom: 16px;
+	display: inline-block;
 }
 
 // -----------------------------------------------------------------------------
