@@ -55,8 +55,40 @@ $fab-transition-duration: 200ms !default;
 .fab-page-wrapper {
 	@extend %fab-wrapper-base;
 	position: fixed;
+
+	--fab-page-width: 100vw;
+	--fab-page-gutter: 24px;
+
 	bottom: 24px;
-	right: 24px;
+	right: max(var(--fab-page-gutter), calc(50vw - (var(--fab-page-width) / 2) + var(--fab-page-gutter)));
+
+	&.fab-top-left {
+		top: 24px;
+		bottom: auto;
+		left: max(var(--fab-page-gutter), calc(50vw - (var(--fab-page-width) / 2) + var(--fab-page-gutter)));
+		right: auto;
+	}
+
+	&.fab-top-right {
+		top: 24px;
+		bottom: auto;
+		right: max(var(--fab-page-gutter), calc(50vw - (var(--fab-page-width) / 2) + var(--fab-page-gutter)));
+		left: auto;
+	}
+
+	&.fab-bottom-left {
+		bottom: 24px;
+		top: auto;
+		left: max(var(--fab-page-gutter), calc(50vw - (var(--fab-page-width) / 2) + var(--fab-page-gutter)));
+		right: auto;
+	}
+
+	&.fab-bottom-right {
+		bottom: 24px;
+		top: auto;
+		right: max(var(--fab-page-gutter), calc(50vw - (var(--fab-page-width) / 2) + var(--fab-page-gutter)));
+		left: auto;
+	}
 }
 
 .fab-card-wrapper {
