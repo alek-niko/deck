@@ -1,6 +1,6 @@
 // =============================================================================
 // EMPTY STATE COMPONENT
-// components/ui/_empty.state.scss
+// components/ui/_empty-state.scss
 // -----------------------------------------------------------------------------
 // Flexible, token-driven empty state component with support for:
 // - Design tokens (background, text, border, radius, spacing, visual size)
@@ -8,8 +8,8 @@
 // - Layouts via data attributes (column default, row)
 // - Optional visual slot (icon/illustration/image) with automatic spacing
 //   adjustment when absent
-// - Parts (visual, content, title, message, actions) addressed via data
-//   attributes, no modifier classes
+// - Parts (visual, content, title, message, actions) addressed via flat,
+//   scoped classes — no BEM, no data-attributes on structural children
 // =============================================================================
 
 .empty-state {
@@ -41,7 +41,7 @@
 	gap: var(--es-gap);
 
 	/* Tighten spacing automatically when there's no visual slot present */
-	&:not(:has([data-part="visual"])) {
+	&:not(:has(.empty-state-visual)) {
 		--es-padding: var(--spacing-md);
 	}
 }
@@ -51,7 +51,8 @@
    -------------------------------------------------------------------------- */
 .empty-state[data-layout="row"] {
 	flex-direction: row;
-	align-items: flex-start;
+	//align-items: flex-start;
+	align-items: center;
 	text-align: left;
 	max-width: 100%;
 }
@@ -59,7 +60,7 @@
 /* --------------------------------------------------------------------------
    Parts
    -------------------------------------------------------------------------- */
-.empty-state [data-part="visual"] {
+.empty-state-visual {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -76,14 +77,14 @@
 	}
 }
 
-.empty-state [data-part="content"] {
+.empty-state-content {
 	display: flex;
 	flex-direction: column;
 	gap: var(--spacing-xs);
 	flex: 1 1 0%;
 }
 
-.empty-state [data-part="title"] {
+.empty-state-title {
 	color: var(--es-primary-color);
 	font-size: clamp(1rem, 0.95rem + 0.2vw, var(--text-xl));
 	font-weight: 600;
@@ -91,14 +92,14 @@
 	line-height: 1.4;
 }
 
-.empty-state [data-part="message"] {
+.empty-state-message {
 	color: var(--es-secondary-color);
 	font-size: var(--text-sm);
 	line-height: 1.5;
 	margin: 0;
 }
 
-.empty-state [data-part="actions"] {
+.empty-state-actions {
 	margin-top: var(--spacing-xs);
 	display: flex;
 	gap: var(--spacing-xs);
@@ -123,7 +124,7 @@
 	--es-gap: var(--spacing-xs);
 	--es-visual-size: 1.5rem;
 
-	[data-part="title"] {
+	.empty-state-title {
 		font-size: var(--text-sm);
 	}
 }
@@ -149,11 +150,11 @@
 	--es-bg: color-mix(in srgb, var(--es-accent-color) 6%, transparent);
 	--es-radius: var(--radius-lg);
 
-	[data-part="visual"] {
+	.empty-state-visual {
 		position: relative;
 	}
 
-	[data-part="visual"]::before {
+	.empty-state-visual::before {
 		content: '';
 		position: absolute;
 		inset: -0.75rem;
